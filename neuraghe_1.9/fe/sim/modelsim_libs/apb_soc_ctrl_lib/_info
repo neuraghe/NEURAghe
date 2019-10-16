@@ -1,0 +1,79 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim
+vapb_soc_ctrl
+Z1 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
+Z2 !s110 1568386724
+!i10b 1
+!s100 VflGP;GLMKHW<`E;;k[km0
+IJf91<Sj7D_a_a^FSz92ee0
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+!s105 apb_soc_ctrl_sv_unit
+S1
+R0
+Z4 w1567774063
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_soc_ctrl/apb_soc_ctrl.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_soc_ctrl/apb_soc_ctrl.sv
+L0 21
+Z5 OL;L;10.4;61
+r1
+!s85 0
+31
+!s108 1568386724.355031
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_soc_ctrl/apb_soc_ctrl.sv|
+!s90 -work|apb_soc_ctrl_lib|-quiet|-sv|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_soc_ctrl/apb_soc_ctrl.sv|
+!i113 0
+Z6 o-quiet -work apb_soc_ctrl_lib -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vcounter
+R1
+R2
+!i10b 1
+!s100 gmMiE7GeOKgze897I_?E>0
+I0C:n27TcES@^PLjLTRfb42
+R3
+!s105 counter_sv_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_soc_ctrl/counter.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_soc_ctrl/counter.sv
+L0 1
+R5
+r1
+!s85 0
+31
+!s108 1568386724.406591
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_soc_ctrl/counter.sv|
+!s90 -work|apb_soc_ctrl_lib|-quiet|-sv|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_soc_ctrl/counter.sv|
+!i113 0
+R6
+vpower_manager
+R1
+R2
+!i10b 1
+!s100 I_2FYKhfIL]gjCdibkzPI3
+I<3XE<0Ha3G_[b@Dni_[Ki2
+R3
+!s105 power_manager_sv_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_soc_ctrl/power_manager.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_soc_ctrl/power_manager.sv
+L0 4
+R5
+r1
+!s85 0
+31
+!s108 1568386724.383011
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_soc_ctrl/power_manager.sv|
+!s90 -work|apb_soc_ctrl_lib|-quiet|-sv|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_soc_ctrl/power_manager.sv|
+!i113 0
+R6

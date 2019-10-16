@@ -1,0 +1,31 @@
+Hardware architecture
+=====================
+
+The following diagram shows a simplified view of the hardware architecture targeted by the Pulp SDK.
+
+.. figure:: images/hwArch.jpg
+
+The common use case is to connect a Pulp chip to a set of peripherals through serial interfaces such as SPI, UART, I2C and so on.
+The peripherals are used to sample all kind of data and transmit them through the serial links to the chip, so that this one can process the data.
+
+
+Pulp chip
+.........
+
+There are several variants of Pulp chips which more or less follow the same architecture:
+
+  * **Cores**. A set of identical cores used for heavy computation.
+
+  * **Memory hierarchy**. It is organized in 2 levels:
+
+		* **L1**. This is the first level, which is close to the cores and accessible in 2 cycles with a 1-cycle throughput. It can be used to stored the most frequently used data. It is a shared memory so that any data stored in it can be accessed by anycore with the same latency.
+
+ 		* **L2**. This is the second level, which is more distant but also bigger than the L1. It can usually be accessed in 5-10 cycles, and thus is not intended to be accessed directly by the cores.
+
+  * **UDMA**. This is a kind of DMA specialized for doing data transfer between the peripherals and the L2. It provides one channel per physical link and can thus handle several transfers in parallel.
+
+  * **DMA**. The DMA can be used to transfer data between the L2 and L1. It supports classic transfers as well as 2-dimentional transfers for handling tiles.
+
+  * **Shared instruction cache**. The code is stored is L2 and is accessed through this shared instruction cache.
+
+  * **Event unit**. The event unit is in charge of the whole cluster synchronization. It is mainly managing events which are exchanged by the various blocks to send notifications and to allow the cores to be clock-gated until an expected event is received. It can for example be used to clock-gate a core until a specific DMA transfer is finished. It is also used for inter-core synchronization like hardware barriers or remote wake-up.

@@ -1,0 +1,104 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%                                                                 %
+%%%%%     07_changes.tex                                              %
+%%%%%                                                                 %
+%%%%% Author:      <author>                                           %
+%%%%% Created:     <date>                                             %
+%%%%% Description: <description>                                      %
+%%%%%                                                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Microarchitectural Changes}
+
+\label{chapter:changes}
+
+
+
+\section{Interrupts and Exceptions}
+
+
+At the beginning of this thesis PULP was in the process of being switched from
+the OR1200 core to \orion, thus at this point the new \orion core was $100\%$
+backward compatible with the OpenRISC specifications \cite{OR1KSPEC}.  During
+this thesis we started to deviate from those specifications, for example we
+replaced the multiplier through a completely different implementation with more
+features, that is not $100\%$ compatible with the original specifications
+anymore.
+
+In PULP we focus on energy efficiency and thus we need to be able to shutdown
+the core when it is not in use, e.g. when it is waiting for the \gls{DMA} to
+finish its job. For this purpose we are using events, a mechanism that puts the
+core to sleep and wakes it up as soon as the event has happened, e.g. the
+\gls{DMA} has finished.
+
+We implemented this by having a separate event unit outside of the core that
+takes care of clock gating of the core when it is asleep and waking it up
+again. Since we already have this event unit outside the core which has access
+to all event/interrupt sources, we did not want to duplicate this functionality
+again in the core for an interrupt controller. Instead we decided to move the
+interrupt unit out of the core into the event unit which contradicts with the
+OpenRISC specifications that specify a programmable interrupt controller with
+direct access to the special-purpose registers and is thus more tightly coupled
+to the core than our implementation.
+
+Interrupts are less important than events for a core that mostly performs
+computations and seldom has to communicate with peripherals, thus we settled on
+a very simple scheme to handle interrupts in \orion. In many big commercial
+\glspl{CPU} one can find nested vector interrupt controllers, multiple register
+file banks to be able to handle interrupts in a very fast way, adjustable
+interrupt priorities and so on.
+
+We wanted none of that but only the most basic functionality for our interrupt
+system and we wanted to share most of this functionality also with exceptions to
+keep the area requirements of the combined interrupt/exception controller as low
+as possible. Prior to this thesis, there was no support for exceptions inside
+the \orion core.
+
+Outside the core, the external interrupt controller takes care of listening to
+interrupt sources. As soon as this unit detects an interrupt, it sets a signal
+to 1 that is connected to the core and informs it that there is a pending
+interrupt. The core reacts to this signal by saving the current program counter
+and supervision register to dedicated registers in the special-purpose register
+file and jumping to the interrupt handler address. The interrupt handler then
+takes care of saving the current context, i.e. all registers of the
+general-purpose register file and hardware loop register values, to the stack.
+After that the interrupt handler communicates with the interrupt controller to
+determine which interrupt source was triggered and calls the appropriate handler.
+After the handler has finished the saved register values get restored and the
+core jumps back to the program code where it was interrupted.
+
+Handling exceptions follows the same pattern but instead of listening to a
+special interrupt signal from outside of the core, we listen to specific
+conditions inside the core. We only implemented a very basic set of exceptions,
+i.e. illegal instruction exceptions and trap exceptions.
+
+
+\section{Events}
+
+Events are handled by the external event unit and there are only two signals
+between the core and the event unit that are related to events, namely the
+\texttt{fetch\_enable} and \texttt{busy} signals.
+%The \texttt{fetch\_enable} signal is used to start/stop the core.
+
+If the core should be put to sleep, it writes to a memory mapped register of the
+event unit which informs the event unit that the core wants to sleep. The event
+unit then sets the \texttt{fetch\_enable} to \texttt{0} and waits for the core
+to be properly shut down.
+Since you want an exact location in your code where the core goes to sleep, the
+\instr{l.psync} instruction was introduced. This instruction flushes the
+pipeline of the core and thus finishes all in-flight operations first. After
+executing the \instr{l.psync} instruction the core checks the
+\texttt{fetch\_enable} signal. If it is \texttt{0}, it does not fetch any new
+instructions and waits for this signal to be set to \texttt{1} again. This means
+that at this point the core's clock can be safely stopped as there are no
+unfinished operations. For the event unit to know when the core is in this state,
+there is the \texttt{busy} signal. If this signal has a value of \texttt{0} and
+\texttt{fetch\_enable} is also \texttt{0}, the event unit will stop the clock.
+If the \texttt{fetch\_enable} is \texttt{1} after an \instr{l.psync}
+instructions, the core will continue to fetch instructions and stay awake.
+
+With this simple mechanism we can ensure that the core goes to sleep at an exact
+location in the code and that the clock is only stopped when the core really is
+in the idle state.

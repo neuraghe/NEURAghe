@@ -1,0 +1,80 @@
+How to setup SDK environment for RTL development
+------------------------------------------------
+
+This howto is targetting people who are more on the HW side and wants to use the exact SDK that must be used with on-going developments on RTL side.
+Note that it is supported only since pulp-dev and fulmine.
+
+SDK setup
+.........
+
+Before accessing the server, make sure artifactory access is setup using this doc: :ref:`beforeUsingSdk`
+
+Compile the RTL
+.........................
+
+The RTL can be compiled the usual way. For example, for pulp-dev, first checkout the repository: ::
+
+  $ git clone git@iis-git.ee.ethz.ch:pulp-project/pulp-dev.git
+  $ cd pulp-dev
+  $ ./update-ips.py
+
+And then compile the RTL platform: ::
+
+  $ cd fe/sim
+  $ source vcompile/setup.csh
+  $ ./vcompile/build_rtl_sim.csh
+
+Get the SDK
+...........
+
+The following script can be executed in order to get the SDK version that must be used with this version of the RTL, checkout the SDK sources and compile them (execute it from the top RTL directory): ::
+
+  $ ./update-sw
+
+Note that there is currently a bug with NFS which makes the build fails with strange errors like "make: r: Command not found". The work-around until it is fixed, is to reexecute the script. 
+
+Setup the SDK
+.............
+
+Once the SDK has been checked-out and compiled, the terminal must be configured by sourcing the following file: ::
+
+  $ source setup/sdk.csh
+
+Note that this file must always be sourced before using the SDK, so that the SDK knows where to find the RTL platform.
+
+Get and run the tests
+.............
+
+The tests can be checked-out with the followin command: ::
+
+  $ ./update-tests
+
+You can have a look here to have information about the tests: :ref:`wheretoPutTest`
+
+You can then compile and run a test with: ::
+
+  $ cd pulp_pipeline/tests/pulp_tests/helloworld
+  $ make clean all run
+
+Run a testsuite
+...............
+
+A testsuite can be launched using plptest from any level in the hierarchy of tests. For example all mchan tests can be launched by executing: ::
+
+  $ cd pulp_pipeline/tests/pulp_tests/testMCHAN/v5
+  $ plptest
+
+Or they can be launched or all pulp_tests with: ::
+
+  $ cd pulp_pipeline/tests/pulp_tests
+  $ plptest
+
+To launch the full set of tests: ::
+
+  $ cd pulp_pipeline
+  $ plptest
+
+Add a test
+..........
+
+You can have a look here for adding a test: :ref:`howtoWriteTest`

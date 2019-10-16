@@ -1,0 +1,424 @@
+#!/usr/bin/env python
+
+import argparse
+import struct
+import os.path
+from prettytable import PrettyTable
+import pulpconfig
+
+parser = argparse.ArgumentParser(description='Analyze trace file')
+
+parser.add_argument("--config", dest="config", default=None, metavar="CONFIG", help="System configuration")
+parser.add_argument("--file", dest="file", default=None, metavar="PATH", help="Path to the trace file")
+parser.add_argument("--tv", dest="tv", default=None, metavar="PATH", help="Path to the traceview file")
+parser.add_argument("--user-event", dest="userEvents", action="append", metavar="EVENT", help="Specify a user event")
+
+args = parser.parse_args()
+
+perfName = ["cycles", "instr", "ld_stall", "jmp_stall", "imiss", "wbranch", "wbranch_cyc", "ld", "st", "jump", "branch", "delay_nop", "ld_ext", "st_ext", "ld_ext_cyc", "st_ext_cyc", "tcdm_cont"]
+
+def getWord(bytes):
+    return ord(bytes[0])+(ord(bytes[1])<<8)+(ord(bytes[2])<<16)+(ord(bytes[3])<<24)
+
+
+traceIdOmpMaster    = 0
+traceIdOmpParallel = 1
+traceIdOmpBarrier   = 2
+traceIdOmpCritical  = 3
+traceIdKernel       = 4
+
+Traces = [["OMP master"], ["OMP parallel"], ["OMP barrier"], ["OMP critical"]]
+
+class CgCall(object):
+    def __init__(self, timeStamp):
+        self.timeStamp = timeStamp
+
+class CgCore(object):
+    def __init__(self, path):
+        self.file = open(path, "wb")
+        self.callStack = []
+        self.perfStack = []
+        self.indent = ''
+        self.perf = None
+
+    def dump(self, traceId, isExit, timeStamp, isUserTrace=False):
+        if not isExit:
+            if isUserTrace:
+                name = 'User%d' % (traceId)
+            else:
+                name = Traces[traceId][0]
+            self.file.write(self.indent + name + '\n')
+            self.indent += '  '
+            call = CgCall(timeStamp)
+            self.callStack.append(call)
+        else:
+            self.indent = self.indent[0:len(self.indent)-2]
+            call = self.callStack.pop()
+            eventStr = '%stime=%sns' % (self.indent, str(timeStamp - call.timeStamp))
+            if self.perf != None:
+                index = 0
+                for value in self.perf.values:
+                    eventStr += ' %s=%d' % (perfName[index], value)
+                    index += 1
+                self.perf = None
+            self.file.write('%s\n' % (eventStr))
+    
+    def dumpPerf(self, msg, isExit):
+        if not isExit:
+            self.perfStack.append(msg)
+        else:
+            entryMsg = self.perfStack.pop()
+            entryMsg.values.pop(0)
+            msg.eventMask = msg.values.pop(0)
+            for index in range(0, len(entryMsg.values)):
+                msg.values[index] -= entryMsg.values[index]
+            self.perf = msg
+            
+    def close(self):
+        self.file.close()
+
+
+class Cg(object):
+    def __init__(self, rootPath):
+        self.rootPath = rootPath
+        self.cgCores = {}
+
+    def getCgCore(self, coreId, clusterId):
+        if self.cgCores.get(clusterId) == None:
+            self.cgCores[clusterId] = {}
+
+        if self.cgCores[clusterId].get(coreId) == None:
+            self.cgCores[clusterId][coreId] = CgCore(os.path.join(self.rootPath, 'cg_cluster'  + str(clusterId) + '_core' + str(coreId) + '.txt'))
+
+        return self.cgCores[clusterId][coreId]
+
+    def dump(self, coreId, traceId, isExit, timeStamp, clusterId=0, isUserTrace=False):
+        cgCore = self.getCgCore(coreId, clusterId)
+        cgCore.dump(traceId, isExit, timeStamp, isUserTrace)
+
+    def dumpPerf(self, msg, isExit):
+        cgCore = self.getCgCore(msg.coreId, msg.clusterId)
+        cgCore.dumpPerf(msg, isExit)
+
+    def close(self):
+        for cgCoreList in self.cgCores.values():
+            for cgCore in cgCoreList.values():
+                cgCore.close()
+
+class KernelReport(object):
+    def __init__(self, id, name):
+        self.id = id
+        self.name = name
+        self.cycles = 0
+        self.minCycles = None
+        self.maxCycles = None
+        self.counters = None
+        self.currentCycles = 0
+        self.currentCounters = None
+        self.nbRuns = 0
+        if len(Traces) <= traceIdKernel + self.id:
+            for i in range(len(Traces), traceIdKernel + self.id + 1):
+                Traces.append('')
+        Traces[traceIdKernel + self.id] = name
+
+    def endMsg(self, startMsg, msg):
+        self.currentCycles += msg.timeStamp - startMsg.timeStamp
+
+        for counterId in range(0, len(msg.values)-2):
+            self.currentCounters[counterId] += msg.values[counterId+2] - startMsg.values[counterId+2]
+
+    def endKernel(self):
+        self.nbRuns += 1
+        self.cycles += self.currentCycles
+        if self.minCycles == None or self.minCycles > self.currentCycles: self.minCycles = self.currentCycles
+        if self.maxCycles == None or self.maxCycles < self.currentCycles: self.maxCycles = self.currentCycles
+        for counterId in range(0, len(self.counters)):
+            self.counters[counterId] += self.currentCounters[counterId]
+            self.currentCounters[counterId] = 0
+        self.currentCycles = 0
+
+
+    def dumpTv(self, msg, isExit):
+        tv.dump(msg.coreId, traceIdKernel + self.id, isExit=isExit, timeStamp=msg.timeStamp)
+        cg.dump(msg.coreId, traceIdKernel + self.id, isExit=isExit, timeStamp=msg.timeStamp)
+
+    def dump(self, msg):
+
+        if self.counters == None:
+            self.counters = []
+            self.currentCounters = []
+            for i in range(0, len(msg.values) - 2):
+                self.counters.append(0)
+                self.currentCounters.append(0)
+
+        if msg.traceId == 257:
+            self.startMsg = msg
+            self.dumpTv(msg, False)
+        elif msg.traceId == 258:
+            self.endMsg(self.startMsg, msg)
+            self.dumpTv(msg, True)
+        elif msg.traceId == 259:
+            self.startMsg = msg
+            self.dumpTv(msg, False)
+        elif msg.traceId == 260:
+            self.endMsg(self.startMsg, msg)
+            self.endKernel()
+            self.dumpTv(msg, True)
+
+    def report(self, x):
+        # TODO should better handle frequency
+        if self.nbRuns != 0: 
+            avgCycles = self.cycles/self.nbRuns/10
+            minCycles = self.minCycles/10
+            maxCycles = self.maxCycles/10
+        else:
+            avgCycles = 0
+            minCycles = 0
+            maxCycles = 0
+
+        values = [self.id, self.name, self.nbRuns, avgCycles, minCycles, maxCycles]
+        if self.counters != None:
+            for val in self.counters:
+                values.append(val)
+            x.add_row(values)
+
+class KernelsReport(object):
+    def __init__(self):
+        self.kernels = {}
+        self.hasCounters = False
+
+    def dump(self, msg):
+        if msg.traceId == 256:
+            id = msg.values[0]
+            str = ''
+            for val in msg.values[1:]:
+                str += chr(val)
+            kernel = KernelReport(msg.values[0], str)
+            self.kernels[id] = kernel
+        else:
+            if len(msg.values) > 1:
+                self.hasCounters = True
+            self.kernels[msg.values[0]].dump(msg)
+
+    def close(self):
+        if len(self.kernels) != 0:
+            print ('')
+            print ('Generated kernel report:')
+
+            titles = ['ID', 'name', 'nb', 'avg cycles', 'min cycles', 'max cycles', 'total cycles']
+
+            if self.hasCounters:
+                titles += pulpconfig.createConfigFromString(args.config, getDefaults=True).getCoreCountersNames()
+
+            x = PrettyTable(titles)
+            for title in titles:
+                x.align[title] = "r"
+            for kernel in self.kernels.values():
+                kernel.report(x)
+            print (x)
+
+class Tv(object):
+    def __init__(self, path):
+        self.isOpened = False
+        self.path = path
+        self.tvFile = None
+
+    def openReport(self):
+        self.isOpened = True
+        tvFile = open(self.path, "wb")
+        self.tvFile = tvFile
+        tvFile.write("*version\n")
+        tvFile.write("1\n")
+        tvFile.write("clock=wall\n")
+        tvFile.write("*threads\n")
+        tvFile.write("0	PE(0, 0)\n")
+        tvFile.write("1	PE(0, 1)\n")
+        tvFile.write("2	PE(0, 2)\n")
+        tvFile.write("3	PE(0, 3)\n")
+        tvFile.write("4	PE(0, 4)\n")
+        tvFile.write("*methods\n")
+        for i in range(len(Traces)-1, traceIdKernel - 1, -1):
+            trace = Traces[i]
+            tvFile.write("%d	%s	kernel	10\n" % (i*4, trace.replace(' ', '_')))
+        tvFile.write("12	ompBarrier	kernel	10\n")
+        tvFile.write("12	ompCritical	kernel	10\n")
+        tvFile.write("8	ompBarrier	kernel	10\n")
+        tvFile.write("4	ompParallel	kernel	10\n")
+        tvFile.write("0	ompMaster	kernel	10\n")
+
+
+
+        if args.userEvents != None:
+            for event in args.userEvents:
+                eventId = int(event.split(':')[0])
+                eventName = event.split(':')[1]
+                tvFile.write("%d	%s	kernel	10\n" % (eventId*4 + 16, eventName))
+            
+
+        tvFile.write("*end\n")
+
+        tvFile.write(struct.pack("B", 0x53))
+        tvFile.write(struct.pack("B", 0x4c))
+        tvFile.write(struct.pack("B", 0x4f))
+        tvFile.write(struct.pack("B", 0x57))
+
+        tvFile.write(struct.pack("B", 1))
+        tvFile.write(struct.pack("B", 0))
+
+        tvFile.write(struct.pack("B", 0))
+        tvFile.write(struct.pack("B", 0))
+
+        tvFile.write(struct.pack("B", 0))
+        tvFile.write(struct.pack("B", 0))
+        tvFile.write(struct.pack("B", 0))
+        tvFile.write(struct.pack("B", 0))
+        tvFile.write(struct.pack("B", 0))
+        tvFile.write(struct.pack("B", 0))
+        tvFile.write(struct.pack("B", 0))
+        tvFile.write(struct.pack("B", 0))
+
+    def dump(self, coreId, traceId, isExit, timeStamp, clusterId=0, isUserTrace=False):
+
+
+        if not self.isOpened:
+            self.openReport()
+
+        if isUserTrace:
+            traceId += 4
+
+        self.tvFile.write(struct.pack("B", coreId + clusterId*17))
+
+        self.tvFile.write(struct.pack("B", isExit | ((traceId << 2) & 0xff)))
+        self.tvFile.write(struct.pack("B", (traceId >> 6) & 0xff))
+        self.tvFile.write(struct.pack("B", (traceId >> 14) & 0xff))
+        self.tvFile.write(struct.pack("B", (traceId >> 22) & 0xff))
+    
+        self.tvFile.write(struct.pack("B", (timeStamp >> 0) & 0xff))
+        self.tvFile.write(struct.pack("B", (timeStamp >> 8) & 0xff))
+        self.tvFile.write(struct.pack("B", (timeStamp >> 16) & 0xff))
+        self.tvFile.write(struct.pack("B", (timeStamp >> 24) & 0xff))
+
+    def close(self):
+        if self.tvFile != None: self.tvFile.close()
+
+def readWord(inputFile):
+    bytes = inputFile.read(4)
+    if bytes == "":
+        return None
+    
+    return getWord(bytes)
+
+class TraceMsg(object):
+    def __init__(self, timeStamp, traceId, coreId, clusterId):
+        self.values = []
+        self.traceId = traceId
+        self.timeStamp = timeStamp
+        self.coreId = coreId
+        self.clusterId = clusterId
+
+    def append(self, data):
+        self.values.append(data)
+
+    def dump(self):
+
+        if self.traceId == 0:
+            tv.dump(self.coreId, traceIdOmpMaster, isExit=False, timeStamp=self.timeStamp)
+            cg.dump(self.coreId, traceIdOmpMaster, isExit=False, timeStamp=self.timeStamp)
+        elif self.traceId == 1:
+            tv.dump(self.coreId, traceIdOmpMaster, isExit=True, timeStamp=self.timeStamp)
+            cg.dump(self.coreId, traceIdOmpMaster, isExit=True, timeStamp=self.timeStamp)
+        elif self.traceId == 2:
+            tv.dump(self.coreId, traceIdOmpParallel, isExit=False, timeStamp=self.timeStamp)
+            cg.dump(self.coreId, traceIdOmpParallel, isExit=False, timeStamp=self.timeStamp)
+        elif self.traceId == 3:
+            tv.dump(self.coreId, traceIdOmpParallel, isExit=True, timeStamp=self.timeStamp)
+            cg.dump(self.coreId, traceIdOmpParallel, isExit=True, timeStamp=self.timeStamp)
+        elif self.traceId == 4: 
+            tv.dump(self.coreId, traceIdOmpBarrier, isExit=False, timeStamp=self.timeStamp)
+            cg.dump(self.coreId, traceIdOmpBarrier, isExit=False, timeStamp=self.timeStamp)
+        elif self.traceId == 5: 
+            tv.dump(self.coreId, traceIdOmpBarrier, isExit=True, timeStamp=self.timeStamp)
+            cg.dump(self.coreId, traceIdOmpBarrier, isExit=True, timeStamp=self.timeStamp)
+        elif self.traceId == 6: 
+            tv.dump(self.coreId, traceIdOmpCritical, isExit=False, timeStamp=self.timeStamp)
+            cg.dump(self.coreId, traceIdOmpCritical, isExit=False, timeStamp=self.timeStamp)
+        elif self.traceId == 7: 
+            tv.dump(self.coreId, traceIdOmpCritical, isExit=True, timeStamp=self.timeStamp)
+            cg.dump(self.coreId, traceIdOmpCritical, isExit=True, timeStamp=self.timeStamp)
+        elif self.traceId == 8:
+            cg.dumpPerf(self, isExit=False)
+        elif self.traceId == 9:
+            cg.dumpPerf(self, isExit=True)
+        elif self.traceId >= 1<<16:
+            # User events
+            data = self.traceId - (1<<16)
+            tv.dump(self.coreId, (data>>1), isExit=data&1, timeStamp=self.timeStamp, isUserTrace=True)
+            cg.dump(self.coreId, (data>>1), isExit=data&1, timeStamp=self.timeStamp, isUserTrace=True)
+        elif self.traceId >= 256 and self.traceId <= 260:
+            kernel.dump(self)
+
+
+class CoreTrace(object):
+    def __init__(self, coreId, clusterId):
+        self.coreId = coreId
+        self.clusterId = clusterId
+        self.pendingMsg = None
+
+    def dump(self, timeStamp, data, isFirst):
+        if isFirst:
+            if self.pendingMsg != None: self.pendingMsg.dump()
+            self.pendingMsg = TraceMsg(timeStamp, data, self.coreId, self.clusterId)
+        else:
+            self.pendingMsg.append(data)
+
+    def close(self):
+        if self.pendingMsg != None: self.pendingMsg.dump()
+        self.pendingMsg = None
+
+if args.file != None:
+    inputFile = open(args.file, "rb")
+    timeStamp = 0
+    coreTraces = {}
+
+    tv = None
+    cg = None
+    if args.tv != None:
+        tv = Tv(args.tv)
+        cg = Cg(os.getcwd())
+        kernel = KernelsReport()
+
+    while True:
+        word = readWord(inputFile)
+        if word == None: break
+
+        isSmallTs = word >> 30 == 3
+        isLongTs = word >> 30 == 2
+
+        if isSmallTs or isLongTs:
+            isFirst = True
+
+        if isSmallTs:
+            timestampDiff = word & 0x3fffffff
+            timeStamp += timestampDiff
+        elif isLongTs:
+            timeStamp = ((word & 0x3fffffff) << 32) + getWord(inputFile.read(4))
+        else:
+            coreId = word & 0x3fffffff
+            if coreTraces.get(coreId) == None:
+                coreTraces[coreId] = CoreTrace(coreId, 0)
+
+            data = getWord(inputFile.read(4))
+            
+            coreTraces[coreId].dump(timeStamp, data, isFirst)
+            isFirst = False
+
+    for coreTrace in coreTraces.values():
+        coreTrace.close()
+
+    if tv != None:
+        tv.close()
+    if cg != None:
+        cg.close()
+
+    if kernel != None:
+        kernel.close()

@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2016.2 (64-bit)
+# SW Build 1577090 on Thu Jun  2 16:32:35 MDT 2016
+# IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
+# Start of session at: Fri Nov 24 12:05:50 2017
+# Process ID: 7073
+# Current directory: /home/gderiu/neuraghe_wei2ddr_fast/fpga/ips/xilinx_tcdm_bank_4096x64_asym
+# Command line: vivado -mode batch -source tcl/run.tcl
+# Log file: /home/gderiu/neuraghe_wei2ddr_fast/fpga/ips/xilinx_tcdm_bank_4096x64_asym/vivado.log
+# Journal file: /home/gderiu/neuraghe_wei2ddr_fast/fpga/ips/xilinx_tcdm_bank_4096x64_asym/vivado.jou
+#-----------------------------------------------------------
+source tcl/run.tcl

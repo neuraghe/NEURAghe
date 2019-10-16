@@ -1,0 +1,1850 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/nur/NEURAghe/neuraghe_2.0/fe/sim
+vdecoder
+Z1 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
+Z2 !s110 1568883248
+!i10b 1
+!s100 ?NHFZ5JRK8bciFA074n9^1
+IeK:IA?0:IM:ba^DLd9UOj2
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+!s105 hwpe_sm_decoder_sv_unit
+S1
+R0
+Z4 w1566466373
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_decoder.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_decoder.sv
+L0 1
+Z5 OL;L;10.4;61
+r1
+!s85 0
+31
+!s108 1568883248.456190
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_decoder.sv|
+!s90 -quiet|-sv|-work|hwce_lib|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl|+incdir+$IPS_PATH/hwpe/hwce/rtl|+incdir+./../rtl/includes|+nowarnSVCHK|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_decoder.sv|
+!i113 0
+Z6 o-quiet -sv -work hwce_lib +nowarnSVCHK -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z7 !s92 -quiet -sv -work hwce_lib {+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/} {+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl} {+incdir+$IPS_PATH/hwpe/hwce/rtl} +incdir+./../rtl/includes +nowarnSVCHK -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vencoder
+R1
+R2
+!i10b 1
+!s100 c?EIlMo5bdcUFHTH9gYe90
+IJ1EV>fVMeeWJ6FTzh3Z5M1
+R3
+!s105 hwpe_sm_encoder_sv_unit
+S1
+R0
+Z8 w1566466374
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_encoder.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_encoder.sv
+L0 3
+R5
+r1
+!s85 0
+31
+!s108 1568883248.496280
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_encoder.sv|
+!s90 -quiet|-sv|-work|hwce_lib|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl|+incdir+$IPS_PATH/hwpe/hwce/rtl|+incdir+./../rtl/includes|+nowarnSVCHK|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_encoder.sv|
+!i113 0
+R6
+R7
+vglbl
+R1
+R2
+!i10b 1
+!s100 RhSPSoXmeO:f>Rjn<KY?F0
+Im:^>Z?W<73EB;D0KNkRPZ3
+R3
+Z9 !s105 xilinx_tcdm_bank_1024x16_16_Sdp_funcsim_v_unit
+S1
+R0
+Z10 w1566466167
+Z11 8../../fpga/ips/xilinx_tcdm_bank_1024x16_16_Sdp/ip/xilinx_tcdm_bank_1024x16_16_Sdp_funcsim.v
+Z12 F../../fpga/ips/xilinx_tcdm_bank_1024x16_16_Sdp/ip/xilinx_tcdm_bank_1024x16_16_Sdp_funcsim.v
+L0 798
+R5
+r1
+!s85 0
+31
+Z13 !s108 1568883248.407850
+Z14 !s107 ../../fpga/ips/xilinx_tcdm_bank_1024x16_16_Sdp/ip/xilinx_tcdm_bank_1024x16_16_Sdp_funcsim.v|
+Z15 !s90 -quiet|-sv|-work|hwce_lib|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl|+incdir+$IPS_PATH/hwpe/hwce/rtl|+incdir+./../rtl/includes|+nowarnSVCHK|../../fpga/ips/xilinx_tcdm_bank_1024x16_16_Sdp/ip/xilinx_tcdm_bank_1024x16_16_Sdp_funcsim.v|
+!i113 0
+R6
+R7
+vhwce_engine
+R1
+DXx4 work 19 hwce_engine_sv_unit 0 22 A[bl7Fa[h@4OWGb903IM01
+R3
+r1
+!s85 0
+31
+!i10b 1
+!s100 4PaRMS;ERdDbXflWTJaZ<1
+I1UjX:P<nL6QA[QOO0IU8V0
+!s105 hwce_engine_sv_unit
+S1
+R0
+Z16 w1566466370
+Z17 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_engine.sv
+Z18 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_engine.sv
+Z19 L0 23
+R5
+Z20 !s108 1568883247.865610
+Z21 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi//hwpe_axi_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_types.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_engine.sv|
+Z22 !s90 -quiet|+define+DEBUG_HWCE|+define+|-sv|-work|hwce_lib|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl|+incdir+$IPS_PATH/hwpe/hwce/rtl|+incdir+./../rtl/includes|+nowarnSVCHK|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_engine.sv|
+!i113 0
+R6
+Z23 !s92 -quiet +define+DEBUG_HWCE +define+ -sv -work hwce_lib {+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/} {+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl} {+incdir+$IPS_PATH/hwpe/hwce/rtl} +incdir+./../rtl/includes +nowarnSVCHK -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vhwce_engine_fsm
+R1
+DXx4 work 23 hwce_engine_fsm_sv_unit 0 22 iB05iBYLMn[Y3lMZAPm?X1
+R3
+r1
+!s85 0
+31
+!i10b 1
+!s100 VQ3Oza5Z^B`=@Ej]HJCmg3
+IB[NQ]cVKBecn8^50CP[Cl2
+!s105 hwce_engine_fsm_sv_unit
+S1
+R0
+R16
+Z24 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_engine_fsm.sv
+Z25 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_engine_fsm.sv
+Z26 L0 17
+R5
+Z27 !s108 1568883247.818064
+Z28 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi//hwpe_axi_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_types.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_engine_fsm.sv|
+Z29 !s90 -quiet|+define+DEBUG_HWCE|-sv|-work|hwce_lib|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl|+incdir+$IPS_PATH/hwpe/hwce/rtl|+incdir+./../rtl/includes|+nowarnSVCHK|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_engine_fsm.sv|
+!i113 0
+R6
+Z30 !s92 -quiet +define+DEBUG_HWCE -sv -work hwce_lib {+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/} {+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl} {+incdir+$IPS_PATH/hwpe/hwce/rtl} +incdir+./../rtl/includes +nowarnSVCHK -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Xhwce_engine_fsm_sv_unit
+R1
+ViB05iBYLMn[Y3lMZAPm?X1
+r1
+!s85 0
+31
+!i10b 1
+!s100 XL2WMlDob3n>lm:Q^:HoJ1
+IiB05iBYLMn[Y3lMZAPm?X1
+!i103 1
+S1
+R0
+R4
+R24
+R25
+Z31 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_types.sv
+Z32 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi//hwpe_axi_params.sv
+Z33 L0 36
+R5
+R27
+R28
+R29
+!i113 0
+R6
+R30
+Xhwce_engine_sv_unit
+R1
+VA[bl7Fa[h@4OWGb903IM01
+r1
+!s85 0
+31
+!i10b 1
+!s100 nBUHXSO<<z:VURzNg`oRb0
+IA[bl7Fa[h@4OWGb903IM01
+!i103 1
+S1
+R0
+R4
+R17
+R18
+R31
+R32
+R33
+R5
+R20
+R21
+R22
+!i113 0
+R6
+R23
+vhwce_linebuffer
+R1
+DXx4 work 23 hwce_linebuffer_sv_unit 0 22 hZBGh@f<U4>2`Rc0e7=XD1
+R3
+r1
+!s85 0
+31
+!i10b 1
+!s100 jY9NAhih;BFm4zL9Ek0IL2
+IdUBPK7i4:genD4e?BZk2J3
+!s105 hwce_linebuffer_sv_unit
+S1
+R0
+R16
+Z34 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_linebuffer.sv
+Z35 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_linebuffer.sv
+R19
+R5
+Z36 !s108 1568883247.759771
+Z37 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi//hwpe_axi_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_types.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_linebuffer.sv|
+Z38 !s90 -quiet|+define+|-sv|-work|hwce_lib|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl|+incdir+$IPS_PATH/hwpe/hwce/rtl|+incdir+./../rtl/includes|+nowarnSVCHK|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_linebuffer.sv|
+!i113 0
+R6
+Z39 !s92 -quiet +define+ -sv -work hwce_lib {+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/} {+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl} {+incdir+$IPS_PATH/hwpe/hwce/rtl} +incdir+./../rtl/includes +nowarnSVCHK -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Xhwce_linebuffer_sv_unit
+R1
+VhZBGh@f<U4>2`Rc0e7=XD1
+r1
+!s85 0
+31
+!i10b 1
+!s100 3YzV6d]=AjgPCiLgZOiGo3
+IhZBGh@f<U4>2`Rc0e7=XD1
+!i103 1
+S1
+R0
+R4
+R34
+R35
+R31
+R32
+R33
+R5
+R36
+R37
+R38
+!i113 0
+R6
+R39
+vhwce_shift_adder
+R1
+R2
+!i10b 1
+!s100 B`6g6C=WTaQFfN5@3C2^P3
+ImZ`69SDK9IJhU2`I1NWBF0
+R3
+!s105 hwce_shift_adder_sv_unit
+S1
+R0
+R16
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_shift_adder.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_shift_adder.sv
+Z40 L0 22
+R5
+r1
+!s85 0
+31
+!s108 1568883248.049271
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_shift_adder.sv|
+!s90 -quiet|+define+|-sv|-work|hwce_lib|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl|+incdir+$IPS_PATH/hwpe/hwce/rtl|+incdir+./../rtl/includes|+nowarnSVCHK|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_shift_adder.sv|
+!i113 0
+R6
+R39
+vhwce_sop
+R1
+DXx4 work 16 hwce_sop_sv_unit 0 22 jai1W3AOS8fdBRiLW^TeZ0
+R3
+r1
+!s85 0
+31
+!i10b 1
+!s100 Do5`UFXe^;k@59`]=@SK92
+ILJ;n__H_@G3NiXMZUa?g?0
+!s105 hwce_sop_sv_unit
+S1
+R0
+R16
+Z41 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_sop.sv
+Z42 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_sop.sv
+R19
+R5
+Z43 !s108 1568883247.925834
+Z44 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi//hwpe_axi_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_types.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_sop.sv|
+Z45 !s90 -quiet|+define+|-sv|-work|hwce_lib|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl|+incdir+$IPS_PATH/hwpe/hwce/rtl|+incdir+./../rtl/includes|+nowarnSVCHK|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_sop.sv|
+!i113 0
+R6
+R39
+vhwce_sop_add
+R1
+DXx4 work 20 hwce_sop_add_sv_unit 0 22 i8Ncz<`PKhogh7z1QGn]40
+R3
+r1
+!s85 0
+31
+!i10b 1
+!s100 YaE5UhEH2]NQ3aM[7?a4F3
+Iz12V5QV]F@V>WR4]8:lFV1
+!s105 hwce_sop_add_sv_unit
+S1
+R0
+R16
+Z46 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_sop_add.sv
+Z47 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_sop_add.sv
+R40
+R5
+Z48 !s108 1568883248.007099
+Z49 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi//hwpe_axi_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_types.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_sop_add.sv|
+Z50 !s90 -quiet|+define+|-sv|-work|hwce_lib|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl|+incdir+$IPS_PATH/hwpe/hwce/rtl|+incdir+./../rtl/includes|+nowarnSVCHK|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_sop_add.sv|
+!i113 0
+R6
+R39
+Xhwce_sop_add_sv_unit
+R1
+Vi8Ncz<`PKhogh7z1QGn]40
+r1
+!s85 0
+31
+!i10b 1
+!s100 EZLgAF=M]QVc^c2bYOi>U2
+Ii8Ncz<`PKhogh7z1QGn]40
+!i103 1
+S1
+R0
+R4
+R46
+R47
+R31
+R32
+R33
+R5
+R48
+R49
+R50
+!i113 0
+R6
+R39
+Xhwce_sop_sv_unit
+R1
+Vjai1W3AOS8fdBRiLW^TeZ0
+r1
+!s85 0
+31
+!i10b 1
+!s100 71b4mm8UeJ8A2g:<ezXg93
+Ijai1W3AOS8fdBRiLW^TeZ0
+!i103 1
+S1
+R0
+R4
+R41
+R42
+R31
+R32
+R33
+R5
+R43
+R44
+R45
+!i113 0
+R6
+R39
+vhwce_top
+R1
+DXx4 work 16 hwce_top_sv_unit 0 22 BhNNOGlF9Z`1_F5Y?cT3P2
+R3
+r1
+!s85 0
+31
+!i10b 1
+!s100 mi64GJ9omFCGZ5niR7XXS1
+I1K[^WH>6zjO3U8U]Za`9I1
+!s105 hwce_top_sv_unit
+S1
+R0
+R16
+Z51 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_top.sv
+Z52 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_top.sv
+L0 38
+R5
+Z53 !s108 1568883249.554658
+Z54 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_types.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi//hwpe_axi_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_top.sv|
+Z55 !s90 -quiet|+define+|-sv|-work|hwce_lib|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl|+incdir+$IPS_PATH/hwpe/hwce/rtl|+incdir+./../rtl/includes|+nowarnSVCHK|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_top.sv|
+!i113 0
+R6
+R39
+Xhwce_top_sv_unit
+R1
+VBhNNOGlF9Z`1_F5Y?cT3P2
+r1
+!s85 0
+31
+!i10b 1
+!s100 WRHZzJAmR<mI6XmTHzQ=X1
+IBhNNOGlF9Z`1_F5Y?cT3P2
+!i103 1
+S1
+R0
+R8
+R51
+R52
+Z56 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_params.sv
+R32
+R31
+Z57 L0 25
+R5
+R53
+R54
+R55
+!i113 0
+R6
+R39
+vhwce_weight_loader
+R1
+R2
+!i10b 1
+!s100 DCzV>bLQ<BD[;jL^WIh_B0
+I3S?iUE7bz[EjaFJ1jEVPc1
+R3
+!s105 hwce_weight_loader_sv_unit
+S1
+R0
+R16
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_weight_loader.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_weight_loader.sv
+L0 21
+R5
+r1
+!s85 0
+31
+!s108 1568883248.242574
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_weight_loader.sv|
+!s90 -quiet|-sv|-work|hwce_lib|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl|+incdir+$IPS_PATH/hwpe/hwce/rtl|+incdir+./../rtl/includes|+nowarnSVCHK|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_weight_loader.sv|
+!i113 0
+R6
+R7
+vhwce_wmem_xbar
+R1
+R2
+!i10b 1
+!s100 A;egSgOF=JeWGRXOm;=ZZ0
+IV966C04OHK3XHe04lj>cm2
+R3
+!s105 hwce_wmem_xbar_sv_unit
+S1
+R0
+R16
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_wmem_xbar.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_wmem_xbar.sv
+L0 30
+R5
+r1
+!s85 0
+31
+!s108 1568883248.282662
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_wmem_xbar.sv|
+!s90 -quiet|-sv|-work|hwce_lib|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl|+incdir+$IPS_PATH/hwpe/hwce/rtl|+incdir+./../rtl/includes|+nowarnSVCHK|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_wmem_xbar.sv|
+!i113 0
+R6
+R7
+vhwce_wrapper
+R1
+DXx4 work 20 hwce_wrapper_sv_unit 0 22 Eb>?zU2f=o@g]<WOU<62f0
+R3
+r1
+!s85 0
+31
+!i10b 1
+!s100 ]Fjgnen2_k`7n44Y[a`e00
+IK3oC6WIo9VJ5m7^3`>URm0
+!s105 hwce_wrapper_sv_unit
+S1
+R0
+R16
+Z58 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_wrapper.sv
+Z59 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_wrapper.sv
+Z60 L0 19
+R5
+Z61 !s108 1568883249.404024
+Z62 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi//hwpe_axi_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_types.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_wrapper.sv|
+Z63 !s90 -quiet|-sv|-work|hwce_lib|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl|+incdir+$IPS_PATH/hwpe/hwce/rtl|+incdir+./../rtl/includes|+nowarnSVCHK|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_wrapper.sv|
+!i113 0
+R6
+R7
+vhwce_wrapper_fsm
+R1
+DXx4 work 24 hwce_wrapper_fsm_sv_unit 0 22 m;YBhWmam9<fjEBbTJG2=2
+R3
+r1
+!s85 0
+31
+!i10b 1
+!s100 =QM=>_1OXFdbE1<jko2kg1
+IZDiS35z0bjKI`=jQ@DU6R0
+!s105 hwce_wrapper_fsm_sv_unit
+S1
+R0
+R16
+Z64 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_wrapper_fsm.sv
+Z65 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_wrapper_fsm.sv
+Z66 L0 18
+R5
+Z67 !s108 1568883249.457747
+Z68 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi//hwpe_axi_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_types.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_wrapper_fsm.sv|
+Z69 !s90 -quiet|-sv|-work|hwce_lib|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl|+incdir+$IPS_PATH/hwpe/hwce/rtl|+incdir+./../rtl/includes|+nowarnSVCHK|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_wrapper_fsm.sv|
+!i113 0
+R6
+R7
+Xhwce_wrapper_fsm_sv_unit
+R1
+Vm;YBhWmam9<fjEBbTJG2=2
+r1
+!s85 0
+31
+!i10b 1
+!s100 V2`P:?^OL?A3lX06lUGgI3
+Im;YBhWmam9<fjEBbTJG2=2
+!i103 1
+S1
+R0
+R8
+R64
+R65
+R31
+R32
+R56
+R33
+R5
+R67
+R68
+R69
+!i113 0
+R6
+R7
+vhwce_wrapper_slave
+R1
+DXx4 work 26 hwce_wrapper_slave_sv_unit 0 22 C_J[U2R4gB`=>5DgeSBR80
+R3
+r1
+!s85 0
+31
+!i10b 1
+!s100 4[MJJYaCFIMcPL9EoN0O]3
+IzlW`6j_iY2gHN`F8SE^L?1
+!s105 hwce_wrapper_slave_sv_unit
+S1
+R0
+R16
+Z70 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_wrapper_slave.sv
+Z71 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_wrapper_slave.sv
+R66
+R5
+Z72 !s108 1568883249.501272
+Z73 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi//hwpe_axi_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_wrapper_slave.sv|
+Z74 !s90 -quiet|-sv|-work|hwce_lib|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl|+incdir+$IPS_PATH/hwpe/hwce/rtl|+incdir+./../rtl/includes|+nowarnSVCHK|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_wrapper_slave.sv|
+!i113 0
+R6
+R7
+Xhwce_wrapper_slave_sv_unit
+R1
+VC_J[U2R4gB`=>5DgeSBR80
+r1
+!s85 0
+31
+!i10b 1
+!s100 ]PMAX2c_SkR9mIYdeRF1@1
+IC_J[U2R4gB`=>5DgeSBR80
+!i103 1
+S1
+R0
+R8
+R70
+R71
+R56
+R32
+R57
+R5
+R72
+R73
+R74
+!i113 0
+R6
+R7
+Xhwce_wrapper_sv_unit
+R1
+VEb>?zU2f=o@g]<WOU<62f0
+r1
+!s85 0
+31
+!i10b 1
+!s100 :AhR>D4:T`=bM8lcoT=0J3
+IEb>?zU2f=o@g]<WOU<62f0
+!i103 1
+S1
+R0
+R8
+R58
+R59
+R31
+R32
+R56
+R33
+R5
+R61
+R62
+R63
+!i113 0
+R6
+R7
+vhwpe_axi_addressgen
+R1
+DXx4 work 27 hwpe_axi_addressgen_sv_unit 0 22 ;3DCmNd<aIO2CmfFMo<PK0
+R3
+r1
+!s85 0
+31
+!i10b 1
+!s100 [M0kjhKoT`fR>C60GUaDR1
+I8>UoADHS8JdDP^e3aIhDI3
+!s105 hwpe_axi_addressgen_sv_unit
+S1
+R0
+R8
+Z75 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_addressgen.sv
+Z76 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_addressgen.sv
+R66
+R5
+Z77 !s108 1568883248.965768
+Z78 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi//hwpe_axi_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_addressgen.sv|
+Z79 !s90 -quiet|-sv|-work|hwce_lib|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl|+incdir+$IPS_PATH/hwpe/hwce/rtl|+incdir+./../rtl/includes|+nowarnSVCHK|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_addressgen.sv|
+!i113 0
+R6
+R7
+vhwpe_axi_addressgen_sink
+R1
+DXx4 work 32 hwpe_axi_addressgen_sink_sv_unit 0 22 3<4a:8AY3iMCGhPIBeg]b3
+R3
+r1
+!s85 0
+31
+!i10b 1
+!s100 KgZocdW@[N:Rd>RDZVcLz3
+I`i]cCLJkCU<]5gc@<g>S:1
+!s105 hwpe_axi_addressgen_sink_sv_unit
+S1
+R0
+R8
+Z80 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_addressgen_sink.sv
+Z81 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_addressgen_sink.sv
+R66
+R5
+Z82 !s108 1568883249.019750
+Z83 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi//hwpe_axi_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_addressgen_sink.sv|
+Z84 !s90 -quiet|-sv|-work|hwce_lib|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl|+incdir+$IPS_PATH/hwpe/hwce/rtl|+incdir+./../rtl/includes|+nowarnSVCHK|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_addressgen_sink.sv|
+!i113 0
+R6
+R7
+vhwpe_axi_addressgen_sink_FS
+R1
+DXx4 work 35 hwpe_axi_addressgen_sink_FS_sv_unit 0 22 P]fXk?d@gBT>okeoPU=0H3
+R3
+r1
+!s85 0
+31
+!i10b 1
+!s100 @Bo4<Oooi6A6jHbLUM1AS2
+IDf6`9<HCM4CKHlWE[3lGa1
+!s105 hwpe_axi_addressgen_sink_FS_sv_unit
+S1
+R0
+R4
+Z85 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_addressgen_sink_FS.sv
+Z86 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_addressgen_sink_FS.sv
+R66
+R5
+Z87 !s108 1568883249.136133
+Z88 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi//hwpe_axi_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_addressgen_sink_FS.sv|
+Z89 !s90 -quiet|-sv|-work|hwce_lib|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl|+incdir+$IPS_PATH/hwpe/hwce/rtl|+incdir+./../rtl/includes|+nowarnSVCHK|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_addressgen_sink_FS.sv|
+!i113 0
+R6
+R7
+nhwpe_axi_addressgen_sink_@f@s
+Xhwpe_axi_addressgen_sink_FS_sv_unit
+R1
+VP]fXk?d@gBT>okeoPU=0H3
+r1
+!s85 0
+31
+!i10b 1
+!s100 BJ>G<9jA;TEDjgIYIRG?11
+IP]fXk?d@gBT>okeoPU=0H3
+!i103 1
+S1
+R0
+R8
+R85
+R86
+R56
+R32
+R57
+R5
+R87
+R88
+R89
+!i113 0
+R6
+R7
+nhwpe_axi_addressgen_sink_@f@s_sv_unit
+Xhwpe_axi_addressgen_sink_sv_unit
+R1
+V3<4a:8AY3iMCGhPIBeg]b3
+r1
+!s85 0
+31
+!i10b 1
+!s100 K]A>B_oIboF:_0IN?C`4[3
+I3<4a:8AY3iMCGhPIBeg]b3
+!i103 1
+S1
+R0
+R8
+R80
+R81
+R56
+R32
+R57
+R5
+R82
+R83
+R84
+!i113 0
+R6
+R7
+vhwpe_axi_addressgen_source
+R1
+DXx4 work 34 hwpe_axi_addressgen_source_sv_unit 0 22 BT@?k7]PV2=DaV4cDjnH71
+R3
+r1
+!s85 0
+31
+!i10b 1
+!s100 36kTTP@KmXMSgIEJ?>R[N2
+IZ7F<UX`9g7SMe?hU>?]Gg2
+!s105 hwpe_axi_addressgen_source_sv_unit
+S1
+R0
+R4
+Z90 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_addressgen_source.sv
+Z91 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_addressgen_source.sv
+R66
+R5
+Z92 !s108 1568883249.077827
+Z93 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi//hwpe_axi_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_addressgen_source.sv|
+Z94 !s90 -quiet|-sv|-work|hwce_lib|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl|+incdir+$IPS_PATH/hwpe/hwce/rtl|+incdir+./../rtl/includes|+nowarnSVCHK|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_addressgen_source.sv|
+!i113 0
+R6
+R7
+Xhwpe_axi_addressgen_source_sv_unit
+R1
+VBT@?k7]PV2=DaV4cDjnH71
+r1
+!s85 0
+31
+!i10b 1
+!s100 6JzG2HJ5VKM9l2G<XeOYQ2
+IBT@?k7]PV2=DaV4cDjnH71
+!i103 1
+S1
+R0
+R8
+R90
+R91
+R56
+R32
+R57
+R5
+R92
+R93
+R94
+!i113 0
+R6
+R7
+Xhwpe_axi_addressgen_sv_unit
+R1
+V;3DCmNd<aIO2CmfFMo<PK0
+r1
+!s85 0
+31
+!i10b 1
+!s100 zzYZ?K3ea4_lhgAzAeZeS0
+I;3DCmNd<aIO2CmfFMo<PK0
+!i103 1
+S1
+R0
+R8
+R75
+R76
+R56
+R32
+R57
+R5
+R77
+R78
+R79
+!i113 0
+R6
+R7
+vhwpe_axi_fifo
+R1
+DXx4 work 21 hwpe_axi_fifo_sv_unit 0 22 jVC]F3kRKePDeTUAcLQ@L0
+R3
+r1
+!s85 0
+31
+!i10b 1
+!s100 gcbNClIDOU?nl5<OJ;kKF0
+IhZHKUJI;i9Z1Wij8jQMob2
+!s105 hwpe_axi_fifo_sv_unit
+S1
+R0
+R4
+Z95 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_fifo.sv
+Z96 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_fifo.sv
+R60
+R5
+Z97 !s108 1568883248.781394
+Z98 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi//hwpe_axi_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_fifo.sv|
+Z99 !s90 -quiet|-sv|-work|hwce_lib|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl|+incdir+$IPS_PATH/hwpe/hwce/rtl|+incdir+./../rtl/includes|+nowarnSVCHK|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_fifo.sv|
+!i113 0
+R6
+R7
+vhwpe_axi_fifo_2
+R1
+DXx4 work 23 hwpe_axi_fifo_2_sv_unit 0 22 ORbOJf>V7MPE4^8ITEAi52
+R3
+r1
+!s85 0
+31
+!i10b 1
+!s100 0@F5>eocO::V9dPI[[^M`1
+IFzeXH9_[M3__ff_2UOH4K0
+!s105 hwpe_axi_fifo_2_sv_unit
+S1
+R0
+R8
+Z100 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_fifo_2.sv
+Z101 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_fifo_2.sv
+R60
+R5
+Z102 !s108 1568883248.825179
+Z103 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi//hwpe_axi_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_fifo_2.sv|
+Z104 !s90 -quiet|-sv|-work|hwce_lib|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl|+incdir+$IPS_PATH/hwpe/hwce/rtl|+incdir+./../rtl/includes|+nowarnSVCHK|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_fifo_2.sv|
+!i113 0
+R6
+R7
+Xhwpe_axi_fifo_2_sv_unit
+R1
+VORbOJf>V7MPE4^8ITEAi52
+r1
+!s85 0
+31
+!i10b 1
+!s100 hTTDZE7R]RY>VNVj8VaYe0
+IORbOJf>V7MPE4^8ITEAi52
+!i103 1
+S1
+R0
+R8
+R100
+R101
+R56
+R32
+R57
+R5
+R102
+R103
+R104
+!i113 0
+R6
+R7
+vhwpe_axi_fifo_earlystall
+R1
+DXx4 work 32 hwpe_axi_fifo_earlystall_sv_unit 0 22 cCA=F5K4K71L3GdQU42Ed1
+R3
+r1
+!s85 0
+31
+!i10b 1
+!s100 :I:mIdia[LA5]HQcVmF<i0
+I]]:NEHLU:nERV0I2WM^c[1
+!s105 hwpe_axi_fifo_earlystall_sv_unit
+S1
+R0
+R8
+Z105 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_fifo_earlystall.sv
+Z106 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_fifo_earlystall.sv
+R60
+R5
+Z107 !s108 1568883248.872321
+Z108 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi//hwpe_axi_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_fifo_earlystall.sv|
+Z109 !s90 -quiet|-sv|-work|hwce_lib|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl|+incdir+$IPS_PATH/hwpe/hwce/rtl|+incdir+./../rtl/includes|+nowarnSVCHK|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_fifo_earlystall.sv|
+!i113 0
+R6
+R7
+Xhwpe_axi_fifo_earlystall_sv_unit
+R1
+VcCA=F5K4K71L3GdQU42Ed1
+r1
+!s85 0
+31
+!i10b 1
+!s100 eD?aS[Z@9Ng?ABa:W4P@H0
+IcCA=F5K4K71L3GdQU42Ed1
+!i103 1
+S1
+R0
+R8
+R105
+R106
+R56
+R32
+R57
+R5
+R107
+R108
+R109
+!i113 0
+R6
+R7
+vhwpe_axi_fifo_lite
+R1
+DXx4 work 26 hwpe_axi_fifo_lite_sv_unit 0 22 ^1NA_cZo`:eRhKcz9bCZS0
+R3
+r1
+!s85 0
+31
+!i10b 1
+!s100 G0M:NR<cWSH52@LUKQoR61
+IoMa7BQacn_iOMAaX]Agdh0
+!s105 hwpe_axi_fifo_lite_sv_unit
+S1
+R0
+R8
+Z110 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_fifo_lite.sv
+Z111 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_fifo_lite.sv
+L0 20
+R5
+Z112 !s108 1568883248.920393
+Z113 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi//hwpe_axi_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_fifo_lite.sv|
+Z114 !s90 -quiet|-sv|-work|hwce_lib|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl|+incdir+$IPS_PATH/hwpe/hwce/rtl|+incdir+./../rtl/includes|+nowarnSVCHK|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_fifo_lite.sv|
+!i113 0
+R6
+R7
+Xhwpe_axi_fifo_lite_sv_unit
+R1
+V^1NA_cZo`:eRhKcz9bCZS0
+r1
+!s85 0
+31
+!i10b 1
+!s100 ?7]STbo:o1Y7:0BhZU?721
+I^1NA_cZo`:eRhKcz9bCZS0
+!i103 1
+S1
+R0
+R8
+R110
+R111
+R56
+R32
+R57
+R5
+R112
+R113
+R114
+!i113 0
+R6
+R7
+Xhwpe_axi_fifo_sv_unit
+R1
+VjVC]F3kRKePDeTUAcLQ@L0
+r1
+!s85 0
+31
+!i10b 1
+!s100 EbfIbLA^YQkMb6SCR47ah0
+IjVC]F3kRKePDeTUAcLQ@L0
+!i103 1
+S1
+R0
+R8
+R95
+R96
+R56
+R32
+R57
+R5
+R97
+R98
+R99
+!i113 0
+R6
+R7
+vhwpe_axi_sink
+R1
+DXx4 work 21 hwpe_axi_sink_sv_unit 0 22 LQVg[O;WaidIQ]aVzfHTM2
+R3
+r1
+!s85 0
+31
+!i10b 1
+!s100 j4F<QE^7DNie39h<DZcnX0
+I=[P1[_IRH_@g@FZ@bW:5c1
+!s105 hwpe_axi_sink_sv_unit
+S1
+R0
+R8
+Z115 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_sink.sv
+Z116 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_sink.sv
+R60
+R5
+Z117 !s108 1568883249.313882
+Z118 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi//hwpe_axi_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_sink.sv|
+Z119 !s90 -quiet|-sv|-work|hwce_lib|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl|+incdir+$IPS_PATH/hwpe/hwce/rtl|+incdir+./../rtl/includes|+nowarnSVCHK|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_sink.sv|
+!i113 0
+R6
+R7
+Xhwpe_axi_sink_sv_unit
+R1
+VLQVg[O;WaidIQ]aVzfHTM2
+r1
+!s85 0
+31
+!i10b 1
+!s100 b01cjZOVYmZF6oZhcTe:j2
+ILQVg[O;WaidIQ]aVzfHTM2
+!i103 1
+S1
+R0
+R8
+R115
+R116
+R56
+R32
+R57
+R5
+R117
+R118
+R119
+!i113 0
+R6
+R7
+vhwpe_axi_source
+R1
+DXx4 work 23 hwpe_axi_source_sv_unit 0 22 zZnY@iVfF;@B:Jjil]@3A1
+R3
+r1
+!s85 0
+31
+!i10b 1
+!s100 Lg]hGmME4Y7UQAgR81Ee11
+If`F6WKO9DFROInI=mIe3h2
+!s105 hwpe_axi_source_sv_unit
+S1
+R0
+R4
+Z120 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_source.sv
+Z121 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_source.sv
+R60
+R5
+Z122 !s108 1568883249.204746
+Z123 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi//hwpe_axi_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_source.sv|
+Z124 !s90 -quiet|-sv|-work|hwce_lib|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl|+incdir+$IPS_PATH/hwpe/hwce/rtl|+incdir+./../rtl/includes|+nowarnSVCHK|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_source.sv|
+!i113 0
+R6
+R7
+vhwpe_axi_source_FS
+R1
+DXx4 work 26 hwpe_axi_source_FS_sv_unit 0 22 <N@ko?jdD@8O1K0Na;3<T0
+R3
+r1
+!s85 0
+31
+!i10b 1
+!s100 IZDN:3gRhLOaSE`;EI1QE0
+I10GX2<_[1bZfLAQ5?FWa@1
+!s105 hwpe_axi_source_FS_sv_unit
+S1
+R0
+R8
+Z125 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_source_FS.sv
+Z126 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_source_FS.sv
+R60
+R5
+Z127 !s108 1568883249.267652
+Z128 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi//hwpe_axi_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_source_FS.sv|
+Z129 !s90 -quiet|-sv|-work|hwce_lib|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl|+incdir+$IPS_PATH/hwpe/hwce/rtl|+incdir+./../rtl/includes|+nowarnSVCHK|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_source_FS.sv|
+!i113 0
+R6
+R7
+nhwpe_axi_source_@f@s
+Xhwpe_axi_source_FS_sv_unit
+R1
+V<N@ko?jdD@8O1K0Na;3<T0
+r1
+!s85 0
+31
+!i10b 1
+!s100 o0A16Dmo5_2_^?<If=hiz1
+I<N@ko?jdD@8O1K0Na;3<T0
+!i103 1
+S1
+R0
+R8
+R125
+R126
+R56
+R32
+R57
+R5
+R127
+R128
+R129
+!i113 0
+R6
+R7
+nhwpe_axi_source_@f@s_sv_unit
+Xhwpe_axi_source_sv_unit
+R1
+VzZnY@iVfF;@B:Jjil]@3A1
+r1
+!s85 0
+31
+!i10b 1
+!s100 W[Hak[DzLNibnn^OFDEio3
+IzZnY@iVfF;@B:Jjil]@3A1
+!i103 1
+S1
+R0
+R8
+R120
+R121
+R56
+R32
+R57
+R5
+R122
+R123
+R124
+!i113 0
+R6
+R7
+vhwpe_axi_wrapper
+R1
+DXx4 work 24 hwpe_axi_wrapper_sv_unit 0 22 Qk::m0IQo1Pg@29J[la803
+R3
+r1
+!s85 0
+31
+!i10b 1
+!s100 Y@G;gbhFbcTL@HBalTN2b3
+I@^jBfJjim<k;?bF8A5dkX2
+!s105 hwpe_axi_wrapper_sv_unit
+S1
+R0
+R4
+Z130 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_wrapper.sv
+Z131 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_wrapper.sv
+R66
+R5
+Z132 !s108 1568883249.358245
+Z133 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi//hwpe_axi_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_wrapper.sv|
+Z134 !s90 -quiet|-sv|-work|hwce_lib|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl|+incdir+$IPS_PATH/hwpe/hwce/rtl|+incdir+./../rtl/includes|+nowarnSVCHK|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi/hwpe_axi_wrapper.sv|
+!i113 0
+R6
+R7
+Xhwpe_axi_wrapper_sv_unit
+R1
+VQk::m0IQo1Pg@29J[la803
+r1
+!s85 0
+31
+!i10b 1
+!s100 `;4kX8eFgEC>Lodg8@[XW1
+IQk::m0IQo1Pg@29J[la803
+!i103 1
+S1
+R0
+R8
+R130
+R131
+R56
+R32
+R57
+R5
+R132
+R133
+R134
+!i113 0
+R6
+R7
+vhwpe_sm_address
+R1
+DXx4 work 23 hwpe_sm_address_sv_unit 0 22 U>N5YhTi_o@_EXcE]MXG^1
+R3
+r1
+!s85 0
+31
+!i10b 1
+!s100 YP[:8ThDE6OchV[=^OTUD3
+I]WO`[^BEj5:L4e[RT5l5Z0
+!s105 hwpe_sm_address_sv_unit
+S1
+R0
+R4
+Z135 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_address.sv
+Z136 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_address.sv
+R26
+R5
+Z137 !s108 1568883248.533772
+Z138 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_address.sv|
+Z139 !s90 -quiet|-sv|-work|hwce_lib|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl|+incdir+$IPS_PATH/hwpe/hwce/rtl|+incdir+./../rtl/includes|+nowarnSVCHK|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_address.sv|
+!i113 0
+R6
+R7
+Xhwpe_sm_address_sv_unit
+R1
+VU>N5YhTi_o@_EXcE]MXG^1
+r1
+!s85 0
+31
+!i10b 1
+!s100 l1cV^]VSOahTT7OQ:UNID1
+IU>N5YhTi_o@_EXcE]MXG^1
+!i103 1
+S1
+R0
+R8
+R135
+R136
+R56
+R57
+R5
+R137
+R138
+R139
+!i113 0
+R6
+R7
+vhwpe_sm_controller
+R1
+DXx4 work 26 hwpe_sm_controller_sv_unit 0 22 FKW1^4^;;z73N1YNBB4S?3
+R3
+r1
+!s85 0
+31
+!i10b 1
+!s100 37P55`?Y@>;lRAN8F7ofe3
+I`oS9zSYFIA>8MMP17GFES1
+!s105 hwpe_sm_controller_sv_unit
+S1
+R0
+R4
+Z140 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_controller.sv
+Z141 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_controller.sv
+R26
+R5
+Z142 !s108 1568883248.574679
+Z143 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_controller.sv|
+Z144 !s90 -quiet|-sv|-work|hwce_lib|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl|+incdir+$IPS_PATH/hwpe/hwce/rtl|+incdir+./../rtl/includes|+nowarnSVCHK|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_controller.sv|
+!i113 0
+R6
+R7
+Xhwpe_sm_controller_sv_unit
+R1
+VFKW1^4^;;z73N1YNBB4S?3
+r1
+!s85 0
+31
+!i10b 1
+!s100 TM^PH17EP1KH63QT28<az3
+IFKW1^4^;;z73N1YNBB4S?3
+!i103 1
+S1
+R0
+R8
+R140
+R141
+R56
+R57
+R5
+R142
+R143
+R144
+!i113 0
+R6
+R7
+vhwpe_sm_regfile
+R1
+DXx4 work 23 hwpe_sm_regfile_sv_unit 0 22 SL=6<9ko?heQU_4[IM21>2
+R3
+r1
+!s85 0
+31
+!i10b 1
+!s100 eUOlQR_l1kizhBF4YKD`_0
+I1gJ=Rh9zVS5i3c6lcSXzj3
+!s105 hwpe_sm_regfile_sv_unit
+S1
+R0
+R4
+Z145 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_regfile.sv
+Z146 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_regfile.sv
+R26
+R5
+Z147 !s108 1568883248.618652
+Z148 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_regfile.sv|
+Z149 !s90 -quiet|-sv|-work|hwce_lib|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl|+incdir+$IPS_PATH/hwpe/hwce/rtl|+incdir+./../rtl/includes|+nowarnSVCHK|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_regfile.sv|
+!i113 0
+R6
+R7
+Xhwpe_sm_regfile_sv_unit
+R1
+VSL=6<9ko?heQU_4[IM21>2
+r1
+!s85 0
+31
+!i10b 1
+!s100 _8lb6U]h^GMGklR]gcf581
+ISL=6<9ko?heQU_4[IM21>2
+!i103 1
+S1
+R0
+R8
+R145
+R146
+R56
+R57
+R5
+R147
+R148
+R149
+!i113 0
+R6
+R7
+vhwpe_sm_slave
+R1
+DXx4 work 21 hwpe_sm_slave_sv_unit 0 22 U8j6SnVm7j?[>LLm2`ai91
+R3
+r1
+!s85 0
+31
+!i10b 1
+!s100 Ybb9FaV;GTSY1n5@3Fi?90
+IgZhVoOk?kjSmLVcM^;[373
+!s105 hwpe_sm_slave_sv_unit
+S1
+R0
+R4
+Z150 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_slave.sv
+Z151 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_slave.sv
+R26
+R5
+Z152 !s108 1568883248.682794
+Z153 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_slave.sv|
+Z154 !s90 -quiet|-sv|-work|hwce_lib|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl|+incdir+$IPS_PATH/hwpe/hwce/rtl|+incdir+./../rtl/includes|+nowarnSVCHK|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_slave.sv|
+!i113 0
+R6
+R7
+Xhwpe_sm_slave_sv_unit
+R1
+VU8j6SnVm7j?[>LLm2`ai91
+r1
+!s85 0
+31
+!i10b 1
+!s100 XUYU=2kB:]:O?<ZjdV6GW3
+IU8j6SnVm7j?[>LLm2`ai91
+!i103 1
+S1
+R0
+R8
+R150
+R151
+R56
+R57
+R5
+R152
+R153
+R154
+!i113 0
+R6
+R7
+vhwpe_sm_wrapper
+R1
+DXx4 work 23 hwpe_sm_wrapper_sv_unit 0 22 K5_?VXcEK=U_X^EX?g9623
+R3
+r1
+!s85 0
+31
+!i10b 1
+!s100 E=]WMW4mA51Rfi3:Ok7UE3
+I23^Mo@WiNDOWkG<@EC=Q10
+!s105 hwpe_sm_wrapper_sv_unit
+S1
+R0
+R4
+Z155 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_wrapper.sv
+Z156 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_wrapper.sv
+R26
+R5
+Z157 !s108 1568883248.727094
+Z158 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_wrapper.sv|
+Z159 !s90 -quiet|-sv|-work|hwce_lib|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl|+incdir+$IPS_PATH/hwpe/hwce/rtl|+incdir+./../rtl/includes|+nowarnSVCHK|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_wrapper.sv|
+!i113 0
+R6
+R7
+Xhwpe_sm_wrapper_sv_unit
+R1
+VK5_?VXcEK=U_X^EX?g9623
+r1
+!s85 0
+31
+!i10b 1
+!s100 b:_;LTAkc<:Wfgd3SbUHh2
+IK5_?VXcEK=U_X^EX?g9623
+!i103 1
+S1
+R0
+R8
+R155
+R156
+R56
+R57
+R5
+R157
+R158
+R159
+!i113 0
+R6
+R7
+vone_dsp_MACC
+R1
+!s110 1568883247
+!i10b 1
+!s100 =WEYM0hXd]X;;O^SD>bV12
+I;l0CGBES61QAlPYMPdJ692
+R3
+!s105 one_dsp_MACC_sv_unit
+S1
+R0
+R16
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/one_dsp_MACC.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/one_dsp_MACC.sv
+L0 1
+R5
+r1
+!s85 0
+31
+!s108 1568883247.967994
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/one_dsp_MACC.sv|
+!s90 -quiet|+define+|-sv|-work|hwce_lib|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl|+incdir+$IPS_PATH/hwpe/hwce/rtl|+incdir+./../rtl/includes|+nowarnSVCHK|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/one_dsp_MACC.sv|
+!i113 0
+R6
+R39
+none_dsp_@m@a@c@c
+vpipe_pooling
+R1
+DXx4 work 20 pipe_pooling_sv_unit 0 22 4EJjU;B4l[RjTdcIe:ibG0
+R3
+r1
+!s85 0
+31
+!i10b 1
+!s100 :C`L@?e3Cm<<YeIdJ2CZK1
+IDX>3Lkk24H@>amRU5ElKZ2
+!s105 pipe_pooling_sv_unit
+S1
+R0
+R16
+Z160 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/pipe_pooling.sv
+Z161 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/pipe_pooling.sv
+R26
+R5
+Z162 !s108 1568883248.147047
+Z163 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi//hwpe_axi_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_types.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/pipe_pooling.sv|
+Z164 !s90 -quiet|+define+|-sv|-work|hwce_lib|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl|+incdir+$IPS_PATH/hwpe/hwce/rtl|+incdir+./../rtl/includes|+nowarnSVCHK|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/pipe_pooling.sv|
+!i113 0
+R6
+R39
+Xpipe_pooling_sv_unit
+R1
+V4EJjU;B4l[RjTdcIe:ibG0
+r1
+!s85 0
+31
+!i10b 1
+!s100 SEg;FoX;LEeeX6zABOX7B1
+I4EJjU;B4l[RjTdcIe:ibG0
+!i103 1
+S1
+R0
+R8
+R160
+R161
+R31
+R32
+R56
+R33
+R5
+R162
+R163
+R164
+!i113 0
+R6
+R39
+vpooling_data_shift_register
+R1
+DXx4 work 35 pooling_data_shift_register_sv_unit 0 22 fM0QL;<9[7AgR5NUE<cZ=2
+R3
+r1
+!s85 0
+31
+!i10b 1
+!s100 _]1?^CMlB_5llLcjzL^cZ2
+I?MXhYW[0WeNm8OYZnQCN73
+!s105 pooling_data_shift_register_sv_unit
+S1
+R0
+R16
+Z165 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/pooling_data_shift_register.sv
+Z166 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/pooling_data_shift_register.sv
+L0 15
+R5
+Z167 !s108 1568883248.197282
+Z168 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi//hwpe_axi_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_types.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/pooling_data_shift_register.sv|
+Z169 !s90 -quiet|+define+|-sv|-work|hwce_lib|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl|+incdir+$IPS_PATH/hwpe/hwce/rtl|+incdir+./../rtl/includes|+nowarnSVCHK|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/pooling_data_shift_register.sv|
+!i113 0
+R6
+R39
+Xpooling_data_shift_register_sv_unit
+R1
+VfM0QL;<9[7AgR5NUE<cZ=2
+r1
+!s85 0
+31
+!i10b 1
+!s100 =1zz`LF59;^II<foWmjUC1
+IfM0QL;<9[7AgR5NUE<cZ=2
+!i103 1
+S1
+R0
+R4
+R165
+R166
+R31
+R32
+R33
+R5
+R167
+R168
+R169
+!i113 0
+R6
+R39
+vpooling_layer
+R1
+DXx4 work 21 pooling_layer_sv_unit 0 22 F<<<22E4XV`c76``i@hY^3
+R3
+r1
+!s85 0
+31
+!i10b 1
+!s100 LgM:0RL9@?^_iY^ZDUjA:0
+I_9gTh@;H^=`5E4[]`ZjCF3
+!s105 pooling_layer_sv_unit
+S1
+R0
+R16
+Z170 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/pooling_layer.sv
+Z171 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/pooling_layer.sv
+R60
+R5
+Z172 !s108 1568883248.091704
+Z173 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/hwpe_sm_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwpe-sm/rtl/axi//hwpe_axi_params.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/hwce_types.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/pooling_layer.sv|
+Z174 !s90 -quiet|+define+|-sv|-work|hwce_lib|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl|+incdir+$IPS_PATH/hwpe/hwce/rtl|+incdir+./../rtl/includes|+nowarnSVCHK|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/pooling_layer.sv|
+!i113 0
+R6
+R39
+Xpooling_layer_sv_unit
+R1
+VF<<<22E4XV`c76``i@hY^3
+r1
+!s85 0
+31
+!i10b 1
+!s100 4?P>fY9K]PQjQQOmR?Cmf2
+IF<<<22E4XV`c76``i@hY^3
+!i103 1
+S1
+R0
+R8
+R170
+R171
+R31
+R32
+R56
+R33
+R5
+R172
+R173
+R174
+!i113 0
+R6
+R39
+vweights_mem_dp_wrap
+R1
+DXx4 work 27 weights_mem_dp_wrap_sv_unit 0 22 [A>b4`7Ij@aAD]OzDzId30
+R3
+r1
+!s85 0
+31
+!i10b 1
+!s100 [kUciOd=`e0]489::64Y62
+I1MJ`EIL9Q5k4dC6EM_l7R0
+!s105 weights_mem_dp_wrap_sv_unit
+S1
+R0
+Z175 w1568363497
+Z176 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/weights_mem_dp_wrap.sv
+Z177 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/weights_mem_dp_wrap.sv
+L0 62
+R5
+Z178 !s108 1568883248.363712
+Z179 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/weights_mem_dp_wrap.sv|
+Z180 !s90 -quiet|-sv|-work|hwce_lib|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl|+incdir+$IPS_PATH/hwpe/hwce/rtl|+incdir+./../rtl/includes|+nowarnSVCHK|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/weights_mem_dp_wrap.sv|
+!i113 0
+R6
+R7
+Xweights_mem_dp_wrap_sv_unit
+R1
+V[A>b4`7Ij@aAD]OzDzId30
+r1
+!s85 0
+31
+!i10b 1
+!s100 X3MGlQ[HfGR463`7FQQ3J3
+I[A>b4`7Ij@aAD]OzDzId30
+!i103 1
+S1
+R0
+R175
+R176
+R177
+L0 34
+R5
+R178
+R179
+R180
+!i113 0
+R6
+R7
+vxbar_req_gen
+R1
+R2
+!i10b 1
+!s100 0UH]8ffCdoXEIGUnbV[;]3
+IW>Lo7H=;dkjXf@83n_7[<3
+R3
+!s105 xbar_req_gen_sv_unit
+S1
+R0
+R16
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/xbar_req_gen.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/xbar_req_gen.sv
+L0 24
+R5
+r1
+!s85 0
+31
+!s108 1568883248.325135
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/xbar_req_gen.sv|
+!s90 -quiet|-sv|-work|hwce_lib|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl/axi/|+incdir+$IPS_PATH/hwpe/hwpe-sm/rtl|+incdir+$IPS_PATH/hwpe/hwce/rtl|+incdir+./../rtl/includes|+nowarnSVCHK|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/hwpe/hwce/rtl/xbar_req_gen.sv|
+!i113 0
+R6
+R7
+vxilinx_tcdm_bank_1024x16_16_Sdp
+R1
+R2
+!i10b 1
+!s100 _`HjQKf`kE3[Ba[J4M@VN0
+I:>EoNB1]KanNegcFUe6WF2
+R3
+R9
+S1
+R0
+R10
+R11
+R12
+R26
+R5
+r1
+!s85 0
+31
+R13
+R14
+R15
+!i113 0
+R6
+R7
+nxilinx_tcdm_bank_1024x16_16_@sdp
+vxilinx_tcdm_bank_1024x16_16_Sdp_blk_mem_gen_generic_cstr
+R1
+R2
+!i10b 1
+!s100 [gzTG`<PJR4fQmHRfUPz;3
+IB_M^`:9Tenb=l2l3dka>a1
+R3
+R9
+S1
+R0
+R10
+R11
+R12
+L0 208
+R5
+r1
+!s85 0
+31
+R13
+R14
+R15
+!i113 0
+R6
+R7
+nxilinx_tcdm_bank_1024x16_16_@sdp_blk_mem_gen_generic_cstr
+vxilinx_tcdm_bank_1024x16_16_Sdp_blk_mem_gen_prim_width
+R1
+R2
+!i10b 1
+!s100 elbnMGBId3S1EFWBj0[zc3
+I]gKf>SN7307U]`oieS1an1
+R3
+R9
+S1
+R0
+R10
+R11
+R12
+L0 251
+R5
+r1
+!s85 0
+31
+R13
+R14
+R15
+!i113 0
+R6
+R7
+nxilinx_tcdm_bank_1024x16_16_@sdp_blk_mem_gen_prim_width
+vxilinx_tcdm_bank_1024x16_16_Sdp_blk_mem_gen_prim_wrapper
+R1
+R2
+!i10b 1
+!s100 8;I6h1RmSl`5:FXJh<Va?3
+I1f6T=RWH:hAWCK7;DTgDA0
+R3
+R9
+S1
+R0
+R10
+R11
+R12
+L0 294
+R5
+r1
+!s85 0
+31
+R13
+R14
+R15
+!i113 0
+R6
+R7
+nxilinx_tcdm_bank_1024x16_16_@sdp_blk_mem_gen_prim_wrapper
+vxilinx_tcdm_bank_1024x16_16_Sdp_blk_mem_gen_top
+R1
+R2
+!i10b 1
+!s100 okeEA;kTF`kXi<IlSL]ec0
+IUmQ^gUHh2ZN>I45C^Rz^62
+R3
+R9
+S1
+R0
+R10
+R11
+R12
+L0 456
+R5
+r1
+!s85 0
+31
+R13
+R14
+R15
+!i113 0
+R6
+R7
+nxilinx_tcdm_bank_1024x16_16_@sdp_blk_mem_gen_top
+vxilinx_tcdm_bank_1024x16_16_Sdp_blk_mem_gen_v8_3_5
+R1
+R2
+!i10b 1
+!s100 I@fCUj>dQii`O1mj^LB]`2
+IDFPCdVX9B@Te2gAS0U>k_0
+R3
+R9
+S1
+R0
+R10
+R11
+R12
+L0 523
+R5
+r1
+!s85 0
+31
+R13
+R14
+R15
+!i113 0
+R6
+R7
+nxilinx_tcdm_bank_1024x16_16_@sdp_blk_mem_gen_v8_3_5
+vxilinx_tcdm_bank_1024x16_16_Sdp_blk_mem_gen_v8_3_5_synth
+R1
+R2
+!i10b 1
+!s100 M]Iz^H9KQmlaQb<Pl4UBo0
+I?R5cf];M1`el9B0ZE0Nlm1
+R3
+R9
+S1
+R0
+R10
+R11
+R12
+L0 753
+R5
+r1
+!s85 0
+31
+R13
+R14
+R15
+!i113 0
+R6
+R7
+nxilinx_tcdm_bank_1024x16_16_@sdp_blk_mem_gen_v8_3_5_synth

@@ -1,0 +1,55 @@
+{
+   commentid: "",
+   guistr: "# # String gsaved with Nlview 6.6.8  2016-12-21 bk=1.3817 VDI=40 GEI=35 GUI=JA:1.6
+#  -string -flagsOSRD
+preplace port DDR -pg 1 -y 390 -defaultsOSRD
+preplace port fech_enable_o -pg 1 -y 640 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -y 410 -defaultsOSRD
+preplace inst axi_protocol_converter_0 -pg 1 -lvl 6 -y 70 -defaultsOSRD
+preplace inst axi_protocol_converter_1 -pg 1 -lvl 5 -y 310 -defaultsOSRD
+preplace inst axi_dwidth_converter_0 -pg 1 -lvl 6 -y 330 -defaultsOSRD
+preplace inst nuraghe_soc_1 -pg 1 -lvl 4 -y 140 -defaultsOSRD
+preplace inst axi_protocol_converter_2 -pg 1 -lvl 6 -y 460 -defaultsOSRD
+preplace inst rst_processing_system7_0_50M -pg 1 -lvl 2 -y 750 -defaultsOSRD
+preplace inst axi_protocol_converter_3 -pg 1 -lvl 6 -y 200 -defaultsOSRD
+preplace inst axi_protocol_converter_4 -pg 1 -lvl 6 -y 590 -defaultsOSRD
+preplace inst soc_AXI_ctrl_v1_0_0 -pg 1 -lvl 4 -y 410 -defaultsOSRD
+preplace inst clk_wiz_1 -pg 1 -lvl 1 -y 580 -defaultsOSRD
+preplace inst processing_system7_0_axi_periph -pg 1 -lvl 3 -y 370 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 7 -y 470 -defaultsOSRD -resize 346 295
+preplace netloc nuraghe_soc_1_STDOUT_M 1 4 1 1160
+preplace netloc processing_system7_0_DDR 1 7 1 2450J
+preplace netloc nuraghe_soc_1_WEI_TO_DDR0 1 4 2 NJ 140 1520
+preplace netloc axi_protocol_converter_2_M_AXI 1 6 1 1920
+preplace netloc nuraghe_soc_1_return_o 1 3 2 730 10 1100
+preplace netloc nuraghe_soc_1_WEI_TO_DDR1 1 4 2 NJ 160 1500
+preplace netloc processing_system7_0_axi_periph_M00_AXI 1 3 1 680
+preplace netloc rst_processing_system7_0_50M_interconnect_aresetn 1 2 1 340
+preplace netloc nuraghe_soc_1_DATA_OUT_M 1 4 2 1150J 50 NJ
+preplace netloc processing_system7_0_M_AXI_GP0 1 2 6 340 -40 NJ -40 NJ -40 NJ -40 NJ -40 2400
+preplace netloc soc_AXI_ctrl_v1_0_0_test_mode_o 1 3 2 740 -30 1130
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 0 8 -280 660 -70 -50 NJ -50 NJ -50 NJ -50 NJ -50 NJ -50 2410
+preplace netloc rst_processing_system7_0_50M_peripheral_aresetn 1 2 4 330 230 690 270 1180 240 1530
+preplace netloc axi_protocol_converter_2_M_AXI1 1 6 1 1960
+preplace netloc axi_protocol_converter_3_M_AXI 1 6 1 1930
+preplace netloc axi_protocol_converter_0_M_AXI 1 6 1 1970
+preplace netloc nuraghe_soc_1_eoc_o 1 3 2 720 0 1110
+preplace netloc processing_system7_0_FIXED_IO 1 7 1 2430J
+preplace netloc clk_wiz_1_locked 1 1 1 -80
+preplace netloc soc_AXI_ctrl_v1_0_0_fech_enable_o 1 3 5 680 -20 1140 -20 NJ -20 NJ -20 2440J
+preplace netloc clk_wiz_1_clk_out2 1 1 3 -80J 190 NJ 190 NJ
+preplace netloc axi_dwidth_converter_0_M_AXI 1 6 1 1940
+preplace netloc clk_wiz_1_clk_out3 1 1 6 -50J 550 NJ 550 700J 550 NJ 550 1540J 660 1970J
+preplace netloc processing_system7_0_FCLK_CLK0 1 1 6 -60 430 320 220 710 260 1170 220 1510 0 1950
+preplace netloc nuraghe_soc_1_DMA_TO_DDR_M 1 4 2 NJ 120 1540
+preplace netloc soc_AXI_ctrl_v1_0_0_mode_select_o 1 3 2 750 20 1120
+preplace netloc processing_system7_0_axi_periph_M01_AXI 1 3 1 670
+preplace netloc axi_protocol_converter_1_M_AXI 1 5 1 N
+preplace netloc processing_system7_0_FCLK_CLK2 1 0 8 -290 -60 NJ -60 NJ -60 NJ -60 NJ -60 NJ -60 NJ -60 2420
+levelinfo -pg 1 -310 -180 140 520 940 1350 1750 2200 2470 -top -230 -bot 1560
+",
+}
+{
+   da_axi4_cnt: "8",
+   da_ps7_cnt: "3",
+}

@@ -1,0 +1,45 @@
+remove_upf 
+set upf_create_implicit_supply_sets false
+set auto_insert_level_shifters_on_clocks all
+set mv_insert_level_shifters_on_ideal_nets all
+
+
+
+create_power_domain TOP_PD             -include_scope
+
+
+
+
+#CREATE POWER NETS AND PORTS
+create_supply_port vdd
+create_supply_port gnd
+
+
+
+
+create_supply_net  vdd                   -domain TOP_PD
+create_supply_net  gnd                   -domain TOP_PD
+connect_supply_net vdd                   -ports {vdd}
+connect_supply_net gnd                   -ports {gnd}
+
+
+set_domain_supply_net TOP_PD -primary_ground_net gnd -primary_power_net vdd
+
+
+
+#PORT STATE
+add_port_state vdd       -state {HV 0.6}  -state {LV 0.8}
+add_port_state gnd       -state {GND 0}
+
+
+#POWER STATE TABLE --> PST
+create_pst PMC_GROUP -supplies                      {vdd   gnd}
+add_pst_state low_voltage     -pst PMC_GROUP -state {LV    GND}
+add_pst_state nominal_voltage -pst PMC_GROUP -state {HV    GND}
+
+
+
+
+
+
+

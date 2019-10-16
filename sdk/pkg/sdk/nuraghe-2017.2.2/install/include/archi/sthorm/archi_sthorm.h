@@ -1,0 +1,162 @@
+#ifndef __ARCHI_STHORM_H__
+#define __ARCHI_STHORM_H__
+
+#include "archi_pr_control.h"
+
+#define STHORM_MAX_CLUSTER_NB_PES    16
+#define STHORM_MAX_NB_CLUSTERS       4
+
+#define STHORM_FC_CID                          4
+#define STHORM_CONTROLER_COREID                16
+
+/*
+ * L3
+ */
+
+#define STHORM_L3_BASE 0x80000000
+
+/*
+ * L2
+ */
+
+#define STHORM_L2_BASE 0x58000000
+
+/*
+ * Network Interfaces
+ */
+
+#define STHORM_NI_FABRIC_BASE   0x60000000
+#define STHORM_NI_L2_BASE       0x5FFFC000
+
+/*
+ * Fabric controller
+ */
+
+#define STHORM_FC_BASE           0x50000000
+
+/*
+ * Cluster
+ */
+
+#define STHORM_TCDM_OFFSET  0x00000000
+#define STHORM_TCDM_SIZE    0x00004000
+
+#define STHORM_REG_OFFSET   0x00010000
+#define STHORM_REG_SIZE     0x00070000
+
+// Area containing peripherals from all clusters
+#define STHORM_CLUSTER_AREA_BASE   0x3E000000
+#define STHORM_CLUSTER_AREA_SIZE   0x00800000
+#define STHORM_HWS_OFFSET          0x00000000
+
+// Area containing L1 from all clusters
+#define STHORM_L1_AREA_BASE          0x10000000
+#define STHORM_L1_AREA_SIZE          0x00800000
+
+// Area containing cluster controllers from all clusters
+#define STHORM_CC_AREA_BASE          0x40000000
+#define STHORM_CC_AREA_SIZE          0x00100000
+
+// CC peripherals 
+#define STHORM_PERIPH_OFFSET   (STHORM_REG_OFFSET+0x00020000)
+#define STHORM_PERIPH_SIZE     0x00010000
+
+#define STHORM_PERIPH_MAILBOX_OFFSET  (0x00000000 + STHORM_PERIPH_OFFSET)
+#define STHORM_PERIPH_MAILBOX_SIZE    0x00001000
+
+#define STHORM_PERIPH_TIMER_OFFSET    (0x00001000 + STHORM_PERIPH_OFFSET)
+#define STHORM_PERIPH_TIMER_SIZE      0x00001000
+
+#define STHORM_PERIPH_CONTROL_OFFSET  (0x00002000 + STHORM_PERIPH_OFFSET)
+#define STHORM_PERIPH_CONTROL_SIZE    0x00002000
+
+#define STHORM_CLUSTER_BASE(cid) (STHORM_CLUSTER_AREA_BASE + (cid) * STHORM_CLUSTER_AREA_SIZE)
+
+#define STHORM_L1_BASE(cid) (STHORM_L1_AREA_BASE + (cid) * STHORM_L1_AREA_SIZE)
+#define STHORM_L1_TS_BASE(cid) (STHORM_L1_BASE(cid) + STHORM_L1_AREA_SIZE/2)
+
+#define STHORM_HWS_BASE(cid) (STHORM_CLUSTER_AREA_BASE + (cid) * STHORM_CLUSTER_AREA_SIZE + STHORM_HWS_OFFSET)
+
+#define STHORM_CC_BASE(cid) (STHORM_CC_AREA_BASE + (cid) * STHORM_CC_AREA_SIZE)
+
+/*
+ * RAB
+ */
+
+
+#define STHORM_RAB_FABRIC_BASE         0xFE000000
+#define STHORM_RAB_FABRIC_SIZE         0x01000000
+
+#define STHORM_RAB_SLAVE_ENTRIES_BASE   STHORM_RAB_FABRIC_BASE
+#define STHORM_RAB_SLAVE_ENTRIES_SIZE   0x00800000
+#define STHORM_RAB_SLAVE_REGS_BASE      (STHORM_RAB_SLAVE_ENTRIES_BASE+STHORM_RAB_SLAVE_ENTRIES_SIZE)
+#define STHORM_RAB_SLAVE_REGS_SIZE      0x2000
+#define STHORM_RAB_MASTER_REGS_BASE      (STHORM_RAB_SLAVE_ENTRIES_BASE+STHORM_RAB_SLAVE_ENTRIES_SIZE + STHORM_RAB_SLAVE_REGS_SIZE)
+
+
+#define STHORM_RAB_ENCMEM_SIZE         0x040000
+#define STHORM_RAB_ENCMEMTAS_SIZE      0x040000
+#define STHORM_RAB_HWS_SIZE            0x020000
+#define STHORM_RAB_CC_SIZE             0x080000
+#define STHORM_RAB_FC_SIZE             0x080000
+#define STHORM_RAB_NI_L2_SIZE          0x004000
+#define STHORM_RAB_FABRIC_NI_SIZE      0x004000
+#define STHORM_RAB_L2_SIZE             0x100000
+
+#define STHORM_RAB_CLUSTER_SIZE        (STHORM_RAB_ENCMEM_SIZE + STHORM_RAB_ENCMEMTAS_SIZE + STHORM_RAB_HWS_SIZE + STHORM_RAB_CC_SIZE)
+
+#define STHORM_RAB_ENCMEM_OFFSET(cid)     (STHORM_RAB_CLUSTER_SIZE * cid)
+#define STHORM_RAB_ENCMEMTAS_OFFSET(cid)  (STHORM_RAB_ENCMEM_OFFSET(cid) + STHORM_RAB_ENCMEM_SIZE)
+#define STHORM_RAB_HWS_OFFSET(cid)        (STHORM_RAB_ENCMEMTAS_OFFSET(cid) + STHORM_RAB_ENCMEMTAS_SIZE)
+#define STHORM_RAB_CC_OFFSET(cid)         (STHORM_RAB_HWS_OFFSET(cid) + STHORM_RAB_HWS_SIZE)
+#define STHORM_RAB_FC_OFFSET              (0x500000)
+#define STHORM_RAB_NI_L2_OFFSET           (STHORM_RAB_FC_OFFSET + STHORM_RAB_FC_SIZE)
+#define STHORM_RAB_FABRIC_NI_OFFSET       (STHORM_RAB_NI_L2_OFFSET + STHORM_RAB_NI_L2_SIZE)
+#define STHORM_RAB_L2_OFFSET              (0x600000)
+
+/*
+ * HWS 
+ */
+
+// Atomic counters
+
+#define STHORM_HWS_EVT_OFFSET            7
+
+#define STHORM_EVT_TRIG_OFFSET           0x800
+
+#define STHORM_AC_NB                     128
+#define STHORM_HWS_NB_EVT                8
+
+#define STHORM_AC_AREA_OFFSET            0x0
+                                       
+#define STHORM_AC_VALUE_OFFSET           0x0
+#define STHORM_AC_POSTINC_OFFSET         0x4
+#define STHORM_AC_POSTDEC_OFFSET         0x8
+#define STHORM_AC_CTRL_OFFSET            0xc
+
+#define STHORM_PN_CORE_SHIFT             0
+#define STHORM_PN_PENDING_SHIFT          16
+#define STHORM_PN_CC_SHIFT               17
+#define STHORM_PN_EV_ID_SHIFT            18
+#define STHORM_PN_AC_CND_SHIFT           21
+#define STHORM_PN_AC_IDX_SHIFT           24
+#define STHORM_PN_SET_FLAG_SHIFT         31
+
+#define STHORM_PN_PE_IDX_SHIFT           0
+#define STHORM_PN_OP_TYPE_SHIFT          4
+
+// Programmable notifier
+
+#define STHORM_PN_AREA_OFFSET            0x0920
+
+#define STHORM_PN_COND_NONE              0
+#define STHORM_PN_COND_EQ                1
+#define STHORM_PN_COND_GT                2 
+#define STHORM_PN_COND_LT                3
+#define STHORM_PN_COND_NE                4
+#define STHORM_PN_COND_LE                5
+#define STHORM_PN_COND_GE                6
+#define STHORM_PN_COND_STICKY_EQ         7
+
+
+#endif

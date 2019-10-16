@@ -1,0 +1,41 @@
+How to use the RTL platform
+---------------------------
+
+The RTL platform is integrated inside the SDK runner which allows launching it from the usual make command for running the application.
+
+Before using it, it must be properly built and configured, which can be done in 2 ways.
+
+Using the SDK flow
+..................
+
+The main advantages is that it is fully integrated. However not all the chips are integrated, in this case, you can switch to the other way.
+
+First you have to build the RTL following these instructions :ref:`howtoBuildRtl`.
+
+Then simply execute this: ::
+
+	$ make clean all run
+
+Note that this will work only if the SDK is configured for the RTL platform using for example: ::
+
+	$ plpconf --platform=rtl
+
+Each chip has its own install folder so you can easily switch from one chip to another automatically using different SDK configurations and without recompiling the RTL platform.
+
+Using an external RTL platform
+..............................
+
+In case your RTL platform does not fit well the SDK flow, you can still build it on your own, the way you want. Just make sure that the environment variable PULP_RTL_INSTALL is pointing to the RTL platform, to the folder containing modelsim.ini.
+
+Then you can rely on the classic SDK flow to compile and run the application (see above).
+
+Tips
+....
+
+You can launch the RTL platform using the GUI with this option: ::
+
+	$ make clean all run gui=1
+
+You can recompile the application and keep the GUI opened, just reset it, and you can run again the test.
+
+In case you have to do things by hands, the vsim command used to launch the platform is printed at the beginning. You can launch it by hands from the build folder, which you can also find on the pulp-run command that is printed. All the files needed to launch the platform, like the stimuli, are inside the build folder.

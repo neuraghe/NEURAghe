@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>How to use the FPGA &mdash; howto 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="howto 1 documentation" href="index.html" />
+    <link rel="next" title="How to get the SDK" href="howtoGetSdk.html" />
+    <link rel="prev" title="How to write a test" href="howtoWriteTest.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="how-to-use-the-fpga">
+<h1>How to use the FPGA<a class="headerlink" href="#how-to-use-the-fpga" title="Permalink to this headline">¶</a></h1>
+<p>As for the RTL, there are 2 ways of using the FPGA</p>
+<div class="section" id="let-the-sdk-flow-manage-the-bitstreams">
+<h2>Let the SDK flow manage the bitstreams<a class="headerlink" href="#let-the-sdk-flow-manage-the-bitstreams" title="Permalink to this headline">¶</a></h2>
+<p>The bistream for each supported chip is stored as a binary package in the artifactory server. When the SDK dependencies are retrieved, the correct bitstream is downloaded according to the configuration.</p>
+<p>First the SDK must be properly initialized and configured for the FPGA (see <a class="reference internal" href="howtoSetupSdk.html#howtosetupsdk"><span>How to setup the SDK</span></a>).</p>
+<p>Then you must download the bitstream for your architecture with this command:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ plpbuild --p sdk deps
+</pre></div>
+</div>
+<p>Now go to your application and execute this command to upload the bitstream to the FPGA:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ make bistream
+</pre></div>
+</div>
+<p>After this step you can use the FPGA as any other platform with the usual commands:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ make clean all run
+</pre></div>
+</div>
+</div>
+<div class="section" id="provide-an-external-bitstream">
+<h2>Provide an external bitstream<a class="headerlink" href="#provide-an-external-bitstream" title="Permalink to this headline">¶</a></h2>
+<p>In case the bitstream for the chip you are using is not available or you want to synthesize it yourself, you can compile and run your application the usual way, just adding the following option:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ make clean all run PLT_OPT=--emu-mapping=miaemu.bit.bin
+</pre></div>
+</div>
+</div>
+<div class="section" id="tips">
+<h2>Tips<a class="headerlink" href="#tips" title="Permalink to this headline">¶</a></h2>
+<p>When you launch a make command for the FPGA, you can specify the IP address of the FPGA with this option:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ make clean all run PLT_OPT=--emu-addr=192.168.0.10
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">How to use the FPGA</a><ul>
+<li><a class="reference internal" href="#let-the-sdk-flow-manage-the-bitstreams">Let the SDK flow manage the bitstreams</a></li>
+<li><a class="reference internal" href="#provide-an-external-bitstream">Provide an external bitstream</a></li>
+<li><a class="reference internal" href="#tips">Tips</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="howtoWriteTest.html" title="previous chapter">How to write a test</a></li>
+      <li>Next: <a href="howtoGetSdk.html" title="next chapter">How to get the SDK</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/howtoUseFpga.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Germain Haugou.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/howtoUseFpga.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

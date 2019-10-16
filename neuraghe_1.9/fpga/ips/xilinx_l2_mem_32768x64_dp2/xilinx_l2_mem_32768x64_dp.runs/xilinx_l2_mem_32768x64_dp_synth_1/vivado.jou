@@ -1,0 +1,10 @@
+#-----------------------------------------------------------
+# Vivado v2014.4 (64-bit)
+# SW Build 1071353 on Tue Nov 18 16:47:07 MST 2014
+# IP Build 1070531 on Tue Nov 18 01:10:18 MST 2014
+# Start of session at: Wed Jan  4 12:02:51 2017
+# Process ID: 2866
+# Log file: /home/gianfranco/xilinx_l2_mem_32768x64_dp/xilinx_l2_mem_32768x64_dp.runs/xilinx_l2_mem_32768x64_dp_synth_1/xilinx_l2_mem_32768x64_dp.vds
+# Journal file: /home/gianfranco/xilinx_l2_mem_32768x64_dp/xilinx_l2_mem_32768x64_dp.runs/xilinx_l2_mem_32768x64_dp_synth_1/vivado.jou
+#-----------------------------------------------------------
+source xilinx_l2_mem_32768x64_dp.tcl

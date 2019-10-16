@@ -1,0 +1,453 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Event unit HAL &mdash; Pulp runtime documentation 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Pulp runtime documentation 1 documentation" href="index.html" />
+    <link rel="next" title="Pulp runtime" href="pulpRt.html" />
+    <link rel="prev" title="UDMA HAL" href="udmaHal.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="event-unit-hal">
+<h1>Event unit HAL<a class="headerlink" href="#event-unit-hal" title="Permalink to this headline">¶</a></h1>
+<p>The event unit HAL is a set of low-level functions to hide register access to the event unit.
+The event unit is the block in the cluster who is in charge of the signalization between cores, DMA, accelerators and so on.</p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Event management</p>
+<p>The following function can be used for selecting which events can wake-up the core, put the core the sleep, clear events and so on. </p>
+<dl class="function">
+<dt id="_CPPv210evt_read32jj">
+<span id="evt_read32__unsigned-i.unsigned-i"></span><span class="target" id="myprojecteu__v3_8h_1a1ac8a27e394707a5da2b0fcaf998083d"></span><em class="property">static</em> unsigned int <code class="descname">evt_read32</code><span class="sig-paren">(</span>unsigned int <em>base</em>, unsigned int <em>offset</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv210evt_read32jj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clock-gated load. On architectures that support it, this executes the special p.elw instruction which is used to put the core in idle mode until it receives an event. On other architectures, it executes a classic read which has the same effect but does not handle correctly interrupts while the core is sleeping. <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The loaded value, after the core has been waken-up. This value depends on the feature which is accessed. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">base</span></code>: The base address of the event unit. </li>
+<li><code class="docutils literal"><span class="pre">offset</span></code>: The offset in the event unit where to load from. Depending on this offset, this will trigger different behaviors (barrier, wait, wait&amp;clear, etc). </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv213eu_evt_statusv">
+<span id="eu_evt_status"></span><span class="target" id="myprojecteu__v3_8h_1abf9f04f3c7549707d1ab5b498e7534dc"></span><em class="property">static</em> unsigned int <code class="descname">eu_evt_status</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv213eu_evt_statusv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get event status. Return the value of the event status register. This register contains one bit per event, 1 means the event is set. Note that this register is actually used as a status register for both events and interrupts, so clearing one will clear the other. This register is a buffer, which means if an event is received while its bit is already at 1, the event is somehow lost as the bit stays at 1. Thus events should be used as Linux signals. <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The content of the status register. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv219eu_evt_statusMaskedv">
+<span id="eu_evt_statusMasked"></span><span class="target" id="myprojecteu__v3_8h_1a80246f2f4a76c041778b3b1ff72cc1f4"></span><em class="property">static</em> unsigned int <code class="descname">eu_evt_statusMasked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv219eu_evt_statusMaskedv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get active events. Same as eu_evt_status, but the content of the status register is ANDed with the content of the event mask register so that only relevant events (that can wake-up the core) are shown. It can for example be used to know which events must be handled after a core wake-up as the core has been waken-up due to one of them. <dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The content of the status register ANDed with the event mask register. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv210eu_evt_clrj">
+<span id="eu_evt_clr__unsigned-i"></span><span class="target" id="myprojecteu__v3_8h_1a605aa9f4101638b05c694408b85612d0"></span><em class="property">static</em> void <code class="descname">eu_evt_clr</code><span class="sig-paren">(</span>unsigned int <em>evtMask</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv210eu_evt_clrj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear some bits of the event status register. This allows clearing events after they have been received so that they do not prevent the core from sleeping anymore. <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">evtMask</span></code>: Bits to be cleared. 1 means the bit must be cleared, 0 it should remain the same. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv211eu_evt_maskj">
+<span id="eu_evt_mask__unsigned-i"></span><span class="target" id="myprojecteu__v3_8h_1a238c7c4363d78fa3604061969424b448"></span><em class="property">static</em> void <code class="descname">eu_evt_mask</code><span class="sig-paren">(</span>unsigned int <em>evtMask</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv211eu_evt_maskj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modify the event mask. The event mask tells the event unit which events can wake-up the core. When the core executes the p.elw instruction it goes to sleep unless there is one bit which is set in both the event mask and the event status register. If the event is received while the core is already sleeping and the corresponding bit is set in the event mask, the core is waken-up and cannot go back to sleep until either the event mask or the event status register is modified (usually the bit is cleared using eu_evt_clr) <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">evtMask</span></code>: Value to write to the event mask. There is 1 bit per event, 1 means it can wake-up the core, 0 it cannot </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv219eu_evt_maskSet_basejj">
+<span id="eu_evt_maskSet_base__unsigned-i.unsigned-i"></span><span class="target" id="myprojecteu__v3_8h_1a7bf0f15dc92dc8bc4132c8b79cc5f7d8"></span><em class="property">static</em> void <code class="descname">eu_evt_maskSet_base</code><span class="sig-paren">(</span>unsigned int <em>base</em>, unsigned int <em>evtMask</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv219eu_evt_maskSet_basejj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set part of the event mask to 1. See eu_evt_maskSet <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">base</span></code>: The address of the register </li>
+<li><code class="docutils literal"><span class="pre">evtMask</span></code>: Bit mask used to update the event mask. There is 1 bit per event, 1 means the corresponding bit is set in the event mask. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv214eu_evt_maskSetj">
+<span id="eu_evt_maskSet__unsigned-i"></span><span class="target" id="myprojecteu__v3_8h_1a43b429853b8bea044fd8a523b479f98b"></span><em class="property">static</em> void <code class="descname">eu_evt_maskSet</code><span class="sig-paren">(</span>unsigned int <em>evtMask</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv214eu_evt_maskSetj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set part of the event mask to 1. This is similar to eu_evt_mask but for each bit at 1 in the new value, the corresponding bit is set in the event mask and the others remain the same. This is useful when the mask must be updated before waiting for a specific event without modifying the other events (this saves a few instructions) <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">evtMask</span></code>: Bit mask used to update the event mask. There is 1 bit per event, 1 means the corresponding bit is set in the event mask. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv214eu_evt_maskClrj">
+<span id="eu_evt_maskClr__unsigned-i"></span><span class="target" id="myprojecteu__v3_8h_1a4439c907c11aa519476593e32d107d3f"></span><em class="property">static</em> void <code class="descname">eu_evt_maskClr</code><span class="sig-paren">(</span>unsigned int <em>evtMask</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv214eu_evt_maskClrj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set part of the event mask to 0. This is the opposite of eu_evt_maskSet. For each bit at 1 in the new value, the corresponding bit is set to 0 in the event mask and the others remain the same. <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">evtMask</span></code>: Bit mask used to update the event mask. There is 1 bit per event, 1 means the corresponding bit is cleared in the event mask. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv211eu_evt_waitv">
+<span id="eu_evt_wait"></span><span class="target" id="myprojecteu__v3_8h_1afb042c4eff0c2feb7a0680abbff246f6"></span><em class="property">static</em> unsigned int <code class="descname">eu_evt_wait</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv211eu_evt_waitv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Put the core to sleep mode until it receives an event The core goes to sleep until there is one bit at 1 in both the event status register and the event mask register. If it is already the case, when this function is called, the core does not go to sleep and this function returns immediately. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv217eu_evt_waitAndClrv">
+<span id="eu_evt_waitAndClr"></span><span class="target" id="myprojecteu__v3_8h_1aefba206898666a37828fae6adad7b44f"></span><em class="property">static</em> unsigned int <code class="descname">eu_evt_waitAndClr</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv217eu_evt_waitAndClrv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Put the core to sleep mode until it receives an event and clears the active events This is similar to eu_evt_wait but when the core is waken-up, the active events are cleared in the status register. An event is active if its bit is at 1 in both the event status register and the event mask register. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv221eu_evt_maskWaitAndClrj">
+<span id="eu_evt_maskWaitAndClr__unsigned"></span><span class="target" id="myprojecteu__v3_8h_1a9ba9d03eec3a930925d5d256539e7840"></span><em class="property">static</em> unsigned int <code class="descname">eu_evt_maskWaitAndClr</code><span class="sig-paren">(</span>unsigned <em>evtMask</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv221eu_evt_maskWaitAndClrj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modify the event mask, put the core to sleep mode until it receives an event, clears the active events and restore the mask. This is similar to eu_evt_waitAndClr but the events whose bit is set to 1 in the given mask, are activated in the event mask before going to sleep, and are cleared when the core is waken-up. Not that this function is using 3 instructions instead of 1 for most of other primitives, as it needs 2 instruction to set and clear the mask. <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">evtMask</span></code>: Event mask used for activating and deactivating events. Each bit to 1 means the corresponding event is activated before sleeping and deactivated after. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Interrupt management</p>
+<p>Functions for setting-up which IRQ can trigger an interrupt handler, clear interrupts and so on </p>
+<dl class="function">
+<dt id="_CPPv222eu_evt_statusIrqMaskedv">
+<span id="eu_evt_statusIrqMasked"></span><span class="target" id="myprojecteu__v3_8h_1ae76d9fcb8a43e7054625d6234991953f"></span><em class="property">static</em> unsigned int <code class="descname">eu_evt_statusIrqMasked</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv222eu_evt_statusIrqMaskedv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv211eu_irq_maskj">
+<span id="eu_irq_mask__unsigned-i"></span><span class="target" id="myprojecteu__v3_8h_1ab086a1f63479eba68c2d6826d2763244"></span><em class="property">static</em> void <code class="descname">eu_irq_mask</code><span class="sig-paren">(</span>unsigned int <em>irqMask</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv211eu_irq_maskj" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv219eu_irq_maskSet_basejj">
+<span id="eu_irq_maskSet_base__unsigned-i.unsigned-i"></span><span class="target" id="myprojecteu__v3_8h_1a6fa68f40e3b1b2de7f28e58e45a3ec9c"></span><em class="property">static</em> void <code class="descname">eu_irq_maskSet_base</code><span class="sig-paren">(</span>unsigned int <em>base</em>, unsigned int <em>irqMask</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv219eu_irq_maskSet_basejj" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv214eu_irq_maskSetj">
+<span id="eu_irq_maskSet__unsigned-i"></span><span class="target" id="myprojecteu__v3_8h_1a0d96b5a5c50524724adbe7d33f02a0a7"></span><em class="property">static</em> void <code class="descname">eu_irq_maskSet</code><span class="sig-paren">(</span>unsigned int <em>irqMask</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv214eu_irq_maskSetj" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv214eu_irq_maskClrj">
+<span id="eu_irq_maskClr__unsigned-i"></span><span class="target" id="myprojecteu__v3_8h_1a90decfec541dd0a8460279863c12045d"></span><em class="property">static</em> void <code class="descname">eu_irq_maskClr</code><span class="sig-paren">(</span>unsigned int <em>irqMask</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv214eu_irq_maskClrj" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv213eu_irq_statusv">
+<span id="eu_irq_status"></span><span class="target" id="myprojecteu__v3_8h_1af55778f7f16324a94f282e08795e7bf8"></span><em class="property">static</em> unsigned int <code class="descname">eu_irq_status</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv213eu_irq_statusv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">SW event trigger.</p>
+<p>Functions for triggering SW events which can be used to wake-up cluster cores from SW. </p>
+<dl class="function">
+<dt id="_CPPv223eu_evt_trig_remote_addri">
+<span id="eu_evt_trig_remote_addr__i"></span><span class="target" id="myprojecteu__v3_8h_1a6f5b3034fc08d79b0dc4646c735cdba3"></span><em class="property">static</em> unsigned int <code class="descname">eu_evt_trig_remote_addr</code><span class="sig-paren">(</span>int <em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv223eu_evt_trig_remote_addri" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv224eu_evt_trig_cluster_addrii">
+<span id="eu_evt_trig_cluster_addr__i.i"></span><span class="target" id="myprojecteu__v3_8h_1a2545b42840bfe61fb70d233cf5e224e3"></span><em class="property">static</em> unsigned int <code class="descname">eu_evt_trig_cluster_addr</code><span class="sig-paren">(</span>int <em>cluster</em>, int <em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv224eu_evt_trig_cluster_addrii" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv216eu_evt_trig_addri">
+<span id="eu_evt_trig_addr__i"></span><span class="target" id="myprojecteu__v3_8h_1a5a0aaaadaa8e6892ea6c00939a0f0cd4"></span><em class="property">static</em> unsigned int <code class="descname">eu_evt_trig_addr</code><span class="sig-paren">(</span>int <em>event</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv216eu_evt_trig_addri" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv211eu_evt_trigjj">
+<span id="eu_evt_trig__unsigned-i.unsigned-i"></span><span class="target" id="myprojecteu__v3_8h_1a7645e8a8960f667c00296a357eeb16b2"></span><em class="property">static</em> void <code class="descname">eu_evt_trig</code><span class="sig-paren">(</span>unsigned int <em>evtAddr</em>, unsigned int <em>coreSet</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv211eu_evt_trigjj" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Hardware barriers.</p>
+<p>Functions for managing the hardware barriers which can be used to implement a rendez-vous </p>
+<dl class="function">
+<dt id="_CPPv211eu_bar_addri">
+<span id="eu_bar_addr__i"></span><span class="target" id="myprojecteu__v3_8h_1aba8de037342b99c2fd84154c06206825"></span><em class="property">static</em> unsigned int <code class="descname">eu_bar_addr</code><span class="sig-paren">(</span>int <em>barId</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv211eu_bar_addri" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv29eu_bar_idi">
+<span id="eu_bar_id__i"></span><span class="target" id="myprojecteu__v3_8h_1a89d2c270fa2f50cd274a502ec82c25e9"></span><em class="property">static</em> unsigned int <code class="descname">eu_bar_id</code><span class="sig-paren">(</span>int <em>barAddr</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv29eu_bar_idi" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv220eu_bar_trig_wait_clrj">
+<span id="eu_bar_trig_wait_clr__unsigned-i"></span><span class="target" id="myprojecteu__v3_8h_1ad9ca29df44e90619526c76eb7bf84dbb"></span><em class="property">static</em> unsigned int <code class="descname">eu_bar_trig_wait_clr</code><span class="sig-paren">(</span>unsigned int <em>barAddr</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv220eu_bar_trig_wait_clrj" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv217eu_bar_setup_maskjjj">
+<span id="eu_bar_setup_mask__unsigned-i.unsigned-i.unsigned-i"></span><span class="target" id="myprojecteu__v3_8h_1ab13c97ed76b004eea7d37603b032653d"></span><em class="property">static</em> void <code class="descname">eu_bar_setup_mask</code><span class="sig-paren">(</span>unsigned int <em>barAddr</em>, unsigned int <em>coreMask</em>, unsigned int <em>targetMask</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv217eu_bar_setup_maskjjj" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv212eu_bar_setupjj">
+<span id="eu_bar_setup__unsigned-i.unsigned-i"></span><span class="target" id="myprojecteu__v3_8h_1a0c50684d418134c2bbd8880ed5aa78f3"></span><em class="property">static</em> void <code class="descname">eu_bar_setup</code><span class="sig-paren">(</span>unsigned int <em>barAddr</em>, unsigned int <em>coreMask</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv212eu_bar_setupjj" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv214eu_bar_triggerjj">
+<span id="eu_bar_trigger__unsigned-i.unsigned-i"></span><span class="target" id="myprojecteu__v3_8h_1a6ae9f5e768c86ef5f80a4a1020b26d12"></span><em class="property">static</em> void <code class="descname">eu_bar_trigger</code><span class="sig-paren">(</span>unsigned int <em>barAddr</em>, unsigned int <em>mask</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv214eu_bar_triggerjj" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">SoC events FIFO.</p>
+<p>Functions for managing SoC events coming from outside the cluster and pushed by the HW to the SoC event FIFO. </p>
+<dl class="function">
+<dt id="_CPPv217eu_soc_events_popv">
+<span id="eu_soc_events_pop"></span><span class="target" id="myprojecteu__v3_8h_1a6683677adaa4bab5619b65c67ee4321d"></span><em class="property">static</em> unsigned int <code class="descname">eu_soc_events_pop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv217eu_soc_events_popv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv222eu_soc_events_is_validj">
+<span id="eu_soc_events_is_valid__unsigned-i"></span><span class="target" id="myprojecteu__v3_8h_1a8047dd75813fff2e55e4211f551c82b8"></span><em class="property">static</em> int <code class="descname">eu_soc_events_is_valid</code><span class="sig-paren">(</span>unsigned int <em>word</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv222eu_soc_events_is_validj" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv223eu_soc_events_get_eventj">
+<span id="eu_soc_events_get_event__unsigned-i"></span><span class="target" id="myprojecteu__v3_8h_1a847a430f68b0dcd4ffc57c35e181983c"></span><em class="property">static</em> unsigned int <code class="descname">eu_soc_events_get_event</code><span class="sig-paren">(</span>unsigned int <em>word</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv223eu_soc_events_get_eventj" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Hardware mutexes.</p>
+<p>Functions for managing, locking and unlocking hardware mutexes </p>
+<dl class="function">
+<dt id="_CPPv213eu_mutex_addri">
+<span id="eu_mutex_addr__i"></span><span class="target" id="myprojecteu__v3_8h_1a17789eb81707de93ccb4b12441c9c822"></span><em class="property">static</em> unsigned int <code class="descname">eu_mutex_addr</code><span class="sig-paren">(</span>int <em>mutexId</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv213eu_mutex_addri" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv213eu_mutex_lockj">
+<span id="eu_mutex_lock__unsigned-i"></span><span class="target" id="myprojecteu__v3_8h_1a3d3f18aa5c98d96cbd887efcefbcfaef"></span><em class="property">static</em> void <code class="descname">eu_mutex_lock</code><span class="sig-paren">(</span>unsigned int <em>mutexAddr</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv213eu_mutex_lockj" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv215eu_mutex_unlockj">
+<span id="eu_mutex_unlock__unsigned-i"></span><span class="target" id="myprojecteu__v3_8h_1ae181aa1a2d74db213886cfa0d1d82c1f"></span><em class="property">static</em> void <code class="descname">eu_mutex_unlock</code><span class="sig-paren">(</span>unsigned int <em>mutexAddr</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv215eu_mutex_unlockj" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv213eu_mutex_initj">
+<span id="eu_mutex_init__unsigned-i"></span><span class="target" id="myprojecteu__v3_8h_1a36cb428fbd9efc75c0eb27105eeda191"></span><em class="property">static</em> void <code class="descname">eu_mutex_init</code><span class="sig-paren">(</span>unsigned int <em>mutexAddr</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv213eu_mutex_initj" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Hardware dispatcher.</p>
+<p>Functions for managing the hardware dispatcher, which can be used to dispatch entry points to sleeping slave cores. </p>
+<dl class="function">
+<dt id="_CPPv215eu_dispatch_popv">
+<span id="eu_dispatch_pop"></span><span class="target" id="myprojecteu__v3_8h_1a9418e95e8be43af6854926513f3bd195"></span><em class="property">static</em> unsigned int <code class="descname">eu_dispatch_pop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv215eu_dispatch_popv" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv216eu_dispatch_pushj">
+<span id="eu_dispatch_push__unsigned"></span><span class="target" id="myprojecteu__v3_8h_1a6de7a2e2e0b20c2dce953876a93eb53e"></span><em class="property">static</em> unsigned int <code class="descname">eu_dispatch_push</code><span class="sig-paren">(</span>unsigned <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv216eu_dispatch_pushj" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv223eu_dispatch_team_configj">
+<span id="eu_dispatch_team_config__unsigned"></span><span class="target" id="myprojecteu__v3_8h_1adb59b9d269fb76c80208ec1f03ec076d"></span><em class="property">static</em> void <code class="descname">eu_dispatch_team_config</code><span class="sig-paren">(</span>unsigned <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv223eu_dispatch_team_configj" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Hardware loops (NOT YET AVAILABLE ON HW).</p>
+<p>Functions for managing the hardware loops, which can be used to dispatch a range of indexes to a core set. </p>
+<dl class="function">
+<dt id="_CPPv212eu_loop_addrj">
+<span id="eu_loop_addr__unsigned-i"></span><span class="target" id="myprojecteu__v3_8h_1a491437d7dbf817ef97dbcda9eb408be7"></span><em class="property">static</em> unsigned <code class="descname">eu_loop_addr</code><span class="sig-paren">(</span>unsigned int <em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv212eu_loop_addrj" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv216eu_loop_getChunkj">
+<span id="eu_loop_getChunk__unsigned-i"></span><span class="target" id="myprojecteu__v3_8h_1ac3c24b2f22c47b165e29923e6ab0f803"></span><em class="property">static</em> unsigned int <code class="descname">eu_loop_getChunk</code><span class="sig-paren">(</span>unsigned int <em>addr</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv216eu_loop_getChunkj" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv216eu_loop_getStartj">
+<span id="eu_loop_getStart__unsigned-i"></span><span class="target" id="myprojecteu__v3_8h_1a14df562faad704457a2aa49b11be1b95"></span><em class="property">static</em> unsigned int <code class="descname">eu_loop_getStart</code><span class="sig-paren">(</span>unsigned int <em>addr</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv216eu_loop_getStartj" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv216eu_loop_getStatej">
+<span id="eu_loop_getState__unsigned-i"></span><span class="target" id="myprojecteu__v3_8h_1aaadfd3733be0e406f45e44f7492ceeec"></span><em class="property">static</em> unsigned int <code class="descname">eu_loop_getState</code><span class="sig-paren">(</span>unsigned int <em>addr</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv216eu_loop_getStatej" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv216eu_loop_setStartjj">
+<span id="eu_loop_setStart__unsigned-i.unsigned-i"></span><span class="target" id="myprojecteu__v3_8h_1af5202a0cff261ba5366f1f66d948a3f3"></span><em class="property">static</em> void <code class="descname">eu_loop_setStart</code><span class="sig-paren">(</span>unsigned int <em>addr</em>, unsigned int <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv216eu_loop_setStartjj" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv214eu_loop_setEndjj">
+<span id="eu_loop_setEnd__unsigned-i.unsigned-i"></span><span class="target" id="myprojecteu__v3_8h_1ae250234b359963c4e07c92837941083d"></span><em class="property">static</em> void <code class="descname">eu_loop_setEnd</code><span class="sig-paren">(</span>unsigned int <em>addr</em>, unsigned int <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv214eu_loop_setEndjj" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv215eu_loop_setIncrjj">
+<span id="eu_loop_setIncr__unsigned-i.unsigned-i"></span><span class="target" id="myprojecteu__v3_8h_1aef39c0108a2c3934f4cd41b5171b5b4e"></span><em class="property">static</em> void <code class="descname">eu_loop_setIncr</code><span class="sig-paren">(</span>unsigned int <em>addr</em>, unsigned int <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv215eu_loop_setIncrjj" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv216eu_loop_setChunkjj">
+<span id="eu_loop_setChunk__unsigned-i.unsigned-i"></span><span class="target" id="myprojecteu__v3_8h_1ab301a503149d407c360cf4271c544e2c"></span><em class="property">static</em> void <code class="descname">eu_loop_setChunk</code><span class="sig-paren">(</span>unsigned int <em>addr</em>, unsigned int <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv216eu_loop_setChunkjj" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv217eu_loop_initEpochjj">
+<span id="eu_loop_initEpoch__unsigned-i.unsigned-i"></span><span class="target" id="myprojecteu__v3_8h_1a6bcccd0684e1f77358b87f9b66a17c6c"></span><em class="property">static</em> void <code class="descname">eu_loop_initEpoch</code><span class="sig-paren">(</span>unsigned int <em>addr</em>, unsigned int <em>coreSet</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv217eu_loop_initEpochjj" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv217eu_loop_getSinglej">
+<span id="eu_loop_getSingle__unsigned-i"></span><span class="target" id="myprojecteu__v3_8h_1ab065f3b0c92d1b9a1fea9b4116fe7fe9"></span><em class="property">static</em> unsigned int <code class="descname">eu_loop_getSingle</code><span class="sig-paren">(</span>unsigned int <em>addr</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv217eu_loop_getSinglej" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="function">
+<dt id="_CPPv221eu_evt_getClusterBasej">
+<span id="eu_evt_getClusterBase__unsigned-i"></span><span class="target" id="myprojecteu__v3_8h_1a212474fa42fae8beec864f132f1ec768"></span><em class="property">static</em> unsigned int <code class="descname">eu_evt_getClusterBase</code><span class="sig-paren">(</span>unsigned int <em>coreId</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv221eu_evt_getClusterBasej" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv212eu_core_basei">
+<span id="eu_core_base__i"></span><span class="target" id="myprojecteu__v3_8h_1af63f2dfb3f438e360b7c0f2878d30452"></span><em class="property">static</em> unsigned int <code class="descname">eu_core_base</code><span class="sig-paren">(</span>int <em>coreId</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv212eu_core_basei" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="udmaHal.html" title="previous chapter">UDMA HAL</a></li>
+      <li>Next: <a href="pulpRt.html" title="next chapter">Pulp runtime</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/evtUnit.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, ETH / Unibo.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/evtUnit.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

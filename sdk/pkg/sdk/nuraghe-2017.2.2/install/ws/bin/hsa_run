@@ -1,0 +1,45 @@
+#!/bin/bash -ex
+
+###########
+# setup
+###########
+APP=$2
+#BUILD_DIR=build/
+BUILD_DIR=$1
+
+###########
+# prepare
+###########
+# .bin
+or1kle-elf-objcopy -R .debug_frame -R .comment -R .stack -R .heapl1 -R .heapsram -R .heapscm -O binary ${BUILD_DIR}/${APP} ${APP}.bin
+
+# .slm
+or1kle-elf-objcopy --srec-len 1 --output-target=srec ${BUILD_DIR}/${APP} ${BUILD_DIR}/${APP}.s19
+$PULP_SDK_HOME/install/ws/bin/s19toslm.py ${BUILD_DIR}/${APP}.s19
+
+# .read
+or1kle-elf-objdump -DS ${BUILD_DIR}/${APP} > ${APP}.read
+
+# cleanup
+rm -f tcdm*
+rm -f l2_ram_cut1*
+rm -f l2_ram_cut2*
+rm -f l2_ram_cut3*
+rm -f l2_stim.slm
+rm -f flash_stim.slm
+
+###########
+# copy
+###########
+
+if [ -z "${SCP_TARGET_MACHINE}" ]; then
+    echo "SCP_TARGET_MACHINE must be defined"
+    exit 1
+fi
+
+if [ -z "${SCP_TARGET_PATH}" ]; then
+    echo "SCP_TARGET_PATH must be defined"
+    exit 1
+fi
+
+scp *.bin ${SCP_TARGET_MACHINE}:${SCP_TARGET_PATH}/${APP}/.

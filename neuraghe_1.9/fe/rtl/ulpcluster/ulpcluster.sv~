@@ -1,0 +1,1147 @@
+////////////////////////////////////////////////////////////////////////////////
+// Company:        Multitherman Laboratory @ DEIS - University of Bologna     //
+//                    Viale Risorgimento 2 40136                              //
+//                    Bologna - fax 0512093785 -                              //
+//                                                                            //
+// Engineer:       Davide Rossi - davide.rossi@unibo.it                       //
+//                                                                            //
+// Additional contributions by:                                               //
+//                  Igor Loi - igor.loi@unibo.it                              //
+//                                                                            //
+//                                                                            //
+// Create Date:    13/02/2013                                                 //
+// Design Name:    Mia Wallace                                                //
+// Module Name:    ulpcluster                                                 //
+// Project Name:   Mia Wallace                                                //
+// Language:       SystemVerilog                                              //
+//                                                                            //
+// Description:    ULPSoC cluster                                             //
+//                                                                            //
+//                                                                            //
+// Revision:                                                                  //
+// Revision v0.1 - File Created                                               //
+// Revision v0.2 - (14-02-2015): Support for FLexible CLuster                 //
+// Revision v0.3 - (27-03-2015): Moved LS in the SoC domain                   //
+//                                                                            //
+//                                                                            //
+//                                                                            //
+//                                                                            //
+//                                                                            //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
+
+`include "ulpsoc_defines.sv"
+
+//`define DUAL_CORE //monocore o dualcore?
+//`define ICACHE      //comment to delete icache: it need a fix to work
+
+
+module ulpcluster
+#(
+    //CLUSTER PARAMETERS
+    parameter NB_CORES              = `NB_CORES,
+    parameter NB_HWACC_PORTS        = 4,
+    parameter NB_DMAS               = `NB_DMAS,
+    parameter NB_MPERIPHS           = `NB_MPERIPHS,
+    parameter NB_TCDM_BANKS         = `NB_TCDM_BANKS,
+    parameter NB_SPERIPHS           = `NB_SPERIPHS,
+    parameter BANK_SIZE             = `BANK_SIZE,
+
+    //ICACHE PARAMETERS
+    parameter SET_ASSOCIATIVE       = 4,
+    parameter NB_CACHE_BANKS        = 4,
+    parameter CACHE_LINE            = 1,
+    parameter CACHE_SIZE            = 4096,
+    parameter ICACHE_DATA_WIDTH     = 128,
+`ifdef RISCV
+    parameter L0_BUFFER_FEATURE     = "DISABLED",
+`else
+    parameter L0_BUFFER_FEATURE     = "ENABLED",
+`endif
+    parameter MULTICAST_FEATURE     = "DISABLED",
+    parameter SHARED_ICACHE         = "ENABLED",
+    parameter DIRECT_MAPPED_FEATURE = "DISABLED",
+
+    //CORE PARAMETERS
+    parameter ROM_BOOT_ADDR         = 32'h1A000000,
+    parameter BOOT_ADDR             = 32'h1C000000,
+`ifdef RISCV
+    parameter INSTR_RDATA_WIDTH     = 128,
+`else
+    parameter INSTR_RDATA_WIDTH     = 32,
+`endif
+
+    // AXI PARAMETERS
+    parameter AXI_ADDR_WIDTH        = 32,
+    parameter AXI_DATA_WIDTH        = 64,
+    parameter AXI_USER_WIDTH        = 6,
+    parameter AXI_ID_WIDTH          = 10,
+    parameter DC_SLICE_BUFFER_WIDTH = 8,
+
+    //CLUSTER MAIN PARAMETERS
+    parameter DATA_WIDTH            = 32,
+    parameter ADDR_WIDTH            = 32,
+    parameter BE_WIDTH              = DATA_WIDTH/8,
+
+    //MCHAN PARAMETERS
+    parameter TCDM_ADD_WIDTH        = $clog2(BANK_SIZE * NB_TCDM_BANKS * 4)+1,//18, // Total bit used to address the whole TCDM ( 2^17 = 128K, TCDM SIZE = 64Kof SRAM + 8K of SCM, ADDR WIDTH = 17 bits )
+
+    //TCDM PARAMETERS
+    parameter TEST_SET_BIT          = 22, // bits used to indicate a test and set opration during a load in TCDM
+    parameter ADDR_MEM_WIDTH        = $clog2(BANK_SIZE)+1, //12, // total bits used to address a BANKin TCDM (SCM+SRAM): --> FIXME  = TCDM_ADD_WIDTH - 2
+    parameter ADDR_SRAM_WIDTH       = $clog2(BANK_SIZE), //11, // bits used to address a single bank in SRAM TCDM
+    parameter ADDR_SCM_WIDTH        = $clog2(256), //11, //8,  // bits used to address a single bank in SCM TCDM
+    parameter RM_SIZE               = 4,
+    parameter WM_SIZE               = 4,
+
+    //PERIPH PARAMETERS
+    parameter LOG_CLUSTER           = 5,  // NOT USED RIGTH NOW
+    parameter PE_ROUTING_LSB        = 10, // LSB used as routing BIT in periph interco
+    parameter PE_ROUTING_MSB        = 13,  // MSB used as routing BIT in periph interco
+    parameter NPF            = 3 // number of parallel filters 3x3
+)
+(
+
+   input logic              clk_i,
+   input logic              clk_fast_i,
+   input logic              clk_wmem_i,
+   input logic              rst_ni,
+
+   input  logic             tck_i,
+   input  logic             tms_i,
+   input  logic             trstn_i,
+   input  logic             tdi_i,
+   output logic             tdo_o,
+
+`ifdef REMAP_ADDRESS
+   input logic [3:0]        base_addr_i,
+`endif
+
+   input logic              test_mode_i,
+
+   input logic              en_sa_boot_i,
+
+   input logic [4:0]        cluster_id_i,
+
+   input logic              fetch_en_i,
+   input  logic [7:0]       ext_events_val_i,
+   output logic [7:0]       ext_events_ack_o,
+
+   output logic             eoc_o,
+
+   output logic             busy_o,
+
+   output logic [1:0]       return_o,
+
+   AXI_BUS_ASYNC.Slave      data_slave,
+`ifdef ICACHE
+   AXI_BUS_ASYNC.Master     instr_master,
+`else
+ output logic [NB_CORES-1:0] instr_req,
+ output logic [NB_CORES-1:0] [31:0] instr_addr,
+ input logic [NB_CORES-1:0] instr_gnt,
+ input logic [NB_CORES-1:0] instr_r_valid,
+ input logic [NB_CORES-1:0] [31:0] instr_r_rdata,
+`endif
+   AXI_BUS_ASYNC.Master     data_master,
+   
+   AXI_BUS_ASYNC.Master     dma2ddr_master,
+   
+   AXI_BUS_ASYNC.Master           wei_dma_master,
+
+   input  logic [10:0]      SI,
+   input  logic             SE,
+   output logic [10:0]      SO
+
+
+`ifdef TRACE_EXECUTION
+   ,
+   output logic [NB_CORES*64-1:0] instr_trace_cycles_o,
+   output logic [NB_CORES*32-1:0] instr_trace_instr_o,
+   output logic [NB_CORES*32-1:0] instr_trace_pc_o,
+   output logic [NB_CORES-1:0]    instr_trace_valid_o
+`endif
+
+);
+   localparam N_ROW = `NB_HWCE_ROW;
+   localparam N_COL = `NB_HWCE_COL;
+   
+   localparam N_BPORTS = 2**($clog2(N_ROW*2+NPF*N_COL)); // 2**($clog2(4*2+3*4))=2**($clog2(20))=2**(5)=32
+   
+
+
+    //********************************************************
+    //***************** SIGNALS DECLARATION ******************
+    //********************************************************
+    logic [NB_CORES-1:0]                fetch_enable_reg_int;
+    logic [NB_CORES-1:0]                fetch_en_int;
+    logic                               s_addr_tran_en;
+    logic                               s_rst_n;
+    logic                               s_init_n;
+    logic [RM_SIZE-1:0]                 rm;
+    logic [WM_SIZE-1:0]                 wm;
+    logic                               HS;
+    logic                               LS;
+
+
+
+    // CORES - XBAR TCDM BUS SIGNALS
+    XBAR_TCDM_BUS
+      s_core_xbar_bus[NB_CORES+NB_HWACC_PORTS-1:0]();
+
+    // CORES - DMACTRL BUS SIGNALS
+    XBAR_TCDM_BUS
+      s_core_dmactrl_bus[4-1:0]();
+
+   // CORES - Event Unit Direct BUS SIGNALS
+    XBAR_PERIPH_BUS
+      s_core_euctrl_bus[NB_CORES-1:0]();
+
+    // CORES - XBAR PERIPH BUS SIGNALS
+    XBAR_PERIPH_BUS
+      s_core_periph_bus[NB_CORES-1:0]();
+
+    // DATA SLAVE
+    AXI_BUS
+    #(
+        .AXI_ADDR_WIDTH(AXI_ADDR_WIDTH),
+        .AXI_DATA_WIDTH(AXI_DATA_WIDTH),
+        .AXI_ID_WIDTH(AXI_ID_WIDTH),
+        .AXI_USER_WIDTH(AXI_USER_WIDTH)
+    )
+    s_data_slave();
+
+    // DATA MASTER
+    AXI_BUS
+    #(
+        .AXI_ADDR_WIDTH(AXI_ADDR_WIDTH),
+        .AXI_DATA_WIDTH(AXI_DATA_WIDTH),
+        .AXI_ID_WIDTH(AXI_ID_WIDTH),
+        .AXI_USER_WIDTH(AXI_USER_WIDTH)
+    )
+    s_data_master();
+    
+    AXI_BUS
+    #(
+        .AXI_ADDR_WIDTH(AXI_ADDR_WIDTH),
+        .AXI_DATA_WIDTH(AXI_DATA_WIDTH),
+        .AXI_ID_WIDTH(AXI_ID_WIDTH),
+        .AXI_USER_WIDTH(AXI_USER_WIDTH)
+    )
+    wei_dma_cntr_master();
+    
+    // DATA MASTER
+    AXI_BUS
+    #(
+        .AXI_ADDR_WIDTH(AXI_ADDR_WIDTH),
+        .AXI_DATA_WIDTH(AXI_DATA_WIDTH),
+        .AXI_ID_WIDTH(AXI_ID_WIDTH),
+        .AXI_USER_WIDTH(AXI_USER_WIDTH)
+    )
+    s_dma2ddr_master();
+
+AXI_BUS
+    #(
+        .AXI_ADDR_WIDTH(AXI_ADDR_WIDTH),
+        .AXI_DATA_WIDTH(AXI_DATA_WIDTH),
+        .AXI_ID_WIDTH(AXI_ID_WIDTH),
+        .AXI_USER_WIDTH(AXI_USER_WIDTH)
+    )
+    s_wei_dma_master();
+
+    // CORES INSTRUCTION BUS SIGNALS
+    AXI_BUS
+    #(
+        .AXI_ADDR_WIDTH (AXI_ADDR_WIDTH ),
+        .AXI_DATA_WIDTH (AXI_DATA_WIDTH ),
+        .AXI_ID_WIDTH   (AXI_ID_WIDTH   ),
+        .AXI_USER_WIDTH (AXI_USER_WIDTH )
+    )
+    s_core_instr_bus();
+
+    // HWACC configuration port
+    XBAR_PERIPH_BUS
+      s_hwacc_cfg_bus();
+
+    logic [3:0]         hwacc_evt_interrupt; //FIXME FRANCESCO --> 4 bit or should be parametrizable
+
+    XBAR_TCDM_BUS       s_hwce_xbar_bport_bus  [N_BPORTS-1:0](); // [31:0]
+    TCDM_BANK_MEM_BUS   s_tcdm_bus_sram_bport  [NB_TCDM_BANKS-1:0](); 
+
+   //----------------------------------------------------------------------//
+   // Interfaces between ICache - L0 - Icache_Interco and Icache_ctrl_unit //
+   //                                                                      //
+   ICACHE_CTRL_UNIT_BUS  IC_ctrl_unit_bus[NB_CACHE_BANKS]();
+   L0_CTRL_UNIT_BUS      L0_ctrl_unit_bus[NB_CORES]();
+   //----------------------------------------------------------------------//
+
+  // Interfaces between TCDM_INTERCO and SCM-SRAM MEMORIES
+  TCDM_BANK_MEM_BUS                  s_tcdm_bus_sram[NB_TCDM_BANKS-1:0]();
+  TCDM_BANK_MEM_BUS                  s_tcdm_bus_scm [NB_TCDM_BANKS-1:0]();
+
+  // Interfaces for BBMUX Control unit and Clock Gating control unit
+  CLKGATE_CONFIG_BUS                 clkgate_int_bus();
+
+
+  logic [NB_CORES-1:0]               clk_core;
+  logic                              clk_tcdm_sram;
+  logic                              clk_tcdm_scm;
+  logic                              clk_int;
+  logic                              clk_hwacc;
+
+  // CLK reset, and other control signals
+
+  logic                              s_cluster_int_busy;
+
+  logic [1:0]                       return_int;
+
+  logic [7:0]                        ext_events_int;
+
+  logic [NB_CORES-1:0]               ready_to_shutdown;
+
+  // Signals Between CORE_ISLAND and INSTRUCTION CACHES
+  `ifdef ICACHE
+  logic [NB_CORES-1:0]                        instr_req;
+  logic [NB_CORES-1:0][31:0]                  instr_addr;
+  logic [NB_CORES-1:0]                        instr_gnt;
+  logic [NB_CORES-1:0]                        instr_r_valid;
+  logic [NB_CORES-1:0][INSTR_RDATA_WIDTH-1:0] instr_r_rdata;
+`endif
+
+  // Signals between CORE_ISLAND and DEBUG unit
+  logic [NB_CORES-1:0] [15:0]        dbginf_addr;
+  logic [NB_CORES-1:0] [31:0]        dbginf_datai;
+  logic [NB_CORES-1:0] [31:0]        dbginf_datao;
+  logic [NB_CORES-1:0]               dbginf_bp;
+  logic [NB_CORES-1:0]               dbginf_stall;
+  logic [NB_CORES-1:0]               dbginf_strobe;
+  logic [NB_CORES-1:0]               dbginf_we;
+  logic [NB_CORES-1:0]               dbginf_ack;
+
+
+   AXI_BUS
+   #( 
+      .AXI_ADDR_WIDTH(AXI_ADDR_WIDTH),
+      .AXI_DATA_WIDTH(AXI_DATA_WIDTH),
+      .AXI_ID_WIDTH(AXI_ID_WIDTH),
+      .AXI_USER_WIDTH(AXI_USER_WIDTH)
+   )
+   jtag_axi_bus();
+
+   CLKGATE_CONFIG_BUS               int_clkgate_ext_bus();
+
+   logic                            tcdm_sleep;
+   
+   
+   
+
+`ifndef DUAL_CORE
+      assign ready_to_shutdown[1]=0;
+      assign instr_req[1]=0;
+      assign instr_addr[1]=0;
+      
+      assign dbginf_bp[1]=0;
+      assign dbginf_ack[1]=0;
+      assign dbginf_datao[1]=0;
+      
+      assign s_core_xbar_bus[1].req=0;
+      assign s_core_xbar_bus[1].add=0;
+      assign s_core_xbar_bus[1].wen=0;
+      assign s_core_xbar_bus[1].wdata=0;
+      assign s_core_xbar_bus[1].be=0;
+  
+      assign s_core_dmactrl_bus[1].req=0;
+      assign s_core_dmactrl_bus[1].add=0;
+      assign s_core_dmactrl_bus[1].wen=0;
+      assign s_core_dmactrl_bus[1].wdata=0;
+      assign s_core_dmactrl_bus[1].be=0;
+      
+      assign s_core_euctrl_bus[1].req=0;
+      assign s_core_euctrl_bus[1].add=0;
+      assign s_core_euctrl_bus[1].wen=0;
+      assign s_core_euctrl_bus[1].wdata=0;
+      assign s_core_euctrl_bus[1].be=0;
+      assign s_core_euctrl_bus[1].id=0;
+   
+      assign s_core_periph_bus[1].req=0;
+      assign s_core_periph_bus[1].add=0;
+      assign s_core_periph_bus[1].wen=0;
+      assign s_core_periph_bus[1].wdata=0;
+      assign s_core_periph_bus[1].be=0;
+      assign s_core_periph_bus[1].id=0; 
+
+`endif
+
+
+
+
+
+   //********************************************************
+   //***************** BBMUX/CLKGATE ************************
+   //********************************************************
+
+  genvar index;
+
+  assign busy_o = s_cluster_int_busy | (| ready_to_shutdown);
+
+  assign fetch_en_int   = fetch_enable_reg_int;
+
+  assign return_o = return_int;
+
+  rstgen rstgen_i
+  (
+      // PAD FRAME SIGNALS
+      .clk_i      ( clk_i  ),
+      .rst_ni     ( rst_ni ),
+      // TEST MODE
+      .test_mode_i( test_mode_i  ),
+      // OUTPUT RESET
+      .rst_no     ( s_rst_n      ),
+      .init_no    ( s_init_n     )
+   );
+
+
+
+   clkgate_bbmux_unit
+   #(
+       .NB_CORES       ( NB_CORES         )
+   )
+   clkgate_bbmux_unit_i
+   (
+      .clk_i           ( clk_i            ),
+
+      .test_mode_i     ( test_mode_i      ),
+
+      .clkgate_int_bus ( clkgate_int_bus  ),
+
+      .tcdm_sleep      ( tcdm_sleep       ),
+
+      .clk_tcdm        ( clk_tcdm_sram    ),
+      .clk_core        ( clk_core         ),
+      .clk_int         ( clk_int          ),
+      .clk_scm         ( clk_tcdm_scm     ),
+      .clk_hwacc       ( clk_hwacc        )
+   );
+
+   //********************************************************
+   //***************** INT ISLAND ***************************
+   //********************************************************
+   logic[NB_CORES-1:0] IRQ_link;
+   logic[NB_CORES-1:0] NMIRQ_link;
+
+
+   cluster_int_region
+   #(
+       .NB_CORES          ( NB_CORES           ),
+       .NB_HWACC_PORTS    ( NB_HWACC_PORTS     ),
+       .NB_DMAS           ( NB_DMAS            ),
+       .NB_MPERIPHS       ( NB_MPERIPHS        ),
+       .NB_TCDM_BANKS     ( NB_TCDM_BANKS      ),
+       .NB_SPERIPHS       ( NB_SPERIPHS        ),
+       // AXI PARAMETERS
+       .AXI_ADDR_WIDTH    ( AXI_ADDR_WIDTH     ),
+       .AXI_DATA_WIDTH    ( AXI_DATA_WIDTH     ),
+       .AXI_ID_WIDTH      ( AXI_ID_WIDTH       ),
+       .AXI_USER_WIDTH    ( AXI_USER_WIDTH     ),
+
+       .NB_CACHE_BANKS    ( NB_CACHE_BANKS     ),
+
+       //MCHAN tcdm parameter
+       .TCDM_ADD_WIDTH    ( TCDM_ADD_WIDTH     ), // Total bit used to address the whole TCDM minus 3 bits (because uses 64bit data aka 2 tcdm ports)
+
+       //CLUSTER MAIN PARAMETERS
+       .DATA_WIDTH        ( DATA_WIDTH         ),
+       .ADDR_WIDTH        ( ADDR_WIDTH         ),
+       .BE_WIDTH          ( BE_WIDTH           ),
+
+       //TCDM PARAMETERS
+       .TEST_SET_BIT      ( TEST_SET_BIT       ), // bits used to indicate a test and set opration during a load in TCDM
+       .ADDR_MEM_WIDTH    ( ADDR_MEM_WIDTH     ), // total bits used to address a BANKin TCDM (SCM+SRAM): --> FIXME  = TCDM_ADD_WIDTH - 2
+       .ADDR_SRAM_WIDTH   ( ADDR_SRAM_WIDTH    ), // bits used to address a single bank in SRAM TCDM
+       .ADDR_SCM_WIDTH    ( ADDR_SCM_WIDTH     ), // bits used to address a single bank in SCM TCDM
+       .RM_SIZE           ( RM_SIZE            ), // bits used to regulate the TCDM SRAM READ MARGIN
+       .WM_SIZE           ( WM_SIZE            ), // bits used to regulate the TCDM SRAM WRITE MARGIN
+
+       //PERIPH PARAMETERS
+       .LOG_CLUSTER       ( LOG_CLUSTER        ), // NOT USED RIGTH NOW
+       .PE_ROUTING_LSB    ( PE_ROUTING_LSB     ), //LSB used as routing BIT in periph interco
+       .PE_ROUTING_MSB    ( PE_ROUTING_MSB     ),  //MSB used as routing BIT in periph interco,
+       .N_BPORTS          ( N_BPORTS           ) //32
+   )
+   cluster_int_region_i
+   (
+      .clk_i                (clk_int             ),
+      .clk_fast_i           ( clk_fast_i         ),
+      .rst_ni               (s_rst_n             ),
+
+      .test_mode_i          (test_mode_i         ),
+      .cluster_id_i         (cluster_id_i        ),
+
+      .en_sa_boot_i         (en_sa_boot_i        ),
+      .ready_to_shutdown_i  (ready_to_shutdown   ),
+
+      .busy_o               (s_cluster_int_busy  ),
+
+      .ext_events_i         (ext_events_int      ),
+      .fetch_en_i           (fetch_en_i          ),
+
+      .eoc_o                (eoc_o               ),
+      .return_o             (return_int          ),
+
+      .fetch_enable_reg_o   (fetch_enable_reg_int),
+      .addr_tran_en_o       (s_addr_tran_en      ),
+      .IRQ_o                (IRQ_link            ),
+      .NMIRQ_o              (NMIRQ_link          ),
+
+      .core_dmactrl_bus     (s_core_dmactrl_bus  ),
+
+      .core_xbar_slave       (s_core_xbar_bus     ),
+      .core_xbar_bport_slave (s_hwce_xbar_bport_bus ),
+
+      .core_periph_slave    (s_core_periph_bus   ),
+      .core_eu_direct_link  (s_core_euctrl_bus   ),
+
+      .hwacc_cfg_master     (s_hwacc_cfg_bus     ),
+// ################################################################ FIXME
+      //.hwacc_events_i       (hwacc_evt_interrupt ),
+      .hwacc_events_i       ('0), //workaround to disable interrupt
+
+      .data_slave           (s_data_slave        ),
+
+      .data_master          (s_data_master       ),
+      
+      .wei_dma_master       (wei_dma_cntr_master       ),
+
+      .dma2ddr_master       (s_dma2ddr_master    ),
+
+      .jtag_slave           (jtag_axi_bus        ),
+
+      // SRAM Speed Control for TCDM
+      .rm_o                 (rm                  ),
+      .wm_o                 (wm                  ),
+      .LS_o                 (LS                  ),
+      .HS_o                 (HS                  ),
+
+      .clkgate_bus          (clkgate_int_bus     ),
+
+      .tcdm_bus_scm_master  (s_tcdm_bus_scm      ),
+
+      .tcdm_bus_sram_master (s_tcdm_bus_sram     ),
+
+      .tcdm_bus_sram_master_bport (s_tcdm_bus_sram_bport     ),
+      .tcdm_enable          ( 1'b1               ),
+
+      //icache ctrl info
+      .IC_ctrl_unit_bus     ( IC_ctrl_unit_bus   ),
+      .L0_ctrl_unit_bus     ( L0_ctrl_unit_bus   )
+   );
+
+   //********************************************************
+   //***************** DBG INTERFACE ************************
+   //********************************************************
+   adv_dbg_if_wrap
+   #(
+       .NB_CORES(NB_CORES),
+       // AXI PARAMETERS
+       .AXI_ADDR_WIDTH  ( AXI_ADDR_WIDTH  ),
+       .AXI_DATA_WIDTH  ( AXI_DATA_WIDTH  ),
+       .AXI_ID_WIDTH    ( AXI_ID_WIDTH    ),
+       .AXI_USER_WIDTH  ( AXI_USER_WIDTH  )
+   )
+   adv_dbg_if_i
+   (
+      .tms_pad_i    ( tms_i          ),
+      .tck_pad_i    ( tck_i          ),
+      .trstn_pad_i  ( trstn_i        ),
+      .tdi_pad_i    ( tdi_i          ),
+      .tdo_pad_o    ( tdo_o          ),
+
+      .test_mode_i  ( test_mode_i    ),
+
+    // CPU signals
+      .cpu_addr_o   ( dbginf_addr    ),
+      .cpu_data_i   ( dbginf_datao   ),
+      .cpu_data_o   ( dbginf_datai   ),
+      .cpu_bp_i     ( dbginf_bp      ),
+      .cpu_stall_o  ( dbginf_stall   ),
+      .cpu_stb_o    ( dbginf_strobe  ),
+      .cpu_we_o     ( dbginf_we      ),
+      .cpu_ack_i    ( dbginf_ack     ),
+      .cpu_rst_o    (                ),
+
+      .axi_aclk     ( clk_i          ),
+      .axi_aresetn  ( s_rst_n        ),
+
+      .axi_master   ( jtag_axi_bus   )
+   );
+
+
+   //********************************************************
+   //***************** CORE ISLANDS *************************
+   //********************************************************
+   //------------------------------------------------------//
+   //          ██████╗ ██████╗ ██████╗ ███████╗            //
+   //         ██╔════╝██╔═══██╗██╔══██╗██╔════╝            //
+   //         ██║     ██║   ██║██████╔╝█████╗              //
+   //         ██║     ██║   ██║██╔══██╗██╔══╝              //
+   //         ╚██████╗╚██████╔╝██║  ██║███████╗            //
+   //          ╚═════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝            //
+   //------------------------------------------------------//
+`ifdef DUAL_CORE //dualcore
+  generate
+
+      for (genvar i=0; i<NB_CORES; i++)
+      begin : CORE
+
+            core_region
+            #(
+                .CORE_ID             ( i                 ),
+                .ADDR_WIDTH          ( 32                ),
+                .DATA_WIDTH          ( 32                ),
+                .INSTR_RDATA_WIDTH   ( INSTR_RDATA_WIDTH ),
+                .ROM_BOOT_ADDR       ( ROM_BOOT_ADDR     ),
+                .BOOT_ADDR           ( BOOT_ADDR         )
+            )
+            core_region_i
+            (
+                .clk_i               (  clk_core[i]          ),
+                .rst_ni              (  s_rst_n              ),
+        `ifdef REMAP_ADDRESS
+                .base_addr_i         (  base_addr_i          ),
+        `endif
+                .init_ni             (  s_init_n             ),
+                .cluster_id_i        (  cluster_id_i         ),
+                .fetch_en_i          (  fetch_en_int[i]      ),
+                .addr_tran_en_i      (  s_addr_tran_en       ),
+                .IRQ_i               (  IRQ_link[i]          ),
+                .NMIRQ_i             (  NMIRQ_link[i]        ),
+                .test_mode_i         (  test_mode_i          ),
+                .ready_to_shutdown_o ( ready_to_shutdown[i]  ),
+
+                //----- INSTRUCTION CACHE BIND --------------//
+                .instr_req_o         (  instr_req[i]         ),
+                .instr_gnt_i         (  instr_gnt[i]         ),
+                .instr_addr_o        (  instr_addr[i]        ),
+                .instr_r_rdata_i     (  instr_r_rdata[i]     ),
+                .instr_r_valid_i     (  instr_r_valid[i]     ),
+
+                //----- DEBUG UNIT I$ BIND -----------------//
+                .dbginf_stall_i      (  dbginf_stall[i]      ),
+                .dbginf_bp_o         (  dbginf_bp[i]         ),
+                .dbginf_strobe_i     (  dbginf_strobe[i]     ),
+                .dbginf_ack_o        (  dbginf_ack[i]        ),
+                .dbginf_we_i         (  dbginf_we[i]         ),
+                .dbginf_addr_i       (  dbginf_addr[i]       ),
+                .dbginf_data_i       (  dbginf_datai[i]      ),
+                .dbginf_data_o       (  dbginf_datao[i]      ),
+
+                // Interfaces to TCDM interco, DMA ctrl unit, PERIP interco
+                .tcdm_data_master   (  s_core_xbar_bus[i]    ),
+                .dma_ctrl_master    (  s_core_dmactrl_bus[i] ),
+                .eu_ctrl_master     (  s_core_euctrl_bus[i]  ),
+                .periph_data_master (  s_core_periph_bus[i]  )
+
+                // Execution traces (FPGA only)
+`ifdef TRACE_EXECUTION
+                ,
+                .instr_trace_cycles_o ( instr_trace_cycles_o[((i+1)*64)-1:i*64] ),
+                .instr_trace_instr_o  ( instr_trace_instr_o [((i+1)*32)-1:i*32] ),
+                .instr_trace_pc_o     ( instr_trace_pc_o    [((i+1)*32)-1:i*32] ),
+                .instr_trace_valid_o  ( instr_trace_valid_o [i]                 )
+`endif
+              );
+      end
+
+   endgenerate
+  
+`else  //monocore
+  
+core_region
+            #(
+                .CORE_ID             ( 0                ),
+                .ADDR_WIDTH          ( 32                ),
+                .DATA_WIDTH          ( 32                ),
+                .INSTR_RDATA_WIDTH   ( INSTR_RDATA_WIDTH ),
+                .ROM_BOOT_ADDR       ( ROM_BOOT_ADDR     ),
+                .BOOT_ADDR           ( BOOT_ADDR         )
+            )
+            core_region_i
+            (
+                .clk_i               (  clk_core[0]          ),
+                .rst_ni              (  s_rst_n              ),
+        `ifdef REMAP_ADDRESS
+                .base_addr_i         (  base_addr_i          ),
+        `endif
+                .init_ni             (  s_init_n             ),
+                .cluster_id_i        (  cluster_id_i         ),
+                .fetch_en_i          (  fetch_en_int[0]      ),
+                .addr_tran_en_i      (  s_addr_tran_en       ),
+                .IRQ_i               (  IRQ_link[0]          ),
+                .NMIRQ_i             (  NMIRQ_link[0]        ),
+                .test_mode_i         (  test_mode_i          ),
+                .ready_to_shutdown_o ( ready_to_shutdown[0]  ),
+
+                //----- INSTRUCTION CACHE BIND --------------//
+                .instr_req_o         (  instr_req[0]         ),
+                .instr_gnt_i         (  instr_gnt[0]         ),
+                .instr_addr_o        (  instr_addr[0]        ),
+                .instr_r_rdata_i     (  instr_r_rdata[0]     ),
+                .instr_r_valid_i     (  instr_r_valid[0]     ),
+
+                //----- DEBUG UNIT I$ BIND -----------------//
+                .dbginf_stall_i      (  dbginf_stall[0]      ),
+                .dbginf_bp_o         (  dbginf_bp[0]         ),
+                .dbginf_strobe_i     (  dbginf_strobe[0]     ),
+                .dbginf_ack_o        (  dbginf_ack[0]        ),
+                .dbginf_we_i         (  dbginf_we[0]         ),
+                .dbginf_addr_i       (  dbginf_addr[0]       ),
+                .dbginf_data_i       (  dbginf_datai[0]      ),
+                .dbginf_data_o       (  dbginf_datao[0]      ),
+
+                // Interfaces to TCDM interco, DMA ctrl unit, PERIP interco
+                .tcdm_data_master   (  s_core_xbar_bus[0]    ),
+                .dma_ctrl_master    (  s_core_dmactrl_bus[0] ),
+                .eu_ctrl_master     (  s_core_euctrl_bus[0]  ),
+                .periph_data_master (  s_core_periph_bus[0]  )
+
+                // Execution traces (FPGA only)
+`ifdef TRACE_EXECUTION
+                ,
+                .instr_trace_cycles_o ( instr_trace_cycles_o[((i+1)*64)-1:i*64] ),
+                .instr_trace_instr_o  ( instr_trace_instr_o [((i+1)*32)-1:i*32] ),
+                .instr_trace_pc_o     ( instr_trace_pc_o    [((i+1)*32)-1:i*32] ),
+                .instr_trace_valid_o  ( instr_trace_valid_o [0]                 )
+`endif
+              );
+        
+  
+        
+ `endif   
+  
+   
+   genvar iii;
+   
+   generate
+      for (genvar iii=NB_CORES; iii<4; iii++) begin
+        assign s_core_dmactrl_bus[iii].req   = 0;
+        assign s_core_dmactrl_bus[iii].add   = 0;
+        assign s_core_dmactrl_bus[iii].wen   = 0;
+        assign s_core_dmactrl_bus[iii].wdata = 0;
+        assign s_core_dmactrl_bus[iii].be    = 0;
+      end
+  endgenerate
+
+
+
+
+
+
+XBAR_TCDM_BUS    weights_mem_bus[4-1:0]();
+
+
+
+dmac_per_wrap
+    #(
+        .AXI_ADDR_WIDTH ( AXI_ADDR_WIDTH   ),
+        .AXI_DATA_WIDTH ( AXI_DATA_WIDTH   ),
+        .AXI_ID_WIDTH   ( AXI_ID_WIDTH     ),
+        .AXI_USER_WIDTH ( AXI_USER_WIDTH   ),
+
+        // Bits used to address the TCDM
+        .MEM_ADD_WIDTH  ( TCDM_ADD_WIDTH   ),
+        //main CLuster paramters
+        .DATA_WIDTH     ( DATA_WIDTH       ),
+        .ADDR_WIDTH     ( ADDR_WIDTH       ),
+        .BE_WIDTH       ( BE_WIDTH              ),
+        .BUFFER_WIDTH   ( DC_SLICE_BUFFER_WIDTH )
+    )
+    dmac_wei_wrap_i
+    (
+        .clk_dma_i      ( clk_wmem_i            ),
+        .clk_axi_i      ( clk_int               ),
+        .rst_ni         ( s_rst_n               ),
+              
+        .ctrl_slave     ( wei_dma_cntr_master   ),
+
+        .mem_master     ( weights_mem_bus       ),
+
+        .ext_master     ( wei_dma_master        )
+    );
+
+
+
+
+genvar m;
+  generate
+    for (m=0;m<2;m++)
+    begin
+      assign weights_mem_bus[m].gnt = 0;
+      assign weights_mem_bus[m].r_valid = 0;
+      assign weights_mem_bus[m].r_rdata = 0;
+    end
+  endgenerate
+
+
+
+
+
+
+
+
+
+  //**********************************************
+  //*************** HW ACCELERATORS **************
+  //**********************************************
+  //--------------------------------------------//
+  //     ██╗  ██╗██╗    ██╗ ██████╗███████╗     //
+  //     ██║  ██║██║    ██║██╔════╝██╔════╝     //
+  //     ███████║██║ █╗ ██║██║     █████╗       //
+  //     ██╔══██║██║███╗██║██║     ██╔══╝       //
+  //     ██║  ██║╚███╔███╔╝╚██████╗███████╗     //
+  //     ╚═╝  ╚═╝ ╚══╝╚══╝  ╚═════╝╚══════╝     //
+  //--------------------------------------------//
+   
+  hwce_wrap
+   #(
+      .N_MASTER_PORT ( NPF*N_COL+2*N_ROW    ), //20
+      .BANK_SIZE     ( BANK_SIZE            ),
+      .ID_WIDTH      ( NB_CORES+NB_MPERIPHS ),
+      .N_ROW         ( N_ROW                ),
+      .N_COL         ( N_COL                ),
+      .NPF           ( NPF           )
+   )
+   hwce_wrap_i
+   (
+      .clk_i            ( clk_hwacc                                     ),
+      .clk_fast_i       ( clk_fast_i                                    ),
+      .clk_wmem_i       ( clk_wmem_i                     ),
+      .rst_n            ( s_rst_n                                       ),
+      .test_mode        ( test_mode_i                                   ),
+      .hwacc_xbar_master( s_hwce_xbar_bport_bus [NPF*N_COL+2*N_ROW-1:0] ), //3*4+2*4=20
+      .hwacc_cfg_slave  ( s_hwacc_cfg_bus                               ),
+      .weights_mem_bus  ( weights_mem_bus [3:2]),
+      .evt_interrupt_o  ( hwacc_evt_interrupt[0]                        )
+    );
+
+  genvar ii, kk;
+  generate
+  for (ii=0; ii<4; ii++) // porte alle quali era collegato hwce nel LIC-A
+  begin
+    assign s_core_xbar_bus[NB_CORES+NB_HWACC_PORTS-1-ii].req   = 1'b0;
+    assign s_core_xbar_bus[NB_CORES+NB_HWACC_PORTS-1-ii].add   = 32'd0;
+    assign s_core_xbar_bus[NB_CORES+NB_HWACC_PORTS-1-ii].wen   = 1'b1;
+    assign s_core_xbar_bus[NB_CORES+NB_HWACC_PORTS-1-ii].be    = 4'd0;
+    assign s_core_xbar_bus[NB_CORES+NB_HWACC_PORTS-1-ii].wdata = 32'd0;
+  end
+  
+  for (kk=NPF*N_COL+2*N_ROW; kk<N_BPORTS; kk++)  // binding to ground unsed bport bus.
+  begin
+    assign s_hwce_xbar_bport_bus[kk].req   = 1'b0;
+    assign s_hwce_xbar_bport_bus[kk].add   = 32'b0;
+    assign s_hwce_xbar_bport_bus[kk].wen   = 1'b1;
+    assign s_hwce_xbar_bport_bus[kk].be    = 4'b0;
+    assign s_hwce_xbar_bport_bus[kk].wdata = 32'b0;
+  end
+  endgenerate
+  
+  //assign s_hwce_xbar_bport_bus[3].req   = '0;
+  //assign s_hwce_xbar_bport_bus[3].add   = '0;
+  //assign s_hwce_xbar_bport_bus[3].wen   = '0;
+  //assign s_hwce_xbar_bport_bus[3].be    = '0;
+  //assign s_hwce_xbar_bport_bus[3].wdata = '0;
+
+  assign hwacc_evt_interrupt[3:1] = 4'b0;
+
+//********************************************************
+//***************** ICACHE_TOP ***************************
+//********************************************************
+//------------------------------------------------------//
+//      ██╗ ██████╗ █████╗  ██████╗██╗  ██╗███████╗     //
+//      ██║██╔════╝██╔══██╗██╔════╝██║  ██║██╔════╝     //
+//      ██║██║     ███████║██║     ███████║█████╗       //
+//      ██║██║     ██╔══██║██║     ██╔══██║██╔══╝       //
+//      ██║╚██████╗██║  ██║╚██████╗██║  ██║███████╗     //
+//      ╚═╝ ╚═════╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚══════╝     //
+//------------------------------------------------------//
+`ifdef ICACHE // it need a fix
+icache_top
+#(
+    // Parameter for MULTIBANK CACHE
+    .NB_CORES              ( NB_CORES          ),  // Number of  Processor
+    .NB_REFILL_PORT        ( 1                 ),  // 1 refill port
+    .NB_CACHE_BANKS        ( NB_CACHE_BANKS    ),  // Number of  CACHE BANKS
+
+    //ICACHE CFG
+    .SET_ASSOCIATIVE       ( SET_ASSOCIATIVE   ),
+    .CACHE_LINE            ( CACHE_LINE        ),  // WORDS in each cache line allowed value are 1 - 2 - 4 - 8
+    .CACHE_SIZE            ( CACHE_SIZE        ),  // In Byte
+    .FIFO_DEPTH            ( 2                 ),  // 2--> Minimum SIZE
+
+    //ICACHE BUS PARAMETERS
+    .ICACHE_DATA_WIDTH     ( ICACHE_DATA_WIDTH ),
+    .ICACHE_ID_WIDTH       ( NB_CORES          ),
+    .ICACHE_ADDR_WIDTH     ( 32                ),
+
+    .L0_BUFFER_FEATURE     ( L0_BUFFER_FEATURE ),
+    .L0_SIZE               ( ICACHE_DATA_WIDTH ),
+
+    .INSTR_RDATA_WIDTH     ( INSTR_RDATA_WIDTH ),
+
+    .SHARED_ICACHE         ( SHARED_ICACHE     ),
+    .MULTICAST_FEATURE     ( MULTICAST_FEATURE ),
+    .MULTICAST_GRANULARITY ( 1                 ),
+    .DIRECT_MAPPED_FEATURE ( DIRECT_MAPPED_FEATURE),
+
+    //AXI PARAMETER
+    .AXI_ID                ( AXI_ID_WIDTH      ),
+    .AXI_USER              ( AXI_USER_WIDTH    ),
+    .AXI_DATA              ( AXI_DATA_WIDTH    ),
+    .AXI_ADDR              ( AXI_ADDR_WIDTH    )
+)
+icache_top_i
+(
+    // ---------------------------------------------------------------
+    // CORES I$ PLUG -----------------------------------------
+    // ---------------------------------------------------------------
+    .clk                 ( clk_int                    ),  // FIXME Add a proper clk sources
+    .rst_n               ( s_rst_n                    ),  //
+    .test_en_i           ( test_mode_i                ),
+
+    .instr_req_i         ( instr_req                  ),
+    .instr_add_i         ( instr_addr                 ),
+    .instr_gnt_o         ( instr_gnt                  ) ,
+
+    .instr_r_valid_o     ( instr_r_valid              ),
+    .instr_r_rdata_o     ( instr_r_rdata              ),
+
+
+    // ---------------------------------------------------------------
+    // Refill BUS I$ -----------------------------------------
+    // ---------------------------------------------------------------
+    .init_awid_o         ( s_core_instr_bus.aw_id     ),
+    .init_awaddr_o       ( s_core_instr_bus.aw_addr   ),
+    .init_awlen_o        ( s_core_instr_bus.aw_len    ),
+    .init_awsize_o       ( s_core_instr_bus.aw_size   ),
+    .init_awburst_o      ( s_core_instr_bus.aw_burst  ),
+    .init_awlock_o       ( s_core_instr_bus.aw_lock   ),
+    .init_awcache_o      ( s_core_instr_bus.aw_cache  ),
+    .init_awprot_o       ( s_core_instr_bus.aw_prot   ),
+    .init_awregion_o     ( s_core_instr_bus.aw_region ),
+    .init_awuser_o       ( s_core_instr_bus.aw_user   ),
+    .init_awqos_o        ( s_core_instr_bus.aw_qos    ),
+    .init_awvalid_o      ( s_core_instr_bus.aw_valid  ),
+    .init_awready_i      ( s_core_instr_bus.aw_ready  ),
+
+
+    //AXI write data bus -------------- // // --------------
+    .init_wdata_o        ( s_core_instr_bus.w_data    ),
+    .init_wstrb_o        ( s_core_instr_bus.w_strb    ),
+    .init_wlast_o        ( s_core_instr_bus.w_last    ),
+    .init_wuser_o        ( s_core_instr_bus.w_user    ),
+    .init_wvalid_o       ( s_core_instr_bus.w_valid   ),
+    .init_wready_i       ( s_core_instr_bus.w_ready   ),
+    // ---------------------------------------------------------------
+
+    //AXI BACKWARD write response bus -------------- // // --------------
+    .init_bid_i          ( s_core_instr_bus.b_id      ),
+    .init_bresp_i        ( s_core_instr_bus.b_resp    ),
+    .init_buser_i        ( s_core_instr_bus.b_user    ),
+    .init_bvalid_i       ( s_core_instr_bus.b_valid   ),
+    .init_bready_o       ( s_core_instr_bus.b_ready   ),
+    // ---------------------------------------------------------------
+
+    //AXI read address bus -------------------------------------------
+    .init_arid_o         ( s_core_instr_bus.ar_id     ),
+    .init_araddr_o       ( s_core_instr_bus.ar_addr   ),
+    .init_arlen_o        ( s_core_instr_bus.ar_len    ),
+    .init_arsize_o       ( s_core_instr_bus.ar_size   ),
+    .init_arburst_o      ( s_core_instr_bus.ar_burst  ),
+    .init_arlock_o       ( s_core_instr_bus.ar_lock   ),
+    .init_arcache_o      ( s_core_instr_bus.ar_cache  ),
+    .init_arprot_o       ( s_core_instr_bus.ar_prot   ),
+    .init_arregion_o     ( s_core_instr_bus.ar_region ),
+    .init_aruser_o       ( s_core_instr_bus.ar_user   ),
+    .init_arqos_o        ( s_core_instr_bus.ar_qos    ),
+    .init_arvalid_o      ( s_core_instr_bus.ar_valid  ),
+    .init_arready_i      ( s_core_instr_bus.ar_ready  ),
+    // ---------------------------------------------------------------
+
+
+    //AXI BACKWARD read data bus ----------------------------------------------
+    .init_rid_i          ( s_core_instr_bus.r_id      ),
+    .init_rdata_i        ( s_core_instr_bus.r_data    ),
+    .init_rresp_i        ( s_core_instr_bus.r_resp    ),
+    .init_rlast_i        ( s_core_instr_bus.r_last    ),
+    .init_ruser_i        ( s_core_instr_bus.r_user    ),
+    .init_rvalid_i       ( s_core_instr_bus.r_valid   ),
+    .init_rready_o       ( s_core_instr_bus.r_ready   ),
+
+    // Control ports
+    .IC_ctrl_unit_slave_if  ( IC_ctrl_unit_bus    ),
+    .L0_ctrl_unit_slave_if  ( L0_ctrl_unit_bus        )
+);
+`endif
+
+
+
+  ///////////////////////////////////////////////////////////////////////////////////
+  // ███████╗██████╗  █████╗ ███╗   ███╗        ██╗    ██╗██████╗  █████╗ ██████╗  //
+  // ██╔════╝██╔══██╗██╔══██╗████╗ ████║        ██║    ██║██╔══██╗██╔══██╗██╔══██╗ //
+  // ███████╗██████╔╝███████║██╔████╔██║        ██║ █╗ ██║██████╔╝███████║██████╔╝ //
+  // ╚════██║██╔══██╗██╔══██║██║╚██╔╝██║        ██║███╗██║██╔══██╗██╔══██║██╔═══╝  //
+  // ███████║██║  ██║██║  ██║██║ ╚═╝ ██║███████╗╚███╔███╔╝██║  ██║██║  ██║██║      //
+  // ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝ ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝      //
+  ///////////////////////////////////////////////////////////////////////////////////
+
+   tcdm_dp_banks_wrap
+   #(
+       .BANK_SIZE       ( `BANK_SIZE       ),
+       .BANK_TYPE       ( "XILINX_BRAM"    ),
+       .NB_BANKS        ( NB_TCDM_BANKS    ),
+       .RM_SIZE         ( RM_SIZE          ),
+       .WM_SIZE         ( WM_SIZE          )
+   )
+   tcdm_sram_island
+   (
+      .clk_a_i            ( clk_tcdm_sram     ),
+      .clk_b_i            ( clk_fast_i     ),
+      .rst_ni           ( s_rst_n           ),
+      .init_ni          ( s_init_n          ),
+      .stdby_i          ( tcdm_sleep        ),
+      .test_mode_i      ( test_mode_i       ),
+      .rm_i             ( rm                ),
+      .wm_i             ( wm                ),
+      .LS_i             ( LS                ),
+      .HS_i             ( HS                ),
+      .tcdm_slave       ( s_tcdm_bus_sram   ),
+      .tcdm_slave_b     ( s_tcdm_bus_sram_bport   )
+   );
+
+  ////////////////////////////////////////////////////////////////////////////
+  // ███████╗ ██████╗███╗   ███╗        ██╗    ██╗██████╗  █████╗ ██████╗   //
+  // ██╔════╝██╔════╝████╗ ████║        ██║    ██║██╔══██╗██╔══██╗██╔══██╗  //
+  // ███████╗██║     ██╔████╔██║        ██║ █╗ ██║██████╔╝███████║██████╔╝  //
+  // ╚════██║██║     ██║╚██╔╝██║        ██║███╗██║██╔══██╗██╔══██║██╔═══╝   //
+  // ███████║╚██████╗██║ ╚═╝ ██║███████╗╚███╔███╔╝██║  ██║██║  ██║██║       //
+  // ╚══════╝ ╚═════╝╚═╝     ╚═╝╚══════╝ ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝       //
+  ////////////////////////////////////////////////////////////////////////////
+
+   tcdm_banks_wrap
+   #(
+       .BANK_SIZE       ( 256           ),
+       .BANK_TYPE       ( "XILINX_BRAM" ),
+       .NB_BANKS        ( NB_TCDM_BANKS )
+   )
+   tcdm_scm_island
+   (
+      .clk_i       ( clk_tcdm_scm   ),
+      .rst_ni      ( s_rst_n        ),
+      .tcdm_slave  ( s_tcdm_bus_scm ),
+      .test_mode_i ( test_mode_i    )
+   );
+
+   //********************************************************
+   //**************** AXI REGISTER SLICES *******************
+   //********************************************************
+`ifdef ICACHE
+   axi_slice_dc_slave_wrap
+   #(
+       .AXI_ADDR_WIDTH  ( AXI_ADDR_WIDTH        ),
+       .AXI_DATA_WIDTH  ( AXI_DATA_WIDTH        ),
+       .AXI_USER_WIDTH  ( AXI_USER_WIDTH        ),
+       .AXI_ID_WIDTH    ( AXI_ID_WIDTH          ),
+       .BUFFER_WIDTH    ( DC_SLICE_BUFFER_WIDTH )
+   )
+   instr_master_slice_i
+   (
+      .clk_i            ( clk_i                  ),
+      .rst_ni           ( s_rst_n                ),
+      .axi_slave        ( s_core_instr_bus       ),
+      .axi_master_async ( instr_master           )
+   );
+   `endif
+
+   axi_slice_dc_slave_wrap
+   #( 
+       .AXI_ADDR_WIDTH  ( AXI_ADDR_WIDTH         ),
+       .AXI_DATA_WIDTH  ( AXI_DATA_WIDTH         ),
+       .AXI_USER_WIDTH  ( AXI_USER_WIDTH         ),
+       .AXI_ID_WIDTH    ( AXI_ID_WIDTH           ),
+       .BUFFER_WIDTH    ( DC_SLICE_BUFFER_WIDTH  )
+   )
+   data_master_slice_i
+   ( 
+      .clk_i            ( clk_i                  ),
+      .rst_ni           ( s_rst_n                ),
+      .axi_slave        ( s_data_master          ),
+      .axi_master_async ( data_master            )
+   );
+   
+   
+   axi_slice_dc_slave_wrap
+   #( 
+       .AXI_ADDR_WIDTH  ( AXI_ADDR_WIDTH         ),
+       .AXI_DATA_WIDTH  ( AXI_DATA_WIDTH         ),
+       .AXI_USER_WIDTH  ( AXI_USER_WIDTH         ),
+       .AXI_ID_WIDTH    ( AXI_ID_WIDTH           ),
+       .BUFFER_WIDTH    ( DC_SLICE_BUFFER_WIDTH  )
+   )
+   dma2ddr_master_slice_i
+   ( 
+      .clk_i            ( clk_i                  ),
+      .rst_ni           ( s_rst_n                ),
+      .axi_slave        ( s_dma2ddr_master          ),
+      .axi_master_async ( dma2ddr_master            )
+   );
+
+
+
+axi_slice_dc_slave_wrap
+   #( 
+       .AXI_ADDR_WIDTH  ( AXI_ADDR_WIDTH         ),
+       .AXI_DATA_WIDTH  ( AXI_DATA_WIDTH         ),
+       .AXI_USER_WIDTH  ( AXI_USER_WIDTH         ),
+       .AXI_ID_WIDTH    ( AXI_ID_WIDTH           ),
+       .BUFFER_WIDTH    ( DC_SLICE_BUFFER_WIDTH  )
+   )
+   wei2ddr_master_slice_i
+   ( 
+      .clk_i            ( clk_i                  ),
+      .rst_ni           ( s_rst_n                ),
+      .axi_slave        ( s_wei_dma_master          ),
+      .axi_master_async ( wei_dma_master            )
+   );
+
+
+   axi_slice_dc_master_wrap
+   #(
+       .AXI_ADDR_WIDTH  ( AXI_ADDR_WIDTH         ),
+       .AXI_DATA_WIDTH  ( AXI_DATA_WIDTH         ),
+       .AXI_USER_WIDTH  ( AXI_USER_WIDTH         ),
+       .AXI_ID_WIDTH    ( AXI_ID_WIDTH           ),
+       .BUFFER_WIDTH    ( DC_SLICE_BUFFER_WIDTH  )
+   )
+   data_slave_slice_i
+   (
+      .clk_i            ( clk_i                  ),
+      .rst_ni           ( s_rst_n                ),
+      .axi_slave_async  ( data_slave             ),
+      .axi_master       ( s_data_slave           )
+   );
+
+
+    genvar i;
+    generate
+        for(i=0;i<8;i++)
+        begin :  edge_propagator_rx_i
+            edge_propagator_rx       edge_propagator_rx_i
+            (
+                .clk_i   (clk_i                     ),
+                .rstn_i  (s_rst_n                   ),
+                .valid_i (ext_events_val_i[i]       ),
+                .ack_o   (ext_events_ack_o[i]       ),
+                .valid_o (ext_events_int[i]         )
+            );
+        end
+    endgenerate
+endmodule

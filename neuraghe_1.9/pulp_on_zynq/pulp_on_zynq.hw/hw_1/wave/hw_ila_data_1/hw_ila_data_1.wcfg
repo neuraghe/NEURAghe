@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+<wave_config>
+	<wave_state>
+	</wave_state>
+	<db_ref_list>
+		<db_ref path="/home/gderiu/pulp/nuraghe/pulp_on_zynq/pulp_on_zynq.hw/hw_1/wave/hw_ila_data_1/hw_ila_data_1.wdb" id="1" type="auto">
+			<top_modules>
+				<top_module name="top">
+				</top_module>
+			</top_modules>
+		</db_ref>
+	</db_ref_list>
+	<WVObjectSize size="35">
+	</WVObjectSize>
+	<wvobject fp_name="base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/shift_adders[0].shift_adder_i/sum[0]_959" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/shift_adders[0].shift_adder_i/sum[0]_959[16:0]</obj_property>
+		<obj_property name="ObjectShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/shift_adders[0].shift_adder_i/sum[0]_959[16:0]</obj_property>
+	</wvobject>
+	<wvobject fp_name="base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/shift_adders[0].shift_adder_i/sum[1]_958" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/shift_adders[0].shift_adder_i/sum[1]_958[24:0]</obj_property>
+		<obj_property name="ObjectShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/shift_adders[0].shift_adder_i/sum[1]_958[24:0]</obj_property>
+	</wvobject>
+	<wvobject fp_name="base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/shift_adders[0].shift_adder_i/valid_y_in_sop_pipe_reg[0]__0" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/shift_adders[0].shift_adder_i/valid_y_in_sop_pipe_reg[0]__0[3:0]</obj_property>
+		<obj_property name="ObjectShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/shift_adders[0].shift_adder_i/valid_y_in_sop_pipe_reg[0]__0[3:0]</obj_property>
+	</wvobject>
+	<wvobject fp_name="base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/SoP_row[0].SoP[0].sop_i/x_filter_pipe[0][0][2][1][0]_1001" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/SoP_row[0].SoP[0].sop_i/x_filter_pipe[0][0][2][1][0]_1001[15:0]</obj_property>
+		<obj_property name="ObjectShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/SoP_row[0].SoP[0].sop_i/x_filter_pipe[0][0][2][1][0]_1001[15:0]</obj_property>
+	</wvobject>
+	<wvobject fp_name="base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/SoP_row[0].SoP[0].sop_i/x_filter_pipe[0][1][2][0][0]_1004" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/SoP_row[0].SoP[0].sop_i/x_filter_pipe[0][1][2][0][0]_1004[15:0]</obj_property>
+		<obj_property name="ObjectShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/SoP_row[0].SoP[0].sop_i/x_filter_pipe[0][1][2][0][0]_1004[15:0]</obj_property>
+	</wvobject>
+	<wvobject fp_name="base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/SoP_row[0].SoP[0].sop_i/x_filter_pipe[0][0][2][0][0]_1002" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/SoP_row[0].SoP[0].sop_i/x_filter_pipe[0][0][2][0][0]_1002[15:0]</obj_property>
+		<obj_property name="ObjectShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/SoP_row[0].SoP[0].sop_i/x_filter_pipe[0][0][2][0][0]_1002[15:0]</obj_property>
+	</wvobject>
+	<wvobject fp_name="base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/SoP_row[0].SoP[0].sop_i/x_filter_pipe[0][1][2][1][0]_1003" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/SoP_row[0].SoP[0].sop_i/x_filter_pipe[0][1][2][1][0]_1003[15:0]</obj_property>
+		<obj_property name="ObjectShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/SoP_row[0].SoP[0].sop_i/x_filter_pipe[0][1][2][1][0]_1003[15:0]</obj_property>
+	</wvobject>
+	<wvobject fp_name="base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][13]" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][13][15:0]</obj_property>
+		<obj_property name="ObjectShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][13][15:0]</obj_property>
+	</wvobject>
+	<wvobject fp_name="base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][10]" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][10][15:0]</obj_property>
+		<obj_property name="ObjectShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][10][15:0]</obj_property>
+	</wvobject>
+	<wvobject fp_name="base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][16]" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][16][15:0]</obj_property>
+		<obj_property name="ObjectShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][16][15:0]</obj_property>
+	</wvobject>
+	<wvobject fp_name="base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][22]" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][22][15:0]</obj_property>
+		<obj_property name="ObjectShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][22][15:0]</obj_property>
+	</wvobject>
+	<wvobject fp_name="base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][9]" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][9][15:0]</obj_property>
+		<obj_property name="ObjectShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][9][15:0]</obj_property>
+	</wvobject>
+	<wvobject fp_name="base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][21]" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][21][15:0]</obj_property>
+		<obj_property name="ObjectShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][21][15:0]</obj_property>
+	</wvobject>
+	<wvobject fp_name="base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][11]" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][11][15:0]</obj_property>
+		<obj_property name="ObjectShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][11][15:0]</obj_property>
+	</wvobject>
+	<wvobject fp_name="base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][25]" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][25][15:0]</obj_property>
+		<obj_property name="ObjectShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][25][15:0]</obj_property>
+	</wvobject>
+	<wvobject fp_name="base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][4]" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][4][15:0]</obj_property>
+		<obj_property name="ObjectShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][4][15:0]</obj_property>
+	</wvobject>
+	<wvobject fp_name="base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][6]" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][6][15:0]</obj_property>
+		<obj_property name="ObjectShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][6][15:0]</obj_property>
+	</wvobject>
+	<wvobject fp_name="base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][5]" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][5][15:0]</obj_property>
+		<obj_property name="ObjectShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][5][15:0]</obj_property>
+	</wvobject>
+	<wvobject fp_name="base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][24]" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][24][15:0]</obj_property>
+		<obj_property name="ObjectShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][24][15:0]</obj_property>
+	</wvobject>
+	<wvobject fp_name="base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][17]" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][17][15:0]</obj_property>
+		<obj_property name="ObjectShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][17][15:0]</obj_property>
+	</wvobject>
+	<wvobject fp_name="base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][12]" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][12][15:0]</obj_property>
+		<obj_property name="ObjectShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][12][15:0]</obj_property>
+	</wvobject>
+	<wvobject fp_name="base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][15]" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][15][15:0]</obj_property>
+		<obj_property name="ObjectShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][15][15:0]</obj_property>
+	</wvobject>
+	<wvobject fp_name="base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][2]" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][2][15:0]</obj_property>
+		<obj_property name="ObjectShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][2][15:0]</obj_property>
+	</wvobject>
+	<wvobject fp_name="base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][23]" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][23][15:0]</obj_property>
+		<obj_property name="ObjectShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][23][15:0]</obj_property>
+	</wvobject>
+	<wvobject fp_name="base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][0]" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][0][15:0]</obj_property>
+		<obj_property name="ObjectShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][0][15:0]</obj_property>
+	</wvobject>
+	<wvobject fp_name="base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][19]" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][19][15:0]</obj_property>
+		<obj_property name="ObjectShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][19][15:0]</obj_property>
+	</wvobject>
+	<wvobject fp_name="base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][1]" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][1][15:0]</obj_property>
+		<obj_property name="ObjectShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][1][15:0]</obj_property>
+	</wvobject>
+	<wvobject fp_name="base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][7]" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][7][15:0]</obj_property>
+		<obj_property name="ObjectShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][7][15:0]</obj_property>
+	</wvobject>
+	<wvobject fp_name="base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][8]" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][8][15:0]</obj_property>
+		<obj_property name="ObjectShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][8][15:0]</obj_property>
+	</wvobject>
+	<wvobject fp_name="base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][18]" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][18][15:0]</obj_property>
+		<obj_property name="ObjectShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][18][15:0]</obj_property>
+	</wvobject>
+	<wvobject fp_name="base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][26]" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][26][15:0]</obj_property>
+		<obj_property name="ObjectShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][26][15:0]</obj_property>
+	</wvobject>
+	<wvobject fp_name="base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][20]" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][20][15:0]</obj_property>
+		<obj_property name="ObjectShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][20][15:0]</obj_property>
+	</wvobject>
+	<wvobject fp_name="base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][3]" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][3][15:0]</obj_property>
+		<obj_property name="ObjectShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][3][15:0]</obj_property>
+	</wvobject>
+	<wvobject fp_name="base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][14]" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][14][15:0]</obj_property>
+		<obj_property name="ObjectShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/weights_o[3][3][14][15:0]</obj_property>
+	</wvobject>
+	<wvobject fp_name="base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/fsm_i/fsm_state" type="array" db_ref_id="1">
+		<obj_property name="ElementShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/fsm_i/fsm_state[2:0]</obj_property>
+		<obj_property name="ObjectShortName">base_zynq_design_i/ulpsoc_0/inst/cluster_i/ulpcluster_i/hwce_wrap_i/hwce_top_i/engine_i/fsm_i/fsm_state[2:0]</obj_property>
+	</wvobject>
+</wave_config>
+

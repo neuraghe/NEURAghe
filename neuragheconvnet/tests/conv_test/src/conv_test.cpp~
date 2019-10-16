@@ -1,0 +1,618 @@
+/******************************************************************************
+ *                                                                            *
+ *                   EOLAB @ DIEE - University of Cagliari                    *
+ *                          Via Marengo, 2, 09123                             *
+ *                       Cagliari - phone 070 675 5009                        *
+ *                                                                            *
+ * Author:       Gianfranco Deriu - gian.deriu@gmail.com                      *
+ *                                                                            *
+ * Project:     NEURAGHE - Accelerator for Convolutional neural network       *
+ * File:                                                                      *
+ * Description:                                                               *
+ *                                                                            *
+ ******************************************************************************/
+#include "conv_test.h"
+
+#include "assert.h"
+
+#include <sys/time.h>
+#include <time.h>
+
+
+
+SOCMAP socs[2];
+DATA* wPointer;
+
+
+SPATCONV conv_params_hw;
+SPATCONV conv_params_sw;
+int n_weights;
+
+
+
+
+void cnnMainInit(VARNAME load_data_dir)
+{
+	unsigned int o,i,j;
+	printf("Init!\n");
+
+	printf("\nIF:%d OF:%d max_OG:%d\n\n",_IF_,_OF_,_MAX_OG_);
+	
+	VARNAME filename;
+	
+	conv_params_hw = spatconv_create();
+
+
+  // Round the number of OF to the upper N_ROW multiple
+	conv_params_hw->pout = (_OF_%_N_ROW_) ? _OF_+ _N_ROW_-_OF_%_N_ROW_: _OF_;
+	
+  // Round the number of OF to the upper N_COL multiple for FS==5 or N_COL*3 multiple for FS==3
+	if (_FS_==3)
+		conv_params_hw->pin       = (_IF_%(_N_COL_*3)) ? _IF_+ _N_COL_*3-_IF_%(_N_COL_*3): _IF_;
+	else
+		conv_params_hw->pin       = (_IF_%(_N_COL_)) ? _IF_+ _N_COL_-_IF_%(_N_COL_) : _IF_;
+
+	conv_params_hw->kern_s[0] = conv_params_hw->pout;
+	conv_params_hw->kern_s[1] = conv_params_hw->pin;
+	conv_params_hw->kern_s[2] = _FS_;
+	conv_params_hw->kern_s[3] = _FS_;
+	conv_params_hw->maxog     = _MAX_OG_;
+
+
+	conv_params_sw = spatconv_create();
+
+	conv_params_sw->pout      = _OF_;
+	conv_params_sw->pin       = _IF_;
+	conv_params_sw->kern_s[0] = _OF_;
+	conv_params_sw->kern_s[1] = _IF_;
+	conv_params_sw->kern_s[2] = _FS_;
+	conv_params_sw->kern_s[3] = _FS_;
+	conv_params_sw->maxog     = _MAX_OG_;
+
+#if _FS_ == 3
+	n_weights        = conv_params_hw->pout*conv_params_hw->pin/3*32;
+#else
+	n_weights        = conv_params_hw->pout*conv_params_hw->pin*32;
+#endif
+
+	SIZE conv_wei_dim = conv_params_sw->pout * conv_params_sw->pin * conv_params_sw->kern_s[2] * conv_params_sw->kern_s[3];
+	static DATA * conv_wei_array;
+	conv_wei_array = (DATA*) malloc (conv_wei_dim * sizeof (DATA));
+
+	SIZE conv_bias_dim = conv_params_sw->pout;
+	static DATA * conv_bias_array;
+  conv_bias_array = (DATA*) malloc (conv_bias_dim * sizeof (DATA));
+
+
+
+/*
+██╗      ██████╗  █████╗ ██████╗     ███████╗██████╗  ██████╗ ███╗   ███╗    ███████╗██╗██╗     ███████╗
+██║     ██╔═══██╗██╔══██╗██╔══██╗    ██╔════╝██╔══██╗██╔═══██╗████╗ ████║    ██╔════╝██║██║     ██╔════╝
+██║     ██║   ██║███████║██║  ██║    █████╗  ██████╔╝██║   ██║██╔████╔██║    █████╗  ██║██║     █████╗  
+██║     ██║   ██║██╔══██║██║  ██║    ██╔══╝  ██╔══██╗██║   ██║██║╚██╔╝██║    ██╔══╝  ██║██║     ██╔══╝  
+███████╗╚██████╔╝██║  ██║██████╔╝    ██║     ██║  ██║╚██████╔╝██║ ╚═╝ ██║    ██║     ██║███████╗███████╗
+╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═════╝     ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝    ╚═╝     ╚═╝╚══════╝╚══════╝
+                                                                                                        
+*/
+
+
+#ifdef READ_FILES
+  printf ("Loading weights and biases... ");
+	sprintf(filename, "%s/weights_array_file_hw.bin", load_data_dir);
+	load_fixed(filename, n_weights, wPointer);
+  
+	sprintf(filename, "%s/weights_array_file", load_data_dir);
+	load_fixed(filename,conv_wei_dim,conv_wei_array);
+
+	sprintf(filename, "%s/bias_array_file", load_data_dir);
+	load_fixed(filename,conv_bias_dim,conv_bias_array);
+
+	conv_params_hw->kernel = wPointer;
+	conv_params_sw->kernel = conv_wei_array;
+	conv_params_sw->bias   = conv_bias_array;
+
+	char *pesi  = (char*)malloc(_OF_*_IF_*27*sizeof(char));
+	//char *bias8 = (char*)malloc(_OF_*sizeof(char));
+
+	if(PRECISION8){
+	
+		for(o=0; o<_OF_; o++){
+			for(i=0; i<_IF_/3; i++){
+				for(j=0; j<27; j++){
+					pesi[j + i*27 + o*_IF_/3*27] = conv_params_sw->kernel[j + i*27 + o*_IF_/3*27];
+				}
+			}
+		}
+		conv_params_sw->kernel = (DATA*)pesi;
+	}
+  printf ("Done!\n");
+
+#else
+
+/*
+██╗    ██╗███████╗██╗ ██████╗ ██╗  ██╗████████╗███████╗
+██║    ██║██╔════╝██║██╔════╝ ██║  ██║╚══██╔══╝██╔════╝
+██║ █╗ ██║█████╗  ██║██║  ███╗███████║   ██║   ███████╗
+██║███╗██║██╔══╝  ██║██║   ██║██╔══██║   ██║   ╚════██║
+╚███╔███╔╝███████╗██║╚██████╔╝██║  ██║   ██║   ███████║
+ ╚══╝╚══╝ ╚══════╝╚═╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚══════╝
+*/
+
+//NOTE: the hw weights arrangement is vary different than the sw arrangement.
+//The code snippet below doesn't take it into account so sw and hw result could be very different
+// in hw weights and biased are in the same structure
+
+       for (i=0;i<n_weights;i++){ // HW
+          wPointer[i]=0x0;
+        }
+        
+        for (i=0;i<conv_bias_dim;i++){ // SW
+          conv_bias_array[i]=0x0;
+        }
+        
+        for (i=0;i<conv_wei_dim;i++){ // SW
+          conv_wei_array[i]=0x0;
+        }
+
+
+        // the only filter that has the same arrangement in the two cases is the first.
+        //You can put all the filters to 0 and only this to a non-zero value to perform simple tests.
+        wPointer[4]       = 0x100;
+        conv_wei_array[4] = 0x100;
+
+
+        conv_params_hw->kernel = wPointer;
+        
+        conv_params_sw->kernel = conv_wei_array;
+        conv_params_sw->bias   = conv_bias_array;
+
+
+#endif
+
+}
+
+
+
+
+/*
+##########################
+        CNN MAIN
+##########################
+*/
+
+void cnnMain(DATA* image, float* results)
+{
+	srand(time(NULL));
+        
+	SOCMAP soc = socs[0];
+	
+	int _ih_ = _IH_;
+	int _iw_ = _IW_;
+	
+	if (getenv("_IH_")){
+	  printf ("getting _IH_ from env\n");
+    _ih_=atoi(getenv("_IH_"));
+    ih_[0]=_ih_;
+  }
+  
+	if (getenv("_IW_")){
+	  printf ("getting _IW_ from env\n");
+    _iw_=atoi(getenv("_IW_"));
+    iw_[0]=_iw_;
+  }
+  
+  	
+	SIZE conv_dim = _OF_ * _ih_ * _iw_;
+	
+	unsigned int padding;
+	padding = (_ZERO_PAD_) ? _FS_/ 2 : 0;
+	
+
+	unsigned int iw = _iw_;
+      	
+	if(PRECISION8){
+		while(iw%(4))
+          	iw++;
+	}
+	else{
+		while(iw%(2))	//se conv_width == 16 basta che sia multiplo di 2
+			iw++;
+	}
+	
+	unsigned int in_s  [3];
+	
+	unsigned int out_s [3];
+	
+	in_s  [0] =conv_params_hw->pin;
+	in_s  [1] =_ih_;
+	in_s  [2] =iw;
+	
+	out_s [0] =conv_params_hw->pout;
+	out_s [1] =_ih_/_STRIDE_;
+	out_s [2] =iw/_STRIDE_;
+	
+	SIZE stride[2] = {_STRIDE_,_STRIDE_};
+	SIZE pad   [2] = {padding,padding};
+	bool activate  = false;
+
+	unsigned int in_s_sw  [3] ;
+	unsigned int out_s_sw [3] ;
+  
+  in_s_sw  [0] =_IF_;
+  in_s_sw  [1] =_ih_;
+  in_s_sw  [2] =_iw_;
+  
+  out_s_sw [0] =_OF_;
+  out_s_sw [1] =_ih_/_STRIDE_;
+  out_s_sw [2] =   _iw_/_STRIDE_;
+        
+	DATA *output = (DATA*)malloc(_OF_*_ih_*iw*sizeof(DATA_CALC));
+//	DATA *input  = (DATA*)malloc(_OF_*_ih_*iw*sizeof(DATA_CALC));
+        
+	int conv_id[2];
+	printf("Main!\n");
+	
+	
+	
+	
+/*
+   █████╗  ██████╗████████╗██╗██╗   ██╗ █████╗ ████████╗██╗ ██████╗ ███╗   ██╗███████╗
+  ██╔══██╗██╔════╝╚══██╔══╝██║██║   ██║██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║██╔════╝
+  ███████║██║        ██║   ██║██║   ██║███████║   ██║   ██║██║   ██║██╔██╗ ██║███████╗
+  ██╔══██║██║        ██║   ██║╚██╗ ██╔╝██╔══██║   ██║   ██║██║   ██║██║╚██╗██║╚════██║
+  ██║  ██║╚██████╗   ██║   ██║ ╚████╔╝ ██║  ██║   ██║   ██║╚██████╔╝██║ ╚████║███████║
+  ╚═╝  ╚═╝ ╚═════╝   ╚═╝   ╚═╝  ╚═══╝  ╚═╝  ╚═╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚══════╝                                                                                           
+ */
+
+	unsigned int i, j;
+        
+	DATA_CALC * in;
+	in = (DATA_CALC *) soc->in;
+	for (j=0;j<_IF_;j++){
+		for (i=0;i<_ih_*_iw_;i++){
+				in[i+j*_ih_*_iw_]= rand()%127;//(( i+1)*0x10)%256; // //
+		}
+	}
+
+
+
+
+	/*
+  _____                                            _             
+ |  __ \                                          (_)            
+ | |__) | __ ___ _ __  _ __ ___   ___ ___  ___ ___ _ _ __   __ _ 
+ |  ___/ '__/ _ \ '_ \| '__/ _ \ / __/ _ \/ __/ __| | '_ \ / _` |
+ | |   | | |  __/ |_) | | | (_) | (_|  __/\__ \__ \ | | | | (_| |
+ |_|   |_|  \___| .__/|_|  \___/ \___\___||___/___/_|_| |_|\__, |
+                | |                                         __/ |
+                |_|                                        |___/ 
+*/
+
+	_tcreate_(time);
+
+	DATA_CALC *input = (DATA_CALC*)malloc(_IF_*_ih_*iw*sizeof(DATA_CALC));
+
+
+	preprocessing(in, input, _iw_, iw, _ih_, _IF_);
+
+	_tprintf_("\npreprocessing time: %5.3f ms\n", (get_wall_time()-time)/1000);
+
+
+ // move the preprocessed input pixel back to the input vector
+ 
+	for (i=0;i<_IF_*_ih_*iw;i++){
+		in[i]= input[i];
+	}
+  
+  
+  
+  
+  /*
+  
+  yout 
+  
+  */
+
+// As a check put the memory locations for the yout values to an uncommon non zero value (say 0x0101)
+
+  for (i=0;i<_OF_*_ih_*iw;i++){
+    soc->out[i]=0x0101;
+  }
+
+
+
+
+
+/*
+
+██╗      █████╗ ██╗   ██╗███████╗██████╗ ███████╗    ██╗      ██████╗  ██████╗ ██████╗ 
+██║     ██╔══██╗╚██╗ ██╔╝██╔════╝██╔══██╗██╔════╝    ██║     ██╔═══██╗██╔═══██╗██╔══██╗
+██║     ███████║ ╚████╔╝ █████╗  ██████╔╝███████╗    ██║     ██║   ██║██║   ██║██████╔╝
+██║     ██╔══██║  ╚██╔╝  ██╔══╝  ██╔══██╗╚════██║    ██║     ██║   ██║██║   ██║██╔═══╝ 
+███████╗██║  ██║   ██║   ███████╗██║  ██║███████║    ███████╗╚██████╔╝╚██████╔╝██║     
+╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝╚══════╝    ╚══════╝ ╚═════╝  ╚═════╝ ╚═╝     
+                                                                                       
+*/
+
+
+  //  printf("\n size data calc :%d\n",sizeof(DATA_CALC));
+	
+	//print_data(conv_params_hw->kernel, n_weights, "w_test.txt");
+        //print_data(soc->in, _IF_ * _ih_ * _iw_, "x_test.txt");
+
+        _tprintf_("\n\nIF\tOF\tIH\tIW\tmax_OG\tt[ms]\tGOps\tGOpss\tt/7[ms]\tGOpss*7\n");
+
+
+        int mog;
+        int l;
+
+		for (l=0;l<NLAYERS;l++){
+        
+			conv_params_hw->pout= of_[l];
+			conv_params_hw->pin= if_[l];
+			conv_params_hw->kern_s[0] = of_[l];
+			conv_params_hw->kern_s[1] = if_[l];
+
+
+                  
+			in_s  [0] = conv_params_hw->pin;
+			in_s  [1] = ih_[l];
+			in_s  [2] = iw_[l];
+			out_s [0] = conv_params_hw->pout;
+			out_s [1] = ih_[l];
+			out_s [2] = iw_[l];
+			float min_t=0;
+			int maxog_min_t=0;
+
+			long long int ops  = (long long int)of_[l]*(long long int)if_[l]*(long long int)ih_[l]*(long long int)iw_[l]*(long long int)(_FS_*_FS_*2);
+			//printf("%lld\t%ld\t%ld\t%ld\t%ld\t\n", ops,of_[l],if_[l],ih_[l],iw_[l]);
+			double gops = (double)ops/1000000000;
+			double gopss;
+
+/*
+
+███╗   ███╗ █████╗ ██╗  ██╗ ██████╗  ██████╗     ██╗      ██████╗  ██████╗ ██████╗ 
+████╗ ████║██╔══██╗╚██╗██╔╝██╔═══██╗██╔════╝     ██║     ██╔═══██╗██╔═══██╗██╔══██╗
+██╔████╔██║███████║ ╚███╔╝ ██║   ██║██║  ███╗    ██║     ██║   ██║██║   ██║██████╔╝
+██║╚██╔╝██║██╔══██║ ██╔██╗ ██║   ██║██║   ██║    ██║     ██║   ██║██║   ██║██╔═══╝ 
+██║ ╚═╝ ██║██║  ██║██╔╝ ██╗╚██████╔╝╚██████╔╝    ███████╗╚██████╔╝╚██████╔╝██║     
+╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝  ╚═════╝     ╚══════╝ ╚═════╝  ╚═════╝ ╚═╝     
+                                                                                   
+*/
+
+
+			for(mog= _MAX_OG_; mog <= max_mog_[l]; mog=mog+_MAX_OG_INC_){
+
+
+         conv_params_hw->maxog     = mog;
+
+         _tcreate_(time_hw);
+
+
+
+                    /*
+                    ██╗  ██╗██╗    ██╗     ██████╗ ██████╗ ███╗   ██╗██╗   ██╗
+                    ██║  ██║██║    ██║    ██╔════╝██╔═══██╗████╗  ██║██║   ██║
+                    ███████║██║ █╗ ██║    ██║     ██║   ██║██╔██╗ ██║██║   ██║
+                    ██╔══██║██║███╗██║    ██║     ██║   ██║██║╚██╗██║╚██╗ ██╔╝
+                    ██║  ██║╚███╔███╔╝    ╚██████╗╚██████╔╝██║ ╚████║ ╚████╔╝ 
+                    ╚═╝  ╚═╝ ╚══╝╚══╝      ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝  ╚═══╝  
+                                                                              
+                    */
+
+           conv_id[0] = spatconv_forward_hw(conv_params_hw, socs[0]->in, socs[0]->out, socs[0], (SIZE*)in_s, (SIZE*)out_s, stride, pad, activate, _QF_, PRECISION8);
+           conv_id[1] = spatconv_forward_hw(conv_params_hw, socs[1]->in, socs[1]->out, socs[1], (SIZE*)in_s, (SIZE*)out_s, stride, pad, activate, _QF_, PRECISION8);
+
+           spatconv_wait(socs[0], conv_id[0]);
+           spatconv_wait(socs[1], conv_id[1]);
+   
+	          float t = get_wall_time()-time_hw;
+	          
+	          if (mog== _MAX_OG_){
+	            min_t=t;
+	            maxog_min_t=mog;
+	            }
+	          else if (t<min_t){
+	            min_t=t;
+	            maxog_min_t=mog;
+	            }
+            gopss = gops*1000*1000/min_t;
+            if (mog== max_mog_[l])
+              _tprintf_("%d\t%d\t%d\t%d\t%d\t%5.3f\t%5.3f\t%5.3f\t%5.3f\t%5.3f\n", in_s  [0], out_s [0], in_s  [1], in_s  [2], maxog_min_t, (min_t)/1000,gops, gopss,(min_t)/7000,gopss*7);
+
+                } // maxog loop
+        }// layers loop
+//#endif
+
+
+
+
+
+/*
+███████╗██╗    ██╗     ██████╗ ██████╗ ███╗   ██╗██╗   ██╗
+██╔════╝██║    ██║    ██╔════╝██╔═══██╗████╗  ██║██║   ██║
+███████╗██║ █╗ ██║    ██║     ██║   ██║██╔██╗ ██║██║   ██║
+╚════██║██║███╗██║    ██║     ██║   ██║██║╚██╗██║╚██╗ ██╔╝
+███████║╚███╔███╔╝    ╚██████╗╚██████╔╝██║ ╚████║ ╚████╔╝ 
+╚══════╝ ╚══╝╚══╝      ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝  ╚═══╝  
+                                                          
+*/
+
+  for (i=0;i<_IF_*_ih_*iw;i++){
+		if (soc->in[i]!= input[i])
+		  printf("INPUT CORRUPTED!!!!  [%d] %x %x\n", i, soc->in[i], input[i]);
+	}
+	_tprintf_("\n\nSoftware conv...\n\n");
+	spatconv_forward_sw(conv_params_sw, (short int*)input, (short int*)output, (SIZE*)in_s_sw, (SIZE*)out_s_sw, stride, pad, activate,_N_COL_, _QF_,PRECISION8);
+        
+	
+	unsigned int _OW_=   iw-(_FS_-1)*(1-_ZERO_PAD_);
+ 	unsigned int _OH_= _ih_-(_FS_-1)*(1-_ZERO_PAD_);
+
+	/*printf("\n output \n");
+	for(o=0; o<_OF_;o++){
+        for(i=0; i<_OH_; i++){
+          for(j=0; j<_OW_; j++){
+            printf("%x\t",(unsigned short int)output[o*_OH_*_OW_ + i*_OW_ + j]);
+          }
+          printf("\n");
+        }
+        printf("\n");
+      }*/
+
+	DATA_CALC* out_sw = (DATA_CALC*) output;	
+	DATA_CALC* out_hw = (DATA_CALC*) soc->out;
+
+	/*printf("\n out sw \n");
+	for(o=0; o<_OF_;o++){
+        for(i=0; i<_OH_; i++){
+          for(j=0; j<_OW_; j++){
+            printf("%x\t",(unsigned short int)out_sw[o*_OH_*_OW_ + i*_OW_ + j]);
+          }
+          printf("\n");
+        }
+        printf("\n");
+      }*/
+
+	/*printf("\n out hw \n");
+	for(o=0; o<_OF_;o++){
+        for(i=0; i<_OH_; i++){
+          for(j=0; j<_OW_; j++){
+            printf("%x\t",(unsigned short int)out_hw[o*_OH_*_OW_ + i*_OW_ + j]);
+          }
+          printf("\n");
+        }
+        printf("\n");
+      }*/
+
+
+	//DATA_CALC out_sw_post [_OF_*_OH_*_OW_];
+	DATA_CALC* out_sw_post = (DATA_CALC*)malloc(_OF_*_OH_*_OW_*sizeof(DATA_CALC));
+	//if(iw != _iw_)
+	  postprocessing(out_sw, out_sw_post, _iw_, _OW_, _OH_, _OF_);
+	
+	_tcreate_(time2);
+
+	//DATA_CALC out_hw_post [_OF_*_OH_*_OW_];
+	DATA_CALC* out_hw_post = (DATA_CALC*)malloc(_OF_*_OH_*_OW_*sizeof(DATA_CALC));
+	//if(iw != _iw_)
+	  postprocessing(out_hw, out_hw_post, _iw_, _OW_, _OH_, _OF_);
+
+	_tprintf_("\npostprocessing time: %5.3f ms\n", (get_wall_time()-time2)/1000);
+
+
+
+
+
+
+printf ("soc->in %x\n",soc->in);
+printf ("soc->out %x\n",soc->out);
+printf ("soc->ddr_addr %x\n",soc->ddr_addr);
+
+/*
+ ██████╗██╗  ██╗███████╗ ██████╗██╗  ██╗
+██╔════╝██║  ██║██╔════╝██╔════╝██║ ██╔╝
+██║     ███████║█████╗  ██║     █████╔╝ 
+██║     ██╔══██║██╔══╝  ██║     ██╔═██╗ 
+╚██████╗██║  ██║███████╗╚██████╗██║  ██╗
+ ╚═════╝╚═╝  ╚═╝╚══════╝ ╚═════╝╚═╝  ╚═╝
+                                        
+*/
+
+
+	int checksum_hw=0, checksum_sw=0;
+	int e=0;
+	#define MAXERR 10
+	#define MAXCOR 10
+        
+	DATA_CALC * sw_out;
+	DATA_CALC * hw_out;
+        
+	sw_out = (DATA_CALC *) /*output*/ out_sw_post;
+	hw_out = (DATA_CALC *) /*soc->out*/ out_hw_post;
+
+
+
+        for (i=0; i<conv_dim/(stride[0]*stride[1]);i++){
+           if (hw_out[i]!=sw_out[i]){
+             if (e< MAXERR )//|| hw_out[i] - sw_out[i]>10 || sw_out[i]-hw_out[i] >10)
+
+               printf("%05d HW: 0x%08x != SW: 0x%08x\n", i, hw_out[i] ,sw_out[i]);
+               
+             e++;
+           }
+           else if (i<MAXCOR)
+             printf("          %05d HW: 0x%08x == SW: 0x%08x\n", i, hw_out[i] ,sw_out[i]);
+          checksum_hw+=hw_out[i];
+          checksum_sw+=sw_out[i];
+        }
+
+
+        printf("\n\nIF:%d OF:%d IW:%d IH:%d max_OG:%d\n",_IF_,_OF_,_iw_, _ih_, _MAX_OG_);	
+        printf("\ntotal errors: %05d\n", e );
+        printf("checksum_sw: %d\n", checksum_sw );
+        printf("checksum_hw: %d\n", checksum_hw );
+        printf("avg_err: %f\n", (float)(checksum_sw-checksum_hw)/(float)e );
+        
+        print_data((short int*)output, conv_dim/(stride[0]*stride[1]), "socout.txt");
+        print_data(soc->out, conv_dim/(stride[0]*stride[1]), "output.txt");
+        
+        printf("Convdim: %d\n", conv_dim);
+        
+        
+//	free(output);
+//	free(input);
+	free(out_sw_post);
+	free(out_hw_post);
+
+
+	if (e==0)
+          exit(0);
+	else
+	  exit(1);        
+	
+                  
+}
+
+
+
+
+
+void preprocessing(DATA_CALC* pre, DATA_CALC* pre_out, unsigned int IW, unsigned int iw, unsigned int IH, unsigned int IF){
+  
+  unsigned int in,i,j,k;
+  
+  for(in=0; in<IF;in++){
+    for(i=0; i<IH; i++){
+          for(j=0; j<IW; j++){
+            pre_out[in*IH*iw + i*iw + j] = pre[in*IH*IW + i*IW + j];
+          }
+          for(k=0; k<iw-IW; k++)
+            pre_out[in*IH*iw + i*iw + IW + k] = 0;
+        }
+      }
+}
+
+void postprocessing(DATA_CALC* post, DATA_CALC* post_out, unsigned int IW, unsigned int OW, unsigned int OH, unsigned int OF){
+  
+  unsigned int o,i,j;
+  
+  for(o=0; o<OF;o++){
+        for(i=0; i<OH; i++){
+          for(j=0; j<(OW-(OW-IW)); j++){
+            post_out[o*OH*(OW-(OW-IW)) + i*(OW-(OW-IW)) + j] = post[o*OH*OW + i*OW + j];
+          }
+        }
+      }
+}
+
+void init_platform(char* bitstream){ // called in codes/modnet2/src/app/neuconvnet.cpp
+	init_soc(socs, &wPointer, _MAXMEM_, 0, bitstream);
+}
+void free_platform(){
+	munmap_soc(socs);
+	int i;	
+	for (i=0; i<_NCLUSTER_; i++)
+		free(socs[i]);
+}
+

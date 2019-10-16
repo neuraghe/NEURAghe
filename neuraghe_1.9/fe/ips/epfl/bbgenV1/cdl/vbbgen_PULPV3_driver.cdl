@@ -1,0 +1,472 @@
+************************************************************************
+* auCdl Netlist:
+* 
+* Library Name:  vbbgen_PULPV3_driver
+* Top Cell Name: vbbgen_PULPV3_driver
+* View Name:     schematic
+* Netlisted on:  Jun  7 18:57:49 2015
+************************************************************************
+
+.INCLUDE  $PDKITROOT/DATA/LIB/OpenAccess/cmos32lp/.il/devices.cdl
+*.BIPOLAR
+*.RESI = 2000 
+*.RESVAL
+*.CAPVAL
+*.DIOPERI
+*.DIOAREA
+*.EQUATION
+*.SCALE METER
+*.MEGA
+.PARAM
+
+
+
+************************************************************************
+* Library Name: ST_C32_addon_DP
+* Cell Name:    cmom_6U1x_2U2x_2T8x_LB_2p
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT cmom_6U1x_2U2x_2T8x_LB_2p minus plus nf_dirx=10.0 nf_diry=10.0 
++ mtlfrbot=2 mtlfrtop=5 mtlconbot=2 mtlcontop=4 spacefinger_mx=1e-07 
++ wfinger_mx=1e-07 fr_big_finger=0 m=1
+*.PININFO minus:B plus:B
+.ENDS
+
+************************************************************************
+* Library Name: C28SOI_SC_12_COREPBP16_LL
+* Cell Name:    C12T28SOI_LL_IVX8_P16
+* View Name:    cmos_sch
+************************************************************************
+
+.SUBCKT C12T28SOI_LL_IVX8_P16 A Z inh_gnd inh_gnds inh_vdd inh_vdds
+*.PININFO A:I Z:O inh_gnd:B inh_gnds:B inh_vdd:B inh_vdds:B
+MMP1 Z A inh_vdd inh_vdds lvtpfet m=1 w=538.0n l=30.0n nf=1.0 ngcon=1 p_la=16n 
++ ptwell=0 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+MMN1 Z A inh_gnd inh_gnds lvtnfet m=1 w=378.0n l=30.0n nf=1.0 ngcon=1 p_la=16n 
++ ptwell=0 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+.ENDS
+
+************************************************************************
+* Library Name: C28SOI_SC_12_COREPBP16_LL
+* Cell Name:    C12T28SOI_LL_IVX4_P16
+* View Name:    cmos_sch
+************************************************************************
+
+.SUBCKT C12T28SOI_LL_IVX4_P16 A Z inh_gnd inh_gnds inh_vdd inh_vdds
+*.PININFO A:I Z:O inh_gnd:B inh_gnds:B inh_vdd:B inh_vdds:B
+MMN1 Z A inh_gnd inh_gnds lvtnfet m=1 w=196.0n l=30.0n nf=1.0 ngcon=1 p_la=16n 
++ ptwell=0 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+MMP1 Z A inh_vdd inh_vdds lvtpfet m=1 w=286.0n l=30.0n nf=1.0 ngcon=1 p_la=16n 
++ ptwell=0 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+.ENDS
+
+************************************************************************
+* Library Name: vbbgen_PULPV3_driver
+* Cell Name:    levelShifter_wBuffers
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT levelShifter_wBuffers GND VDD VDD1V8 in in1v8
+*.PININFO GND:B VDD:B VDD1V8:B in:B in1v8:B
+MN42 in1v8 net037 GND GND eglvtnfet m=1 w=3.5u l=150n nf=1.0 ngcon=2 p_la=0 
++ ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+MN44 net035 net033 GND GND eglvtnfet m=1 w=700n l=150n nf=1.0 ngcon=2 p_la=0 
++ ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+MN45 net033 ls_out GND GND eglvtnfet m=1 w=350n l=150n nf=1.0 ngcon=2 p_la=0 
++ ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+MN43 net037 net035 GND GND eglvtnfet m=1 w=1.4u l=150n nf=1.0 ngcon=2 p_la=0 
++ ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+MNMOS_selB ls_out inB_d2 GND GND eglvtnfet m=1 w=500n l=150.00n nf=1.0 ngcon=1 
++ p_la=0 ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+MNMOS_sel inB1v8 in_d2 GND GND eglvtnfet m=1 w=500n l=150.00n nf=1.0 ngcon=1 
++ p_la=0 ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+MP39 net033 ls_out VDD1V8 GND eglvtpfet m=1 w=500n l=150n nf=4 ngcon=1 p_la=0 
++ ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+MP37 net037 net035 VDD1V8 GND eglvtpfet m=1 w=2u l=150n nf=4 ngcon=1 p_la=0 
++ ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+MP36 in1v8 net037 VDD1V8 GND eglvtpfet m=1 w=5u l=150n nf=4 ngcon=1 p_la=0 
++ ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+MP38 net035 net033 VDD1V8 GND eglvtpfet m=1 w=1u l=150n nf=4 ngcon=1 p_la=0 
++ ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+MPMOS_selB_UP selBMid inB1v8 VDD1V8 GND eglvtpfet m=1 w=500n l=150.00n nf=1.0 
++ ngcon=1 p_la=0 ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+MPMOS_selB_MID ls_out inB_d2 selBMid GND eglvtpfet m=1 w=500n l=150.00n nf=1.0 
++ ngcon=1 p_la=0 ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+MPMOS_sel_UP selMid ls_out VDD1V8 GND eglvtpfet m=1 w=500n l=150.00n nf=1.0 
++ ngcon=1 p_la=0 ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+MPMOS_sel_MID inB1v8 in_d2 selMid GND eglvtpfet m=1 w=500n l=150.00n nf=1.0 
++ ngcon=1 p_la=0 ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+XI0 net21 in_d2 GND GND VDD GND / C12T28SOI_LL_IVX8_P16
+XI173 in_d2 inB_d2 GND GND VDD GND / C12T28SOI_LL_IVX8_P16
+XI1 in net21 GND GND VDD GND / C12T28SOI_LL_IVX4_P16
+DANTdiode GND VDD tdndsx 50f perim=1.2u
+DD0 GND VDD1V8 egtdndsx 50f perim=1.2u
+.ENDS
+
+************************************************************************
+* Library Name: vbbgen_PULPV3_driver
+* Cell Name:    pwellCharger
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT pwellCharger GND VDD VDD1V8 pullLeft pullRight pwell
+*.PININFO pullLeft:I pullRight:I GND:B VDD:B VDD1V8:B pwell:B
+DANTDBOT_B Cfly_bot_2 VDD1V8 egtdpdnw 100f perim=2.2u
+DANTDBOT_A Cfly_bot VDD1V8 egtdpdnw 100f perim=2.2u
+XBCfly Cfly_bot_2 Cfly_top_2 cmom_6U1x_2U2x_2T8x_LB_2p nf_dirx=160 nf_diry=250 
++ mtlfrbot=1 mtlfrtop=5 mtlconbot=2 mtlcontop=2 spacefinger_mx=8e-08 
++ wfinger_mx=8e-08 fr_big_finger=0 m=1
+XACs Gbot Gtop cmom_6U1x_2U2x_2T8x_LB_2p nf_dirx=80 nf_diry=125 mtlfrbot=1 
++ mtlfrtop=5 mtlconbot=2 mtlcontop=2 spacefinger_mx=8e-08 wfinger_mx=8e-08 
++ fr_big_finger=0 m=1
+XBCs Gbot_2 Gtop_2 cmom_6U1x_2U2x_2T8x_LB_2p nf_dirx=80 nf_diry=125 mtlfrbot=1 
++ mtlfrtop=5 mtlconbot=2 mtlcontop=2 spacefinger_mx=8e-08 wfinger_mx=8e-08 
++ fr_big_finger=0 m=1
+XACfly Cfly_bot Cfly_top cmom_6U1x_2U2x_2T8x_LB_2p nf_dirx=160 nf_diry=250 
++ mtlfrbot=1 mtlfrtop=5 mtlconbot=2 mtlcontop=2 spacefinger_mx=8e-08 
++ wfinger_mx=8e-08 fr_big_finger=0 m=1
+XLSB GND VDD VDD1V8 pullRight net026 / levelShifter_wBuffers
+XLSA GND VDD VDD1V8 pullLeft net025 / levelShifter_wBuffers
+MBP1 GND Gbot_2 Cfly_bot_2 GND eglvtpfet m=1 w=20u l=150.00n nf=1.0 ngcon=1 
++ p_la=0 ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+MAP4 Gbot Gbot_2 GND GND eglvtpfet m=1 w=1u l=150.00n nf=1.0 ngcon=1 p_la=0 
++ ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+MBP3 Gtop_2 net026 VDD1V8 GND eglvtpfet m=1 w=20u l=150n nf=4 ngcon=1 p_la=0 
++ ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+MBP2 VDD1V8 Gtop_2 Cfly_top_2 GND eglvtpfet m=1 w=20u l=150.00n nf=1.0 ngcon=1 
++ p_la=0 ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+MAP3 Gtop net025 VDD1V8 GND eglvtpfet m=1 w=19.998u l=150n nf=4 ngcon=1 p_la=0 
++ ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+MAD Gbot GND GND GND eglvtpfet m=1 w=1u l=150.00n nf=1.0 ngcon=1 p_la=0 
++ ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+MBD Gbot_2 GND GND GND eglvtpfet m=1 w=1u l=150.00n nf=1.0 ngcon=1 p_la=0 
++ ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+MBP4 Gbot_2 Gbot GND GND eglvtpfet m=1 w=1u l=150.00n nf=1.0 ngcon=1 p_la=0 
++ ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+MAP1 GND Gbot Cfly_bot GND eglvtpfet m=1 w=20u l=150.00n nf=1.0 ngcon=1 p_la=0 
++ ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+MAP2 VDD1V8 Gtop Cfly_top GND eglvtpfet m=1 w=20u l=150.00n nf=1.0 ngcon=1 
++ p_la=0 ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+DANTDTOP_A GND Cfly_top egtdndsx 100f perim=2.2u
+DANTDTOP_B GND Cfly_top_2 egtdndsx 100f perim=2.2u
+MBN1 pwell Gbot_2 Cfly_bot_2 Gtop_2 eglvtnfet m=1 w=10u l=150.00n nf=1.0 
++ ngcon=1 p_la=0 ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+MBN3 Gtop_2 net026 GND GND eglvtnfet m=1 w=14u l=150n nf=1.0 ngcon=2 p_la=0 
++ ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+MAN2 GND Gtop Cfly_top Gtop eglvtnfet m=1 w=10u l=150.00n nf=1.0 ngcon=1 
++ p_la=0 ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+MAN1 pwell Gbot Cfly_bot Gtop eglvtnfet m=1 w=10u l=150.00n nf=1.0 ngcon=1 
++ p_la=0 ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+MAN3 Gtop net025 GND GND eglvtnfet m=1 w=14.004u l=150n nf=1 ngcon=1 p_la=0 
++ ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+MBN2 GND Gtop_2 Cfly_top_2 Gtop_2 eglvtnfet m=1 w=10u l=150.00n nf=1.0 ngcon=1 
++ p_la=0 ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+.ENDS
+
+************************************************************************
+* Library Name: vbbgen_PULPV3_driver
+* Cell Name:    pwellDischargeChargePositive
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT pwellDischargeChargePositive GND VDD VDD1V8 nEnable pullGND pullVDD 
++ pwell
+*.PININFO nEnable:I pullGND:I pullVDD:I GND:B VDD:B VDD1V8:B pwell:B
+XC1 Gbot nEnable cmom_6U1x_2U2x_2T8x_LB_2p nf_dirx=150 nf_diry=68 mtlfrbot=1 
++ mtlfrtop=5 mtlconbot=2 mtlcontop=2 spacefinger_mx=8e-08 wfinger_mx=8e-08 
++ fr_big_finger=0 m=1
+XC0 Gbot_2 Gtop_2 cmom_6U1x_2U2x_2T8x_LB_2p nf_dirx=20 nf_diry=16 mtlfrbot=1 
++ mtlfrtop=5 mtlconbot=2 mtlcontop=2 spacefinger_mx=8e-08 wfinger_mx=8e-08 
++ fr_big_finger=0 m=1
+MP36 pwell Gbot pw_ch_dch GND eglvtpfet m=4 w=7.5u l=150n nf=1 ngcon=1 p_la=0 
++ ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+MP37 pw_ch_dch pullVDD VDD GND eglvtpfet m=2 w=7.5u l=150n nf=4 ngcon=1 p_la=0 
++ ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+DANTdiode GND nEnable tdndsx 50f perim=1.2u
+MN43 pw_ch_dch pullGND GND GND eglvtnfet m=1 w=7u l=150n nf=1.0 ngcon=1 p_la=0 
++ ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+MN48 Gtop_2 nEnable GND GND nfet m=1 w=700n l=30n nf=1 ngcon=1 p_la=0 ptwell=0 
++ soa=1 swacc=1 swrg=1 swrsub=1 mismatch=1
+MP45 Gtop_2 nEnable VDD VDD1V8 pfet m=1 w=1.002u l=30n nf=6.0 ngcon=1 p_la=0 
++ ptwell=0 soa=1 swacc=1 swrg=1 swrsub=1 mismatch=1
+MP46 Gbot Gbot_2 GND VDD1V8 pfet m=1 w=100n l=150n nf=1.0 ngcon=1 p_la=0 
++ ptwell=0 soa=1 swacc=1 swrg=1 swrsub=1 mismatch=1
+MP47 Gbot GND GND VDD1V8 pfet m=1 w=100n l=150n nf=1.0 ngcon=1 p_la=0 ptwell=0 
++ soa=1 swacc=1 swrg=1 swrsub=1 mismatch=1
+MP44 Gbot_2 GND GND VDD1V8 pfet m=1 w=100n l=150n nf=1.0 ngcon=1 p_la=0 
++ ptwell=0 soa=1 swacc=1 swrg=1 swrsub=1 mismatch=1
+MP43 Gbot_2 Gbot GND VDD1V8 pfet m=1 w=100n l=150n nf=1.0 ngcon=1 p_la=0 
++ ptwell=0 soa=1 swacc=1 swrg=1 swrsub=1 mismatch=1
+.ENDS
+
+************************************************************************
+* Library Name: C28SOI_SC_12_COREPBP10_LR
+* Cell Name:    C12T28SOI_LR_NAND2AX3_P10
+* View Name:    cmos_sch
+************************************************************************
+
+.SUBCKT C12T28SOI_LR_NAND2AX3_P10 A B Z inh_gnd inh_gnds inh_vdd inh_vdds
+*.PININFO A:I B:I Z:O inh_gnd:B inh_gnds:B inh_vdd:B inh_vdds:B
+MM3 Z sn1 inh_vdd inh_vdds pfet m=1 w=286.0n l=30.0n nf=1.0 ngcon=1 p_la=10n 
++ ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+MM4 Z B inh_vdd inh_vdds pfet m=1 w=286.0n l=30.0n nf=1.0 ngcon=1 p_la=10n 
++ ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+MM0 sn1 A inh_vdd inh_vdds pfet m=1 w=286.0n l=30.0n nf=1.0 ngcon=1 p_la=10n 
++ ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+MM5 Z B pn2 inh_gnds nfet m=1 w=196.0n l=30.0n nf=1.0 ngcon=1 p_la=10n 
++ ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+MM6 pn2 sn1 inh_gnd inh_gnds nfet m=1 w=196.0n l=30.0n nf=1.0 ngcon=1 p_la=10n 
++ ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+MM1 sn1 A inh_gnd inh_gnds nfet m=1 w=196.0n l=30.0n nf=1.0 ngcon=1 p_la=10n 
++ ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+.ENDS
+
+************************************************************************
+* Library Name: C28SOI_SC_12_COREPBP10_LR
+* Cell Name:    C12T28SOI_LR_BFX4_P10
+* View Name:    cmos_sch
+************************************************************************
+
+.SUBCKT C12T28SOI_LR_BFX4_P10 A Z inh_gnd inh_gnds inh_vdd inh_vdds
+*.PININFO A:I Z:O inh_gnd:B inh_gnds:B inh_vdd:B inh_vdds:B
+MM4 net023 A inh_vdd inh_vdds pfet m=1 w=286.0n l=30.0n nf=1.0 ngcon=1 
++ p_la=10n ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+MM20 Z net023 inh_vdd inh_vdds pfet m=1 w=286.0n l=30.0n nf=1.0 ngcon=1 
++ p_la=10n ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+MM1 net023 A inh_gnd inh_gnds nfet m=1 w=196.0n l=30.0n nf=1.0 ngcon=1 
++ p_la=10n ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+MM19 Z net023 inh_gnd inh_gnds nfet m=1 w=196.0n l=30.0n nf=1.0 ngcon=1 
++ p_la=10n ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+.ENDS
+
+************************************************************************
+* Library Name: C28SOI_SC_12_COREPBP10_LR
+* Cell Name:    C12T28SOI_LR_BFX33_P10
+* View Name:    cmos_sch
+************************************************************************
+
+.SUBCKT C12T28SOI_LR_BFX33_P10 A Z inh_gnd inh_gnds inh_vdd inh_vdds
+*.PININFO A:I Z:O inh_gnd:B inh_gnds:B inh_vdd:B inh_vdds:B
+MM4 net65 A inh_vdd inh_vdds pfet m=1 w=349.0n l=30.0n nf=1.0 ngcon=1 p_la=10n 
++ ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+MM32 net65 A inh_vdd inh_vdds pfet m=1 w=349.0n l=30.0n nf=1.0 ngcon=1 
++ p_la=10n ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+MM20 Z net65 inh_vdd inh_vdds pfet m=1 w=552.0n l=30.0n nf=1.0 ngcon=1 
++ p_la=10n ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+MM30 Z net65 inh_vdd inh_vdds pfet m=1 w=552.0n l=30.0n nf=1.0 ngcon=1 
++ p_la=10n ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+MM28 Z net65 inh_vdd inh_vdds pfet m=1 w=552.0n l=30.0n nf=1.0 ngcon=1 
++ p_la=10n ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+MM26 Z net65 inh_vdd inh_vdds pfet m=1 w=552.0n l=30.0n nf=1.0 ngcon=1 
++ p_la=10n ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+MM1 net65 A inh_gnd inh_gnds nfet m=1 w=254.0n l=30.0n nf=1.0 ngcon=1 p_la=10n 
++ ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+MM31 net65 A inh_gnd inh_gnds nfet m=1 w=254.0n l=30.0n nf=1.0 ngcon=1 
++ p_la=10n ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+MM29 Z net65 inh_gnd inh_gnds nfet m=1 w=392.0n l=30.0n nf=1.0 ngcon=1 
++ p_la=10n ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+MM19 Z net65 inh_gnd inh_gnds nfet m=1 w=392.0n l=30.0n nf=1.0 ngcon=1 
++ p_la=10n ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+MM27 Z net65 inh_gnd inh_gnds nfet m=1 w=392.0n l=30.0n nf=1.0 ngcon=1 
++ p_la=10n ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+MM25 Z net65 inh_gnd inh_gnds nfet m=1 w=392.0n l=30.0n nf=1.0 ngcon=1 
++ p_la=10n ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+.ENDS
+
+************************************************************************
+* Library Name: C28SOI_SC_12_COREPBP10_LR
+* Cell Name:    C12T28SOI_LR_BFX50_P10
+* View Name:    cmos_sch
+************************************************************************
+
+.SUBCKT C12T28SOI_LR_BFX50_P10 A Z inh_gnd inh_gnds inh_vdd inh_vdds
+*.PININFO A:I Z:O inh_gnd:B inh_gnds:B inh_vdd:B inh_vdds:B
+MMP0 Z net75 inh_vdd inh_vdds pfet m=1 w=552.0n l=30.0n nf=1.0 ngcon=1 
++ p_la=10n ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+MM4 net75 A inh_vdd inh_vdds pfet m=1 w=552.0n l=30.0n nf=1.0 ngcon=1 p_la=10n 
++ ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+MM32 net75 A inh_vdd inh_vdds pfet m=1 w=552.0n l=30.0n nf=1.0 ngcon=1 
++ p_la=10n ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+MM20 Z net75 inh_vdd inh_vdds pfet m=1 w=552.0n l=30.0n nf=1.0 ngcon=1 
++ p_la=10n ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+MM30 Z net75 inh_vdd inh_vdds pfet m=1 w=552.0n l=30.0n nf=1.0 ngcon=1 
++ p_la=10n ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+MM28 Z net75 inh_vdd inh_vdds pfet m=1 w=552.0n l=30.0n nf=1.0 ngcon=1 
++ p_la=10n ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+MM26 Z net75 inh_vdd inh_vdds pfet m=1 w=552.0n l=30.0n nf=1.0 ngcon=1 
++ p_la=10n ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+MM24 Z net75 inh_vdd inh_vdds pfet m=1 w=552.0n l=30.0n nf=1.0 ngcon=1 
++ p_la=10n ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+MMN0 Z net75 inh_gnd inh_gnds nfet m=1 w=392.0n l=30.0n nf=1.0 ngcon=1 
++ p_la=10n ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+MM1 net75 A inh_gnd inh_gnds nfet m=1 w=392.0n l=30.0n nf=1.0 ngcon=1 p_la=10n 
++ ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+MM31 net75 A inh_gnd inh_gnds nfet m=1 w=392.0n l=30.0n nf=1.0 ngcon=1 
++ p_la=10n ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+MM29 Z net75 inh_gnd inh_gnds nfet m=1 w=392.0n l=30.0n nf=1.0 ngcon=1 
++ p_la=10n ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+MM19 Z net75 inh_gnd inh_gnds nfet m=1 w=392.0n l=30.0n nf=1.0 ngcon=1 
++ p_la=10n ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+MM27 Z net75 inh_gnd inh_gnds nfet m=1 w=392.0n l=30.0n nf=1.0 ngcon=1 
++ p_la=10n ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+MM23 Z net75 inh_gnd inh_gnds nfet m=1 w=392.0n l=30.0n nf=1.0 ngcon=1 
++ p_la=10n ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+MM25 Z net75 inh_gnd inh_gnds nfet m=1 w=392.0n l=30.0n nf=1.0 ngcon=1 
++ p_la=10n ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+.ENDS
+
+************************************************************************
+* Library Name: C28SOI_SC_12_COREPBP10_LR
+* Cell Name:    C12T28SOI_LR_IVX4_P10
+* View Name:    cmos_sch
+************************************************************************
+
+.SUBCKT C12T28SOI_LR_IVX4_P10 A Z inh_gnd inh_gnds inh_vdd inh_vdds
+*.PININFO A:I Z:O inh_gnd:B inh_gnds:B inh_vdd:B inh_vdds:B
+MMP1 Z A inh_vdd inh_vdds pfet m=1 w=286.0n l=30.0n nf=1.0 ngcon=1 p_la=10n 
++ ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+MMN1 Z A inh_gnd inh_gnds nfet m=1 w=196.0n l=30.0n nf=1.0 ngcon=1 p_la=10n 
++ ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+.ENDS
+
+************************************************************************
+* Library Name: C28SOI_SC_12_COREPBP10_LR
+* Cell Name:    C12T28SOI_LR_NAND2X3_P10
+* View Name:    cmos_sch
+************************************************************************
+
+.SUBCKT C12T28SOI_LR_NAND2X3_P10 A B Z inh_gnd inh_gnds inh_vdd inh_vdds
+*.PININFO A:I B:I Z:O inh_gnd:B inh_gnds:B inh_vdd:B inh_vdds:B
+MM66 Z B inh_vdd inh_vdds pfet m=1 w=286.0n l=30.0n nf=1.0 ngcon=1 p_la=10n 
++ ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+MM65 Z A inh_vdd inh_vdds pfet m=1 w=286.0n l=30.0n nf=1.0 ngcon=1 p_la=10n 
++ ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+MM67 Z B net247 inh_gnds nfet m=1 w=196.0n l=30.0n nf=1.0 ngcon=1 p_la=10n 
++ ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+MM64 net247 A inh_gnd inh_gnds nfet m=1 w=196.0n l=30.0n nf=1.0 ngcon=1 
++ p_la=10n ptwell=0 soa=1 swacc=-1 swrg=-1 swrsub=-1 mismatch=1
+.ENDS
+
+************************************************************************
+* Library Name: vbbgen_PULPV3_driver
+* Cell Name:    pwellControl
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT pwellControl GND VDD clk nEnable pullGND pullLeft pullRight pullVDD 
++ select0 select1
+*.PININFO clk:I select0:I select1:I nEnable:O pullGND:O pullLeft:O pullRight:O 
+*.PININFO pullVDD:O GND:B VDD:B
+XI2 select1 select0 int_GND GND GND VDD VDD / C12T28SOI_LR_NAND2AX3_P10
+XI1 clk chpump_enable nRight GND GND VDD VDD / C12T28SOI_LR_NAND2AX3_P10
+XI11 select0 select1 chpump_nenable GND GND VDD VDD / C12T28SOI_LR_NAND2AX3_P10
+XI0 int_VDD pullVDD_int GND GND VDD VDD / C12T28SOI_LR_BFX4_P10
+XI7 nEnable_int nEnable GND GND VDD VDD / C12T28SOI_LR_BFX33_P10
+XI5 pullVDD_int pullVDD GND GND VDD VDD / C12T28SOI_LR_BFX50_P10
+XI6 pullGND_int pullGND GND GND VDD VDD / C12T28SOI_LR_BFX50_P10
+XI9 nRight pullRight GND GND VDD VDD / C12T28SOI_LR_IVX4_P10
+XI8 nLeft pullLeft GND GND VDD VDD / C12T28SOI_LR_IVX4_P10
+XI4 select0 nEnable_int GND GND VDD VDD / C12T28SOI_LR_IVX4_P10
+XI15 int_GND pullGND_int GND GND VDD VDD / C12T28SOI_LR_IVX4_P10
+XI13 chpump_nenable chpump_enable GND GND VDD VDD / C12T28SOI_LR_IVX4_P10
+XI3 select1 select0 int_VDD GND GND VDD VDD / C12T28SOI_LR_NAND2X3_P10
+XI12 clk chpump_enable nLeft GND GND VDD VDD / C12T28SOI_LR_NAND2X3_P10
+.ENDS
+
+************************************************************************
+* Library Name: vbbgen_PULPV3_driver
+* Cell Name:    levelShifter_wBuffers1u
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT levelShifter_wBuffers1u GND VDD VDD1V8 in in1v8
+*.PININFO GND:B VDD:B VDD1V8:B in:B in1v8:B
+MN44 in1v8 net033 GND GND eglvtnfet m=1 w=700n l=150n nf=1.0 ngcon=2 p_la=0 
++ ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+MN45 net033 ls_out GND GND eglvtnfet m=1 w=350n l=150n nf=1.0 ngcon=2 p_la=0 
++ ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+MNMOS_selB ls_out inB_d2 GND GND eglvtnfet m=1 w=500n l=150.00n nf=1.0 ngcon=1 
++ p_la=0 ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+MNMOS_sel inB1v8 in_d2 GND GND eglvtnfet m=1 w=500n l=150.00n nf=1.0 ngcon=1 
++ p_la=0 ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+MP39 net033 ls_out VDD1V8 GND eglvtpfet m=1 w=500n l=150n nf=4 ngcon=1 p_la=0 
++ ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+MP38 in1v8 net033 VDD1V8 GND eglvtpfet m=1 w=1u l=150n nf=4 ngcon=1 p_la=0 
++ ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+MPMOS_selB_UP selBMid inB1v8 VDD1V8 GND eglvtpfet m=1 w=500n l=150.00n nf=1.0 
++ ngcon=1 p_la=0 ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+MPMOS_selB_MID ls_out inB_d2 selBMid GND eglvtpfet m=1 w=500n l=150.00n nf=1.0 
++ ngcon=1 p_la=0 ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+MPMOS_sel_UP selMid ls_out VDD1V8 GND eglvtpfet m=1 w=500n l=150.00n nf=1.0 
++ ngcon=1 p_la=0 ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+MPMOS_sel_MID inB1v8 in_d2 selMid GND eglvtpfet m=1 w=500n l=150.00n nf=1.0 
++ ngcon=1 p_la=0 ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+XI0 net21 in_d2 GND GND VDD GND / C12T28SOI_LL_IVX8_P16
+XI173 in_d2 inB_d2 GND GND VDD GND / C12T28SOI_LL_IVX8_P16
+XI1 in net21 GND GND VDD GND / C12T28SOI_LL_IVX4_P16
+DANTdiode GND VDD tdndsx 50f perim=1.2u
+DD0 GND VDD1V8 egtdndsx 50f perim=1.2u
+.ENDS
+
+************************************************************************
+* Library Name: vbbgen_PULPV3_driver
+* Cell Name:    nwellDischarger
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT nwellDischarger GND VDD VDD1V8 dischargeN nwell
+*.PININFO dischargeN:I GND:B VDD:B VDD1V8:B nwell:B
+MN42 nwell driver5u_out GND GND eglvtnfet m=1 w=2.5u l=150n nf=1.0 ngcon=2 
++ p_la=0 ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+XLS GND VDD VDD1V8 dischargeN driver5u_out / levelShifter_wBuffers1u
+.ENDS
+
+************************************************************************
+* Library Name: vbbgen_PULPV3_driver
+* Cell Name:    nwellCharger
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT nwellCharger GND VDD VDD1V8 chargeN nwell
+*.PININFO chargeN:I GND:B VDD:B VDD1V8:B nwell:B
+MP35<0> nwell driver_out VDD1V8 GND eglvtpfet m=1 w=2u l=150.00n nf=1.0 
++ ngcon=1 p_la=0 ptwell=0 swacc=0 swrg=0 swrsub=0 mismatch=1
+MP35<1> nwell driver_out VDD1V8 GND eglvtpfet m=1 w=2u l=150.00n nf=1.0 
++ ngcon=1 p_la=0 ptwell=0 swacc=0 swrg=0 swrsub=0 mismatch=1
+MP29 driver_out net09 VDD1V8 GND eglvtpfet m=1 w=2.001u l=150n nf=4 ngcon=1 
++ p_la=0 ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+XLS GND VDD VDD1V8 chargeN net09 / levelShifter_wBuffers1u
+MN36 driver_out net09 GND GND eglvtnfet m=1 w=1.4u l=150n nf=2.0 ngcon=1 
++ p_la=0 ptwell=0 swacc=1 swrg=1 swrsub=1 mismatch=1
+.ENDS
+
+************************************************************************
+* Library Name: vbbgen_PULPV3_driver
+* Cell Name:    nwellCombined
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT nwellCombined GND VDD VDD1V8 chargeN dischargeN nwell
+*.PININFO chargeN:I dischargeN:I GND:B VDD:B VDD1V8:B nwell:B
+XI1 GND VDD VDD1V8 dischargeN nwell / nwellDischarger
+XI0 GND VDD VDD1V8 chargeN nwell / nwellCharger
+.ENDS
+
+************************************************************************
+* Library Name: vbbgen_PULPV3_driver
+* Cell Name:    vbbgen_PULPV3_driver
+* View Name:    schematic
+************************************************************************
+
+.SUBCKT vbbgen_PULPV3_driver GND VDD VDD1V8 clk nwell pwell selN0 selN1 selP0 
++ selP1
+*.PININFO clk:I selN0:I selN1:I selP0:I selP1:I GND:B VDD:B VDD1V8:B nwell:B 
+*.PININFO pwell:B
+XI3 GND VDD VDD1V8 pullLeft pullRight pwell / pwellCharger
+XI2 GND VDD VDD1V8 nEnable pullGND pullVDD pwell / pwellDischargeChargePositive
+XI4 GND VDD clk nEnable pullGND pullLeft pullRight pullVDD selP0 selP1 / 
++ pwellControl
+XI0 GND VDD VDD1V8 selN1 selN0 nwell / nwellCombined
+.ENDS
+

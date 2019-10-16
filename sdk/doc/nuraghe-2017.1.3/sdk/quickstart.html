@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Quickstart &mdash; SDK 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="SDK 1.0 documentation" href="index.html" />
+    <link rel="next" title="Hardware architecture" href="hwArch.html" />
+    <link rel="prev" title="Dependencies" href="dependencies.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="quickstart">
+<h1>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="common-makefiles">
+<h2>Common makefiles<a class="headerlink" href="#common-makefiles" title="Permalink to this headline">¶</a></h2>
+<p>In order to ease compiling and running applications, as well as hiding future modifications in the build process, some makefiles are provided
+in the SDK and can be included from an application makefile, like in the following example:</p>
+<div class="highlight-python"><div class="highlight"><pre>PULP_APP = test
+PULP_APP_SRCS = test.c
+
+include $(PULP_SDK_HOME)/install/rules/pulp.mk
+</pre></div>
+</div>
+<p>This gives access to several make targets which are documented below.</p>
+</div>
+<div class="section" id="creating-a-simple-example">
+<h2>Creating a simple example<a class="headerlink" href="#creating-a-simple-example" title="Permalink to this headline">¶</a></h2>
+<p>A simple example can be obtained with this command:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ pulp-quickstart --path=&lt;path where to create the example&gt;
+</pre></div>
+</div>
+<p>This will basically copy an example from the SDK.</p>
+<p>You can also add the option <em>--omp</em> to obtain an OpenMP example.</p>
+</div>
+<div class="section" id="compiling-and-running">
+<h2>Compiling and running<a class="headerlink" href="#compiling-and-running" title="Permalink to this headline">¶</a></h2>
+<p>An application including the provided makefiles can be built and run with:</p>
+<div class="highlight-python"><div class="highlight"><pre>make clean all run
+</pre></div>
+</div>
+<p>This will compile and run for the default platform which is the virtual platform and the default compiler which is gcc.
+To run on a different platform and compiler, the following command can be used:</p>
+<div class="highlight-python"><div class="highlight"><pre>make clean all run platform=rtl pulpCompiler=llvm
+</pre></div>
+</div>
+</div>
+<div class="section" id="callgraph-profiling">
+<h2>Callgraph profiling<a class="headerlink" href="#callgraph-profiling" title="Permalink to this headline">¶</a></h2>
+<p>On RTL simulator and virtual platform, a PC-based callgraph can be generated with the following command:</p>
+<div class="highlight-python"><div class="highlight"><pre>make clean all run KCG=0
+</pre></div>
+</div>
+<p>This will generate the callgraph for the specified core number, 0 in this case.</p>
+<p>The callgraph can be seen with KCachegrind tool with (the actual path to the kcg file is displayed at the end of the simulation and may be different):</p>
+<div class="highlight-python"><div class="highlight"><pre>kcachegrind build/kcg.txt
+</pre></div>
+</div>
+</div>
+<div class="section" id="vcd-traces">
+<h2>VCD traces<a class="headerlink" href="#vcd-traces" title="Permalink to this headline">¶</a></h2>
+<p>On the virtual platform, detailed VCD traces of the execution can be obtained with:</p>
+<div class="highlight-python"><div class="highlight"><pre>make clean all run PLT_OPT=&quot;--vcd --gtkw&quot;
+</pre></div>
+</div>
+<p>The option --gtkw is optional and is generating a script for gtkwave. A message is dumped giving the command to execute to open the VCD traces.</p>
+</div>
+<div class="section" id="execution-traces-profiling">
+<h2>Execution traces profiling<a class="headerlink" href="#execution-traces-profiling" title="Permalink to this headline">¶</a></h2>
+<p>With OMP on the virtual platform, more information about the execution context can be obtained with:</p>
+<div class="highlight-python"><div class="highlight"><pre>make clean all run pulpRtVersion=profile0
+</pre></div>
+</div>
+<p>This activates a version of the runtime instrumented for generating context information through HW traces.</p>
+<p>They can be visualized either with Android traceview tool (only on Ubuntu) with this command:</p>
+<div class="highlight-python"><div class="highlight"><pre>traceview build/tvDump
+</pre></div>
+</div>
+<p>Or as a textual callgraph:</p>
+<div class="highlight-python"><div class="highlight"><pre>cat build/cg_cluster0_core0.txt
+</pre></div>
+</div>
+<p>The actual paths to the files might also be different and are displayed at the end of the simulation.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Quickstart</a><ul>
+<li><a class="reference internal" href="#common-makefiles">Common makefiles</a></li>
+<li><a class="reference internal" href="#creating-a-simple-example">Creating a simple example</a></li>
+<li><a class="reference internal" href="#compiling-and-running">Compiling and running</a></li>
+<li><a class="reference internal" href="#callgraph-profiling">Callgraph profiling</a></li>
+<li><a class="reference internal" href="#vcd-traces">VCD traces</a></li>
+<li><a class="reference internal" href="#execution-traces-profiling">Execution traces profiling</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="dependencies.html" title="previous chapter">Dependencies</a></li>
+      <li>Next: <a href="hwArch.html" title="next chapter">Hardware architecture</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/quickstart.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, ETH - Unibo.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/quickstart.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

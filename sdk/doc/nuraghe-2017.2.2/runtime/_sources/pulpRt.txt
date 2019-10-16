@@ -1,0 +1,8 @@
+Pulp runtime
+............
+
+.. autodoxygenfile:: rt_api_sched.h
+	:project: myproject
+
+.. autodoxygenfile:: rt_api_dma.h
+	:project: myproject

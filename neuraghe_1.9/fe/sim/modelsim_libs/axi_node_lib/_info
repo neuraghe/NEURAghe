@@ -1,0 +1,479 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim
+vapb_regs_top
+Z1 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
+Z2 !s110 1568386720
+!i10b 1
+!s100 eVQam@9d_[N>9m6UGCP9H1
+IH]O:cQEz`F6od<BW^RI:g1
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+!s105 apb_regs_top_sv_unit
+S1
+R0
+Z4 w1567774035
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/apb_regs_top.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/apb_regs_top.sv
+L0 72
+Z5 OL;L;10.4;61
+r1
+!s85 0
+31
+!s108 1568386720.505162
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/apb_regs_top.sv|
+!s90 -work|axi_node_lib|-quiet|-sv|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/apb_regs_top.sv|
+!i113 0
+Z6 o-quiet -work axi_node_lib -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z7 !s92 -quiet -work axi_node_lib -sv +incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vaxi_address_decoder_AR
+R1
+R2
+!i10b 1
+!s100 >>nok6X;^OB3KVLTEV08K1
+In]]__L9OTYQo_a`QeBA?c1
+R3
+!s105 axi_address_decoder_AR_sv_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_address_decoder_AR.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_address_decoder_AR.sv
+Z8 L0 43
+R5
+r1
+!s85 0
+31
+!s108 1568386720.141960
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_address_decoder_AR.sv|
+!s90 -work|axi_node_lib|-quiet|-sv|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_address_decoder_AR.sv|
+!i113 0
+R6
+R7
+naxi_address_decoder_@a@r
+vaxi_address_decoder_AW
+R1
+R2
+!i10b 1
+!s100 ZS1>bS7iKk:zOE`VoYPLk3
+IJ<7oN>Q30fgNHd1D3ahRn3
+R3
+!s105 axi_address_decoder_AW_sv_unit
+S1
+R0
+Z9 w1567774034
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_address_decoder_AW.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_address_decoder_AW.sv
+R8
+R5
+r1
+!s85 0
+31
+!s108 1568386720.168328
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_address_decoder_AW.sv|
+!s90 -work|axi_node_lib|-quiet|-sv|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_address_decoder_AW.sv|
+!i113 0
+R6
+R7
+naxi_address_decoder_@a@w
+vaxi_address_decoder_BR
+R1
+R2
+!i10b 1
+!s100 c:<V48h_lVl35aQSO@3QH1
+IYIVhJdBH6R8_okSicQoh42
+R3
+!s105 axi_address_decoder_BR_sv_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_address_decoder_BR.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_address_decoder_BR.sv
+Z10 L0 45
+R5
+r1
+!s85 0
+31
+!s108 1568386720.192017
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_address_decoder_BR.sv|
+!s90 -work|axi_node_lib|-quiet|-sv|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_address_decoder_BR.sv|
+!i113 0
+R6
+R7
+naxi_address_decoder_@b@r
+vaxi_address_decoder_BW
+R1
+R2
+!i10b 1
+!s100 hJe9NjC4eVB7<ndf5Go:G3
+IcWEb<;@0M2>Z5d425N34e0
+R3
+!s105 axi_address_decoder_BW_sv_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_address_decoder_BW.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_address_decoder_BW.sv
+Z11 L0 44
+R5
+r1
+!s85 0
+31
+!s108 1568386720.212936
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_address_decoder_BW.sv|
+!s90 -work|axi_node_lib|-quiet|-sv|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_address_decoder_BW.sv|
+!i113 0
+R6
+R7
+naxi_address_decoder_@b@w
+vaxi_address_decoder_DW
+R1
+R2
+!i10b 1
+!s100 L7]_BXEzDjG@V:59X<JeP3
+ImOEb_Z]zFie3I8POMMAK@1
+R3
+!s105 axi_address_decoder_DW_sv_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_address_decoder_DW.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_address_decoder_DW.sv
+L0 46
+R5
+r1
+!s85 0
+31
+!s108 1568386720.233310
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_address_decoder_DW.sv|
+!s90 -work|axi_node_lib|-quiet|-sv|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_address_decoder_DW.sv|
+!i113 0
+R6
+R7
+naxi_address_decoder_@d@w
+vaxi_AR_allocator
+R1
+R2
+!i10b 1
+!s100 LE4>[^5zXU=DliCAL77f=3
+If`?lEXC2QPea5o1K<mXoJ3
+R3
+!s105 axi_AR_allocator_sv_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_AR_allocator.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_AR_allocator.sv
+R8
+R5
+r1
+!s85 0
+31
+!s108 1568386720.253490
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_AR_allocator.sv|
+!s90 -work|axi_node_lib|-quiet|-sv|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_AR_allocator.sv|
+!i113 0
+R6
+R7
+naxi_@a@r_allocator
+vaxi_ArbitrationTree
+R1
+R2
+!i10b 1
+!s100 HaVMU7S<aaM3Wh32Q`c]j0
+I3oO_feL>eHgC;;KMMS;PZ3
+R3
+!s105 axi_ArbitrationTree_sv_unit
+S1
+R0
+R9
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_ArbitrationTree.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_ArbitrationTree.sv
+R11
+R5
+r1
+!s85 0
+31
+!s108 1568386720.358990
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_ArbitrationTree.sv|
+!s90 -work|axi_node_lib|-quiet|-sv|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_ArbitrationTree.sv|
+!i113 0
+R6
+R7
+naxi_@arbitration@tree
+vaxi_AW_allocator
+R1
+R2
+!i10b 1
+!s100 VNh0`U^7AZdA9>hDi4@@A0
+I0JFN7gfemJiC3ii0@1BPW0
+R3
+!s105 axi_AW_allocator_sv_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_AW_allocator.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_AW_allocator.sv
+R8
+R5
+r1
+!s85 0
+31
+!s108 1568386720.273779
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_AW_allocator.sv|
+!s90 -work|axi_node_lib|-quiet|-sv|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_AW_allocator.sv|
+!i113 0
+R6
+R7
+naxi_@a@w_allocator
+vaxi_BR_allocator
+R1
+R2
+!i10b 1
+!s100 jXXl0945l9a9AJmI`5[G40
+ISckQ_GKoE`e7Y<8:zWfg@3
+R3
+!s105 axi_BR_allocator_sv_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_BR_allocator.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_BR_allocator.sv
+R10
+R5
+r1
+!s85 0
+31
+!s108 1568386720.294684
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/defines.v|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_BR_allocator.sv|
+!s90 -work|axi_node_lib|-quiet|-sv|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_BR_allocator.sv|
+!i113 0
+R6
+R7
+naxi_@b@r_allocator
+vaxi_BW_allocator
+R1
+R2
+!i10b 1
+!s100 ahjMaO_LWezlC6P1jSB>o1
+IXd:=DCD_kn4FOFQB8`>hZ2
+R3
+!s105 axi_BW_allocator_sv_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_BW_allocator.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_BW_allocator.sv
+R10
+R5
+r1
+!s85 0
+31
+!s108 1568386720.316473
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/defines.v|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_BW_allocator.sv|
+!s90 -work|axi_node_lib|-quiet|-sv|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_BW_allocator.sv|
+!i113 0
+R6
+R7
+naxi_@b@w_allocator
+vaxi_DW_allocator
+R1
+R2
+!i10b 1
+!s100 3:89AScnfBdc[<:;hTYa52
+IZ2VeLk5N54j;gn;KBeBQJ1
+R3
+!s105 axi_DW_allocator_sv_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_DW_allocator.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_DW_allocator.sv
+R10
+R5
+r1
+!s85 0
+31
+!s108 1568386720.337851
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_DW_allocator.sv|
+!s90 -work|axi_node_lib|-quiet|-sv|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_DW_allocator.sv|
+!i113 0
+R6
+R7
+naxi_@d@w_allocator
+vaxi_FanInPrimitive_Req
+R1
+R2
+!i10b 1
+!s100 dZoX2zJ^fj[jUXMk`RI5f3
+I^_X[PZ?kSH_5cG<]JU<;83
+R3
+!s105 axi_FanInPrimitive_Req_sv_unit
+S1
+R0
+R9
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_FanInPrimitive_Req.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_FanInPrimitive_Req.sv
+R8
+R5
+r1
+!s85 0
+31
+!s108 1568386720.380183
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_FanInPrimitive_Req.sv|
+!s90 -work|axi_node_lib|-quiet|-sv|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_FanInPrimitive_Req.sv|
+!i113 0
+R6
+R7
+naxi_@fan@in@primitive_@req
+vaxi_multiplexer
+R1
+R2
+!i10b 1
+!s100 Bo^oUZ4zmWoAfoLoXG4fk3
+IEhXBE^>8@CVFEC?>k5ehz1
+R3
+!s105 axi_multiplexer_sv_unit
+S1
+R0
+R9
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_multiplexer.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_multiplexer.sv
+R8
+R5
+r1
+!s85 0
+31
+!s108 1568386720.400499
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_multiplexer.sv|
+!s90 -work|axi_node_lib|-quiet|-sv|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_multiplexer.sv|
+!i113 0
+R6
+R7
+vaxi_node
+R1
+R2
+!i10b 1
+!s100 m4h5JgR94YJYeFMYZd@N_3
+Iifz@2X9P;oleLi]5@HXeB2
+R3
+!s105 axi_node_sv_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_node.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_node.sv
+R11
+R5
+r1
+!s85 0
+31
+!s108 1568386720.482377
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/defines.v|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_node.sv|
+!s90 -work|axi_node_lib|-quiet|-sv|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_node.sv|
+!i113 0
+R6
+R7
+vaxi_regs_top
+R1
+R2
+!i10b 1
+!s100 @TegRlH6n9Z76Z_bfbhm20
+I?kW[2GATHf`N:n2DFED^@3
+R3
+!s105 axi_regs_top_sv_unit
+S1
+R0
+R9
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_regs_top.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_regs_top.sv
+L0 93
+R5
+r1
+!s85 0
+31
+!s108 1568386720.525453
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_regs_top.sv|
+!s90 -work|axi_node_lib|-quiet|-sv|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_regs_top.sv|
+!i113 0
+R6
+R7
+vaxi_request_block
+R1
+R2
+!i10b 1
+!s100 <Kll:z=jh^LY=D[`NS5;92
+Ib8ol7J^c7i=>I54;8OD`N2
+R3
+!s105 axi_request_block_sv_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_request_block.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_request_block.sv
+R8
+R5
+r1
+!s85 0
+31
+!s108 1568386720.420554
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_request_block.sv|
+!s90 -work|axi_node_lib|-quiet|-sv|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_request_block.sv|
+!i113 0
+R6
+R7
+vaxi_response_block
+R1
+R2
+!i10b 1
+!s100 ChE>iz_f_ID:5X7JWg2^N1
+I`SQ;FZ7<zI5F0D`@PX?MG0
+R3
+!s105 axi_response_block_sv_unit
+S1
+R0
+R9
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_response_block.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_response_block.sv
+R8
+R5
+r1
+!s85 0
+31
+!s108 1568386720.441779
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_response_block.sv|
+!s90 -work|axi_node_lib|-quiet|-sv|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_response_block.sv|
+!i113 0
+R6
+R7
+vaxi_RR_Flag_Req
+R1
+R2
+!i10b 1
+!s100 aRni?iTljf<AKWAb;mAiL0
+IP_672F5X0EF[mE3JPE`l=1
+R3
+!s105 axi_RR_Flag_Req_sv_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_RR_Flag_Req.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_RR_Flag_Req.sv
+R11
+R5
+r1
+!s85 0
+31
+!s108 1568386720.462624
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_RR_Flag_Req.sv|
+!s90 -work|axi_node_lib|-quiet|-sv|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_node/axi_RR_Flag_Req.sv|
+!i113 0
+R6
+R7
+naxi_@r@r_@flag_@req

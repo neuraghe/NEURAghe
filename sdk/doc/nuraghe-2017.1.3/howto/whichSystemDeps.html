@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>What must be configured before using or compiling the SDK &mdash; howto 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="howto 1 documentation" href="index.html" />
+    <link rel="next" title="How to use platform traces" href="howtoUseAssemblyTraces.html" />
+    <link rel="prev" title="SDK howto" href="index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="what-must-be-configured-before-using-or-compiling-the-sdk">
+<span id="beforeusingsdk"></span><h1>What must be configured before using or compiling the SDK<a class="headerlink" href="#what-must-be-configured-before-using-or-compiling-the-sdk" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="artifactory-access">
+<h2>Artifactory access<a class="headerlink" href="#artifactory-access" title="Permalink to this headline">¶</a></h2>
+<p>Toolchains and SDK releases are deployed on the artifactory server in order to quickly get prebuilt versions without having to recompile them.</p>
+<p>Before accessing the server, the user and password must be properly configured with the following environment variable:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ export PULP_ARTIFACTORY_SERVER=pulp:&lt;password&gt;
+</pre></div>
+</div>
+<p>The password can be retrieved from the pulp_pipeline top module sources (at <a class="reference external" href="mailto:git&#37;&#52;&#48;iis-git&#46;ee&#46;ethz&#46;ch">git<span>&#64;</span>iis-git<span>&#46;</span>ee<span>&#46;</span>ethz<span>&#46;</span>ch</a>:pulp-sw/pulp_pipeline.git):</p>
+<div class="highlight-python"><div class="highlight"><pre>$ cat bin/ci.py | grep &quot;pulp:&quot;
+</pre></div>
+</div>
+<p>When the SDK is retrieved through the downloader, it is downloading using wget without any user / password setting, thus the best way is to add a file .wgetrc in your home folder containing the following:</p>
+<div class="highlight-python"><div class="highlight"><pre>user=pulp
+password=&lt;password as above&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="linux-distribution">
+<h2>Linux distribution<a class="headerlink" href="#linux-distribution" title="Permalink to this headline">¶</a></h2>
+<p>The SDK should work on Ubuntu 14 or 15, Centos 6 or 7 and Linux Mint.</p>
+<p>The binary packages retrieved from the artifactory server are compiled for a specific Linux distribution and so you must get the appropriate one.
+The packages are currently compiled for Ubuntu 14 and Centos 6 and as they are compatible all the Linux and Mint distributions are mapped to Ubuntu 14 and all Centos distributions are mapped to CentOS 6.</p>
+<p>This will differ in the future as for example some Ubuntu versions won&#8217;t be compatible together. When this happens, there will be an automatic mapping to the right distribution that should work most of the time. In case it does not work and you want to force the version of the packages, you can define the following environment variable:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ export PULP_DISTRIB=&lt;package distrib&gt;
+</pre></div>
+</div>
+<p>The possible values are curently Ubuntu_14 or CentOS_6.</p>
+</div>
+<div class="section" id="system-packages">
+<h2>System packages<a class="headerlink" href="#system-packages" title="Permalink to this headline">¶</a></h2>
+<p>Here are the list of packages that you have to install starting from a fresh Ubuntu 15.10 distribution:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ sudo apt-get install git g++ python3-setuptools swig3.0 python3-dev libjpeg-dev libz-dev cmake lib32z1 lib32ncurses5 ant openjdk-7-jdk
+$ sudo easy_install3 artifactory jenkinsapi sqlalchemy prettytable
+</pre></div>
+</div>
+<p>The following packages are also needed to fully compile the SDK:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ sudo apt-get install python-sphinx man-db pexpect texlive-latex-base texlive-latex-extra doxygen
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">What must be configured before using or compiling the SDK</a><ul>
+<li><a class="reference internal" href="#artifactory-access">Artifactory access</a></li>
+<li><a class="reference internal" href="#linux-distribution">Linux distribution</a></li>
+<li><a class="reference internal" href="#system-packages">System packages</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">SDK howto</a></li>
+      <li>Next: <a href="howtoUseAssemblyTraces.html" title="next chapter">How to use platform traces</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/whichSystemDeps.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Germain Haugou.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/whichSystemDeps.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

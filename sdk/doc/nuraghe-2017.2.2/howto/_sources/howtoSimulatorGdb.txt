@@ -1,0 +1,59 @@
+How to use GDB with virtual platform
+-----------------------------------
+
+The virtual platform can open a debug bridge so that GDB can connect on it.
+
+Usage
+.....
+
+The virtual platform must be launched with the following option: ::
+
+  make run PLT_OPT=--debug
+
+This should dump something like this: ::
+
+  Debug bridge listening on port 1234
+
+Then the platform is stopped (all core are in debug mode), waiting for gdb to connect.
+
+In another terminal, gdb must be launched with: ::
+
+  riscv32-unknown-elf-gdb
+
+Then the following command must be executed from gdb shell: ::
+
+  target remote :1234
+
+If everything runs fine, this should display: ::
+
+  0x1c000080 in ?? ()
+
+This means gdb sees that the current selected core is stopped at the entry point (this is the address of the reset exception handler).
+
+To see which cores are connected: ::
+
+  info threads
+
+This should display: ::
+
+    Id   Target Id         Frame 
+  * 1    Remote target     0x1c000094 in ?? ()
+    2    Thread 1 (Core 00000001) 0x1c000094 in ?? ()
+    3    Thread 2 (Core 00000002) 0x1c000094 in ?? ()
+    4    Thread 3 (Core 00000003) 0x1c000094 in ?? ()
+
+What is supported
+.................
+
+Everything should be supported, including instruction-stepping, breakpoints, watchpoints, etc. The cores are configured in a symetric mode where all cores stop as soon as at least one stops. This means, if one core reaches a breakpoint, all cores will be stopped as if they have also reached a breakpoint.
+
+However the gdb porting to riscv is not fully stable and is thus generating lots of invalid accesses, especially when unwinding the stack.
+
+Tips
+....
+
+The socket port where gdb must connect is by default 1234 but can be specified with the following option if for example it is in conflict with another application: ::
+
+  make run PLT_OPT="--debug --gdb-port=12345"
+
+The gdb target command execute to connect to the platform must give the same port.

@@ -1,0 +1,7 @@
+Dependencies
+------------
+
+Here are the list of packages that you have to install starting from a fresh Ubuntu 15.10 distribution: ::
+
+  $ sudo apt-get install git g++ python3-setuptools swig3.0 python3-dev
+  $ sudo easy_install3 artifactory jenkinsapi sqlalchemy prettytable

@@ -1,0 +1,1308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Performance report &mdash; plplib 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="plplib 1.0 documentation" href="index.html" />
+    <link rel="prev" title="API" href="api.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="performance-report">
+<h1>Performance report<a class="headerlink" href="#performance-report" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>All the numbers given in this report are expressed in number of cycles per output pixel, and have been multipled by the number of cores to normalize them. Thus to obtain the total number of cycles, the reported number must be multiplied by the number of output pixels and divided by the number of cores.</p>
+<p>For each kernel, the following tables are reported:</p>
+<ul class="simple">
+<li><strong>Per architecture</strong>. This gives the number of cycles for each supported architecture for a fixed window size and number of cores.</li>
+<li><strong>Per window</strong>. This gives the number of cycles for several window size, for a fixed architecture and number of cores.</li>
+<li><strong>Per number of cores</strong>. This gives the number of cycles for several number of cores, for a fixed architecture and window size.</li>
+</ul>
+</div>
+<div class="section" id="matmul-ew">
+<h2>matmul_ew<a class="headerlink" href="#matmul-ew" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">conf</th>
+<th class="head">mia</th>
+<th class="head">fulmine</th>
+<th class="head">pulp4</th>
+<th class="head">comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>plp_matmul_ew_i16</td>
+<td>9.908</td>
+<td>5.960</td>
+<td>6.044</td>
+<td>nbPe=4, window=64x64</td>
+</tr>
+<tr class="row-odd"><td>plp_matmul_ew_i16x32</td>
+<td>6.100</td>
+<td>5.924</td>
+<td>4.848</td>
+<td>nbPe=4, window=64x64</td>
+</tr>
+<tr class="row-even"><td>plp_matmul_ew_i32</td>
+<td>11.492</td>
+<td>11.428</td>
+<td>6.624</td>
+<td>nbPe=4, window=32x32</td>
+</tr>
+<tr class="row-odd"><td>plp_matmul_ew_u8x16</td>
+<td>7.264</td>
+<td>6.824</td>
+<td>6.956</td>
+<td>nbPe=4, window=64x64</td>
+</tr>
+<tr class="row-even"><td>plp_matmul_ew_u16</td>
+<td>9.628</td>
+<td>5.960</td>
+<td>6.044</td>
+<td>nbPe=4, window=64x64</td>
+</tr>
+<tr class="row-odd"><td>plp_matmul_ew_i8</td>
+<td>10.096</td>
+<td>5.808</td>
+<td>5.300</td>
+<td>nbPe=4, window=64x64</td>
+</tr>
+<tr class="row-even"><td>plp_matmul_ew_i8x16</td>
+<td>6.772</td>
+<td>6.748</td>
+<td>6.948</td>
+<td>nbPe=4, window=64x64</td>
+</tr>
+<tr class="row-odd"><td>plp_matmul_ew_u8</td>
+<td>10.032</td>
+<td>5.784</td>
+<td>5.316</td>
+<td>nbPe=4, window=64x64</td>
+</tr>
+<tr class="row-even"><td>plp_matmul_ew_u32</td>
+<td>11.528</td>
+<td>10.784</td>
+<td>6.792</td>
+<td>nbPe=4, window=32x32</td>
+</tr>
+<tr class="row-odd"><td>plp_matmul_ew_u16x32</td>
+<td>6.100</td>
+<td>5.924</td>
+<td>4.848</td>
+<td>nbPe=4, window=64x64</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">window</th>
+<th class="head">16x16</th>
+<th class="head">32x32</th>
+<th class="head">64x64</th>
+<th class="head">comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>plp_matmul_ew_i16</td>
+<td>12.232</td>
+<td>7.332</td>
+<td>6.044</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+<tr class="row-odd"><td>plp_matmul_ew_i16x32</td>
+<td>11.312</td>
+<td>6.204</td>
+<td>4.848</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+<tr class="row-even"><td>plp_matmul_ew_i32</td>
+<td>11.512</td>
+<td>6.624</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+<tr class="row-odd"><td>plp_matmul_ew_u8x16</td>
+<td>13.468</td>
+<td>8.460</td>
+<td>6.956</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+<tr class="row-even"><td>plp_matmul_ew_u16</td>
+<td>12.232</td>
+<td>7.332</td>
+<td>6.044</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+<tr class="row-odd"><td>plp_matmul_ew_i8</td>
+<td>11.372</td>
+<td>6.648</td>
+<td>5.300</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+<tr class="row-even"><td>plp_matmul_ew_i8x16</td>
+<td>13.468</td>
+<td>8.460</td>
+<td>6.948</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+<tr class="row-odd"><td>plp_matmul_ew_u8</td>
+<td>11.372</td>
+<td>6.856</td>
+<td>5.316</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+<tr class="row-even"><td>plp_matmul_ew_u32</td>
+<td>11.656</td>
+<td>6.792</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+<tr class="row-odd"><td>plp_matmul_ew_u16x32</td>
+<td>11.312</td>
+<td>6.204</td>
+<td>4.848</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">nbPe</th>
+<th class="head">2</th>
+<th class="head">4</th>
+<th class="head">8</th>
+<th class="head">comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>plp_matmul_ew_i16</td>
+<td>5.846</td>
+<td>6.044</td>
+<td>6.624</td>
+<td>conf=pulp4, window=64x64</td>
+</tr>
+<tr class="row-odd"><td>plp_matmul_ew_i16x32</td>
+<td>4.682</td>
+<td>4.848</td>
+<td>5.776</td>
+<td>conf=pulp4, window=64x64</td>
+</tr>
+<tr class="row-even"><td>plp_matmul_ew_i32</td>
+<td>5.750</td>
+<td>6.624</td>
+<td>9.528</td>
+<td>conf=pulp4, window=32x32</td>
+</tr>
+<tr class="row-odd"><td>plp_matmul_ew_u8x16</td>
+<td>6.558</td>
+<td>6.956</td>
+<td>7.968</td>
+<td>conf=pulp4, window=64x64</td>
+</tr>
+<tr class="row-even"><td>plp_matmul_ew_u16</td>
+<td>5.846</td>
+<td>6.044</td>
+<td>6.624</td>
+<td>conf=pulp4, window=64x64</td>
+</tr>
+<tr class="row-odd"><td>plp_matmul_ew_i8</td>
+<td>5.096</td>
+<td>5.300</td>
+<td>5.888</td>
+<td>conf=pulp4, window=64x64</td>
+</tr>
+<tr class="row-even"><td>plp_matmul_ew_i8x16</td>
+<td>6.542</td>
+<td>6.948</td>
+<td>7.968</td>
+<td>conf=pulp4, window=64x64</td>
+</tr>
+<tr class="row-odd"><td>plp_matmul_ew_u8</td>
+<td>5.090</td>
+<td>5.316</td>
+<td>5.888</td>
+<td>conf=pulp4, window=64x64</td>
+</tr>
+<tr class="row-even"><td>plp_matmul_ew_u32</td>
+<td>5.766</td>
+<td>6.792</td>
+<td>9.528</td>
+<td>conf=pulp4, window=32x32</td>
+</tr>
+<tr class="row-odd"><td>plp_matmul_ew_u16x32</td>
+<td>4.682</td>
+<td>4.848</td>
+<td>5.776</td>
+<td>conf=pulp4, window=64x64</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="convolution2d">
+<h2>convolution2d<a class="headerlink" href="#convolution2d" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">conf</th>
+<th class="head">mia</th>
+<th class="head">fulmine</th>
+<th class="head">pulp4</th>
+<th class="head">comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>plp_conv5x5_u8_norm</td>
+<td>80.704</td>
+<td>22.236</td>
+<td>20.768</td>
+<td>nbPe=4, window=64x64</td>
+</tr>
+<tr class="row-odd"><td>plp_conv5x5_i8_norm</td>
+<td>80.712</td>
+<td>22.224</td>
+<td>20.812</td>
+<td>nbPe=4, window=64x64</td>
+</tr>
+<tr class="row-even"><td>plp_conv5x5_i16_hw</td>
+<td>20.447</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>nbPe=4, window=64x64</td>
+</tr>
+<tr class="row-odd"><td>plp_conv5x5_u16_norm</td>
+<td>81.712</td>
+<td>44.248</td>
+<td>42.992</td>
+<td>nbPe=4, window=64x64</td>
+</tr>
+<tr class="row-even"><td>plp_conv5x5_i16_norm</td>
+<td>81.712</td>
+<td>44.572</td>
+<td>43.076</td>
+<td>nbPe=4, window=64x64</td>
+</tr>
+<tr class="row-odd"><td>plp_conv5x5_u16_hw</td>
+<td>20.447</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>nbPe=4, window=64x64</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">window</th>
+<th class="head">16x16</th>
+<th class="head">32x32</th>
+<th class="head">64x64</th>
+<th class="head">comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>plp_conv5x5_u8_norm</td>
+<td>34.944</td>
+<td>23.140</td>
+<td>20.768</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+<tr class="row-odd"><td>plp_conv5x5_i8_norm</td>
+<td>36.332</td>
+<td>23.392</td>
+<td>20.812</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+<tr class="row-even"><td>plp_conv5x5_i16_hw</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+<tr class="row-odd"><td>plp_conv5x5_u16_norm</td>
+<td>59.304</td>
+<td>45.800</td>
+<td>42.992</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+<tr class="row-even"><td>plp_conv5x5_i16_norm</td>
+<td>59.416</td>
+<td>45.880</td>
+<td>43.076</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+<tr class="row-odd"><td>plp_conv5x5_u16_hw</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">nbPe</th>
+<th class="head">2</th>
+<th class="head">4</th>
+<th class="head">8</th>
+<th class="head">comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>plp_conv5x5_u8_norm</td>
+<td>20.364</td>
+<td>20.768</td>
+<td>22.816</td>
+<td>conf=pulp4, window=64x64</td>
+</tr>
+<tr class="row-odd"><td>plp_conv5x5_i8_norm</td>
+<td>20.354</td>
+<td>20.812</td>
+<td>22.704</td>
+<td>conf=pulp4, window=64x64</td>
+</tr>
+<tr class="row-even"><td>plp_conv5x5_i16_hw</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>conf=pulp4, window=64x64</td>
+</tr>
+<tr class="row-odd"><td>plp_conv5x5_u16_norm</td>
+<td>42.132</td>
+<td>42.992</td>
+<td>46.200</td>
+<td>conf=pulp4, window=64x64</td>
+</tr>
+<tr class="row-even"><td>plp_conv5x5_i16_norm</td>
+<td>41.984</td>
+<td>43.076</td>
+<td>46.096</td>
+<td>conf=pulp4, window=64x64</td>
+</tr>
+<tr class="row-odd"><td>plp_conv5x5_u16_hw</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>conf=pulp4, window=64x64</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="matadd">
+<h2>matadd<a class="headerlink" href="#matadd" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">conf</th>
+<th class="head">mia</th>
+<th class="head">fulmine</th>
+<th class="head">pulp4</th>
+<th class="head">comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>plp_matadd_u8</td>
+<td>9.656</td>
+<td>2.712</td>
+<td>1.684</td>
+<td>nbPe=4, window=64x64</td>
+</tr>
+<tr class="row-odd"><td>plp_matadd_i8</td>
+<td>9.756</td>
+<td>2.832</td>
+<td>1.688</td>
+<td>nbPe=4, window=64x64</td>
+</tr>
+<tr class="row-even"><td>plp_matadd_i16</td>
+<td>9.636</td>
+<td>3.956</td>
+<td>2.908</td>
+<td>nbPe=4, window=64x64</td>
+</tr>
+<tr class="row-odd"><td>plp_matadd_i32</td>
+<td>11.156</td>
+<td>10.636</td>
+<td>7.156</td>
+<td>nbPe=4, window=32x32</td>
+</tr>
+<tr class="row-even"><td>plp_matadd_u32</td>
+<td>11.388</td>
+<td>10.592</td>
+<td>6.808</td>
+<td>nbPe=4, window=32x32</td>
+</tr>
+<tr class="row-odd"><td>plp_matadd_u16</td>
+<td>9.636</td>
+<td>3.956</td>
+<td>2.908</td>
+<td>nbPe=4, window=64x64</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">window</th>
+<th class="head">16x16</th>
+<th class="head">32x32</th>
+<th class="head">64x64</th>
+<th class="head">comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>plp_matadd_u8</td>
+<td>7.840</td>
+<td>2.896</td>
+<td>1.684</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+<tr class="row-odd"><td>plp_matadd_i8</td>
+<td>7.840</td>
+<td>2.896</td>
+<td>1.688</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+<tr class="row-even"><td>plp_matadd_i16</td>
+<td>8.888</td>
+<td>4.096</td>
+<td>2.908</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+<tr class="row-odd"><td>plp_matadd_i32</td>
+<td>11.700</td>
+<td>7.156</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+<tr class="row-even"><td>plp_matadd_u32</td>
+<td>11.700</td>
+<td>6.808</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+<tr class="row-odd"><td>plp_matadd_u16</td>
+<td>8.888</td>
+<td>4.096</td>
+<td>2.908</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">nbPe</th>
+<th class="head">2</th>
+<th class="head">4</th>
+<th class="head">8</th>
+<th class="head">comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>plp_matadd_u8</td>
+<td>1.442</td>
+<td>1.684</td>
+<td>2.280</td>
+<td>conf=pulp4, window=64x64</td>
+</tr>
+<tr class="row-odd"><td>plp_matadd_i8</td>
+<td>1.446</td>
+<td>1.688</td>
+<td>2.280</td>
+<td>conf=pulp4, window=64x64</td>
+</tr>
+<tr class="row-even"><td>plp_matadd_i16</td>
+<td>2.698</td>
+<td>2.908</td>
+<td>3.512</td>
+<td>conf=pulp4, window=64x64</td>
+</tr>
+<tr class="row-odd"><td>plp_matadd_i32</td>
+<td>5.676</td>
+<td>7.156</td>
+<td>9.504</td>
+<td>conf=pulp4, window=32x32</td>
+</tr>
+<tr class="row-even"><td>plp_matadd_u32</td>
+<td>5.764</td>
+<td>6.808</td>
+<td>9.504</td>
+<td>conf=pulp4, window=32x32</td>
+</tr>
+<tr class="row-odd"><td>plp_matadd_u16</td>
+<td>2.698</td>
+<td>2.908</td>
+<td>3.512</td>
+<td>conf=pulp4, window=64x64</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="threshold">
+<h2>threshold<a class="headerlink" href="#threshold" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">conf</th>
+<th class="head">mia</th>
+<th class="head">fulmine</th>
+<th class="head">pulp4</th>
+<th class="head">comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>plp_threshold_u8</td>
+<td>9.228</td>
+<td>2.748</td>
+<td>1.596</td>
+<td>nbPe=4, window=64x64</td>
+</tr>
+<tr class="row-odd"><td>plp_threshold_u32</td>
+<td>11.148</td>
+<td>9.756</td>
+<td>8.944</td>
+<td>nbPe=4, window=32x32</td>
+</tr>
+<tr class="row-even"><td>plp_threshold_i16</td>
+<td>7.080</td>
+<td>3.548</td>
+<td>2.664</td>
+<td>nbPe=4, window=64x64</td>
+</tr>
+<tr class="row-odd"><td>plp_threshold_i8</td>
+<td>6.912</td>
+<td>2.556</td>
+<td>1.596</td>
+<td>nbPe=4, window=64x64</td>
+</tr>
+<tr class="row-even"><td>plp_threshold_i32</td>
+<td>10.248</td>
+<td>10.036</td>
+<td>8.988</td>
+<td>nbPe=4, window=32x32</td>
+</tr>
+<tr class="row-odd"><td>plp_threshold_u16</td>
+<td>9.220</td>
+<td>3.548</td>
+<td>2.664</td>
+<td>nbPe=4, window=64x64</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">window</th>
+<th class="head">16x16</th>
+<th class="head">32x32</th>
+<th class="head">64x64</th>
+<th class="head">comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>plp_threshold_u8</td>
+<td>7.124</td>
+<td>2.804</td>
+<td>1.596</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+<tr class="row-odd"><td>plp_threshold_u32</td>
+<td>13.280</td>
+<td>8.944</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+<tr class="row-even"><td>plp_threshold_i16</td>
+<td>8.156</td>
+<td>3.892</td>
+<td>2.664</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+<tr class="row-odd"><td>plp_threshold_i8</td>
+<td>7.124</td>
+<td>2.804</td>
+<td>1.596</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+<tr class="row-even"><td>plp_threshold_i32</td>
+<td>13.280</td>
+<td>8.988</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+<tr class="row-odd"><td>plp_threshold_u16</td>
+<td>8.156</td>
+<td>3.892</td>
+<td>2.664</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">nbPe</th>
+<th class="head">2</th>
+<th class="head">4</th>
+<th class="head">8</th>
+<th class="head">comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>plp_threshold_u8</td>
+<td>1.424</td>
+<td>1.596</td>
+<td>2.176</td>
+<td>conf=pulp4, window=64x64</td>
+</tr>
+<tr class="row-odd"><td>plp_threshold_u32</td>
+<td>8.306</td>
+<td>8.944</td>
+<td>11.216</td>
+<td>conf=pulp4, window=32x32</td>
+</tr>
+<tr class="row-even"><td>plp_threshold_i16</td>
+<td>2.406</td>
+<td>2.664</td>
+<td>3.168</td>
+<td>conf=pulp4, window=64x64</td>
+</tr>
+<tr class="row-odd"><td>plp_threshold_i8</td>
+<td>1.406</td>
+<td>1.596</td>
+<td>2.176</td>
+<td>conf=pulp4, window=64x64</td>
+</tr>
+<tr class="row-even"><td>plp_threshold_i32</td>
+<td>8.220</td>
+<td>8.988</td>
+<td>11.216</td>
+<td>conf=pulp4, window=32x32</td>
+</tr>
+<tr class="row-odd"><td>plp_threshold_u16</td>
+<td>2.406</td>
+<td>2.664</td>
+<td>3.168</td>
+<td>conf=pulp4, window=64x64</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="matmul">
+<h2>matmul<a class="headerlink" href="#matmul" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">conf</th>
+<th class="head">mia</th>
+<th class="head">fulmine</th>
+<th class="head">pulp4</th>
+<th class="head">comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>plp_matmul_u16</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>1.876</td>
+<td>1.836</td>
+<td>nbPe=4, window=64x64</td>
+</tr>
+<tr class="row-odd"><td>plp_matmul_i8x16</td>
+<td>3.652</td>
+<td>1.124</td>
+<td>1.076</td>
+<td>nbPe=4, window=64x64</td>
+</tr>
+<tr class="row-even"><td>plp_matmul_u32</td>
+<td>4.984</td>
+<td>5.236</td>
+<td>4.828</td>
+<td>nbPe=4, window=32x32</td>
+</tr>
+<tr class="row-odd"><td>plp_matmul_i16x32</td>
+<td>4.692</td>
+<td>1.912</td>
+<td>1.880</td>
+<td>nbPe=4, window=64x64</td>
+</tr>
+<tr class="row-even"><td>plp_matmul_i16</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>1.876</td>
+<td>1.836</td>
+<td>nbPe=4, window=64x64</td>
+</tr>
+<tr class="row-odd"><td>plp_matmul_u8x16</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>1.116</td>
+<td>1.076</td>
+<td>nbPe=4, window=64x64</td>
+</tr>
+<tr class="row-even"><td>plp_matmul_i32</td>
+<td>5.060</td>
+<td>5.104</td>
+<td>4.828</td>
+<td>nbPe=4, window=32x32</td>
+</tr>
+<tr class="row-odd"><td>plp_matmul_u32_norm</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>105.916</td>
+<td>nbPe=4, window=32x32</td>
+</tr>
+<tr class="row-even"><td>plp_matmul_i32_norm</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>109.836</td>
+<td>nbPe=4, window=32x32</td>
+</tr>
+<tr class="row-odd"><td>plp_matmul_i32x64</td>
+<td>41.836</td>
+<td>41.800</td>
+<td>8.864</td>
+<td>nbPe=4, window=32x32</td>
+</tr>
+<tr class="row-even"><td>plp_matmul_u8</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>1.172</td>
+<td>1.144</td>
+<td>nbPe=4, window=64x64</td>
+</tr>
+<tr class="row-odd"><td>plp_matmul_u16x32</td>
+<td>4.692</td>
+<td>1.920</td>
+<td>1.880</td>
+<td>nbPe=4, window=64x64</td>
+</tr>
+<tr class="row-even"><td>plp_matmul_i8</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>1.176</td>
+<td>1.140</td>
+<td>nbPe=4, window=64x64</td>
+</tr>
+<tr class="row-odd"><td>plp_matmul_u8_norm</td>
+<td>25.804</td>
+<td>25.804</td>
+<td>26.044</td>
+<td>nbPe=4, window=32x32</td>
+</tr>
+<tr class="row-even"><td>plp_matmul_u32x64</td>
+<td>41.908</td>
+<td>41.876</td>
+<td>8.812</td>
+<td>nbPe=4, window=32x32</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">window</th>
+<th class="head">16x16</th>
+<th class="head">32x32</th>
+<th class="head">64x64</th>
+<th class="head">comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>plp_matmul_u16</td>
+<td>3.180</td>
+<td>2.160</td>
+<td>1.836</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+<tr class="row-odd"><td>plp_matmul_i8x16</td>
+<td>2.416</td>
+<td>1.440</td>
+<td>1.076</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+<tr class="row-even"><td>plp_matmul_u32</td>
+<td>4.816</td>
+<td>4.828</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+<tr class="row-odd"><td>plp_matmul_i16x32</td>
+<td>3.308</td>
+<td>2.272</td>
+<td>1.880</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+<tr class="row-even"><td>plp_matmul_i16</td>
+<td>3.180</td>
+<td>2.160</td>
+<td>1.836</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+<tr class="row-odd"><td>plp_matmul_u8x16</td>
+<td>2.436</td>
+<td>1.448</td>
+<td>1.076</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+<tr class="row-even"><td>plp_matmul_i32</td>
+<td>4.844</td>
+<td>4.828</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+<tr class="row-odd"><td>plp_matmul_u32_norm</td>
+<td>107.952</td>
+<td>105.916</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+<tr class="row-even"><td>plp_matmul_i32_norm</td>
+<td>111.672</td>
+<td>109.836</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+<tr class="row-odd"><td>plp_matmul_i32x64</td>
+<td>9.844</td>
+<td>8.864</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+<tr class="row-even"><td>plp_matmul_u8</td>
+<td>2.684</td>
+<td>1.564</td>
+<td>1.144</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+<tr class="row-odd"><td>plp_matmul_u16x32</td>
+<td>3.332</td>
+<td>2.272</td>
+<td>1.880</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+<tr class="row-even"><td>plp_matmul_i8</td>
+<td>2.684</td>
+<td>1.560</td>
+<td>1.140</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+<tr class="row-odd"><td>plp_matmul_u8_norm</td>
+<td>28.212</td>
+<td>26.044</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+<tr class="row-even"><td>plp_matmul_u32x64</td>
+<td>9.868</td>
+<td>8.812</td>
+<td><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>conf=pulp4, nbPe=4</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">nbPe</th>
+<th class="head">2</th>
+<th class="head">4</th>
+<th class="head">8</th>
+<th class="head">comments</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>plp_matmul_u16</td>
+<td>1.798</td>
+<td>1.836</td>
+<td>1.824</td>
+<td>conf=pulp4, window=64x64</td>
+</tr>
+<tr class="row-odd"><td>plp_matmul_i8x16</td>
+<td>1.066</td>
+<td>1.076</td>
+<td>1.080</td>
+<td>conf=pulp4, window=64x64</td>
+</tr>
+<tr class="row-even"><td>plp_matmul_u32</td>
+<td>3.804</td>
+<td>4.828</td>
+<td>4.064</td>
+<td>conf=pulp4, window=32x32</td>
+</tr>
+<tr class="row-odd"><td>plp_matmul_i16x32</td>
+<td>1.844</td>
+<td>1.880</td>
+<td>1.872</td>
+<td>conf=pulp4, window=64x64</td>
+</tr>
+<tr class="row-even"><td>plp_matmul_i16</td>
+<td>1.798</td>
+<td>1.836</td>
+<td>1.824</td>
+<td>conf=pulp4, window=64x64</td>
+</tr>
+<tr class="row-odd"><td>plp_matmul_u8x16</td>
+<td>1.064</td>
+<td>1.076</td>
+<td>1.072</td>
+<td>conf=pulp4, window=64x64</td>
+</tr>
+<tr class="row-even"><td>plp_matmul_i32</td>
+<td>3.842</td>
+<td>4.828</td>
+<td>4.080</td>
+<td>conf=pulp4, window=32x32</td>
+</tr>
+<tr class="row-odd"><td>plp_matmul_u32_norm</td>
+<td>52.958</td>
+<td>105.916</td>
+<td>211.832</td>
+<td>conf=pulp4, window=32x32</td>
+</tr>
+<tr class="row-even"><td>plp_matmul_i32_norm</td>
+<td>54.918</td>
+<td>109.836</td>
+<td>219.672</td>
+<td>conf=pulp4, window=32x32</td>
+</tr>
+<tr class="row-odd"><td>plp_matmul_i32x64</td>
+<td>8.754</td>
+<td>8.864</td>
+<td>8.904</td>
+<td>conf=pulp4, window=32x32</td>
+</tr>
+<tr class="row-even"><td>plp_matmul_u8</td>
+<td>1.128</td>
+<td>1.144</td>
+<td>1.152</td>
+<td>conf=pulp4, window=64x64</td>
+</tr>
+<tr class="row-odd"><td>plp_matmul_u16x32</td>
+<td>1.844</td>
+<td>1.880</td>
+<td>1.872</td>
+<td>conf=pulp4, window=64x64</td>
+</tr>
+<tr class="row-even"><td>plp_matmul_i8</td>
+<td>1.128</td>
+<td>1.140</td>
+<td>1.152</td>
+<td>conf=pulp4, window=64x64</td>
+</tr>
+<tr class="row-odd"><td>plp_matmul_u8_norm</td>
+<td>13.022</td>
+<td>26.044</td>
+<td>52.096</td>
+<td>conf=pulp4, window=32x32</td>
+</tr>
+<tr class="row-even"><td>plp_matmul_u32x64</td>
+<td>8.754</td>
+<td>8.812</td>
+<td>8.880</td>
+<td>conf=pulp4, window=32x32</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Performance report</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#matmul-ew">matmul_ew</a></li>
+<li><a class="reference internal" href="#convolution2d">convolution2d</a></li>
+<li><a class="reference internal" href="#matadd">matadd</a></li>
+<li><a class="reference internal" href="#threshold">threshold</a></li>
+<li><a class="reference internal" href="#matmul">matmul</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="api.html" title="previous chapter">API</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/perf.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, ETH - Unibo.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/perf.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

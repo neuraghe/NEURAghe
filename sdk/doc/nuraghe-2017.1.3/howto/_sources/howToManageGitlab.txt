@@ -1,0 +1,35 @@
+How to manage gitlab from the shell
+-----------------------------------
+
+A few gitlab features can be accessed from the shell using the script plpgitlab.
+
+Creating a user
+...............
+
+This should still be done using the web interface as the API to do it from the shell is a bit limited
+
+Getting user information
+........................
+
+This can be done using the following command: ::
+
+  $ plpgitlab userinfo --user=<name>
+
+Any user that match the given string in any of its properties will be displayed, so there could be severall. To restrict to a single user, the following option can be used instead to give the ID of the user (the one displayed in the information): ::
+
+  $ plpgitlab userinfo --user-id=<id>
+
+The access rights for a user can also be displayed by adding the following option to specify a group of gitlab groups for which they must be displayed: ::
+
+  $ plpgitlab userinfo --user-id=<id> --group=<group>
+
+There is currently 3 available groups: sdk, rtl and greenwave. This should then display each gitlab group found and the associated access rights.
+
+Modify access rights
+....................
+
+The access rights for a group can be modified using the following command: ::
+
+  $ plpgitlab memberadd --user-id=136 --group=sdk --access=reporter
+
+This will either update the access rights or add them to the specified user for the gitlab groups found.

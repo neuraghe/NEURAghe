@@ -1,0 +1,42 @@
+#-----------------------------------------------------------
+# Vivado v2016.4 (64-bit)
+# SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+# IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+# Start of session at: Fri Nov 30 12:00:57 2018
+# Process ID: 24390
+# Current directory: /home/gderiu/marco/neuraghe_zc706_8_16_runtime_dma2d_lenhack/fpga/ips/xilinx_tcdm_bank_1024x64_16_asym/xilinx_tcdm_bank_1024x64_16_asym.runs/xilinx_tcdm_bank_1024x64_16_asym_synth_1
+# Command line: vivado -log xilinx_tcdm_bank_1024x64_16_asym.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source xilinx_tcdm_bank_1024x64_16_asym.tcl
+# Log file: /home/gderiu/marco/neuraghe_zc706_8_16_runtime_dma2d_lenhack/fpga/ips/xilinx_tcdm_bank_1024x64_16_asym/xilinx_tcdm_bank_1024x64_16_asym.runs/xilinx_tcdm_bank_1024x64_16_asym_synth_1/xilinx_tcdm_bank_1024x64_16_asym.vds
+# Journal file: /home/gderiu/marco/neuraghe_zc706_8_16_runtime_dma2d_lenhack/fpga/ips/xilinx_tcdm_bank_1024x64_16_asym/xilinx_tcdm_bank_1024x64_16_asym.runs/xilinx_tcdm_bank_1024x64_16_asym_synth_1/vivado.jou
+#-----------------------------------------------------------
+source xilinx_tcdm_bank_1024x64_16_asym.tcl -notrace
+Starting RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:52 . Memory (MB): peak = 1128.129 ; gain = 206.027 ; free physical = 23557 ; free virtual = 189108
+INFO: [Synth 8-638] synthesizing module 'xilinx_tcdm_bank_1024x64_16_asym' [/home/gderiu/marco/neuraghe_zc706_8_16_runtime_dma2d_lenhack/fpga/ips/xilinx_tcdm_bank_1024x64_16_asym/xilinx_tcdm_bank_1024x64_16_asym.srcs/sources_1/ip/xilinx_tcdm_bank_1024x64_16_asym/synth/xilinx_tcdm_bank_1024x64_16_asym.vhd:77]
+INFO: [Synth 8-256] done synthesizing module 'xilinx_tcdm_bank_1024x64_16_asym' (9#1) [/home/gderiu/marco/neuraghe_zc706_8_16_runtime_dma2d_lenhack/fpga/ips/xilinx_tcdm_bank_1024x64_16_asym/xilinx_tcdm_bank_1024x64_16_asym.srcs/sources_1/ip/xilinx_tcdm_bank_1024x64_16_asym/synth/xilinx_tcdm_bank_1024x64_16_asym.vhd:77]
+Finished RTL Elaboration : Time (s): cpu = 00:01:11 ; elapsed = 00:01:52 . Memory (MB): peak = 1326.805 ; gain = 404.703 ; free physical = 23358 ; free virtual = 188909
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:01:11 ; elapsed = 00:01:52 . Memory (MB): peak = 1326.805 ; gain = 404.703 ; free physical = 23358 ; free virtual = 188909
+INFO: [Device 21-403] Loading part xc7z045ffg900-2
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.04 . Memory (MB): peak = 1502.832 ; gain = 0.004 ; free physical = 23268 ; free virtual = 188819
+Finished Constraint Validation : Time (s): cpu = 00:01:27 ; elapsed = 00:02:17 . Memory (MB): peak = 1502.832 ; gain = 580.730 ; free physical = 23265 ; free virtual = 188816
+Finished Loading Part and Timing Information : Time (s): cpu = 00:01:27 ; elapsed = 00:02:17 . Memory (MB): peak = 1502.832 ; gain = 580.730 ; free physical = 23265 ; free virtual = 188816
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:27 ; elapsed = 00:02:18 . Memory (MB): peak = 1502.832 ; gain = 580.730 ; free physical = 23265 ; free virtual = 188816
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:27 ; elapsed = 00:02:18 . Memory (MB): peak = 1502.832 ; gain = 580.730 ; free physical = 23261 ; free virtual = 188812
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:27 ; elapsed = 00:02:18 . Memory (MB): peak = 1502.832 ; gain = 580.730 ; free physical = 23261 ; free virtual = 188812
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:38 ; elapsed = 00:02:29 . Memory (MB): peak = 1502.832 ; gain = 580.730 ; free physical = 23225 ; free virtual = 188776
+Finished Timing Optimization : Time (s): cpu = 00:01:38 ; elapsed = 00:02:29 . Memory (MB): peak = 1502.832 ; gain = 580.730 ; free physical = 23225 ; free virtual = 188776
+Finished Technology Mapping : Time (s): cpu = 00:01:38 ; elapsed = 00:02:29 . Memory (MB): peak = 1502.832 ; gain = 580.730 ; free physical = 23216 ; free virtual = 188766
+Finished IO Insertion : Time (s): cpu = 00:01:39 ; elapsed = 00:02:30 . Memory (MB): peak = 1502.832 ; gain = 580.730 ; free physical = 23216 ; free virtual = 188766
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:39 ; elapsed = 00:02:30 . Memory (MB): peak = 1502.832 ; gain = 580.730 ; free physical = 23216 ; free virtual = 188766
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:39 ; elapsed = 00:02:30 . Memory (MB): peak = 1502.832 ; gain = 580.730 ; free physical = 23216 ; free virtual = 188766
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:39 ; elapsed = 00:02:30 . Memory (MB): peak = 1502.832 ; gain = 580.730 ; free physical = 23216 ; free virtual = 188766
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:39 ; elapsed = 00:02:30 . Memory (MB): peak = 1502.832 ; gain = 580.730 ; free physical = 23216 ; free virtual = 188766
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:39 ; elapsed = 00:02:30 . Memory (MB): peak = 1502.832 ; gain = 580.730 ; free physical = 23216 ; free virtual = 188766
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |RAMB36E1 |     2|
++------+---------+------+
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:39 ; elapsed = 00:02:30 . Memory (MB): peak = 1502.832 ; gain = 580.730 ; free physical = 23216 ; free virtual = 188766
+synth_design: Time (s): cpu = 00:01:36 ; elapsed = 00:02:26 . Memory (MB): peak = 1520.348 ; gain = 506.742 ; free physical = 23194 ; free virtual = 188745

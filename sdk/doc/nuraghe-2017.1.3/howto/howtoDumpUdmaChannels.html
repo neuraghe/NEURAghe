@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>How to dump UDMA channels &mdash; howto 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="howto 1 documentation" href="index.html" />
+    <link rel="prev" title="How to tag the whole stuff" href="howtoTag.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="how-to-dump-udma-channels">
+<h1>How to dump UDMA channels<a class="headerlink" href="#how-to-dump-udma-channels" title="Permalink to this headline">¶</a></h1>
+<p>This is a feature available only on the virtual platform in order to dump into a file all the data that goes through a specific channel.</p>
+<div class="section" id="how-to-activate-it">
+<h2>How to activate it<a class="headerlink" href="#how-to-activate-it" title="Permalink to this headline">¶</a></h2>
+<p>This feature can be controlled through the <strong>&#8211;periph-dump</strong> option like in this example:</p>
+<div class="highlight-python"><div class="highlight"><pre>make run PLT_OPT=&quot;--periph-dump=spim0Tx:$PWD/spim0Tx.txt&quot;
+</pre></div>
+</div>
+<p>This option takes a value which specifies first the channel name to be dumped, and second the file path where it should be dumped, separated by a colon.</p>
+<p>Several options can be specified in order to dump several channels:</p>
+<div class="highlight-python"><div class="highlight"><pre>make run PLT_OPT=&quot;--periph-dump=spim0Tx:$PWD/spim0Tx.txt --periph-dump=spim0Rx:$PWD/spim0Rx.txt&quot;
+</pre></div>
+</div>
+</div>
+<div class="section" id="how-to-get-the-channel-name">
+<h2>How to get the channel name<a class="headerlink" href="#how-to-get-the-channel-name" title="Permalink to this headline">¶</a></h2>
+<p>The channel name depends on the target architecture. The best way to get those names is to first dump UDMA traces, and to identify the interesting channels in the traces:</p>
+<div class="highlight-python"><div class="highlight"><pre>make run PLT_OPT=&quot;--gv-trace-file=stdout --gv-trace=udma&quot;
+</pre></div>
+</div>
+</div>
+<div class="section" id="specific-peripherals">
+<h2>Specific peripherals<a class="headerlink" href="#specific-peripherals" title="Permalink to this headline">¶</a></h2>
+<p>A few peripherals provide specific options in order to get the data that goes through them, in order to get better formatted data.</p>
+<p>Here is an example for the UART which disables the dump of transmitted data to the standard output and instead redirect it to a file:</p>
+<div class="highlight-python"><div class="highlight"><pre>make run PLT_OPT=&quot;--uartFile=$PWD/uart.txt&quot;
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">How to dump UDMA channels</a><ul>
+<li><a class="reference internal" href="#how-to-activate-it">How to activate it</a></li>
+<li><a class="reference internal" href="#how-to-get-the-channel-name">How to get the channel name</a></li>
+<li><a class="reference internal" href="#specific-peripherals">Specific peripherals</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="howtoTag.html" title="previous chapter">How to tag the whole stuff</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/howtoDumpUdmaChannels.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Germain Haugou.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/howtoDumpUdmaChannels.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

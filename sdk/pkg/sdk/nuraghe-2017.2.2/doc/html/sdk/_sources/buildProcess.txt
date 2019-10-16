@@ -1,0 +1,90 @@
+SDK build process
+=================
+
+This section explains how to build the SDK from scratch and use the build for compiling and launching tests or applications
+
+Getting the sources
+-------------------
+
+The whole build process is driven by a top module which must first be retrieved with: ::
+
+  $ git clone git@kesch.ee.ethz.ch:pulp-sw/pulp_pipeline.git
+
+The following steps assume the downloaded directory is the current one.
+
+Specifying active configurations
+--------------------------------
+
+The build process can compile any Pulp configuration, and thus must be told which one must be built.
+
+For that the tool called plpconf is provided to help generating the right configuration.
+
+At first, it can be called with no argument to get the default configuration: ::
+
+  $ ./plpconf
+
+  No configuration specified, chosing default configuration
+
+  Selected configurations:
+    platform=gvsoc:pulpChip=pulp4:pulpChipVersion=0:pulpCoreArchi=or10nv2:pulpCompiler=gcc:pulpRtVersion=debug:pulpRt=omp:pulpOmpVersion=libgomp
+
+  Generating configuration script: setup.sh
+
+A configuration is just a set of key and value pairs specifying several aspects of the desired system, such as the chip.
+
+This steps dumps the selected configuration and also generates a script used in the following section to initialize the SDK.
+
+This script can also be generated for csh-like shells by adding the option *--csh* to *plpconf* script. The path of this file can also be specified with *--setup=<file path>* in order to keep several several configurations files in case we want to work on several configurations at the same time.
+
+Then there is also a set of options in order to change the configuration. Each configuration item can be specified, like in the following: ::
+
+  $ ./plpconf --pulpChip=fulmine
+
+There is also *--config* to specify a full configuration.
+
+Initializing the SDK
+--------------------
+
+Once the configuration has been selected, the environment can be confiured by sourcing the generated script (by default *setup.sh*): ::
+
+  $ source setup.sh
+
+Each the configuration is changed or a new terminal is opened, this script has to be sourced to properly configure the environment.
+
+
+Getting tests
+-------------
+
+You can the tests associated to the SDK by executing the following command: ::
+
+  $ plpbuild --p tests checkout
+
+This script is used for checking-out sources and building them, it will be better explained in following sections. This specify command will checkout all sources associated with the *tests* package.
+
+You can then go to apps/gomp_tests/quick to try the following sections.
+
+
+Getting SDK sources and compiling SDK
+-------------------------------------
+
+Once you are inside one test directory you can get the SDK with this command: ::
+
+  $ make sdk.deps sdk.checkout
+
+As this also donwloads some dependencies like the toolchains, you may need to reconfigure the environment by sourcing the *setup.sh*.
+
+You can now compile it with: ::
+
+  $ make sdk.build
+
+Note that the SDK is built only for the selected configuration and you will need to recompile it again if you change it.
+
+Compiling and runnning the test
+-------------------------------
+
+Once the SDK is ready, you can compile and run the test with: ::
+
+  $ make clean all run
+
+
+

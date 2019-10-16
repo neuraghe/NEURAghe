@@ -1,0 +1,82 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim
+vapb_i2c
+Z1 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
+Z2 !s110 1568386723
+!i10b 1
+!s100 0MI1<l]@H[QL4jQX:j;;E0
+IHfMUEic:FaR0l<PDJ3Gd12
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+!s105 apb_i2c_sv_unit
+S1
+R0
+Z4 w1567774073
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_i2c/apb_i2c.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_i2c/apb_i2c.sv
+L0 10
+Z5 OL;L;10.4;61
+r1
+!s85 0
+31
+!s108 1568386723.868819
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_i2c/i2c_master_defines.sv|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_i2c/apb_i2c.sv|
+!s90 -work|apb_i2c_lib|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_i2c|-quiet|-sv|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_i2c/apb_i2c.sv|
+!i113 0
+Z6 o-quiet -work apb_i2c_lib -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z7 !s92 -quiet -work apb_i2c_lib +incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_i2c -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vi2c_master_bit_ctrl
+R1
+R2
+!i10b 1
+!s100 LVEh7WBObHBki<j]JOFe^1
+IO]J=[JP[hiB@6_l:]F9[S1
+R3
+!s105 i2c_master_bit_ctrl_sv_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_i2c/i2c_master_bit_ctrl.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_i2c/i2c_master_bit_ctrl.sv
+L0 139
+R5
+r1
+!s85 0
+31
+!s108 1568386723.919729
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_i2c/i2c_master_defines.sv|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_i2c/i2c_master_bit_ctrl.sv|
+!s90 -work|apb_i2c_lib|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_i2c|-quiet|-sv|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_i2c/i2c_master_bit_ctrl.sv|
+!i113 0
+R6
+R7
+vi2c_master_byte_ctrl
+R1
+R2
+!i10b 1
+!s100 QP1bf_NTeF?Tb^`6@T[e`3
+I@U[[;JoQfm:]H48`SU=AF0
+R3
+!s105 i2c_master_byte_ctrl_sv_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_i2c/i2c_master_byte_ctrl.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_i2c/i2c_master_byte_ctrl.sv
+L0 71
+R5
+r1
+!s85 0
+31
+!s108 1568386723.895643
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_i2c/i2c_master_defines.sv|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_i2c/i2c_master_byte_ctrl.sv|
+!s90 -work|apb_i2c_lib|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_i2c|-quiet|-sv|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_i2c/i2c_master_byte_ctrl.sv|
+!i113 0
+R6
+R7

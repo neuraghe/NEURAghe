@@ -1,0 +1,37 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%                                                                 %
+%%%%%     00_2_abstract.tex                                           %
+%%%%%                                                                 %
+%%%%% Author:      <author>                                           %
+%%%%% Created:     <date>                                             %
+%%%%% Description: <description>                                      %
+%%%%%                                                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter*{Abstract}
+Today's embedded devices like wearables, smartphones, Internet of Things
+devices and sensors need a vast amount of computing power in a very constrained
+environment where only a limited amount of energy is available.
+By reducing the operating voltage of digital circuits to near-threshold values,
+the energy efficiency of those circuits can be improved. To recover the loss in
+speed, parallelization can be employed.
+
+In our Parallel Ultra-Low power Processor (PULP), several OpenRISC based cores
+are organized in clusters to perform computations in parallel. To increase
+their energy efficiency at low voltages even further, the instruction set of
+those cores was extended by adding vectorial instructions, bit counting
+operations and improvements to the MAC unit. In previous work, extensions for
+hardware loops and auto-incrementing load and store instructions were added to
+the core on which the new instructions are built on. With those extensions, the
+cores are able to perform more computations per cycle and thus need to stay
+active for a shorter period of time. At the same time the core area has only
+increased by $25\%$, while the area of one PULP cluster has increased by $2\%$
+due to our additions.
+The critical path delay of the core was unaffected by the extensions.
+
+Compared to the original OpenRISC instruction set, a performance gain of up to
+a factor of 5x was achieved. In terms of energy efficiency we were able to be
+$45\%$ more energy efficient on average.
+

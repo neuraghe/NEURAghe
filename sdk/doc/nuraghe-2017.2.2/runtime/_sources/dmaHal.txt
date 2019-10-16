@@ -1,0 +1,8 @@
+DMA HAL
+..............
+
+The DMA HAL is a set of functions to hide register access to the cluster DMA (MCHAN).
+The DMA is the block in the cluster who is in charge of memory transfers between L2 (fabric memory) and L1 (cluster memory) or between several L1.
+
+.. autodoxygenfile:: mchan_v6.h
+	:project: myproject

@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2017.1 (64-bit)
+# SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
+# IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
+# Start of session at: Wed Apr  4 17:30:23 2018
+# Process ID: 2496
+# Current directory: /home/gderiu/marco/neuraghe_zc706_8bit_70140/pulp_on_zynq/pulp_on_zynq.runs/axi_bram_ctrl_0_synth_1
+# Command line: vivado -log axi_bram_ctrl_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source axi_bram_ctrl_0.tcl
+# Log file: /home/gderiu/marco/neuraghe_zc706_8bit_70140/pulp_on_zynq/pulp_on_zynq.runs/axi_bram_ctrl_0_synth_1/axi_bram_ctrl_0.vds
+# Journal file: /home/gderiu/marco/neuraghe_zc706_8bit_70140/pulp_on_zynq/pulp_on_zynq.runs/axi_bram_ctrl_0_synth_1/vivado.jou
+#-----------------------------------------------------------
+source axi_bram_ctrl_0.tcl -notrace

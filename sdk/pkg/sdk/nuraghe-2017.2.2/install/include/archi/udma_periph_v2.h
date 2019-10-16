@@ -1,0 +1,454 @@
+/*
+ * Copyright (C) 2015 ETH Zurich and University of Bologna
+ * All rights reserved.
+ *
+ * This software may be modified and distributed under the terms
+ * of the BSD license.  See the LICENSE file for details.
+ *
+ */
+
+#ifndef __ARCHI_UDMA_PERIPH_V2_H__
+#define __ARCHI_UDMA_PERIPH_V2_H__
+
+/*
+ * TCDM
+ */
+#ifdef PLP_UDMA_HAS_TCDM
+
+#define TCDM_T_DST_SADDR                (0x0)
+#define TCDM_T_SRC_SADDR                (0x4)
+
+#endif
+
+
+
+/*
+ * CAM
+ */
+#ifdef PLP_UDMA_HAS_CAM
+
+// CAM custom registers offset definition
+#define CAM_GLOB_OFFSET                  (0x00)
+#define CAM_LL_OFFSET                    (0x04)
+#define CAM_UR_OFFSET                    (0x08)
+#define CAM_SIZE_OFFSET                  (0x0C)
+#define CAM_FILTER_OFFSET                (0x10)
+
+// CAM custom registers bitfields offset, mask, value definition
+#define CAM_CFG_GLOB_FRAMEDROP_EN_BIT   0
+#define CAM_CFG_GLOB_FRAMEDROP_VAL_BIT  1
+#define CAM_CFG_GLOB_FRAMEDROP_VAL_SIZE 6
+#define CAM_CFG_GLOB_FRAMESLICE_EN_BIT  7
+#define CAM_CFG_GLOB_FORMAT_BIT         8
+#define CAM_CFG_GLOB_FORMAT_SIZE        2
+#define CAM_CFG_GLOB_SHIFT_BIT          10
+#define CAM_CFG_GLOB_SHIFT_SIZE         4
+#define CAM_CFG_GLOB_EN_BIT             31
+
+#define CAM_CFG_GLOB_FORMAT_RGB565      0
+#define CAM_CFG_GLOB_FORMAT_RGB555      1
+#define CAM_CFG_GLOB_FORMAT_RGB444      2
+#define CAM_CFG_GLOB_FORMAT_BYPASS      3
+
+#define CAM_CFG_LL_FRAMESLICE_LLX_BIT   0
+#define CAM_CFG_LL_FRAMESLICE_LLX_SIZE  16
+#define CAM_CFG_LL_FRAMESLICE_LLY_BIT   16
+#define CAM_CFG_LL_FRAMESLICE_LLY_SIZE  16
+
+#define CAM_CFG_UR_FRAMESLICE_URX_BIT   0
+#define CAM_CFG_UR_FRAMESLICE_URX_SIZE  16
+#define CAM_CFG_UR_FRAMESLICE_URY_BIT   16
+#define CAM_CFG_UR_FRAMESLICE_URY_SIZE  16
+
+#define CAM_CFG_SIZE_ROWLEN_BIT  16
+#define CAM_CFG_SIZE_ROWLEN_SIZE 16
+
+#define CAM_CFG_FILTER_B_COEFF_BIT  0
+#define CAM_CFG_FILTER_B_COEFF_SIZE 8
+#define CAM_CFG_FILTER_G_COEFF_BIT  8
+#define CAM_CFG_FILTER_G_COEFF_SIZE 8
+#define CAM_CFG_FILTER_R_COEFF_BIT  16
+#define CAM_CFG_FILTER_R_COEFF_SIZE 8
+
+#endif
+
+
+/*
+ * I2S
+ */
+
+#ifdef PLP_UDMA_HAS_I2S
+
+// I2S custom registers offset definition
+#define I2S_EXT_OFFSET             (0x00)
+#define I2S_CFG0_OFFSET            (0x04)
+#define I2S_CFG1_OFFSET            (0x08)
+#define I2S_CHMODE_OFFSET          (0x0C)
+#define I2S_FILT_CH0_OFFSET        (0x10)
+#define I2S_FILT_CH1_OFFSET        (0x14)
+
+// I2S custom registers bitfields offset, mask, value definition
+#define I2S_EXT_BITS_WORD_OFFSET	0
+#define I2S_EXT_BITS_WORD_WIDTH		5
+#define I2S_EXT_BITS_WORD_MASK		(0x1f << I2S_EXT_BITS_WORD_OFFSET)
+#define I2S_EXT_BITS_WORD(val)		((val-1) << I2S_EXT_BITS_WORD_OFFSET)
+
+#define I2S_CFG0_BITS_WORD_OFFSET	0
+#define I2S_CFG0_BITS_WORD_WIDTH	5
+#define I2S_CFG0_BITS_WORD_MASK		(0x1f << I2S_CFG0_BITS_WORD_OFFSET)
+#define I2S_CFG0_BITS_WORD(val)		((val-1) << I2S_CFG0_BITS_WORD_OFFSET)
+
+#define I2S_CFG0_CLK_EN_OFFSET		8
+#define I2S_CFG0_CLK_EN_WIDTH		1
+#define I2S_CFG0_CLK_EN_MASK		(0x1 << I2S_CFG0_CLK_EN_OFFSET)
+#define I2S_CFG0_CLK_EN			(1 << I2S_CFG0_CLK_EN_OFFSET)
+#define I2S_CFG0_CLK_DIS		(0 << I2S_CFG0_CLK_EN_OFFSET)
+
+#define I2S_CFG0_CLKDIV_OFFSET		16
+#define I2S_CFG0_CLKDIV_WIDTH		16
+#define I2S_CFG0_CLKDIV_MASK		(0xffff << I2S_CFG0_CLKDIV_OFFSET)
+#define I2S_CFG0_CLKDIV(val)		(val << I2S_CFG0_CLKDIV_OFFSET)
+
+#define I2S_CFG1_BITS_WORD_OFFSET	0
+#define I2S_CFG1_BITS_WORD_WIDTH	5
+#define I2S_CFG1_BITS_WORD_MASK		(0x1f << I2S_CFG1_BITS_WORD_OFFSET)
+#define I2S_CFG1_BITS_WORD(val)		((val-1) << I2S_CFG1_BITS_WORD_OFFSET)
+
+#define I2S_CFG1_CLK_EN_OFFSET		8
+#define I2S_CFG1_CLK_EN_WIDTH		1
+#define I2S_CFG1_CLK_EN_MASK		(0x1 << I2S_CFG1_CLK_EN_OFFSET)
+#define I2S_CFG1_CLK_EN			(1 << I2S_CFG1_CLK_EN_OFFSET)
+#define I2S_CFG1_CLK_DIS		(0 << I2S_CFG1_CLK_EN_OFFSET)
+
+#define I2S_CFG1_CLKDIV_OFFSET		16
+#define I2S_CFG1_CLKDIV_WIDTH		16
+#define I2S_CFG1_CLKDIV_MASK		(0xffff << I2S_CFG1_CLKDIV_OFFSET)
+#define I2S_CFG1_CLKDIV(val)		(val << I2S_CFG1_CLKDIV_OFFSET)
+
+#define I2S_CHMODE_CH0_SNAPCAM_OFFSET	0
+#define I2S_CHMODE_CH0_SNAPCAM_WIDTH	1
+#define I2S_CHMODE_CH0_SNAPCAM_MASK	(0x1 << I2S_CHMODE_CH0_SNAPCAM_OFFSET)
+#define I2S_CHMODE_CH0_SNAPCAM_ENA	(0x1 << I2S_CHMODE_CH0_SNAPCAM_OFFSET)
+#define I2S_CHMODE_CH0_SNAPCAM_DIS	(0x0 << I2S_CHMODE_CH0_SNAPCAM_OFFSET)
+
+#define I2S_CHMODE_CH0_LSBFIRST_OFFSET	4
+#define I2S_CHMODE_CH0_LSBFIRST_WIDTH	1
+#define I2S_CHMODE_CH0_LSBFIRST_MASK	(0x1 << I2S_CHMODE_CH0_LSBFIRST_OFFSET)
+#define I2S_CHMODE_CH0_LSBFIRST_ENA	(1 << I2S_CHMODE_CH0_LSBFIRST_OFFSET)
+#define I2S_CHMODE_CH0_LSBFIRST_DIS	(0 << I2S_CHMODE_CH0_LSBFIRST_OFFSET)
+
+#define I2S_CHMODE_CH0_PDM_USEFILTER_OFFSET		8
+#define I2S_CHMODE_CH0_PDM_USEFILTER_WIDTH		1
+#define I2S_CHMODE_CH0_PDM_USEFILTER_MASK		(0x1 << I2S_CHMODE_CH0_PDM_USEFILTER_OFFSET)
+#define I2S_CHMODE_CH0_PDM_USEFILTER_ENA		(1 << I2S_CHMODE_CH0_PDM_USEFILTER_OFFSET)
+#define I2S_CHMODE_CH0_PDM_USEFILTER_DIS		(0 << I2S_CHMODE_CH0_PDM_USEFILTER_OFFSET)
+
+#define I2S_CHMODE_CH0_PDM_EN_OFFSET	12	
+#define I2S_CHMODE_CH0_PDM_EN_WIDTH	1	
+#define I2S_CHMODE_CH0_PDM_EN_MASK	(0x1 << I2S_CHMODE_CH0_PDM_EN_OFFSET)
+#define I2S_CHMODE_CH0_PDM_EN_ENA	(1 << I2S_CHMODE_CH0_PDM_EN_OFFSET)
+#define I2S_CHMODE_CH0_PDM_EN_DIS	(0 << I2S_CHMODE_CH0_PDM_EN_OFFSET)
+
+#define I2S_CHMODE_CH0_USEDDR_OFFSET	16	
+#define I2S_CHMODE_CH0_USEDDR_WIDTH	1	
+#define I2S_CHMODE_CH0_USEDDR_MASK	(0x1 << I2S_CHMODE_CH0_USEDDR_OFFSET)
+#define I2S_CHMODE_CH0_USEDDR_ENA	(1 << I2S_CHMODE_CH0_USEDDR_OFFSET)
+#define I2S_CHMODE_CH0_USEDDR_DIS	(0 << I2S_CHMODE_CH0_USEDDR_OFFSET)
+
+#define I2S_CHMODE_CH0_MODE_OFFSET		24	
+#define I2S_CHMODE_CH0_MODE_WIDTH		2	
+#define I2S_CHMODE_CH0_MODE_MASK		(0x3 << I2S_CHMODE_CH0_MODE_OFFSET)
+#define I2S_CHMODE_CH0_MODE_CLK0		(0 << I2S_CHMODE_CH0_MODE_OFFSET)
+#define I2S_CHMODE_CH0_MODE_CLK1		(1 << I2S_CHMODE_CH0_MODE_OFFSET)
+#define I2S_CHMODE_CH0_MODE_EXTCLK_INTWS	(2 << I2S_CHMODE_CH0_MODE_OFFSET)
+#define I2S_CHMODE_CH0_MODE_EXTCLK_EXTWS	(2 << I2S_CHMODE_CH0_MODE_OFFSET)
+
+#define I2S_CHMODE_CH1_SNAPCAM_OFFSET	1
+#define I2S_CHMODE_CH1_SNAPCAM_WIDTH	1
+#define I2S_CHMODE_CH1_SNAPCAM_MASK	(0x1 << I2S_CHMODE_CH0_SNAPCAM_OFFSET)
+#define I2S_CHMODE_CH1_SNAPCAM_ENA	(0x1 << I2S_CHMODE_CH0_SNAPCAM_OFFSET)
+#define I2S_CHMODE_CH1_SNAPCAM_DIS	(0x0 << I2S_CHMODE_CH0_SNAPCAM_OFFSET)
+
+#define I2S_CHMODE_CH1_LSBFIRST_OFFSET	5
+#define I2S_CHMODE_CH1_LSBFIRST_WIDTH	1
+#define I2S_CHMODE_CH1_LSBFIRST_MASK	(0x1 << I2S_CHMODE_CH0_LSBFIRST_OFFSET)
+#define I2S_CHMODE_CH1_LSBFIRST_ENA	(1 << I2S_CHMODE_CH0_LSBFIRST_OFFSET)
+#define I2S_CHMODE_CH1_LSBFIRST_DIS	(0 << I2S_CHMODE_CH0_LSBFIRST_OFFSET)
+
+#define I2S_CHMODE_CH1_PDM_USEFILTER_OFFSET	9
+#define I2S_CHMODE_CH1_PDM_USEFILTER_WIDTH	1
+#define I2S_CHMODE_CH1_PDM_USEFILTER_MASK	(0x1 << I2S_CHMODE_CH0_PDM_USEFILTER_OFFSET)
+#define I2S_CHMODE_CH1_PDM_USEFILTER_ENA	(1 << I2S_CHMODE_CH0_PDM_USEFILTER_OFFSET)
+#define I2S_CHMODE_CH1_PDM_USEFILTER_DIS	(0 << I2S_CHMODE_CH0_PDM_USEFILTER_OFFSET)
+
+#define I2S_CHMODE_CH1_PDM_EN_OFFSET	13	
+#define I2S_CHMODE_CH1_PDM_EN_WIDTH	1	
+#define I2S_CHMODE_CH1_PDM_EN_MASK	(0x1 << I2S_CHMODE_CH0_PDM_EN_OFFSET)
+#define I2S_CHMODE_CH1_PDM_EN_ENA	(1 << I2S_CHMODE_CH0_PDM_EN_OFFSET)
+#define I2S_CHMODE_CH1_PDM_EN_DIS	(0 << I2S_CHMODE_CH0_PDM_EN_OFFSET)
+
+#define I2S_CHMODE_CH1_USEDDR_OFFSET	17	
+#define I2S_CHMODE_CH1_USEDDR_WIDTH	1	
+#define I2S_CHMODE_CH1_USEDDR_MASK	(0x1 << I2S_CHMODE_CH0_USEDDR_OFFSET)
+#define I2S_CHMODE_CH1_USEDDR_ENA	(1 << I2S_CHMODE_CH0_USEDDR_OFFSET)
+#define I2S_CHMODE_CH1_USEDDR_DIS	(0 << I2S_CHMODE_CH0_USEDDR_OFFSET)
+
+#define I2S_CHMODE_CH1_MODE_OFFSET		26	
+#define I2S_CHMODE_CH1_MODE_WIDTH		2	
+#define I2S_CHMODE_CH1_MODE_MASK		(0x3 << I2S_CHMODE_CH0_MODE_OFFSET)
+#define I2S_CHMODE_CH1_MODE_CLK0		(0 << I2S_CHMODE_CH0_MODE_OFFSET)
+#define I2S_CHMODE_CH1_MODE_CLK1		(1 << I2S_CHMODE_CH0_MODE_OFFSET)
+#define I2S_CHMODE_CH1_MODE_EXTCLK_INTWS	(2 << I2S_CHMODE_CH0_MODE_OFFSET)
+#define I2S_CHMODE_CH1_MODE_EXTCLK_EXTWS	(2 << I2S_CHMODE_CH0_MODE_OFFSET)
+
+// FIXME shall be removed  cause deprecated
+// Channel clock modes
+// Write strobe is the clock for switching left/right channels
+#define I2S_CHMODE_INT_CLOCK0        0    // Internal clock 0
+#define I2S_CHMODE_INT_CLOCK1        1    // Internal clock 1
+#define I2S_CHMODE_EXT_CLOCK_INT_WS  2    // External clock internal write strobe
+#define I2S_CHMODE_EXT_CLOCK_EXT_WS  3    // External clock external write strobe
+
+
+#define I2S_FILT_CH0_DECIMATION_OFFSET	0
+#define I2S_FILT_CH0_DECIMATION_WIDTH	10
+#define I2S_FILT_CH0_DECIMATION_MASK	(0x3ff << I2S_FILT_CH0_DECIMATION_OFFSET)
+#define I2S_FILT_CH0_DECIMATION(val)	(val << I2S_FILT_CH0_DECIMATION_OFFSET)
+
+#define I2S_FILT_CH0_SHIFT_OFFSET	16	
+#define I2S_FILT_CH0_SHIFT_WIDTH	3	
+#define I2S_FILT_CH0_SHIFT_MASK		(0x7 << I2S_FILT_CH0_SHIFT_OFFSET)
+#define I2S_FILT_CH0_SHIFT(val)		(val << I2S_FILT_CH0_SHIFT_OFFSET)
+
+#define I2S_FILT_CH1_DECIMATION_OFFSET	0
+#define I2S_FILT_CH1_DECIMATION_WIDTH	10
+#define I2S_FILT_CH1_DECIMATION_MASK	(0x3ff << I2S_FILT_CH0_DECIMATION_OFFSET)
+#define I2S_FILT_CH1_DECIMATION(val)	(val << I2S_FILT_CH0_DECIMATION_OFFSET)
+
+#define I2S_FILT_CH1_SHIFT_OFFSET	16	
+#define I2S_FILT_CH1_SHIFT_WIDTH	3	
+#define I2S_FILT_CH1_SHIFT_MASK		(0x7 << I2S_FILT_CH0_SHIFT_OFFSET)
+#define I2S_FILT_CH1_SHIFT(val)		(val << I2S_FILT_CH0_SHIFT_OFFSET)
+
+#endif
+
+
+/*
+ * UART
+ */
+
+#ifdef PLP_UDMA_HAS_UART
+
+// UART custom registers offset definition
+#define UART_STATUS_OFFSET               (0x00)
+#define UART_SETUP_OFFSET                (0x04)
+
+// UART custom registers bitfields offset, mask, value definition
+// STATUS
+#define UART_TX_OE_OFFSET		0
+#define UART_TX_OE_WIDTH		1
+#define UART_TX_OE_MASK			(0x1 << UART_TX_OE_OFFSET)
+
+#define UART_RX_OE_OFFSET		1
+#define UART_RX_OE_WIDTH		1
+#define UART_RX_OE_MASK			(0x1 << UART_RX_OE_OFFSET)
+
+#define UART_RX_PE_OFFSET		2
+#define UART_RX_PE_WIDTH		1
+#define UART_RX_PE_MASK			(0x1 << UART_RX_PE_OFFSET)
+
+// SETUP
+#define UART_PARITY_OFFSET		0
+#define UART_PARITY_WIDTH		1
+#define UART_PARITY_MASK		(0x1 << UART_PARITY_OFFSET)
+#define UART_PARITY_DIS			(0 << UART_PARITY_OFFSET)
+#define UART_PARITY_ENA			(1 << UART_PARITY_OFFSET)
+ 
+#define UART_BIT_LENGTH_OFFSET		1
+#define UART_BIT_LENGTH_WIDTH		2
+#define UART_BIT_LENGTH_MASK		(0x3 << UART_BIT_LENGTH_OFFSET)
+#define UART_BIT_LENGTH_5		(0 << UART_BIT_LENGTH_OFFSET)
+#define UART_BIT_LENGTH_6		(1 << UART_BIT_LENGTH_OFFSET)
+#define UART_BIT_LENGTH_7		(2 << UART_BIT_LENGTH_OFFSET)
+#define UART_BIT_LENGTH_8		(3 << UART_BIT_LENGTH_OFFSET)
+
+#define UART_STOP_BITS_OFFSET		3
+#define UART_STOP_BITS_WIDTH		1
+#define UART_STOP_BITS_MASK		(0x1 << UART_STOP_BITS_OFFSET)
+#define UART_STOP_BITS_1		(0 << UART_STOP_BITS_OFFSET)
+#define UART_STOP_BITS_2		(1 << UART_STOP_BITS_OFFSET)
+ 
+#define UART_TX_OFFSET		8
+#define UART_TX_WIDTH		1
+#define UART_TX_MASK		(0x1 << UART_TX_OFFSET)
+#define UART_TX_DIS		(0 << UART_TX_OFFSET)
+#define UART_TX_ENA		(1 << UART_TX_OFFSET)
+ 
+#define UART_RX_OFFSET		9
+#define UART_RX_WIDTH		1
+#define UART_RX_MASK		(0x1 << UART_RX_OFFSET)
+#define UART_RX_DIS		(0 << UART_RX_OFFSET)
+#define UART_RX_ENA		(1 << UART_RX_OFFSET)
+ 
+#define UART_CLKDIV_OFFSET		16
+#define UART_CLKDIV_WIDTH		16
+#define UART_CLKDIV_MASK		(0xffff << UART_CLKDIV_OFFSET)
+#define UART_CLKDIV(val)		(val << UART_CLKDIV_OFFSET)
+ 
+#endif
+
+
+
+
+/*
+ * I2C
+ */
+
+#ifdef PLP_UDMA_HAS_I2C
+
+// I2C command IDS definition
+#define I2C_CMD_OFFSET			 4
+#define I2C_CMD_START                    0x0 << I2C_CMD_OFFSET
+#define I2C_CMD_STOP                     0x2 << I2C_CMD_OFFSET
+#define I2C_CMD_RD_ACK                   0x4 << I2C_CMD_OFFSET
+#define I2C_CMD_RD_NACK                  0x6 << I2C_CMD_OFFSET
+#define I2C_CMD_WR                       0x8 << I2C_CMD_OFFSET
+#define I2C_CMD_WAIT                     0xA << I2C_CMD_OFFSET
+#define I2C_CMD_RPT                      0xC << I2C_CMD_OFFSET
+#define I2C_CMD_CFG                      0xE << I2C_CMD_OFFSET
+#define I2C_CMD_WAIT_EV                  0x1 << I2C_CMD_OFFSET
+
+//+ #define I2C_CMD_SETUP_ENABLE_BIT           8
+
+#endif
+
+
+/*
+ * SPIM
+ */
+
+#ifdef PLP_UDMA_HAS_SPIM
+
+// SPI commands IDS definition
+#define SPI_CMD_CFG_ID       0
+#define SPI_CMD_SOT_ID       1
+#define SPI_CMD_SEND_CMD_ID  2
+#define SPI_CMD_SEND_ADDR_ID 3
+#define SPI_CMD_DUMMY_ID     4
+#define SPI_CMD_WAIT_ID      5
+#define SPI_CMD_TX_DATA_ID   6
+#define SPI_CMD_RX_DATA_ID   7
+#define SPI_CMD_RPT_ID       8
+#define SPI_CMD_EOT_ID       9
+#define SPI_CMD_RPT_END_ID   10
+#define SPI_CMD_RX_CHECK_ID  11
+#define SPI_CMD_FUL_ID       12
+
+// SPI command fields offset, mask, value definition
+// SPI commands fields offsets
+#define SPI_CMD_ID_BIT       28
+
+// COMMON
+#define SPI_CMD_QPI_ENA		1
+#define SPI_CMD_QPI_DIS		0
+#define SPI_CMD_DATA_WITDH(val) (val)
+
+// CFG
+#define SPI_CMD_CFG_CPOL         9
+#define SPI_CMD_CFG_CPHA         8
+#define SPI_CMD_CFG_CLK_DIV      0
+#define SPI_CMD_CFG_CLK_DIV_BITS 8
+
+#define SPI_CMD_CFG_CLKDIV(val) (val)
+#define SPI_CMD_CFG_CPOL_POS	1
+#define SPI_CMD_CFG_CPOL_NEG	0
+#define SPI_CMD_CFG_CPHA_STD	1
+#define SPI_CMD_CFG_CPHA_OPP	0
+
+// SOT
+#define SPI_CMD_SOT_CS           0
+#define SPI_CMD_SOT_CS_BITS      2
+
+#define SPI_CMD_SOT_CS0		0
+#define SPI_CMD_SOT_CS1		1
+#define SPI_CMD_SOT_CS2		2
+#define SPI_CMD_SOT_CS3		3
+
+// SEND_CMD
+#define SPI_CMD_SEND_CMD_QPI       27
+#define SPI_CMD_SEND_CMD_SIZE      16
+#define SPI_CMD_SEND_CMD_SIZE_BITS 4
+#define SPI_CMD_SEND_CMD_CMD       0
+#define SPI_CMD_SEND_CMD_CMD_BITS  16
+
+// SEND_ADDR
+#define SPI_CMD_SEND_ADDR_QPI       27
+#define SPI_CMD_SEND_ADDR_SIZE      16
+#define SPI_CMD_SEND_ADDR_SIZE_BITS 5
+
+// SEND_DUMMY
+#define SPI_CMD_DUMMY_SIZE      16
+#define SPI_CMD_DUMMY_SIZE_BITS 5
+
+// TX_DATA
+#define SPI_CMD_TX_DATA_QPI        27
+#define SPI_CMD_TX_DATA_SIZE       0
+#define SPI_CMD_TX_DATA_SIZE_BITS  16
+
+// RX_DATA
+#define SPI_CMD_RX_DATA_QPI        27
+#define SPI_CMD_RX_DATA_SIZE       0
+#define SPI_CMD_RX_DATA_SIZE_BITS  16
+
+// RPT
+#define SPI_CMD_RPT_NB       0
+#define SPI_CMD_RPT_NB_BITS  16
+
+// EOT
+#define SPI_CMD_EOT_GEN_EVT  0
+#define SPI_CMD_EOT_EVENT_ENA	1
+#define SPI_CMD_EOT_EVENT_DIS	0
+
+// WAIT
+#define SPI_CMD_WAIT_EVENT         0
+#define SPI_CMD_WAIT_EVENT_BITS    2
+
+// RX_CHECK
+#define SPI_CMD_RX_CHECK_MODE      24
+#define SPI_CMD_RX_CHECK_MODE_BITS 2
+
+#define SPI_CMD_RX_CHECK_VALUE      0
+#define SPI_CMD_RX_CHECK_VALUE_BITS 16
+
+#define SPI_CMD_RX_CHECK_BITS       16
+#define SPI_CMD_RX_CHECK_BITS_BITS  8
+
+#define SPI_CMD_RX_CHECK_MODE_MATCH 0
+#define SPI_CMD_RX_CHECK_MODE_ONES  1
+#define SPI_CMD_RX_CHECK_MODE_ZEROS 2
+
+// FULL DUPLEX
+#define SPI_CMD_FUL_SIZE            0
+
+// SPI CMD encoding
+#define SPI_CMD_CFG(clockDiv,cpol,cpha)   ((SPI_CMD_CFG_ID<<SPI_CMD_ID_BIT) | ((cpol)<<SPI_CMD_CFG_CPOL) | ((cpha)<<SPI_CMD_CFG_CPHA) | ((clockDiv)<<SPI_CMD_CFG_CLK_DIV))
+#define SPI_CMD_SOT(cs)                   ((SPI_CMD_SOT_ID << SPI_CMD_ID_BIT) | ((cs) << SPI_CMD_SOT_CS))
+#define SPI_CMD_SEND_CMD(cmd,bits,qpi)    ((SPI_CMD_SEND_CMD_ID<<SPI_CMD_ID_BIT) | ((qpi)<<SPI_CMD_SEND_CMD_QPI) | (((bits)-1)<<SPI_CMD_SEND_CMD_SIZE) | (((cmd)>>8)<<SPI_CMD_SEND_CMD_CMD) | (((cmd)&0xff)<<(SPI_CMD_SEND_CMD_CMD+8)))
+#define SPI_CMD_SEND_ADDR(bits,qpi)       ((SPI_CMD_SEND_ADDR_ID<<SPI_CMD_ID_BIT) | ((qpi)<<SPI_CMD_SEND_ADDR_QPI) | (((bits)-1)<<SPI_CMD_SEND_ADDR_SIZE))
+#define SPI_CMD_DUMMY(cycles)             ((SPI_CMD_DUMMY_ID<<SPI_CMD_ID_BIT) | (((cycles)-1)<<SPI_CMD_DUMMY_SIZE))
+#define SPI_CMD_TX_DATA(bits,qpi)         ((SPI_CMD_TX_DATA_ID<<SPI_CMD_ID_BIT) | ((qpi)<<SPI_CMD_TX_DATA_QPI) | (((bits)-1) << SPI_CMD_TX_DATA_SIZE))
+#define SPI_CMD_RX_DATA(bits,qpi)         ((SPI_CMD_RX_DATA_ID<<SPI_CMD_ID_BIT) | ((qpi)<<SPI_CMD_RX_DATA_QPI) | (((bits)-1) << SPI_CMD_RX_DATA_SIZE))
+#define SPI_CMD_RPT(iter)                 ((SPI_CMD_RPT_ID<<SPI_CMD_ID_BIT) | ((iter)<<SPI_CMD_RPT_NB))
+#define SPI_CMD_EOT(evt)                  ((SPI_CMD_EOT_ID<<SPI_CMD_ID_BIT) | ((evt)<<SPI_CMD_EOT_GEN_EVT))
+#define SPI_CMD_RX_CHECK(mode,bits,value) ((SPI_CMD_RX_CHECK_ID<<SPI_CMD_ID_BIT) | ((mode) << SPI_CMD_RX_CHECK_MODE) | (((bits)-1) << SPI_CMD_RX_CHECK_BITS))
+#define SPI_CMD_WAIT(event)               ((SPI_CMD_WAIT_ID<<SPI_CMD_ID_BIT) | ((event) << SPI_CMD_WAIT_EVENT))
+#define SPI_CMD_RPT_END()                 ((SPI_CMD_RPT_END_ID<<SPI_CMD_ID_BIT))
+#define SPI_CMD_FUL(bits)                 ((SPI_CMD_FUL_ID<<SPI_CMD_ID_BIT) | (((bits)-1) << SPI_CMD_FUL_SIZE))
+
+//#define SPI_CMD_SEND_ADDR_VALUE(value)  ((((value) & 0xff000000) >> 24) | (((value) & 0xff0000) >> 8) | (((value) & 0xff00) << 8) | (((value) & 0xff) << 24))
+#define SPI_CMD_SEND_ADDR_VALUE(value)  (value)
+
+#endif
+
+
+#endif

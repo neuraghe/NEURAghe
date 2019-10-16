@@ -1,0 +1,982 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/nur/NEURAghe/neuraghe_2.0/fe/sim
+Elatchram_words64_ws23
+Z1 w1566466362
+Z2 DPx4 work 7 scm_pkg 0 22 IX1N3AWo?zSRF;?n43ncJ0
+Z3 DPx4 work 9 vhdltools 0 22 020cHYK_o1XGShAIIkGFz2
+Z4 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z5 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z6 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z7 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/scm/scm128x32/mcg.vhd
+Z8 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/scm/scm128x32/mcg.vhd
+l0
+L55
+V<hUBPmJI84:YDe@WQ5Uo61
+!s100 ^az?FNNQoA;HAk2GL5Gom0
+Z9 OL;C;10.4;61
+32
+Z10 !s110 1568883251
+!i10b 1
+Z11 !s108 1568883251.883205
+Z12 !s90 -quiet|-work|or1200_lib|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/scm/scm128x32/mcg.vhd|
+Z13 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/scm/scm128x32/mcg.vhd|
+!i113 0
+Z14 o-quiet -work or1200_lib
+Z15 tExplicit 1
+Artl
+R2
+R3
+R4
+R5
+R6
+DEx4 work 21 latchram_words64_ws23 0 22 <hUBPmJI84:YDe@WQ5Uo61
+l112
+L77
+V9K7m_PmN`Fb_kSmA7TBlO1
+!s100 :okB9bD_9K_<mkXZz5X^E0
+R9
+32
+R10
+!i10b 1
+R11
+R12
+R13
+!i113 0
+R14
+R15
+vor1200_alu
+Z16 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
+Z17 !s110 1568883252
+!i10b 1
+!s100 U7ZSWKCNNz4cA1W[aN[E=3
+IVdnJeN=c>M3QKX:zz_QXL2
+Z18 VDg1SIo80bB@j0V0VzS_@n1
+!s105 or1200_alu_v_unit
+S1
+R0
+Z19 w1566466424
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_alu.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_alu.v
+Z20 L0 54
+Z21 OL;L;10.4;61
+r1
+!s85 0
+31
+Z22 !s108 1568883251.938977
+Z23 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/includes/test-defines.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/includes/timescale.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/includes/or1200_defines.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_top.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_ic_tag_ffram.sv|
+Z24 !s90 -quiet|-sv|-work|or1200_lib|-f|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/scripts/or1200.scr|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/includes|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_ic_tag_ffram.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_top.v|
+!i113 0
+Z25 o-quiet -sv -work or1200_lib +libext+.v -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z26 !s92 -quiet -sv -work or1200_lib +incdir+../rtl/includes +incdir+../tb/include +libext+.v -y /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200 +incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/includes -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vor1200_cfgr
+R16
+R17
+!i10b 1
+!s100 W?k_UVkak8Yz@_KQo2QbP0
+IXBoe<?lol2QOAK_Ok8@BY3
+R18
+!s105 or1200_cfgr_v_unit
+S1
+R0
+Z27 w1566466423
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_cfgr.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_cfgr.v
+R20
+R21
+r1
+!s85 0
+31
+R22
+R23
+R24
+!i113 0
+R25
+R26
+vor1200_cpu
+R16
+R17
+!i10b 1
+!s100 9<V:T2l6]>`aTcjF<:3aK0
+Iz[MW5g1SC48ohj]:b5InB1
+R18
+!s105 or1200_cpu_v_unit
+S1
+R0
+R27
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_cpu.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_cpu.v
+Z28 L0 55
+R21
+r1
+!s85 0
+31
+R22
+R23
+R24
+!i113 0
+R25
+R26
+vor1200_ctrl
+R16
+R17
+!i10b 1
+!s100 <aCj;CVHNK6^YW=iPllC_0
+Iziim3k9LJXUl`mdG7OXAV2
+R18
+!s105 or1200_ctrl_v_unit
+S1
+R0
+R19
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_ctrl.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_ctrl.v
+R28
+R21
+r1
+!s85 0
+31
+R22
+R23
+R24
+!i113 0
+R25
+R26
+vor1200_dc_top
+R16
+R17
+!i10b 1
+!s100 I9KKJaR2BH`hJRIa5A_ZN3
+IaL`N2?Y[O5oEGEO:nBV[g2
+R18
+!s105 or1200_dc_top_v_unit
+S1
+R0
+R27
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_dc_top.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_dc_top.v
+Z29 L0 60
+R21
+r1
+!s85 0
+31
+R22
+R23
+R24
+!i113 0
+R25
+R26
+vor1200_dmmu_top
+R16
+R17
+!i10b 1
+!s100 K35gEN@Yh4:H`b?:kW7D;1
+IYoBGn[jNQIiki^mS5VfQz3
+R18
+!s105 or1200_dmmu_top_v_unit
+S1
+R0
+R19
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_dmmu_top.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_dmmu_top.v
+Z30 L0 59
+R21
+r1
+!s85 0
+31
+R22
+R23
+R24
+!i113 0
+R25
+R26
+vor1200_du
+R16
+R17
+!i10b 1
+!s100 ^02Ya_zQUJH^zzWNKjD;U1
+I7_am3]SNBD`Zi2omGC;U71
+R18
+!s105 or1200_du_v_unit
+S1
+R0
+R27
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_du.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_du.v
+R30
+R21
+r1
+!s85 0
+31
+R22
+R23
+R24
+!i113 0
+R25
+R26
+vor1200_except
+R16
+R17
+!i10b 1
+!s100 iLaU?i_?ViRITLWB3Kol70
+I[NSSH>k]ef=IfhJNmOONN0
+R18
+!s105 or1200_except_v_unit
+S1
+R0
+R27
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_except.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_except.v
+Z31 L0 67
+R21
+r1
+!s85 0
+31
+R22
+R23
+R24
+!i113 0
+R25
+R26
+vor1200_fpu
+R16
+R17
+!i10b 1
+!s100 jFf2cfO1g]@j8Y;9]JRAX3
+IgV`R^TQ162gXUk`;i_?bI0
+R18
+!s105 or1200_fpu_v_unit
+S1
+R0
+R19
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_fpu.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_fpu.v
+L0 51
+R21
+r1
+!s85 0
+31
+R22
+R23
+R24
+!i113 0
+R25
+R26
+vor1200_freeze
+R16
+R17
+!i10b 1
+!s100 e<7^=`5CS=d]IbnB[BH`A1
+IAH^dZ:C33_9Fo^QFHbdOG3
+R18
+!s105 or1200_freeze_v_unit
+S1
+R0
+R19
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_freeze.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_freeze.v
+Z32 L0 64
+R21
+r1
+!s85 0
+31
+R22
+R23
+R24
+!i113 0
+R25
+R26
+vor1200_genpc
+R16
+R17
+!i10b 1
+!s100 LVa@h>kG^ka;ddgfRXC2@0
+IW^j8Q_Ng>VW]gg6<3A[F63
+R18
+!s105 or1200_genpc_v_unit
+S1
+R0
+Z33 w1566466422
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_genpc.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_genpc.v
+R20
+R21
+r1
+!s85 0
+31
+R22
+R23
+R24
+!i113 0
+R25
+R26
+vor1200_ic_fsm
+R16
+R17
+!i10b 1
+!s100 H<^n?d8j2MX2a;if`8ld]0
+I3dEMP0mZ1XJ7WEX[M2KzN2
+R18
+!s105 or1200_ic_fsm_v_unit
+S1
+R0
+R19
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_ic_fsm.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_ic_fsm.v
+R32
+R21
+r1
+!s85 0
+31
+R22
+R23
+R24
+!i113 0
+R25
+R26
+vor1200_ic_tag
+R16
+R17
+!i10b 1
+!s100 `c7Fe?0_PfJ[5mb@6Q3bB0
+IL9lH[oLLggQ4ARbi=O34F0
+R18
+!s105 or1200_ic_tag_v_unit
+S1
+R0
+R27
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_ic_tag.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_ic_tag.v
+L0 57
+R21
+r1
+!s85 0
+31
+R22
+R23
+R24
+!i113 0
+R25
+R26
+vor1200_ic_tag_ffram
+R16
+R10
+!i10b 1
+!s100 9lLMbR8nMDo^HVFfhaH<42
+I]L@6Eb]0d2eR3XW?[QRdO0
+R18
+!s105 or1200_ic_tag_ffram_sv_unit
+S1
+R0
+R19
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_ic_tag_ffram.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_ic_tag_ffram.sv
+L0 5
+R21
+r1
+!s85 0
+31
+R22
+R23
+R24
+!i113 0
+R25
+R26
+vor1200_ic_top
+R16
+R17
+!i10b 1
+!s100 ?[@g]b`n0U5k5QMdPgmc42
+I8=2fl88Gf7<NC59JN;eDU2
+R18
+!s105 or1200_ic_top_v_unit
+S1
+R0
+R19
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_ic_top.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_ic_top.v
+Z34 L0 56
+R21
+r1
+!s85 0
+31
+R22
+R23
+R24
+!i113 0
+R25
+R26
+vor1200_if
+R16
+R17
+!i10b 1
+!s100 Se9<jHD;;QEa^l]kW]4U@3
+Io1fYIS086b2>0^Wf^U0m_0
+R18
+!s105 or1200_if_v_unit
+S1
+R0
+R19
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_if.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_if.v
+R20
+R21
+r1
+!s85 0
+31
+R22
+R23
+R24
+!i113 0
+R25
+R26
+vor1200_immu_top
+R16
+R17
+!i10b 1
+!s100 SVGik7ZlRNGXniN`cRj;m2
+IB14a_Y[dEk>9ZnY1kB9n@0
+R18
+!s105 or1200_immu_top_v_unit
+S1
+R0
+R19
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_immu_top.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_immu_top.v
+Z35 L0 53
+R21
+r1
+!s85 0
+31
+R22
+R23
+R24
+!i113 0
+R25
+R26
+vor1200_lsu
+R16
+R17
+!i10b 1
+!s100 0D_i^T0hGQ:i_UGE7Y0JV1
+I>FBo0X9TomFVKPe6CTYjW2
+R18
+!s105 or1200_lsu_v_unit
+S1
+R0
+R19
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_lsu.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_lsu.v
+R34
+R21
+r1
+!s85 0
+31
+R22
+R23
+R24
+!i113 0
+R25
+R26
+vor1200_mem2reg
+R16
+R17
+!i10b 1
+!s100 ^P@zN1aR4_Q9[]3TNMgf[3
+I9lgzbL1mj__aI:m=PaR1E3
+R18
+!s105 or1200_mem2reg_v_unit
+S1
+R0
+R19
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_mem2reg.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_mem2reg.v
+L0 90
+R21
+r1
+!s85 0
+31
+R22
+R23
+R24
+!i113 0
+R25
+R26
+vor1200_mult_32x32
+R16
+R17
+!i10b 1
+!s100 @=4MPk[J3FE<_P6>3VI4D0
+IALFLH0@ajLJVVjP0k3mES3
+R18
+!s105 or1200_mult_32x32_v_unit
+S1
+R0
+R19
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_mult_32x32.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_mult_32x32.v
+L0 25
+R21
+r1
+!s85 0
+31
+R22
+R23
+R24
+!i113 0
+R25
+R26
+vor1200_mult_mac
+R16
+R17
+!i10b 1
+!s100 PRH:h@C0j<EF1ZQ_dz8Z:3
+IC7^F0GJaj8AA11`@2XGDK1
+R18
+!s105 or1200_mult_mac_v_unit
+S1
+R0
+R19
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_mult_mac.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_mult_mac.v
+R29
+R21
+r1
+!s85 0
+31
+R22
+R23
+R24
+!i113 0
+R25
+R26
+vor1200_operandmuxes
+R16
+R17
+!i10b 1
+!s100 Odd?h3T6HOnF0STR6?UjD3
+IaPlK]ST?B9;Y1O[4KS_;U1
+R18
+!s105 or1200_operandmuxes_v_unit
+S1
+R0
+R19
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_operandmuxes.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_operandmuxes.v
+R20
+R21
+r1
+!s85 0
+31
+R22
+R23
+R24
+!i113 0
+R25
+R26
+vor1200_pic
+R16
+R17
+!i10b 1
+!s100 cgPg:38coPNocm_U>WRbK2
+I<ln6]0UhJFIMa2X]XijSe1
+R18
+!s105 or1200_pic_v_unit
+S1
+R0
+R27
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_pic.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_pic.v
+R35
+R21
+r1
+!s85 0
+31
+R22
+R23
+R24
+!i113 0
+R25
+R26
+vor1200_pm
+R16
+R17
+!i10b 1
+!s100 52:YAK[`I4CzeG]ea9?S93
+IDh6>M`m`L]NMU4Ha=QMRP2
+R18
+!s105 or1200_pm_v_unit
+S1
+R0
+R19
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_pm.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_pm.v
+L0 75
+R21
+r1
+!s85 0
+31
+R22
+R23
+R24
+!i113 0
+R25
+R26
+vor1200_qmem_top
+R16
+R17
+!i10b 1
+!s100 FnU]XTK]W6`c9?fgR?PzO0
+IcKXDg9g;iL_lMeeA8cIi91
+R18
+!s105 or1200_qmem_top_v_unit
+S1
+R0
+R19
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_qmem_top.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_qmem_top.v
+L0 82
+R21
+r1
+!s85 0
+31
+R22
+R23
+R24
+!i113 0
+R25
+R26
+vor1200_reg2mem
+R16
+R17
+!i10b 1
+!s100 nZKc?ICFHI^Kjj=Ye5[>63
+I9GT1;[7Vc8PK13[bSB<[h0
+R18
+!s105 or1200_reg2mem_v_unit
+S1
+R0
+R19
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_reg2mem.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_reg2mem.v
+L0 81
+R21
+r1
+!s85 0
+31
+R22
+R23
+R24
+!i113 0
+R25
+R26
+vor1200_rf
+R16
+R17
+!i10b 1
+!s100 k<VO2DJ@MCY91gPYV98:k1
+I;3P`NY8z>JkLnCiVGQ`oP1
+R18
+!s105 or1200_rf_v_unit
+S1
+R0
+R19
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_rf.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_rf.v
+R28
+R21
+r1
+!s85 0
+31
+R22
+R23
+R24
+!i113 0
+R25
+R26
+vor1200_rfram_generic
+R16
+R17
+!i10b 1
+!s100 98aOJ52a`:XQe]oSBmYM80
+Ijk21g^jRRC9hSZ?A3WkY`2
+R18
+!s105 or1200_rfram_generic_v_unit
+S1
+R0
+R27
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_rfram_generic.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_rfram_generic.v
+R31
+R21
+r1
+!s85 0
+31
+R22
+R23
+R24
+!i113 0
+R25
+R26
+vor1200_sb
+R16
+R17
+!i10b 1
+!s100 X@;b`g_d2RUChK]kY3fP?0
+IR6RMlOa_IK>DeiB<5bbjm1
+R18
+!s105 or1200_sb_v_unit
+S1
+R0
+R19
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_sb.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_sb.v
+R28
+R21
+r1
+!s85 0
+31
+R22
+R23
+R24
+!i113 0
+R25
+R26
+vor1200_sprs
+R16
+R17
+!i10b 1
+!s100 H_nHM9DC`iFU0^[D19NCS0
+IYi_SXZH`ZG0;k7MAh07CR3
+R18
+!s105 or1200_sprs_v_unit
+S1
+R0
+R27
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_sprs.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_sprs.v
+R20
+R21
+r1
+!s85 0
+31
+R22
+R23
+R24
+!i113 0
+R25
+R26
+vor1200_top
+R16
+R10
+!i10b 1
+!s100 iKVcARGIEfDi:SCH>h>YM3
+IR^9=MA[gBc7nW>5<_XI[E3
+R18
+!s105 or1200_top_v_unit
+S1
+R0
+R33
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_top.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_top.v
+L0 58
+R21
+r1
+!s85 0
+31
+R22
+R23
+R24
+!i113 0
+R25
+R26
+vor1200_tt
+R16
+R17
+!i10b 1
+!s100 mn0EBP2R4I:O=@V_dFTPK3
+I87GWK@ZcdfMlfflnZP_490
+R18
+!s105 or1200_tt_v_unit
+S1
+R0
+R19
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_tt.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_tt.v
+L0 50
+R21
+r1
+!s85 0
+31
+R22
+R23
+R24
+!i113 0
+R25
+R26
+vor1200_wb_biu
+R16
+R10
+!i10b 1
+!s100 zPbe0AVdNf[`Q[iOHDAJC0
+I4T3^6<Y[emLhBnS327dlO0
+R18
+!s105 or1200_wb_biu_v_unit
+S1
+R0
+R19
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_wb_biu.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_wb_biu.v
+Z36 L0 61
+R21
+r1
+!s85 0
+31
+R22
+R23
+R24
+!i113 0
+R25
+R26
+vor1200_wb_biu64
+R16
+R10
+!i10b 1
+!s100 3<9k4mOLWFQ`=A_^[c=TD0
+I1N>VJHYlh6Sa1M87S0VTN0
+R18
+!s105 or1200_wb_biu64_v_unit
+S1
+R0
+R19
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_wb_biu64.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_wb_biu64.v
+R36
+R21
+r1
+!s85 0
+31
+R22
+R23
+R24
+!i113 0
+R25
+R26
+vor1200_wbmux
+R16
+R17
+!i10b 1
+!s100 W^jUmoJzXeU:T<OOcdC052
+IZE=9X_]YEe3koWcOlo;ce0
+R18
+!s105 or1200_wbmux_v_unit
+S1
+R0
+R27
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_wbmux.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or1200_wbmux.v
+R20
+R21
+r1
+!s85 0
+31
+R22
+R23
+R24
+!i113 0
+R25
+R26
+vor_stack_monitor
+R16
+R10
+!i10b 1
+!s100 0U=_NeD[FzSG1MDzUFdP51
+Ico0iDGV]nca?:UaQ2ED8<3
+R18
+!s105 or_stack_monitor_sv_unit
+S1
+R0
+R19
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or_stack_monitor.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or_stack_monitor.sv
+L0 1
+R21
+r1
+!s85 0
+31
+!s108 1568883251.744530
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or_stack_monitor.sv|
+!s90 -quiet|-sv|-work|or1200_lib|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/or1200/or_stack_monitor.sv|
+!i113 0
+o-quiet -sv -work or1200_lib -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Pscm_pkg
+R5
+R6
+R1
+R0
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/scm/scm128x32/SCM_pkg.vhd
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/scm/scm128x32/SCM_pkg.vhd
+l0
+L23
+VIX1N3AWo?zSRF;?n43ncJ0
+!s100 nSGS2kQH0=bA97dR8gOBV3
+R9
+32
+R10
+!i10b 1
+!s108 1568883251.834978
+!s90 -quiet|-work|or1200_lib|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/scm/scm128x32/SCM_pkg.vhd|
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/scm/scm128x32/SCM_pkg.vhd|
+!i113 0
+R14
+R15
+Pvhdltools
+R4
+R5
+R6
+R1
+R0
+Z37 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/scm/scm128x32/VHDLTools.vhd
+Z38 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/scm/scm128x32/VHDLTools.vhd
+l0
+L23
+V020cHYK_o1XGShAIIkGFz2
+!s100 ]b1f7bDH3]LkJzDiHkEY`3
+R9
+32
+b1
+R10
+!i10b 1
+Z39 !s108 1568883251.783119
+Z40 !s90 -quiet|-work|or1200_lib|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/scm/scm128x32/VHDLTools.vhd|
+Z41 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/scm/scm128x32/VHDLTools.vhd|
+!i113 0
+R14
+R15
+Bbody
+R3
+R4
+R5
+R6
+l0
+L53
+VCiglPf2:CDg?I`=g8V5ca2
+!s100 K0koHScY2>ef:>Fb4Znbg2
+R9
+32
+R10
+!i10b 1
+R39
+R40
+R41
+!i113 0
+R14
+R15
+nbody

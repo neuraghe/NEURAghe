@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="Local" key="base_zynq_design_wrapper_hw_platform_0-target"/>
+	<item value="false" key="base_zynq_design_wrapper_hw_platform_0-partial_bit"/>
+	<item value="/home/gderiu/pulp/nuraghe/pulp_on_zynq/pulp_on_zynq.runs/impl_11/base_zynq_design_wrapper.bit" key="base_zynq_design_wrapper_hw_platform_0-bitFile"/>
+	<item value="base_zynq_design_wrapper_hw_platform_0" key="programfpga.hwplatform"/>
+	<item value="Auto Detect" key="base_zynq_design_wrapper_hw_platform_0-device"/>
+	<item value="" key="base_zynq_design_wrapper_hw_platform_0-bmmFile"/>
+</section>

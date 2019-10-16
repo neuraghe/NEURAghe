@@ -1,0 +1,77 @@
+////////////////////////////////////////////////////////////////////////////////
+// Company:        Micrel Lab @ DEIS - University of Bologna                  //  
+//                    Viale Risorgimento 2 40136                              //
+//                    Bologna - fax 0512093785 -                              //
+//                                                                            //
+// Engineer:       Igor Loi - igor.loi@unibo.it                               //
+//                                                                            //
+// Additional contributions by:                                               //
+//                                                                            //
+//                                                                            //
+//                                                                            //
+// Create Date:    29/06/2011                                                 // 
+// Design Name:    LOG_INTERCONNECT                                           // 
+// Module Name:    FanInPrimitive_Resp                                        //
+// Project Name:   P2012 - ENCORE                                             //
+// Language:       SystemVerilog                                              //
+//                                                                            //
+// Description:    Routing primitives used to build the Routing trees.        //
+//                 They are part of the response network                      //
+//                                                                            //
+//                                                                            //
+// Revision:                                                                  //
+// Revision v0.1 02/07/2011  - File Created                                   //
+//           v0.2 15/08/2012  - Improved the Interface Structure,              //
+//                             Changed the routing mechanism                  //
+// Revision v0.3 19/02/2015  - Code Restyling                                 //
+//                                                                            //
+//                                                                            //
+//                                                                            //
+// Additional Comments:                                                       //
+//                                                                            //
+//                                                                            //
+//                                                                            //
+//                                                                            //
+////////////////////////////////////////////////////////////////////////////////
+
+
+`include "parameters.v"
+
+module FanInPrimitive_PE_Resp
+#(
+    parameter DATA_WIDTH = 32
+)
+(
+    // UPSTREAM SIDE 
+    input  logic [DATA_WIDTH-1:0]        data_r_rdata0_i,
+    input  logic [DATA_WIDTH-1:0]        data_r_rdata1_i,
+    input  logic                         data_r_valid0_i,
+    input  logic                         data_r_valid1_i,
+    input  logic                         data_r_opc0_i,
+    input  logic                         data_r_opc1_i,
+
+    // DOWNSTREAM SIDE
+    output logic [DATA_WIDTH-1:0]        data_r_rdata_o,
+    output logic                         data_r_valid_o,
+    output logic                         data_r_opc_o
+);
+
+    // Selector for the FanOut multiplexer
+    logic                  SEL;
+
+    // VAlid is simply the or of the two requests
+    assign data_r_valid_o = data_r_valid1_i | data_r_valid0_i;
+
+    // FIXME: (req0 & req1) must be always 0
+    assign SEL = data_r_valid1_i;
+
+
+    // SEL CONTROLLER
+    always_comb
+    begin : FanOut_MUX2
+        case(SEL) 
+          1'b0: begin data_r_rdata_o  = data_r_rdata0_i; data_r_opc_o = data_r_opc0_i; end
+          1'b1: begin data_r_rdata_o  = data_r_rdata1_i; data_r_opc_o = data_r_opc1_i; end
+        endcase
+    end
+endmodule

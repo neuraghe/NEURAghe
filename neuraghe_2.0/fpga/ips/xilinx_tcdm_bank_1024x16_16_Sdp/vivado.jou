@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2016.4 (64-bit)
+# SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+# IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+# Start of session at: Wed Feb 13 10:45:48 2019
+# Process ID: 15912
+# Current directory: /home/gderiu/marco/neuraghe_zed_tcn/fpga/ips/xilinx_tcdm_bank_1024x16_16_Sdp
+# Command line: vivado -mode batch -source tcl/run.tcl
+# Log file: /home/gderiu/marco/neuraghe_zed_tcn/fpga/ips/xilinx_tcdm_bank_1024x16_16_Sdp/vivado.log
+# Journal file: /home/gderiu/marco/neuraghe_zed_tcn/fpga/ips/xilinx_tcdm_bank_1024x16_16_Sdp/vivado.jou
+#-----------------------------------------------------------
+source tcl/run.tcl

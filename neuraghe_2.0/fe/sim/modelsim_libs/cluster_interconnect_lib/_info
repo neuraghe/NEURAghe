@@ -1,0 +1,734 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/nur/NEURAghe/neuraghe_2.0/fe/sim
+vAddressDecoder_PE_Req
+Z1 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
+Z2 !s110 1568883250
+!i10b 1
+!s100 IX^K0hXEJZhkej3TA1?WI1
+Iko7dlHmN]6^:INh0AGX]^1
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+!s105 AddressDecoder_PE_Req_sv_unit
+S1
+R0
+Z4 w1566466339
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/AddressDecoder_PE_Req.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/AddressDecoder_PE_Req.sv
+Z5 L0 36
+Z6 OL;L;10.4;61
+r1
+!s85 0
+31
+!s108 1568883250.837341
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco//parameters.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/AddressDecoder_PE_Req.sv|
+!s90 -work|cluster_interconnect_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/AddressDecoder_PE_Req.sv|
+!i113 0
+Z7 o-quiet -work cluster_interconnect_lib -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z8 !s92 -quiet -work cluster_interconnect_lib -sv +incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/ -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+n@address@decoder_@p@e_@req
+vAddressDecoder_Req
+R1
+R2
+!i10b 1
+!s100 Wl00aL3m2FB=STBieUPhF2
+IWV8YDlnTXTo>Bm5GZzfXX3
+R3
+!s105 AddressDecoder_Req_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/AddressDecoder_Req.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/AddressDecoder_Req.sv
+R5
+R6
+r1
+!s85 0
+31
+!s108 1568883250.603400
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco//parameters.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/AddressDecoder_Req.sv|
+!s90 -work|cluster_interconnect_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/AddressDecoder_Req.sv|
+!i113 0
+R7
+Z9 !s92 -quiet -work cluster_interconnect_lib -sv +incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/ -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+n@address@decoder_@req
+vAddressDecoder_Resp
+R1
+R2
+!i10b 1
+!s100 3MDbHhlFZgbk:a01f^U[I2
+IAgNST=_VZ?B?C90XJX8@X2
+R3
+!s105 AddressDecoder_Resp_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/AddressDecoder_Resp.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/AddressDecoder_Resp.sv
+Z10 L0 35
+R6
+r1
+!s85 0
+31
+!s108 1568883250.343724
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco//parameters.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/AddressDecoder_Resp.sv|
+!s90 -work|cluster_interconnect_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/AddressDecoder_Resp.sv|
+!i113 0
+R7
+R9
+n@address@decoder_@resp
+vAddressDecoder_Resp_PE
+R1
+R2
+!i10b 1
+!s100 0C7jm4^I>aB>ahUG0SO<K3
+ImYMSJC5gLWR>RlMcKRTA90
+R3
+!s105 AddressDecoder_Resp_PE_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/AddressDecoder_Resp_PE.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/AddressDecoder_Resp_PE.sv
+R5
+R6
+r1
+!s85 0
+31
+!s108 1568883250.873589
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco//parameters.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/AddressDecoder_Resp_PE.sv|
+!s90 -work|cluster_interconnect_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/AddressDecoder_Resp_PE.sv|
+!i113 0
+R7
+R8
+n@address@decoder_@resp_@p@e
+vArbitrationTree
+R1
+R2
+!i10b 1
+!s100 ;b5T63ioSWSRY8K9Ci@X90
+I`@HV8H>EkH[L3;bW?Fih;3
+R3
+!s105 ArbitrationTree_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/ArbitrationTree.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/ArbitrationTree.sv
+Z11 L0 39
+R6
+r1
+!s85 0
+31
+!s108 1568883250.276133
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco//parameters.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/ArbitrationTree.sv|
+!s90 -work|cluster_interconnect_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/ArbitrationTree.sv|
+!i113 0
+R7
+R9
+n@arbitration@tree
+vArbitrationTree_PE
+R1
+R2
+!i10b 1
+!s100 DF?zA>Cd]XcXOKn1fFjPd1
+IoYmG17YzozKahGTF2ZR?73
+R3
+!s105 ArbitrationTree_PE_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/ArbitrationTree_PE.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/ArbitrationTree_PE.sv
+R11
+R6
+r1
+!s85 0
+31
+!s108 1568883250.909437
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco//parameters.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/ArbitrationTree_PE.sv|
+!s90 -work|cluster_interconnect_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/ArbitrationTree_PE.sv|
+!i113 0
+R7
+R8
+n@arbitration@tree_@p@e
+vFanInPrimitive_PE_Resp
+R1
+Z12 !s110 1568883251
+!i10b 1
+!s100 G@<SHi:06eY5W3_iBH>jE2
+I4mF_i=BRRzI`_a9OGbG_10
+R3
+!s105 FanInPrimitive_PE_Resp_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/FanInPrimitive_PE_Resp.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/FanInPrimitive_PE_Resp.sv
+Z13 L0 40
+R6
+r1
+!s85 0
+31
+!s108 1568883251.055710
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco//parameters.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/FanInPrimitive_PE_Resp.sv|
+!s90 -work|cluster_interconnect_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/FanInPrimitive_PE_Resp.sv|
+!i113 0
+R7
+R8
+n@fan@in@primitive_@p@e_@resp
+vFanInPrimitive_Req
+R1
+R2
+!i10b 1
+!s100 hA>iFb8HC:7oa@9gb`Ad93
+I8?9j4az;cKQaATziLhOXo1
+R3
+!s105 FanInPrimitive_Req_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/FanInPrimitive_Req.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/FanInPrimitive_Req.sv
+Z14 L0 37
+R6
+r1
+!s85 0
+31
+!s108 1568883250.209279
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco//parameters.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/FanInPrimitive_Req.sv|
+!s90 -work|cluster_interconnect_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/FanInPrimitive_Req.sv|
+!i113 0
+R7
+R9
+n@fan@in@primitive_@req
+vFanInPrimitive_Req_PE
+R1
+R2
+!i10b 1
+!s100 @W;?oJ;=moSHQ^hzFPXF53
+I;lPlJ>HB0]T744:nEOkIW0
+R3
+!s105 FanInPrimitive_Req_PE_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/FanInPrimitive_Req_PE.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/FanInPrimitive_Req_PE.sv
+R14
+R6
+r1
+!s85 0
+31
+!s108 1568883250.950418
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco//parameters.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/FanInPrimitive_Req_PE.sv|
+!s90 -work|cluster_interconnect_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/FanInPrimitive_Req_PE.sv|
+!i113 0
+R7
+R8
+n@fan@in@primitive_@req_@p@e
+vFanInPrimitive_Resp
+R1
+R2
+!i10b 1
+!s100 oGIHmAHTm<C:a^]@H5]LU2
+ILcYn2Fz0Y43jXCgh6LDGa3
+R3
+!s105 FanInPrimitive_Resp_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/FanInPrimitive_Resp.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/FanInPrimitive_Resp.sv
+R5
+R6
+r1
+!s85 0
+31
+!s108 1568883250.496775
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco//parameters.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/FanInPrimitive_Resp.sv|
+!s90 -work|cluster_interconnect_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/FanInPrimitive_Resp.sv|
+!i113 0
+R7
+R9
+n@fan@in@primitive_@resp
+vgrant_mask
+R1
+R2
+!i10b 1
+!s100 EkB[aB]N3jSlR5:;`Di7R2
+I47:c0LhFA3BzKZXNKAIYe1
+R3
+!s105 grant_mask_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/grant_mask.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/grant_mask.sv
+R10
+R6
+r1
+!s85 0
+31
+!s108 1568883250.799417
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco//parameters.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/grant_mask.sv|
+!s90 -work|cluster_interconnect_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/grant_mask.sv|
+!i113 0
+R7
+R9
+vMUX2_REQ
+R1
+R2
+!i10b 1
+!s100 LA157G5;@neD1J0Oid:ZL0
+Ig]=E3M6bOzhPnLKGD2?2?3
+R3
+!s105 MUX2_REQ_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/MUX2_REQ.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/MUX2_REQ.sv
+R5
+R6
+r1
+!s85 0
+31
+!s108 1568883250.311086
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco//parameters.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/MUX2_REQ.sv|
+!s90 -work|cluster_interconnect_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/MUX2_REQ.sv|
+!i113 0
+R7
+R9
+n@m@u@x2_@r@e@q
+vMUX2_REQ_PE
+R1
+R12
+!i10b 1
+!s100 BNcdi4<zRSIi0jOCMoZe12
+I0aaFkW=delB8nZSjHdRDO1
+R3
+!s105 MUX2_REQ_PE_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/MUX2_REQ_PE.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/MUX2_REQ_PE.sv
+R14
+R6
+r1
+!s85 0
+31
+!s108 1568883251.021238
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco//parameters.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/MUX2_REQ_PE.sv|
+!s90 -work|cluster_interconnect_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/MUX2_REQ_PE.sv|
+!i113 0
+R7
+R8
+n@m@u@x2_@r@e@q_@p@e
+vRequestBlock1CH
+R1
+R2
+!i10b 1
+!s100 ]K0;@a[14hRzOE<N]m6[o1
+I]jZ5R=fSEC3]>?W^L^@NB2
+R3
+!s105 RequestBlock1CH_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/RequestBlock1CH.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/RequestBlock1CH.sv
+R13
+R6
+r1
+!s85 0
+31
+!s108 1568883250.457640
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco//parameters.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/RequestBlock1CH.sv|
+!s90 -work|cluster_interconnect_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/RequestBlock1CH.sv|
+!i113 0
+R7
+R9
+n@request@block1@c@h
+vRequestBlock1CH_PE
+R1
+R12
+!i10b 1
+!s100 [2M@BHUQ3X2Ld?N_F9lV43
+IeD=M5Daaz>o<D0D<Ieg;20
+R3
+!s105 RequestBlock1CH_PE_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/RequestBlock1CH_PE.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/RequestBlock1CH_PE.sv
+L0 43
+R6
+r1
+!s85 0
+31
+!s108 1568883251.089550
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco//parameters.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/RequestBlock1CH_PE.sv|
+!s90 -work|cluster_interconnect_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/RequestBlock1CH_PE.sv|
+!i113 0
+R7
+R8
+n@request@block1@c@h_@p@e
+vRequestBlock2CH
+R1
+R2
+!i10b 1
+!s100 2Lem[6XzO`f09Im:Qme>b0
+I>LXEgbkY?ab6Yj7eS_P]D1
+R3
+!s105 RequestBlock2CH_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/RequestBlock2CH.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/RequestBlock2CH.sv
+L0 42
+R6
+r1
+!s85 0
+31
+!s108 1568883250.419856
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco//parameters.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/RequestBlock2CH.sv|
+!s90 -work|cluster_interconnect_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/RequestBlock2CH.sv|
+!i113 0
+R7
+R9
+n@request@block2@c@h
+vRequestBlock2CH_PE
+R1
+R12
+!i10b 1
+!s100 ]HQVD@^VV58iXZg>kfhmg2
+I_0E7;@OUcPjd[OA3Fm^940
+R3
+!s105 RequestBlock2CH_PE_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/RequestBlock2CH_PE.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/RequestBlock2CH_PE.sv
+R13
+R6
+r1
+!s85 0
+31
+!s108 1568883251.128778
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco//parameters.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/RequestBlock2CH_PE.sv|
+!s90 -work|cluster_interconnect_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/RequestBlock2CH_PE.sv|
+!i113 0
+R7
+R8
+n@request@block2@c@h_@p@e
+vResponseBlock
+R1
+R2
+!i10b 1
+!s100 [lF:g__^ghIDI?]knnFPZ0
+IH0<Wi?:?=Mnn3fM0`IJFj3
+R3
+!s105 ResponseBlock_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/ResponseBlock.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/ResponseBlock.sv
+R11
+R6
+r1
+!s85 0
+31
+!s108 1568883250.567760
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco//parameters.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/ResponseBlock.sv|
+!s90 -work|cluster_interconnect_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/ResponseBlock.sv|
+!i113 0
+R7
+R9
+n@response@block
+vResponseBlock_PE
+R1
+R12
+!i10b 1
+!s100 fV_3Y_g>[70RLAO8GkB4G1
+IjlR17?;?U?mM=`@7B11nR1
+R3
+!s105 ResponseBlock_PE_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/ResponseBlock_PE.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/ResponseBlock_PE.sv
+Z15 L0 38
+R6
+r1
+!s85 0
+31
+!s108 1568883251.169169
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco//parameters.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/ResponseBlock_PE.sv|
+!s90 -work|cluster_interconnect_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/ResponseBlock_PE.sv|
+!i113 0
+R7
+R8
+n@response@block_@p@e
+vResponseTree
+R1
+R2
+!i10b 1
+!s100 nXRCoROoh7P9^<5SQT1OP3
+I@`ZOXZ=]c3>RaLO3Qla9e0
+R3
+!s105 ResponseTree_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/ResponseTree.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/ResponseTree.sv
+R15
+R6
+r1
+!s85 0
+31
+!s108 1568883250.533587
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco//parameters.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/ResponseTree.sv|
+!s90 -work|cluster_interconnect_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/ResponseTree.sv|
+!i113 0
+R7
+R9
+n@response@tree
+vResponseTree_PE
+R1
+R12
+!i10b 1
+!s100 7>Z;[U[odg43oOlJ9h5Db3
+I`akMQAAOSmcR9CDmW@<Ah2
+R3
+!s105 ResponseTree_PE_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/ResponseTree_PE.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/ResponseTree_PE.sv
+R15
+R6
+r1
+!s85 0
+31
+!s108 1568883251.212937
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco//parameters.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/ResponseTree_PE.sv|
+!s90 -work|cluster_interconnect_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/ResponseTree_PE.sv|
+!i113 0
+R7
+R8
+n@response@tree_@p@e
+vRR_Flag_Req
+R1
+R2
+!i10b 1
+!s100 NJ8Yao`KY3>k9i[[6F5hJ0
+IeBOaYcDXUf_?HN:>]^[:_2
+R3
+!s105 RR_Flag_Req_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/RR_Flag_Req.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/RR_Flag_Req.sv
+R15
+R6
+r1
+!s85 0
+31
+!s108 1568883250.244207
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco//parameters.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/RR_Flag_Req.sv|
+!s90 -work|cluster_interconnect_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/RR_Flag_Req.sv|
+!i113 0
+R7
+R9
+n@r@r_@flag_@req
+vRR_Flag_Req_PE
+R1
+R2
+!i10b 1
+!s100 @LhMg@j7WcR:b=b4R?W7M2
+I]GQAMD8I6M;L=Ton7Pen83
+R3
+!s105 RR_Flag_Req_PE_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/RR_Flag_Req_PE.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/RR_Flag_Req_PE.sv
+R14
+R6
+r1
+!s85 0
+31
+!s108 1568883250.986164
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco//parameters.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/RR_Flag_Req_PE.sv|
+!s90 -work|cluster_interconnect_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/RR_Flag_Req_PE.sv|
+!i113 0
+R7
+R8
+n@r@r_@flag_@req_@p@e
+vTCDM_PIPE_REQ
+R1
+R2
+!i10b 1
+!s100 13;BG?F;MU;4D>YhZ9QFD2
+IXCD[YEOHWZT9oRM_l0HMC3
+R3
+!s105 TCDM_PIPE_REQ_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/TCDM_PIPE_REQ.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/TCDM_PIPE_REQ.sv
+R11
+R6
+r1
+!s85 0
+31
+!s108 1568883250.725544
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco//parameters.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/TCDM_PIPE_REQ.sv|
+!s90 -work|cluster_interconnect_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/TCDM_PIPE_REQ.sv|
+!i113 0
+R7
+R9
+n@t@c@d@m_@p@i@p@e_@r@e@q
+vTCDM_PIPE_RESP
+R1
+R2
+!i10b 1
+!s100 VlhSE2nQTKKANk4kb_JF11
+IC<67K7ciDC@7R6G<dM;8Z2
+R3
+!s105 TCDM_PIPE_RESP_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/TCDM_PIPE_RESP.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/TCDM_PIPE_RESP.sv
+R15
+R6
+r1
+!s85 0
+31
+!s108 1568883250.763299
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco//parameters.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/TCDM_PIPE_RESP.sv|
+!s90 -work|cluster_interconnect_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/TCDM_PIPE_RESP.sv|
+!i113 0
+R7
+R9
+n@t@c@d@m_@p@i@p@e_@r@e@s@p
+vTestAndSet
+R1
+R2
+!i10b 1
+!s100 oWVIof>95TZi]DZTSDYb80
+I2?^AmF@WB[cGiAh]9hOkH0
+R3
+!s105 TestAndSet_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/TestAndSet.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/TestAndSet.sv
+R15
+R6
+r1
+!s85 0
+31
+!s108 1568883250.377134
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco//parameters.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/TestAndSet.sv|
+!s90 -work|cluster_interconnect_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/TestAndSet.sv|
+!i113 0
+R7
+R9
+n@test@and@set
+vXBAR_PE
+R1
+R12
+!i10b 1
+!s100 C2cnheV_4:Q9j4mh^oimk1
+I39lHL5=cgBYNmgH7hL3F@2
+R3
+!s105 XBAR_PE_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/XBAR_PE.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/XBAR_PE.sv
+R14
+R6
+r1
+!s85 0
+31
+!s108 1568883251.250200
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco//parameters.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/XBAR_PE.sv|
+!s90 -work|cluster_interconnect_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/peripheral_interco/XBAR_PE.sv|
+!i113 0
+R7
+R8
+n@x@b@a@r_@p@e
+vXBAR_TCDM
+R1
+R2
+!i10b 1
+!s100 SH1LUjQa59`7eU`ZMncFO3
+IG^1XKL8=fW]RH1>D478050
+R3
+!s105 XBAR_TCDM_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/XBAR_TCDM.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/XBAR_TCDM.sv
+R15
+R6
+r1
+!s85 0
+31
+!s108 1568883250.637820
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco//parameters.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/XBAR_TCDM.sv|
+!s90 -work|cluster_interconnect_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/XBAR_TCDM.sv|
+!i113 0
+R7
+R9
+n@x@b@a@r_@t@c@d@m
+vXBAR_TCDM_WRAPPER
+R1
+R2
+!i10b 1
+!s100 c@7RmNOMnec=MPm?<nCW<2
+IoQmQRzjMFlkKFCFH@3U:E3
+R3
+!s105 XBAR_TCDM_WRAPPER_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/XBAR_TCDM_WRAPPER.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/XBAR_TCDM_WRAPPER.sv
+R14
+R6
+r1
+!s85 0
+31
+!s108 1568883250.675923
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco//parameters.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/XBAR_TCDM_WRAPPER.sv|
+!s90 -work|cluster_interconnect_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_interconnect/rtl/low_latency_interco/XBAR_TCDM_WRAPPER.sv|
+!i113 0
+R7
+R9
+n@x@b@a@r_@t@c@d@m_@w@r@a@p@p@e@r

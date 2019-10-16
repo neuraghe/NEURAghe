@@ -1,0 +1,96 @@
+/*
+
+Vivado v2017.1 (64-bit)
+SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
+IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
+
+Process ID: 27298
+License: Customer
+
+Current time: 	9/4/19 6:07:36 PM CEST
+Time zone: 	Central European Time (Europe/Rome)
+
+OS: SUSE Linux Enterprise Server 12 (x86_64)
+OS Version: 3.12.36-38-default
+OS Architecture: amd64
+Available processors (cores): 24
+
+Display: localhost:12.0
+Screen size: 1920x1080
+Screen resolution (DPI): 96
+Available screens: 1
+Available disk space: 17 GB
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+
+Java version: 	1.8.0_112 64-bit
+Java home: 	/eda/Xilinx/Vivado/2017.1/tps/lnx64/jre
+JVM executable location: 	/eda/Xilinx/Vivado/2017.1/tps/lnx64/jre/bin/java
+Java library paths: /eda/Xilinx/Vivado/2017.1/lib/lnx64.o:/eda/Xilinx/Vivado/2017.1/tps/lnx64/jre/lib/amd64:/eda/Xilinx/Vivado/2017.1/tps/lnx64/jre/lib/amd64/server:/eda/Xilinx/Vivado/2017.1/lnx64/tools/dot/lib:/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+
+User name: 	gderiu
+User home directory: /home/gderiu
+User working directory: /home2/gderiu/neuragheconvnet_unify
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: /eda/Xilinx/Vivado
+HDI_APPROOT: /eda/Xilinx/Vivado/2017.1
+RDI_DATADIR: /eda/Xilinx/Vivado/2017.1/data
+RDI_BINDIR: /eda/Xilinx/Vivado/2017.1/bin
+
+User preferences location: /home/gderiu/.Xilinx/Vivado
+Vivado preferences directory: /home/gderiu/.Xilinx/Vivado/2017.1/vivado.xml
+Vivado layouts directory: /home/gderiu/.Xilinx/Vivado/2017.1/layouts
+PlanAhead jar location: 	/eda/Xilinx/Vivado/2017.1/lib/classes/planAhead.jar
+Vivado Look & Feel: 	[Synthetica - the extended Synth Look and Feel. - ui.g.i.H]
+Engine tmp dir: 	./.Xil/Vivado-27298-eolab
+
+GUI allocated memory:	166 MB
+GUI max memory:		3,052 MB
+Engine allocated memory: 5,019 MB
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// [GUI Memory]: 52 MB (+52374kb) [00:00:10]
+// [Engine Memory]: 5,019 MB (+5111384kb) [00:00:10]
+// HMemoryUtils.trashcanNow. Engine heap size: 5,029 MB. GUI used memory: 27 MB. Current time: 9/4/19 6:07:38 PM CEST
+selectButton(PAResourceEtoH.GettingStartedView_OPEN_PROJECT, "Open Project"); // x:h (JPanel:JComponent, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_OPEN_PROJECT
+// Elapsed time: 11 seconds
+setFileChooser("/home2/gderiu/neuraghe_ARRUBIU/pulp_on_zynq/pulp_on_zynq.xpr");
+// Opening Vivado Project: /home2/gderiu/neuraghe_ARRUBIU/pulp_on_zynq/pulp_on_zynq.xpr. Version: Vivado v2017.1 
+// bs:g (cg:JFrame):  Open Project : addNotify
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// Tcl Message: open_project /home2/gderiu/neuraghe_ARRUBIU/pulp_on_zynq/pulp_on_zynq.xpr 
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_COMPLETED
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_CURRENT
+// HMemoryUtils.trashcanNow. Engine heap size: 5,052 MB. GUI used memory: 28 MB. Current time: 9/4/19 6:08:13 PM CEST
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 66 MB (+11491kb) [00:00:58]
+// [Engine Memory]: 5,277 MB (+7772kb) [00:01:01]
+// Tcl Message: open_project /home2/gderiu/neuraghe_ARRUBIU/pulp_on_zynq/pulp_on_zynq.xpr 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/gderiu/pulp/ip_repo/ulp_soc_controller'. INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/gderiu/pulp/ip_repo/ulpsoc_wrap_3'. INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/gderiu/pulp/ip_repo/ulpsoc_wrap_2'. INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/gderiu/pulp/ip_repo/ulpsoc_wrap_1'. INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/eda/Xilinx/Vivado/2017.1/data/ip'. 
+// Project name: pulp_on_zynq; location: /home2/gderiu/neuraghe_ARRUBIU/pulp_on_zynq; part: xc7z045ffg900-2
+// 'i' command handler elapsed time: 28 seconds
+// Tcl Message: open_project: Time (s): cpu = 00:00:29 ; elapsed = 00:00:16 . Memory (MB): peak = 6255.621 ; gain = 239.426 ; free physical = 47604 ; free virtual = 84450 
+// Elapsed time: 17 seconds
+dismissDialog("Open Project"); // bs:g (cg:JFrame)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+// [GUI Memory]: 69 MB (+43kb) [00:04:17]
+// [GUI Memory]: 73 MB (+429kb) [00:04:27]
+// [GUI Memory]: 77 MB (+183kb) [00:07:58]
+// [GUI Memory]: 81 MB (+439kb) [00:09:23]

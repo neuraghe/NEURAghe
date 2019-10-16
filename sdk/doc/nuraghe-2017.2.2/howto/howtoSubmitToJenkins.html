@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>How to delegate jobs to Jenkins &mdash; howto 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="howto 1 documentation" href="index.html" />
+    <link rel="next" title="How is working the SDK continuous integration" href="howtoSdkCi.html" />
+    <link rel="prev" title="How to setup the SDK" href="howtoSetupSdk.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="how-to-delegate-jobs-to-jenkins">
+<h1>How to delegate jobs to Jenkins<a class="headerlink" href="#how-to-delegate-jobs-to-jenkins" title="Permalink to this headline">¶</a></h1>
+<p>Any step for compiling, testing or administrating the SDK can be done from the terminal in a classic way by executing stand-alone commands in the terminal.</p>
+<p>However, it is sometimes more convenient to delegate some commands to Jenkins, for example if the command is long.</p>
+<p>Jenkins is a continuous server that is always up and running. Some commands can be submitted to it so that they are dispatched to available worker workstations.</p>
+<p>The script <em>plpjob</em> is provided in order to manage Jenkins jobs.</p>
+<div class="section" id="submit-a-job">
+<h2>Submit a job<a class="headerlink" href="#submit-a-job" title="Permalink to this headline">¶</a></h2>
+<p>The minimal information to give for submitting a job is the command to be executed by Jenkins:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ plpjob submit --cmd=&quot;echo Hello&quot;
+</pre></div>
+</div>
+<p>Be carefull, the command will be executed in a fresh environment by a Jenkins slave so the command must contain all what is needed to initialize the environment.</p>
+<p>Several commands can be specified, and they will all be executed in sequence:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ plpjob submit --cmd=&quot;export DUMMY_VAR=hello&quot; --cmd=&quot;echo $DUMMY_VAR&quot;
+</pre></div>
+</div>
+<p>This is particularly useful when the environment must be configured as the commands are executed in sequence in the same shell, keeping the same environment between commands.</p>
+<p>The command is by default launched on the same distribution than the one from which the job is launched. In order to launch it on a different distribution, the following option can be added:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ plpjob submit --cmd=&quot;echo Hello&quot; --distrib=CentOS_6
+</pre></div>
+</div>
+<p>Once the job has been submitted, several information are displayed:</p>
+<ul class="simple">
+<li>The job name where the commands have been pushed</li>
+<li>The build number (this number is valid in the job)</li>
+<li>The URL where the enqueued job can be accessed from a Web browser</li>
+</ul>
+<p>This information can be used to check the job status, as the submit command is by default asynchronous.</p>
+<p>By default the job used is the job <em>package</em> but another job can be used by adding the option <em>&#8211;job=&lt;job name&gt;</em>, in order for example to gather commands of the same kind inside the same job (e.g. tests on a specific target). In this case, the job must have been created in Jenkins server by duplicating the <em>package</em> job.</p>
+<p>The job can also be submitted and the command blocked until the job is finished by adding the <em>&#8211;block</em> option. In this case the return value of the submit command is the commands return value.</p>
+</div>
+<div class="section" id="check-job-status">
+<h2>Check job status<a class="headerlink" href="#check-job-status" title="Permalink to this headline">¶</a></h2>
+<p>Once a job has been enqueued, it is possible to check its status with the following command:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ plpjob status --build=&lt;job build number&gt;
+</pre></div>
+</div>
+<p>The build number is the one that has been displayed right after the job has been enqueued. If the the job has been enqueued to a specific Jenkins job (using option <em>&#8211;job</em>), the same Jenkins job must be specified.</p>
+<p>If the job is not finished yet, the reported status will be <em>RUNNING</em>, otherwise it can be <em>SUCCESS</em> or <em>FAILURE</em></p>
+<p>The return value of this command is the one of the executed commands.</p>
+</div>
+<div class="section" id="get-job-output">
+<h2>Get job output<a class="headerlink" href="#get-job-output" title="Permalink to this headline">¶</a></h2>
+<p>As for checking the job status, the job output can be retrieved with a similar command:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ plpjob output --build=&lt;job build number&gt;
+</pre></div>
+</div>
+<p>The same remarks as for job status applies. It is also possible to get the job output while it is still running.</p>
+</div>
+<div class="section" id="wait-for-a-job-completion">
+<h2>Wait for a job completion<a class="headerlink" href="#wait-for-a-job-completion" title="Permalink to this headline">¶</a></h2>
+<p>It is possible to wait for a job completion using the following command:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ plpjob wait --build=&lt;job build number&gt;
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">How to delegate jobs to Jenkins</a><ul>
+<li><a class="reference internal" href="#submit-a-job">Submit a job</a></li>
+<li><a class="reference internal" href="#check-job-status">Check job status</a></li>
+<li><a class="reference internal" href="#get-job-output">Get job output</a></li>
+<li><a class="reference internal" href="#wait-for-a-job-completion">Wait for a job completion</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="howtoSetupSdk.html" title="previous chapter">How to setup the SDK</a></li>
+      <li>Next: <a href="howtoSdkCi.html" title="next chapter">How is working the SDK continuous integration</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/howtoSubmitToJenkins.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Germain Haugou.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/howtoSubmitToJenkins.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

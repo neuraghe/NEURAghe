@@ -1,0 +1,52 @@
+Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2017.1 (lin64) Build 1846317 Fri Apr 14 18:54:47 MDT 2017
+| Date         : Mon Sep 16 18:40:12 2019
+| Host         : mcarr running 64-bit Ubuntu 16.04.6 LTS
+| Command      : report_methodology -file base_zynq_design_wrapper_methodology_drc_routed.rpt -rpx base_zynq_design_wrapper_methodology_drc_routed.rpx
+| Design       : base_zynq_design_wrapper
+| Device       : xc7z045ffg900-2
+| Speed File   : -2
+| Design State : Routed
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+             Max violations: <unlimited>
+             Violations found: 3
++-----------+----------+----------------------------------------------------+------------+
+| Rule      | Severity | Description                                        | Violations |
++-----------+----------+----------------------------------------------------+------------+
+| TIMING-2  | Warning  | Invalid primary clock source pin                   | 1          |
+| TIMING-4  | Warning  | Invalid primary clock redefinition on a clock tree | 1          |
+| TIMING-18 | Warning  | Missing input or output delay                      | 1          |
++-----------+----------+----------------------------------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+TIMING-2#1 Warning
+Invalid primary clock source pin  
+A primary clock base_zynq_design_i/clk_wiz_1/inst/clk_in1 is created on an inappropriate pin base_zynq_design_i/clk_wiz_1/inst/clk_in1. It is recommended to create a primary clock only on a proper clock source (input port or primitive output pin with no timing arc)
+Related violations: <none>
+
+TIMING-4#1 Warning
+Invalid primary clock redefinition on a clock tree  
+Invalid clock redefinition on a clock tree. The primary clock base_zynq_design_i/clk_wiz_1/inst/clk_in1 is defined downstream of clock clk_fpga_0 and overrides its insertion delay and/or waveform definition
+Related violations: <none>
+
+TIMING-18#1 Warning
+Missing input or output delay  
+An output delay is missing on fech_enable_o relative to clock(s) VIRTUAL_clk_out1_base_zynq_design_clk_wiz_1_0 
+Related violations: <none>
+
+

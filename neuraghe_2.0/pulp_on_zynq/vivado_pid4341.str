@@ -1,0 +1,68 @@
+/*
+
+Vivado v2015.4 (64-bit)
+SW Build 1412921 on Wed Nov 18 09:44:32 MST 2015
+Process ID: 4341
+
+Current time: 	5/16/16 9:51:28 AM CEST
+Time zone: 	Central European Time (Europe/Rome)
+
+OS: DISTRIB_ID=Ubuntu
+Version: 3.13.0-85-generic
+Architecture: amd64
+Available processors (cores): 8
+
+DISPLAY: localhost:10.0
+Screen size: 1920x975
+Screen resolution (DPI): 96
+Available screens: 1
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+
+Java version: 	1.8.0_45 64-bit
+Java home: 	/cad/Xilinx/Vivado/2015.4/tps/lnx64/jre
+
+User name: 	deriu
+User home directory: /home/deriu
+User working directory: /home/deriu/deriu/pulp/pulp_on_zynq
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+Vivado preferences path: /home/deriu/.Xilinx/Vivado/2015.4/vivado.ini
+Vivado layouts directory: /home/deriu/.Xilinx/Vivado/2015.4/layouts
+
+GUI allocated memory:	122 MB
+GUI max memory:		3,052 MB
+Engine allocated memory: 4,834 MB
+
+*/
+
+// TclEventType: START_GUI
+// [GUI Memory]: 31 MB (+30032kb) [00:01:11]
+// [Engine Memory]: 4,834 MB (+4916861kb) [00:01:11]
+// Tcl Message: start_gui 
+// HMemoryUtils.trashcanNow. Engine heap size: 4,839 MB. GUI used memory: 20 MB. Current time: 5/16/16 9:51:30 AM CEST
+selectList(PAResourceEtoH.GettingStartedView_RECENT_PROJECTS, "/home/deriu/deriu/pulp/pulp_on_zynq/pulp_on_zynq.xpr", 0); // q:v (JViewport:JComponent, cq:JFrame)
+// bF:g (cq:JFrame):  Open Project : addNotify
+// Opening Vivado Project: /home/deriu/deriu/pulp/pulp_on_zynq/pulp_on_zynq.xpr. Version: Vivado v2015.4 
+// Tcl Message: open_project /home/deriu/deriu/pulp/pulp_on_zynq/pulp_on_zynq.xpr 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// TclEventType: MSGMGR_MOVEMSG
+// [GUI Memory]: 33 MB (+24kb) [00:02:04]
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_COMPLETED
+// HMemoryUtils.trashcanNow. Engine heap size: 4,857 MB. GUI used memory: 21 MB. Current time: 5/16/16 9:52:20 AM CEST
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_CURRENT
+// Elapsed time: 66 seconds
+selectButton(RDIResource.ProgressDialog_CANCEL, "Cancel"); // a:JButton (JPanel:JComponent, bF:g)
+// HMemoryUtils.trashcanNow. Engine heap size: 4,893 MB. GUI used memory: 20 MB. Current time: 5/16/16 9:53:20 AM CEST
+// TclEventType: IP_LOCK_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 4,921 MB. GUI used memory: 20 MB. Current time: 5/16/16 9:54:20 AM CEST
+// TclEventType: PROJECT_CLOSE
+// Tcl Message: INFO: [Common 17-344] 'open_project' was cancelled 
+// Elapsed time: 111 seconds
+dismissDialog("Open Project"); // bF:g (cq:JFrame)
+// [GUI Memory]: 34 MB (+24kb) [00:26:53]
+// [GUI Memory]: 36 MB (+57kb) [00:31:08]
+// HMemoryUtils.trashcanNow. Engine heap size: 4,936 MB. GUI used memory: 21 MB. Current time: 5/16/16 10:24:20 AM CEST

@@ -1,0 +1,4 @@
+SOFTINCLUDE $CDS_INST_DIR/tools/inca/files/cds.lib
+DEFINE hwpe_sm_lib ./ncsim/hwpe_sm_lib
+DEFINE catc_lib    ./ncsim/catc_lib
+DEFINE work        ./ncsim/work

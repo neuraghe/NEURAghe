@@ -1,0 +1,25 @@
+# MERGE BN
+
+
+# mandatory parameters are:
+
+in_binfile   = 1 # input files are binary files (1) or txt files(0)?
+data_type = d # f, d or i. double, float or integer
+
+# optional parameters   
+out_binfile   = 1 # output files are binary files (1) or txt files(0)? if not defined they will be txt files
+
+# the following parameters are used only if layers_params is not defined
+FS = 3         # Filter size
+IF = 64        # number of input features
+OF = 64        # number of output features
+
+
+# Source files. Paths and strings don't need ""
+w_file      = ./convweights2.bin  #Source file containing plain weights
+b_file      = ./convbias2.bin  #Source file containing plain biases
+
+nb_mean_file = ./batchmean2.bin
+nb_var_file  = ./batchvar2.bin
+nb_bias_file = ./batchbias2.bin
+nb_wei_file  = ./batchweights2.bin

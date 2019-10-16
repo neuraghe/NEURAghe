@@ -1,0 +1,72 @@
+How to delegate jobs to Jenkins
+-------------------------------
+
+Any step for compiling, testing or administrating the SDK can be done from the terminal in a classic way by executing stand-alone commands in the terminal.
+
+However, it is sometimes more convenient to delegate some commands to Jenkins, for example if the command is long.
+
+Jenkins is a continuous server that is always up and running. Some commands can be submitted to it so that they are dispatched to available worker workstations.
+
+The script *plpjob* is provided in order to manage Jenkins jobs.
+
+Submit a job
+............
+
+The minimal information to give for submitting a job is the command to be executed by Jenkins: ::
+
+  $ plpjob submit --cmd="echo Hello"
+
+Be carefull, the command will be executed in a fresh environment by a Jenkins slave so the command must contain all what is needed to initialize the environment.
+
+Several commands can be specified, and they will all be executed in sequence: ::
+
+  $ plpjob submit --cmd="export DUMMY_VAR=hello" --cmd="echo $DUMMY_VAR"
+
+This is particularly useful when the environment must be configured as the commands are executed in sequence in the same shell, keeping the same environment between commands.
+
+The command is by default launched on the same distribution than the one from which the job is launched. In order to launch it on a different distribution, the following option can be added: ::
+
+  $ plpjob submit --cmd="echo Hello" --distrib=CentOS_6
+
+Once the job has been submitted, several information are displayed:
+
+- The job name where the commands have been pushed
+
+- The build number (this number is valid in the job)
+
+- The URL where the enqueued job can be accessed from a Web browser
+
+This information can be used to check the job status, as the submit command is by default asynchronous.
+
+By default the job used is the job *package* but another job can be used by adding the option *--job=<job name>*, in order for example to gather commands of the same kind inside the same job (e.g. tests on a specific target). In this case, the job must have been created in Jenkins server by duplicating the *package* job.
+
+The job can also be submitted and the command blocked until the job is finished by adding the *--block* option. In this case the return value of the submit command is the commands return value.
+
+Check job status
+................
+
+Once a job has been enqueued, it is possible to check its status with the following command: ::
+
+  $ plpjob status --build=<job build number>
+
+The build number is the one that has been displayed right after the job has been enqueued. If the the job has been enqueued to a specific Jenkins job (using option *--job*), the same Jenkins job must be specified.
+
+If the job is not finished yet, the reported status will be *RUNNING*, otherwise it can be *SUCCESS* or *FAILURE*
+
+The return value of this command is the one of the executed commands.
+
+Get job output
+..............
+
+As for checking the job status, the job output can be retrieved with a similar command: ::
+
+  $ plpjob output --build=<job build number>
+
+The same remarks as for job status applies. It is also possible to get the job output while it is still running.
+
+Wait for a job completion
+.........................
+
+It is possible to wait for a job completion using the following command: ::
+
+  $ plpjob wait --build=<job build number>

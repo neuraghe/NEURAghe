@@ -1,0 +1,24 @@
+How to validate an SDK release
+------------------------------
+
+Automatic non-regression tests
+..............................
+
+The usual automatic tests should be run and have a good coverage
+
+Manual tests
+............
+
+The following manual tests should be run as they cannot be automated:
+
+- **Callgraph profile**. Go to *apps/gomp_tests/bench* and run: ::
+
+  $ make clean all run KCG=0
+
+  Then open the kcachegrind report and check it looks good. Also check it on RTL platform.
+
+- **Traceview report**. Got to *apps/gomp_tests/kernelTrace* and run: ::
+
+  $ make clean all run pulpRtVersion=profile0
+
+  Then open the traceview report and check it looks good. Some OMP events should be seen on master and slave cores, and also 4 kernel executions. Check that it is coherent with the textual version of the call graph (e.g. cg_cluster0_core0.txt) and also the textual kernel statistics report.

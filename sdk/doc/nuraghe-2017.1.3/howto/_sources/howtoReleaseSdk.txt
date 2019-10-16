@@ -1,0 +1,90 @@
+How to release an SDK
+---------------------
+
+There are 3 steps to build, fully validate and deploy an SDK release:
+
+- Validate a precise version of the SDK
+- Tag it, and validate again with the new tag
+- Deploy the SDK
+
+Validate a precise version of the SDK
+.....................................
+
+To be sure that nothing has been left aside, you must checkout, build and validate a precise SDK version from scratch. Otherwise, it could happen that one package has not been deployed, or one commit has not been pushed. Also if the SDK is not rebuilt from scratch, it could work thanks to an old file which is still there in the SDK and it would make it impossible to rebuild the same SDK later on.
+
+An SDK tag corresponds to the SDK that you would get by checking out and building the SDK from the top SDK module with the version that you are tagging. The SDK version that you are tagging is the git version of the SDK top module as this version encures you that you can always get exactly the same SDK from this version.
+
+First checkout the following repository containing all the tools for releasing an SDK: ::
+
+  $ git clone git@iis-git.ee.ethz.ch:pulp-sw/pulp_sdk_release.git
+  $ cd pulp_sdk_release
+
+Then execute the following script: ::
+
+  $ ./plpadmin --version=<sdkGitVersion> --tag=<sdkTag> checkout build test --submit
+
+sdkGitVersion is the version of the top SDK module that you want to tag. sdkTag is the SDK tag that will be produced.
+
+This script will first checkout the sources and get the dependencies, will then build the SDK, launch the testsuite and report the results.
+
+Due to the *--submit* option, all these steps will be done on Jenkins, the option can be removed in order to execute them locally. As the SDK is released for several Linux distributions, this may trigger several SDK builds.
+
+If you are happy with the results you can go on with the process, otherwise the issues has to fixed and the process start over with a new SDK version.
+
+Tag the SDK and validate it again
+.................................
+
+Execute this command to tag the SDK: ::
+
+  $ ./plpadmin --version=<sdkGitVersion> --tag=<sdkTag> tag
+
+This will tag it locally and push the tag to the server. Note that it needs to commit that contains the right tag for the SDK version in versions.ini. This commit is pushed by default to the release branch can be changed with option *--branch*.
+
+In order to be sure the tag has been properly pushed, validate again the SDK, using the tag as the SDK version: ::
+
+  $ ./plpadmin --version=<sdkTag> checkout build test --submit
+
+If you are happy with the results you can go on and deploy the SDK
+
+Deploy the SDK
+..............
+
+In case the SDK was built locallu, first deploy it to the artifactory: ::
+
+  $ ./plpadmin --version=<sdkTag> deploy
+
+And deploy the documentation: ::
+
+  $ ./plpadmin --version=<sdkTag> deploydoc
+
+Now you can get the deployed SDK through the downloader and validate it again.
+
+Simplified procedure using jenkins
+..................................
+
+All these steps can be can done in a simpler way using the Jenkins server, following these steps:
+
+- Wait until one SDK version from the integration branch is stable enough
+
+- Merge it to the master branch
+
+- Launch the job sdk_tag (https://iis-jenkins.ee.ethz.ch:8443/job/sdk_tag) and put the tag name
+
+- The documentation is not yet deployed from Jenkins so you have to execute this command: ./plpadmin --version=<tag name> checkout deploydoc
+
+
+
+Current SDK tagging flow with Jenkins
+.....................................
+
+**Pre-release tags**
+
+Before a final tag is made, intermediate tags are done. They are done from the master branch and have a tag name like 2016.3-b5. The procedure above can be used for these tags. These tags reasonably stable and should only be used by people who wants to closely follow SDK evolutions.
+
+**Final tags**
+
+A final tag is a stable tag meant to be used by everyone for at least a few weeks. It is released the same way than pre-release tags
+
+**Patch tags**
+
+These tags are done on a final tag to bring bug fixes. Contrary to the other tags they are done from the tag branch instead of the master. Bug fixes can indeed be committed and tested on the tag branch, and when it is stable enough a new tag is made from there.

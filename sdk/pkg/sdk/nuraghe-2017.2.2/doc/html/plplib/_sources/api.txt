@@ -1,0 +1,20 @@
+API
+...
+
+.. autodoxygenfile:: plplib_matmul.h
+	:project: myproject
+
+.. autodoxygenfile:: plplib_matmul_ew.h
+	:project: myproject
+
+.. autodoxygenfile:: plplib_matadd.h
+	:project: myproject
+
+.. autodoxygenfile:: plplib_threshold.h
+	:project: myproject
+
+.. autodoxygenfile:: plplib_conv2d.h
+	:project: myproject
+
+.. autodoxygenfile:: plplib_conv2d_hw.h
+	:project: myproject

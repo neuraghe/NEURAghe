@@ -1,0 +1,44 @@
+How to customize makefile flags
+-------------------------------
+
+When the runtime or an application is compiled, defaults flags are used that can be either extended or replaced (at least part of them).
+
+
+How to customize flags
+......................
+
+Flags can be modified by defining the proper makefile variable (either on the command line or in the makefile) like in the following: ::
+
+  $ make clean all run PULP_CFLAGS=-Werror
+
+They can also be customized by defining the proper environment variable in order to make the customization more permanent like in the following: ::
+
+  $ export PULP_CFLAGS=-Werror
+
+
+Which flags can be customized
+.............................
+
+Additional C flags can be specified using the PULP_CFLAGS variable and LD flags with PULP_LDFLAGS. The specified flags are happened to the default ones.
+
+Default compiler architecture flags can also be replaced by defining the PULP_ARCH_CFLAGS variable like in the following: ::
+
+  $ make clean all PULP_ARCH_CFLAGS=-march=IMXpulpv2
+
+PULP_ARCH_LDFLAGS and PULP_ARCH_OBJFLAGS can be defined for architecture flags for linker and objdump
+
+
+Runtime flags customization
+...........................
+
+As runtime modules are compiled through a script, the only way to customize the flags used for compiling runtime is to define an environment variable, it is not possible to do it through make variables.
+
+For example in order to recompile the full runtime for a specific core, the following commands can be executed: ::
+
+  $ export PULP_ARCH_CFLAGS=-march=IMXpulpv2
+  $ plpbuild --g runtime clean build
+
+Application flags customization
+...............................
+
+Application flags can be customized either through environment variables or make variables. However it is better to do it through environment variables to make sure runtime and application compilations are well aligned.

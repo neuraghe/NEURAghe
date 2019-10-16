@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2015.4 (64-bit)
+# SW Build 1412921 on Wed Nov 18 09:44:32 MST 2015
+# IP Build 1412160 on Tue Nov 17 13:47:24 MST 2015
+# Start of session at: Wed Jan  4 11:52:09 2017
+# Process ID: 7076
+# Current directory: /home/gian/pulp/nuraghe/fpga/ips/xilinx_l2_mem_8192x64_dp/xilinx_l2_mem_8192x64_dp.runs/xilinx_l2_mem_8192x64_dp_synth_1
+# Command line: vivado -log xilinx_l2_mem_8192x64_dp.vds -mode batch -messageDb vivado.pb -notrace -source xilinx_l2_mem_8192x64_dp.tcl
+# Log file: /home/gian/pulp/nuraghe/fpga/ips/xilinx_l2_mem_8192x64_dp/xilinx_l2_mem_8192x64_dp.runs/xilinx_l2_mem_8192x64_dp_synth_1/xilinx_l2_mem_8192x64_dp.vds
+# Journal file: /home/gian/pulp/nuraghe/fpga/ips/xilinx_l2_mem_8192x64_dp/xilinx_l2_mem_8192x64_dp.runs/xilinx_l2_mem_8192x64_dp_synth_1/vivado.jou
+#-----------------------------------------------------------
+source xilinx_l2_mem_8192x64_dp.tcl -notrace

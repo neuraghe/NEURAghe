@@ -1,0 +1,79 @@
+#-----------------------------------------------------------
+# Vivado v2017.1 (64-bit)
+# SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
+# IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
+# Start of session at: Wed Apr  4 17:30:23 2018
+# Process ID: 2496
+# Current directory: /home/gderiu/marco/neuraghe_zc706_8bit_70140/pulp_on_zynq/pulp_on_zynq.runs/axi_bram_ctrl_0_synth_1
+# Command line: vivado -log axi_bram_ctrl_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source axi_bram_ctrl_0.tcl
+# Log file: /home/gderiu/marco/neuraghe_zc706_8bit_70140/pulp_on_zynq/pulp_on_zynq.runs/axi_bram_ctrl_0_synth_1/axi_bram_ctrl_0.vds
+# Journal file: /home/gderiu/marco/neuraghe_zc706_8bit_70140/pulp_on_zynq/pulp_on_zynq.runs/axi_bram_ctrl_0_synth_1/vivado.jou
+#-----------------------------------------------------------
+source axi_bram_ctrl_0.tcl -notrace
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1219.480 ; gain = 72.000 ; free physical = 29533 ; free virtual = 176992
+INFO: [Synth 8-638] synthesizing module 'axi_bram_ctrl_0' [/home/gderiu/marco/neuraghe_zc706_8bit_70140/pulp_on_zynq/pulp_on_zynq.srcs/sources_1/ip/axi_bram_ctrl_0/synth/axi_bram_ctrl_0.vhd:111]
+INFO: [Synth 8-638] synthesizing module 'axi_bram_ctrl' [/home/gderiu/marco/neuraghe_zc706_8bit_70140/pulp_on_zynq/pulp_on_zynq.srcs/sources_1/ip/axi_bram_ctrl_0/hdl/axi_bram_ctrl_v4_0_rfs.vhd:23897]
+INFO: [Synth 8-638] synthesizing module 'axi_bram_ctrl_top' [/home/gderiu/marco/neuraghe_zc706_8bit_70140/pulp_on_zynq/pulp_on_zynq.srcs/sources_1/ip/axi_bram_ctrl_0/hdl/axi_bram_ctrl_v4_0_rfs.vhd:22901]
+INFO: [Synth 8-638] synthesizing module 'full_axi' [/home/gderiu/marco/neuraghe_zc706_8bit_70140/pulp_on_zynq/pulp_on_zynq.srcs/sources_1/ip/axi_bram_ctrl_0/hdl/axi_bram_ctrl_v4_0_rfs.vhd:21844]
+INFO: [Synth 8-638] synthesizing module 'wr_chnl' [/home/gderiu/marco/neuraghe_zc706_8bit_70140/pulp_on_zynq/pulp_on_zynq.srcs/sources_1/ip/axi_bram_ctrl_0/hdl/axi_bram_ctrl_v4_0_rfs.vhd:17009]
+INFO: [Synth 8-638] synthesizing module 'wrap_brst' [/home/gderiu/marco/neuraghe_zc706_8bit_70140/pulp_on_zynq/pulp_on_zynq.srcs/sources_1/ip/axi_bram_ctrl_0/hdl/axi_bram_ctrl_v4_0_rfs.vhd:10215]
+INFO: [Synth 8-256] done synthesizing module 'wrap_brst' (1#1) [/home/gderiu/marco/neuraghe_zc706_8bit_70140/pulp_on_zynq/pulp_on_zynq.srcs/sources_1/ip/axi_bram_ctrl_0/hdl/axi_bram_ctrl_v4_0_rfs.vhd:10215]
+INFO: [Synth 8-638] synthesizing module 'ua_narrow' [/home/gderiu/marco/neuraghe_zc706_8bit_70140/pulp_on_zynq/pulp_on_zynq.srcs/sources_1/ip/axi_bram_ctrl_0/hdl/axi_bram_ctrl_v4_0_rfs.vhd:9749]
+INFO: [Synth 8-256] done synthesizing module 'ua_narrow' (2#1) [/home/gderiu/marco/neuraghe_zc706_8bit_70140/pulp_on_zynq/pulp_on_zynq.srcs/sources_1/ip/axi_bram_ctrl_0/hdl/axi_bram_ctrl_v4_0_rfs.vhd:9749]
+INFO: [Synth 8-638] synthesizing module 'SRL_FIFO' [/home/gderiu/marco/neuraghe_zc706_8bit_70140/pulp_on_zynq/pulp_on_zynq.srcs/sources_1/ip/axi_bram_ctrl_0/hdl/axi_bram_ctrl_v4_0_rfs.vhd:133]
+INFO: [Synth 8-638] synthesizing module 'FDR' [/eda/Xilinx/Vivado/2017.1/scripts/rt/data/unisim_comp.v:3951]
+INFO: [Synth 8-256] done synthesizing module 'FDR' (3#1) [/eda/Xilinx/Vivado/2017.1/scripts/rt/data/unisim_comp.v:3951]
+INFO: [Synth 8-638] synthesizing module 'MUXCY_L' [/eda/Xilinx/Vivado/2017.1/scripts/rt/data/unisim_comp.v:21638]
+INFO: [Synth 8-256] done synthesizing module 'MUXCY_L' (4#1) [/eda/Xilinx/Vivado/2017.1/scripts/rt/data/unisim_comp.v:21638]
+INFO: [Synth 8-638] synthesizing module 'XORCY' [/eda/Xilinx/Vivado/2017.1/scripts/rt/data/unisim_comp.v:45685]
+INFO: [Synth 8-256] done synthesizing module 'XORCY' (5#1) [/eda/Xilinx/Vivado/2017.1/scripts/rt/data/unisim_comp.v:45685]
+INFO: [Synth 8-638] synthesizing module 'FDRE' [/eda/Xilinx/Vivado/2017.1/scripts/rt/data/unisim_comp.v:3964]
+INFO: [Synth 8-256] done synthesizing module 'FDRE' (6#1) [/eda/Xilinx/Vivado/2017.1/scripts/rt/data/unisim_comp.v:3964]
+INFO: [Synth 8-638] synthesizing module 'SRL16E' [/eda/Xilinx/Vivado/2017.1/scripts/rt/data/unisim_comp.v:43673]
+INFO: [Synth 8-256] done synthesizing module 'SRL16E' (7#1) [/eda/Xilinx/Vivado/2017.1/scripts/rt/data/unisim_comp.v:43673]
+INFO: [Synth 8-256] done synthesizing module 'SRL_FIFO' (8#1) [/home/gderiu/marco/neuraghe_zc706_8bit_70140/pulp_on_zynq/pulp_on_zynq.srcs/sources_1/ip/axi_bram_ctrl_0/hdl/axi_bram_ctrl_v4_0_rfs.vhd:133]
+INFO: [Synth 8-256] done synthesizing module 'wr_chnl' (9#1) [/home/gderiu/marco/neuraghe_zc706_8bit_70140/pulp_on_zynq/pulp_on_zynq.srcs/sources_1/ip/axi_bram_ctrl_0/hdl/axi_bram_ctrl_v4_0_rfs.vhd:17009]
+INFO: [Synth 8-638] synthesizing module 'rd_chnl' [/home/gderiu/marco/neuraghe_zc706_8bit_70140/pulp_on_zynq/pulp_on_zynq.srcs/sources_1/ip/axi_bram_ctrl_0/hdl/axi_bram_ctrl_v4_0_rfs.vhd:11495]
+INFO: [Synth 8-256] done synthesizing module 'rd_chnl' (10#1) [/home/gderiu/marco/neuraghe_zc706_8bit_70140/pulp_on_zynq/pulp_on_zynq.srcs/sources_1/ip/axi_bram_ctrl_0/hdl/axi_bram_ctrl_v4_0_rfs.vhd:11495]
+INFO: [Synth 8-256] done synthesizing module 'full_axi' (11#1) [/home/gderiu/marco/neuraghe_zc706_8bit_70140/pulp_on_zynq/pulp_on_zynq.srcs/sources_1/ip/axi_bram_ctrl_0/hdl/axi_bram_ctrl_v4_0_rfs.vhd:21844]
+INFO: [Synth 8-256] done synthesizing module 'axi_bram_ctrl_top' (12#1) [/home/gderiu/marco/neuraghe_zc706_8bit_70140/pulp_on_zynq/pulp_on_zynq.srcs/sources_1/ip/axi_bram_ctrl_0/hdl/axi_bram_ctrl_v4_0_rfs.vhd:22901]
+INFO: [Synth 8-256] done synthesizing module 'axi_bram_ctrl' (13#1) [/home/gderiu/marco/neuraghe_zc706_8bit_70140/pulp_on_zynq/pulp_on_zynq.srcs/sources_1/ip/axi_bram_ctrl_0/hdl/axi_bram_ctrl_v4_0_rfs.vhd:23897]
+INFO: [Synth 8-256] done synthesizing module 'axi_bram_ctrl_0' (14#1) [/home/gderiu/marco/neuraghe_zc706_8bit_70140/pulp_on_zynq/pulp_on_zynq.srcs/sources_1/ip/axi_bram_ctrl_0/synth/axi_bram_ctrl_0.vhd:111]
+Finished RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1341.984 ; gain = 194.504 ; free physical = 29450 ; free virtual = 176910
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1341.984 ; gain = 194.504 ; free physical = 29436 ; free virtual = 176896
+INFO: [Device 21-403] Loading part xc7z045ffg900-2
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.13 ; elapsed = 00:00:00.08 . Memory (MB): peak = 1695.066 ; gain = 0.004 ; free physical = 28972 ; free virtual = 176432
+Finished Constraint Validation : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1695.066 ; gain = 547.586 ; free physical = 29112 ; free virtual = 176572
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1695.066 ; gain = 547.586 ; free physical = 29113 ; free virtual = 176573
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1695.066 ; gain = 547.586 ; free physical = 29113 ; free virtual = 176573
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:28 ; elapsed = 00:00:29 . Memory (MB): peak = 1695.066 ; gain = 547.586 ; free physical = 29083 ; free virtual = 176543
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 1695.066 ; gain = 547.586 ; free physical = 29099 ; free virtual = 176559
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:41 ; elapsed = 00:00:43 . Memory (MB): peak = 1695.066 ; gain = 547.586 ; free physical = 28971 ; free virtual = 176431
+Finished Timing Optimization : Time (s): cpu = 00:00:44 ; elapsed = 00:00:46 . Memory (MB): peak = 1712.109 ; gain = 564.629 ; free physical = 28924 ; free virtual = 176384
+Finished Technology Mapping : Time (s): cpu = 00:00:45 ; elapsed = 00:00:46 . Memory (MB): peak = 1728.125 ; gain = 580.645 ; free physical = 28922 ; free virtual = 176382
+Finished IO Insertion : Time (s): cpu = 00:00:45 ; elapsed = 00:00:47 . Memory (MB): peak = 1728.129 ; gain = 580.648 ; free physical = 28919 ; free virtual = 176379
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:45 ; elapsed = 00:00:47 . Memory (MB): peak = 1728.129 ; gain = 580.648 ; free physical = 28919 ; free virtual = 176379
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:46 ; elapsed = 00:00:47 . Memory (MB): peak = 1728.129 ; gain = 580.648 ; free physical = 28920 ; free virtual = 176380
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:46 ; elapsed = 00:00:47 . Memory (MB): peak = 1728.129 ; gain = 580.648 ; free physical = 28920 ; free virtual = 176380
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:46 ; elapsed = 00:00:47 . Memory (MB): peak = 1728.129 ; gain = 580.648 ; free physical = 28920 ; free virtual = 176380
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:46 ; elapsed = 00:00:47 . Memory (MB): peak = 1728.129 ; gain = 580.648 ; free physical = 28920 ; free virtual = 176380
+
+Report Cell Usage: 
++------+--------+------+
+|      |Cell    |Count |
++------+--------+------+
+|1     |CARRY4  |     2|
+|2     |LUT1    |     4|
+|3     |LUT2    |    25|
+|4     |LUT3    |   129|
+|5     |LUT4    |    51|
+|6     |LUT5    |    79|
+|7     |LUT6    |   209|
+|8     |MUXCY_L |     3|
+|9     |SRL16E  |     1|
+|10    |XORCY   |     4|
+|11    |FDR     |     1|
+|12    |FDRE    |   417|
++------+--------+------+
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:46 ; elapsed = 00:00:47 . Memory (MB): peak = 1728.129 ; gain = 580.648 ; free physical = 28920 ; free virtual = 176380
+synth_design: Time (s): cpu = 00:00:48 ; elapsed = 00:00:50 . Memory (MB): peak = 1760.145 ; gain = 657.188 ; free physical = 28992 ; free virtual = 176451

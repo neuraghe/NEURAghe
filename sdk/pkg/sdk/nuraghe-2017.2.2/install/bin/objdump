@@ -1,0 +1,3 @@
+#!/bin/bash
+
+or1kle-elf-objdump $@

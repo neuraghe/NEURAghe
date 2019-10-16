@@ -1,0 +1,171 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/nur/NEURAghe/neuraghe_2.0/fe/sim
+vaxi_spi_master
+Z1 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
+Z2 !s110 1568883255
+!i10b 1
+!s100 UgbJ]QNZX4Tj8K<SELKg:3
+IK`4Oh0fQ6B5AdCDIaEeHS2
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+!s105 axi_spi_master_sv_unit
+S1
+R0
+Z4 w1566466389
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_spi_master/axi_spi_master.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_spi_master/axi_spi_master.sv
+Z5 L0 18
+Z6 OL;L;10.4;61
+r1
+!s85 0
+31
+!s108 1568883255.610434
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_spi_master/axi_spi_master.sv|
+!s90 -work|axi_spi_master_lib|-quiet|-sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_spi_master/axi_spi_master.sv|
+!i113 0
+Z7 o-quiet -work axi_spi_master_lib -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vspi_master_axi_if
+R1
+R2
+!i10b 1
+!s100 `<>V];b=ABTY?B`g<`cB<0
+ITTSzc6hgz?8?Qd7aEV1K<1
+R3
+!s105 spi_master_axi_if_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_spi_master/spi_master_axi_if.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_spi_master/spi_master_axi_if.sv
+L0 29
+R6
+r1
+!s85 0
+31
+!s108 1568883255.428069
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_spi_master/spi_master_axi_if.sv|
+!s90 -work|axi_spi_master_lib|-quiet|-sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_spi_master/spi_master_axi_if.sv|
+!i113 0
+R7
+vspi_master_clkgen
+R1
+R2
+!i10b 1
+!s100 UPkRJ0>`FdUA6lT5>GMcV1
+II>>ef[Z?MX_;HN01:jolj3
+R3
+!s105 spi_master_clkgen_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_spi_master/spi_master_clkgen.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_spi_master/spi_master_clkgen.sv
+Z8 L0 16
+R6
+r1
+!s85 0
+31
+!s108 1568883255.462587
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_spi_master/spi_master_clkgen.sv|
+!s90 -work|axi_spi_master_lib|-quiet|-sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_spi_master/spi_master_clkgen.sv|
+!i113 0
+R7
+vspi_master_controller
+R1
+R2
+!i10b 1
+!s100 2<Dj1QSzA:ABbToVK5[Xg1
+IUhi]kn;Uc7lXHd]Wg@W4F3
+R3
+!s105 spi_master_controller_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_spi_master/spi_master_controller.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_spi_master/spi_master_controller.sv
+L0 20
+R6
+r1
+!s85 0
+31
+!s108 1568883255.578400
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_spi_master/spi_master_controller.sv|
+!s90 -work|axi_spi_master_lib|-quiet|-sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_spi_master/spi_master_controller.sv|
+!i113 0
+R7
+vspi_master_fifo
+R1
+R2
+!i10b 1
+!s100 O4QC1b0^<5k^Udl[nBQ_`0
+Id<_O<16S6G6XJZ_]3HdBH1
+R3
+!s105 spi_master_fifo_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_spi_master/spi_master_fifo.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_spi_master/spi_master_fifo.sv
+R5
+R6
+r1
+!s85 0
+31
+!s108 1568883255.491084
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_spi_master/spi_master_fifo.sv|
+!s90 -work|axi_spi_master_lib|-quiet|-sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_spi_master/spi_master_fifo.sv|
+!i113 0
+R7
+vspi_master_rx
+R1
+R2
+!i10b 1
+!s100 2;AlI[OTF;oMQFF[jRS?o2
+I?hog31J@MPgKI1BkeH0U[1
+R3
+!s105 spi_master_rx_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_spi_master/spi_master_rx.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_spi_master/spi_master_rx.sv
+R8
+R6
+r1
+!s85 0
+31
+!s108 1568883255.520358
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_spi_master/spi_master_rx.sv|
+!s90 -work|axi_spi_master_lib|-quiet|-sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_spi_master/spi_master_rx.sv|
+!i113 0
+R7
+vspi_master_tx
+R1
+R2
+!i10b 1
+!s100 5nmFT9ZU<BCPRW`>ePHY;3
+IfE<m[oWzMO>7DW:g`1Q4J1
+R3
+!s105 spi_master_tx_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_spi_master/spi_master_tx.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_spi_master/spi_master_tx.sv
+R8
+R6
+r1
+!s85 0
+31
+!s108 1568883255.549287
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_spi_master/spi_master_tx.sv|
+!s90 -work|axi_spi_master_lib|-quiet|-sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_spi_master/spi_master_tx.sv|
+!i113 0
+R7

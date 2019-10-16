@@ -1,0 +1,52 @@
+#!/usr/bin/env python3
+
+#
+# Copyright (c) 2015 Germain Haugou
+#
+# This file is part of the gvsoc software
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in
+# all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+# THE SOFTWARE.
+
+import os
+import sys
+
+sys.path.append(os.environ['PULP_SDK_HOME'] + '/install/python')
+
+from hostDriver import *
+from ocl import *
+from plp_runner import *
+
+runner = Runner()
+
+def getRunnerPath(runner):
+    return '%s/install/ws/python/%s' % (os.environ.get('PULP_SDK_HOME'), runner)
+
+runner.addPlatform('stm32', getRunnerPath('plp_stm32_runner.py'))
+runner.addPlatform('gvsoc', getRunnerPath('gv_runner.py'))
+runner.addPlatform('board', getRunnerPath('plp_board_runner.py'))
+runner.addPlatform('rtl', getRunnerPath('plp_rtl_runner.py'))
+runner.addPlatform('hsa', getRunnerPath('plp_zedboard_runner.py'))
+runner.addPlatform('zedboard', getRunnerPath('plp_zedboard_runner.py'))
+runner.addPlatform('fpga', getRunnerPath('plp_rtl_emu_runner.py'))
+
+runner.addModule(HostDriver)
+runner.addModule(Ocl)
+
+retval = runner.run()
+exit(retval)

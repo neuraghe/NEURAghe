@@ -1,0 +1,54 @@
+This folder contains files needed to create the Vivado project for the Zynq interconnect that includes NURAGHE IP.
+
+To create the project follow these steps:
+
+1. Create a new project
+      In the Vivado new project wizard select RTL project and "Do not specify sources at this time"
+      In default part choose the Xilinx part or board. The IP is tested for ZYNQ-7 ZC706C board.
+      If asked close all other projects!!
+      
+2. Add ip_repo folder to ip repository list of the project
+      Open project settings and choose IP tab
+      In repository manager tab add the ip_repo folder. Thi folder containd the IPs nuraghe_soc_wrapper and soc_controller.
+      Click OK to close the window.
+      
+3. Create the Block Design
+      From menu Tools -> Run TCL script... select and run nuraghe_BD.tcl script
+      
+4. Create HDL Wrapper of the generated Block Design
+      Right click on the block design icon (in sources list) and select Create HDL Wrapper. (Let vivado manage the wrapper)
+
+5. Add the NURAGE IP EDIF to the project
+      [for this step you need the EDIF file of nuraghe]
+      Select add a source to project in flow navigator tab.
+      Choose add or create a design sources
+      Select the EDIF file of nuraghe and click finish.
+      Go to properties of the EDIF and make it a global include
+      
+6. Import contraints
+     Select add a source to project in flow navigato tab.
+     Choose add or create contraints
+     Add io_constraints.xdc file (select copy contraints file into project)
+     
+Now the Vivado project is ready!
+
+7. Set clock frequency
+     To change the system frequency open the properties of Clock Wizard and choose the two working frequency. One for the whole system and one for the HWCE.
+
+8. Select implementation strategy
+     Before lauching implementation you may need to choose some implementation strategy to improve performances.
+     You can also use the script included in this folder for post-routing steps.
+
+9. Bitstream
+     If you want to load the bitstream from LINUX running on Zynq you have to create a .bin file (a bitstream without header)
+     Open bitstream setting in flow navigator pane and select bin file.
+
+
+########################
+        SDK
+########################
+
+1. import in a new workspace the project contained in the folder nuraghe_cnn. It can be configured to be run on Linux or in baremetal form.
+
+
+work in progress

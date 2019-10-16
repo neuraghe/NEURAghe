@@ -1,0 +1,226 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim
+vaxi2per
+Z1 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
+Z2 !s110 1568386719
+!i10b 1
+!s100 U32mHbm_@7DOUK=ZeTjVg0
+IlN=oNf9^SW5FGknOfTbS01
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+!s105 axi2per_sv_unit
+S1
+R0
+Z4 w1567774037
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per/axi2per.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per/axi2per.sv
+L0 4
+Z5 OL;L;10.4;61
+r1
+!s85 0
+31
+!s108 1568386719.588787
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per/axi2per_parameters.sv|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per/axi2per.sv|
+!s90 -quiet|-work|axi2per_lib|-sv|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per/axi2per.sv|
+!i113 0
+Z6 o-quiet -work axi2per_lib -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z7 !s92 -quiet -work axi2per_lib -sv +incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vaxi2per_ar_buffer
+R1
+R2
+!i10b 1
+!s100 ^YcO<[;[ZOJV6QaNm`59H3
+IznSj?So12DXG8J0;Td0<O2
+R3
+!s105 axi2per_ar_buffer_sv_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per/axi2per_ar_buffer.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per/axi2per_ar_buffer.sv
+L0 1
+R5
+r1
+!s85 0
+31
+!s108 1568386719.462098
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per/axi2per_ar_buffer.sv|
+!s90 -quiet|-work|axi2per_lib|-sv|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per/axi2per_ar_buffer.sv|
+!i113 0
+R6
+R7
+vaxi2per_aw_buffer
+R1
+R2
+!i10b 1
+!s100 6=NGgCkYP2hYKSUzmG;nJ1
+I]00EAbVdKkJnF_;P<FoBJ1
+R3
+!s105 axi2per_aw_buffer_sv_unit
+S1
+R0
+Z8 w1567774038
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per/axi2per_aw_buffer.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per/axi2per_aw_buffer.sv
+L0 1
+R5
+r1
+!s85 0
+31
+!s108 1568386719.439690
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per/axi2per_aw_buffer.sv|
+!s90 -quiet|-work|axi2per_lib|-sv|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per/axi2per_aw_buffer.sv|
+!i113 0
+R6
+R7
+vaxi2per_b_buffer
+R1
+R2
+!i10b 1
+!s100 03e[Ei2M8I^TkFj^^hE_T0
+Ic9fEETDC2NI34ICZJ^kIH3
+R3
+!s105 axi2per_b_buffer_sv_unit
+S1
+R0
+R8
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per/axi2per_b_buffer.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per/axi2per_b_buffer.sv
+L0 1
+R5
+r1
+!s85 0
+31
+!s108 1568386719.523662
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per/axi2per_b_buffer.sv|
+!s90 -quiet|-work|axi2per_lib|-sv|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per/axi2per_b_buffer.sv|
+!i113 0
+R6
+R7
+vaxi2per_buffer
+R1
+R2
+!i10b 1
+!s100 N87R6LdPETc`1gaJYZNVJ2
+I[DcgoZOX0OC8<XMfz80c?1
+R3
+!s105 axi2per_buffer_sv_unit
+S1
+R0
+R8
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per/axi2per_buffer.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per/axi2per_buffer.sv
+L0 3
+R5
+r1
+!s85 0
+31
+!s108 1568386719.414715
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per/axi2per_parameters.sv|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per/axi2per_buffer.sv|
+!s90 -quiet|-work|axi2per_lib|-sv|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per/axi2per_buffer.sv|
+!i113 0
+R6
+R7
+vaxi2per_r_buffer
+R1
+R2
+!i10b 1
+!s100 `=nf7WC22^WLXJ:5X7[O<2
+IY1TZYCoKZ>Xb@kKj@<hB;3
+R3
+!s105 axi2per_r_buffer_sv_unit
+S1
+R0
+R8
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per/axi2per_r_buffer.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per/axi2per_r_buffer.sv
+L0 1
+R5
+r1
+!s85 0
+31
+!s108 1568386719.503594
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per/axi2per_r_buffer.sv|
+!s90 -quiet|-work|axi2per_lib|-sv|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per/axi2per_r_buffer.sv|
+!i113 0
+R6
+R7
+vaxi2per_req_channel
+R1
+R2
+!i10b 1
+!s100 n2V_]oNQ=_dX>XggPBf2;0
+I[1BPCkm8kM`oH?1?;aNmj2
+R3
+!s105 axi2per_req_channel_sv_unit
+S1
+R0
+R8
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per/axi2per_req_channel.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per/axi2per_req_channel.sv
+L0 4
+R5
+r1
+!s85 0
+31
+!s108 1568386719.543536
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per/axi2per_parameters.sv|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per/axi2per_req_channel.sv|
+!s90 -quiet|-work|axi2per_lib|-sv|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per/axi2per_req_channel.sv|
+!i113 0
+R6
+R7
+vaxi2per_res_channel
+R1
+R2
+!i10b 1
+!s100 Jm>;R:dC0oz5R4OE`5XJc0
+I4nXFS?6zk=5B_JLlYn@T:3
+R3
+!s105 axi2per_res_channel_sv_unit
+S1
+R0
+R8
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per/axi2per_res_channel.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per/axi2per_res_channel.sv
+L0 4
+R5
+r1
+!s85 0
+31
+!s108 1568386719.566734
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per/axi2per_parameters.sv|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per/axi2per_res_channel.sv|
+!s90 -quiet|-work|axi2per_lib|-sv|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per/axi2per_res_channel.sv|
+!i113 0
+R6
+R7
+vaxi2per_w_buffer
+R1
+R2
+!i10b 1
+!s100 z?PI:ae1iJF4QZ?1hdMMC1
+I_4jTk3ehFVbWl[L>hX?[>2
+R3
+!s105 axi2per_w_buffer_sv_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per/axi2per_w_buffer.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per/axi2per_w_buffer.sv
+L0 1
+R5
+r1
+!s85 0
+31
+!s108 1568386719.483238
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per/axi2per_w_buffer.sv|
+!s90 -quiet|-work|axi2per_lib|-sv|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi2per/axi2per_w_buffer.sv|
+!i113 0
+R6
+R7

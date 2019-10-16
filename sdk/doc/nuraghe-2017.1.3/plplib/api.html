@@ -1,0 +1,438 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>API &mdash; plplib 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="plplib 1.0 documentation" href="index.html" />
+    <link rel="next" title="Performance report" href="perf.html" />
+    <link rel="prev" title="Plplib documentation" href="index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="api">
+<h1>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h1>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Matrix multiplication</p>
+<p>The common parameters are displayed hereafter. A few ones may not be provided by some kernels. <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">A</span></code>: The first matrix </li>
+<li><code class="docutils literal"><span class="pre">B</span></code>: The second matrix </li>
+<li><code class="docutils literal"><span class="pre">out</span></code>: The output matrix </li>
+<li><code class="docutils literal"><span class="pre">W_A</span></code>: Width of the first matrix, and also the height of the second matrix </li>
+<li><code class="docutils literal"><span class="pre">H_A</span></code>: Height of the first matrix, and also the height of the output matrix </li>
+<li><code class="docutils literal"><span class="pre">W_B</span></code>: Width of the second matrix, and also the width of the output matrix </li>
+<li><code class="docutils literal"><span class="pre">norm</span></code>: Normalization. Must be an OR of PLPLIB_NORM_* defines like for example PLPLIB_NORM_SAT | PLPLIB_NORM_SHIFT(16) </li>
+</ul>
+</dd>
+</dl>
+</p>
+<dl class="function">
+<dt id="_CPPv213plp_matmul_u8P7uint8_tP7uint8_tP7uint8_tiii">
+<span id="plp_matmul_u8__uint8_tP.uint8_tP.uint8_tP.i.i.i"></span><span class="target" id="myprojectplplib__matmul_8h_1a22d24e210969e56717b085da5ebd004a"></span>void <code class="descname">plp_matmul_u8</code><span class="sig-paren">(</span>uint8_t *<em>A</em>, uint8_t *<em>B</em>, uint8_t *<em>out</em>, int <em>W_A</em>, int <em>H_A</em>, int <em>W_B</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv213plp_matmul_u8P7uint8_tP7uint8_tP7uint8_tiii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unsigned 8 bits matrix multiplication. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv213plp_matmul_i8P6int8_tP6int8_tP6int8_tiii">
+<span id="plp_matmul_i8__int8_tP.int8_tP.int8_tP.i.i.i"></span><span class="target" id="myprojectplplib__matmul_8h_1a91727f0644bb0ef23ee354f434378492"></span>void <code class="descname">plp_matmul_i8</code><span class="sig-paren">(</span>int8_t *<em>A</em>, int8_t *<em>B</em>, int8_t *<em>out</em>, int <em>W_A</em>, int <em>H_A</em>, int <em>W_B</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv213plp_matmul_i8P6int8_tP6int8_tP6int8_tiii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Signed 8 bits matrix multiplication. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv214plp_matmul_u16P8uint16_tP8uint16_tP8uint16_tiii">
+<span id="plp_matmul_u16__uint16_tP.uint16_tP.uint16_tP.i.i.i"></span><span class="target" id="myprojectplplib__matmul_8h_1ac6ec102d4a0b0f28f698baf952a0bf1a"></span>void <code class="descname">plp_matmul_u16</code><span class="sig-paren">(</span>uint16_t *<em>A</em>, uint16_t *<em>B</em>, uint16_t *<em>out</em>, int <em>W_A</em>, int <em>H_A</em>, int <em>W_B</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv214plp_matmul_u16P8uint16_tP8uint16_tP8uint16_tiii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unsigned 16 bits matrix multiplication. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv214plp_matmul_i16P7int16_tP7int16_tP7int16_tiii">
+<span id="plp_matmul_i16__int16_tP.int16_tP.int16_tP.i.i.i"></span><span class="target" id="myprojectplplib__matmul_8h_1a22eba2a8a7b3626096103eaeb1bcb4e1"></span>void <code class="descname">plp_matmul_i16</code><span class="sig-paren">(</span>int16_t *<em>A</em>, int16_t *<em>B</em>, int16_t *<em>out</em>, int <em>W_A</em>, int <em>H_A</em>, int <em>W_B</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv214plp_matmul_i16P7int16_tP7int16_tP7int16_tiii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Signed 16 bits matrix multiplication. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv214plp_matmul_u32P8uint32_tP8uint32_tP8uint32_tiii">
+<span id="plp_matmul_u32__uint32_tP.uint32_tP.uint32_tP.i.i.i"></span><span class="target" id="myprojectplplib__matmul_8h_1adb0b129a3de706d2d76adc988cee28cb"></span>void <code class="descname">plp_matmul_u32</code><span class="sig-paren">(</span>uint32_t *<em>A</em>, uint32_t *<em>B</em>, uint32_t *<em>out</em>, int <em>W_A</em>, int <em>H_A</em>, int <em>W_B</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv214plp_matmul_u32P8uint32_tP8uint32_tP8uint32_tiii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unsigned 32 bits matrix multiplication. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv214plp_matmul_i32P7int32_tP7int32_tP7int32_tiii">
+<span id="plp_matmul_i32__int32_tP.int32_tP.int32_tP.i.i.i"></span><span class="target" id="myprojectplplib__matmul_8h_1a71d28d53029b0799f93846446b0b5b26"></span>void <code class="descname">plp_matmul_i32</code><span class="sig-paren">(</span>int32_t *<em>A</em>, int32_t *<em>B</em>, int32_t *<em>out</em>, int <em>W_A</em>, int <em>H_A</em>, int <em>W_B</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv214plp_matmul_i32P7int32_tP7int32_tP7int32_tiii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Signed 32 bits matrix multiplication. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv218plp_matmul_u8_normP7uint8_tP7uint8_tP7uint8_tiiii">
+<span id="plp_matmul_u8_norm__uint8_tP.uint8_tP.uint8_tP.i.i.i.i"></span><span class="target" id="myprojectplplib__matmul_8h_1ac3e32e5c58db6cebfc6382cc8779b834"></span>void <code class="descname">plp_matmul_u8_norm</code><span class="sig-paren">(</span>uint8_t *<em>A</em>, uint8_t *<em>B</em>, uint8_t *<em>out</em>, int <em>W_A</em>, int <em>H_A</em>, int <em>W_B</em>, int <em>norm</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv218plp_matmul_u8_normP7uint8_tP7uint8_tP7uint8_tiiii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unsigned 8 bits matrix multiplication with normalization. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv218plp_matmul_i8_normP6int8_tP6int8_tP6int8_tiiii">
+<span id="plp_matmul_i8_norm__int8_tP.int8_tP.int8_tP.i.i.i.i"></span><span class="target" id="myprojectplplib__matmul_8h_1a60c54fd39ee76a706aa4a3921025b314"></span>void <code class="descname">plp_matmul_i8_norm</code><span class="sig-paren">(</span>int8_t *<em>A</em>, int8_t *<em>B</em>, int8_t *<em>out</em>, int <em>W_A</em>, int <em>H_A</em>, int <em>W_B</em>, int <em>norm</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv218plp_matmul_i8_normP6int8_tP6int8_tP6int8_tiiii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Signed 8 bits matrix multiplication. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv219plp_matmul_u16_normP8uint16_tP8uint16_tP8uint16_tiiii">
+<span id="plp_matmul_u16_norm__uint16_tP.uint16_tP.uint16_tP.i.i.i.i"></span><span class="target" id="myprojectplplib__matmul_8h_1ad8349c55219e542f6291e08be3fda46d"></span>void <code class="descname">plp_matmul_u16_norm</code><span class="sig-paren">(</span>uint16_t *<em>A</em>, uint16_t *<em>B</em>, uint16_t *<em>out</em>, int <em>W_A</em>, int <em>H_A</em>, int <em>W_B</em>, int <em>norm</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv219plp_matmul_u16_normP8uint16_tP8uint16_tP8uint16_tiiii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unsigned 16 bits matrix multiplication. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv219plp_matmul_i16_normP7int16_tP7int16_tP7int16_tiiii">
+<span id="plp_matmul_i16_norm__int16_tP.int16_tP.int16_tP.i.i.i.i"></span><span class="target" id="myprojectplplib__matmul_8h_1af095bc6a0ea424ab8aa664c18bb5bf7b"></span>void <code class="descname">plp_matmul_i16_norm</code><span class="sig-paren">(</span>int16_t *<em>A</em>, int16_t *<em>B</em>, int16_t *<em>out</em>, int <em>W_A</em>, int <em>H_A</em>, int <em>W_B</em>, int <em>norm</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv219plp_matmul_i16_normP7int16_tP7int16_tP7int16_tiiii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Signed 16 bits matrix multiplication. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv219plp_matmul_u32_normP8uint32_tP8uint32_tP8uint32_tiiii">
+<span id="plp_matmul_u32_norm__uint32_tP.uint32_tP.uint32_tP.i.i.i.i"></span><span class="target" id="myprojectplplib__matmul_8h_1a365ca491a0f50efcdab1324aa7e62023"></span>void <code class="descname">plp_matmul_u32_norm</code><span class="sig-paren">(</span>uint32_t *<em>A</em>, uint32_t *<em>B</em>, uint32_t *<em>out</em>, int <em>W_A</em>, int <em>H_A</em>, int <em>W_B</em>, int <em>norm</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv219plp_matmul_u32_normP8uint32_tP8uint32_tP8uint32_tiiii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unsigned 32 bits matrix multiplication. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv219plp_matmul_i32_normP7int32_tP7int32_tP7int32_tiiii">
+<span id="plp_matmul_i32_norm__int32_tP.int32_tP.int32_tP.i.i.i.i"></span><span class="target" id="myprojectplplib__matmul_8h_1afcc07899a662e6fec42017aba35499b6"></span>void <code class="descname">plp_matmul_i32_norm</code><span class="sig-paren">(</span>int32_t *<em>A</em>, int32_t *<em>B</em>, int32_t *<em>out</em>, int <em>W_A</em>, int <em>H_A</em>, int <em>W_B</em>, int <em>norm</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv219plp_matmul_i32_normP7int32_tP7int32_tP7int32_tiiii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Signed 32 bits matrix multiplication. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Element-wise matrix multiplication</p>
+<p>The common parameters are displayed hereafter. <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">A</span></code>: The first matrix </li>
+<li><code class="docutils literal"><span class="pre">B</span></code>: The second matrix </li>
+<li><code class="docutils literal"><span class="pre">out</span></code>: The output matrix </li>
+<li><code class="docutils literal"><span class="pre">W</span></code>: Width of the matrices </li>
+<li><code class="docutils literal"><span class="pre">H</span></code>: Height of the matrices </li>
+</ul>
+</dd>
+</dl>
+</p>
+<dl class="function">
+<dt id="_CPPv216plp_matmul_ew_u8P7uint8_tP7uint8_tP7uint8_tii">
+<span id="plp_matmul_ew_u8__uint8_tP.uint8_tP.uint8_tP.i.i"></span><span class="target" id="myprojectplplib__matmul__ew_8h_1ab9e5960dd91a9bd6d5b4f8069a1ff7df"></span>void <code class="descname">plp_matmul_ew_u8</code><span class="sig-paren">(</span>uint8_t *<em>A</em>, uint8_t *<em>B</em>, uint8_t *<em>out</em>, int <em>W</em>, int <em>H</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv216plp_matmul_ew_u8P7uint8_tP7uint8_tP7uint8_tii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unsigned 8 bits element-wise matrix multiplication. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv219plp_matmul_ew_u8x16P7uint8_tP7uint8_tP8uint16_tii">
+<span id="plp_matmul_ew_u8x16__uint8_tP.uint8_tP.uint16_tP.i.i"></span><span class="target" id="myprojectplplib__matmul__ew_8h_1a5ba296767f59ae4464c43775eb67991b"></span>void <code class="descname">plp_matmul_ew_u8x16</code><span class="sig-paren">(</span>uint8_t *<em>A</em>, uint8_t *<em>B</em>, uint16_t *<em>out</em>, int <em>W</em>, int <em>H</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv219plp_matmul_ew_u8x16P7uint8_tP7uint8_tP8uint16_tii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unsigned 8 to 16 bits element-wise matrix multiplication. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv216plp_matmul_ew_i8P6int8_tP6int8_tP6int8_tii">
+<span id="plp_matmul_ew_i8__int8_tP.int8_tP.int8_tP.i.i"></span><span class="target" id="myprojectplplib__matmul__ew_8h_1a39b8bde7f3af3eea92836e4901aa9de0"></span>void <code class="descname">plp_matmul_ew_i8</code><span class="sig-paren">(</span>int8_t *<em>A</em>, int8_t *<em>B</em>, int8_t *<em>out</em>, int <em>W</em>, int <em>H</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv216plp_matmul_ew_i8P6int8_tP6int8_tP6int8_tii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Signed 8 bits element-wise matrix multiplication. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv219plp_matmul_ew_i8x16P6int8_tP6int8_tP7int16_tii">
+<span id="plp_matmul_ew_i8x16__int8_tP.int8_tP.int16_tP.i.i"></span><span class="target" id="myprojectplplib__matmul__ew_8h_1a278c89d5c5b7981a52fba5894c2fe1f6"></span>void <code class="descname">plp_matmul_ew_i8x16</code><span class="sig-paren">(</span>int8_t *<em>A</em>, int8_t *<em>B</em>, int16_t *<em>out</em>, int <em>W</em>, int <em>H</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv219plp_matmul_ew_i8x16P6int8_tP6int8_tP7int16_tii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Signed 8 to 16 bits element-wise matrix multiplication. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv217plp_matmul_ew_u16P8uint16_tP8uint16_tP8uint16_tii">
+<span id="plp_matmul_ew_u16__uint16_tP.uint16_tP.uint16_tP.i.i"></span><span class="target" id="myprojectplplib__matmul__ew_8h_1ad68f495ea41120b1df1dc77a4cb065d1"></span>void <code class="descname">plp_matmul_ew_u16</code><span class="sig-paren">(</span>uint16_t *<em>A</em>, uint16_t *<em>B</em>, uint16_t *<em>out</em>, int <em>W</em>, int <em>H</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv217plp_matmul_ew_u16P8uint16_tP8uint16_tP8uint16_tii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unsigned 16 bits element-wise matrix multiplication. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv220plp_matmul_ew_u16x32P8uint16_tP8uint16_tP8uint32_tii">
+<span id="plp_matmul_ew_u16x32__uint16_tP.uint16_tP.uint32_tP.i.i"></span><span class="target" id="myprojectplplib__matmul__ew_8h_1a118df5db7edecb1a6038846b157ed1af"></span>void <code class="descname">plp_matmul_ew_u16x32</code><span class="sig-paren">(</span>uint16_t *<em>A</em>, uint16_t *<em>B</em>, uint32_t *<em>out</em>, int <em>W</em>, int <em>H</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv220plp_matmul_ew_u16x32P8uint16_tP8uint16_tP8uint32_tii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unsigned 16 to 32 bits element-wise matrix multiplication. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv217plp_matmul_ew_i16P7int16_tP7int16_tP7int16_tii">
+<span id="plp_matmul_ew_i16__int16_tP.int16_tP.int16_tP.i.i"></span><span class="target" id="myprojectplplib__matmul__ew_8h_1af2f684c0d3d41dad6b6c553f492b4472"></span>void <code class="descname">plp_matmul_ew_i16</code><span class="sig-paren">(</span>int16_t *<em>A</em>, int16_t *<em>B</em>, int16_t *<em>out</em>, int <em>W</em>, int <em>H</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv217plp_matmul_ew_i16P7int16_tP7int16_tP7int16_tii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Signed 16 bits element-wise matrix multiplication. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv220plp_matmul_ew_i16x32P7int16_tP7int16_tP7int32_tii">
+<span id="plp_matmul_ew_i16x32__int16_tP.int16_tP.int32_tP.i.i"></span><span class="target" id="myprojectplplib__matmul__ew_8h_1ac46b30e533c7f21634f74eec5c1215fc"></span>void <code class="descname">plp_matmul_ew_i16x32</code><span class="sig-paren">(</span>int16_t *<em>A</em>, int16_t *<em>B</em>, int32_t *<em>out</em>, int <em>W</em>, int <em>H</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv220plp_matmul_ew_i16x32P7int16_tP7int16_tP7int32_tii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Signed 16 to 32 bits element-wise matrix multiplication. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv217plp_matmul_ew_u32P8uint32_tP8uint32_tP8uint32_tii">
+<span id="plp_matmul_ew_u32__uint32_tP.uint32_tP.uint32_tP.i.i"></span><span class="target" id="myprojectplplib__matmul__ew_8h_1a543dcc88c8c9e1d14e645853085b50e6"></span>void <code class="descname">plp_matmul_ew_u32</code><span class="sig-paren">(</span>uint32_t *<em>A</em>, uint32_t *<em>B</em>, uint32_t *<em>out</em>, int <em>W</em>, int <em>H</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv217plp_matmul_ew_u32P8uint32_tP8uint32_tP8uint32_tii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unsigned 32 bits element-wise matrix multiplication. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv217plp_matmul_ew_i32P7int32_tP7int32_tP7int32_tii">
+<span id="plp_matmul_ew_i32__int32_tP.int32_tP.int32_tP.i.i"></span><span class="target" id="myprojectplplib__matmul__ew_8h_1ad47942e8d805484aeda2e8b6de9a80ea"></span>void <code class="descname">plp_matmul_ew_i32</code><span class="sig-paren">(</span>int32_t *<em>A</em>, int32_t *<em>B</em>, int32_t *<em>out</em>, int <em>W</em>, int <em>H</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv217plp_matmul_ew_i32P7int32_tP7int32_tP7int32_tii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Signed 32 bits element-wise matrix multiplication. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Matrix addition</p>
+<p>The common parameters are displayed hereafter. <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">A</span></code>: The first matrix </li>
+<li><code class="docutils literal"><span class="pre">B</span></code>: The second matrix </li>
+<li><code class="docutils literal"><span class="pre">out</span></code>: The output matrix </li>
+<li><code class="docutils literal"><span class="pre">W</span></code>: Width of the matrices </li>
+<li><code class="docutils literal"><span class="pre">H</span></code>: Height of the matrices </li>
+</ul>
+</dd>
+</dl>
+</p>
+<dl class="function">
+<dt id="_CPPv213plp_matadd_u8P7uint8_tP7uint8_tP7uint8_tii">
+<span id="plp_matadd_u8__uint8_tP.uint8_tP.uint8_tP.i.i"></span><span class="target" id="myprojectplplib__matadd_8h_1a0c03c09b5999a3880c27646fb6359ab6"></span>void <code class="descname">plp_matadd_u8</code><span class="sig-paren">(</span>uint8_t *<em>A</em>, uint8_t *<em>B</em>, uint8_t *<em>out</em>, int <em>W</em>, int <em>H</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv213plp_matadd_u8P7uint8_tP7uint8_tP7uint8_tii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unsigned 8 bits matrix addition. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv213plp_matadd_i8P6int8_tP6int8_tP6int8_tii">
+<span id="plp_matadd_i8__int8_tP.int8_tP.int8_tP.i.i"></span><span class="target" id="myprojectplplib__matadd_8h_1a5fd2c1c1f651a65ed2ebd6008122ac03"></span>void <code class="descname">plp_matadd_i8</code><span class="sig-paren">(</span>int8_t *<em>A</em>, int8_t *<em>B</em>, int8_t *<em>out</em>, int <em>W</em>, int <em>H</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv213plp_matadd_i8P6int8_tP6int8_tP6int8_tii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Signed 8 bits matrix addition. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv214plp_matadd_u16P8uint16_tP8uint16_tP8uint16_tii">
+<span id="plp_matadd_u16__uint16_tP.uint16_tP.uint16_tP.i.i"></span><span class="target" id="myprojectplplib__matadd_8h_1af1e9431c9ef298efe235684998d542f7"></span>void <code class="descname">plp_matadd_u16</code><span class="sig-paren">(</span>uint16_t *<em>A</em>, uint16_t *<em>B</em>, uint16_t *<em>out</em>, int <em>W</em>, int <em>H</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv214plp_matadd_u16P8uint16_tP8uint16_tP8uint16_tii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unsigned 16 bits matrix addition. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv214plp_matadd_i16P7int16_tP7int16_tP7int16_tii">
+<span id="plp_matadd_i16__int16_tP.int16_tP.int16_tP.i.i"></span><span class="target" id="myprojectplplib__matadd_8h_1aaa071f15140f427919d908401bdfe586"></span>void <code class="descname">plp_matadd_i16</code><span class="sig-paren">(</span>int16_t *<em>A</em>, int16_t *<em>B</em>, int16_t *<em>out</em>, int <em>W</em>, int <em>H</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv214plp_matadd_i16P7int16_tP7int16_tP7int16_tii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Signed 16 bits matrix addition. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv214plp_matadd_u32P8uint32_tP8uint32_tP8uint32_tii">
+<span id="plp_matadd_u32__uint32_tP.uint32_tP.uint32_tP.i.i"></span><span class="target" id="myprojectplplib__matadd_8h_1aef18c9ee5a6c15016ea71a8eaf50a42e"></span>void <code class="descname">plp_matadd_u32</code><span class="sig-paren">(</span>uint32_t *<em>A</em>, uint32_t *<em>B</em>, uint32_t *<em>out</em>, int <em>W</em>, int <em>H</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv214plp_matadd_u32P8uint32_tP8uint32_tP8uint32_tii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unsigned 32 bits matrix addition. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv214plp_matadd_i32P7int32_tP7int32_tP7int32_tii">
+<span id="plp_matadd_i32__int32_tP.int32_tP.int32_tP.i.i"></span><span class="target" id="myprojectplplib__matadd_8h_1ae992071c66e288f1ef998c2cd67efcc7"></span>void <code class="descname">plp_matadd_i32</code><span class="sig-paren">(</span>int32_t *<em>A</em>, int32_t *<em>B</em>, int32_t *<em>out</em>, int <em>W</em>, int <em>H</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv214plp_matadd_i32P7int32_tP7int32_tP7int32_tii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Signed 32 bits matrix addition. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Matrix threshold</p>
+<p>The common parameters are displayed hereafter. <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">A</span></code>: The input matrix </li>
+<li><code class="docutils literal"><span class="pre">out</span></code>: The output matrix </li>
+<li><code class="docutils literal"><span class="pre">W</span></code>: Width of the matrices </li>
+<li><code class="docutils literal"><span class="pre">H</span></code>: Height of the matrices </li>
+<li><code class="docutils literal"><span class="pre">T</span></code>: The threshold </li>
+</ul>
+</dd>
+</dl>
+</p>
+<dl class="function">
+<dt id="_CPPv216plp_threshold_u8P7uint8_tP7uint8_tii7uint8_t">
+<span id="plp_threshold_u8__uint8_tP.uint8_tP.i.i.uint8_t"></span><span class="target" id="myprojectplplib__threshold_8h_1adcc453a67a1ecdc493eb97df6a7c6a95"></span>void <code class="descname">plp_threshold_u8</code><span class="sig-paren">(</span>uint8_t *<em>A</em>, uint8_t *<em>out</em>, int <em>W</em>, int <em>H</em>, uint8_t <em>T</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv216plp_threshold_u8P7uint8_tP7uint8_tii7uint8_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unsigned 8 bits matrix threshold. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv216plp_threshold_i8P6int8_tP6int8_tii6int8_t">
+<span id="plp_threshold_i8__int8_tP.int8_tP.i.i.int8_t"></span><span class="target" id="myprojectplplib__threshold_8h_1ab3b376ff4a8822abf321cdd07fc30eb8"></span>void <code class="descname">plp_threshold_i8</code><span class="sig-paren">(</span>int8_t *<em>A</em>, int8_t *<em>out</em>, int <em>W</em>, int <em>H</em>, int8_t <em>T</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv216plp_threshold_i8P6int8_tP6int8_tii6int8_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Signed 8 bits matrix threshold. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv217plp_threshold_u16P8uint16_tP8uint16_tii8uint16_t">
+<span id="plp_threshold_u16__uint16_tP.uint16_tP.i.i.uint16_t"></span><span class="target" id="myprojectplplib__threshold_8h_1a5dd1810b10b1899fce3bf319ec4ba808"></span>void <code class="descname">plp_threshold_u16</code><span class="sig-paren">(</span>uint16_t *<em>A</em>, uint16_t *<em>out</em>, int <em>W</em>, int <em>H</em>, uint16_t <em>T</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv217plp_threshold_u16P8uint16_tP8uint16_tii8uint16_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unsigned 16 bits matrix threshold. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv217plp_threshold_i16P7int16_tP7int16_tii7int16_t">
+<span id="plp_threshold_i16__int16_tP.int16_tP.i.i.int16_t"></span><span class="target" id="myprojectplplib__threshold_8h_1a448b06cf8bccc6272688ea8f187122d9"></span>void <code class="descname">plp_threshold_i16</code><span class="sig-paren">(</span>int16_t *<em>A</em>, int16_t *<em>out</em>, int <em>W</em>, int <em>H</em>, int16_t <em>T</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv217plp_threshold_i16P7int16_tP7int16_tii7int16_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Signed 16 bits matrix threshold. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv217plp_threshold_u32P8uint32_tP8uint32_tii8uint32_t">
+<span id="plp_threshold_u32__uint32_tP.uint32_tP.i.i.uint32_t"></span><span class="target" id="myprojectplplib__threshold_8h_1a69f9e91cdaaf9f46f4e9419787b7b56f"></span>void <code class="descname">plp_threshold_u32</code><span class="sig-paren">(</span>uint32_t *<em>A</em>, uint32_t *<em>out</em>, int <em>W</em>, int <em>H</em>, uint32_t <em>T</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv217plp_threshold_u32P8uint32_tP8uint32_tii8uint32_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unsigned 32 bits matrix threshold. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv217plp_threshold_i32P7int32_tP7int32_tii7int32_t">
+<span id="plp_threshold_i32__int32_tP.int32_tP.i.i.int32_t"></span><span class="target" id="myprojectplplib__threshold_8h_1a817959eb63078be63951ed2e61b00ab1"></span>void <code class="descname">plp_threshold_i32</code><span class="sig-paren">(</span>int32_t *<em>A</em>, int32_t *<em>out</em>, int <em>W</em>, int <em>H</em>, int32_t <em>T</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv217plp_threshold_i32P7int32_tP7int32_tii7int32_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Signed 32 bits matrix threshold. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">2D convolutions</p>
+<p>The common parameters are displayed hereafter. Other specific parameters are documented with the functions. Only the input width and height have to be specified. The output width and height are equal to the input ones minus the width and height of the coefficient matrix minus 1. <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">in</span></code>: Input matrix </li>
+<li><code class="docutils literal"><span class="pre">coeffs</span></code>: Coefficient matrix </li>
+<li><code class="docutils literal"><span class="pre">out</span></code>: Output matrix </li>
+<li><code class="docutils literal"><span class="pre">width</span></code>: Width of the input matrix </li>
+<li><code class="docutils literal"><span class="pre">height</span></code>: Height of the input matrix </li>
+<li><code class="docutils literal"><span class="pre">inputStride</span></code>: Stride for the input matrix (in number of elements). Everytime a number of elements corresponding to the width has been processed, the input matrix pointer is incremented by this number of elements </li>
+<li><code class="docutils literal"><span class="pre">outputStride</span></code>: Stride for the output matrix (in number of elements). Everytime a number of elements corresponding to the output width has been processed, the output matrix pointer is incremented by this number of elements </li>
+</ul>
+</dd>
+</dl>
+</p>
+<dl class="function">
+<dt id="_CPPv219plp_conv5x5_i8_normP6int8_tP6int8_tP6int8_tjjjjii">
+<span id="plp_conv5x5_i8_norm__int8_tP.int8_tP.int8_tP.unsigned-i.unsigned-i.unsigned-i.unsigned-i.i.i"></span><span class="target" id="myprojectplplib__conv2d_8h_1ac5e654e9fe2a596a44e212193cb95a71"></span>void <code class="descname">plp_conv5x5_i8_norm</code><span class="sig-paren">(</span>int8_t *<em>in</em>, int8_t *<em>coeffs</em>, int8_t *<em>out</em>, unsigned int <em>width</em>, unsigned int <em>height</em>, unsigned int <em>inputStride</em>, unsigned int <em>outputStride</em>, int <em>NormFactor</em>, int <em>NormShift</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv219plp_conv5x5_i8_normP6int8_tP6int8_tP6int8_tjjjjii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Signed 8 bits 5x5 2D convolution <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">NormFactor</span></code>: Each output pixel is multiplied by this factor before being shifted </li>
+<li><code class="docutils literal"><span class="pre">NormShift</span></code>: Each output pixel is shifted right by this number after it has been multiplied by Normfactor </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv219plp_conv5x5_u8_normP7uint8_tP7uint8_tP7uint8_tjjjjii">
+<span id="plp_conv5x5_u8_norm__uint8_tP.uint8_tP.uint8_tP.unsigned-i.unsigned-i.unsigned-i.unsigned-i.i.i"></span><span class="target" id="myprojectplplib__conv2d_8h_1aa1a656fef0c7eeae85be70ba6ad13f78"></span>void <code class="descname">plp_conv5x5_u8_norm</code><span class="sig-paren">(</span>uint8_t *<em>in</em>, uint8_t *<em>coeffs</em>, uint8_t *<em>out</em>, unsigned int <em>width</em>, unsigned int <em>height</em>, unsigned int <em>inputStride</em>, unsigned int <em>outputStride</em>, int <em>NormFactor</em>, int <em>NormShift</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv219plp_conv5x5_u8_normP7uint8_tP7uint8_tP7uint8_tjjjjii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unsigned 8 bits 5x5 2D convolution <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">NormFactor</span></code>: Each output pixel is multiplied by this factor before being shifted </li>
+<li><code class="docutils literal"><span class="pre">NormShift</span></code>: Each output pixel is shifted right by this number after it has been multiplied by Normfactor </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv220plp_conv5x5_i16_normP7int16_tP7int16_tP7int16_tjjjjii">
+<span id="plp_conv5x5_i16_norm__int16_tP.int16_tP.int16_tP.unsigned-i.unsigned-i.unsigned-i.unsigned-i.i.i"></span><span class="target" id="myprojectplplib__conv2d_8h_1ac57102673ce30bca77894d4bb06fa603"></span>void <code class="descname">plp_conv5x5_i16_norm</code><span class="sig-paren">(</span>int16_t *<em>in</em>, int16_t *<em>coeffs</em>, int16_t *<em>out</em>, unsigned int <em>width</em>, unsigned int <em>height</em>, unsigned int <em>inputStride</em>, unsigned int <em>outputStride</em>, int <em>NormFactor</em>, int <em>NormShift</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv220plp_conv5x5_i16_normP7int16_tP7int16_tP7int16_tjjjjii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Signed 16 bits 5x5 2D convolution <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">NormFactor</span></code>: Each output pixel is multiplied by this factor before being shifted </li>
+<li><code class="docutils literal"><span class="pre">NormShift</span></code>: Each output pixel is shifted right by this number after it has been multiplied by Normfactor </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv220plp_conv5x5_u16_normP8uint16_tP8uint16_tP8uint16_tjjjjii">
+<span id="plp_conv5x5_u16_norm__uint16_tP.uint16_tP.uint16_tP.unsigned-i.unsigned-i.unsigned-i.unsigned-i.i.i"></span><span class="target" id="myprojectplplib__conv2d_8h_1a283f2c016733798f335ba914b6786439"></span>void <code class="descname">plp_conv5x5_u16_norm</code><span class="sig-paren">(</span>uint16_t *<em>in</em>, uint16_t *<em>coeffs</em>, uint16_t *<em>out</em>, unsigned int <em>width</em>, unsigned int <em>height</em>, unsigned int <em>inputStride</em>, unsigned int <em>outputStride</em>, int <em>NormFactor</em>, int <em>NormShift</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv220plp_conv5x5_u16_normP8uint16_tP8uint16_tP8uint16_tjjjjii" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unsigned 16 bits 5x5 2D convolution <dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">NormFactor</span></code>: Each output pixel is multiplied by this factor before being shifted </li>
+<li><code class="docutils literal"><span class="pre">NormShift</span></code>: Each output pixel is shifted right by this number after it has been multiplied by Normfactor </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Plplib documentation</a></li>
+      <li>Next: <a href="perf.html" title="next chapter">Performance report</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/api.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, ETH - Unibo.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/api.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

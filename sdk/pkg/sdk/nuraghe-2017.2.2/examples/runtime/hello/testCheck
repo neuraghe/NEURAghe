@@ -1,0 +1,39 @@
+#!/usr/bin/env expect
+
+set pid -1
+
+exit -onexit {
+    if {$pid != -1} {
+        system "kill $pid"
+    }
+}
+
+puts "Launching test from check file"
+eval spawn [lrange $argv 1 end]
+set pid [exp_pid -i $spawn_id]
+
+set timeout [lindex $argv 0]
+puts "Timeout is: "
+puts $timeout
+
+puts "Waiting test result"
+expect {
+      timeout {puts "EXP: Timeout reached before end of test"; exit 1}
+      eof {puts "EXP: EOF reached before end of test"; exit 1}
+      ") Hello" {}
+}
+
+expect {
+      timeout {puts "EXP: Timeout reached before end of test"; exit 1}
+      eof {}
+}
+
+catch {close -i \$spawn_id}
+puts "EXP: Closing test"  
+set pid -1
+set retval [lindex [wait] 3] 
+if {$retval != 0} {
+    puts "EXP: The test returned an error"
+}
+exit $retval
+

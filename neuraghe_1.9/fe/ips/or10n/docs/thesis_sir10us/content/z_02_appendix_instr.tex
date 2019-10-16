@@ -1,0 +1,79 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%                                                                 %
+%%%%%     <file_name>.tex                                             %
+%%%%%                                                                 %
+%%%%% Author:      <author>                                           %
+%%%%% Created:     <date>                                             %
+%%%%% Description: <description>                                      %
+%%%%%                                                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Instructions}
+Table \ref{tab:instr_det} complements table \ref{tab:instr} with a more detailled description about the functionality of the instruction set. Instruction description and naming conventions are adopted from the OpenRISC 1000 Architecture Manual and are explained in table \ref{tab:instr_conv}.
+\begin{table}[htbp]
+ \caption{Naming conventions}
+ \label{tab:instr_conv}
+ \centering\begin{tabular}{|c|l|} \hline
+l.* & \gls{orbis} instruction \\ \hline
+
+l.*s & The result of this instruction is sign-extended (exts). \\ \hline
+l.*z & The result of this instruction is zero-extended (extz). \\ \hline
+rX & General-Purpose Register X \\ \hline
+SR & Supervision Register \\ \hline
+spr & Special-Purpose Register \\ \hline
+K & Immediate Operand is zero-extended. \\ \hline
+I & Immediate Operand is sign-extended. \\ \hline
+L & Length Immediate (zero-extended) \\ \hline
+X & Don't Care Bits in Instruction Encoding \\ \hline
+[*] & Address space \\ \hline
+(*) & Memory entry at specified address \\ \hline
+\{*\} & Operations in brackets are executed prior assignment. \\ \hline
+
+ \end{tabular}
+\end{table}
+
+\begin{longtable}{|p{3cm}|p{10cm}|}
+\caption[Instructions detailed]{Instructions detailed}
+\label{tab:instr_det}
+\endfirsthead
+\multicolumn{2}{c}{Table \ref{tab:instr_det}: Instructions detailed (contin.)} \\
+\endhead
+\endfoot
+\endlastfoot
+\hline
+l.add rD,rA,rB & rD[31:0] $\leftarrow$ rA[31:0] + rB[31:0]\newline SR[CY] $\leftarrow$ carry\newline SR[OV] $\leftarrow$ overflow \\ \hline
+l.addc rD,rA,rB & rD[31:0] $\leftarrow$ rA[31:0] + rB[31:0] + SR[CY]\newline SR[CY] $\leftarrow$ carry\newline SR[OV] $\leftarrow$ overflow \\ \hline l.addi rD,rA,I & rD[31:0] $\leftarrow$ rA[31:0] + exts(Immediate)\newline SR[CY] $\leftarrow$ carry\newline SR[OV] $\leftarrow$ overflow \\ \hline l.addic rD,rA,I & rD[31:0] $\leftarrow$ rA[31:0] + exts(Immediate) + SR[CY]\newline SR[CY] $\leftarrow$ carry\newline SR[OV] $\leftarrow$ overflow \\ \hline l.and rD,rA,rB & rD[31:0] $\leftarrow$ rA[31:0] AND rB[31:0] \\ \hline l.andi rD,rA,K & rD[31:0] $\leftarrow$ rA[31:0] AND extz(Immediate) \\ \hline l.bf N & EA $\leftarrow$ exts(Immediate $<<$ 2) + BranchInsnAddr\newline PC $\leftarrow$ EA if SR[F] set \\ \hline l.bnf N & EA $\leftarrow$ exts(Immediate $<<$ 2) + BranchInsnAddr\newline PC $\leftarrow$ EA if SR[F] cleared \\ \hline l.eoc=l.cust1  & EOC $\leftarrow$ 1 \\ \hline l.extbs rD,rA & rD[31:8] $\leftarrow$ rA[7]\newline rD[7:0] $\leftarrow$ rA[7:0] \\ \hline l.extbz rD,rA & rD[31:8] $\leftarrow$ 0\newline rD[7:0] $\leftarrow$ rA[7:0] \\ \hline l.exths rD,rA & rD[31:16] $\leftarrow$ rA[15]\newline rD[15:0] $\leftarrow$ rA[15:0] \\ \hline l.exthz rD,rA & rD[31:16] $\leftarrow$ 0\newline rD[15:0] $\leftarrow$ rA[15:0] \\ \hline l.extws rD,rA & rD[31:0] $\leftarrow$ rA[31:0] \\ \hline l.extwz rD,rA & rD[31:0] $\leftarrow$ rA[31:0] \\ \hline l.j N & PC $\leftarrow$ exts(Immediate $<<$ 2) + JumpInsnAddr \\ \hline l.jal N & PC $\leftarrow$ exts(Immediate $<<$ 2) + JumpInsnAddr\newline LR $\leftarrow$ DelayInsnAddr + 4 \\ \hline l.jalr rB & PC $\leftarrow$ rB\newline LR $\leftarrow$ DelayInsnAddr + 4 \\ \hline l.jr rB & PC $\leftarrow$ rB \\ \hline l.lbs rD,I(rA) & EA $\leftarrow$ exts(Immediate) + rA[31:0]\newline rD[7:0] $\leftarrow$ (EA)[7:0]\newline rD[31:8] $\leftarrow$ (EA)[7] \\ \hline l.lbz rD,I(rA) & EA $\leftarrow$ exts(Immediate) + rA[31:0]\newline rD[7:0] $\leftarrow$ (EA)[7:0]\newline rD[31:8] $\leftarrow$ 0 \\ \hline l.lhs rD,I(rA) & EA $\leftarrow$ exts(Immediate) + rA[31:0]\newline rD[15:0] $\leftarrow$ (EA)[15:0]\newline rD[31:16] $\leftarrow$ (EA)[15] \\ \hline l.lhz rD,I(rA) & EA $\leftarrow$ exts(Immediate) + rA[31:0]\newline rD[15:0] $\leftarrow$ (EA)[15:0]\newline rD[31:16] $\leftarrow$ 0 \\ \hline l.lws rD,I(rA) & EA $\leftarrow$ exts(Immediate) + rA[31:0]\newline rD[31:0] $\leftarrow$ (EA)[31:0] \\ \hline l.lwz rD,I(rA) & EA $\leftarrow$ exts(Immediate) + rA[31:0]\newline rD[31:0] $\leftarrow$ (EA)[31:0] \\ \hline l.mfspr rD,rA,K & rD[31:0] $\leftarrow$ spr(rA OR Immediate) \\ \hline l.movhi rD,K & rD[31:0] $\leftarrow$ extz(Immediate) $<<$ 16 \\ \hline l.mtspr rA,rB,K & spr(rA OR Immediate) $\leftarrow$ rB[31:0] \\ \hline l.mul rD,rA,rB & rD[31:0] $\leftarrow$ rA[31:0] * rB[31:0]\newline SR[OV] $\leftarrow$ overflow\newline SR[CY] $\leftarrow$ carry \\ \hline
+l.muld rA, rB & MACHI $\leftarrow$ \{rA[31:0] * rB[31:0]\}[63:32] \newline MACLO $\leftarrow$ \{rA[31:0] * rB[31:0]\}[31:0]\\ \hline
+l.muldu rA, rB & MACHI $\leftarrow$ \{rA[31:0] * rB[31:0]\}[63:32] \newline MACLO $\leftarrow$ \{rA[31:0] * rB[31:0]\}[31:0]\\ \hline
+   l.muli rD,rA,I & rD[31:0] $\leftarrow$ rA[31:0] * Immediate\newline SR[OV] $\leftarrow$ overflow\newline SR[CY] $\leftarrow$ carry \\ \hline l.mulu rD,rA,rB & rD[31:0] $\leftarrow$ rA[31:0] * rB[31:0]\newline SR[OV] $\leftarrow$ overflow\newline SR[CY] $\leftarrow$ carry \\ \hline l.nop K & \\ \hline l.or rD,rA,rB & rD[31:0] $\leftarrow$ rA[31:0] OR rB[31:0] \\ \hline l.ori rD,rA,K & rD[31:0] $\leftarrow$ rA[31:0] OR extz(Immediate) \\ \hline l.rori rD,rA,L & rD[31-L:0] $\leftarrow$ rA[31:L]\newline rD[31:32-L] $\leftarrow$ rA[L-1:0] \\ \hline l.sb I(rA),rB & EA $\leftarrow$ exts(Immediate) + rA[31:0]\newline (EA)[7:0] $\leftarrow$ rB[7:0] \\ \hline l.sfeq rA,rB & SR[F] $\leftarrow$ rA[31:0] == rB[31:0] \\ \hline l.sfeqi rA,I & SR[F] $\leftarrow$ rA[31:0] $\ne$ rB[31:0]  \\ \hline l.sfges rA,rB & SR[F] $\leftarrow$ rA[31:0] $\ge$ rB[31:0] \\ \hline l.sfgesi rA,I & SR[F] $\leftarrow$ rA[31:0] $\ge$ exts(Immediate) \\ \hline l.sfgeu rA,rB & SR[F] $\leftarrow$ rA[31:0] $\ge$ rB[31:0] \\ \hline l.sfgeui rA,I & SR[F] $\leftarrow$ rA[31:0] $\ge$ exts(Immediate) \\ \hline l.sfgts rA,rB & SR[F] $\leftarrow$ rA[31:0] $>$ rB[31:0] \\ \hline l.sfgtsi rA,I & SR[F] $\leftarrow$ rA[31:0] $>$ exts(Immediate) \\ \hline l.sfgtu rA,rB & SR[F] $\leftarrow$ rA[31:0] $>$ rB[31:0] \\ \hline l.sfgtui rA,I & SR[F] $\leftarrow$ rA[31:0] $>$ exts(Immediate) \\ \hline l.sfles rA,rB & SR[F] $\leftarrow$ rA[31:0] $\le$ rB[31:0] \\ \hline l.sflesi rA,I & SR[F] $\leftarrow$ rA[31:0] $\le$ exts(Immediate) \\ \hline l.sfleu rA,rB & SR[F] $\leftarrow$ rA[31:0] $\le$ rB[31:0] \\ \hline l.sfleui rA,I & SR[F] $\leftarrow$ rA[31:0] $\le$ exts(Immediate) \\ \hline l.sflts rA,rB & SR[F] $\leftarrow$ rA[31:0] $<$ rB[31:0] \\ \hline l.sfltsi rA,I & SR[F] $\leftarrow$ rA[31:0] $<$ exts(Immediate) \\ \hline l.sfltu rA,rB & SR[F] $\leftarrow$ rA[31:0] $<$ rB[31:0] \\ \hline l.sfltui rA,I & SR[F] $\leftarrow$ rA[31:0] $<$ exts(Immediate) \\ \hline l.sfne rA,rB & SR[F] $\leftarrow$ rA[31:0] $\ne$ rB[31:0] \\ \hline l.sfnei rA,I & SR[F] $\leftarrow$ rA[31:0] $\ne$ exts(Immediate) \\ \hline l.sh I(rA),rB & EA $\leftarrow$ exts(Immediate) + rA[31:0]\newline (EA)[15:0] $\leftarrow$ rB[15:0] \\ \hline l.sll rD,rA,rB & rD[31:rB[4:0]] $\leftarrow$ rA[31-rB[4:0]:0]\newline rD[rB[4:0]-1:0] $\leftarrow$ 0 \\ \hline l.slli rD,rA,L & rD[31:L] $\leftarrow$ rA[31-L:0]\newline rD[L-1:0] $\leftarrow$ 0 \\ \hline l.sra rD,rA,rB & rD[31-rB[4:0]:0] $\leftarrow$ rA[31:rB[4:0]]\newline rD[31:32-rB[4:0]] $\leftarrow$ rA[31] \\ \hline l.srai rD,rA,L & rD[31-L:0] $\leftarrow$ rA[31:L]\newline rD[31:32-L] $\leftarrow$ rA[31] \\ \hline l.srl rD,rA,rB & rD[31-rB[4:0]:0] $\leftarrow$ rA[31:rB[4:0]]\newline rD[31:32-rB[4:0]] $\leftarrow$ 0 \\ \hline l.srli rD,rA,L & rD[31-L:0] $\leftarrow$ rA[31:L]\newline rD[31:32-L] $\leftarrow$ 0 \\ \hline l.sub rD,rA,rB & rD[31:0] $\leftarrow$ rA[31:0] - rB[31:0]\newline SR[CY] $\leftarrow$ carry\newline SR[OV] $\leftarrow$ overflow \\ \hline l.sw I(rA),rB & EA $\leftarrow$ exts(Immediate) + rA[31:0]\newline (EA)[31:0] $\leftarrow$ rB[31:0] \\ \hline l.xor rD,rA,rB & rD[31:0] $\leftarrow$ rA[31:0] XOR rB[31:0] \\ \hline l.xori rD,rA,I & rD[31:0] $\leftarrow$ rA[31:0] XOR exts(Immediate)\\ \hline
+
+
+\end{longtable}
+\ \\ \\ \\ \\
+The following table illustrates the signal coding for all instruction which is being decoded by the controller.
+
+\begin{landscape}
+\addtocounter{table}{1}
+\addcontentsline{lot}{section}{\Alph{chapter}.\arabic{table}.\hspace{1pt} Signal Coding by Instructions}
+\includepdf[page=1-3, landscape=true, scale=0.8, pagecommand={\thispagestyle{headings}}]{content/contr_instr.pdf}
+\end{landscape}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

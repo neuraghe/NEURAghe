@@ -1,0 +1,33 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim
+vapb_cvp_if
+DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
+!s110 1568386723
+!i10b 1
+!s100 N>:iNjFOj<a;IkaO1Sd_81
+I70`az7C0;@zozKz5bB8:Z0
+VDg1SIo80bB@j0V0VzS_@n1
+!s105 apb_cvp_if_sv_unit
+S1
+R0
+w1567774063
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_cvp_if/apb_cvp_if.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_cvp_if/apb_cvp_if.sv
+L0 1
+OL;L;10.4;61
+r1
+!s85 0
+31
+!s108 1568386723.799908
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_cvp_if/apb_cvp_if.sv|
+!s90 -work|apb_cvp_if_lib|-quiet|-sv|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_cvp_if/apb_cvp_if.sv|
+!i113 0
+o-quiet -work apb_cvp_if_lib -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact

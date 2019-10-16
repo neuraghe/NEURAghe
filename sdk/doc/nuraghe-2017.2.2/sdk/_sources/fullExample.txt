@@ -1,0 +1,35 @@
+Full example
+============
+
+Full examples can be found in the SDK under examples/apps. This section is focusing on the one called adc_spi_threshold.
+
+Introduction
+------------
+
+The *adc_spi_threshold* example is reproducing one the most common use-case supported by the Pulp architecture where the application is sampling data from a peripheral (an ADC here), doing some processing on them, and sending the result to another peripheral (the UART here).
+
+How to compile and run
+----------------------
+
+This example is based on the SDK makefiles, thus it can be compiled and run with the usual command: ::
+
+  make clean all run
+
+If you look at the makefile, you will see the following particularities, compared to the basic example showed in previous sections:
+
+  - The makefile is including *pulp_rtlib.mk* instead of *pulp_rt.mk*. This is because the Pulp kernel library is used to do some processing on the samples. If this is not used, *pulp_rt.mk* can be included directly.
+
+  - The makefile is specifying several additional options for the platform: ::
+
+    override PLT_OPT := $(PLT_OPT) --adc=0:$(CURDIR)/stimuli/stimuli_cos_hex.asc --uart-file=uart.trace
+
+    The first one is used to give a stimuli file to the ADC so that the test is receiving data which makes sense. The second one is used to dump the stream sent to the UART into a file, otherwise it is dumped in the console.
+
+Content
+-------
+
+This example is based on an API that takes care of transfering the data between the peripherals and the L2 (using the UDMA) and between the L2 and the L1 (using the DMA). This API allows the application to initialize buffers which will be periodically used to get and send data.
+
+For that it is first executing a prologue preparing the buffers where the desired characteristics are given. In this example, the buffer for ADC is specified periodic, so that the application is periodically getting a buffer containing the samples, and being in L1, so that the received samples can be used directly from the closest memory. It also specifying a task that will be executed when the transfer is finished and the buffer can be used. This task is specified as a callback (function pointer) that will be called from an interrupt handler. The UART buffer is specified as being one-shot as it must be triggered by the application when a buffer is ready to be sent.
+
+Then the application is executing a loop where it is first waiting for an input buffer. For that it waits that a global variable is changed by the callback called when a transfer is finished. In order to not execute instructions for nothing, while it is waiting for the variable to change, the application is asking the scheduler to yield execution, i.e. put the core in sleep mode until the transfer is finished. Once the buffer is finished, the application is using a library of kernel to execute some processing on the buffer. 

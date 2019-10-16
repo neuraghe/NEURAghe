@@ -1,0 +1,102 @@
+{\scriptsize
+\ref{perflegend2}
+}
+
+\hspace{5em}
+\begin{tikzpicture}[font=\scriptsize, tight background]
+\begin{axis}[
+  ylabel={Speedup},
+  width=.30\linewidth,
+  height=7.5cm,
+  xtick=data,
+  ybar=0,
+  bar width=6.5,
+  grid,
+  ymin=0.6,
+  ymax=3.8,
+	ytick={0.6,1,1.4,1.8,2.2,2.6,3.0,3.4,3.8},
+  yticklabel style={/pgf/number format/.cd,fixed,precision=2},
+  every axis y label/.style={at={(ticklabel cs:.5,5)},rotate=90},
+	xticklabels={bitDesc.},
+	cycle list name=mylist,
+  enlarge x limits=0.4,
+  legend to name=perflegend2,
+	legend style={
+		draw=none,
+		legend columns=2,
+		/tikz/every even column/.append style={column sep=.5cm},
+    transpose legend,
+    legend cell align=left
+	}
+  ]
+
+	\coordinate (A) at (axis cs:0,1);
+	\coordinate (O1) at (rel axis cs:0,0);
+	\coordinate (O2) at (rel axis cs:1,0);
+	\draw [black,sharp plot,line width=1pt] (A -| O1) -- (A -| O2);
+	\addplot table [x expr=\coordindex, y expr={\thisrow{cfg}/\thisrow{cfg}},col sep=comma] {data/perf-bit.csv};
+	\addplot table [x expr=\coordindex, y expr={\thisrow{cfg}/\thisrow{cfgIH}},col sep=comma] {data/perf-bit.csv};
+	\pgfplotsset{cycle list shift=1};
+	\addplot table [x expr=\coordindex, y expr={\thisrow{cfg}/\thisrow{cfgIHVM}},col sep=comma] {data/perf-bit.csv};
+	\pgfplotsset{cycle list shift=2};
+	\addplot table [x expr=\coordindex, y expr={\thisrow{cfg}/\thisrow{cfgIHVMC}},col sep=comma] {data/perf-bit.csv};
+	\legend{Base,{+HWLP,LD/ST},{+HWLP,LD/ST,MAC,VEC},{+HWLP,LD/ST,MAC,VEC,BIT}};
+\end{axis}
+\end{tikzpicture}
+\hspace{1em}
+\begin{minipage}[c][0cm]{0.45\linewidth}
+\vspace{45pt}
+\begin{tikzpicture}[font=\scriptsize, tight background]
+\begin{groupplot}[
+    group style={
+        group name=my fancy plots,
+        group size=1 by 2,
+        xticklabels at=edge bottom,
+        vertical sep=0pt
+    },
+  width=0.7\linewidth,
+  xtick=data,
+  ybar=0,
+  grid,
+  every axis y label/.style={at={(ticklabel cs:.5,5)},rotate=90},
+	xticklabels={KP Matching},
+	cycle list name=mylist,
+  enlarge x limits=0.4,
+]
+%
+\nextgroupplot[ymin=30,ymax=36,
+               ytick={34,35,36},
+               axis x line=none, 
+               axis y discontinuity=crunch,
+               height=4.1cm]
+	\coordinate (A) at (axis cs:0,1);
+	\coordinate (O1) at (rel axis cs:0,0);
+	\coordinate (O2) at (rel axis cs:1,0);
+	\addplot table [x expr=\coordindex, y expr={\thisrow{cfg}/\thisrow{cfg}},col sep=comma] {data/perf-bit2.csv};
+	\addplot table [x expr=\coordindex, y expr={\thisrow{cfg}/\thisrow{cfgIH}},col sep=comma] {data/perf-bit2.csv};
+	\pgfplotsset{cycle list shift=1};
+	\addplot table [x expr=\coordindex, y expr={\thisrow{cfg}/\thisrow{cfgIHVM}},col sep=comma] {data/perf-bit2.csv};
+	\pgfplotsset{cycle list shift=2};
+	\addplot table [x expr=\coordindex, y expr={\thisrow{cfg}/\thisrow{cfgIHVMC}},col sep=comma] {data/perf-bit2.csv};
+%
+\nextgroupplot[ymin=0,ymax=1.5,
+               ytick={0,0.2,0.4,0.6,0.8,1,1.2},
+               axis x line=bottom,
+               height=5.0cm]
+	\coordinate (A) at (axis cs:0,1);
+	\coordinate (O1) at (rel axis cs:0,0);
+	\coordinate (O2) at (rel axis cs:1,0);
+	\draw [black,sharp plot,line width=1pt] (A -| O1) -- (A -| O2);
+	\addplot table [x expr=\coordindex, y expr={\thisrow{cfg}/\thisrow{cfg}},col sep=comma] {data/perf-bit2.csv};
+	\addplot table [x expr=\coordindex, y expr={\thisrow{cfg}/\thisrow{cfgIH}},col sep=comma] {data/perf-bit2.csv};
+	\pgfplotsset{cycle list shift=1};
+	\addplot table [x expr=\coordindex, y expr={\thisrow{cfg}/\thisrow{cfgIHVM}},col sep=comma] {data/perf-bit2.csv};
+	\pgfplotsset{cycle list shift=2};
+	\addplot table [x expr=\coordindex, y expr={\thisrow{cfg}/\thisrow{cfgIHVMC}},col sep=comma] {data/perf-bit2.csv};
+
+  ylabel={Speedup},
+	xticklabels={KP Matching},
+	cycle list name=mylist,
+\end{groupplot}
+\end{tikzpicture}
+\end{minipage}

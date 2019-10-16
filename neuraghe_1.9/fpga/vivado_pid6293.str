@@ -1,0 +1,477 @@
+/*
+
+Vivado v2017.1 (64-bit)
+SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
+IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
+
+Process ID: 6293
+License: Customer
+
+Current time: 	7/5/18 11:41:05 AM CEST
+Time zone: 	Central European Time (Europe/Rome)
+
+OS: SUSE Linux Enterprise Server 12 (x86_64)
+OS Version: 3.12.36-38-default
+OS Architecture: amd64
+Available processors (cores): 24
+
+Display: localhost:21.0
+Screen size: 1360x715
+Screen resolution (DPI): 96
+Available screens: 1
+Available disk space: 17 GB
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+
+Java version: 	1.8.0_112 64-bit
+Java home: 	/eda/Xilinx/Vivado/2017.1/tps/lnx64/jre
+JVM executable location: 	/eda/Xilinx/Vivado/2017.1/tps/lnx64/jre/bin/java
+Java library paths: /eda/Xilinx/Vivado/2017.1/lib/lnx64.o:/eda/Xilinx/Vivado/2017.1/tps/lnx64/jre/lib/amd64:/eda/Xilinx/Vivado/2017.1/tps/lnx64/jre/lib/amd64/server:/eda/Xilinx/Vivado/2017.1/lnx64/tools/dot/lib:/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+
+User name: 	gderiu
+User home directory: /home/gderiu
+User working directory: /home/gderiu/marco/neuraghe_zc706_8_16_runtime_50100/fpga
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: /eda/Xilinx/Vivado
+HDI_APPROOT: /eda/Xilinx/Vivado/2017.1
+RDI_DATADIR: /eda/Xilinx/Vivado/2017.1/data
+RDI_BINDIR: /eda/Xilinx/Vivado/2017.1/bin
+
+User preferences location: /home/gderiu/.Xilinx/Vivado
+Vivado preferences directory: /home/gderiu/.Xilinx/Vivado/2017.1/vivado.xml
+Vivado layouts directory: /home/gderiu/.Xilinx/Vivado/2017.1/layouts
+PlanAhead jar location: 	/eda/Xilinx/Vivado/2017.1/lib/classes/planAhead.jar
+Vivado Look & Feel: 	[Synthetica - the extended Synth Look and Feel. - ui.g.i.H]
+Engine tmp dir: 	./.Xil/Vivado-6293-eolab
+
+GUI allocated memory:	187 MB
+GUI max memory:		3,052 MB
+Engine allocated memory: 4,999 MB
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// [GUI Memory]: 47 MB (+46513kb) [00:00:08]
+// [Engine Memory]: 4,999 MB (+5090425kb) [00:00:08]
+// HMemoryUtils.trashcanNow. Engine heap size: 5,009 MB. GUI used memory: 27 MB. Current time: 7/5/18 11:41:07 AM CEST
+selectButton(PAResourceEtoH.GettingStartedView_OPEN_PROJECT, "Open Project"); // x:h (JPanel:JComponent, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_OPEN_PROJECT
+setFileChooser("/home/gderiu/marco/neuraghe_zc706_8_16_runtime_50100/pulp_on_zynq/pulp_on_zynq.xpr");
+// [GUI Memory]: 57 MB (+8749kb) [00:01:14]
+// Opening Vivado Project: /home/gderiu/marco/neuraghe_zc706_8_16_runtime_50100/pulp_on_zynq/pulp_on_zynq.xpr. Version: Vivado v2017.1 
+// bs:g (cg:JFrame):  Open Project : addNotify
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// Tcl Message: open_project /home/gderiu/marco/neuraghe_zc706_8_16_runtime_50100/pulp_on_zynq/pulp_on_zynq.xpr 
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_COMPLETED
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_FAILED
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_CURRENT
+// HMemoryUtils.trashcanNow. Engine heap size: 5,040 MB. GUI used memory: 27 MB. Current time: 7/5/18 11:42:12 AM CEST
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_NEW
+// Tcl Message: open_project /home/gderiu/marco/neuraghe_zc706_8_16_runtime_50100/pulp_on_zynq/pulp_on_zynq.xpr 
+// Tcl Message: INFO: [Project 1-313] Project file moved from '/home/gderiu/marco/neuraghe_zc706_8bit_70140_transfmods/pulp_on_zynq' since last save. 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/gderiu/pulp/ip_repo/ulp_soc_controller'. INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/gderiu/pulp/ip_repo/ulpsoc_wrap_3'. INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/gderiu/pulp/ip_repo/ulpsoc_wrap_2'. INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/gderiu/pulp/ip_repo/ulpsoc_wrap_1'. INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/eda/Xilinx/Vivado/2017.1/data/ip'. 
+// Tcl Message: open_project: Time (s): cpu = 00:00:26 ; elapsed = 00:00:10 . Memory (MB): peak = 6159.594 ; gain = 155.203 ; free physical = 12980 ; free virtual = 184471 
+// Project name: pulp_on_zynq; location: /home/gderiu/marco/neuraghe_zc706_8_16_runtime_50100/pulp_on_zynq; part: xc7z045ffg900-2
+// 'i' command handler elapsed time: 18 seconds
+// [GUI Memory]: 67 MB (+6618kb) [00:01:26]
+// Elapsed time: 12 seconds
+dismissDialog("Open Project"); // bs:g (cg:JFrame)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+// PAPropertyPanels.initPanels (ulpsoc.edf) elapsed time: 0.2s
+// Elapsed time: 62 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, ulpsoc (ulpsoc.edf)]", 4, false); // B:i (D:JPanel, cg:JFrame)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, ulpsoc (ulpsoc.edf)]", 4, false, false, false, false, false, true); // B:i (D:JPanel, cg:JFrame) - Double Click
+// [GUI Memory]: 74 MB (+4114kb) [00:02:31]
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // A:b
+// [GUI Memory]: 80 MB (+2602kb) [00:02:44]
+// Elapsed time: 11 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, IP Integrator, Open Block Design]", 7, false); // u:M (JViewport:JComponent, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_OPEN_BLOCK_DESIGN
+// bs:g (cg:JFrame):  Open Block Design : addNotify
+// TclEventType: LOAD_FEATURE
+// TclEventType: RSB_PROPERTY_CHANGE
+// TclEventType: LOAD_FEATURE
+// TclEventType: RSB_PROPERTY_CHANGE
+// TclEventType: RSB_OPEN_DIAGRAM
+// Tcl Message: open_bd_design {/home/gderiu/marco/neuraghe_zc706_8_16_runtime_50100/pulp_on_zynq/pulp_on_zynq.srcs/sources_1/bd/base_zynq_design/base_zynq_design.bd} 
+// Tcl Message: Adding cell -- xilinx.com:ip:axi_crossbar:2.1 - xbar Adding cell -- xilinx.com:ip:axi_dwidth_converter:2.1 - auto_ds Adding cell -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc Adding cell -- xilinx.com:ip:axi_dwidth_converter:2.1 - auto_us Successfully read diagram <base_zynq_design> from BD file </home/gderiu/marco/neuraghe_zc706_8_16_runtime_50100/pulp_on_zynq/pulp_on_zynq.srcs/sources_1/bd/base_zynq_design/base_zynq_design.bd> 
+// TclEventType: RSB_OPEN_DIAGRAM
+// PAPropertyPanels.initPanels (ulpsoc.edf) elapsed time: 0.2s
+// TclEventType: RSB_CONNECTION_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 5,245 MB. GUI used memory: 55 MB. Current time: 7/5/18 11:43:48 AM CEST
+// TclEventType: RSB_CONNECTION_CHANGE
+// TclEventType: RSB_LOCK_CHANGE
+// Tcl Message: open_bd_design: Time (s): cpu = 00:00:14 ; elapsed = 00:00:06 . Memory (MB): peak = 6219.637 ; gain = 25.023 ; free physical = 11697 ; free virtual = 183190 
+// 'bv' command handler elapsed time: 7 seconds
+dismissDialog("Open Block Design"); // bs:g (cg:JFrame)
+selectTab((HResource) null, (HResource) null, "Design Runs", 4); // aF:FrameContainer (ContainerContainer:JideSplitPane, cg:JFrame)
+// [Engine Memory]: 5,259 MB (+10832kb) [00:02:57]
+// Run Command: PAResourceCommand.PACommandNames_CUSTOMIZE_RSB_BLOC
+// M:bs (cg:JFrame):  Re-customize IP : addNotify
+// p:g (cg:JFrame): Re-customize IP: addNotify
+// [GUI Memory]: 93 MB (+9798kb) [00:03:06]
+// Elapsed time: 12 seconds
+dismissDialog("Re-customize IP"); // M:bs (cg:JFrame)
+selectTab(PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE, (HResource) null, "Output Clocks", 2); // cR:i (C:JPanel, p:g)
+setText("CLKOUT1 REQUESTED OUT FREQ", "50"); // z:X (cS:y)
+// TclEventType: PACKAGER_OBJECT_ADD
+// TclEventType: PACKAGER_OBJECT_CHANGE
+setText("CLKOUT2 REQUESTED OUT FREQ", "100"); // z:X (cS:y)
+// TclEventType: PACKAGER_OBJECT_ADD
+// TclEventType: PACKAGER_OBJECT_CHANGE
+setText("CLKOUT3 REQUESTED OUT FREQ", "100"); // z:X (cS:y, p:g)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a:JButton (JPanel:JComponent, p:g)
+// TclEventType: PACKAGER_OBJECT_ADD
+// TclEventType: PACKAGER_OBJECT_CHANGE
+dismissDialog("Re-customize IP"); // p:g (cg:JFrame)
+// Tcl Command: 'set_property -dict [list CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {50} CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {100} CONFIG.CLKOUT3_REQUESTED_OUT_FREQ {100} CONFIG.MMCM_DIVCLK_DIVIDE {1} CONFIG.MMCM_CLKFBOUT_MULT_F {10.000} CONFIG.MMCM_CLKOUT0_DIVIDE_F {20.000} CONFIG.MMCM_CLKOUT1_DIVIDE {10} CONFIG.MMCM_CLKOUT2_DIVIDE {10} CONFIG.CLKOUT1_JITTER {151.636} CONFIG.CLKOUT1_PHASE_ERROR {98.575} CONFIG.CLKOUT2_JITTER {130.958} CONFIG.CLKOUT2_PHASE_ERROR {98.575} CONFIG.CLKOUT3_JITTER {130.958} CONFIG.CLKOUT3_PHASE_ERROR {98.575}] [get_bd_cells clk_wiz_1]'
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PACKAGER_OBJECT_ADD
+// TclEventType: PACKAGER_OBJECT_CHANGE
+// p:g (cg:JFrame): Re-customize IP: addNotify
+// bs:g (p:g):  Customize IP : addNotify
+// TclEventType: PACKAGER_OBJECT_CHANGE
+// Tcl Message: startgroup 
+// Tcl Message: set_property -dict [list CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {50} CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {100} CONFIG.CLKOUT3_REQUESTED_OUT_FREQ {100} CONFIG.MMCM_DIVCLK_DIVIDE {1} CONFIG.MMCM_CLKFBOUT_MULT_F {10.000} CONFIG.MMCM_CLKOUT0_DIVIDE_F {20.000} CONFIG.MMCM_CLKOUT1_DIVIDE {10} CONFIG.MMCM_CLKOUT2_DIVIDE {10} CONFIG.CLKOUT1_JITTER {151.636} CONFIG.CLKOUT1_PHASE_ERROR {98.575} CONFIG.CLKOUT2_JITTER {130.958} CONFIG.CLKOUT2_PHASE_ERROR {98.575} CONFIG.CLKOUT3_JITTER {130.958} CONFIG.CLKOUT3_PHASE_ERROR {98.575}] [get_bd_cells clk_wiz_1] 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RSB_PROPERTY_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RSB_PROPERTY_CHANGE
+// Tcl Message: endgroup 
+dismissDialog("Customize IP"); // bs:g (p:g)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// HMemoryUtils.trashcanNow. Engine heap size: 5,465 MB. GUI used memory: 67 MB. Current time: 7/5/18 11:44:43 AM CEST
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 290 seconds
+selectTab((HResource) null, (HResource) null, "Sources", 0); // aF:FrameContainer (ContainerContainer:JideSplitPane, cg:JFrame)
+// [GUI Memory]: 99 MB (+413kb) [00:09:05]
+// [GUI Memory]: 104 MB (+111kb) [00:10:48]
+// [GUI Memory]: 109 MB (+462kb) [00:18:13]
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: FILE_SET_CHANGE
+// PAPropertyPanels.initPanels (ulpsoc.edf) elapsed time: 0.3s
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// WARNING: HTimer (FileMgr Design Graph Update Timer) is taking too long to process. Increasing delay to 3000 ms.
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: FILE_SET_CHANGE
+// PAPropertyPanels.initPanels (ulpsoc.edf) elapsed time: 0.5s
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// WARNING: HTimer (FileMgr Design Graph Update Timer) is taking too long to process. Increasing delay to 4000 ms.
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: FILE_SET_CHANGE
+// PAPropertyPanels.initPanels (ulpsoc.edf) elapsed time: 0.6s
+// [Engine Memory]: 5,529 MB (+7063kb) [00:23:43]
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_GENERATED
+// HMemoryUtils.trashcanNow. Engine heap size: 5,529 MB. GUI used memory: 66 MB. Current time: 7/5/18 12:04:39 PM CEST
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking too long to process. Increasing delay to 2000 ms.
+// Elapsed time: 932 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, ulpsoc (ulpsoc.edf)]", 4, false); // B:i (D:JPanel, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_CUSTOMIZE_RSB_BLOC
+// M:bs (cg:JFrame):  Re-customize IP : addNotify
+// p:g (cg:JFrame): Re-customize IP: addNotify
+// Elapsed time: 19 seconds
+dismissDialog("Re-customize IP"); // M:bs (cg:JFrame)
+selectTab(PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE, (HResource) null, "Output Clocks", 2); // cR:i (C:JPanel, p:g)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a:JButton (JPanel:JComponent, p:g)
+dismissDialog("Re-customize IP"); // p:g (cg:JFrame)
+// Tcl Message: startgroup 
+// Tcl Message: endgroup 
+selectButton(PAResourceQtoS.SystemTab_REPORT_IP_STATUS, "Report IP Status"); // h:k (JPanel:JComponent, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_REPORT_IP_STATUS
+// Tcl Command: 'report_ip_status -name ip_status '
+// TclEventType: IP_SUMMARY_RESULTS
+// bs:g (cg:JFrame):  Report IP Status : addNotify
+// Tcl Message: report_ip_status -name ip_status  
+dismissDialog("Report IP Status"); // bs:g (cg:JFrame)
+selectButton(PAResourceItoN.IPStatusSectionPanel_UPGRADE_SELECTED, "Upgrade Selected"); // a:JButton (JPanel:JComponent, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_UPGRADE_IP
+// TclEventType: RSB_OPEN_DIAGRAM
+// TclEventType: RSB_SCRIPT_TASK
+// TclEventType: RSB_REMOVE_OBJECT
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: upgrade_ip -vlnv uniCA:user:nuraghe_soc:3.0 [get_ips  base_zynq_design_nuraghe_soc_0_0] -log ip_upgrade.log 
+// Tcl Message: Upgrading '/home/gderiu/marco/neuraghe_zc706_8_16_runtime_50100/pulp_on_zynq/pulp_on_zynq.srcs/sources_1/bd/base_zynq_design/base_zynq_design.bd' 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// bs:g (cg:JFrame):  Upgrade IP : addNotify
+// TclEventType: DG_GRAPH_STALE
+// Tcl Message: INFO: [IP_Flow 19-3420] Updated base_zynq_design_nuraghe_soc_0_0 to use current project options 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RSB_REMOVE_OBJECT
+// TclEventType: RSB_SCRIPT_TASK
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RSB_SAVE_DIAGRAM
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RSB_SAVE_DIAGRAM
+// TclEventType: FILESET_UPDATE_IP
+// TclEventType: IP_UPGRADE_COMPLETE
+// Tcl Message: Wrote  : </home/gderiu/marco/neuraghe_zc706_8_16_runtime_50100/pulp_on_zynq/pulp_on_zynq.srcs/sources_1/bd/base_zynq_design/base_zynq_design.bd>  
+// Tcl Message: INFO: [Coretcl 2-1525] Wrote upgrade log to '/home/gderiu/marco/neuraghe_zc706_8_16_runtime_50100/pulp_on_zynq/ip_upgrade.log'. 
+// Tcl Message: export_ip_user_files -of_objects [get_ips base_zynq_design_nuraghe_soc_0_0] -no_script -sync -force -quiet 
+// a:a (cg:JFrame): Critical Messages: addNotify
+// WARNING: HTimer (StateMonitor Timer) is taking too long to process. Increasing delay to 4000 ms.
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// HMemoryUtils.trashcanNow. Engine heap size: 5,560 MB. GUI used memory: 78 MB. Current time: 7/5/18 12:05:29 PM CEST
+// au:p (cg:JFrame): Generate Output Products: addNotify
+// Elapsed time: 22 seconds
+selectButton("PAResourceTtoZ.UpgradeIP_IP_UPGRADE_COMPLETED_OK", "OK"); // JButton:AbstractButton (JPanel:JComponent, G:JDialog)
+selectButton(PAResourceQtoS.SimpleOutputProductDialog_GENERATE_OUTPUT_PRODUCTS_IMMEDIATELY, "Generate"); // a:JButton (JPanel:JComponent, au:p)
+// bs:g (cg:JFrame):  Managing Output Products : addNotify
+// TclEventType: RSB_SCRIPT_TASK
+// TclEventType: RSB_REMOVE_OBJECT
+// TclEventType: RSB_SCRIPT_TASK
+// TclEventType: RSB_REMOVE_OBJECT
+// TclEventType: RSB_SCRIPT_TASK
+// TclEventType: RSB_REMOVE_OBJECT
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RSB_REMOVE_OBJECT
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RSB_REMOVE_OBJECT
+// TclEventType: RSB_SCRIPT_TASK
+// Tcl Message: generate_target all [get_files  /home/gderiu/marco/neuraghe_zc706_8_16_runtime_50100/pulp_on_zynq/pulp_on_zynq.srcs/sources_1/bd/base_zynq_design/base_zynq_design.bd] 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RSB_REMOVE_OBJECT
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RSB_REMOVE_OBJECT
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RSB_REMOVE_OBJECT
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 5,586 MB. GUI used memory: 79 MB. Current time: 7/5/18 12:05:54 PM CEST
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RSB_SCRIPT_TASK
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: Wrote  : </home/gderiu/marco/neuraghe_zc706_8_16_runtime_50100/pulp_on_zynq/pulp_on_zynq.srcs/sources_1/bd/base_zynq_design/base_zynq_design.bd>  
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RSB_SCRIPT_TASK
+// Tcl Message: VHDL Output written to : /home/gderiu/marco/neuraghe_zc706_8_16_runtime_50100/pulp_on_zynq/pulp_on_zynq.srcs/sources_1/bd/base_zynq_design/hdl/base_zynq_design.vhd VHDL Output written to : /home/gderiu/marco/neuraghe_zc706_8_16_runtime_50100/pulp_on_zynq/pulp_on_zynq.srcs/sources_1/bd/base_zynq_design/hdl/base_zynq_design_wrapper.vhd 
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0 . INFO: [BD 41-1029] Generation completed for the IP Integrator block rst_processing_system7_0_50M . INFO: [BD 41-1029] Generation completed for the IP Integrator block soc_AXI_ctrl_v1_0_0 . 
+// Tcl Message: INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_protocol_converter_0 . 
+// Tcl Message: INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_protocol_converter_1 . 
+// Tcl Message: INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_dwidth_converter_0 . 
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: INFO: [BD 41-1029] Generation completed for the IP Integrator block clk_wiz_1 . INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0_axi_periph/xbar . 
+// Tcl Message: INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_protocol_converter_2 . INFO: [BD 41-1029] Generation completed for the IP Integrator block nuraghe_soc_0 . 
+// Tcl Message: INFO: [BD 41-1029] Generation completed for the IP Integrator block axi_protocol_converter_3 . 
+// Tcl Message: INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0_axi_periph/m00_couplers/auto_ds . 
+// Tcl Message: INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0_axi_periph/s00_couplers/auto_pc . 
+// Tcl Message: INFO: [BD 41-1029] Generation completed for the IP Integrator block processing_system7_0_axi_periph/s00_couplers/auto_us . 
+// Tcl Message: Exporting to file /home/gderiu/marco/neuraghe_zc706_8_16_runtime_50100/pulp_on_zynq/pulp_on_zynq.srcs/sources_1/bd/base_zynq_design/hw_handoff/base_zynq_design.hwh Generated Block Design Tcl file /home/gderiu/marco/neuraghe_zc706_8_16_runtime_50100/pulp_on_zynq/pulp_on_zynq.srcs/sources_1/bd/base_zynq_design/hw_handoff/base_zynq_design_bd.tcl Generated Hardware Definition File /home/gderiu/marco/neuraghe_zc706_8_16_runtime_50100/pulp_on_zynq/pulp_on_zynq.srcs/sources_1/bd/base_zynq_design/hdl/base_zynq_design.hwdef 
+// Tcl Message: generate_target: Time (s): cpu = 00:00:47 ; elapsed = 00:00:37 . Memory (MB): peak = 6691.699 ; gain = 148.109 ; free physical = 887 ; free virtual = 171448 
+// Tcl Message: export_ip_user_files -of_objects [get_files /home/gderiu/marco/neuraghe_zc706_8_16_runtime_50100/pulp_on_zynq/pulp_on_zynq.srcs/sources_1/bd/base_zynq_design/base_zynq_design.bd] -no_script -sync -force -quiet 
+// TclEventType: PROJECT_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: PACKAGER_MESSAGE_RESET
+// TclEventType: PACKAGER_UNLOAD_CORE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: FILE_SET_CHANGE
+// [GUI Memory]: 117 MB (+1838kb) [00:25:33]
+// WARNING: HTimer (StateMonitor Timer) is taking too long to process. Increasing delay to 5000 ms.
+// Elapsed time: 51 seconds
+selectButton("PAResourceQtoS.SimpleOutputProductDialog_GENERATION_OF_OUTPUT_PRODUCTS_COMPLETED_OK", "OK"); // JButton:AbstractButton (JPanel:JComponent, G:JDialog)
+selectButton(PAResourceAtoD.CmdMsgDialog_OPEN_MESSAGES_VIEW, "Open Messages View"); // a:JButton (JPanel:JComponent, a:a)
+// Run Command: PAResourceCommand.PACommandNames_MESSAGE_WINDOW
+dismissDialog("Critical Messages"); // a:a (cg:JFrame)
+expandTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation]", 3); // ah:i (JViewport:JComponent, cg:JFrame)
+expandTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Route Design]", 4); // ah:i (JViewport:JComponent, cg:JFrame)
+selectTab((HResource) null, (HResource) null, "Design Runs", 5); // aF:FrameContainer (ContainerContainer:JideSplitPane, cg:JFrame)
+selectTab((HResource) null, (HResource) null, "IP Status", 3); // aF:FrameContainer (ContainerContainer:JideSplitPane, cg:JFrame)
+selectButton(RDIResource.BaseReportTab_RERUN, "Rerun"); // h:k (JPanel:JComponent, cg:JFrame)
+// Tcl Command: 'report_ip_status -name ip_status '
+// TclEventType: IP_SUMMARY_RESULTS
+// [GUI Memory]: 123 MB (+192kb) [00:26:02]
+// bs:g (cg:JFrame):  Report IP Status : addNotify
+// Tcl Message: report_ip_status -name ip_status  
+dismissDialog("Report IP Status"); // bs:g (cg:JFrame)
+selectTab((HResource) null, (HResource) null, "Design Runs", 5); // aF:FrameContainer (ContainerContainer:JideSplitPane, cg:JFrame)
+// Elapsed time: 11 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 20, false); // u:M (JViewport:JComponent, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+// x:aN (cg:JFrame): Synthesis is Out-of-date: addNotify
+selectButton(RDIResource.BaseDialog_YES, "Yes"); // a:JButton (JPanel:JComponent, x:aN)
+// bs:g (cg:JFrame):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+dismissDialog("Synthesis is Out-of-date"); // x:aN (cg:JFrame)
+// TclEventType: RUN_RESET
+// Tcl Message: reset_run synth_7 
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// 'cp' command handler elapsed time: 5 seconds
+dismissDialog("Resetting Runs"); // bs:g (cg:JFrame)
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_LAUNCH
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_LAUNCH
+// bs:g (cg:JFrame):  Generate Bitstream : addNotify
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_10 -to_step write_bitstream -jobs 12 
+// TclEventType: RUN_MODIFY
+// Tcl Message: [Thu Jul  5 12:07:27 2018] Launched synth_7... Run output will be captured here: /home/gderiu/marco/neuraghe_zc706_8_16_runtime_50100/pulp_on_zynq/pulp_on_zynq.runs/synth_7/runme.log 
+// TclEventType: RUN_MODIFY
+// Tcl Message: [Thu Jul  5 12:07:27 2018] Launched impl_10... Run output will be captured here: /home/gderiu/marco/neuraghe_zc706_8_16_runtime_50100/pulp_on_zynq/pulp_on_zynq.runs/impl_10/runme.log 
+dismissDialog("Generate Bitstream"); // bs:g (cg:JFrame)
+// [GUI Memory]: 129 MB (+443kb) [00:27:33]
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: RUN_FAILED
+// ah:x (cg:JFrame): Implementation Failed: addNotify
+// Elapsed time: 1182 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a:JButton (JPanel:JComponent, ah:x)
+// Run Command: PAResourceCommand.PACommandNames_MESSAGE_WINDOW
+dismissDialog("Implementation Failed"); // ah:x (cg:JFrame)
+// Elapsed time: 12 seconds
+expandTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Opt Design, [Opt 31-67] Problem: A LUT3 cell in the design is missing a connection on input pin I0, which is used by the LUT equation. This pin has either been left unconnected in the design or the connection was removed due to the trimming of unused logic. The LUT cell name is: base_zynq_design_i/nuraghe_soc_0/inst/stdout_id_remap_wrap_i/axi_id_remap_i/genblk1_0.AR_BR_REMAP/VALID_TABLE[14]_i_2.. ]", 5); // ah:i (JViewport:JComponent, cg:JFrame)
+// Elapsed time: 29 seconds
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Opt Design, [Opt 31-67] Problem: A LUT3 cell in the design is missing a connection on input pin I0, which is used by the LUT equation. This pin has either been left unconnected in the design or the connection was removed due to the trimming of unused logic. The LUT cell name is: base_zynq_design_i/nuraghe_soc_0/inst/stdout_id_remap_wrap_i/axi_id_remap_i/genblk1_0.AR_BR_REMAP/VALID_TABLE[14]_i_2.. ]", 5, true); // ah:i (JViewport:JComponent, cg:JFrame) - Node
+messagesViewCrossProbe(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "ID;-;[Opt 31-67];-;;-;16;-;DetailedMsg;-;The cell in the design is missing a connection on the specific input pin. Without that connection, the cell will not work as expected.;-;;-;16;-;Resolution;-;Please review the preceding OPT INFO messages that detail what has been trimmed in the design to determine if the removal of unused logic is causing this error. If opt_design is being specified directly, it will need to be rerun with opt_design -verbose to generate detailed INFO messages about trimming.;-;;-;16;-;"); // ah:i (JViewport:JComponent, cg:JFrame)
+// 'Opt 31-67' Message Details: show
+selectButton(RDIResource.HPopupTitle_CLOSE, (String) null); // k:JideButton (JPanel:JComponent, ResizableWindow:JWindow)
+// 'Opt 31-67' Message Details: hide
+// [GUI Memory]: 136 MB (+117kb) [00:51:25]
+// HMemoryUtils.trashcanNow. Engine heap size: 5,710 MB. GUI used memory: 75 MB. Current time: 7/5/18 12:35:54 PM CEST
+// Elapsed time: 831 seconds
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Opt Design, [Opt 31-67] Problem: A LUT3 cell in the design is missing a connection on input pin I0, which is used by the LUT equation. This pin has either been left unconnected in the design or the connection was removed due to the trimming of unused logic. The LUT cell name is: base_zynq_design_i/nuraghe_soc_0/inst/stdout_id_remap_wrap_i/axi_id_remap_i/genblk1_0.AR_BR_REMAP/VALID_TABLE[14]_i_2.. ]", 5, true); // ah:i (JViewport:JComponent, cg:JFrame) - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Opt Design, [Opt 31-67] Problem: A LUT3 cell in the design is missing a connection on input pin I0, which is used by the LUT equation. This pin has either been left unconnected in the design or the connection was removed due to the trimming of unused logic. The LUT cell name is: base_zynq_design_i/nuraghe_soc_0/inst/stdout_id_remap_wrap_i/axi_id_remap_i/genblk1_0.AR_BR_REMAP/VALID_TABLE[14]_i_2.. ]", 5, true); // ah:i (JViewport:JComponent, cg:JFrame) - Node
+// HMemoryUtils.trashcanNow. Engine heap size: 5,710 MB. GUI used memory: 68 MB. Current time: 7/5/18 1:05:54 PM CEST
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: FILE_SET_CHANGE
+// PAPropertyPanels.initPanels (ulpsoc.edf) elapsed time: 0.4s
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: FILE_SET_CHANGE
+// PAPropertyPanels.initPanels (ulpsoc.edf) elapsed time: 0.6s
+// TclEventType: DG_GRAPH_GENERATED
+// HMemoryUtils.trashcanNow. Engine heap size: 5,742 MB. GUI used memory: 67 MB. Current time: 7/5/18 1:34:29 PM CEST
+// Elapsed time: 3150 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, ulpsoc (ulpsoc.edf)]", 4, false); // B:i (D:JPanel, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_CUSTOMIZE_RSB_BLOC
+// M:bs (cg:JFrame):  Re-customize IP : addNotify
+// p:g (cg:JFrame): Re-customize IP: addNotify
+// Elapsed time: 14 seconds
+dismissDialog("Re-customize IP"); // M:bs (cg:JFrame)
+selectTab(PAResourceTtoZ.XPG_TabbedPane_TABBED_PANE, (HResource) null, "Output Clocks", 2); // cR:i (C:JPanel, p:g)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a:JButton (JPanel:JComponent, p:g)
+dismissDialog("Re-customize IP"); // p:g (cg:JFrame)
+// Tcl Message: startgroup 
+// Tcl Message: endgroup 
+selectTab((HResource) null, (HResource) null, "Design Runs", 5); // aF:FrameContainer (ContainerContainer:JideSplitPane, cg:JFrame)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 20, false); // u:M (JViewport:JComponent, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+// x:aN (cg:JFrame): Synthesis is Out-of-date: addNotify
+selectButton(RDIResource.BaseDialog_YES, "Yes"); // a:JButton (JPanel:JComponent, x:aN)
+// bs:g (cg:JFrame):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+dismissDialog("Synthesis is Out-of-date"); // x:aN (cg:JFrame)
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_7 
+// 'cp' command handler elapsed time: 3 seconds
+dismissDialog("Resetting Runs"); // bs:g (cg:JFrame)
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_LAUNCH
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_10 -to_step write_bitstream -jobs 12 
+// Tcl Message: [Thu Jul  5 13:34:57 2018] Launched synth_7... Run output will be captured here: /home/gderiu/marco/neuraghe_zc706_8_16_runtime_50100/pulp_on_zynq/pulp_on_zynq.runs/synth_7/runme.log [Thu Jul  5 13:34:57 2018] Launched impl_10... Run output will be captured here: /home/gderiu/marco/neuraghe_zc706_8_16_runtime_50100/pulp_on_zynq/pulp_on_zynq.runs/impl_10/runme.log 
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STEP_COMPLETED
+// HMemoryUtils.trashcanNow. Engine heap size: 5,744 MB. GUI used memory: 79 MB. Current time: 7/5/18 2:04:29 PM CEST
+// TclEventType: RUN_COMPLETED

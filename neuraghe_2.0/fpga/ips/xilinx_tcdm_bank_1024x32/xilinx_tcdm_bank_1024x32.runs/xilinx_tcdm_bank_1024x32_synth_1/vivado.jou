@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2016.2 (64-bit)
+# SW Build 1577090 on Thu Jun  2 16:32:35 MDT 2016
+# IP Build 1577682 on Fri Jun  3 12:00:54 MDT 2016
+# Start of session at: Mon Sep 25 15:52:46 2017
+# Process ID: 16616
+# Current directory: /home/gderiu/neuraghe_wei2ddr/fpga/ips/xilinx_tcdm_bank_1024x32/xilinx_tcdm_bank_1024x32.runs/xilinx_tcdm_bank_1024x32_synth_1
+# Command line: vivado -log xilinx_tcdm_bank_1024x32.vds -mode batch -messageDb vivado.pb -notrace -source xilinx_tcdm_bank_1024x32.tcl
+# Log file: /home/gderiu/neuraghe_wei2ddr/fpga/ips/xilinx_tcdm_bank_1024x32/xilinx_tcdm_bank_1024x32.runs/xilinx_tcdm_bank_1024x32_synth_1/xilinx_tcdm_bank_1024x32.vds
+# Journal file: /home/gderiu/neuraghe_wei2ddr/fpga/ips/xilinx_tcdm_bank_1024x32/xilinx_tcdm_bank_1024x32.runs/xilinx_tcdm_bank_1024x32_synth_1/vivado.jou
+#-----------------------------------------------------------
+source xilinx_tcdm_bank_1024x32.tcl -notrace

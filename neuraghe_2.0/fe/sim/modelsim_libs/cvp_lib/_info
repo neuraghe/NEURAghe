@@ -1,0 +1,215 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/nur/NEURAghe/neuraghe_2.0/fe/sim
+Ec28soi_ll_multiprobe
+Z1 w1566466353
+Z2 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z5 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cea/CVP_MPROBE/C28SOI_LL_MULTIPROBE_rtl.vhd
+Z6 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cea/CVP_MPROBE/C28SOI_LL_MULTIPROBE_rtl.vhd
+l0
+L25
+Ve4=IM>Sh2602PWP5>azVH0
+!s100 OK=>jZFcSoUKUBQY`gZSD1
+Z7 OL;C;10.4;61
+32
+Z8 !s110 1568883258
+!i10b 1
+Z9 !s108 1568883258.481702
+Z10 !s90 -work|cvp_lib|-quiet|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cea/CVP_MPROBE/C28SOI_LL_MULTIPROBE_rtl.vhd|
+Z11 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cea/CVP_MPROBE/C28SOI_LL_MULTIPROBE_rtl.vhd|
+!i113 0
+Z12 o-quiet -work cvp_lib
+Z13 tExplicit 1
+Artl
+R2
+R3
+R4
+DEx4 work 20 c28soi_ll_multiprobe 0 22 e4=IM>Sh2602PWP5>azVH0
+l70
+L40
+V6JKPMKzlA0:o`_NZR7RX42
+!s100 zmMcO^1KbTJBBQ]_HT:Y42
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 0
+R12
+R13
+Ecvp
+R1
+Z14 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+R3
+R4
+R0
+Z15 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cea/CVP/cvp.vhd
+Z16 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cea/CVP/cvp.vhd
+l0
+L44
+VZzdDPKonhH0_TUY4^NE5T1
+!s100 lWlV94G511A0a0Y1V2R:Z1
+R7
+32
+R8
+!i10b 1
+Z17 !s108 1568883258.612721
+Z18 !s90 -work|cvp_lib|-quiet|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cea/CVP/cvp.vhd|
+Z19 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cea/CVP/cvp.vhd|
+!i113 0
+R12
+R13
+Artl
+R14
+R3
+R4
+DEx4 work 3 cvp 0 22 ZzdDPKonhH0_TUY4^NE5T1
+l224
+L89
+V9]d`^D>Z8YDB3mC<>^KV22
+!s100 9GdNAFX0S7BZYS`DGTYGW3
+R7
+32
+R8
+!i10b 1
+R17
+R18
+R19
+!i113 0
+R12
+R13
+Ecvp_clock_gen
+R1
+R14
+R3
+R4
+R0
+Z20 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cea/CVP/cvp_clock_gen.vhd
+Z21 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cea/CVP/cvp_clock_gen.vhd
+l0
+L26
+VHDfNK1>mLaoLR`JYA^FRj0
+!s100 07Me;HPN9NbzJkC;aDbU^1
+R7
+32
+R8
+!i10b 1
+Z22 !s108 1568883258.578113
+Z23 !s90 -work|cvp_lib|-quiet|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cea/CVP/cvp_clock_gen.vhd|
+Z24 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cea/CVP/cvp_clock_gen.vhd|
+!i113 0
+R12
+R13
+Artl
+R14
+R3
+R4
+DEx4 work 13 cvp_clock_gen 0 22 HDfNK1>mLaoLR`JYA^FRj0
+l180
+L68
+Va1Al:7EPh?fOg9UF7Z>A?2
+!s100 lAa6mAZP?N8TFZLzJe=nJ0
+R7
+32
+R8
+!i10b 1
+R22
+R23
+R24
+!i113 0
+R12
+R13
+Ecvp_mprob_controller
+R1
+R14
+R3
+R4
+R0
+Z25 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cea/CVP_MPROBE/cvp_mprob_controller.vhd
+Z26 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cea/CVP_MPROBE/cvp_mprob_controller.vhd
+l0
+L27
+VM>>44bhWAn<lIj[_7OUhZ0
+!s100 9gZcnHL0T6afDiEV3D:Q@2
+R7
+32
+R8
+!i10b 1
+Z27 !s108 1568883258.511617
+Z28 !s90 -work|cvp_lib|-quiet|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cea/CVP_MPROBE/cvp_mprob_controller.vhd|
+Z29 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cea/CVP_MPROBE/cvp_mprob_controller.vhd|
+!i113 0
+R12
+R13
+Artl
+R14
+R3
+R4
+DEx4 work 20 cvp_mprob_controller 0 22 M>>44bhWAn<lIj[_7OUhZ0
+l128
+L62
+VjJI6;aC5D80[2OBeFNa`I0
+!s100 ?^fHn[7FIe61B`6R?H5cR3
+R7
+32
+R8
+!i10b 1
+R27
+R28
+R29
+!i113 0
+R12
+R13
+Ecvp_mprobe
+R1
+R14
+R3
+R4
+R0
+Z30 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cea/CVP_MPROBE/cvp_mprobe.vhd
+Z31 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cea/CVP_MPROBE/cvp_mprobe.vhd
+l0
+L44
+VB<jbfTR]7<4>z6NZC@Z5o2
+!s100 4lOB0HlQ0bf`0`@n`G]oR0
+R7
+32
+R8
+!i10b 1
+Z32 !s108 1568883258.544982
+Z33 !s90 -work|cvp_lib|-quiet|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cea/CVP_MPROBE/cvp_mprobe.vhd|
+Z34 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cea/CVP_MPROBE/cvp_mprobe.vhd|
+!i113 0
+R12
+R13
+Artl
+R14
+R3
+R4
+DEx4 work 10 cvp_mprobe 0 22 B<jbfTR]7<4>z6NZC@Z5o2
+l271
+L97
+VRzbEf97L]>@D[DSF1_O=n1
+!s100 V=>>K9P5J]ChNJbNSUiK10
+R7
+32
+R8
+!i10b 1
+R32
+R33
+R34
+!i113 0
+R12
+R13

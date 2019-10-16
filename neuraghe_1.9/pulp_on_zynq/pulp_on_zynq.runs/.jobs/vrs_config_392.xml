@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="axi_bram_ctrl_0_synth_1" LaunchDir="/home/gderiu/marco/neuraghe_zc706_8bit_70140/pulp_on_zynq/pulp_on_zynq.runs/axi_bram_ctrl_0_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+</Runs>
+

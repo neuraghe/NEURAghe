@@ -1,0 +1,1048 @@
+#!/usr/bin/env python3
+
+import traceback
+import configparser
+import argparse
+import os
+import collections
+import re
+from datetime import datetime
+import pexpect
+import sys
+from xml.sax.saxutils import escape
+from prettytable import PrettyTable
+import pulpdb
+import imp
+import logging
+import threading
+from threading import Thread, Lock
+import queue
+import time
+import subprocess
+import configs
+import plp_submodules
+import pulpconfig
+
+envFile = None
+
+jobs = []
+
+nbRuns = 0
+
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+
+parser = argparse.ArgumentParser(description='Run a testset')
+
+parser.add_argument('command', metavar='CMD', type=str, nargs='*',
+                   help='a command to be executed')
+
+parser.add_argument("--db-log", dest="dbLog", action="store_true", help="Activate result logging to database")
+parser.add_argument("--testset", dest="testset", default=os.getcwd() + '/testset.ini', metavar="PATH", help="Path to the testset")
+parser.add_argument("--dump-tree", dest="dumpTree", action="store_true", help="Dump the testset tree")
+parser.add_argument("--dry-run", dest="dryRun", action="store_true", help="Execute a dry run")
+parser.add_argument("--slaves", dest="slaves", action="store_true", help="Activate slaves dispatching")
+parser.add_argument("--slaves-dump", dest="slavesDump", action="store_true", help="Dump slaves")
+parser.add_argument("--condor", dest="condor", action="store_true", help="Execute through condor")
+parser.add_argument("--stdout-dump", dest="stdoutDump", action="store_true", help="Dumps test output to stdout")
+parser.add_argument("--stdout", dest="stdout", action="store_true", help="Dumps test output to stdout")
+parser.add_argument("--test", dest="testList", default=None, action="append", help="Specify a test to be run")
+parser.add_argument("--threads", dest="threads", default=8, help="Specify the number of worker threads")
+parser.add_argument("--pkg", dest="pkg", default=None, help="Register database information for this package")
+parser.add_argument("--env", dest="env", default=None, help="Environment used for the test")
+parser.add_argument("--max-output-len", dest="maxOutputLen", type=int, default=1024*1024, help="Maximum length of a test output. Default: %(default)s bytes")
+parser.add_argument("--max-timeout", dest="maxTimeout", default="3600", help="Sets maximum timeout allowed for a test")
+parser.add_argument("--db-file", dest="dbFile", default=None, help="Sets database file")
+
+[args, otherArgs] = parser.parse_known_args()
+
+reportPath = os.getcwd() + '/junit-reports'
+dbFile = args.dbFile
+if dbFile != None:
+    dbFile = os.path.abspath(args.dbFile)
+
+
+submodules = plp_submodules.Plp_submodules(parser=parser)
+
+args = parser.parse_args()
+
+testResults = {}
+
+
+
+
+configs = []
+
+for config in submodules.getConfigs():
+    configs.append(config)
+
+
+
+
+db = None
+
+if len(args.command) == 0:
+    args.command = ['run']
+
+
+condorMachines = ['fenga1.ee.ethz.ch', 'fenga2.ee.ethz.ch', 'fenga3.ee.ethz.ch', 'larain1.ee.ethz.ch', 'larain2.ee.ethz.ch', 'pisoc1.ee.ethz.ch', 'pisoc2.ee.ethz.ch', 'pisoc3.ee.ethz.ch', 'pisoc4.ee.ethz.ch', 'pisoc5.ee.ethz.ch', 'pisoc6.ee.ethz.ch', 'murtera.ee.ethz.ch']
+
+condorMachinesStrList = []
+for machine in condorMachines:
+    condorMachinesStrList.append('( Machine == \"%s\" )' % (machine))
+
+os.environ['CONDOR_REQUIREMENTS'] = ' || '.join(condorMachinesStrList)
+    
+
+class SlavesPool(object):
+
+    #slaves = [['fenga1', 8], ['fenga2', 8], ['fenga3', 12], ['larain', 20], ['larain2', 32], ['pisoc1', 12], ['pisoc2', 12], ['pisoc3', 12], ['pisoc4', 12], ['pisoc5', 12], ['pisoc6', 12]]
+    slaves = [['larain2', 8]]
+
+    def __init__(self):
+        self.currentSlave = 0
+
+    def incCurrentSlave(self):
+        self.currentSlave += 1
+        if self.currentSlave >= len(self.slaves): self.currentSlave = 0
+
+    def get(self):
+        while self.slaves[self.currentSlave][1] == 0:
+            self.incCurrentSlave()
+        result = self.slaves[self.currentSlave][0]
+        self.slaves[self.currentSlave][1] -= 1
+        self.incCurrentSlave()
+        return result
+
+    def release(self, slave):
+        for i in range(0, len(self.slaves-1)):
+            if self.slaves[i][0] == slave: self.slaves[i][1] += 1
+        
+if args.slaves:
+    slavesPool = SlavesPool()
+else:
+    slavesPool = None
+
+if args.slavesDump:
+    print ('Using following slaves for dispatching:')
+    for slave in slaves:
+        output = subprocess.check_output('ssh haugoug@larain ssh haugoug@%s cat /proc/cpuinfo | grep processor | tail -n 1' % (slave), shell=True).decode('utf-8')
+        nbCores = int(output.strip().split(':')[1].strip()) + 1
+        print ('  %s: %d cores' % (slave, nbCores))
+        slavesPool.append([slave, nbCores])
+    print (slavesPool)
+    
+def getDb():
+  global db
+  if db == None:
+    db = pulpdb.PulpDb(localFile=dbFile)
+    db.createTables()
+  return db
+
+if os.environ.get('PYTHON_LOG') != None:
+    logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
+
+class DbLog(object):
+
+  def __init__(self, test, status, config, module, testsuite, params):
+    self.test = test
+    self.status = status
+    self.config = config
+    self.module = module
+    self.testsuite = testsuite
+    self.params = params
+
+  def log(self):
+    logToDb(test=self.test, status=self.status, config=self.config, module=self.module, testsuite=self.testsuite, params=self.params)
+
+def logToDb(test, status, config, module, testsuite, params):
+    if args.env != None:
+        db = getDb()
+        build = None
+
+        paramList = []
+        for configItem in config.split('_'):
+            name = configItem.split('=')[0]
+            value = configItem.split('=')[1]
+            paramList.append(db.getParamsTable().reg(name=name, value=value))
+        for paramDesc2 in params:
+            for paramDesc in paramDesc2.split(':'):
+                paramName = paramDesc.split('=')[0]
+                paramValue = paramDesc.split('=')[1]
+                paramList.append(db.getParamsTable().reg(name=paramName, value=paramValue))
+
+        dbTest = db.getTestsTable().reg(test=test, testsuite=testsuite, module=module)
+        pkgBuild = db.getBuildsTable().get(id=args.pkg)
+        if len(pkgBuild) != 0:
+            build = pkgBuild[0]
+
+        envList = []
+        for envDesc in args.env.split(':'):
+            envName = envDesc.split('=')[0]
+            envValue = envDesc.split('=')[1]
+            envList.append(db.getEnvsTable().reg(name=envName, value=envValue).id)
+
+        logging.debug("Logging test result to database (test: %s, env: %s, config: %s)" % (test,  args.env, config))
+        db.getResultsTable().reg(test=dbTest, status=status, params=paramList, envs=envList)
+
+
+def getConfigDict(config):
+    if config == None: return {}
+    configItems = {}
+    for item in config.split('_'):
+        if item.find('=') == -1:
+            raise BaseException("Invalid config item '%s' in config '%s'" % (item, config))
+        [name,value] = item.split('=', 1)
+        configItems[name] = value
+    return configItems
+
+def getConfigItems(config):
+    return getConfigDict(config).items()
+
+def checkNewConfigs(activeConfig, configs):
+    print (activeConfig)
+    print (configs)
+
+
+
+def checkConfig(refConfig, config, dispatch):
+    if config == None: return [True, True]
+
+    if dispatch == None:
+      dispatchEval = False
+    else:
+      dispatchEval = eval(dispatch)
+
+    if refConfig == None: return [True, dispatchEval]
+
+    for key,value in config.items():
+        if key in items and not re.compile(value).search(refConfig[key]):
+            return [False, False]
+          
+    return [True, dispatchEval]
+
+def checkConfigs(refConfig, configs, dispatch):
+    for config in configs:
+      [execute, dispatchEval] = checkConfig(refConfig, config, dispatch)
+      if execute: return [True, dispatchEval]
+    return [False, False]
+
+class RunResult(object):
+
+  def __init__(self, testResult, config, status, time, log, dbLog, dbRegs):
+    self.testResult = testResult
+    self.config = config
+    self.status = status
+    self.time = time
+    self.log = log
+    self.dbLog = dbLog
+    self.dbRegs = dbRegs
+
+  def reg(self):
+    testResult = testResults[self.testResult]
+    testResult.regResult(self.config, self.status, self.time, self.log)
+    if self.dbLog != None: self.dbLog.log()
+    for dbReg in self.dbRegs:
+      dbReg.log()
+
+class TestResult:
+
+    def __init__(self, name):
+        self.name = name
+        self.testCases = []
+        self.nbTests = 0
+        self.time = 0.0
+        self.nbErrors = 0
+        self.nbFailures = 0
+        self.nbPassed = 0
+        self.parent = None
+        self.configsRun = []
+    
+    def getName(self):
+        nameList = []
+        if self.parent != None:
+            nameList = self.parent.getName()
+        nameList.append(self.name)
+        return nameList
+        
+    def setParent(self, parent):
+        self.parent = parent
+
+    def regResult(self, config, status, time, log):
+        self.configsRun.append([config, status, time, log])
+
+        self.nbTests = self.nbTests + 1
+        self.time = self.time + time
+        if status == 'success':
+            self.nbPassed += 1
+        else:
+            self.nbFailures = self.nbFailures + 1
+
+        if self.parent != None:
+            self.parent.append(self, status, time)
+
+
+    def append(self, testCase, status, time):
+        if not testCase in self.testCases: self.testCases.append(testCase)
+        self.nbTests = self.nbTests + 1
+        self.time = self.time + time
+        if status == 'success':
+            self.nbPassed += 1
+        else:
+            self.nbFailures = self.nbFailures + 1
+
+        if self.parent != None:
+            self.parent.append(self, status, time)
+
+    def dump(self, reportPath):
+        if self.nbTests != 0:
+            self.dumpTestSuite(reportPath)
+
+    def dumpToConsole(self, x, fullName):
+        nbPassed = 0
+        for testCase in self.testCases:
+            if fullName == None: name = testCase.name
+            else: name = fullName + ':' + testCase.name
+            x.add_row([name, '', testCase.time, '%d/%d' % (testCase.nbPassed, testCase.nbTests)])
+            testCaseNbPassed = 0
+            for configRun in testCase.configsRun:
+                configNbPassed = 0
+                if configRun[1] == 'success': configNbPassed += 1
+                x.add_row(['', configRun[0].getString(), configRun[2], '%d/%d' % (configNbPassed, 1)])
+                testCaseNbPassed += configNbPassed
+            nbPassed += testCaseNbPassed
+
+    def dumpTestCase(self, testFile):
+        for configRun in self.configsRun:
+
+            testFile.write('  <testcase classname="%s" name="%s" time="%f">\n' % (self.name, configRun[0], configRun[2]))
+            if configRun[1] == 'success':
+                testFile.write('    <success/>\n')
+            else:
+                testFile.write('    <failure>\n')
+                for line in configRun[3]:
+                    RE_XML_ILLEGAL = u'([\u0000-\u0008\u000b-\u000c\u000e-\u001f\ufffe-\uffff])' + \
+                                     u'|' + \
+                                     u'([%s-%s][^%s-%s])|([^%s-%s][%s-%s])|([%s-%s]$)|(^[%s-%s])' % \
+                                     (chr(0xd800),chr(0xdbff),chr(0xdc00),chr(0xdfff),
+                                      chr(0xd800),chr(0xdbff),chr(0xdc00),chr(0xdfff),
+                                      chr(0xd800),chr(0xdbff),chr(0xdc00),chr(0xdfff))
+                    xmlLine = re.sub(RE_XML_ILLEGAL, "", escape(line))
+                    testFile.write(xmlLine)
+                testFile.write('</failure>\n')
+            testFile.write('  </testcase>\n')
+    
+    def dumpTestSuite(self, reportPath):
+        fileName = '%s/TEST-%s.xml' % (reportPath, self.name)
+        with open(fileName, 'w') as testFile:
+            testFile.write('<?xml version="1.0" encoding="UTF-8"?>\n')
+            testFile.write('<testsuite errors="%d" failures="%d" name="%s" tests="%d" time="%f">\n' % (self.nbErrors, self.nbFailures, self.name, self.nbTests, self.time))
+            for testCase in self.testCases:
+                testCase.dumpTestCase(testFile)
+            testFile.write('</testsuite>\n')
+
+
+class Section(object):
+    def __init__(self, name, parser, section, path, isTest=False, includeName=True, dumpResults=True):
+        self.childs = []
+        self.name = name
+        self.envs = []
+        self.parser = parser
+        self.section = section
+        self.userConf = {}
+        if path != None:
+            self.path = path
+        else:
+            self.path = os.getcwd()
+        self.testResult = TestResult(name)
+        self.isTest = isTest
+        self.includeName = includeName
+        self.mustDumpResults = dumpResults
+        
+    def getPath(self):
+        return self.path
+
+    def addUserConfig(self, name, value):
+        self.userConf[name] = value
+    
+    def getOptions(self, runConfig):
+        result = []
+        fullDict = dict(list(runConfig.getAll().items()) + list(self.userConf.items()))
+        fullDict['config'] = runConfig.getDeprecatedString()
+        if runConfig.get('flag') != None:
+            fullDict['flags'] = ' '.join(runConfig.get('flag'))
+        else:
+            fullDict['flags'] = ''
+        for option in self.parser.options(self.section):
+            result.append([option, getOptionValue(self.parser.get(self.section, option, vars=fullDict))])
+        return result
+
+    def attach(self, child):
+        self.childs.append(child)
+        child.testResult.setParent(self.testResult)
+        return child
+    
+    def dumpTree(self, indent=''):
+        self.dump(indent)
+        for child in self.childs:
+            child.dumpTree(indent + '  ')
+
+    def attachEnv(self, env):
+        self.envs.append(env)
+
+    def launch(self, runConfig, commands, testList, runner, dispatch):
+
+        # Always save and restore the environment to not pollute other unrelated sections
+        #_environ = dict(os.environ)
+        
+        # Append env var to the environment
+        #for option in self.config.options(self.section):
+        #    value = getOptionValue(self.config.get(self.section, option, 0, conf.get()))
+        #    os.environ[option] = value
+
+        retval = self.launchChild(runConfig, commands, testList=testList, runner=runner, dispatch=dispatch)
+        
+        #os.environ.clear()
+        #os.environ.update(_environ)
+        
+        return retval
+
+    def dumpResults(self, reportPath, x, fullName=None):
+        if self.includeName:
+            if fullName == None:
+                fullName = self.name
+            else:
+                fullName = fullName + ':' + self.name
+            
+        if not self.isTest: self.testResult.dump(reportPath)
+        for child in self.childs:
+            child.dumpResults(reportPath, x, fullName)
+        if self.mustDumpResults: self.testResult.dumpToConsole(x, fullName)
+    
+class Run(Section):
+    
+    def __init__(self, name, parser, section, path, dumpResults=True):
+        super(Run, self).__init__(name, parser, section, path, includeName=False, dumpResults=dumpResults)
+        self.configs = []
+        self.dispatch = None
+        self.priority = None
+        
+    def addConfigs(self, configs):
+        self.configs += configs
+        
+    def dump(self, indent):
+        print ('%srun' % (indent))
+        print ('%s  name: %s' % (indent, self.name))
+    
+    def launchChild(self, runConfig, commands, testList, runner, dispatch):
+
+        if len(self.configs) == 0:
+            for child in self.childs:
+                child.launch(runConfig, commands, testList=testList, runner=runner, dispatch=dispatch)
+        
+        for config in self.configs:
+            if runConfig == None or runConfig.matchConfig(config):
+                if self.dispatch == None or runConfig.matchConfig(self.dispatch): dispatch = True
+                else: dispatch = False
+                for child in self.childs:
+                    logging.debug("# Run: executing child %s with config %s" % (child.name, config.getString()))
+                    child.launch(config, commands, testList=testList, runner=runner, dispatch=dispatch)
+            else:
+                logging.debug("# Run: skipping config " + config.getString())
+
+    
+class Testset(Section):
+    
+    def __init__(self, name, parser, section, path):
+        super(Testset, self).__init__(name, parser, section, path)
+        self.filterConfigs = None
+
+    def setFilterConfigs(self, config):
+        self.filterConfigs = []
+        for name in config.split():
+            self.filterConfigs.append(pulpconfig.Configuration(useRegExp=True, name=name))
+        #self.filterConfigs = pulpconfig.createConfigsFromRegexp(config, onlyValids=False)
+
+    def dump(self, indent):
+        print ('%stestset' % (indent))
+        print ('%s  name: %s' % (indent, self.name))
+        
+    def launchChild(self, runConfig, commands, testList, runner, dispatch):
+
+        if testList != None and self.name in testList:
+            testList = None
+
+        if self.filterConfigs != None and not runConfig.matchConfigs(self.filterConfigs): 
+            logging.debug("# Testset (%s): skipping config %s" % (self.name, runConfig.getString()))
+            return
+
+        retval = 0
+        
+        for child in self.childs:
+            logging.debug("# Testset (%s): executing child %s with config %s" % (self.name, child.name, runConfig.getString()))
+            testRetval = child.launch(runConfig, commands, testList=testList, runner=runner, dispatch=dispatch)
+            retval = retval or testRetval
+            
+        return retval
+
+class DbReg(object):
+
+    def __init__(self, probe, value, parameters, config):
+      self.value = value
+      self.parameters = parameters
+      self.config = config
+      self.probe = probe
+
+    def log(self):
+      self.probe.regToDb(self.value, self.parameters, self.config)
+
+class Probe(object):
+    def __init__(self, name, testsuiteName, moduleName, testName):
+        self.metric = 'none'
+        self.name = name
+        self.regexp = None
+        self.testsuiteName = testsuiteName
+        self.moduleName = moduleName
+        self.testName = testName
+        self.parameters = None
+
+    def setProp(self, name, value):
+        if name == 'regexp':
+            self.regexp = value
+        elif name == 'metric':
+            self.metric = value
+        elif name == 'parameters':
+            self.parameters = value
+        else:
+            raise BaseException('Unknown probe property name: %s' % (name))
+
+    def regToDb(self, value, parameters, config):
+        if args.env != None:
+          db = getDb()
+          metric = db.getMetricsTable().reg(name=self.metric)
+          bench = db.getBenchsTable().reg(name=self.name, testsuite=self.testsuiteName, module=self.moduleName, metric=metric.id, test=self.testName)
+          envList = []
+          for envDesc in args.env.split(':'):
+              envName = envDesc.split('=')[0]
+              envValue = envDesc.split('=')[1]
+              envList.append(db.getEnvsTable().reg(name=envName, value=envValue).id)
+          paramList = []
+          for configItem in config.split('_'):
+              configName = configItem.split('=')[0]
+              configValue = configItem.split('=')[1]
+              paramList.append(db.getParamsTable().reg(name=configName, value=configValue))
+
+          selfParams = []
+          if self.parameters != None: selfParams += self.parameters.split(':')
+          for paramDesc in parameters + selfParams:
+              paramName = paramDesc.split('=')[0]
+              paramValue = paramDesc.split('=')[1]
+              paramList.append(db.getParamsTable().reg(name=paramName, value=paramValue))
+
+          db.getResultsTable().reg(envs=envList, params=paramList, value=value, bench=bench)
+
+    def parse(self, output, parameters, config, dumper):
+        outputRes = ''
+        error = False
+        dbReg = None
+        if self.regexp != None:
+            result = re.compile(self.regexp, flags=re.MULTILINE).search(output)
+            if result != None:
+                value = result.group(1)
+                if dumper == None: print ("Extracted reg exp: %s" % (value))
+                else: outputRes += dumper.dump("Extracted reg exp: %s" % (value))
+                dbReg = DbReg(self, value, parameters, config.getDeprecatedString())
+            else:
+                error = True
+                if dumper == None:
+                    print("Didn't find regpexp %s" % (self.regexp))
+                else:
+                    outputRes += dumper.dump("Didn't find regpexp %s" % (self.regexp))
+        return [outputRes, error, dbReg]
+
+class TestRun(object):
+  
+  def __init__(self, runner, name, moduleName, testsuiteName, timeout, execPath, commands, check, probes, runConfig, parameters, testResult, dispatch):
+    self.execPath = execPath
+    self.commands = commands
+    self.check = check
+    self.probes = probes
+    self.runConfig = runConfig
+    self.parameters = parameters
+    self.name = name
+    self.timeout = timeout
+    self.moduleName = moduleName
+    self.testsuiteName = testsuiteName
+    self.testResult = testResult
+    global nbRuns
+    self.id = nbRuns
+    nbRuns = nbRuns + 1
+    if runner != None: runner.append(self, dispatch)
+
+
+  def getFullName(self):
+    nameList = []
+    if self.testsuiteName != None: nameList.append(self.testsuiteName)
+    if self.moduleName != None: nameList.append(self.moduleName)
+    if self.name != None: nameList.append(self.name)
+    return ':'.join(nameList)
+    
+  def dump(self, text):
+    if args.stdout: print (text)
+    return text
+
+  def checkParentAlive(self, killQueue, child=None):
+      if not killQueue.empty():
+          if child != None:
+              try:
+                  os.killpg(child.pid, 9)
+                  child.close()
+              except:
+                  pass
+          sys.exit(1)
+
+  def run(self, slave):
+    try:
+      startTime = datetime.now()
+      output = ''
+      dbLog = None
+      dbRegs = []
+      if not args.dryRun:
+          for cmd in self.commands:
+            retval = 1  
+            try:
+                outputLen = 0
+                if self.timeout != -1: cmd = 'timeout %d %s' % (self.timeout, cmd)
+                print ("Using timeout: %s seconds" % self.timeout)
+                logfile=subprocess.PIPE
+                if args.stdoutDump: logfile = sys.stdout
+                if envFile != None: cmd = '. %s && %s' % (envFile, cmd)
+                print ('Launching test with command: ' + cmd)
+
+                testEnv = os.environ
+                testEnv['PLPTEST_RUN_ID'] = str(self.id)
+                testEnv['PLPTEST_PATH'] = self.execPath
+                testEnv['PLPTEST_NAME'] = '.'.join([self.testsuiteName, self.moduleName, self.name])
+                testEnv['PLPTEST_CONFIG'] = self.runConfig.getString()
+
+                p = subprocess.Popen(cmd, shell=True, stdout=logfile, stderr=subprocess.STDOUT, cwd=self.execPath, executable='/bin/bash', env=testEnv)
+
+                [stdout, stderr] = p.communicate()
+                if stdout != None: 
+                    if outputLen + len(stdout) <= args.maxOutputLen:
+                        output += stdout.decode('utf-8')
+                        outputLen += len(stdout)
+                    else:
+                        output += stdout[0:args.maxOutputLen-outputLen].decode('utf-8')
+                        outputLen = args.maxOutputLen
+                        output += self.dump('Reached maximum test output length of %s bytes' % args.maxOutputLen)
+                retval = p.returncode
+            except:
+                output += traceback.format_exc()
+                retval = 1
+
+            if retval == 124:
+                output += self.dump('Reached timeout of %s seconds' % self.timeout)
+            else:
+                output += self.dump('Reached EOF with exit status ' + str(retval))
+
+            if retval != 0: break
+
+          endTime = datetime.now()
+          duration = endTime - startTime
+
+          if args.stdout: print (output)
+
+          if self.check != None:
+              path = os.path.abspath(os.path.join(self.execPath, self.check))
+              re = imp.load_source('test', path)
+              re.check_output(output)
+              if not re.check_output(output): 
+                  output += self.dump('User check script has reported an error')
+                  retval = 1
+
+          for probe in self.probes.values():
+              [probeOutput, error, dbReg] = probe.parse(output, config=self.runConfig, parameters=self.parameters, dumper=self)
+              if dbReg != None: 
+                dbRegs.append(dbReg)
+              output += probeOutput
+              if error: retval = 1
+
+          if retval == 0:
+              self.status = 'success'
+          else:
+              self.status = 'failure'
+
+          self.output = output
+          self.duration = duration
+
+          #logToDb(test=self.name, status=self.status, config=self.runConfig.getDeprecatedString(), module=self.moduleName, testsuite=self.testsuiteName, params=self.parameters)
+          dbLog = DbLog(self.name, self.status, self.runConfig.getDeprecatedString(), self.moduleName, self.testsuiteName, self.parameters)
+          duration = (self.duration.microseconds + (self.duration.seconds + self.duration.days * 24 * 3600) * 10**6) / 10**6
+      else:
+          self.status = 'success'
+          duration = 0
+          self.output = ''
+
+      return RunResult(self.testResult, self.runConfig, self.status, duration, self.output, dbLog=dbLog, dbRegs=dbRegs)
+    except:
+      return RunResult(self.testResult, self.runConfig, 'failure', 0, output + traceback.format_exc(), dbLog=dbLog, dbRegs=dbRegs)
+      
+class TestWorker (Thread):
+
+    def __init__(self, workerId, workQueue, finishQueue, serialWorkQueue, killQueue, slave=None):
+        Thread.__init__(self, daemon=True)
+        self.workQueue = workQueue
+        self.finishQueue = finishQueue
+        self.id = workerId
+        self.serialWorkQueue = serialWorkQueue
+        self.slave = slave
+        self.killQueue = killQueue
+
+    def runTest(self, run):
+        print (bcolors.BOLD + run.getFullName() + bcolors.ENDC + ': ' + bcolors.OKBLUE + 'starting' + bcolors.ENDC + ' (%s)' % (run.runConfig.getString()))
+        result = run.run(self.slave)
+        logging.debug("[worker:%d] Job done, sending result" % (self.id))
+        self.finishQueue.put(result, block=True)
+
+        if run.status == 'success': status = bcolors.OKGREEN + 'OK' + bcolors.ENDC
+        else: status = bcolors.FAIL + 'FAIL' + bcolors.ENDC
+
+        print (bcolors.BOLD + run.getFullName() + bcolors.ENDC + ': ' + status + ' (%s)' % (run.runConfig.getString()))
+        logging.debug("[worker:%d] Reg task done" % (self.id))
+
+
+    def run(self):
+      while True:
+        data = None
+
+        if self.workQueue == None and self.serialWorkQueue == None:
+          logging.debug("[worker:%d] Exiting" % (self.id))
+          return
+
+        #logging.debug("[worker:%d] Checking pending jobs" % (self.id))
+        
+        if self.serialWorkQueue != None and self.serialWorkQueue.queue.qsize() != 0:
+          try:
+            if self.serialWorkQueue.lock.acquire():
+                data = self.serialWorkQueue.queue.get_nowait()
+                logging.debug("[worker:%d] Got job from serial queue (job: %s)" % (self.id, data))
+                if data == None: 
+                  self.serialWorkQueue.lock.release()
+                  self.serialWorkQueue = None
+                else:
+                  self.runTest(data)
+                  self.serialWorkQueue.lock.release()
+                continue
+          except:
+            self.serialWorkQueue.lock.release()
+
+        if data == None and self.workQueue != None:
+          try:
+            data = self.workQueue.get_nowait()
+            logging.debug("[worker:%d] Got job (job: %s)" % (self.id, data))
+            if data == None: 
+              self.workQueue = None
+            else:
+              self.runTest(data)
+            continue
+          except SystemExit:
+              exit(1)
+          except:
+            pass
+
+        time.sleep(0.2)
+        
+
+class TestAnalyzer(threading.Thread):
+
+  def __init__(self, queue):
+    threading.Thread.__init__(self, daemon=True)
+    self.queue = queue
+
+  def run(self):
+    while True:
+      test = self.queue.get(block=True)
+      logging.debug("[analyzer] Got job (job: %s)" % (test))
+      if test == None:
+        logging.debug("[analyzer] Exiting")
+        return
+      logging.debug("[analyzer] Analyzer registering result, output:")
+      logging.debug(test.log)
+      test.reg()
+
+class SerialQueue(object):
+
+  def __init__(self):
+    self.queue = queue.Queue()
+    self.lock = Lock()
+
+class TestRunner(object):
+  
+  def __init__(self, nbThreads):
+    self.nbThreads = nbThreads
+    self.workQueue = queue.Queue()
+    self.serialWorkQueue = SerialQueue()
+    self.finishQueue = queue.Queue()
+    self.killQueue = queue.Queue()
+    thread = TestAnalyzer(self.finishQueue)
+    thread.start()
+    self.analyzer = thread
+
+    threads = []
+    for i in range(0, nbThreads):
+      if slavesPool != None:
+          slave = slavesPool.get()
+      else:
+          slave = None
+      thread = TestWorker(i, self.workQueue, self.finishQueue, self.serialWorkQueue, self.killQueue, slave)
+      threads.append(thread)
+      thread.start()
+
+    self.threads = threads
+
+  def append(self, run, dispatch):
+    if dispatch: self.workQueue.put(run, block=True)
+    else: 
+      self.serialWorkQueue.queue.put(run, block=True)
+
+  def kill(self):
+    
+    for thread in self.threads:
+        self.killQueue.put(True)
+    for thread in self.threads:
+        thread.join()
+
+  def stop(self):
+    logging.debug("[dispatcher] Stopping")
+    for i in range(0, self.nbThreads):
+      self.workQueue.put(None, block=True)
+      self.serialWorkQueue.queue.put(None, block=True)
+
+    logging.debug("[dispatcher] Waiting for worker threads to terminate")
+    for thread in self.threads:
+      thread.join()
+    logging.debug("[dispatcher] Worker threads terminated")
+    self.finishQueue.put(None, block=True)
+    logging.debug("[dispatcher] Waiting for analyzer thread to terminate")
+    self.analyzer.join()
+    logging.debug("[dispatcher] Aanalyzer thread terminated")
+        
+class Test(Section):
+    
+    def __init__(self, name, parser, section, path):
+        super(Test, self).__init__(name, parser, section, path, isTest=True)
+
+    def dump(self, indent):
+        print ('%stest' % (indent))
+        print ('%s  name: %s' % (indent, self.name))
+
+    def launchChild(self, runConfig, commands, testList, runner, dispatch):
+
+        if testList != None and not self.name in testList:
+            return
+
+        retval = 0
+        
+        testCommands = []
+        execPath = self.getPath()
+        configs = []
+        newConfigs = None
+        timeout = int(args.maxTimeout)
+        check = None
+        probes = {}
+        parameters = []
+        
+        nameList = self.testResult.getName()
+        testName = nameList.pop()
+        moduleName = nameList.pop()
+        testsuiteName = '.'.join(nameList)
+
+        for option, value in self.getOptions(runConfig):
+        
+            if option.find('command.') == 0:
+                testCommands.append([option.split('.')[1], value])
+            elif option == 'dir':
+                execPath = os.path.join(execPath, value)
+            elif option == 'configs':
+                for config in value.split():
+                    configs.append(pulpconfig.Configuration(useRegExp=True, name=config))
+            elif option == 'tags':
+                tags = value
+            elif option == 'timeout':
+                timeout = min(timeout, runConfig.timeoutToTime(value) * 2)
+            elif option == 'check':
+                check = value
+            elif option == 'parameters':
+                parameters += value.split()
+            elif option.find('probe') == 0:
+                probeName = option.split('[')[1].split(']')[0]
+                if probes.get(probeName) == None:
+                    probes[probeName] = Probe(probeName, testsuiteName, moduleName, testName)
+                probeOption = option.split('[')[1].split(']')[1].split('.')[1]
+                probes[probeName].setProp(probeOption, value)
+            else:
+                raise BaseException("Unknown item %s in test %s" % (option, self.name))
+
+        if len(configs) != 0 and not runConfig.matchConfigs(configs):
+            logging.debug("# Test: skipping for config %s" % (runConfig.getString()))
+            pass
+            #print ('')
+            #print ('*******************************************')
+            #print ('Skipping test: %s configs: %s' % (self.name, configs))
+            #print ('*******************************************')
+        else:
+            activeCommands = []
+            for command in testCommands:
+              if commands == None or command[0] in commands:
+                activeCommands.append(command[1])
+              testResult = str(self.testResult)
+              testResults[testResult] = self.testResult
+              logging.debug("[dispatcher] Creating job (test: %s)" % (testName))
+              TestRun(runner, testName, moduleName, testsuiteName, timeout, os.path.join(os.getcwd(), execPath), activeCommands, check, probes, runConfig, parameters, testResult, dispatch)
+        
+        return retval
+        
+def getOptionValue(value):
+    return os.path.expandvars(value)
+            
+def getSectionName(parentName, section):
+    [sectionType, sectionLocalName] = section.split(':', 1)
+    if parentName != None:
+        sectionFullName = ':'.join([parentName,  sectionLocalName])
+    else:
+        sectionFullName = sectionLocalName
+    if sectionFullName.find(':') != -1:
+        [parentFullName, sectionName] = sectionFullName.rsplit(':', 1)
+    else:
+        parentFullName = None
+        sectionName = sectionFullName
+        
+    return [sectionType, parentFullName, sectionName, sectionFullName]
+        
+def getSection(sections, name):
+    if name == None: return sections.get('top')
+    
+    while True:
+        section = (sections.get(name))
+        if section != None: return section
+        if name.find(':') != -1:
+            name = name.rplit(':', 1)[0]
+        else:
+            return sections.get('top')
+        
+            
+def parseFile(file, rootParentName, sections):
+
+    config = configparser.SafeConfigParser(dict_type=collections.OrderedDict)
+    config.optionxform = str
+    openedPaths = config.read(file)
+    
+    if len(openedPaths) == 0:
+        print ("Didn't manage to open file: %s" % (file))
+        
+    for section in config.sections():
+
+        [sectionType, parentName, sectionName, sectionFullName] = getSectionName(rootParentName, section)
+    
+        parent = getSection(sections, parentName)
+    
+        if sectionType == 'run':
+            run = parent.attach(Run(sectionName, config, section, os.path.dirname(file)))
+            sections[sectionFullName] = run
+            for item in config.items(section):
+                if item[0] == 'configs':
+                    run.addConfigs(getOptionValue(item[1]).split())
+                elif item[0] == 'dispatch':
+                    run.dispatch = item[1]
+                elif item[0] == 'priority':
+                    run.priority = item[1]
+                else:
+                    print ('Unknown option in section run: %s' % (item[0]))
+        elif sectionType == 'testset':
+            testset = parent.attach(Testset(sectionName, config, section, os.path.dirname(file)))
+            sections[sectionFullName] = testset
+            for item in config.items(section):
+                if item[0] == 'files':
+                    files = getOptionValue(item[1]).split()
+                    for childFile in files:
+                        parseFile(os.path.join(os.path.dirname(file), childFile), sectionFullName, sections)
+                if item[0] == 'configs':
+                    try:
+                        testset.setFilterConfigs(item[1])
+                    except:
+                        print (bcolors.FAIL + 'Caught an error while parsing test description file: ' + file + bcolors.ENDC)
+                        raise
+                else:
+                    testset.addUserConfig(item[0], getOptionValue(item[1]))
+        elif sectionType == 'test':
+            test = parent.attach(Test(sectionName, config, section, os.path.dirname(file)))
+            sections[sectionFullName] = test
+        else:
+            print ('Unknown section name: %s' % (sectionType))
+            raise BaseException
+
+envFile = submodules.genEnv()
+
+top = Run('top', None, None, None, dumpResults=True)
+ 
+if len(configs) != 0:
+    logging.debug("Active configurations:")
+    for config in configs:
+        logging.debug("  " + config.getString())
+
+    top.addConfigs(configs)
+
+if args.testset != None:
+    
+    parseFile(args.testset, None, {'top':top})
+    
+if args.dumpTree:
+    top.dumpTree()
+    
+#if args.threads != '1':
+#else:
+#  runner = None
+
+for command in args.command:
+    if command == 'run' or command == 'tests':
+
+        if command == 'tests': args.dryRun = True
+
+        runner = TestRunner(nbThreads=int(args.threads))
+        
+        try:
+            top.launch(None, commands=None, testList=args.testList, runner=runner, dispatch=True)
+            if runner != None: runner.stop()
+        except:
+            raise
+
+        try:
+            os.makedirs(reportPath)
+        except:
+            pass
+        x = PrettyTable(['test', 'config', 'time', 'passed/total'])
+        x.align["test"] = "l"
+        x.align["config"] = "l"
+        top.dumpResults(reportPath, x)
+        print()
+        print(x)
+
+    elif command == 'configs':
+        
+        print ('Active configurations:')
+
+        for conf in configs:
+            print ('  ' + conf.getString())
+
+    else:
+        print('Unknown command: ' + command)
+        exit(1)
+

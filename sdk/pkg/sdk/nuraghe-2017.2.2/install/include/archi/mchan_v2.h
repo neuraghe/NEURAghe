@@ -1,0 +1,131 @@
+#ifndef ARCHI_MCHAN_H
+#define ARCHI_MCHAN_H
+
+#define TCDM_ADDR_REG_OFFSET      ( 0x0 )
+#define EXT_ADDR_REG_OFFSET       ( 0x4 )
+#define CMD_QUEUE_OFFSET          ( 0x8 )
+#define CMD_QUEUE_BUSY_REG_OFFSET ( 0xC )
+
+#define ST1     0x00
+#define ST2     0x02
+#define ST4     0x04
+#define ST8     0x06
+#define ST16    0x08
+#define ST32    0x0A
+#define ST64    0x0C
+#define ST128   0x0E
+#define ST256   0x10
+#define ST512   0x12
+#define ST1024  0x14
+#define ST2048  0x16
+#define ST4096  0x18
+#define ST8192  0x1A
+#define ST16384 0x1C
+#define ST32768 0x1E
+
+#define LD1     0x01
+#define LD2     0x03
+#define LD4     0x05
+#define LD8     0x07
+#define LD16    0x09
+#define LD32    0x0B
+#define LD64    0x0D
+#define LD128   0x0F
+#define LD256   0x11
+#define LD512   0x13
+#define LD1024  0x15
+#define LD2048  0x17
+#define LD4096  0x19
+#define LD8192  0x1B
+#define LD16384 0x1D
+#define LD32768 0x1F
+
+#define MCHAN_TYPE_OFFSET 0
+#define MCHAN_TYPE(x) (((x) >> MCHAN_TYPE_OFFSET) & 1) 
+
+#define MCHAN_SIZE_OFFSET 1
+#define MCHAN_SIZE(x) (((x) >> MCHAN_SIZE_OFFSET) & 0xf)
+
+
+
+
+#define PULP_DMA_CMD                      0
+#define PULP_DMA_COUNTER_ALLOC            4
+#define PULP_DMA_STATUS                   8
+#define PULP_DMA_COUNTER                  12
+
+#define PULP_DMA_EVTMASK                  (1<<PULP_DMA_EVT)
+#define PULP_DMAEXT_EVT                   (PULP_DMA_EVT)
+#define PULP_DMAEXT_EVTMASK               (1<<PULP_DMAEXT_EVT)
+
+#define PULP_DMA_NB_EXT_COUNTER       8
+
+#define PULP_DMA_CMD_TYPE_MASK        0x3
+
+#define PULP_DMA_CMD_TYPE_SIMPLE      0
+#define PULP_DMA_CMD_TYPE_1D          1
+#define PULP_DMA_CMD_TYPE_2D          2
+
+#define PULP_DMA_CMD_1D_STEPS         3
+
+#define PULP_DMA_CMD_1D_SIZE_OFFSET   3
+#define PULP_DMA_CMD_1D_LOC2EXT_OFFSET 2
+#define PULP_DMA_CMD_1D_LOC2EXT       4
+
+#define PULP_DMA_CMD_2D_STEPS         5
+
+#define PULP_DMA_CMD_2D_SIZE_OFFSET   3
+#define PULP_DMA_CMD_2D_LOC2EXT_OFFSET 2
+#define PULP_DMA_CMD_2D_LOC2EXT       4
+
+
+#define PULP_DMA_CMD_LD_BIT           0x1
+#define PULP_DMA_CMD_SIZE_MASK        0xF
+#define PULP_DMA_CMD_SIZE_OFFSET      0x1
+
+#define PULP_DMA_CMD_IRQ_OFFSET       5
+#define PULP_DMA_CMD_IRQ_BIT          (1<<PULP_DMA_CMD_IRQ_OFFSET)
+
+#define PULP_DMA_CMD_NOTIF_OFFSET     6
+#define PULP_DMA_CMD_NOTIF_BIT        (1<<PULP_DMA_CMD_NOTIF_OFFSET)
+
+#define PULP_DMA_CMD_COUNTER_OFFSET   7
+#define PULP_DMA_CMD_COUNTER_NB_BITS  4   
+#define PULP_DMA_CMD_COUNTER_MASK     ((1<<PULP_DMA_CMD_COUNTER_NB_BITS)-1)
+
+#define PULP_DMA_CMD_LD1          ((0x0 << PULP_DMA_CMD_SIZE_OFFSET) | PULP_DMA_CMD_LD_BIT)
+#define PULP_DMA_CMD_LD2          ((0x1 << PULP_DMA_CMD_SIZE_OFFSET) | PULP_DMA_CMD_LD_BIT)
+#define PULP_DMA_CMD_LD4          ((0x2 << PULP_DMA_CMD_SIZE_OFFSET) | PULP_DMA_CMD_LD_BIT)
+#define PULP_DMA_CMD_LD8          ((0x3 << PULP_DMA_CMD_SIZE_OFFSET) | PULP_DMA_CMD_LD_BIT)
+#define PULP_DMA_CMD_LD16         ((0x4 << PULP_DMA_CMD_SIZE_OFFSET) | PULP_DMA_CMD_LD_BIT)
+#define PULP_DMA_CMD_LD32         ((0x5 << PULP_DMA_CMD_SIZE_OFFSET) | PULP_DMA_CMD_LD_BIT)
+#define PULP_DMA_CMD_LD64         ((0x6 << PULP_DMA_CMD_SIZE_OFFSET) | PULP_DMA_CMD_LD_BIT)
+#define PULP_DMA_CMD_LD128        ((0x7 << PULP_DMA_CMD_SIZE_OFFSET) | PULP_DMA_CMD_LD_BIT)
+#define PULP_DMA_CMD_LD256        ((0x8 << PULP_DMA_CMD_SIZE_OFFSET) | PULP_DMA_CMD_LD_BIT)
+#define PULP_DMA_CMD_LD512        ((0x9 << PULP_DMA_CMD_SIZE_OFFSET) | PULP_DMA_CMD_LD_BIT)
+#define PULP_DMA_CMD_LD1024       ((0xA << PULP_DMA_CMD_SIZE_OFFSET) | PULP_DMA_CMD_LD_BIT)
+#define PULP_DMA_CMD_LD2048       ((0xB << PULP_DMA_CMD_SIZE_OFFSET) | PULP_DMA_CMD_LD_BIT)
+#define PULP_DMA_CMD_LD4096       ((0xC << PULP_DMA_CMD_SIZE_OFFSET) | PULP_DMA_CMD_LD_BIT)
+#define PULP_DMA_CMD_LD8192       ((0xD << PULP_DMA_CMD_SIZE_OFFSET) | PULP_DMA_CMD_LD_BIT)
+#define PULP_DMA_CMD_LD16384      ((0xE << PULP_DMA_CMD_SIZE_OFFSET) | PULP_DMA_CMD_LD_BIT)
+#define PULP_DMA_CMD_LD32768      ((0xF << PULP_DMA_CMD_SIZE_OFFSET) | PULP_DMA_CMD_LD_BIT)
+#define PULP_DMA_CMD_ST1          (0x0 << PULP_DMA_CMD_SIZE_OFFSET)
+#define PULP_DMA_CMD_ST2          (0x1 << PULP_DMA_CMD_SIZE_OFFSET)
+#define PULP_DMA_CMD_ST4          (0x2 << PULP_DMA_CMD_SIZE_OFFSET)
+#define PULP_DMA_CMD_ST8          (0x3 << PULP_DMA_CMD_SIZE_OFFSET)
+#define PULP_DMA_CMD_ST16         (0x4 << PULP_DMA_CMD_SIZE_OFFSET)
+#define PULP_DMA_CMD_ST32         (0x5 << PULP_DMA_CMD_SIZE_OFFSET)
+#define PULP_DMA_CMD_ST64         (0x6 << PULP_DMA_CMD_SIZE_OFFSET)
+#define PULP_DMA_CMD_ST128        (0x7 << PULP_DMA_CMD_SIZE_OFFSET)
+#define PULP_DMA_CMD_ST256        (0x8 << PULP_DMA_CMD_SIZE_OFFSET)
+#define PULP_DMA_CMD_ST512        (0x9 << PULP_DMA_CMD_SIZE_OFFSET)
+#define PULP_DMA_CMD_ST1024       (0xA << PULP_DMA_CMD_SIZE_OFFSET)
+#define PULP_DMA_CMD_ST2048       (0xB << PULP_DMA_CMD_SIZE_OFFSET)
+#define PULP_DMA_CMD_ST4096       (0xC << PULP_DMA_CMD_SIZE_OFFSET)
+#define PULP_DMA_CMD_ST8192       (0xD << PULP_DMA_CMD_SIZE_OFFSET)
+#define PULP_DMA_CMD_ST16384      (0xE << PULP_DMA_CMD_SIZE_OFFSET)
+#define PULP_DMA_CMD_ST32768      (0xF << PULP_DMA_CMD_SIZE_OFFSET)
+
+
+
+#endif

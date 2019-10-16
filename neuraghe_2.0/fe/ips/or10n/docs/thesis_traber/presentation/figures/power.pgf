@@ -1,0 +1,51 @@
+\hspace*{-1em}
+\begin{tikzpicture}[font=\scriptsize, tight background]
+\begin{axis}[
+  ylabel={Avg. Power [$mW$]},
+  width=.3\linewidth,
+  height=.45\linewidth,
+  xtick=data,
+  ybar=0pt,
+  ymin=0,
+  bar width=5,
+  grid,
+  yticklabel style={font=\tiny,/pgf/number format/.cd,fixed,precision=1},
+  every axis y label/.style={at={(ticklabel cs:.5,5)},rotate=90},
+	xticklabels={Core,1-core cluster, 4-core cluster},
+  enlarge x limits=0.5,
+	cycle list name=mylist,
+  ]
+
+\addplot table [x expr=\coordindex, y=base,col sep=comma] {data/power.csv};
+\pgfplotsset{cycle list shift=2};
+\addplot table [x expr=\coordindex, y=cfgIHM,col sep=comma] {data/power.csv};
+\addplot table [x expr=\coordindex, y=cfgIHVM,col sep=comma] {data/power.csv};
+
+\end{axis}
+\end{tikzpicture}
+\begin{tikzpicture}[font=\scriptsize, tight background]
+\begin{axis}[
+	ylabel near ticks,
+	yticklabel pos=right,
+  width=.35\linewidth,
+  height=.45\linewidth,
+  xtick=data,
+  ybar=0pt,
+  ymin=0,
+  bar width=5,
+  grid,
+  yticklabel style={font=\tiny,/pgf/number format/.cd,fixed,precision=1},
+  every axis y label/.style={at={(ticklabel cs:.5,5)},rotate=90},
+	xticklabels={1-core, 4-core},
+  enlarge x limits=0.5,
+	cycle list name=mylist,
+  ]
+
+\addplot table [x expr=\coordindex, y=base,col sep=comma] {data/power-cluster.csv};
+\pgfplotsset{cycle list shift=2};
+\addplot table [x expr=\coordindex, y=cfgIHM,col sep=comma] {data/power-cluster.csv};
+\addplot table [x expr=\coordindex, y=cfgIHVM,col sep=comma] {data/power-cluster.csv};
+
+\end{axis}
+\end{tikzpicture}
+\vspace*{-0.9em}

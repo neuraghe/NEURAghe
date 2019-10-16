@@ -1,0 +1,29 @@
+#-----------------------------------------------------------
+# Vivado v2017.1 (64-bit)
+# SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
+# IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
+# Start of session at: Tue Oct  2 12:25:11 2018
+# Process ID: 516
+# Current directory: /home/gderiu/marco/neuraghe_zc706_8_16_runtime_dma2d_lenhack
+# Command line: vivado
+# Log file: /home/gderiu/marco/neuraghe_zc706_8_16_runtime_dma2d_lenhack/vivado.log
+# Journal file: /home/gderiu/marco/neuraghe_zc706_8_16_runtime_dma2d_lenhack/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/gderiu/marco/neuraghe_zc706_8_16_runtime_dma2d_lenhack/pulp_on_zynq/pulp_on_zynq.xpr
+update_compile_order -fileset sources_1
+open_bd_design {/home/gderiu/marco/neuraghe_zc706_8_16_runtime_dma2d_lenhack/pulp_on_zynq/pulp_on_zynq.srcs/sources_1/bd/base_zynq_design/base_zynq_design.bd}
+startgroup
+set_property -dict [list CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {50} CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {100} CONFIG.CLKOUT3_REQUESTED_OUT_FREQ {100} CONFIG.MMCM_DIVCLK_DIVIDE {1} CONFIG.MMCM_CLKOUT0_DIVIDE_F {20.000} CONFIG.MMCM_CLKOUT1_DIVIDE {10} CONFIG.MMCM_CLKOUT2_DIVIDE {10} CONFIG.CLKOUT1_JITTER {151.636} CONFIG.CLKOUT2_JITTER {130.958} CONFIG.CLKOUT3_JITTER {130.958}] [get_bd_cells clk_wiz_1]
+endgroup
+save_bd_design
+reset_run synth_7
+launch_runs impl_10 -to_step write_bitstream -jobs 12
+wait_on_run impl_10
+startgroup
+set_property -dict [list CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {60} CONFIG.CLKOUT2_REQUESTED_OUT_FREQ {120} CONFIG.CLKOUT3_REQUESTED_OUT_FREQ {120} CONFIG.MMCM_DIVCLK_DIVIDE {5} CONFIG.MMCM_CLKFBOUT_MULT_F {48.000} CONFIG.MMCM_CLKOUT0_DIVIDE_F {16.000} CONFIG.MMCM_CLKOUT1_DIVIDE {8} CONFIG.MMCM_CLKOUT2_DIVIDE {8} CONFIG.CLKOUT1_JITTER {271.524} CONFIG.CLKOUT1_PHASE_ERROR {301.601} CONFIG.CLKOUT2_JITTER {245.813} CONFIG.CLKOUT2_PHASE_ERROR {301.601} CONFIG.CLKOUT3_JITTER {245.813} CONFIG.CLKOUT3_PHASE_ERROR {301.601}] [get_bd_cells clk_wiz_1]
+endgroup
+save_bd_design
+reset_run synth_7
+launch_runs impl_10 -to_step write_bitstream -jobs 12
+wait_on_run impl_10

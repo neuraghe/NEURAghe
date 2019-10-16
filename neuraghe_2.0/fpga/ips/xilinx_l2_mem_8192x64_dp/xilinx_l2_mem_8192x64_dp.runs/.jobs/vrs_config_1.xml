@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="xilinx_l2_mem_8192x64_dp_synth_1" LaunchDir="/home/gian/pulp/nuraghe/fpga/ips/xilinx_l2_mem_8192x64_dp/xilinx_l2_mem_8192x64_dp.runs/xilinx_l2_mem_8192x64_dp_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+</Runs>
+

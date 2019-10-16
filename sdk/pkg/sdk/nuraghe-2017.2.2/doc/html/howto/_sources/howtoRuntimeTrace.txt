@@ -1,0 +1,11 @@
+How to use runtime traces
+-------------------------
+
+Runtime traces are information dumped on the console by the runtime in order to help the developper debugging his application.
+These traces are dumped when there is an interesting event that happends in the runtime. 
+These trace are only available with the new runtime (option pulpOmpVersion=new).
+
+
+How to activate them
+....................
+

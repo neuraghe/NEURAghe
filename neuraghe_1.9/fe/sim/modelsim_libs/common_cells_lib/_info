@@ -1,0 +1,256 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim
+Eclock_buffer
+Z1 w1567774073
+Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z5 8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/cea/common_cells/clock_buffer_cmos028_fdsoi.vhd
+Z6 F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/cea/common_cells/clock_buffer_cmos028_fdsoi.vhd
+l0
+L30
+Vk<RHF7APJnmNdIYj29^mI0
+!s100 Uh9E;65EIc<@^]MmF3g4Z3
+Z7 OL;C;10.4;61
+32
+Z8 !s110 1568386723
+!i10b 1
+Z9 !s108 1568386723.085306
+Z10 !s90 -work|common_cells_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/cea/common_cells/clock_buffer_cmos028_fdsoi.vhd|
+Z11 !s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/cea/common_cells/clock_buffer_cmos028_fdsoi.vhd|
+!i113 0
+Z12 o-quiet -work common_cells_lib
+Z13 tExplicit 1
+Artl_cmos028_fdsoi
+R2
+R3
+R4
+DEx4 work 12 clock_buffer 0 22 k<RHF7APJnmNdIYj29^mI0
+l53
+L37
+V8ECe<RX2I2REkLoKSYWWo2
+!s100 Z3fg[VIMg_=d8_d9_ZJ:W0
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 0
+R12
+R13
+Eclock_gating
+R1
+R2
+R3
+R4
+R0
+Z14 8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/cea/common_cells/clock_gating_cmos028_fdsoi.vhd
+Z15 F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/cea/common_cells/clock_gating_cmos028_fdsoi.vhd
+l0
+L30
+VeGHUFnW:gIGOShd]DHfhc1
+!s100 T;]PVioGR6RRiFohV]84T3
+R7
+32
+R8
+!i10b 1
+Z16 !s108 1568386723.166001
+Z17 !s90 -work|common_cells_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/cea/common_cells/clock_gating_cmos028_fdsoi.vhd|
+Z18 !s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/cea/common_cells/clock_gating_cmos028_fdsoi.vhd|
+!i113 0
+R12
+R13
+Artl_cmos028_fdsoi
+R2
+R3
+R4
+DEx4 work 12 clock_gating 0 22 eGHUFnW:gIGOShd]DHfhc1
+l58
+L40
+VPNb6<ZCloYBmCD]1GMb[11
+!s100 ^R8AmgR;HHYT=^mFjN@^P1
+R7
+32
+R8
+!i10b 1
+R16
+R17
+R18
+!i113 0
+R12
+R13
+Eclock_inverter
+R1
+R2
+R3
+R4
+R0
+Z19 8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/cea/common_cells/clock_inverter_cmos028_fdsoi.vhd
+Z20 F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/cea/common_cells/clock_inverter_cmos028_fdsoi.vhd
+l0
+L30
+V`82HkPMebVGAgMI=zKBRh3
+!s100 mkc2>DT9TJYHFg[[nC3:A3
+R7
+32
+R8
+!i10b 1
+Z21 !s108 1568386723.128273
+Z22 !s90 -work|common_cells_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/cea/common_cells/clock_inverter_cmos028_fdsoi.vhd|
+Z23 !s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/cea/common_cells/clock_inverter_cmos028_fdsoi.vhd|
+!i113 0
+R12
+R13
+Artl_cmos028_fdsoi
+R2
+R3
+R4
+DEx4 work 14 clock_inverter 0 22 `82HkPMebVGAgMI=zKBRh3
+l53
+L37
+VPTl0jK<HHfGF4GgaXEejD2
+!s100 X[ij^PX>MMUjTk<B9UofH1
+R7
+32
+R8
+!i10b 1
+R21
+R22
+R23
+!i113 0
+R12
+R13
+Eclock_mux2
+R1
+R2
+R3
+R4
+R0
+Z24 8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/cea/common_cells/clock_mux2_cmos028_fdsoi.vhd
+Z25 F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/cea/common_cells/clock_mux2_cmos028_fdsoi.vhd
+l0
+L30
+V6o@ZS1Qc?ZQ;:^e]4DaK?1
+!s100 Ld5;;I@G9QIeiANidIogJ2
+R7
+32
+R8
+!i10b 1
+Z26 !s108 1568386723.203836
+Z27 !s90 -work|common_cells_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/cea/common_cells/clock_mux2_cmos028_fdsoi.vhd|
+Z28 !s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/cea/common_cells/clock_mux2_cmos028_fdsoi.vhd|
+!i113 0
+R12
+R13
+Artl_cmos028_fdsoi
+R2
+R3
+R4
+DEx4 work 10 clock_mux2 0 22 6o@ZS1Qc?ZQ;:^e]4DaK?1
+l62
+L39
+V8@MZZC4V7F:YW089=SX0@3
+!s100 cIJHhPe[:mLNVfTcGShFo1
+R7
+32
+R8
+!i10b 1
+R26
+R27
+R28
+!i113 0
+R12
+R13
+Ereset_synchronizer
+R1
+R2
+R3
+R4
+R0
+Z29 8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/cea/common_cells/reset_synchronizer.vhd
+Z30 F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/cea/common_cells/reset_synchronizer.vhd
+l0
+L24
+VH?UcDgA8g>JNF]KgeG<V72
+!s100 ?RAm9@Zd@HWaj1AQR1gn12
+R7
+32
+R8
+!i10b 1
+Z31 !s108 1568386723.243550
+Z32 !s90 -work|common_cells_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/cea/common_cells/reset_synchronizer.vhd|
+Z33 !s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/cea/common_cells/reset_synchronizer.vhd|
+!i113 0
+R12
+R13
+Artl
+R2
+R3
+R4
+DEx4 work 18 reset_synchronizer 0 22 H?UcDgA8g>JNF]KgeG<V72
+l41
+L37
+V>k;`7GRA0hG53E@6aFEjf0
+!s100 [4NLIbEYFDQg:o]dXT]c13
+R7
+32
+R8
+!i10b 1
+R31
+R32
+R33
+!i113 0
+R12
+R13
+Esynchronizer
+R1
+R2
+R3
+R4
+R0
+Z34 8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/cea/common_cells/synchronizer.vhd
+Z35 F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/cea/common_cells/synchronizer.vhd
+l0
+L25
+VE3EjAn>eTomCDETfXh68?3
+!s100 JIMm2Pk]:Fn>9E^3IVQU30
+R7
+32
+R8
+!i10b 1
+Z36 !s108 1568386723.269278
+Z37 !s90 -work|common_cells_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/cea/common_cells/synchronizer.vhd|
+Z38 !s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/cea/common_cells/synchronizer.vhd|
+!i113 0
+R12
+R13
+Artl
+R2
+R3
+R4
+DEx4 work 12 synchronizer 0 22 E3EjAn>eTomCDETfXh68?3
+l40
+L37
+V:T>O8jNSeie]HZ7GLl8?e1
+!s100 fUT9KbEK;85znZQeTUPTf0
+R7
+32
+R8
+!i10b 1
+R36
+R37
+R38
+!i113 0
+R12
+R13

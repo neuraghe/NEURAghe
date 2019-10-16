@@ -1,0 +1,35 @@
+How to dump UDMA channels
+-------------------------
+
+This is a feature available only on the virtual platform in order to dump into a file all the data that goes through a specific channel.
+
+How to activate it
+..................
+
+This feature can be controlled through the **--periph-dump** option like in this example: ::
+
+  make run PLT_OPT="--periph-dump=spim0Tx:$PWD/spim0Tx.txt"
+
+This option takes a value which specifies first the channel name to be dumped, and second the file path where it should be dumped, separated by a colon.
+
+Several options can be specified in order to dump several channels: ::
+
+  make run PLT_OPT="--periph-dump=spim0Tx:$PWD/spim0Tx.txt --periph-dump=spim0Rx:$PWD/spim0Rx.txt"
+
+
+How to get the channel name
+...........................
+
+The channel name depends on the target architecture. The best way to get those names is to first dump UDMA traces, and to identify the interesting channels in the traces: ::
+
+  make run PLT_OPT="--gv-trace-file=stdout --gv-trace=udma"
+
+
+Specific peripherals
+....................
+
+A few peripherals provide specific options in order to get the data that goes through them, in order to get better formatted data.
+
+Here is an example for the UART which disables the dump of transmitted data to the standard output and instead redirect it to a file: ::
+
+	make run PLT_OPT="--uartFile=$PWD/uart.txt"

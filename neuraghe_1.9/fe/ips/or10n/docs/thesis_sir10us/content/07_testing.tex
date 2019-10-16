@@ -1,0 +1,166 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%                                                                 %
+%%%%%     <file_name>.tex                                             %
+%%%%%                                                                 %
+%%%%% Author:      Renzo Andri                                        %
+%%%%% Created:     30.11.2013                                         %
+%%%%% Description: <description>                                      %
+%%%%%                                                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\chapter{Verification and Testing}
+Testing is a substantial part in \gls{asic} design. In comparison to \gls{fpga} design, where faults can be corrected later, this is not possible on \glspl{asic} because wire and gate placement is fixed after tape-out. This leads to a right the first time policy and a high testing effort during all design stages. 
+But also faults in production may lead to faulty chips. Therefore, all procuded chips have to be tested efficiently to detect as many as possible of these faulty chips to avoid selling these faulty chips. \cite{vlsi3}
+
+\section{Testbench and Testing interface}
+In an usual test setup, there is a stimuli application interface and after or during execution responses are read and compared to expected responses. \cite{vlsi1} This testing scheme was an inspiration for our one, but could not have been adapted directly because a processor behaves in an other way. The used test scheme is illustrated in Figure \ref{fig:testbenchSchema} and in the following sections.
+
+\subsection{Stimuli application, SETUP mode}
+In the SETUP mode instructions and data have to be loaded into the instruction and data memory, respectively. Therefore a stimuli file is read. Each stimuli entry consists of the byte address (first 13 bits\footnote{This number depends on the memory size. In the OR10N chip there are 8'192 bytes addressable, therefore address length has to be chosen as $l_{adr}=13=\log_2 8192$}) and one word (32 bit instruction/ 32 bit data). Due to the small number of pins the data is then applied bytewise with the according byte address. See Ch. \ref{sec:mem_addr} for more information about memory addressing.
+
+\begin{landscape}
+\begin{figure}[t!]
+
+\centering
+\includegraphics[scale=0.8]{figures/tb3.pdf}
+\caption{Schema of the testbench}
+\label{fig:testbenchSchema}
+\end{figure}
+\end{landscape}
+
+\subsection{RUN mode}
+In RUN mode the cpu is enabled and the testbench waits on the end of computation signal. During running the testbench applies the acknowledgement signal for the data and the instruction memory to simulate the behaviour of the processor in a multi-core system. This can be either from file or by random generator. See appendix \ref{chapt:files} for more information how to use the testbench.
+
+\subsection{Response Acquisition, READOUT mode}
+The third mode checks whether the memory entries are as expected. For this reason a response file is read. Like in the SETUP mode the entries consist of the byte address (pointing to the MSB byte of the word) and the data word. Each byte address of the required word is then applied separately and the data can be read from the the \textit{Data\_DIO} output one cycle later and put together to compare the expected word.
+
+
+\section{Functional Verification}
+Functional verification is done with a few chips (prototypes) to check if the chips behave as expected. This includes in the ideal case the testing of the whole set of functionality and states of the chip. Faults detected in this design stage can have already a high economic impact because all chips behave in a wrong way. Therefore verification by simulation before tape-out is very important.
+
+\subsection{Verification by simulation}
+The simulation tool used in this thesis is ModelSim of MentorGraphics. Simulation allows us to check the chip functionality during early design steps but also provides the possibility to check if generated stimuli vectors have a high coverage in chip functionality. These stimuli with high coverage are later used to test chips after tape-out. In this thesis we used two possibilities to guarantee a high coverage: Code coverage and covergroups. \\\\
+\textbf{Code coverage}
+is a feature of ModelSim which counts during simulation how often every line was executed and which branches were taken. It takes also into consideration whether signals had toggled during simulation. By means of this we developed the programm \textit{full\_coverage} which can be found in the directory \textit{/sw/testscripts/full\_coverage.s}. Table \ref{tab:code_coverage} shows the coverage of this Assembler program. The relative bad Code Coverage for the top entity arises mainly by the fact that higher address bits (instruction and data memory) have never toggled. This is because we used only 4 kBit memory which can fully be addressed with 12 bits, these signals are cleaned out during synthesis anyway. \\
+\begin{table}[htbp]
+ \caption{Code coverage of the programm \textit{full\_coverage.S}}
+ \label{tab:code_coverage}
+ \centering\begin{tabular}{l l l r} \toprule
+\multicolumn{3}{l}{\textbf{Module}} & \textbf{Coverage} \\ \midrule
+\multicolumn{3}{l}{| Top} & \textbf{89.1 \%} \\
+\  & \multicolumn{2}{l}{| CPU} & 96.3 \% \\
+\ & \ & | ALU & 100.0 \% \\
+\ & \ & | Multiplier & 99.9 \% \\
+\ & \ & | Special-Purpose Register & 94.5 \% \\
+\ & \ & | Registers & 99.7 \% \\
+\ & \multicolumn{2}{l}{| Data Memory} & 92.0 \% \\
+\  & \multicolumn{2}{l}{| Instruction Memory} & 96.3 \% \\ \bottomrule
+ \end{tabular}
+\end{table}
+\\\\
+\textbf{Covergroups:}
+Code coverage does already give a good insight in coverage but lacks the opportunity to check whether special critical cases occurr concurrently. Therefore we expanded our coverage analysis with so-called covergroups. Covergroup is a special class which is provided by SystemVerilog but not by \gls{vhdl}. This class allows to select signals the simulator has to listen for, and to define bins containing signal values which belong together. \cite{SVG} During simulation runs with enabled coverage option\footnote{To run ModelSim in coverage mode add \textit{-coverage} to \textit{vsim}. More detailled explanation on how to simulate the processor can be found in appendix \ref{chapt:files}.}, ModelSim counts how often a signal matches the values defined in the bins and monitors them.
+Table \ref{tab:covergroups} shows the covergroups defined for coverage analysis for this thesis and Figure \ref{fig:cov_over} shows the resulting coverage analysis for the \textit{full\underline{ }coverage} program.
+
+\begin{table}[htbp]
+ \caption{Covergroups}
+ \label{tab:covergroups}
+ \centering\begin{tabular}{l l p{8cm}} \hline
+Covergroup & Coverpoint & Goal: Coverage of ... \\ \hline
+Instructions& Types & all instruction types. (R-, I-, J-type, ...) \\
+ & Jump & all different jump instructions. (l.j, l.bf, ...) \\
+ & Load & all different load instructions. (l.lws, l.lbz, ...)\\
+ & Store & all differnet store instructions. (l.sw, l.sh, l.sb) \\
+ & Immediate & all different immediate instructions. (l.addi, l.movhi, l.ori, ...) \\
+ & R-type & ALU and Shift operations. (l.add, l.sll, ...). \\
+ & SPR & move to/from Special-Purpose register. \\
+ & Others & all other instructions. (l.nop, l.eoc) \\ \hline
+ALU & ALU\underline{ }Op & all ALU operations \\ 
+ & CY\underline{ }Set & at least one (unsigned) carry overflow. \\
+  & OV\underline{ }Set & at least one signed overflow. \\
+  & CompareNFlag & at least one SetFlag to 0 and 1. \\
+  & *\underline{ }Set\underline{ }CY & carry overflow for l.add, l.addc and l.sub. \\
+  & *\underline{ }Set\underline{ }OV & signed overflow/underflow for l.add, l.addc and l.sub. \\ \hline
+Mult & DoubleWord & at least one double word multiplication. \\ 
+ & Mult\underline{ }CY & at least one carry overflow multiplication. \\
+ & Mult\underline{ }OV & at least one signed overflow multiplication. \\
+ & Mult\underline{ }Stage1n2 & at least one multiplication in both stages.\\
+ & Mult\underline{ }ALU\underline{ }Conc & at least one multiplication and \gls{alu} Operation concurrently. \\ \hline
+ Stall & lw\underline{ }Stall & at least one stall due to dependency between load word data and data needed for subsequent instruction. \\ 
+  & CacheMiss & at leat one stall due to a cache miss (data memory). \\
+  & InstrMiss & at least one stall due to a cache miss (instruction memory). \\
+  & MultStall & at least one stall due to a multiplication. \\ \hline
+Forward & EX2ID & at least one data dependency between EX and ID stage. \\ 
+ & WB2ID & at least one data dependency between WB and ID stage. \\
+ & EX2IDnWB & at least one data dependency between WB, EX and ID stage.
+\\ \hline
+ \end{tabular}
+\end{table}
+
+\begin{figure}[tb]
+  \centering
+  \includegraphics[width=\linewidth]{./figures/covergroups_overview.png}
+  \caption{Covergroups for \textit{full\underline{ }coverage} in Modelsim}
+  \label{fig:cov_over}
+\end{figure}
+
+
+\textbf{C programs}: 
+Although it is possible to write good Assembler codes, it is hard to write complex programs. OpenCores Community provides a C C compiler which allows to translate C programs into Assembly. This allows us to write programs in the high level language C and generate Assembler code which can then ceasily be translated into machine code. Generating expected responses is simplified because such programs can be compiled and run on a Golden Model (computer's cpu). See appendix \ref{chapt:files} for more information.
+
+\section{Production test}
+As mentioned in the introduction to this chapter production faults can play a decisive role. The yield\footnote{Yield defines the ratio of error-free chip to produced chips.} deviates mainly depending on circuit complexity and integration scale. Therefore, errornous chips have to be detected before selling. All produced chips have to be checked in reasonable time and all faulty chips should be rejected. There are several good possibilities to guarantee a high fault detection rate, the used \gls{dft} approaches are mentioned in the following lines.
+
+\subsection{Scan Chain}
+High testability needs a high controllability and high observability of as many nodes as possible. If internal complexity rises, these criteria cannot be fullfilled any more due to the lack of (output) pins. In this thesis, 1'712 flip-flops and 84 k\glslink{ge}{GE} are used but only 46 pins are available at all. Therefore, all flip-flops are replaced with scan flip-flops. A scan flip-flop has two additional singals: an enable signal (\textit{Test\underline{ }En\underline{ }TI}) and a scan input signal. Synopsys then connects these Scan-FF to a shift register. To set up the FF to the test vectors' values, data can be passed through the whole scan chain. The scan enable signal can be driven to low and one clock period later all flip-flops have settled and can be read out the other way round using the scan chain. \\
+
+\begin{table}[htbp]
+ \caption{Scan Chains}
+ \label{tab:scan_chain}
+ \centering\begin{tabular}{|l|r|} \hline
+Scan Chain 1-2 & 172 \\ \hline
+Scan Chain 3-10 & 171 \\ \hline
+Non-Scan-FF & 0 \\ \hline
+Total & 1'712 \\ \hline
+ \end{tabular}
+\end{table}
+
+
+\subsection{Automated Test Pattern Generation (ATPG)}
+To get reasonable test vectors we use ATPG supported by Tetramax. First Tetramax builds a so-called fault dictionary where all possible detectable stuck-at\footnote{Stuck-at faults depend to a fault model where production faults causes the node to keep some value although it may be driven to some other value.\cite{vlsi3}} faults are collected. With this dictionary Tetramax is able to generate a test pattern which can be used with the available scan chains to detect possible flaws. 
+
+
+
+
+\subsection{Testing the Reset signal}
+Stuck-at-one (s-a-1) fault somewhere in the (active-low) Reset signal tree can't be detected by the scan chain because the reset signal is not part of the chain. To get rid of these (ATPG) undetectable faults, we will use the reset signal to set all registers to their initial values and read out these values using the chains. Table \ref{tab:fault_coverage} illustrates the consequent fault coverage.
+
+%\subsection{Block isolation}
+
+\begin{table}[htbp]
+ \caption{Fault coverage with Scan-Chains using ATPG}
+ \label{tab:fault_coverage}
+ \centering\begin{tabular}{|l|r|} \hline
+\textbf{fault class} & \textbf{faults} \\ \hline\hline
+Detected & 99'448 \\ \hline
+Detected (Rst/s-a-1) & 1'712 \\ \hline
+Possibly detected & 116 \\ \hline
+Undetectable & 321 \\ \hline
+ATPG untestable & 1'312 \\ \hline
+Not detected & 2 \\ \hline \hline
+total faults & 102'910 \\ \hline
+\textbf{test coverage} & \textbf{98.30 \%} \\ \hline
+ \end{tabular}
+\end{table}
+
+TetraMAX determined 102'910 nodes which could be affacted by a stuck-at faults. With ATPG TetraMAX was able to generate patterns such that 99'448 of these stuck-at faults are detectable, additional 1'712 are detectable with the initial sequence. The Defect Level (DF)\footnote{The Defect Level ratioes the defective sold chips to all sold chips and can be approximated by the formula $DL=1-Y^{1-T}$ where Y is the yield and T the test coverage.\cite{vlsi3}} is 0.18 \% if a yield of 90 \% is assumed.
+
+\subsection{Testing the memories}
+The test coverages of the memories are low and it is not possible to improve this directly. Observability and controllability of the combinatoric circuits which connect the memories with the CPU cannot be fully realized, although a special bypass\footnote{Inspired by block isolation, we bypassed the memories in Test mode such that the memory wrapper can be tested without being able to check the memories by ATPG directly. Consider schemata in appendix \ref{ch:schemata} of the instruction and data memory.} was designed. For this reason the memories are fully accessible (read/write) from outside during setup mode. Memory testing will then be done with well-known methods like walking-zeros or walking-ones. 
+
+
+

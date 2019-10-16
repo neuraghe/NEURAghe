@@ -1,0 +1,37 @@
+How to use the FPGA
+-------------------
+
+As for the RTL, there are 2 ways of using the FPGA
+
+Let the SDK flow manage the bitstreams
+......................................
+
+The bistream for each supported chip is stored as a binary package in the artifactory server. When the SDK dependencies are retrieved, the correct bitstream is downloaded according to the configuration.
+
+First the SDK must be properly initialized and configured for the FPGA (see :ref:`howtoSetupSdk`).
+
+Then you must download the bitstream for your architecture with this command: ::
+
+  $ plpbuild --p sdk deps
+
+Now go to your application and execute this command to upload the bitstream to the FPGA: ::
+
+  $ make bistream
+
+After this step you can use the FPGA as any other platform with the usual commands: ::
+
+  $ make clean all run
+
+Provide an external bitstream
+.............................
+
+In case the bitstream for the chip you are using is not available or you want to synthesize it yourself, you can compile and run your application the usual way, just adding the following option: ::
+
+  $ make clean all run PLT_OPT=--emu-mapping=miaemu.bit.bin
+
+Tips
+....
+
+When you launch a make command for the FPGA, you can specify the IP address of the FPGA with this option: ::
+
+  $ make clean all run PLT_OPT=--emu-addr=192.168.0.10

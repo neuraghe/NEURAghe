@@ -1,0 +1,16 @@
+* Mixed signal test bench
+this is a test bench combining the digital hdl code with the analog 
+netlist of the driver and monitor for a mixed signal simulation using 
+Mentor Graphics questa ADMS.
+
+** Usage
+The test bench is controlled with a makefile, the following options 
+are available:
+1) make without options: cleans the directory, recreates the digital 
+   and analog libraries and compiles the digital and analog parts. 
+2) make digital: compiles the digital part
+3) make analog: compiles the analog part
+
+After compilation the simulation can be started using the vasim command. 
+Select the combinedanalog_tb entity as well as the combinedanalog.cmd file 
+during initialization of the simulation.

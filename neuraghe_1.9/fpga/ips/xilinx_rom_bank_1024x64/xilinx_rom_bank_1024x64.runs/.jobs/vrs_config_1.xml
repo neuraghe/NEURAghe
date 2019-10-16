@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="xilinx_rom_bank_1024x64_synth_1" LaunchDir="/home/gianfranco/pulp/pulp4/fpga/ips/xilinx_rom_bank_1024x64/xilinx_rom_bank_1024x64.runs/xilinx_rom_bank_1024x64_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+</Runs>
+

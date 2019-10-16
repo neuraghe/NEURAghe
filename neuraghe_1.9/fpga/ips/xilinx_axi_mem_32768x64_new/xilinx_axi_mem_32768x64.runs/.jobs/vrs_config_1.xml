@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="xilinx_axi_mem_32768x64_synth_1" LaunchDir="/home/gderiu/marco/neuraghe_zc706_8_16_runtime_dma2d_lenhack/fpga/ips/xilinx_axi_mem_32768x64/xilinx_axi_mem_32768x64.runs/xilinx_axi_mem_32768x64_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+</Runs>
+

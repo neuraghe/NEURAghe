@@ -1,0 +1,31 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%                                                                 %
+%%%%%     03_related_work.tex                                         %
+%%%%%                                                                 %
+%%%%% Author:      Matthias Baer                                      %
+%%%%% Created:     26/01/2014                                         %
+%%%%% Description: Describing the OpenRISC project                    %
+%%%%%                                                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Related Work}
+
+\section{OpenRISC}
+
+Our thesis is based on the OpenRISC 1000 project from OpenCores\cite{website:OpenCores}\cite{or1000}, which aims to create free and open source computing platforms. The architecture specifies behavior for 32- and 64-bit \gls{risc}/\glslink{dsp}{DSP} processors. It is designed for high performance, simplicity, low power consumption and scalability.
+
+For the OpenRISC 1000 architecture exists an implementation called OpenRISC 1200 which is 32-bit with \gls{harvard}, 5 stage pipeline, virtual memory support and basic DSP capabilities (Figure~\ref{fig:or1200}). The implementation is written in Verilog and can be downloaded from the OpenCores website.\cite{or1200}
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[height=6cm]{./figures/Or1200_blocks}
+  \caption{OpenRISC 1200 block diagram}
+  \label{fig:or1200}
+\end{figure}
+
+In order to stay competitive, the OpenCores community called for OpenRISC \gls{asic} donations, they would use to create a "super-low-cost" \glslink{soc}{SoC} ASIC component, but up to the date this document is released, they were not yet successful.
+
+The community has also ported the \gls{gnu} to OpenRISC, offering C and C++ support with static libraries. This allows us to create simple test programs for our implementation with quite low effort.\\
+It also exists an architecture simulator capable of emulating OpenRISC based computer systems at the instruction level.

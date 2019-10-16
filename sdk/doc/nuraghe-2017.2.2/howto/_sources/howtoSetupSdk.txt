@@ -1,0 +1,31 @@
+.. _howtoSetupSdk:
+
+How to setup the SDK
+--------------------
+
+Environment setup
+.................
+
+Whatever the way the SDK was retrieved (through downloader or from top module) or produced (from source), a setup file has been generated in the env folder that can be sourced to setup the terminal to be used with the SDK.
+
+The file to source should look like *env/env-sdk-<version>.sh*. Just source it and you can then compile and run an application
+
+Configuration setup
+...................
+
+If you don't configure anything else, the applications will be compiled and launched for the default configuration. In case you want to specify a different configuration, you can define the following environment variable with the desired configuration: ::
+
+  $ export PULP_CONFIGS=pulpChip=mia:platform=rtl
+
+The next time you launch an application, it will be compiled for Mia Wallace and run on the RTL platform.
+
+Tips
+....
+
+A tool will soon be provided in order to know what are the possible configurations. Here are a few interesting ones:
+
+- pulpChip:      mia, pulp4, GAP, fulmine, pulp3 ...
+- pulpCoreArchi: or1k, or10n, or10nv2, riscv, ri5cyv1, ri5cyv2, ri5cyv2-rvc ...
+- pulpCompiler:  gcc, llvm
+- platform:      gvsoc, fpga, rtl
+

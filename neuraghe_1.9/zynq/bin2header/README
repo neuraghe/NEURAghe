@@ -1,0 +1,3 @@
+This folder contains the scripts to create a header file that contains the code to be loaded into L2 HWCE-cluster memory by ARM core.
+
+zynq_setup executable will be called by the CMAKE rule test_name.zynq.cmd. This rule compiles the test and creates the header file.

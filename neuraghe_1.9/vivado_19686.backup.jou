@@ -1,0 +1,18 @@
+#-----------------------------------------------------------
+# Vivado v2017.1 (64-bit)
+# SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
+# IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
+# Start of session at: Wed Aug  1 18:56:16 2018
+# Process ID: 19686
+# Current directory: /home/gderiu/marco/neuraghe_zc706_8_16_runtime_dma2d_lenhack
+# Command line: vivado
+# Log file: /home/gderiu/marco/neuraghe_zc706_8_16_runtime_dma2d_lenhack/vivado.log
+# Journal file: /home/gderiu/marco/neuraghe_zc706_8_16_runtime_dma2d_lenhack/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/gderiu/marco/neuraghe_zc706_8_16_runtime_dma2d_lenhack/pulp_on_zynq/pulp_on_zynq.xpr
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+reset_run synth_7
+launch_runs impl_10 -to_step write_bitstream -jobs 12
+wait_on_run impl_10

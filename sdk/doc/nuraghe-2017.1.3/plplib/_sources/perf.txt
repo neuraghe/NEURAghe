@@ -1,0 +1,251 @@
+Performance report
+==================
+
+Introduction
+............
+
+All the numbers given in this report are expressed in number of cycles per output pixel, and have been multipled by the number of cores to normalize them. Thus to obtain the total number of cycles, the reported number must be multiplied by the number of output pixels and divided by the number of cores.
+
+For each kernel, the following tables are reported:
+
+* **Per architecture**. This gives the number of cycles for each supported architecture for a fixed window size and number of cores.
+
+* **Per window**. This gives the number of cycles for several window size, for a fixed architecture and number of cores.
+
+* **Per number of cores**. This gives the number of cycles for several number of cores, for a fixed architecture and window size.
+
+
+matmul_ew
+.........
+
+==================== ==================== ==================== ==================== ==================== 
+conf                 mia                  fulmine              pulp4                comments             
+==================== ==================== ==================== ==================== ==================== 
+plp_matmul_ew_i16    9.908                5.960                6.044                nbPe=4, window=64x64 
+plp_matmul_ew_i16x32 6.100                5.924                4.848                nbPe=4, window=64x64 
+plp_matmul_ew_i32    11.492               11.428               6.624                nbPe=4, window=32x32 
+plp_matmul_ew_u8x16  7.264                6.824                6.956                nbPe=4, window=64x64 
+plp_matmul_ew_u16    9.628                5.960                6.044                nbPe=4, window=64x64 
+plp_matmul_ew_i8     10.096               5.808                5.300                nbPe=4, window=64x64 
+plp_matmul_ew_i8x16  6.772                6.748                6.948                nbPe=4, window=64x64 
+plp_matmul_ew_u8     10.032               5.784                5.316                nbPe=4, window=64x64 
+plp_matmul_ew_u32    11.528               10.784               6.792                nbPe=4, window=32x32 
+plp_matmul_ew_u16x32 6.100                5.924                4.848                nbPe=4, window=64x64 
+==================== ==================== ==================== ==================== ==================== 
+
+
+==================== ==================== ==================== ==================== ==================== 
+window               16x16                32x32                64x64                comments             
+==================== ==================== ==================== ==================== ==================== 
+plp_matmul_ew_i16    12.232               7.332                6.044                conf=pulp4, nbPe=4   
+plp_matmul_ew_i16x32 11.312               6.204                4.848                conf=pulp4, nbPe=4   
+plp_matmul_ew_i32    11.512               6.624                -                    conf=pulp4, nbPe=4   
+plp_matmul_ew_u8x16  13.468               8.460                6.956                conf=pulp4, nbPe=4   
+plp_matmul_ew_u16    12.232               7.332                6.044                conf=pulp4, nbPe=4   
+plp_matmul_ew_i8     11.372               6.648                5.300                conf=pulp4, nbPe=4   
+plp_matmul_ew_i8x16  13.468               8.460                6.948                conf=pulp4, nbPe=4   
+plp_matmul_ew_u8     11.372               6.856                5.316                conf=pulp4, nbPe=4   
+plp_matmul_ew_u32    11.656               6.792                -                    conf=pulp4, nbPe=4   
+plp_matmul_ew_u16x32 11.312               6.204                4.848                conf=pulp4, nbPe=4   
+==================== ==================== ==================== ==================== ==================== 
+
+
+======================== ======================== ======================== ======================== ======================== 
+nbPe                     2                        4                        8                        comments                 
+======================== ======================== ======================== ======================== ======================== 
+plp_matmul_ew_i16        5.846                    6.044                    6.624                    conf=pulp4, window=64x64 
+plp_matmul_ew_i16x32     4.682                    4.848                    5.776                    conf=pulp4, window=64x64 
+plp_matmul_ew_i32        5.750                    6.624                    9.528                    conf=pulp4, window=32x32 
+plp_matmul_ew_u8x16      6.558                    6.956                    7.968                    conf=pulp4, window=64x64 
+plp_matmul_ew_u16        5.846                    6.044                    6.624                    conf=pulp4, window=64x64 
+plp_matmul_ew_i8         5.096                    5.300                    5.888                    conf=pulp4, window=64x64 
+plp_matmul_ew_i8x16      6.542                    6.948                    7.968                    conf=pulp4, window=64x64 
+plp_matmul_ew_u8         5.090                    5.316                    5.888                    conf=pulp4, window=64x64 
+plp_matmul_ew_u32        5.766                    6.792                    9.528                    conf=pulp4, window=32x32 
+plp_matmul_ew_u16x32     4.682                    4.848                    5.776                    conf=pulp4, window=64x64 
+======================== ======================== ======================== ======================== ======================== 
+
+
+convolution2d
+.............
+
+==================== ==================== ==================== ==================== ==================== 
+conf                 mia                  fulmine              pulp4                comments             
+==================== ==================== ==================== ==================== ==================== 
+plp_conv5x5_u8_norm  80.704               22.236               20.768               nbPe=4, window=64x64 
+plp_conv5x5_i8_norm  80.712               22.224               20.812               nbPe=4, window=64x64 
+plp_conv5x5_i16_hw   20.447               -                    -                    nbPe=4, window=64x64 
+plp_conv5x5_u16_norm 81.712               44.248               42.992               nbPe=4, window=64x64 
+plp_conv5x5_i16_norm 81.712               44.572               43.076               nbPe=4, window=64x64 
+plp_conv5x5_u16_hw   20.447               -                    -                    nbPe=4, window=64x64 
+==================== ==================== ==================== ==================== ==================== 
+
+
+==================== ==================== ==================== ==================== ==================== 
+window               16x16                32x32                64x64                comments             
+==================== ==================== ==================== ==================== ==================== 
+plp_conv5x5_u8_norm  34.944               23.140               20.768               conf=pulp4, nbPe=4   
+plp_conv5x5_i8_norm  36.332               23.392               20.812               conf=pulp4, nbPe=4   
+plp_conv5x5_i16_hw   -                    -                    -                    conf=pulp4, nbPe=4   
+plp_conv5x5_u16_norm 59.304               45.800               42.992               conf=pulp4, nbPe=4   
+plp_conv5x5_i16_norm 59.416               45.880               43.076               conf=pulp4, nbPe=4   
+plp_conv5x5_u16_hw   -                    -                    -                    conf=pulp4, nbPe=4   
+==================== ==================== ==================== ==================== ==================== 
+
+
+======================== ======================== ======================== ======================== ======================== 
+nbPe                     2                        4                        8                        comments                 
+======================== ======================== ======================== ======================== ======================== 
+plp_conv5x5_u8_norm      20.364                   20.768                   22.816                   conf=pulp4, window=64x64 
+plp_conv5x5_i8_norm      20.354                   20.812                   22.704                   conf=pulp4, window=64x64 
+plp_conv5x5_i16_hw       -                        -                        -                        conf=pulp4, window=64x64 
+plp_conv5x5_u16_norm     42.132                   42.992                   46.200                   conf=pulp4, window=64x64 
+plp_conv5x5_i16_norm     41.984                   43.076                   46.096                   conf=pulp4, window=64x64 
+plp_conv5x5_u16_hw       -                        -                        -                        conf=pulp4, window=64x64 
+======================== ======================== ======================== ======================== ======================== 
+
+
+matadd
+......
+
+==================== ==================== ==================== ==================== ==================== 
+conf                 mia                  fulmine              pulp4                comments             
+==================== ==================== ==================== ==================== ==================== 
+plp_matadd_u8        9.656                2.712                1.684                nbPe=4, window=64x64 
+plp_matadd_i8        9.756                2.832                1.688                nbPe=4, window=64x64 
+plp_matadd_i16       9.636                3.956                2.908                nbPe=4, window=64x64 
+plp_matadd_i32       11.156               10.636               7.156                nbPe=4, window=32x32 
+plp_matadd_u32       11.388               10.592               6.808                nbPe=4, window=32x32 
+plp_matadd_u16       9.636                3.956                2.908                nbPe=4, window=64x64 
+==================== ==================== ==================== ==================== ==================== 
+
+
+================== ================== ================== ================== ================== 
+window             16x16              32x32              64x64              comments           
+================== ================== ================== ================== ================== 
+plp_matadd_u8      7.840              2.896              1.684              conf=pulp4, nbPe=4 
+plp_matadd_i8      7.840              2.896              1.688              conf=pulp4, nbPe=4 
+plp_matadd_i16     8.888              4.096              2.908              conf=pulp4, nbPe=4 
+plp_matadd_i32     11.700             7.156              -                  conf=pulp4, nbPe=4 
+plp_matadd_u32     11.700             6.808              -                  conf=pulp4, nbPe=4 
+plp_matadd_u16     8.888              4.096              2.908              conf=pulp4, nbPe=4 
+================== ================== ================== ================== ================== 
+
+
+======================== ======================== ======================== ======================== ======================== 
+nbPe                     2                        4                        8                        comments                 
+======================== ======================== ======================== ======================== ======================== 
+plp_matadd_u8            1.442                    1.684                    2.280                    conf=pulp4, window=64x64 
+plp_matadd_i8            1.446                    1.688                    2.280                    conf=pulp4, window=64x64 
+plp_matadd_i16           2.698                    2.908                    3.512                    conf=pulp4, window=64x64 
+plp_matadd_i32           5.676                    7.156                    9.504                    conf=pulp4, window=32x32 
+plp_matadd_u32           5.764                    6.808                    9.504                    conf=pulp4, window=32x32 
+plp_matadd_u16           2.698                    2.908                    3.512                    conf=pulp4, window=64x64 
+======================== ======================== ======================== ======================== ======================== 
+
+
+threshold
+.........
+
+==================== ==================== ==================== ==================== ==================== 
+conf                 mia                  fulmine              pulp4                comments             
+==================== ==================== ==================== ==================== ==================== 
+plp_threshold_u8     9.228                2.748                1.596                nbPe=4, window=64x64 
+plp_threshold_u32    11.148               9.756                8.944                nbPe=4, window=32x32 
+plp_threshold_i16    7.080                3.548                2.664                nbPe=4, window=64x64 
+plp_threshold_i8     6.912                2.556                1.596                nbPe=4, window=64x64 
+plp_threshold_i32    10.248               10.036               8.988                nbPe=4, window=32x32 
+plp_threshold_u16    9.220                3.548                2.664                nbPe=4, window=64x64 
+==================== ==================== ==================== ==================== ==================== 
+
+
+================== ================== ================== ================== ================== 
+window             16x16              32x32              64x64              comments           
+================== ================== ================== ================== ================== 
+plp_threshold_u8   7.124              2.804              1.596              conf=pulp4, nbPe=4 
+plp_threshold_u32  13.280             8.944              -                  conf=pulp4, nbPe=4 
+plp_threshold_i16  8.156              3.892              2.664              conf=pulp4, nbPe=4 
+plp_threshold_i8   7.124              2.804              1.596              conf=pulp4, nbPe=4 
+plp_threshold_i32  13.280             8.988              -                  conf=pulp4, nbPe=4 
+plp_threshold_u16  8.156              3.892              2.664              conf=pulp4, nbPe=4 
+================== ================== ================== ================== ================== 
+
+
+======================== ======================== ======================== ======================== ======================== 
+nbPe                     2                        4                        8                        comments                 
+======================== ======================== ======================== ======================== ======================== 
+plp_threshold_u8         1.424                    1.596                    2.176                    conf=pulp4, window=64x64 
+plp_threshold_u32        8.306                    8.944                    11.216                   conf=pulp4, window=32x32 
+plp_threshold_i16        2.406                    2.664                    3.168                    conf=pulp4, window=64x64 
+plp_threshold_i8         1.406                    1.596                    2.176                    conf=pulp4, window=64x64 
+plp_threshold_i32        8.220                    8.988                    11.216                   conf=pulp4, window=32x32 
+plp_threshold_u16        2.406                    2.664                    3.168                    conf=pulp4, window=64x64 
+======================== ======================== ======================== ======================== ======================== 
+
+
+matmul
+......
+
+==================== ==================== ==================== ==================== ==================== 
+conf                 mia                  fulmine              pulp4                comments             
+==================== ==================== ==================== ==================== ==================== 
+plp_matmul_u16       -                    1.876                1.836                nbPe=4, window=64x64 
+plp_matmul_i8x16     3.652                1.124                1.076                nbPe=4, window=64x64 
+plp_matmul_u32       4.984                5.236                4.828                nbPe=4, window=32x32 
+plp_matmul_i16x32    4.692                1.912                1.880                nbPe=4, window=64x64 
+plp_matmul_i16       -                    1.876                1.836                nbPe=4, window=64x64 
+plp_matmul_u8x16     -                    1.116                1.076                nbPe=4, window=64x64 
+plp_matmul_i32       5.060                5.104                4.828                nbPe=4, window=32x32 
+plp_matmul_u32_norm  -                    -                    105.916              nbPe=4, window=32x32 
+plp_matmul_i32_norm  -                    -                    109.836              nbPe=4, window=32x32 
+plp_matmul_i32x64    41.836               41.800               8.864                nbPe=4, window=32x32 
+plp_matmul_u8        -                    1.172                1.144                nbPe=4, window=64x64 
+plp_matmul_u16x32    4.692                1.920                1.880                nbPe=4, window=64x64 
+plp_matmul_i8        -                    1.176                1.140                nbPe=4, window=64x64 
+plp_matmul_u8_norm   25.804               25.804               26.044               nbPe=4, window=32x32 
+plp_matmul_u32x64    41.908               41.876               8.812                nbPe=4, window=32x32 
+==================== ==================== ==================== ==================== ==================== 
+
+
+=================== =================== =================== =================== =================== 
+window              16x16               32x32               64x64               comments            
+=================== =================== =================== =================== =================== 
+plp_matmul_u16      3.180               2.160               1.836               conf=pulp4, nbPe=4  
+plp_matmul_i8x16    2.416               1.440               1.076               conf=pulp4, nbPe=4  
+plp_matmul_u32      4.816               4.828               -                   conf=pulp4, nbPe=4  
+plp_matmul_i16x32   3.308               2.272               1.880               conf=pulp4, nbPe=4  
+plp_matmul_i16      3.180               2.160               1.836               conf=pulp4, nbPe=4  
+plp_matmul_u8x16    2.436               1.448               1.076               conf=pulp4, nbPe=4  
+plp_matmul_i32      4.844               4.828               -                   conf=pulp4, nbPe=4  
+plp_matmul_u32_norm 107.952             105.916             -                   conf=pulp4, nbPe=4  
+plp_matmul_i32_norm 111.672             109.836             -                   conf=pulp4, nbPe=4  
+plp_matmul_i32x64   9.844               8.864               -                   conf=pulp4, nbPe=4  
+plp_matmul_u8       2.684               1.564               1.144               conf=pulp4, nbPe=4  
+plp_matmul_u16x32   3.332               2.272               1.880               conf=pulp4, nbPe=4  
+plp_matmul_i8       2.684               1.560               1.140               conf=pulp4, nbPe=4  
+plp_matmul_u8_norm  28.212              26.044              -                   conf=pulp4, nbPe=4  
+plp_matmul_u32x64   9.868               8.812               -                   conf=pulp4, nbPe=4  
+=================== =================== =================== =================== =================== 
+
+
+======================== ======================== ======================== ======================== ======================== 
+nbPe                     2                        4                        8                        comments                 
+======================== ======================== ======================== ======================== ======================== 
+plp_matmul_u16           1.798                    1.836                    1.824                    conf=pulp4, window=64x64 
+plp_matmul_i8x16         1.066                    1.076                    1.080                    conf=pulp4, window=64x64 
+plp_matmul_u32           3.804                    4.828                    4.064                    conf=pulp4, window=32x32 
+plp_matmul_i16x32        1.844                    1.880                    1.872                    conf=pulp4, window=64x64 
+plp_matmul_i16           1.798                    1.836                    1.824                    conf=pulp4, window=64x64 
+plp_matmul_u8x16         1.064                    1.076                    1.072                    conf=pulp4, window=64x64 
+plp_matmul_i32           3.842                    4.828                    4.080                    conf=pulp4, window=32x32 
+plp_matmul_u32_norm      52.958                   105.916                  211.832                  conf=pulp4, window=32x32 
+plp_matmul_i32_norm      54.918                   109.836                  219.672                  conf=pulp4, window=32x32 
+plp_matmul_i32x64        8.754                    8.864                    8.904                    conf=pulp4, window=32x32 
+plp_matmul_u8            1.128                    1.144                    1.152                    conf=pulp4, window=64x64 
+plp_matmul_u16x32        1.844                    1.880                    1.872                    conf=pulp4, window=64x64 
+plp_matmul_i8            1.128                    1.140                    1.152                    conf=pulp4, window=64x64 
+plp_matmul_u8_norm       13.022                   26.044                   52.096                   conf=pulp4, window=32x32 
+plp_matmul_u32x64        8.754                    8.812                    8.880                    conf=pulp4, window=32x32 
+======================== ======================== ======================== ======================== ======================== 
+
+

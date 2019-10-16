@@ -1,0 +1,8 @@
+echo "${Blue}          ${Yellow}        ${Red}         ${Yellow}        ${Green}        ${Red}         ${Blue}        ${Yellow}        ${Red}  ${NC}"
+echo "${Blue}███╗   ██╗${Yellow}███████╗${Red}██╗   ██╗${Yellow}██████╗ ${Green} █████╗ ${Red} ██████╗ ${Blue}██╗  ██╗${Yellow}███████╗${Red}  ${NC}"
+echo "${Blue}████╗  ██║${Yellow}██╔════╝${Red}██║   ██║${Yellow}██╔══██╗${Green}██╔══██╗${Red}██╔════╝ ${Blue}██║  ██║${Yellow}██╔════╝${Red}  ${NC}"
+echo "${Blue}██╔██╗ ██║${Yellow}█████╗  ${Red}██║   ██║${Yellow}██████╔╝${Green}███████║${Red}██║  ███╗${Blue}███████║${Yellow}█████╗  ${Red}  ${NC}"
+echo "${Blue}██║╚██╗██║${Yellow}██╔══╝  ${Red}██║   ██║${Yellow}██╔══██╗${Green}██╔══██║${Red}██║   ██║${Blue}██╔══██║${Yellow}██╔══╝  ${Red}  ${NC}"
+echo "${Blue}██║ ╚████║${Yellow}███████╗${Red}╚██████╔╝${Yellow}██║  ██║${Green}██║  ██║${Red}╚██████╔╝${Blue}██║  ██║${Yellow}███████╗${Red}  ${NC}"
+echo "${Blue}╚═╝  ╚═══╝${Yellow}╚══════╝${Red} ╚═════╝ ${Yellow}╚═╝  ╚═╝${Green}╚═╝  ╚═╝${Red} ╚═════╝ ${Blue}╚═╝  ╚═╝${Yellow}╚══════╝${Red}  ${NC}"    
+echo "${Blue}          ${Yellow}        ${Red}         ${Yellow}        ${Green}        ${Red}         ${Blue}        ${Yellow}        ${Red}  ${NC}"

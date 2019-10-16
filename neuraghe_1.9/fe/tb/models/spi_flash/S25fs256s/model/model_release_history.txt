@@ -1,0 +1,47 @@
+##########################################
+Date (DD/MM/YYYY)  - 28.01.2013
+
+Model name         - S25FS256S
+
+Vendor             - Spansion (www.spansion.com)
+
+Publication ID     - Spansion, FS-S_DRS_V3.1, August 10, 2012
+
+VITAL model author -  Snezana Petrovic
+                      s-petrovic@hdl-dh.com
+##########################################
+##########################################
+INITIAL RELEASE
+
+# Release Label             => vital-amd-REL-s25fs256s-2013-01-28-1.tar.gz
+# Release Date (DD/MM/YYYY) => 28/01/2013
+# Release Version           => 1.0
+
+##########################################
+
+# Release Label             => vital-amd-serial-s25fl-REL-s25fs256s-2013-11-28-2.tar.gz
+# Release Date (DD/MM/YYYY) => 28/11/2013
+# Release Version           => 1.1
+
+# Corrections:
+- Corrected Quad DDR read with DLP
+
+# Files modified
+-s25fs256s.v
+-s25fs256s.vhd
+-testbench_s25fs256s_verilog.vhd
+-testbench_s25fs256s_vhdl.vhd
+##########################################
+# Release Label             => vital-amd-serial-s25fl-REL-s25fs256s-2013-12-23-2.tar.gz
+# Release Date (DD/MM/YYYY) => 23/12/2013
+# Release Version           => 1.2
+
+# Corrections:
+- DLP read enabled with 4 latency cycles
+
+# Files modified
+-s25fs256s.v
+-s25fs256s.vhd
+-testbench_s25fs256s_verilog.vhd
+-testbench_s25fs256s_vhdl.vhd
+##########################################

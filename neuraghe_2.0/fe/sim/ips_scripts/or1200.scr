@@ -1,0 +1,4 @@
++incdir+../rtl/includes
++incdir+../tb/include
++libext+.v
+-y ${IPS_PATH}/or1200

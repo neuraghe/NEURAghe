@@ -1,0 +1,55 @@
+# How to use it: Fill this file with the following commands
+#
+# run_Test test_name                                           test_folder 
+#
+# Where test folder is the directory inside sw/apps/spi_regression
+
+run_Test testMCHAN_multi_core_basic                             testMCHAN
+run_Test testMCHAN_multi_core_multi_trans                       testMCHAN
+run_Test testMCHAN_multi_core_tx_rx_reco                        testMCHAN
+run_Test testMCHAN_basic                                        testMCHAN
+run_Test testMCHAN_multi_core_basic_reco                        testMCHAN
+run_Test testMCHAN_multi_core_tx_rx                             testMCHAN
+run_Test testMCHAN_TCDM2TCDM_multi_core_tx_rx                   testMCHAN
+run_Test testMCHAN_basic_ld                                     testMCHAN
+run_Test testMCHAN_multi_core_contention_l2                     testMCHAN
+run_Test testMCHAN_multi_core_tx_rx_contention_l2               testMCHAN
+run_Test testMCHAN_TCDM2TCDM_multi_core_tx_rx_contention        testMCHAN
+run_Test testMCHAN_multi_core_contention_l2_tcdm                testMCHAN
+run_Test testMCHAN_multi_core_tx_rx_contention_l2_tcdm          testMCHAN
+run_Test testMCHAN_TCDM2TCDM_reco_multi_core_tx_rx              testMCHAN
+run_Test testMCHAN_basic_st                                     testMCHAN
+run_Test testMCHAN_multi_core_contention_tcdm                   testMCHAN
+run_Test testMCHAN_multi_core_tx_rx_contention_tcdm             testMCHAN
+run_Test testMCHAN_TCDM2TCDM_reco_multi_core_tx_rx_contention   testMCHAN
+#run_Test DCT                                                    DCT
+run_Test Dijkstra                                               Dijkstra
+run_Test LU                                                     LU
+run_Test MonteCarlo                                             MonteCarlo
+run_Test Sparse                                                 Sparse
+#run_Test gomp_rn_test                                           gomp
+run_Test testCVP                                                testCVP
+run_Test testL2                                                 testL2
+run_Test testTCDM                                               testTCDM
+#run_Test testMMU                                                testMMU
+run_Test bubblesort                                             generic_apps
+run_Test towerofhanoi                                           generic_apps
+run_Test fibonacci                                              generic_apps
+run_Test dummypar1                                              generic_apps
+run_Test matrixAdd                                              generic_apps
+run_Test matrixMul                                              generic_apps
+run_Test sudokusolver                                           generic_apps
+run_Test parMatrixMul                                           generic_apps
+run_Test stencil                                                generic_apps
+run_Test crc_32                                                 generic_apps
+run_Test fdct                                                   generic_apps
+run_Test testMAC3                                               or10n_tests
+run_Test testMUL                                                or10n_tests
+run_Test testPrePost                                            or10n_tests
+run_Test testIRQ                                                or10n_tests
+run_Test testALU                                                or10n_tests
+run_Test testVec                                                or10n_tests
+run_Test testVecCmp                                             or10n_tests
+run_Test testVecCmpAll                                          or10n_tests
+run_Test testVecCmpAny                                          or10n_tests
+run_Test testMisaligned                                         or10n_tests

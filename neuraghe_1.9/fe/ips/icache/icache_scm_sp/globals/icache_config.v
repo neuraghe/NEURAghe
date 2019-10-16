@@ -1,0 +1,3 @@
+`define FEATURE_REDUCED_TAG 
+`define TAG_BIT 7
+//`define SUPPORT_BOTH_PRI_SH

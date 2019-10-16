@@ -1,0 +1,27 @@
+How to build SDK components
+---------------------------
+
+The SDK contains several components (virtual platform, OMP runtime, OVX runtime) that can be compiled separatly insted of compiling the whole SDK.
+
+OpenVX runtime and libs
+.......................
+
+The OpenVX Pulp implementation is currently available only on a prototyping architecture derived from pulp-dev and called pulpevo. Thus to have OpenVX support in the SDK, it must be compiled with the following commands: ::
+
+  $ git clone git@iis-git.ee.ethz.ch:pulp-sw/pulp_pipeline.git
+  $ cd pulp_pipeline
+  $ source init.sh
+  $ plpconf --pulpChip="pulpevo" --pulpRtVersion=bench --pulpOmpVersion=ovx
+  $ source setup.sh
+  $ plpbuild --p sdk deps checkout build
+
+Note that when compiling the whole SDK with the default command, the OpenVX support is also added.
+
+In order to not build everything but just the OpenVX part (once the SDK has been compiled once to get all the tools), you can replace the plpbuild command by this one: ::
+
+  $ plpbuild --g runtime_ovx --g ovx checkout build
+
+The group *runtime_ovx* will compile all the low-layer runtime while the group *ovx* will compile the OpenVX library and the kernels.
+
+
+

@@ -1,0 +1,126 @@
+/*
+
+Vivado v2017.1 (64-bit)
+SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
+IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
+
+Process ID: 23649
+License: Customer
+
+Current time: 	10/1/18 5:40:51 PM CEST
+Time zone: 	Central European Time (Europe/Rome)
+
+OS: SUSE Linux Enterprise Server 12 (x86_64)
+OS Version: 3.12.36-38-default
+OS Architecture: amd64
+Available processors (cores): 24
+
+Display: localhost:13.0
+Screen size: 1920x1080
+Screen resolution (DPI): 96
+Available screens: 1
+Available disk space: 17 GB
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+
+Java version: 	1.8.0_112 64-bit
+Java home: 	/eda/Xilinx/Vivado/2017.1/tps/lnx64/jre
+JVM executable location: 	/eda/Xilinx/Vivado/2017.1/tps/lnx64/jre/bin/java
+Java library paths: /eda/Xilinx/Vivado/2017.1/lib/lnx64.o:/eda/Xilinx/Vivado/2017.1/tps/lnx64/jre/lib/amd64:/eda/Xilinx/Vivado/2017.1/tps/lnx64/jre/lib/amd64/server:/eda/Xilinx/Vivado/2017.1/lnx64/tools/dot/lib:/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+
+User name: 	gderiu
+User home directory: /home/gderiu
+User working directory: /home/gderiu/marco/neuraghe_zc706_8_16_runtime_dma2d_lenhack/fpga
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: /eda/Xilinx/Vivado
+HDI_APPROOT: /eda/Xilinx/Vivado/2017.1
+RDI_DATADIR: /eda/Xilinx/Vivado/2017.1/data
+RDI_BINDIR: /eda/Xilinx/Vivado/2017.1/bin
+
+User preferences location: /home/gderiu/.Xilinx/Vivado
+Vivado preferences directory: /home/gderiu/.Xilinx/Vivado/2017.1/vivado.xml
+Vivado layouts directory: /home/gderiu/.Xilinx/Vivado/2017.1/layouts
+PlanAhead jar location: 	/eda/Xilinx/Vivado/2017.1/lib/classes/planAhead.jar
+Vivado Look & Feel: 	[Synthetica - the extended Synth Look and Feel. - ui.g.i.H]
+Engine tmp dir: 	./.Xil/Vivado-23649-eolab
+
+GUI allocated memory:	199 MB
+GUI max memory:		3,052 MB
+Engine allocated memory: 5,024 MB
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// [GUI Memory]: 56 MB (+56683kb) [00:00:09]
+// [Engine Memory]: 5,014 MB (+5106174kb) [00:00:09]
+selectButton(PAResourceEtoH.GettingStartedView_OPEN_PROJECT, "Open Project"); // x:h (JPanel:JComponent, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_OPEN_PROJECT
+// HMemoryUtils.trashcanNow. Engine heap size: 5,024 MB. GUI used memory: 27 MB. Current time: 10/1/18 5:40:51 PM CEST
+// Elapsed time: 14 seconds
+setFileChooser("/home/gderiu/marco/neuraghe_zc706_8_16_runtime_dma2d_lenhack/pulp_on_zynq/pulp_on_zynq.xpr");
+// Opening Vivado Project: /home/gderiu/marco/neuraghe_zc706_8_16_runtime_dma2d_lenhack/pulp_on_zynq/pulp_on_zynq.xpr. Version: Vivado v2017.1 
+// bs:g (cg:JFrame):  Open Project : addNotify
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// Tcl Message: open_project /home/gderiu/marco/neuraghe_zc706_8_16_runtime_dma2d_lenhack/pulp_on_zynq/pulp_on_zynq.xpr 
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_COMPLETED
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_CURRENT
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 66 MB (+7440kb) [00:00:34]
+// Tcl Message: open_project /home/gderiu/marco/neuraghe_zc706_8_16_runtime_dma2d_lenhack/pulp_on_zynq/pulp_on_zynq.xpr 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/gderiu/pulp/ip_repo/ulp_soc_controller'. INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/gderiu/pulp/ip_repo/ulpsoc_wrap_3'. INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/gderiu/pulp/ip_repo/ulpsoc_wrap_2'. INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/gderiu/pulp/ip_repo/ulpsoc_wrap_1'. INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/eda/Xilinx/Vivado/2017.1/data/ip'. 
+// HMemoryUtils.trashcanNow. Engine heap size: 5,178 MB. GUI used memory: 45 MB. Current time: 10/1/18 5:41:11 PM CEST
+// Tcl Message: open_project: Time (s): cpu = 00:00:22 ; elapsed = 00:00:11 . Memory (MB): peak = 6131.062 ; gain = 119.836 ; free physical = 13612 ; free virtual = 179909 
+// Project name: pulp_on_zynq; location: /home/gderiu/marco/neuraghe_zc706_8_16_runtime_dma2d_lenhack/pulp_on_zynq; part: xc7z045ffg900-2
+// 'i' command handler elapsed time: 29 seconds
+// Elapsed time: 15 seconds
+dismissDialog("Open Project"); // bs:g (cg:JFrame)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+// PAPropertyPanels.initPanels (ulpsoc.edf) elapsed time: 0.2s
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, ulpsoc (ulpsoc.edf)]", 4, false); // B:i (D:JPanel, cg:JFrame)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 20, false); // u:M (JViewport:JComponent, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+// x:aN (cg:JFrame): Synthesis is Out-of-date: addNotify
+selectButton(RDIResource.BaseDialog_YES, "Yes"); // a:JButton (JPanel:JComponent, x:aN)
+// bs:g (cg:JFrame):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+dismissDialog("Synthesis is Out-of-date"); // x:aN (cg:JFrame)
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_7 
+// 'cp' command handler elapsed time: 10 seconds
+dismissDialog("Resetting Runs"); // bs:g (cg:JFrame)
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_LAUNCH
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// bs:g (cg:JFrame):  Generate Bitstream : addNotify
+// Tcl Message: launch_runs impl_10 -to_step write_bitstream -jobs 12 
+// Tcl Message: [Mon Oct  1 17:41:36 2018] Launched synth_7... Run output will be captured here: /home/gderiu/marco/neuraghe_zc706_8_16_runtime_dma2d_lenhack/pulp_on_zynq/pulp_on_zynq.runs/synth_7/runme.log [Mon Oct  1 17:41:36 2018] Launched impl_10... Run output will be captured here: /home/gderiu/marco/neuraghe_zc706_8_16_runtime_dma2d_lenhack/pulp_on_zynq/pulp_on_zynq.runs/impl_10/runme.log 
+dismissDialog("Generate Bitstream"); // bs:g (cg:JFrame)
+// [GUI Memory]: 71 MB (+1467kb) [00:01:18]
+// [GUI Memory]: 75 MB (+149kb) [00:01:23]
+// [GUI Memory]: 79 MB (+587kb) [00:02:43]
+// [GUI Memory]: 87 MB (+4025kb) [00:05:27]
+// [GUI Memory]: 92 MB (+666kb) [00:07:19]
+// TclEventType: RUN_COMPLETED
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking too long to process. Increasing delay to 2000 ms.
+// TclEventType: RUN_STEP_COMPLETED
+// [GUI Memory]: 99 MB (+2781kb) [00:25:13]
+// HMemoryUtils.trashcanNow. Engine heap size: 5,203 MB. GUI used memory: 48 MB. Current time: 10/1/18 6:11:15 PM CEST
+// TclEventType: RUN_COMPLETED
+// HMemoryUtils.trashcanNow. Engine heap size: 5,203 MB. GUI used memory: 43 MB. Current time: 10/1/18 6:41:15 PM CEST

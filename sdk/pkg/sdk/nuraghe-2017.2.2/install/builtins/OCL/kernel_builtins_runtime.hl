@@ -1,0 +1,85 @@
+# 1 "src/kernel_builtins_runtime.hl"
+# 1 "<built-in>"
+# 1 "<command-line>"
+# 1 "/usr/include/stdc-predef.h" 1 3 4
+# 1 "<command-line>" 2
+# 1 "src/kernel_builtins_runtime.hl"
+# 42 "src/kernel_builtins_runtime.hl"
+# 1 "src/kernel_runtime/external_builtin_types.hl" 1
+# 36 "src/kernel_runtime/external_builtin_types.hl"
+#pragma ast_ext_builtin on
+
+
+typedef _Bool bool;
+
+
+
+
+
+
+
+typedef int event_t;
+typedef int dma_req_t;
+
+
+typedef enum {
+  CLK_LOCAL_MEM_FENCE,
+  CLK_GLOBAL_MEM_FENCE
+} cl_mem_fence_flags;
+
+#pragma ast_ext_builtin off
+# 43 "src/kernel_builtins_runtime.hl" 2
+
+
+# 1 "src/kernel_runtime/work_item.hl" 1
+# 41 "src/kernel_runtime/work_item.hl"
+#pragma ast_ext_builtin on
+uint get_work_dim();
+size_t get_id();
+size_t get_global_offset(uint dimindx);
+size_t get_global_size(uint dimindx);
+size_t get_global_id(uint dimindx);
+size_t get_local_size(uint dimindx);
+size_t get_local_id(uint dimindx);
+size_t get_num_groups(uint dimindx);
+size_t get_group_id(uint dimindx);
+#pragma ast_ext_builtin off
+# 46 "src/kernel_builtins_runtime.hl" 2
+# 1 "src/kernel_runtime/synchro.hl" 1
+# 35 "src/kernel_runtime/synchro.hl"
+#pragma ast_ext_builtin on
+
+
+
+
+void barrier(cl_mem_fence_flags flags);
+int ocl_hw_atomic16_id(int index);
+int ocl_hw_atomic16_postinc(int index);
+int ocl_hw_atomic16_postdec(int index);
+int ocl_hw_atomic16_get(int index);
+void ocl_hw_atomic16_set(int index, int value);
+void ocl_hw_atomic16_conf(int index, int sat, int satmode, int notif);
+void ocl_hw_wait();
+void ocl_hw_raise();
+void *ocl_hw_tas_addr(void *addr);
+void ocl_hw_barrier();
+void ocl_sw_barrier();
+
+#pragma ast_ext_builtin off
+# 47 "src/kernel_builtins_runtime.hl" 2
+# 1 "src/kernel_runtime/async_copy.hl" 1
+# 35 "src/kernel_runtime/async_copy.hl"
+#pragma ast_ext_builtin on
+
+
+void wait_group_events(int num_events, event_t *event_list);
+
+
+
+void wait_events(int num_events, event_t *event_list);
+
+void dma_wait_group_events(int num_events, dma_req_t *event_list);
+void dma_wait_events(int num_events, dma_req_t *event_list);
+
+#pragma ast_ext_builtin off
+# 47 "src/kernel_builtins_runtime.hl" 2

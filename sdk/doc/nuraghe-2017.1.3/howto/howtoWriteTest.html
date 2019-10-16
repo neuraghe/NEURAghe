@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>How to write a test &mdash; howto 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="howto 1 documentation" href="index.html" />
+    <link rel="next" title="How to use the FPGA" href="howtoUseFpga.html" />
+    <link rel="prev" title="Where to put a new test or application" href="wheretoPutTest.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="how-to-write-a-test">
+<span id="howtowritetest"></span><h1>How to write a test<a class="headerlink" href="#how-to-write-a-test" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="get-a-working-empty-test">
+<h2>Get a working empty test<a class="headerlink" href="#get-a-working-empty-test" title="Permalink to this headline">¶</a></h2>
+<p>Once the SDK has been propertly configured, you can create an empty simple test by executing:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ pulp-quickstart --path=test
+</pre></div>
+</div>
+<p>This will create a helloworld in the test directory. This basically copy the example which is inside the SDK under examples/bare/hello.</p>
+</div>
+<div class="section" id="compile-and-run-the-test">
+<h2>Compile and run the test<a class="headerlink" href="#compile-and-run-the-test" title="Permalink to this headline">¶</a></h2>
+<p>You can go to the generated test folder and execute:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ make clean all run
+</pre></div>
+</div>
+</div>
+<div class="section" id="configure-the-test-properties-for-testsuite-integration">
+<h2>Configure the test properties for testsuite integration<a class="headerlink" href="#configure-the-test-properties-for-testsuite-integration" title="Permalink to this headline">¶</a></h2>
+<p>The generated test contains a testset.ini file that allows launching this test using the plptest script that you can launch from the test folder:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ plptest
+</pre></div>
+</div>
+<p>This will execute the test as a non-regression testsuite which allows you checking if everything is fine for testsuite integration.</p>
+<p>The test status is considered as passed if the test exits with an exit value of 0, otherwise it is considered as failed. This allows the test simply returning the C main entry point return value as the test status or using a script that can post-process the test output to determine if the test has passed or failed.</p>
+<p>If you look at the testset.ini file, you will see the following:</p>
+<div class="highlight-python"><div class="highlight"><pre>[test:hello]
+command.all=make clean all run systemConfig=%(config)s
+timeout=1000000
+</pre></div>
+</div>
+<p>The first line must just contain <em>test:</em> to indicate it is a single test followed by the test name that will appear in the report.</p>
+<p>The second line is the command that is launch to compile and run the test. The command is here our classic <em>make clean all run</em> command followed by a property which is used by the test framework to propagate the SDK configuration for which the test must be validated. This for example allows launching the same test for several configurations, each configuration being caught by this property. This property should be kept in order to execute the test for the right configuration.</p>
+<p>The third line is the timeout of the test, expressed in number of expected cycles. This timeout is used by a formula depending on the platform to compute the actual timeout in seconds, which allows expressing the same timeout for all platforms. The formula usually takes into account this number, the platform speed and the number of simulated core to estimate the timeout in seconds.</p>
+<p>All these properties can most of the time be kept like that.</p>
+</div>
+<div class="section" id="integrate-the-test-into-a-testsuite">
+<h2>Integrate the test into a testsuite<a class="headerlink" href="#integrate-the-test-into-a-testsuite" title="Permalink to this headline">¶</a></h2>
+<p>A full non-regression testsuite is a hierarchy of testset.ini files putting all tests together. In order for the test to be launched in such a testsuite, it must be referred by one of the higher testset.init.</p>
+<p>For example if you want to integrate your test inside the pulp_tests testsuite, you can open the testset.ini file in the pulp_tests folder. This file should look like:</p>
+<div class="highlight-python"><div class="highlight"><pre>[testset:pulp_tests]
+files=  bench_tiny/testset.ini
+                helloworld/testset.ini
+</pre></div>
+</div>
+<p>You can just add the following line to this file to integrate your test:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">hello</span><span class="o">/</span><span class="n">testset</span><span class="o">.</span><span class="n">ini</span>
+</pre></div>
+</div>
+<p>The line should give the relative path of your test testset.ini file, related to the testsuite testset.ini file.</p>
+<p>To check that it is correctly integrate, you can dump the list of available tests by executing this command from the pulp_tests directory:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ plptest tests
+</pre></div>
+</div>
+<p>Your test will also be seen from higher testsuite, as for example from the SDK top testsuite.</p>
+</div>
+<div class="section" id="use-the-bench-library">
+<h2>Use the bench library<a class="headerlink" href="#use-the-bench-library" title="Permalink to this headline">¶</a></h2>
+<p>The bench library can be used to ease error and benchmark reporting. The idea is to declare a set of kernels which will be all called by the library one by one and a final report will be printed with the number of errors and cycles for each kernel, which is quite convenient when doing unit testing.</p>
+<p>To get a test ready for this lib, add the following option to the previous command:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ pulp-quickstart --path=test --test
+</pre></div>
+</div>
+<p><em>run_testsuite</em> must be called from the main entry point in order to start running the kernels. The kernels must be declared in the following structure which must be pass as an argument when calling <em>run_testsuite</em>:</p>
+<div class="highlight-python"><div class="highlight"><pre>static testcase_t testcases[] = {
+  { .name = &quot;test0&quot;,          .test = test0          },
+  { .name = &quot;test1&quot;,          .test = test1          },
+  {0, 0}
+};
+</pre></div>
+</div>
+<p>Each kernel must have a precise prototype and are supposed to report the number of errors in the structure they receive as an argument and also to call the start and stop functions passed as arguments in order to specify the exact portion of code that must be benchmarked:</p>
+<div class="highlight-python"><div class="highlight"><pre>static void test0(testresult_t *result, void (*start)(), void (*stop)()) {
+  volatile int i;
+  start();
+  for (i=0; i&lt;1000; i++);
+  stop();
+  result-&gt;errors++;
+}
+</pre></div>
+</div>
+<p>Once run, it should print this kind of report at the end of the execution:</p>
+<div class="highlight-python"><div class="highlight"><pre>== test: test0 -&gt; fail, nr. of errors: 1, execution time: 9079
+== test: test1 -&gt; fail, nr. of errors: 10, execution time: 938
+==== SUMMARY: FAIL
+NOT OK!!!!!
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">How to write a test</a><ul>
+<li><a class="reference internal" href="#get-a-working-empty-test">Get a working empty test</a></li>
+<li><a class="reference internal" href="#compile-and-run-the-test">Compile and run the test</a></li>
+<li><a class="reference internal" href="#configure-the-test-properties-for-testsuite-integration">Configure the test properties for testsuite integration</a></li>
+<li><a class="reference internal" href="#integrate-the-test-into-a-testsuite">Integrate the test into a testsuite</a></li>
+<li><a class="reference internal" href="#use-the-bench-library">Use the bench library</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="wheretoPutTest.html" title="previous chapter">Where to put a new test or application</a></li>
+      <li>Next: <a href="howtoUseFpga.html" title="next chapter">How to use the FPGA</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/howtoWriteTest.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Germain Haugou.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/howtoWriteTest.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="synth_5" LaunchPart="xc7z045ffg900-2" LaunchTime="1568651205">
+  <File Type="VDS-TIMING-PB" Name="base_zynq_design_wrapper_timing_summary_synth.pb"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="base_zynq_design_wrapper_timing_summary_synth.rpt"/>
+  <File Type="RDS-DCP" Name="base_zynq_design_wrapper.dcp"/>
+  <File Type="RDS-UTIL-PB" Name="base_zynq_design_wrapper_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="base_zynq_design_wrapper_utilization_synth.rpt"/>
+  <File Type="RDS-PROPCONSTRS" Name="base_zynq_design_wrapper_drc_synth.rpt"/>
+  <File Type="RDS-RDS" Name="base_zynq_design_wrapper.vds"/>
+  <File Type="PA-TCL" Name="base_zynq_design_wrapper.tcl"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PPRDIR/../fpga/soc/ulpsoc.edf">
+      <FileInfo>
+        <Attr Name="IsGlobalInclude" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/bd/base_zynq_design/base_zynq_design.bd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../prova_706_zynq/prova_706_zynq.srcs/sources_1/bd/base_zynq_design/base_zynq_design.bd"/>
+        <Attr Name="ImportTime" Val="1463041726"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/bd/base_zynq_design/hdl/base_zynq_design_wrapper.vhd">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../prova_706_zynq/prova_706_zynq.srcs/sources_1/bd/base_zynq_design/hdl/base_zynq_design_wrapper.vhd"/>
+        <Attr Name="ImportTime" Val="1463041726"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="base_zynq_design_wrapper"/>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <File Path="$PSRCDIR/constrs_1/new/ioconstraint.xdc">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../prova_706_zynq/prova_706_zynq.srcs/constrs_1/new/ioconstraint.xdc"/>
+        <Attr Name="ImportTime" Val="1462613459"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TargetConstrsFile" Val="$PSRCDIR/constrs_1/new/ioconstraint.xdc"/>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Flow_AreaOptimized_high" Flow="Vivado Synthesis 2017"/>
+    <Step Id="synth_design">
+      <Option Id="Directive">1</Option>
+      <Option Id="ControlSetOptThreshold">1</Option>
+    </Step>
+  </Strategy>
+</GenRun>

@@ -1,0 +1,1189 @@
+#!/usr/bin/env python3
+
+import argparse
+import os
+import os.path
+import string
+from prettytable import *
+import pulpconfig
+
+parser = argparse.ArgumentParser(description='Give access to Pulp database', add_help=False)
+
+parser.add_argument("--property", dest="property", default=None, help="Returns property value")
+parser.add_argument("--compat-mode", dest="compatMode", action="store_true", default=False, help="Activate compatibility mode")
+parser.add_argument("--dump", dest="dump", action="store_true", default=False, help="Dumps specified flags")
+parser.add_argument("--config-file", dest="configFile", action="store_true", default=False, help="Returns config file")
+parser.add_argument("--make", dest="make", action="store_true", default=False, help="Returns makefile rules")
+parser.add_argument("--make-path", dest="makePath", action="store_true", default=False, help="Returns makefile path")
+parser.add_argument("--config", dest="config", action="store_true", default=False, help="Dumps config")
+parser.add_argument("--flags", dest="flags", action="store_true", default=False, help="Dumps flags")
+parser.add_argument("--ld-flags", dest="ldFlags", action="store_true", default=False, help="Returns LD flags")
+parser.add_argument("--c-flags", dest="cFlags", action="store_true", default=False, help="Returns C flags")
+parser.add_argument("--defs", dest="defs", action="store_true", default=False, help="Returns defines")
+parser.add_argument("--compiler-rt", dest="useCompilerRt", action="store_true", default=False, help="Use compiler runtime instead of SDK one")
+parser.add_argument("--pulp-lib-path", dest="pulpLibPaths", action="append", default=[], help="Specify library include path")
+parser.add_argument("--pulp-lib", dest="pulpLibs", action="append", default=[], help="Specify library to be linked")
+parser.add_argument("--pulp-full-lib", dest="pulpFullLibs", action="append", default=[], help="Specify full library to be linked")
+parser.add_argument("--inc", dest="inc", action="store_true", default=False, help="Returns includes")
+parser.add_argument("--gdbsim", dest="gdbsim", action="store_true", default=False, help="Use gdb simulator for core simulation")
+parser.add_argument("--pulpFc", dest="pulpFc", action="store_true", default=False, help="Activate pulp FC")
+parser.add_argument("--pulpNoFc", dest="pulpNoFc", action="store_true", default=False, help="Deactivate pulp FC")
+parser.add_argument("--or1ksim", dest="or1ksim", action="store_true", default=False, help="Use or1ksim simulator for core simulation")
+parser.add_argument("--gvsim", dest="gvsim", action="store_true", default=False, help="Use internal gvsoc simulator for core simulation")
+parser.add_argument("--no-link-script", dest="noLinkScript", action="store_true", default=False, help="Do not include any link script")
+parser.add_argument("--pulpFpu", dest="pulpFpu", action="store_true", default=None, help="Activate Pulp FPU")
+parser.add_argument("--pulpLnu", dest="pulpLnu", action="store_true", default=None, help="Activate Pulp LNU")
+parser.add_argument("--pulpDiv", dest="pulpDiv", action="store_true", default=None, help="Activate Pulp HW divider")
+parser.add_argument("--pulpSharedFpu", dest="pulpSharedFpu", type=int, default=None, help="Activate Pulp shared FPU")
+parser.add_argument("--coreTrace", dest="coreTrace", action="store_true", default=False, help="Activate core traces")
+parser.add_argument("--wholeDeps", dest="wholeDeps", action="store_true", default=False, help="Activate Pulp FPU")
+parser.add_argument("--use-chip", dest="useChip", action="store_true", default=False, help="Use only chip features")
+parser.add_argument("--pulpChip", dest="pulpChip", default=None, help="Specify Pulp chip")
+parser.add_argument("--pulpChipVersion", dest="pulpChipVersion", default=None, type=int, help="Specify Pulp chip version")
+parser.add_argument("--buildDir", dest="buildDir", default=os.getcwd(), help="Specify top build directory")
+parser.add_argument("--buildDirExt", dest="buildDirExt", default='', help="Specify top build directory extension")
+parser.add_argument("--systemConfig", dest="systemConfig", default=None, help="Specify system configuration")
+parser.add_argument("--appBuildDir", dest="appBuildDir", default=None, help="Specify application build directory")
+parser.add_argument("--pulpBinary", dest="pulpBinary", default=None, help="Specify Pulp binary")
+parser.add_argument("--platform", dest="platform", default=None, help="Specify platform")
+parser.add_argument("--pulpCoreArchi", dest="pulpCoreArchi", default=None, help="Specify Pulp core architecture")
+parser.add_argument("--pulpCore", dest="pulpCore", default=None, help="Specify Pulp core")
+parser.add_argument("--pulpArchi", dest="pulpArchi", default=None, help="Specify Pulp architecture")
+parser.add_argument("--pulpRtVersion", dest="pulpRtVersion", default=None, help="Specify Pulp runtime")
+parser.add_argument("--pulpCompiler", dest="pulpCompiler", default=None, help="Specify Pulp compiler")
+parser.add_argument("--hostCompiler", dest="hostCompiler", default=None, help="Specify Host compiler")
+parser.add_argument("--scmSize", dest="scmSize", type=str, default=None, help="Specify SCM size")
+parser.add_argument("--l1Size", dest="l1Size", type=str, default=None, help="Specify L1 size")
+parser.add_argument("--l2Size", dest="l2Size", type=str, default=None, help="Specify L2 size")
+parser.add_argument("--romSize", dest="romSize", type=str, default=None, help="Specify boot ROM size")
+parser.add_argument("--nbPe", dest="nbPe", type=str, default=None, help="Specify number of cores per cluster")
+parser.add_argument("--stackSize", dest="stackSize", type=str, default=None, help="Specify stack size")
+parser.add_argument("--nbCluster", dest="nbCluster", type=str, default=None, help="Specify number of cluster")
+parser.add_argument("--pulpRt", dest="pulpRt", default=None, help="Specify Pulp runtime type")
+parser.add_argument("--pulpOmpVersion", dest="pulpOmpVersion", default=None, help="Specify Pulp OMP runtime version")
+parser.add_argument("--load", dest="load", default=None, help="Specify the way to load the binary")
+parser.add_argument("--io", dest="io", default=None, help="Specify the Input/Output mode")
+parser.add_argument("--gui", dest="gui", action="store_true", default=False, help="Use GUI")
+parser.add_argument("--vsimCov", dest="vsimCov", action="store_true", default=False, help="Activate Code Coverage feature in Questasim")
+parser.add_argument("--vsim-testname", dest="vsimTestName", default=None, help="Specify testname to use for running RTL simulation")
+parser.add_argument("--recordWlf", dest="recordWlf", action="store_true", default=False, help="Record WLF during console simulation")
+parser.add_argument("--vsim-do", dest="vsimDo", default=None, help="Specify do scripts to use for running RTL simulation (specially to set waveforms to be recorded into wlf file)")
+parser.add_argument("--no-crt0", dest="noCrt0", action="store_true", default=False, help="Don't include any crt0")
+parser.add_argument("--no-rt", dest="noRt", action="store_true", default=False, help="Don't include any runtime")
+parser.add_argument("--vsim-script", dest="vsimScript", default=None, help="Specify the script to use for running RTL simulation")
+parser.add_argument("--omp", dest="omp", action="store_true", default=False, help="Link with OMP library")
+parser.add_argument("--fetch-all", dest="fetchAll", action="store_true", default=False, help="Fetch all cores")
+parser.add_argument("--rt-trace", dest="rtTrace", type=int, default=None, help="Runtime trace level")
+parser.add_argument("--rt-nowarning", dest="rtNowarning", action="store_true", default=False, help="Deactivate runtime warnings")
+
+[args, otherArgs] = parser.parse_known_args()
+
+
+def isRiscvCore(pconfig):
+   return pconfig.get('pulpCoreArchi').find('riscv') != -1 or pconfig.get('pulpCoreArchi').find('ri5cy') != -1
+
+sdkHome = os.environ.get('PULP_SDK_HOME')
+
+
+
+# Here we buld a dictionary containing all config items specified through the command-line
+conf = {}
+# First we set the ones coming from the configuration string
+if args.systemConfig != None:
+   conf.update(pulpconfig.createItemsFromString(args.systemConfig))
+
+# Then we add the individual ones
+for key in pulpconfig.getConfigItems():
+   value = args.__dict__.get(key)
+   if value != None: 
+      conf[key] = value
+
+# Finally complete by hands with missing items until they have been move to pulpconfig
+conf2 = {'sdkHome': sdkHome, 'pulpChip' : args.pulpChip, 'hostCompiler' : args.hostCompiler, 'pulpCompiler' : args.pulpCompiler, 'or1kLlvmToolchain': os.environ.get('OR1K_LLVM_TOOLCHAIN'), 'pulpBinary' : args.pulpBinary, 'platform' : args.platform, 'pulpDiv' : args.pulpDiv, 'pulpLnu' : args.pulpLnu, 'pulpFpu' : args.pulpFpu, 'pulpSharedFpu' : args.pulpSharedFpu, 'pulpRt' : args.pulpRt, 'buildDir': args.buildDir, 'appBuildDir' : args.appBuildDir, 'buildDirExt' : args.buildDirExt, 'pulpOmpVersion' : args.pulpOmpVersion, 'pulpLibPaths' : args.pulpLibPaths, 'pulpLibs' : args.pulpLibs, 'pulpFullLibs' : args.pulpFullLibs}
+for key,value in conf2.items():
+   if conf.get(key) == None and value != None: conf[key] = value
+
+configs = pulpconfig.createConfigsFromRegexp(pulpconfig.convertConfigItemsToString(conf), getDefaults=True)
+
+if len(configs) > 1: 
+   str = "Can't launch interactive mode whereas several configurations are specified in PULP_CONFIGS:\n"
+
+   for config in configs:
+      str += '  %s\n' % (config.getString())
+
+   str += '\n'
+   str += 'You can either redefine PULP_CONFIGS with a single configuration or launch the make command adding the option config=<the config to run>\n'
+
+   raise Exception(str)
+
+pconfig = configs[0]
+systemConfig = pconfig.getString()
+
+# TODO temporary work-around, reconstruct conf dict from the config to get default values
+conf = pconfig.getAll()
+
+for key,value in conf2.items():
+   if conf.get(key) == None and value != None: conf[key] = value
+
+# Overwrite with command-line arguments
+if args.l2Size != None: conf['l2Size'] = args.l2Size
+if args.l1Size != None: conf['l1Size'] = args.l1Size
+if args.romSize != None: conf['romSize'] = args.romSize
+if args.scmSize != None: conf['scmSize'] = args.scmSize
+if args.nbPe != None: conf['nbPe'] = args.nbPe
+if args.nbCluster != None: conf['nbCluster'] = args.nbCluster
+if args.stackSize != None: conf['stackSize'] = args.stackSize
+
+if conf.get('systemConfig') != None:
+   systemFinalList = []
+   configs = conf.get('systemConfig')
+   for configItem in configs.split('_'):
+      for configItem2 in configItem.split(':'):
+        if len(configItem2.split('=', 1)) == 2:
+            [name, value] = configItem2.split('=', 1)
+            if conf.get(name) == None:
+               conf[name] = value
+            systemFinalList.append('%s' % (conf.get(name)))
+   systemFinal = '_'.join(systemFinalList)
+
+   
+defaultPulpChip = 'pulp4'
+defaultPulpChipVersion = '0'
+defaultPlatform = 'gvsoc'
+defaultPulpCompiler = 'gcc'
+defaultHostCompiler = 'gcc'
+defaultPulpFpu = False
+defaultPulpLnu = False
+defaultPulpDiv = False
+defaultPulpSharedFpu = False
+defaultPulpRt = 'bare'
+defaultPulpOmpVersion = 'libgomp'
+
+if conf.get('platform') ==  None: conf['platform'] = defaultPlatform
+
+if conf.get('platform') == 'zedboard': defaultPulpChip = 'pulp4z'
+
+if conf.get('platform') == 'hsa': defaultPulpChip = 'hsa'
+
+if conf.get('pulpChip') ==  None:
+   conf['pulpChip'] = defaultPulpChip
+
+if conf.get('pulpRt') == None: conf['pulpRt'] = defaultPulpRt
+
+if conf.get('pulpCompiler') ==  None: conf['pulpCompiler'] = defaultPulpCompiler
+if conf.get('hostCompiler') ==  None: conf['hostCompiler'] = defaultHostCompiler
+if conf.get('pulpFpu') ==  None: conf['pulpFpu'] = defaultPulpFpu
+if conf.get('pulpLnu') ==  None: conf['pulpLnu'] = defaultPulpLnu
+if conf.get('pulpDiv') ==  None: conf['pulpDiv'] = defaultPulpDiv
+if conf.get('pulpSharedFpu') ==  None: conf['pulpSharedFpu'] = defaultPulpSharedFpu
+
+if conf.get('pulpChip') ==  None: conf['pulpChip'] = defaultPulpArchi
+
+if args.useChip or pconfig.get('io') == 'uart': conf['libStringType'] = '_uart'
+else: conf['libStringType'] = ''
+
+if conf.get('pulpChip') == 'GAP':
+   conf['coreExt'] = ['gap8']
+
+if conf.get('pulpChip') == 'pulp4' or conf.get('pulpChipFamily') == 'fulmine' or conf.get('pulpChip') == 'GAP' or conf.get('pulpChip') == 'wolfe':
+   sramBase = 0x00000000
+elif conf.get('pulpChip').find('bigpulp') != -1:
+   sramBase = 0x1B000000
+else:
+   sramBase = 0x10000000
+sramBaseGlobal = 0x10000000
+
+#[ALE] For Nuraghe Chip scm and sram are swapped.
+if conf.get('pulpChipFamily').find('nuraghe') != -1:
+   scmBase = 0x10000000
+   scmBaseGlobal = scmBase
+   sramBase = scmBase + int(conf.get('scmSize'))
+   sramBaseGlobal = sramBase
+
+
+if conf.get('pulpOmpVersion') ==  None: conf['pulpOmpVersion'] = defaultPulpOmpVersion
+
+pulpRtIo = True
+pulpRtIoActive = False
+pulpRtDebug = False
+
+if pulpRtIo:
+   if conf.get('pulpRtVersion').find('release') != -1:
+      pulpRtIoActive = False
+   elif conf.get('pulpRtVersion').find('bench') != -1:
+      pulpRtIoActive = True
+   elif conf.get('pulpRtVersion').find('profile') != -1:
+      pulpRtIoActive = True
+   elif conf.get('pulpRtVersion').find('debug') != -1:
+      pulpRtDebug = True
+      pulpRtIoActive = True
+
+cflags = ''
+ldflags = ''
+defs = ''
+inc = ''
+pulpOclKernelCflags = ''
+pulpOmpKernelLdFlags = ''
+pulpOmpKernelCFlags = ''
+hostCflags = ''
+pulpRunOpt = ''
+pulpOmpLdFlags = ''
+
+if pconfig.get('pulpCoreArchi').find('riscv') != -1 or pconfig.get('pulpCoreArchi').find('ri5cy') != -1:
+   pulpCoreFamily = 'riscv'
+else:
+   pulpCoreFamily = 'or1k'
+conf['pulpCoreFamily'] = pulpCoreFamily
+
+# TODO move this to pulpconfig
+euVersion = None
+if conf.get('pulpChip') == 'pulp4':
+   if pconfig.get('pulpChipVersion') == '0':
+      euVersion = 3
+   else:
+      euVersion = 1
+elif conf.get('pulpChip') == 'pulpevo':
+   if pconfig.get('pulpChipVersion') == '0':
+      euVersion = 2
+   else:
+      euVersion = 3
+else:
+   euVersion = 1
+
+if conf.get('l1Size') != None and sramBase != None and (conf.get('pulpRt') == 'bare' or conf.get('pulpOmpVersion') == 'new' or conf.get('pulpOmpVersion') == 'libgomp'):
+
+   # For RTL-based runtime, declare the base address of the SCM
+   if conf.get('pulpOmpVersion') == 'new':
+      values = {'scmBase': sramBase + int(conf.get('l1Size')), 'scmLoadBase': 0x10000000 + int(conf.get('l1Size')), 'sramBase': sramBase}
+   else:
+      values = {'scmBase': sramBase + int(conf.get('l1Size')), 'scmLoadBase': 0x10000000 + int(conf.get('l1Size')), 'sramBase': sramBase + 0x700}
+
+   #if conf.get('pulpOmpVersion') != 'new':
+      #ldflags +=  ' -Wl,--section-start -Wl,.heapscm=0x%(scmBase)x -Wl,--defsym=heapscmLoad=0x%(scmLoadBase)x' % values
+      #ldflags +=  ' -Wl,--section-start -Wl,.heapsram=0x%(sramBase)x' % values
+
+if conf.get('pulpOmpVersion') != 'new':
+   if conf.get('l2Size') != None: defs += ' -DL2_SIZE=%s' % (conf.get('l2Size'))
+   if conf.get('l1Size') != None: defs += ' -DL1_SIZE=%s' % (conf.get('l1Size'))
+   if conf.get('scmSize') != None: defs += ' -DSCM_SIZE=%s' % (conf.get('scmSize'))
+   if conf.get('nbPe') != None: defs += ' -DNB_PE=%s' % (conf.get('nbPe'))
+   if conf.get('stackSize') != None: defs += ' -DSTACK_SIZE=%s' % (conf.get('stackSize'))
+   if conf.get('nbCluster') != None: defs += ' -DNB_CLUSTER=%s' % (conf.get('nbCluster'))
+   defs += ' -DPLP_NO_BUILTIN'
+
+if args.useChip: defs += ' -DUSE_CHIP=1'
+
+if conf.get('pulpOmpVersion') != 'new':
+   if conf.get('pulpChip') == 'pulp4':
+      defs += ' -DPULP4 -D__PULP4__'
+   elif conf.get('pulpChip') == 'pulp4z':
+      defs += ' -DPULP4 -D__PULP4__ -D__ZEDBOARD__'
+   elif conf.get('pulpCoreFamily') == 'fulmine' or conf.get('pulpChip') == 'GAP' or conf.get('pulpChip') == 'vivosoc2':
+      defs += ' -DPULP4 -D__PULP4__'
+   elif conf.get('pulpChip') == 'honey':
+      defs += ' -DHONEY -D__HONEY__'
+   elif conf.get('pulpChip') == 'pulpevo':
+      defs += ' -DPULPEVO -D__PULPEVO__'
+   elif conf.get('pulpChip') == 'mia':
+      defs += ' -DMIA -D__MIA__'
+   
+if conf.get('pulpOmpVersion') != 'new':
+   defs += ' -DPULP_CHIP=CHIP_' + conf.get('pulpChip').upper().replace('-', '_')
+   defs += ' -DPULP_CHIP_FAMILY=CHIP_' + conf.get('pulpChipFamily').upper().replace('-', '_')
+   defs += ' -DPULP_CHIP_VERSION=%s' % pconfig.get('pulpChipVersion')
+
+if pconfig.get('pulpCore') == 'or1k':
+   coreStr = 'CORE_OR1K_V1'
+elif pconfig.get('pulpCore') == 'or10n3':
+   coreStr = 'CORE_OR1K_V3'
+elif pconfig.get('pulpCore') == 'or10n4':
+   coreStr = 'CORE_OR1K_V4'
+elif pconfig.get('pulpCore') == 'or10n5':
+   coreStr = 'CORE_OR1K_V5'
+elif pconfig.get('pulpCore').find('ri5cyv2') != -1:
+   coreStr = 'CORE_RISCV_V4'
+elif pconfig.get('pulpCore').find('ri5cyv1') != -1:
+   coreStr = 'CORE_RISCV_V3'
+elif pconfig.get('pulpCore').find('ri5cy') != -1:
+   coreStr = 'CORE_RISCV_V2'
+elif pconfig.get('pulpCore').find('riscv') != -1:
+   coreStr = 'CORE_RISCV_V1'
+
+if conf.get('pulpOmpVersion') != 'new':
+   defs += ' -DPULP_CORE=' + coreStr
+
+if conf.get('pulpChip') == 'pulpino':
+   inc += ' -I%(sdkHome)s/install/include/pulpino' % conf   
+else:
+   if (conf.get('pulpRt') == 'bare' or conf.get('pulpOmpVersion') == 'libgomp') and conf.get('pulpOmpVersion') != 'new':
+      inc += ' -I%(sdkHome)s/install/include/ompBare' % conf
+      if conf.get('pulpChipFamily') == 'bigpulp':
+         inc += ' -I%(sdkHome)s/install/include/ompBare/bigpulp' % conf
+      else:
+         inc += ' -I%(sdkHome)s/install/include/ompBare/pulp' % conf
+   else:
+      if conf.get('pulpOmpVersion') != 'new':
+         inc += ' -I%(sdkHome)s/install/include/hal/pulp' % conf
+         inc += ' -I%(sdkHome)s/install/include/ompNew' % conf
+         inc += ' -I%(sdkHome)s/install/include/archi/%(pulpCore)s' % conf
+         inc += ' -I%(sdkHome)s/install/include/hal/%(pulpCore)s' % conf
+         inc += ' -I%(sdkHome)s/install/include/%(pulpChip)s' % conf
+         inc += ' -I%(sdkHome)s/install/include/archi/%(pulpChip)s' % conf
+   
+
+      if conf.get('pulpOmpVersion') == 'new':
+         if args.compatMode: inc += ' -I%(sdkHome)s/install/include/rt/compat' % conf
+
+   if conf.get('platform') == 'gdbsim':
+      inc += ' -I%(sdkHome)s/install/include'  % conf
+      inc += ' -I%(sdkHome)s/install/include/ompNative' % conf
+      inc += ' -I%(sdkHome)s/install/include' % conf
+   else:
+      inc += ' -I%(sdkHome)s/install/include' % conf
+
+
+
+# Compiler configuration
+
+archCflags = ''
+archLdflags = ''
+archObjflags = ''
+activeFc = (conf.get('pulpOmpVersion') == 'new' and (pconfig.get('pulpChip') == 'GAP' or pconfig.get('pulpChip') == 'wolfe') and not args.pulpNoFc) or args.pulpFc
+# TODO take that from config
+hasFc = pconfig.get('pulpChip') == 'GAP' or pconfig.get('pulpChip') == 'wolfe'  or args.pulpFc
+
+if pconfig.get('pulpChip') == 'GAP':
+   if conf.get('pulpFpu'):
+      archCflags    = '-march=IMFDXgap8 -mPE=8 -mFC=1'
+      archLdflags = archCflags
+      archObjflags = '-Mmarch=IMFDXgap8 '
+   else:
+      archCflags    = '-march=IMXgap8 -mPE=8 -mFC=1'
+      archLdflags = archCflags
+      archObjflags = '-Mmarch=IMXgap8 '
+elif isRiscvCore(pconfig):
+   if pconfig.get('pulpCoreArchi').find('ri5cyv2') != -1:
+      if conf.get('pulpFpu'):
+         mtune = 'IMFDXpulpv2'
+      else:
+         mtune = 'IMXpulpv2'
+   elif pconfig.get('pulpCoreArchi').find('ri5cyv1') != -1:
+      if conf.get('pulpFpu'):
+         mtune = 'IFDXpulpv1'
+      else:
+         mtune = 'IXpulpv1'
+   elif pconfig.get('pulpCoreArchi').find('ri5cy') != -1:
+      if conf.get('pulpFpu'):
+         mtune = 'IFDXpulpv0'
+      else:
+         mtune = 'IXpulpv0'
+   else:
+      if conf.get('pulpFpu'):
+         mtune = 'RV32IMFD'
+      else:
+         mtune = 'RV32IM'
+
+   archCflags = '-march=%s' % (mtune)
+   archLdflags = archCflags
+   archObjflags = '-Mmarch=%s' % (mtune)
+
+   if pconfig.get('pulpOmpVersion') == 'new':
+      archCflags += ' -mPE=%s' % (pconfig.get('nbPe'))
+      archLdflags += ' -mPE=%s' % (pconfig.get('nbPe'))
+
+if pconfig.get('pulpCoreArchi') == 'or10n' or pconfig.get('pulpCoreArchi') == 'or1k':
+   toolchain = os.environ.get('OR1K_GCC_TOOLCHAIN')
+else: 
+   toolchain = os.environ.get('OR10NV2_GCC_TOOLCHAIN')
+
+if toolchain == None:
+   toolchain = ''
+else:
+   toolchain = toolchain + '/bin/'
+
+if pconfig.get('pulpCoreArchi') == 'riscv-rvc' or pconfig.get('pulpCoreArchi') == 'ri5cyv1-rvc' or pconfig.get('pulpCoreArchi') == 'ri5cy-rvc' or pconfig.get('pulpCoreArchi') == 'ri5cyv2-rvc':
+   pulpLd = 'riscv32-unknown-elf-gcc -mrvc'
+   pulpObjdump = 'riscv32-unknown-elf-objdump'
+   pulpPrefix = 'riscv32-unknown-elf-'
+   pulpCc = 'riscv32-unknown-elf-gcc '
+   pulpAr = 'riscv32-unknown-elf-ar'
+   pulpOmpCc = '%s -fopenmp' % (pulpCc)
+   archCflags += ' -mrvc'
+elif pconfig.get('pulpCoreArchi') == 'riscv' or pconfig.get('pulpCoreArchi') == 'ri5cy' or pconfig.get('pulpCoreArchi') == 'ri5cyv1' or pconfig.get('pulpCoreArchi') == 'ri5cyv2':
+   pulpLd = 'riscv32-unknown-elf-gcc'
+   pulpObjdump = 'riscv32-unknown-elf-objdump'
+   pulpPrefix = 'riscv32-unknown-elf-'
+   pulpCc = 'riscv32-unknown-elf-gcc '
+   pulpAr = 'riscv32-unknown-elf-ar'
+   pulpOmpCc = '%s -fopenmp' % (pulpCc)
+elif pconfig.get('pulpCoreArchi') == 'or1k':
+   if conf.get('pulpCompiler') == 'llvm':
+      pulpAr = 'or1kle-elf-ar'
+      pulpLd = 'or1kle-elf-gcc'
+      pulpObjdump = 'or1kle-elf-objdump'
+      pulpPrefix = 'or1kle-elf-'
+      pulpCc = 'clang -target or1kle-elf -mcpu=pulp2 -D__LLVM__'
+   else:
+      pulpAr = toolchain + 'or1kle-elf-ar'
+      pulpLd = toolchain + 'or1kle-elf-gcc'
+      pulpObjdump = toolchain + 'or1kle-elf-objdump'
+      pulpPrefix = toolchain + 'or1kle-elf-'
+      pulpCc = toolchain + 'or1kle-elf-gcc -mnopostmod -mnomac -mnominmax -mnoabs -mnohwloop -mnovect -mnocmov -D__GCC__ -fno-jump-tables'
+elif pconfig.get('pulpCoreArchi').find('or10n') != -1:
+   if conf.get('pulpCompiler') == 'llvm':
+      pulpAr = 'or1kle-elf-ar'  
+      pulpLd = 'or1kle-elf-gcc'
+      pulpObjdump = 'or1kle-elf-objdump'
+      pulpPrefix = 'or1kle-elf-'
+      pulpCc = 'clang -target or1kle-elf -mcpu=pulp3 -mmac3 -mmul16 -mlv32 -mcrtl -D__LLVM__'
+   else:
+      pulpAr = toolchain + 'or1kle-elf-ar'
+      pulpLd = toolchain + 'or1kle-elf-gcc'
+      pulpObjdump = toolchain + 'or1kle-elf-objdump'
+      pulpPrefix = toolchain + 'or1kle-elf-'
+      pulpCc = toolchain + 'or1kle-elf-gcc -D__GCC__ -fno-jump-tables'
+      if pconfig.get('pulpCoreArchi') == 'or10n': pulpCc += ' -mnomsu'
+
+if pconfig.get('pulpCoreArchi') == 'or1k' or pconfig.get('pulpCoreArchi').find('or10n') != -1:
+   if conf.get('pulpCompiler') == 'llvm':
+      if os.environ.get('OR1K_LLVM_VERSION') == 'v1.8.6b':
+         pulpOmpCc = '%s -Xclang -fopenmp=libiomp5 -fopenmp' % (pulpCc)
+      else:
+         pulpOmpCc = '%s -Xclang -fopenmp' % (pulpCc)
+   else:
+      pulpOmpCc = '%s -fopenmp' % (pulpCc)
+
+if conf.get('pulpCompiler') == 'llvm':
+   hostLd = 'or1kle-elf-gcc'
+   hostCc = 'clang -target or1kle-elf -mcpu=pulp3 -D__LLVM__'
+   hostAr = 'or1kle-elf-ar'
+else:
+   hostLd = toolchain + 'or1kle-elf-gcc'
+   hostCc = toolchain + 'or1kle-elf-gcc -D__GCC__'
+   hostAr = toolchain + 'or1kle-elf-ar'
+
+
+#
+# BUILD DIR
+#
+
+if conf.get('appBuildDir') == None:
+   if conf.get('systemConfig') != None:
+      conf['appBuildDir'] = '%s/%s%s' % (conf.get('buildDir'), systemFinal, conf.get('buildDirExt'))
+   else:
+      conf['appBuildDir'] = '%(buildDir)s/%(pulpCoreArchi)s_%(pulpChip)s_%(pulpChipVersion)s_%(pulpCompiler)s_%(pulpRtVersion)s_%(pulpRt)s_%(pulpOmpVersion)s%(buildDirExt)s' % conf
+
+
+
+
+
+#
+# CFLAGS
+#
+
+envCFlags = os.environ.get('PULP_CFLAGS')
+if envCFlags != None:
+   cflags += envCFlags
+
+if conf.get('pulpOmpVersion') != 'new':
+   cflags += ' -DPULP -D__PULP__'
+   cflags += ' -Wextra -Wall -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function -fdata-sections -ffunction-sections'
+else:
+   cflags += ' -DPULP -D__PULP__'
+
+rtVersionFlags = []
+if conf.get('pulpRtVersion') == 'debug':
+   rtVersionFlags += ['__DEBUG__', 'DEBUG', 'CHECKINGS']
+elif conf.get('pulpRtVersion') == 'bench':
+   rtVersionFlags += ['BENCH']
+elif conf.get('pulpRtVersion') == 'profile0':
+   rtVersionFlags += ['PROFILE0']
+elif conf.get('pulpRtVersion') == 'profile1':
+   rtVersionFlags += ['PROFILE1']
+
+if conf.get('pulpOmpVersion') != 'new':
+   for flag in rtVersionFlags:
+      cflags += ' -D%s=1' % (flag)
+
+
+if hasFc:
+   cflags += ' -DPLP_HAS_FC=1'
+
+if activeFc:
+   cflags += ' -DPLP_ACTIVE_FC=1'
+
+if conf.get('pulpFpu') or conf.get('pulpSharedFpu'):
+   cflags += ' -mhard-float -DHARD_FLOAT'
+
+if conf.get('pulpLnu') or conf.get('pulpSharedLnu'):
+   cflags += ' -Xclang -fnative-half-type -Xclang -fallow-half-arguments-and-returns -DMATH_FNS_WITH_LNS -mlns-format -mhard-float -mllvm -custom-or1k-delays="%s/install/ref/latencies_shared_lnu.txt"' % (os.environ['PULP_SDK_HOME'])
+
+if conf.get('pulpDiv'):
+   cflags += ' -mhard-div'
+
+if pconfig.get('pulpCoreArchi').find('or10n') != -1:
+   if pconfig.get('pulpCore') == 'or10n5':
+      cflags += ' -DOR10N5 -D__OR10N5__ -DOR1K -D__OR1K__'
+   elif pconfig.get('pulpCore') == 'or10n4':
+      cflags += ' -DOR10N4 -D__OR10N4__ -DOR1K -D__OR1K__'
+   elif pconfig.get('pulpCore') == 'or10n3':
+      cflags += ' -DOR10N3 -D__OR10N3__ -DOR1K -D__OR1K__'
+elif pconfig.get('pulpCoreArchi') == 'or1k':
+      cflags += ' -DOR1K -D__OR1K__'
+
+if conf.get('platform') == 'gdbsim':
+   cflags += ' -DNATIVE=1'
+
+platform = None
+if conf.get('pulpOmpVersion') == 'libgomp':
+      cflags += ' -D__LIBGOMP__'
+
+if conf.get('pulpOmpVersion') == 'new' or conf.get('pulpOmpVersion') == 'ovx':
+   if conf.get('pulpOmpVersion') != 'new':
+      cflags += ' -D__OMP_NEW_RT__'
+
+   if conf.get('platform') == 'rtl':
+      platform = 'RT_SYS_CONF_PLATFORM_RTL'
+   elif conf.get('platform') == 'fpga':
+      platform = 'RT_SYS_CONF_PLATFORM_FPGA'
+   else:
+      platform = 'RT_SYS_CONF_PLATFORM_OTHER'
+   if conf.get('pulpOmpVersion') != 'new': cflags += ' -DPLATFORM=%s' % (platform)
+
+if conf.get('platform') == 'rtl':
+   cflags += ' -D__RTL__'
+elif conf.get('platform') == 'fpga':
+   cflags += ' -D__FPGA__'
+elif conf.get('platform') == 'zedboard':
+   cflags += ' -D__ZEDBOARD__'
+
+if conf.get('pulpCompiler') == 'llvm':
+   if os.environ.get('OR1K_LLVM_VERSION') == 'v1.8.6b':
+      cflags += ' -DOLD_KMPC_FORK_CALL'
+
+if conf.get('pulpCompiler') == 'gcc' and pconfig.get('pulpCoreArchi') == 'or10n':
+   cflags += ' -mnovectu'
+
+
+if conf.get('pulpOmpVersion') == 'ovx':
+   cflags += ' -I%(sdkHome)s/install/include/ovx' % conf
+
+if conf.get('pulpOmpVersion') == 'new':
+   cflags += ' -include %s/pulpConfig.h' % (conf.get('appBuildDir'))
+   if pconfig.get('pulpCoreArchi').find('ri5cy') != -1 and args.omp:
+      cflags += ' -mnativeomp'
+
+
+dynCflags = '-fpic'
+dynLdflags = '-T%(sdkHome)s/install/src/Comp.ld -fpic -mComp -nostartfiles' % conf
+
+#
+# LDFLAGS
+#
+
+if conf.get('pulpFpu') or conf.get('pulpSharedFpu'):
+   ldflags += ' -mhard-float'
+
+if conf.get('pulpDiv'):
+   ldflags += ' -mhard-div'
+
+if conf.get('pulpOmpVersion') == 'new':
+   if not args.noCrt0: ldflags += ' %(sdkHome)s/install/%(pulpCoreArchi)s/lib/crt0-%(pulpChip)s_%(pulpChipVersion)s-%(pulpCompiler)s-%(pulpRtVersion)s.o' % conf
+   ldflags += ' -L%(sdkHome)s/install/%(pulpCoreArchi)s/lib' % conf
+
+for lib in conf.get('pulpLibs'):
+   if lib == 'cconvnet' and conf.get('pulpOmpVersion') == 'new': lib = 'cconvnet_newrt'
+   ldflags += ' -l%s-%s' % (lib, '%(pulpChip)s_%(pulpChipVersion)s-%(pulpCompiler)s-%(pulpRtVersion)s' % conf)
+
+if conf.get('pulpOmpVersion') == 'new':
+   if args.omp: ldflags += ' -lplpomp-%(pulpChip)s_%(pulpChipVersion)s-%(pulpCompiler)s-%(pulpRtVersion)s' % conf
+   if not args.noLinkScript: ldflags += ' -T%(appBuildDir)s/link.ld' % conf
+   if not args.noRt:
+      ldflags += ' -lplprt-%(pulpChip)s_%(pulpChipVersion)s-%(pulpCompiler)s-%(pulpRtVersion)s -T%(appBuildDir)s/config.ld -nostartfiles -nostdlib' % conf
+      #ldflags += ' -lbench-%(pulpChip)s_%(pulpChipVersion)s-%(pulpCompiler)s-%(pulpRtVersion)s' % conf
+      #ldflags += ' -lsys-%(pulpChip)s_%(pulpChipVersion)s-%(pulpCompiler)s-%(pulpRtVersion)s' % conf
+      ldflags += ' -lplpdrivers-%(pulpChip)s_%(pulpChipVersion)s-%(pulpCompiler)s-%(pulpRtVersion)s' % conf
+   if pulpRtIoActive:
+      ldflags += ' -lplpio-%(pulpChip)s_%(pulpChipVersion)s-%(pulpCompiler)s-%(pulpRtVersion)s' % conf
+   if not args.noRt:
+      ldflags += ' -lplpsys-%(pulpChip)s_%(pulpChipVersion)s-%(pulpCompiler)s-%(pulpRtVersion)s' % conf
+      ldflags += ' -lplpmalloc-%(pulpChip)s_%(pulpChipVersion)s-%(pulpCompiler)s-%(pulpRtVersion)s' % conf
+      ldflags += ' -lplpdoublebuff-%(pulpChip)s_%(pulpChipVersion)s-%(pulpCompiler)s-%(pulpRtVersion)s' % conf
+      ldflags += ' -lplprt-%(pulpChip)s_%(pulpChipVersion)s-%(pulpCompiler)s-%(pulpRtVersion)s' % conf
+   else:
+      ldflags += ' -T%(appBuildDir)s/config.ld -nostartfiles -nostdlib' % conf
+      
+
+   if not args.wholeDeps:
+      ldflags += ' -Wl,--gc-sections'
+
+elif conf.get('pulpOmpVersion') == 'ovx':
+   ldflags += ' -L%(sdkHome)s/install/%(pulpCoreArchi)s/lib -Wl,--whole-archive -lrt-%(pulpChip)s_%(pulpChipVersion)s-%(pulpCompiler)s-%(pulpRtVersion)s -Wl,--no-whole-archive -T%(sdkHome)s/install/src/pulp/%(pulpChip)s/link.ld -nostartfiles' % conf
+   if args.useCompilerRt: ldflags += ' -L%(or1kLlvmToolchain)s/lib/clang/3.8.0/or1kle-elf/pulp3 -lclang_rt.builtins' % conf
+
+   if not args.wholeDeps:
+      ldflags += ' -Wl,--gc-sections'
+
+else:
+
+   if conf.get('pulpChip') == 'pulpino':
+      if pconfig.get('pulpCoreArchi').find('or10n') != -1:
+         link = 'link.or10n.ld' % conf
+      else:
+         link = 'link.riscv.ld' % conf
+      ldflags += (' -nostartfiles -L%(sdkHome)s/install/%(pulpCoreArchi)s/lib -L%(sdkHome)s/install/src/pulpino -T%(sdkHome)s/install/src/pulpino/' % conf) + link
+      ldflags += ' -lstring%(libStringType)s-%(pulpChip)s_%(pulpChipVersion)s-%(pulpCompiler)s-%(pulpRtVersion)s -lsys%(libStringType)s-%(pulpChip)s_%(pulpChipVersion)s-%(pulpCompiler)s-%(pulpRtVersion)s'  % conf
+   else:
+
+      if conf.get('pulpChip') == 'GAP':
+         link = 'link.GAP.ld' % conf
+      elif pconfig.get('pulpCoreArchi') == 'or1k':
+         link = 'link-bare-%s.or10n.ld' % conf.get('pulpChipFamily')
+      elif pconfig.get('pulpCoreArchi').find('or10n') != -1:
+         link = 'link-bare-%s.or10n.ld' % conf.get('pulpChipFamily')
+      else:
+         link = 'link-bare-%s.riscv.ld' % conf.get('pulpChipFamily')
+      
+      if not args.noLinkScript:
+         ldflags += (' -T%(appBuildDir)s/link.ld -T%(appBuildDir)s/config.ld ' % conf)
+      ldflags +=  ' -nostartfiles -nostdlib -Wl,--gc-sections -L%(sdkHome)s/install/%(pulpCoreArchi)s/lib -lbench-%(pulpChip)s_%(pulpChipVersion)s-%(pulpCompiler)s-%(pulpRtVersion)s -lmalloc-%(pulpChip)s_%(pulpChipVersion)s-%(pulpCompiler)s-%(pulpRtVersion)s -lgomp-%(pulpChip)s_%(pulpChipVersion)s-%(pulpCompiler)s-%(pulpRtVersion)s -lstdio-%(pulpChip)s_%(pulpChipVersion)s-%(pulpCompiler)s-%(pulpRtVersion)s -lstring%(libStringType)s-%(pulpChip)s_%(pulpChipVersion)s-%(pulpCompiler)s-%(pulpRtVersion)s -lsys-%(pulpChip)s_%(pulpChipVersion)s-%(pulpCompiler)s-%(pulpRtVersion)s -lmalloc-%(pulpChip)s_%(pulpChipVersion)s-%(pulpCompiler)s-%(pulpRtVersion)s -Wl,--gc-sections' % conf
+
+   for libPath in conf.get('pulpLibPaths'):
+      ldflags += ' -L%s' % (libPath)
+
+   if pconfig.get('pulpCoreArchi') in ['or1k', 'or10n']:
+      if args.useCompilerRt: ldflags += ' -L%(or1kLlvmToolchain)s/lib/clang/3.8.0/or1kle-elf/pulp3 -lclang_rt.builtins' % conf
+
+   ldflags += ' -lc'
+   if args.useCompilerRt:
+      # TODO -lgcc required for HSA but should not be used normally, check with Pirmin if we can remove it
+      if pconfig.get('pulpCoreArchi') in ['or10nv2']:
+         # We don't have yet LLVM runtime for or10nv2, take gcc one for now
+         ldflags += ' -lgcc'
+
+if not args.useCompilerRt:
+   conf.get('pulpLibs').append('compilerrt')
+
+if conf.get('pulpCompiler') == 'gcc':
+   if not args.useCompilerRt:
+      # Still include gcc lib after as a few builtins are not supported by compilerrt (e.g. mulsa3 for fractionals)
+      ldflags += ' -lgcc'
+
+for lib in conf.get('pulpFullLibs'):
+   ldflags += ' -Wl,--whole-archive -l%s-%s  -Wl,--no-whole-archive' % (lib, '%(pulpChip)s_%(pulpChipVersion)s-%(pulpCompiler)s-%(pulpRtVersion)s' % conf)
+      
+
+
+
+
+# OPENMP
+
+if conf.get('pulpOmpVersion') == 'ovx':
+   pulpOmpLdFlags += ' -lomp-%(pulpChip)s_%(pulpChipVersion)s-%(pulpCompiler)s-%(pulpRtVersion)s' % conf
+
+
+
+
+
+
+#
+# OCL kernel flags
+#
+
+
+if conf.get('pulpChip') == 'pulp4z':
+   pulpOclKernelCflags += ' -DPULP4 -D__PULP4__ -D__ZEDBOARD__'
+elif conf.get('pulpChip') == 'pulp4':
+   pulpOclKernelCflags += ' -DPULP4 -D__PULP4__'
+elif conf.get('pulpChip') == 'honey':
+   pulpOclKernelCflags += ' -DHONEY -D__HONEY__'
+elif conf.get('pulpChip') == 'pulpevo':
+   pulpOclKernelCflags += ' -DPULPEVO -D__PULPEVO__'
+elif conf.get('pulpChip') == 'mia':
+   pulpOclKernelCflags += ' -DMIA -D__MIA__'
+
+if conf.get('pulpFpu') or conf.get('pulpSharedFpu'):
+   pulpOclKernelTarget  = 'pulp3-fpu-or1k-bench-%s' % (conf.get('pulpCompiler'))
+else:
+   pulpOclKernelTarget =  'pulp3-or1k-bench-%s' % (conf.get('pulpCompiler'))
+
+
+
+
+#
+# OMP kernel flags
+#
+
+if conf.get('pulpFpu') or conf.get('pulpSharedFpu'):
+   pulpOmpKernelLdFlags += ' -mhard-float'
+
+if conf.get('pulpDiv'):
+   pulpOmpKernelLdFlags += ' -mhard-div'
+
+pulpOmpKernelCFlags += ' -fPIC -I%(sdkHome)s/install' % conf
+pulpOmpKernelLdFlags += ' -nostdlib -shared -fPIC -lm' % conf
+if args.useCompilerRt: pulpOmpKernelLdFlags += ' -L%(or1kLlvmToolchain)s/lib/clang/3.8.0/or1kle-elf/pulp3 -lclang_rt.builtins' % conf
+
+
+
+#
+# Host CFLAGS
+#
+
+hostCflags += ' -I%(sdkHome)s/install/include' % conf
+
+
+
+#
+# Runner
+#
+
+if conf.get('platform') == 'gvsoc':
+
+   if conf.get('coreExt') != None:
+      extStr = None
+      for ext in conf.get('coreExt'):
+         if extStr == None: extStr = '--%s' % (ext)
+         else: extStr += ' --%s' % (ext)
+      pulpRunOpt += '--core-ext="%s"' % (extStr)
+
+   if conf.get('l2Size') != None: pulpRunOpt += ' --l2-size=%s' % (conf.get('l2Size'))
+   if conf.get('romSize') != None: pulpRunOpt += ' --rom-size=%s' % (conf.get('romSize'))
+   if conf.get('l1Size') != None: pulpRunOpt += ' --l1-size=%s' % (conf.get('l1Size'))
+   if conf.get('scmSize') != None: pulpRunOpt += ' --scm-size=%s' % (conf.get('scmSize'))
+
+   if conf.get('pulpChip') != 'pulpino' and args.systemConfig != None:
+      pulpRunOpt += ' --config=%s' % (args.systemConfig)
+
+   if conf.get('pulpRtVersion') == 'profile0' or conf.get('pulpRtVersion') == 'profile1':
+      pulpRunOpt += ' --tv'
+
+   if args.useChip:
+      pulpRunOpt += " --use-chip"
+   if args.gdbsim:
+      pulpRunOpt += " --prop=/:or1kiss:or1kgdbsim"
+   if args.gvsim:
+      pulpRunOpt += " --prop=/:or1kiss:gvsim"
+   if args.or1ksim:
+      pulpRunOpt += " --prop=/:or1kiss:or1ksim"
+   pulpRunOpt += ' --fabric-archi=%(pulpChipFamily)s --pdb-no-break' % conf
+elif conf.get('platform') == 'rtl':
+   if args.load != None: pulpRunOpt += ' --load=%s' % (args.load)
+   if args.vsimScript != None: pulpRunOpt += ' --vsim-script=%s' % (args.vsimScript)
+   if args.vsimDo != None: pulpRunOpt += ' --vsim-do=\'%s\'' % (args.vsimDo)
+   if args.vsimTestName != None: pulpRunOpt += ' --vsim-testname=\'%s\'' % (args.vsimTestName)
+   if args.gui: pulpRunOpt += ' --gui'
+   if args.vsimCov: pulpRunOpt += ' --vsimCov'
+   if args.recordWlf: pulpRunOpt += ' --recordWlf'
+elif conf.get('platform') == 'board':
+   if args.load != None: pulpRunOpt += ' --load=%s' % (args.load)
+
+if pconfig.get('pulpCoreArchi') == 'riscv' or pconfig.get('pulpCoreArchi') == 'ri5cy' or pconfig.get('pulpCoreArchi') == 'ri5cyv1' or pconfig.get('pulpCoreArchi') == 'ri5cyv2':
+   archiName = '%(pulpChip)s-riscv' % conf
+elif pconfig.get('pulpCoreArchi') == 'riscv-rvc' or pconfig.get('pulpCoreArchi') == 'ri5cy-rvc' or pconfig.get('pulpCoreArchi') == 'ri5cyv1-rvc' or pconfig.get('pulpCoreArchi') == 'ri5cyv2-rvc':
+   archiName = '%(pulpChip)s-riscv' % conf
+elif pconfig.get('pulpCoreArchi') == 'or10nv2':
+   archiName = '%(pulpChip)s' % conf
+else:
+   archiName = '%(pulpChip)s' % conf
+
+simArchi = pconfig.get('pulpCoreArchi')
+#if pconfig.get('pulpCoreArchi') == 'ri5cy': simArchi = 'riscv'
+#elif pconfig.get('pulpCoreArchi') == 'ri5cy-rvc': simArchi = 'riscv-rvc'
+#elif pconfig.get('pulpCoreArchi') == 'ri5cyv2' or pconfig.get('pulpCoreArchi') == 'ri5cyv1': simArchi = 'ri5cyv2'
+#elif pconfig.get('pulpCoreArchi') == 'ri5cy-rvc' or pconfig.get('pulpCoreArchi') == 'ri5cyv1-rvc': simArchi = 'ri5cyv2-rvc'
+#else: simArchi = pconfig.get('pulpCoreArchi')
+conf['simArchi'] = simArchi
+
+if conf.get('platform') == 'gvsoc':
+   if conf.get('pulpDiv'): pulpRunOpt += ' --div'
+   if conf.get('pulpFpu'): pulpRunOpt += ' --fpu'
+   if conf.get('pulpLnu'): pulpRunOpt += ' --core-ext=--lnu'
+   elif conf.get('pulpSharedFpu'): pulpRunOpt += ' --shared-fpu=%s' % (conf.get('pulpSharedFpu'))
+   if args.coreTrace: pulpRunOpt += ' --iss-trace'
+   if conf.get('nbCluster') != None: pulpRunOpt += ' --nb-cluster=%s' % (conf.get('nbCluster'))
+   if conf.get('pulpChip') != 'pulpino':
+      if conf.get('nbPe') != None: pulpRunOpt += ' --nb-pe=%s' % (conf.get('nbPe'))
+   if conf.get('pulpBinary') != None:
+      if conf.get('pulpOmpVersion') == 'new':
+         pulpRunOpt += ' --load-binary=%(pulpBinary)s:1' % conf
+      else:
+         pulpRunOpt += ' --load-binary=%(pulpBinary)s:-1' % conf
+   pulpRunOpt += ' --pulp-chip-version=%(pulpChipVersion)s --pulpCoreArchi=%(simArchi)s' % conf
+elif conf.get('platform') == 'fpga':
+   pulpRunOpt += ' --pulp-archi=%s' % (archiName)
+   if conf.get('pulpBinary') != None:
+      pulpRunOpt += ' --binary=%(pulpBinary)s' % conf
+   pulpRunOpt += ' --pulp-core-archi=%(simArchi)s' % conf
+elif conf.get('platform') == 'rtl':
+   if conf.get('pulpBinary') != None:
+      pulpRunOpt += ' --binary=%(pulpBinary)s' % conf
+   pulpRunOpt += ' --pulp-archi=%s' % (archiName)
+elif conf.get('platform') == 'board':
+   pulpRunOpt += ' --pulp-archi=%s' % (archiName)
+   pulpRunOpt += ' --pulp-core-archi=%(simArchi)s' % conf
+   if conf.get('pulpBinary') != None:
+      if conf.get('pulpOmpVersion') == 'new':
+         pulpRunOpt += ' --binary=%(pulpBinary)s:1' % conf
+      else:
+         pulpRunOpt += ' --binary=%(pulpBinary)s:-1' % conf
+else:
+   if conf.get('pulpBinary') != None:
+      pulpRunOpt += ' --binary=%(pulpBinary)s' % conf
+
+if conf.get('platform') == 'rtl' or conf.get('platform') == 'gvsoc':
+   if args.useChip or args.load =='rom': pulpRunOpt += ' --boot-binary=%s' % (os.path.join(os.environ.get('PULP_SDK_HOME'), 'install', pconfig.get('pulpCoreArchi'), 'bin', 'boot-%s' % (pconfig.get('pulpChip'))))
+
+# Compute command
+
+cflags += ' $(PULP_DEFS) $(PULP_INC_PATHS)'
+results = ''
+
+if args.defs and not args.cFlags:
+   results += defs
+
+if args.inc and not args.cFlags:
+   results += inc
+
+if args.cFlags:
+   results += cflags
+
+if args.ldFlags:
+   results += ldflags
+
+if args.dump:
+   print (results)
+
+
+if args.configFile:
+      print ('#ifndef __PULP_CONFIG_H__')
+      print ('#define __PULP_CONFIG_H__')
+      print ('')
+      print ('#define PLP_RT 1')
+      if pulpRtDebug: print ('#define PLP_RT_DEBUG 1')
+      if pulpRtIo: print ('#define PLP_RT_IO 1')
+      if pulpRtIoActive: print ('#define PLP_RT_IO_ACTIVE 1')
+      if conf.get('l2Size') != None: print ('#define L2_SIZE %s' % (conf.get('l2Size')))
+      if conf.get('l1Size') != None: print ('#define L1_SIZE %s' % (conf.get('l1Size')))
+      if conf.get('scmSize') != None: print ('#define SCM_SIZE %s' % (conf.get('scmSize')))
+      if conf.get('nbCluster') != None: print ('#define NB_CLUSTER %s' % (conf.get('nbCluster')))
+
+      print ('#define PULP_CHIP CHIP_' + conf.get('pulpChip').upper().replace('-', '_'))
+      print ('#define PULP_CHIP_FAMILY CHIP_' + conf.get('pulpChipFamily').upper().replace('-', '_'))
+      print ('#define PULP_CHIP_VERSION %s' % pconfig.get('pulpChipVersion'))
+      print ('#define PULP_CORE %s' % coreStr)
+
+      for flag in rtVersionFlags:
+         print ('#define %s 1' % flag)
+
+      if pconfig.get('pulpCoreArchi').find('riscv') != -1 and pconfig.get('pulpCoreArchi').find('ri5cy') != -1: print ('#define PLP_NO_BUILTIN 1')
+      print ('#define RT_CONF_PLATFORM_NONE -1')
+      print ('#define RT_CONF_PLATFORM_OTHER 0')
+      print ('#define RT_CONF_PLATFORM_RTL   1')
+      print ('#define RT_CONF_PLATFORM_FPGA  2')
+      if platform != None: print ('#define PLATFORM %s' % (platform.replace('_SYS', '')))
+      print ('')
+      print ('#endif')
+
+if args.makePath:
+   print (conf.get('appBuildDir'))
+
+if args.make:
+      print('PULP_ARCHI_VERSION=%s' % (pconfig.get('pulpArchiVersion')))
+      print('PULP_CHIP_VERSION=%s' % (pconfig.get('pulpChipVersion')))
+      print('PULP_CHIP_FAMILY=%s' % (conf.get('pulpChipFamily')))
+      print('PULP_CHIP=%s' % (conf.get('pulpChip')))
+      print('PULP_CORE=%s' % (pconfig.get('pulpCore')))
+      if euVersion != None: print('EU_VERSION=%s' % (euVersion))
+      print('HOST_CFLAGS+=%s' % (hostCflags))
+      print('PULP_DEFS+=%s' % (defs))
+      print('PULP_ARCH_CFLAGS ?= %s' % (archCflags))
+      print('PULP_ARCH_LDFLAGS ?= %s' % (archLdflags))
+      print('PULP_ARCH_OBJFLAGS ?= %s' % (archObjflags))
+      print('PULP_INC_PATHS+=%s' % (inc))
+      print('PULP_ROOT_CFLAGS+=$(PULP_ARCH_CFLAGS) %s' % (cflags))
+      print('PULP_ROOT_LDFLAGS+=$(PULP_ARCH_LDFLAGS) %s' % (ldflags))
+      print('PULP_DYN_CFLAGS+= %s' % (dynCflags))
+      print('PULP_DYN_LDFLAGS+= %s' % (dynLdflags))
+      print('PULP_OMP_LDFLAGS+=%s' % (pulpOmpLdFlags))
+      print('PULP_OBJDUMP = %s $(PULP_ARCH_OBJFLAGS)' % (pulpObjdump))
+      print('PULP_PREFIX = %s' % (pulpPrefix))
+      print('PULP_LD = %s' % (pulpLd))
+      print('PULP_CC = %s' % (pulpCc))
+      print('PULP_AR = %s' % (pulpAr))
+      print('HOST_LD = %s' % (hostLd))
+      print('HOST_CC = %s' % (hostCc))
+      print('HOST_AR = %s' % (hostAr))
+      print('PULP_OMP_CC = %s' % (pulpOmpCc))
+      print('PULP_OCL_KERNEL_CFLAGS += %s' % (pulpOclKernelCflags))
+      print('PULP_OCL_KERNEL_TARGET = %s' % (pulpOclKernelTarget))
+      print('PULP_OMP_KERNEL_LDFLAGS += %s' % (pulpOmpKernelLdFlags))
+      print('PULP_OMP_KERNEL_CFLAGS += %s' % (pulpOmpKernelCFlags))
+      print('pulpRunOpt += %s' % (pulpRunOpt))
+      print('APP_BUILD_DIR += %s\n' % (conf.get('appBuildDir')))
+
+
+
+      for key,value in conf.items():
+         print('%s=%s' % (key, value))
+
+      print('MAKE_GEN_STATUS=success')
+
+
+
+def addConf(x, name, description):
+   x.add_row([name, conf.get(name), description])
+   
+def addConf2(x, name, description):
+   x.add_row([name, pconfig.get(name), description])
+   
+
+if args.make:
+   try:
+      os.makedirs('%(sdkHome)s/install/ref/pulp-rt' % conf)
+   except:
+      pass
+
+   with open('%s/config.ld' % conf.get('appBuildDir'), 'w') as link:
+      link.write('__ZERO  = 0;\n')
+      rtTrace = 0 if args.rtTrace == None else args.rtTrace + 1
+      link.write('__USE_UART = %d;\n' % (pconfig.get('io') == 'uart'))
+      link.write('__RT_DEBUG_CONFIG   = (%d << 8) | %d;\n' % (int(args.rtNowarning), rtTrace))
+      link.write('__FC   = %d;\n' % hasFc)
+      link.write('__L2   = 0x%x;\n' % int(conf.get('l2Size')))
+      link.write('__L1Cl = 0x%x;\n' % int(conf.get('l1Size')))
+      link.write('__FETCH_ALL = 0x%x;\n' % (1 if args.fetchAll else 0))
+      link.write('__ACTIVE_FC = 0x%x;\n' % (1 if activeFc else 0))
+      link.write('__STACK_SIZE = 0x%x;\n' % int(conf.get('stackSize')))
+      link.write('__NB_ACTIVE_PE = %d;\n' % int(conf.get('nbPe')))
+
+if args.make and conf.get('pulpChip') != 'pulpino':
+
+   with open('%(sdkHome)s/install/src/link.ld' % conf, 'r') as linkTemplate:
+      
+      linkDict = {}
+      if conf.get('pulpChipFamily') == 'nuraghe':
+         scmBase = 0x10000000
+         scmBaseGlobal = scmBase
+         sramLoadBase = scmBase + int(conf.get('scmSize'))
+         scmLoadBase = scmBase
+      else: 
+         sramLoadBase = 0x10000000
+         scmLoadBase = sramLoadBase + int(conf.get('l1Size'))
+         scmBase = sramBase + int(conf.get('l1Size'))
+         scmBaseGlobal = sramBaseGlobal + int(conf.get('l1Size'))
+      if conf.get('scmSize') != None and int(conf.get('scmSize')) != 0: scmMemory = 'L1_scm'
+      else: scmMemory = 'L1_sram'
+   
+      sramSize = int(conf.get('l1Size'))
+      fullSramSize = sramSize
+      if conf.get('pulpOmpVersion') == 'libgomp':
+         sramBase += 0x8
+         sramBaseGlobal += 0x8
+         sramSize -= 0x8
+      else:
+         # We shift by 4 bytes to not use address 0 which is consider special by the compiler
+         # and thus triggers stange behavior
+         sramBase += 0x4
+         sramBaseGlobal += 0x4
+         sramSize -= 0x4
+
+      conf['l1Base'] = sramBase
+      linkDict['sramBaseGlobal'] = sramBaseGlobal
+      conf['scmBase'] = scmBase
+      memorySections =  '  L2          : ORIGIN = 0x1C000000, LENGTH = 0x%x\n' % int(conf.get('l2Size'))
+      memorySections += '  L1_sram     : ORIGIN = 0x%x, LENGTH = 0x%x\n' % (conf.get('l1Base'), sramSize)
+      memorySections += '  L1_sram_G   : ORIGIN = 0x%x, LENGTH = 0x%x\n' % (sramBaseGlobal, sramSize)
+      if conf.get('pulpChipFamily') != 'nuraghe':
+         memorySections += '  L1_sram_tls : ORIGIN = 0x00000000, LENGTH = 0x%x\n' % (fullSramSize)
+      else:
+         memorySections += '  L1_sram_tls : ORIGIN = 0x00000000, LENGTH = 0x%x\n' % (0)         
+
+      #PULP Multicluster. Adding multiple L1 sections for all the clusters
+      if conf.get('pulpChipFamily') == 'bigpulp':
+         for clId in range(1,int(conf.get('nbCluster'))):
+            memorySections += '  L1_sram_G%d : ORIGIN = 0x%x, LENGTH = 0x%x\n' % (clId, sramBaseGlobal+clId*int(conf.get('l1Size')), sramSize)
+
+      scmSections = ''
+      if conf.get('scmSize') != None and int(conf.get('scmSize')) != 0:
+         memorySections += '  L1_scm      : ORIGIN = 0x%x, LENGTH = 0x%x\n' % (conf.get('scmBase'), int(conf.get('scmSize')))
+         memorySections += '  L1_scm_g    : ORIGIN = 0x%x, LENGTH = 0x%x\n' % (scmBaseGlobal, int(conf.get('scmSize')))
+         
+         #PULP Multicluster. Adding multiple L1 sections for all the clusters
+         if conf.get('pulpChipFamily') == 'bigpulp':
+            for clId in range(1,int(conf.get('nbCluster'))):
+               memorySections += '  L1_scm_g%d : ORIGIN = 0x%x, LENGTH = 0x%x\n' % (clId, sramBaseGlobal+clId*int(conf.get('scmSize')), int(conf.get('scmSize')))
+
+         scmSections += (
+            '     .heapscm : AT(%s)\n'
+            '     {\n'
+            '        *(.scmlock)\n'
+            '        *(.scmlock.*)\n'
+            '        *(.heapscm)\n'
+            '        *(.heapscm.*)\n'
+            '        . = ALIGN(4);\n'
+            '      } > L1_scm\n'
+            '\n'
+            '     .heapscm_g :\n'
+            '     {\n'
+            '        *(.heapscm_g)\n'
+            '        *(.heapscm_g.*)\n'
+            '        . = ALIGN(4);\n'
+            '        _heapscm_start = .;\n'
+            '      } > L1_scm_g\n'
+            '\n'
+            '     _heapscm_size = LENGTH(L1_scm_g) - _heapscm_start + ORIGIN(L1_scm_g);\n'
+            '\n'
+          ) %  (scmLoadBase)
+
+         #PULP Multicluster. Adding multiple L1 sections for all the clusters
+         if conf.get('pulpChipFamily') == 'bigpulp':
+            for clId in range(1,int(conf.get('nbCluster'))):
+               scmSections += (
+                  '     .heapscm_g%d :\n'
+                  '     {\n'
+                  '        *(.heapscm_g%d)\n'
+                  '        *(.heapscm_g%d.*)\n'
+                  '        . = ALIGN(4);\n'
+                  '        _heapscm_start%d = .;\n'
+                  '      } > L1_scm_g%d\n'
+                  '\n'
+                  '     _heapscm_size%d = LENGTH(L1_scm_g%d) - _heapscm_start%d + ORIGIN(L1_scm_g%d);\n'
+                  '\n'
+                ) %  (clId,clId,clId,clId,clId,clId,clId,clId)
+
+      fcSections = ''
+      fcTinySections = ''
+      l1Sections = ''
+      stackSections = ''
+      if conf.get('pulpChip') == 'GAP':
+        memorySections += '  fc_tcdm : ORIGIN = 0x00000004, LENGTH = 0x%x\n' % (int(conf.get('fcTcdmSize')) - 4)
+        memorySections += '  fc_tcdm_G : ORIGIN = 0x1B000004, LENGTH = 0x%x\n' % (int(conf.get('fcTcdmSize')) - 4)
+        fcSections += (
+     
+         '     .fcTcdmTiny (ORIGIN(fc_tcdm) + SIZEOF(.l1FcTiny)) : AT(0x1B000004 + SIZEOF(.l1FcTiny))\n'
+         '     {\n'
+         '       *(.fcTcdmTiny)\n'  
+         '       *(.fcTcdmTiny.*)\n'       
+         '     } > fc_tcdm\n'
+         '\n'
+         '     .fcTcdm (ORIGIN(fc_tcdm) + SIZEOF(.fcTcdmTiny) + SIZEOF(.l1FcTiny)) : AT(0x1B000004 + SIZEOF(.fcTcdmTiny) + SIZEOF(.l1FcTiny))\n'
+         '     {\n'
+         '       *(.fcTcdm)\n'  
+         '       *(.fcTcdm.*)\n'       
+         '     } > fc_tcdm\n'
+         '\n'
+         '     .fcTcdm_g (ORIGIN(fc_tcdm_G) + SIZEOF(.fcTcdm) + SIZEOF(.fcTcdmTiny) + SIZEOF(.l1FcTiny)) : AT(0x1B000004 + SIZEOF(.fcTcdm) + SIZEOF(.fcTcdmTiny) + SIZEOF(.l1FcTiny))\n'
+         '     {\n'
+         '       *(.fcTcdm_g)\n'
+         '       *(.fcTcdm_g.*)\n'
+         '     } > fc_tcdm_G\n'
+         '\n'
+         )
+
+        fcSections += (
+          '    .fcStack :\n'
+          '    {\n'
+          '      . = ORIGIN(fc_tcdm) + LENGTH(fc_tcdm) - 0x%x;\n'
+          '      fcStack = . + 0x%x;\n'
+          '    } > fc_tcdm\n'
+          '\n'
+          ) %  (int(conf.get('fcStackSize')), int(conf.get('fcStackSize')))
+
+      else:
+        fcTinySections += '*(.fcTcdmTiny)\n'
+        fcTinySections += '*(.fcTcdmTiny.*)\n'
+        l1Sections =  '*(.fcTcdm)\n'
+        l1Sections += '*(.fcTcdm.*)\n'
+        l1Sections += '*(.fcTcdm_g)\n'
+        l1Sections += '*(.fcTcdm_g.*)\n'
+        l1Sections += 'fcStack = .;\n'
+
+      #PULP Multicluster. Adding multiple L1 sections for all the clusters
+      l1SramSections = ''
+      if conf.get('pulpChipFamily') == 'bigpulp':
+         for clId in range(1,int(conf.get('nbCluster'))):
+            l1SramSections += '\t.l1cluster_g%d (ORIGIN(L1_sram_G%d) + SIZEOF(.heapsram)) : AT(ORIGIN(L1_sram_G%d) + SIZEOF(.heapsram))\n' % (clId,clId,clId)
+            l1SramSections += '\t{\n'
+            l1SramSections += '\t  /* Due to limitations on FPGA loader, loadable sections must have base and size aligned on 4 bytes */\n'
+            l1SramSections += '\t  . = ALIGN(4);\n'
+            l1SramSections += '\t  *(.l1cluster_g%d)\n' % (clId)
+            l1SramSections += '\t  *(.l1cluster_g%d.*)\n' % (clId)
+            l1SramSections += '\t  . = ALIGN(4);\n'
+            l1SramSections += '\t  _heapsram_start%d = .;\n' % (clId)
+            l1SramSections += '\t} > L1_sram_G%d\n' % (clId)
+            l1SramSections += '\t\n'
+            l1SramSections += '\t_heapsram_size%d = LENGTH(L1_sram_G%d) - _heapsram_start%d + ORIGIN(L1_sram_G%d) - 0x%x;\n' % (clId,clId,clId,clId, int(conf.get('stackSize')) if conf.get('pulpOmpVersion') == 'new' else 0)
+            l1SramSections += '\t\n'
+
+      if conf.get('pulpOmpVersion') == 'new':
+         stackSections += (
+         '     .stacks :\n'
+         '     {\n'
+         '       . = ORIGIN(L1_sram) + LENGTH(L1_sram) - %s;\n'
+         '       stacks = . + %s;\n'
+         '     } > L1_sram\n'
+         ) % (conf.get('stackSize'), conf.get('stackSize'))
+    
+      linkDict['stackSections'] = stackSections
+      linkDict['fcSections'] = fcSections
+      linkDict['fcTinySections'] = fcTinySections
+      linkDict['scmSections'] = scmSections
+      linkDict['l1Sections'] = l1Sections
+      linkDict['l1SramSections'] =l1SramSections
+      linkDict['coreArchi'] = pulpCoreFamily
+      if conf.get('pulpOmpVersion') == 'new':
+         linkDict['stackSize'] = conf.get('stackSize')
+      else:
+         linkDict['stackSize'] = 0
+      linkDict['l1ScmLoadBase'] = scmLoadBase
+      linkDict['l1ScmMemory'] = scmMemory
+      linkDict['memorySections'] = memorySections
+
+      try:
+         os.makedirs('%s' % conf.get('appBuildDir'))
+      except:
+         pass
+
+      with open('%s/link.ld' % conf.get('appBuildDir'), 'w') as link:
+         link.write(linkTemplate.read() % linkDict)
+
+if args.config:
+   
+        x = PrettyTable(['Option', 'Value', 'Description'])
+        x.align["Option"] = "l"
+        x.align["Value"] = "l"
+        x.align["Description"] = "l"
+        addConf(x, 'platform', 'Platform')
+        addConf(x, 'pulpChip', 'Pulp chip')
+        addConf(x, 'pulpCoreArchi', 'Pulp core architecture')
+        addConf(x, 'pulpRt', 'Pulp runtime type')
+        addConf(x, 'pulpRtVersion', 'Pulp runtime version')
+        addConf(x, 'pulpOmpVersion', 'Pulp OpenMP runtime type')
+        addConf(x, 'pulpCompiler', 'Pulp compiler')
+        addConf(x, 'scmSize', 'SCM size')
+        addConf(x, 'l1Size', 'L1 size')
+        addConf(x, 'l2Size', 'L2 size')
+        addConf(x, 'romSize', 'Boot ROM size')
+        addConf(x, 'stackSize', 'Stack size')
+        addConf(x, 'nbPe', 'Number of cores per cluster')
+        addConf(x, 'nbCluster', 'Number of clusters')
+        addConf2(x, 'io', 'Input/Output type')
+        addConf2(x, 'pulpChipVersion', 'Pulp chip version')
+        print(x)
+
+if args.flags:
+
+   print('PULP_ARCH_CFLAGS = %s\n' % (archCflags))
+   print('PULP_ARCH_LDFLAGS = %s\n' % (archLdflags))
+   print('PULP_ARCH_OBJFLAGS = %s' % (archObjflags))
+   print('PULP_DEFS = %s\n' % (defs))
+   print('PULP_INC_PATHS = %s\n' % (inc))
+   print('PULP_CFLAGS = %s\n' % (cflags))
+   print('PULP_DYN_CFLAGS = %s\n' % (dynCflags))
+   print('PULP_LDFLAGS = %s\n' % (ldflags))
+   print('PULP_DYN_LDFLAGS = %s\n' % (dynLdflags))
+
+if args.property != None:
+   value = pconfig.get(args.property)
+   if value != None: print (value)

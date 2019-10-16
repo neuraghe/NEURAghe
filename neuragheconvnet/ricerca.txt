@@ -1,0 +1,815 @@
+codes/modnet2/src/soc/heap_4.h:typedef struct A_BLOCK_LINK
+codes/modnet2/src/soc/heap_4.h:typedef struct heap_desc_s
+codes/modnet2/src/soc/xos.h:typedef int RET;
+codes/modnet2/src/soc/xos.h:typedef unsigned int ITER;
+codes/modnet2/src/soc/soc_drivers.h:typedef unsigned long int neuADDR; 
+codes/modnet2/src/soc/soc_drivers.h:typedef struct Socmap* SOCMAP;
+codes/modnet2/src/mod/linear_fp8.h:typedef struct Linear_fp8* LINEAR_FP8;
+codes/modnet2/src/mod/linear_fp16.h:typedef struct Linear_fp16* LINEAR_FP16;
+codes/modnet2/src/mod/linear.h:typedef struct Linear* LINEAR;
+codes/modnet2/src/mod/spatconv.h:typedef struct Spatconv* SPATCONV;
+codes/modnet2/src/mod/spatconv.h:	//	typedef struct Neuraghe_map_s {
+codes/modnet2/src/mod/spatconv.h:	//  typedef struct Socmap* SOCMAP;
+codes/modnet2/src/mod/spatconv.h:	//  typedef SOCMAP Neuraghe_dev;
+codes/modnet2/src/mod/batch.h:typedef struct Batch* BATCH;
+codes/modnet2/src/mod/linear_f32.h:typedef struct Linear_f32* LINEAR_F32;
+codes/modnet2/src/mod/lrnorm.h:typedef struct Lrn* LRN;
+codes/modnet2/src/net/types.h:	typedef half DATA;
+codes/modnet2/src/net/types.h:		  typedef signed char DATA;
+codes/modnet2/src/net/types.h:		  typedef short int DATA;
+codes/modnet2/src/net/types.h:		typedef float DATA;
+codes/modnet2/src/net/types.h:typedef const size_t SIZE;
+codes/modnet2/src/net/types.h:typedef size_t VARSIZE;
+codes/modnet2/src/net/types.h:typedef const char* NAME;
+codes/modnet2/src/net/types.h:typedef char VARNAME[STRLEN];
+codes/modnet2/src/net/types.h:typedef int ID;
+codes/modnet2/src/net/types.h:typedef void* USER_DATA;
+codes/modnet2/src/net/types.h:typedef struct Conv_params {
+codes/modnet2/src/net/channel.h:typedef struct Channel* CHANNEL;
+Binary file codes/modnet2/lib/libneuconvnet-neuraghe-v0-fp16.a matches
+codes/3rdparty/gsl/ieee-utils/gsl_ieee_utils.h:typedef struct  {
+codes/3rdparty/gsl/ieee-utils/gsl_ieee_utils.h:typedef struct  {
+codes/3rdparty/gsl/ieee-utils/fp-aix.c:typedef unsigned short fprnd_t; 
+codes/3rdparty/gsl/ieee-utils/fp-darwin86.c:typedef unsigned int fpu_control_t __attribute__ ((__mode__ (__HI__)));
+codes/3rdparty/gsl/multiroots/newton.c:typedef struct
+codes/3rdparty/gsl/multiroots/gnewton.c:typedef struct
+codes/3rdparty/gsl/multiroots/dnewton.c:typedef struct
+codes/3rdparty/gsl/multiroots/hybrid.c:typedef struct
+codes/3rdparty/gsl/multiroots/hybridj.c:typedef struct
+codes/3rdparty/gsl/multiroots/gsl_multiroots.h:typedef struct gsl_multiroot_function_struct gsl_multiroot_function ;
+codes/3rdparty/gsl/multiroots/gsl_multiroots.h:typedef struct
+codes/3rdparty/gsl/multiroots/gsl_multiroots.h:typedef struct
+codes/3rdparty/gsl/multiroots/gsl_multiroots.h:typedef struct gsl_multiroot_function_fdf_struct gsl_multiroot_function_fdf ;
+codes/3rdparty/gsl/multiroots/gsl_multiroots.h:typedef struct
+codes/3rdparty/gsl/multiroots/gsl_multiroots.h:typedef struct
+codes/3rdparty/gsl/multiroots/broyden.c:typedef struct
+codes/3rdparty/gsl/multiroots/test_funcs.h:typedef void (*initpt_function) (gsl_vector * x);
+codes/3rdparty/gsl/combination/gsl_combination.h:typedef struct gsl_combination_struct gsl_combination;
+codes/3rdparty/gsl/sum/gsl_sum.h:typedef struct
+codes/3rdparty/gsl/sum/gsl_sum.h:typedef struct
+codes/3rdparty/gsl/matrix/gsl_matrix_complex_long_double.h:typedef struct 
+codes/3rdparty/gsl/matrix/gsl_matrix_complex_long_double.h:typedef struct
+codes/3rdparty/gsl/matrix/gsl_matrix_complex_long_double.h:typedef _gsl_matrix_complex_long_double_view gsl_matrix_complex_long_double_view;
+codes/3rdparty/gsl/matrix/gsl_matrix_complex_long_double.h:typedef struct
+codes/3rdparty/gsl/matrix/gsl_matrix_complex_long_double.h:typedef const _gsl_matrix_complex_long_double_const_view gsl_matrix_complex_long_double_const_view;
+codes/3rdparty/gsl/matrix/gsl_matrix_complex_double.h:typedef struct 
+codes/3rdparty/gsl/matrix/gsl_matrix_complex_double.h:typedef struct
+codes/3rdparty/gsl/matrix/gsl_matrix_complex_double.h:typedef _gsl_matrix_complex_view gsl_matrix_complex_view;
+codes/3rdparty/gsl/matrix/gsl_matrix_complex_double.h:typedef struct
+codes/3rdparty/gsl/matrix/gsl_matrix_complex_double.h:typedef const _gsl_matrix_complex_const_view gsl_matrix_complex_const_view;
+codes/3rdparty/gsl/matrix/gsl_matrix_short.h:typedef struct 
+codes/3rdparty/gsl/matrix/gsl_matrix_short.h:typedef struct
+codes/3rdparty/gsl/matrix/gsl_matrix_short.h:typedef _gsl_matrix_short_view gsl_matrix_short_view;
+codes/3rdparty/gsl/matrix/gsl_matrix_short.h:typedef struct
+codes/3rdparty/gsl/matrix/gsl_matrix_short.h:typedef const _gsl_matrix_short_const_view gsl_matrix_short_const_view;
+codes/3rdparty/gsl/matrix/gsl_matrix_long_double.h:typedef struct 
+codes/3rdparty/gsl/matrix/gsl_matrix_long_double.h:typedef struct
+codes/3rdparty/gsl/matrix/gsl_matrix_long_double.h:typedef _gsl_matrix_long_double_view gsl_matrix_long_double_view;
+codes/3rdparty/gsl/matrix/gsl_matrix_long_double.h:typedef struct
+codes/3rdparty/gsl/matrix/gsl_matrix_long_double.h:typedef const _gsl_matrix_long_double_const_view gsl_matrix_long_double_const_view;
+codes/3rdparty/gsl/matrix/gsl_matrix_ulong.h:typedef struct 
+codes/3rdparty/gsl/matrix/gsl_matrix_ulong.h:typedef struct
+codes/3rdparty/gsl/matrix/gsl_matrix_ulong.h:typedef _gsl_matrix_ulong_view gsl_matrix_ulong_view;
+codes/3rdparty/gsl/matrix/gsl_matrix_ulong.h:typedef struct
+codes/3rdparty/gsl/matrix/gsl_matrix_ulong.h:typedef const _gsl_matrix_ulong_const_view gsl_matrix_ulong_const_view;
+codes/3rdparty/gsl/matrix/gsl_matrix_complex_float.h:typedef struct 
+codes/3rdparty/gsl/matrix/gsl_matrix_complex_float.h:typedef struct
+codes/3rdparty/gsl/matrix/gsl_matrix_complex_float.h:typedef _gsl_matrix_complex_float_view gsl_matrix_complex_float_view;
+codes/3rdparty/gsl/matrix/gsl_matrix_complex_float.h:typedef struct
+codes/3rdparty/gsl/matrix/gsl_matrix_complex_float.h:typedef const _gsl_matrix_complex_float_const_view gsl_matrix_complex_float_const_view;
+codes/3rdparty/gsl/matrix/gsl_matrix_float.h:typedef struct 
+codes/3rdparty/gsl/matrix/gsl_matrix_float.h:typedef struct
+codes/3rdparty/gsl/matrix/gsl_matrix_float.h:typedef _gsl_matrix_float_view gsl_matrix_float_view;
+codes/3rdparty/gsl/matrix/gsl_matrix_float.h:typedef struct
+codes/3rdparty/gsl/matrix/gsl_matrix_float.h:typedef const _gsl_matrix_float_const_view gsl_matrix_float_const_view;
+codes/3rdparty/gsl/matrix/gsl_matrix_char.h:typedef struct 
+codes/3rdparty/gsl/matrix/gsl_matrix_char.h:typedef struct
+codes/3rdparty/gsl/matrix/gsl_matrix_char.h:typedef _gsl_matrix_char_view gsl_matrix_char_view;
+codes/3rdparty/gsl/matrix/gsl_matrix_char.h:typedef struct
+codes/3rdparty/gsl/matrix/gsl_matrix_char.h:typedef const _gsl_matrix_char_const_view gsl_matrix_char_const_view;
+codes/3rdparty/gsl/matrix/gsl_matrix_ushort.h:typedef struct 
+codes/3rdparty/gsl/matrix/gsl_matrix_ushort.h:typedef struct
+codes/3rdparty/gsl/matrix/gsl_matrix_ushort.h:typedef _gsl_matrix_ushort_view gsl_matrix_ushort_view;
+codes/3rdparty/gsl/matrix/gsl_matrix_ushort.h:typedef struct
+codes/3rdparty/gsl/matrix/gsl_matrix_ushort.h:typedef const _gsl_matrix_ushort_const_view gsl_matrix_ushort_const_view;
+codes/3rdparty/gsl/matrix/gsl_matrix_int.h:typedef struct 
+codes/3rdparty/gsl/matrix/gsl_matrix_int.h:typedef struct
+codes/3rdparty/gsl/matrix/gsl_matrix_int.h:typedef _gsl_matrix_int_view gsl_matrix_int_view;
+codes/3rdparty/gsl/matrix/gsl_matrix_int.h:typedef struct
+codes/3rdparty/gsl/matrix/gsl_matrix_int.h:typedef const _gsl_matrix_int_const_view gsl_matrix_int_const_view;
+codes/3rdparty/gsl/matrix/ChangeLog: 	struct/typedef be made with a single definition
+codes/3rdparty/gsl/matrix/gsl_matrix_long.h:typedef struct 
+codes/3rdparty/gsl/matrix/gsl_matrix_long.h:typedef struct
+codes/3rdparty/gsl/matrix/gsl_matrix_long.h:typedef _gsl_matrix_long_view gsl_matrix_long_view;
+codes/3rdparty/gsl/matrix/gsl_matrix_long.h:typedef struct
+codes/3rdparty/gsl/matrix/gsl_matrix_long.h:typedef const _gsl_matrix_long_const_view gsl_matrix_long_const_view;
+codes/3rdparty/gsl/matrix/gsl_matrix_uchar.h:typedef struct 
+codes/3rdparty/gsl/matrix/gsl_matrix_uchar.h:typedef struct
+codes/3rdparty/gsl/matrix/gsl_matrix_uchar.h:typedef _gsl_matrix_uchar_view gsl_matrix_uchar_view;
+codes/3rdparty/gsl/matrix/gsl_matrix_uchar.h:typedef struct
+codes/3rdparty/gsl/matrix/gsl_matrix_uchar.h:typedef const _gsl_matrix_uchar_const_view gsl_matrix_uchar_const_view;
+codes/3rdparty/gsl/matrix/gsl_matrix_uint.h:typedef struct 
+codes/3rdparty/gsl/matrix/gsl_matrix_uint.h:typedef struct
+codes/3rdparty/gsl/matrix/gsl_matrix_uint.h:typedef _gsl_matrix_uint_view gsl_matrix_uint_view;
+codes/3rdparty/gsl/matrix/gsl_matrix_uint.h:typedef struct
+codes/3rdparty/gsl/matrix/gsl_matrix_uint.h:typedef const _gsl_matrix_uint_const_view gsl_matrix_uint_const_view;
+codes/3rdparty/gsl/matrix/gsl_matrix_double.h:typedef struct 
+codes/3rdparty/gsl/matrix/gsl_matrix_double.h:typedef struct
+codes/3rdparty/gsl/matrix/gsl_matrix_double.h:typedef _gsl_matrix_view gsl_matrix_view;
+codes/3rdparty/gsl/matrix/gsl_matrix_double.h:typedef struct
+codes/3rdparty/gsl/matrix/gsl_matrix_double.h:typedef const _gsl_matrix_const_view gsl_matrix_const_view;
+codes/3rdparty/gsl/deriv/test.c:typedef int (deriv_fn) (const gsl_function * f, double x, double h, double * res, double *abserr);
+codes/3rdparty/gsl/spmatrix/avl.c:typedef int avl_comparison_func (const void *avl_a, const void *avl_b,
+codes/3rdparty/gsl/spmatrix/avl.c:typedef void avl_item_func (void *avl_item, void *avl_param);
+codes/3rdparty/gsl/spmatrix/avl.c:typedef void *avl_copy_func (void *avl_item, void *avl_param);
+codes/3rdparty/gsl/spmatrix/gsl_spmatrix.h:typedef struct
+codes/3rdparty/gsl/spmatrix/gsl_spmatrix.h:typedef struct
+codes/3rdparty/gsl/integration/test.c:    typedef double (*fptr) ( double , void * );
+codes/3rdparty/gsl/integration/gsl_integration.h:typedef struct
+codes/3rdparty/gsl/integration/gsl_integration.h:typedef struct
+codes/3rdparty/gsl/integration/gsl_integration.h:typedef struct
+codes/3rdparty/gsl/integration/gsl_integration.h:typedef void gsl_integration_rule (const gsl_function * f,
+codes/3rdparty/gsl/integration/gsl_integration.h:typedef struct
+codes/3rdparty/gsl/integration/gsl_integration.h:typedef struct
+codes/3rdparty/gsl/integration/gsl_integration.h:typedef struct
+codes/3rdparty/gsl/cheb/gsl_chebyshev.h:typedef struct gsl_cheb_series_struct gsl_cheb_series;
+codes/3rdparty/gsl/dht/gsl_dht.h:typedef struct gsl_dht_struct gsl_dht;
+codes/3rdparty/gsl/histogram/gsl_histogram2d.h:typedef struct {
+codes/3rdparty/gsl/histogram/gsl_histogram2d.h:typedef struct {
+codes/3rdparty/gsl/histogram/gsl_histogram.h:typedef struct {
+codes/3rdparty/gsl/histogram/gsl_histogram.h:typedef struct {
+codes/3rdparty/gsl/doc/specfunc.texi:typedef struct
+codes/3rdparty/gsl/doc/specfunc.texi:typedef struct
+codes/3rdparty/gsl/doc/complex.texi:typedef struct
+codes/3rdparty/gsl/doc/cheb.texi:typedef struct
+codes/3rdparty/gsl/doc/permutation.texi:typedef struct
+codes/3rdparty/gsl/doc/gsl-ref.info-3:     typedef struct {
+codes/3rdparty/gsl/doc/gsl-ref.info-3:     typedef struct {
+codes/3rdparty/gsl/doc/gsl-ref.info-3:     typedef struct {
+codes/3rdparty/gsl/doc/gsl-ref.info-3:     typedef struct
+codes/3rdparty/gsl/doc/gsl-ref.info-5:     typedef struct
+codes/3rdparty/gsl/doc/gsl-ref.info-2:     typedef struct
+codes/3rdparty/gsl/doc/gsl-ref.info-2:     typedef struct
+codes/3rdparty/gsl/doc/gsl-ref.info-4:     typedef struct
+codes/3rdparty/gsl/doc/gsl-ref.info-4:     typedef struct
+codes/3rdparty/gsl/doc/ntuple.texi:typedef struct @{
+codes/3rdparty/gsl/doc/ntuple.texi:typedef struct @{
+codes/3rdparty/gsl/doc/ntuple.texi:typedef struct @{
+codes/3rdparty/gsl/doc/spmatrix.texi:typedef struct
+codes/3rdparty/gsl/doc/multifit-nlinear.texi:typedef struct
+codes/3rdparty/gsl/doc/multifit-nlinear.texi:typedef struct
+codes/3rdparty/gsl/doc/gsl-ref.info-1:struct or typedef 'gsl_foo' it is modified for other types in the
+codes/3rdparty/gsl/doc/gsl-ref.info-1:     typedef struct
+codes/3rdparty/gsl/doc/gsl-ref.info-1:     typedef struct
+codes/3rdparty/gsl/doc/gsl-ref.info-1:     typedef struct
+codes/3rdparty/gsl/doc/gsl-ref.info-1:     typedef struct
+codes/3rdparty/gsl/doc/gsl-ref.info-1:     typedef struct
+codes/3rdparty/gsl/doc/gsl-ref.info-1:     typedef struct
+codes/3rdparty/gsl/doc/gsl-ref.info-1:     typedef struct
+codes/3rdparty/gsl/doc/usage.texi:type-dependent struct or typedef @code{gsl_foo} it is modified for other
+codes/3rdparty/gsl/doc/multiset.texi:typedef struct
+codes/3rdparty/gsl/doc/combination.texi:typedef struct
+codes/3rdparty/gsl/doc/vectors.texi:typedef struct
+codes/3rdparty/gsl/doc/vectors.texi:typedef struct
+codes/3rdparty/gsl/doc/vectors.texi:typedef struct
+codes/3rdparty/gsl/splinalg/gsl_splinalg.h:typedef struct
+codes/3rdparty/gsl/splinalg/gsl_splinalg.h:typedef struct
+codes/3rdparty/gsl/splinalg/gmres.c:typedef struct
+codes/3rdparty/gsl/diff/test.c:typedef int (diff_fn) (const gsl_function * f, double x, double * res, double *abserr);
+codes/3rdparty/gsl/gsl_precision.h:typedef  unsigned int  gsl_prec_t;
+codes/3rdparty/gsl/qrng/niederreiter-2.c:typedef struct
+codes/3rdparty/gsl/qrng/gsl_qrng.h:typedef struct
+codes/3rdparty/gsl/qrng/gsl_qrng.h:typedef struct
+codes/3rdparty/gsl/qrng/reversehalton.c:typedef struct
+codes/3rdparty/gsl/qrng/sobol.c:typedef struct
+codes/3rdparty/gsl/qrng/halton.c:typedef struct
+codes/3rdparty/gsl/configure.ac:dnl Checks for typedefs, structures, and compiler characteristics.
+codes/3rdparty/gsl/permutation/gsl_permutation.h:typedef struct gsl_permutation_struct gsl_permutation;
+codes/3rdparty/gsl/monte/vegas.c:typedef int coord;
+codes/3rdparty/gsl/monte/gsl_monte_plain.h:typedef struct {
+codes/3rdparty/gsl/monte/gsl_monte_vegas.h:typedef struct {
+codes/3rdparty/gsl/monte/gsl_monte_vegas.h:typedef struct {
+codes/3rdparty/gsl/monte/gsl_monte_miser.h:typedef struct {
+codes/3rdparty/gsl/monte/gsl_monte_miser.h:typedef struct {
+codes/3rdparty/gsl/monte/gsl_monte.h:/* Hide the function type in a typedef so that we can use it in all our
+codes/3rdparty/gsl/monte/gsl_monte.h:typedef struct gsl_monte_function_struct gsl_monte_function;
+codes/3rdparty/gsl/block/gsl_block_ulong.h:typedef struct gsl_block_ulong_struct gsl_block_ulong;
+codes/3rdparty/gsl/block/gsl_block_short.h:typedef struct gsl_block_short_struct gsl_block_short;
+codes/3rdparty/gsl/block/gsl_block_complex_double.h:typedef struct gsl_block_complex_struct gsl_block_complex;
+codes/3rdparty/gsl/block/gsl_block_uint.h:typedef struct gsl_block_uint_struct gsl_block_uint;
+codes/3rdparty/gsl/block/gsl_block_complex_float.h:typedef struct gsl_block_complex_float_struct gsl_block_complex_float;
+codes/3rdparty/gsl/block/gsl_block_long_double.h:typedef struct gsl_block_long_double_struct gsl_block_long_double;
+codes/3rdparty/gsl/block/gsl_block_float.h:typedef struct gsl_block_float_struct gsl_block_float;
+codes/3rdparty/gsl/block/gsl_block_int.h:typedef struct gsl_block_int_struct gsl_block_int;
+codes/3rdparty/gsl/block/gsl_block_uchar.h:typedef struct gsl_block_uchar_struct gsl_block_uchar;
+codes/3rdparty/gsl/block/gsl_block_double.h:typedef struct gsl_block_struct gsl_block;
+codes/3rdparty/gsl/block/gsl_block_ushort.h:typedef struct gsl_block_ushort_struct gsl_block_ushort;
+codes/3rdparty/gsl/block/gsl_block_char.h:typedef struct gsl_block_char_struct gsl_block_char;
+codes/3rdparty/gsl/block/gsl_block_long.h:typedef struct gsl_block_long_struct gsl_block_long;
+codes/3rdparty/gsl/block/gsl_block_complex_long_double.h:typedef struct gsl_block_complex_long_double_struct gsl_block_complex_long_double;
+codes/3rdparty/gsl/interpolation/cspline.c:typedef struct
+codes/3rdparty/gsl/interpolation/gsl_spline2d.h:typedef struct
+codes/3rdparty/gsl/interpolation/akima.c:typedef struct
+codes/3rdparty/gsl/interpolation/steffen.c:typedef struct
+codes/3rdparty/gsl/interpolation/gsl_spline.h:typedef struct {
+codes/3rdparty/gsl/interpolation/poly.c:typedef struct
+codes/3rdparty/gsl/interpolation/test.c:typedef double TEST_FUNC (double);
+codes/3rdparty/gsl/interpolation/test.c:typedef struct _xy_table xy_table;
+codes/3rdparty/gsl/interpolation/bicubic.c:typedef struct
+codes/3rdparty/gsl/interpolation/gsl_interp.h:typedef struct {
+codes/3rdparty/gsl/interpolation/gsl_interp.h:typedef struct {
+codes/3rdparty/gsl/interpolation/gsl_interp.h:typedef struct {
+codes/3rdparty/gsl/interpolation/gsl_interp2d.h:typedef struct {
+codes/3rdparty/gsl/interpolation/gsl_interp2d.h:typedef struct {
+codes/3rdparty/gsl/gsl_mode.h:typedef unsigned int gsl_mode_t;
+codes/3rdparty/gsl/fft/gsl_fft_complex_float.h:typedef struct
+codes/3rdparty/gsl/fft/gsl_fft_complex_float.h:typedef struct
+codes/3rdparty/gsl/fft/gsl_fft_real_float.h:typedef struct
+codes/3rdparty/gsl/fft/gsl_fft_real_float.h:typedef struct
+codes/3rdparty/gsl/fft/gsl_fft_halfcomplex_float.h:typedef struct
+codes/3rdparty/gsl/fft/gsl_fft_complex.h:typedef struct
+codes/3rdparty/gsl/fft/gsl_fft_complex.h:typedef struct
+codes/3rdparty/gsl/fft/gsl_fft_real.h:typedef struct
+codes/3rdparty/gsl/fft/gsl_fft_real.h:typedef struct
+codes/3rdparty/gsl/fft/gsl_fft_halfcomplex.h:typedef struct
+codes/3rdparty/gsl/fft/gsl_fft.h:typedef enum
+codes/3rdparty/gsl/configure:typedef int foo_t;
+codes/3rdparty/gsl/sort/gsl_heapsort.h:typedef int (*gsl_comparison_fn_t) (const void *, const void *);
+codes/3rdparty/gsl/eigen/gsl_eigen.h:typedef struct {
+codes/3rdparty/gsl/eigen/gsl_eigen.h:typedef struct {
+codes/3rdparty/gsl/eigen/gsl_eigen.h:typedef struct {
+codes/3rdparty/gsl/eigen/gsl_eigen.h:typedef struct {
+codes/3rdparty/gsl/eigen/gsl_eigen.h:typedef struct {
+codes/3rdparty/gsl/eigen/gsl_eigen.h:typedef struct {
+codes/3rdparty/gsl/eigen/gsl_eigen.h:typedef struct {
+codes/3rdparty/gsl/eigen/gsl_eigen.h:typedef struct {
+codes/3rdparty/gsl/eigen/gsl_eigen.h:typedef struct {
+codes/3rdparty/gsl/eigen/gsl_eigen.h:typedef struct {
+codes/3rdparty/gsl/eigen/gsl_eigen.h:typedef struct {
+codes/3rdparty/gsl/eigen/gsl_eigen.h:typedef struct {
+codes/3rdparty/gsl/eigen/gsl_eigen.h:typedef struct {
+codes/3rdparty/gsl/eigen/gsl_eigen.h:typedef enum {
+codes/3rdparty/gsl/eigen/test.c:typedef struct
+codes/3rdparty/gsl/err/gsl_errno.h:typedef void gsl_error_handler_t (const char * reason, const char * file,
+codes/3rdparty/gsl/err/gsl_errno.h:typedef void gsl_stream_handler_t (const char * label, const char * file,
+codes/3rdparty/gsl/ode-initval2/cscal.c:typedef struct
+codes/3rdparty/gsl/ode-initval2/rk4.c:typedef struct
+codes/3rdparty/gsl/ode-initval2/rk2.c:typedef struct
+codes/3rdparty/gsl/ode-initval2/rkck.c:typedef struct
+codes/3rdparty/gsl/ode-initval2/cstd.c:typedef struct
+codes/3rdparty/gsl/ode-initval2/gsl_odeiv2.h:  typedef struct
+codes/3rdparty/gsl/ode-initval2/gsl_odeiv2.h:typedef struct gsl_odeiv2_step_struct gsl_odeiv2_step;
+codes/3rdparty/gsl/ode-initval2/gsl_odeiv2.h:typedef struct gsl_odeiv2_control_struct gsl_odeiv2_control;
+codes/3rdparty/gsl/ode-initval2/gsl_odeiv2.h:typedef struct gsl_odeiv2_evolve_struct gsl_odeiv2_evolve;
+codes/3rdparty/gsl/ode-initval2/gsl_odeiv2.h:typedef struct gsl_odeiv2_driver_struct gsl_odeiv2_driver;
+codes/3rdparty/gsl/ode-initval2/gsl_odeiv2.h:typedef struct
+codes/3rdparty/gsl/ode-initval2/gsl_odeiv2.h:typedef struct
+codes/3rdparty/gsl/ode-initval2/rkf45.c:typedef struct
+codes/3rdparty/gsl/ode-initval2/rk8pd.c:typedef struct
+codes/3rdparty/gsl/ode-initval2/msbdf.c:typedef struct
+codes/3rdparty/gsl/ode-initval2/rk1imp.c:typedef struct
+codes/3rdparty/gsl/ode-initval2/rk2imp.c:typedef struct
+codes/3rdparty/gsl/ode-initval2/msadams.c:typedef struct
+codes/3rdparty/gsl/ode-initval2/rk4imp.c:typedef struct
+codes/3rdparty/gsl/ode-initval2/modnewton1.c:typedef struct
+codes/3rdparty/gsl/ode-initval2/bsimp.c:typedef struct
+codes/3rdparty/gsl/complex/gsl_complex.h:typedef double *       gsl_complex_packed ;
+codes/3rdparty/gsl/complex/gsl_complex.h:typedef float *        gsl_complex_packed_float  ;
+codes/3rdparty/gsl/complex/gsl_complex.h:typedef long double *  gsl_complex_packed_long_double ;
+codes/3rdparty/gsl/complex/gsl_complex.h:typedef const double *       gsl_const_complex_packed ;
+codes/3rdparty/gsl/complex/gsl_complex.h:typedef const float *        gsl_const_complex_packed_float  ;
+codes/3rdparty/gsl/complex/gsl_complex.h:typedef const long double *  gsl_const_complex_packed_long_double ;
+codes/3rdparty/gsl/complex/gsl_complex.h:typedef double *       gsl_complex_packed_array ;
+codes/3rdparty/gsl/complex/gsl_complex.h:typedef float *        gsl_complex_packed_array_float  ;
+codes/3rdparty/gsl/complex/gsl_complex.h:typedef long double *  gsl_complex_packed_array_long_double ;
+codes/3rdparty/gsl/complex/gsl_complex.h:typedef const double *       gsl_const_complex_packed_array ;
+codes/3rdparty/gsl/complex/gsl_complex.h:typedef const float *        gsl_const_complex_packed_array_float  ;
+codes/3rdparty/gsl/complex/gsl_complex.h:typedef const long double *  gsl_const_complex_packed_array_long_double ;
+codes/3rdparty/gsl/complex/gsl_complex.h:typedef double *       gsl_complex_packed_ptr ;
+codes/3rdparty/gsl/complex/gsl_complex.h:typedef float *        gsl_complex_packed_float_ptr  ;
+codes/3rdparty/gsl/complex/gsl_complex.h:typedef long double *  gsl_complex_packed_long_double_ptr ;
+codes/3rdparty/gsl/complex/gsl_complex.h:typedef const double *       gsl_const_complex_packed_ptr ;
+codes/3rdparty/gsl/complex/gsl_complex.h:typedef const float *        gsl_const_complex_packed_float_ptr  ;
+codes/3rdparty/gsl/complex/gsl_complex.h:typedef const long double *  gsl_const_complex_packed_long_double_ptr ;
+codes/3rdparty/gsl/complex/gsl_complex.h:typedef struct
+codes/3rdparty/gsl/complex/gsl_complex.h:typedef struct
+codes/3rdparty/gsl/complex/gsl_complex.h:typedef struct
+codes/3rdparty/gsl/blas/gsl_blas_types.h:typedef  CBLAS_INDEX  CBLAS_INDEX_t;
+codes/3rdparty/gsl/blas/gsl_blas_types.h:typedef  enum CBLAS_ORDER       CBLAS_ORDER_t;
+codes/3rdparty/gsl/blas/gsl_blas_types.h:typedef  enum CBLAS_TRANSPOSE   CBLAS_TRANSPOSE_t;
+codes/3rdparty/gsl/blas/gsl_blas_types.h:typedef  enum CBLAS_UPLO        CBLAS_UPLO_t;
+codes/3rdparty/gsl/blas/gsl_blas_types.h:typedef  enum CBLAS_DIAG        CBLAS_DIAG_t;
+codes/3rdparty/gsl/blas/gsl_blas_types.h:typedef  enum CBLAS_SIDE        CBLAS_SIDE_t;
+codes/3rdparty/gsl/blas/gsl_blas_types.h:/* typedef  gsl_complex  COMPLEX; */
+codes/3rdparty/gsl/ChangeLog:	* gsl_complex.h: the typedef for 'complex' has been renamed to
+codes/3rdparty/gsl/roots/gsl_roots.h:typedef struct
+codes/3rdparty/gsl/roots/gsl_roots.h:typedef struct
+codes/3rdparty/gsl/roots/gsl_roots.h:typedef struct
+codes/3rdparty/gsl/roots/gsl_roots.h:typedef struct
+codes/3rdparty/gsl/roots/newton.c:typedef struct
+codes/3rdparty/gsl/roots/secant.c:typedef struct
+codes/3rdparty/gsl/roots/steffenson.c:typedef struct
+codes/3rdparty/gsl/roots/bisection.c:typedef struct
+codes/3rdparty/gsl/roots/falsepos.c:typedef struct
+codes/3rdparty/gsl/roots/brent.c:typedef struct
+codes/3rdparty/gsl/poly/gsl_poly.h:typedef struct 
+codes/3rdparty/gsl/multifit/gcv.c:typedef struct
+codes/3rdparty/gsl/multifit/gsl_multifit_nlin.h:typedef struct gsl_multifit_function_struct gsl_multifit_function ;
+codes/3rdparty/gsl/multifit/gsl_multifit_nlin.h:typedef struct
+codes/3rdparty/gsl/multifit/gsl_multifit_nlin.h:typedef struct
+codes/3rdparty/gsl/multifit/gsl_multifit_nlin.h:typedef struct gsl_multifit_function_fdf_struct gsl_multifit_function_fdf ;
+codes/3rdparty/gsl/multifit/gsl_multifit_nlin.h:typedef struct
+codes/3rdparty/gsl/multifit/gsl_multifit_nlin.h:typedef struct
+codes/3rdparty/gsl/multifit/gsl_multifit_nlin.h:typedef struct
+codes/3rdparty/gsl/multifit/gsl_multifit.h:typedef struct 
+codes/3rdparty/gsl/multifit/gsl_multifit.h:typedef struct
+codes/3rdparty/gsl/multifit/gsl_multifit.h:typedef struct
+codes/3rdparty/gsl/multifit/gsl_multifit.h:typedef struct
+codes/3rdparty/gsl/multifit/lmniel.c:typedef struct
+codes/3rdparty/gsl/multifit/lmder.c:typedef struct
+codes/3rdparty/gsl/multifit/test_nonlinear.c:typedef struct
+codes/3rdparty/gsl/ntuple/gsl_ntuple.h:typedef struct {
+codes/3rdparty/gsl/ntuple/gsl_ntuple.h:typedef struct {
+codes/3rdparty/gsl/ntuple/gsl_ntuple.h:typedef struct {
+codes/3rdparty/gsl/wavelet/gsl_wavelet.h:typedef enum {
+codes/3rdparty/gsl/wavelet/gsl_wavelet.h:typedef struct
+codes/3rdparty/gsl/wavelet/gsl_wavelet.h:typedef struct
+codes/3rdparty/gsl/wavelet/gsl_wavelet.h:typedef struct
+codes/3rdparty/gsl/statistics/TODO:using a typedef for sorted data (?)
+codes/3rdparty/gsl/ode-initval/cscal.c:typedef struct
+codes/3rdparty/gsl/ode-initval/rk4.c:typedef struct
+codes/3rdparty/gsl/ode-initval/gear1.c:typedef struct
+codes/3rdparty/gsl/ode-initval/rk2.c:typedef struct
+codes/3rdparty/gsl/ode-initval/rkck.c:typedef struct
+codes/3rdparty/gsl/ode-initval/rk2simp.c:typedef struct
+codes/3rdparty/gsl/ode-initval/gear2.c:typedef struct
+codes/3rdparty/gsl/ode-initval/cstd.c:typedef struct
+codes/3rdparty/gsl/ode-initval/rkf45.c:typedef struct
+codes/3rdparty/gsl/ode-initval/rk8pd.c:typedef struct
+codes/3rdparty/gsl/ode-initval/ChangeLog:	definition in typedef by removing const on double args.
+codes/3rdparty/gsl/ode-initval/rk2imp.c:typedef struct
+codes/3rdparty/gsl/ode-initval/gsl_odeiv.h:typedef struct  
+codes/3rdparty/gsl/ode-initval/gsl_odeiv.h:typedef struct 
+codes/3rdparty/gsl/ode-initval/gsl_odeiv.h:typedef struct {
+codes/3rdparty/gsl/ode-initval/gsl_odeiv.h:typedef struct 
+codes/3rdparty/gsl/ode-initval/gsl_odeiv.h:typedef struct 
+codes/3rdparty/gsl/ode-initval/gsl_odeiv.h:typedef struct {
+codes/3rdparty/gsl/ode-initval/rk4imp.c:typedef struct
+codes/3rdparty/gsl/ode-initval/bsimp.c:typedef struct
+codes/3rdparty/gsl/min/gsl_min.h:typedef struct
+codes/3rdparty/gsl/min/gsl_min.h:typedef struct
+codes/3rdparty/gsl/min/gsl_min.h:typedef
+codes/3rdparty/gsl/min/golden.c:typedef struct
+codes/3rdparty/gsl/min/quad_golden.c:typedef struct
+codes/3rdparty/gsl/min/brent.c:typedef struct
+codes/3rdparty/gsl/multiset/gsl_multiset.h:typedef struct gsl_multiset_struct gsl_multiset;
+codes/3rdparty/gsl/rng/ran3.c:typedef struct
+codes/3rdparty/gsl/rng/ranlxd.c:typedef struct
+codes/3rdparty/gsl/rng/rand.c:typedef struct
+codes/3rdparty/gsl/rng/ran0.c:typedef struct
+codes/3rdparty/gsl/rng/ranlxs.c:typedef struct
+codes/3rdparty/gsl/rng/uni.c:typedef struct
+codes/3rdparty/gsl/rng/gfsr4.c:typedef struct
+codes/3rdparty/gsl/rng/randu.c:typedef struct
+codes/3rdparty/gsl/rng/gsl_rng.h:typedef struct
+codes/3rdparty/gsl/rng/gsl_rng.h:typedef struct
+codes/3rdparty/gsl/rng/knuthran2002.c:typedef struct
+codes/3rdparty/gsl/rng/random.c:typedef struct
+codes/3rdparty/gsl/rng/random.c:typedef struct
+codes/3rdparty/gsl/rng/random.c:typedef struct
+codes/3rdparty/gsl/rng/random.c:typedef struct
+codes/3rdparty/gsl/rng/random.c:typedef struct
+codes/3rdparty/gsl/rng/taus113.c:typedef struct
+codes/3rdparty/gsl/rng/vax.c:typedef struct
+codes/3rdparty/gsl/rng/ran2.c:typedef struct
+codes/3rdparty/gsl/rng/ranlux.c:typedef struct
+codes/3rdparty/gsl/rng/coveyou.c:typedef struct
+codes/3rdparty/gsl/rng/knuthran2.c:typedef struct
+codes/3rdparty/gsl/rng/ran1.c:typedef struct
+codes/3rdparty/gsl/rng/ranf.c:typedef struct
+codes/3rdparty/gsl/rng/mt.c:typedef struct
+codes/3rdparty/gsl/rng/slatec.c:typedef struct
+codes/3rdparty/gsl/rng/rand48.c:typedef struct
+codes/3rdparty/gsl/rng/fishman20.c:typedef struct
+codes/3rdparty/gsl/rng/r250.c:typedef struct
+codes/3rdparty/gsl/rng/cmrg.c:typedef struct
+codes/3rdparty/gsl/rng/borosh13.c:typedef struct
+codes/3rdparty/gsl/rng/fishman18.c:typedef struct
+codes/3rdparty/gsl/rng/tt.c:typedef struct
+codes/3rdparty/gsl/rng/transputer.c:typedef struct
+codes/3rdparty/gsl/rng/zuf.c:typedef struct
+codes/3rdparty/gsl/rng/waterman14.c:typedef struct
+codes/3rdparty/gsl/rng/uni32.c:typedef struct
+codes/3rdparty/gsl/rng/fishman2x.c:typedef struct
+codes/3rdparty/gsl/rng/lecuyer21.c:typedef struct
+codes/3rdparty/gsl/rng/ranmar.c:typedef struct
+codes/3rdparty/gsl/rng/minstd.c:typedef struct
+codes/3rdparty/gsl/rng/knuthran.c:typedef struct
+codes/3rdparty/gsl/rng/mrg.c:typedef struct
+codes/3rdparty/gsl/rng/taus.c:typedef struct
+codes/3rdparty/gsl/multilarge_nlinear/subspace2D.c:typedef struct
+codes/3rdparty/gsl/multilarge_nlinear/cholesky.c:typedef struct
+codes/3rdparty/gsl/multilarge_nlinear/test_fdf.c:typedef struct
+codes/3rdparty/gsl/multilarge_nlinear/cgst.c:typedef struct
+codes/3rdparty/gsl/multilarge_nlinear/lm.c:typedef struct
+codes/3rdparty/gsl/multilarge_nlinear/dogleg.c:typedef struct
+codes/3rdparty/gsl/multilarge_nlinear/trust.c:typedef struct
+codes/3rdparty/gsl/multilarge_nlinear/gsl_multilarge_nlinear.h:typedef enum
+codes/3rdparty/gsl/multilarge_nlinear/gsl_multilarge_nlinear.h:typedef struct
+codes/3rdparty/gsl/multilarge_nlinear/gsl_multilarge_nlinear.h:typedef struct
+codes/3rdparty/gsl/multilarge_nlinear/gsl_multilarge_nlinear.h:typedef struct
+codes/3rdparty/gsl/multilarge_nlinear/gsl_multilarge_nlinear.h:typedef struct
+codes/3rdparty/gsl/multilarge_nlinear/gsl_multilarge_nlinear.h:typedef struct
+codes/3rdparty/gsl/multilarge_nlinear/gsl_multilarge_nlinear.h:typedef struct
+codes/3rdparty/gsl/multilarge_nlinear/gsl_multilarge_nlinear.h:typedef struct
+codes/3rdparty/gsl/multilarge_nlinear/gsl_multilarge_nlinear.h:typedef struct
+codes/3rdparty/gsl/specfunc/gsl_sf_legendre.h:typedef enum
+codes/3rdparty/gsl/specfunc/gsl_sf_mathieu.h:typedef struct 
+codes/3rdparty/gsl/specfunc/gsl_sf_result.h:typedef struct gsl_sf_result_struct gsl_sf_result;
+codes/3rdparty/gsl/specfunc/gsl_sf_result.h:typedef struct gsl_sf_result_e10_struct gsl_sf_result_e10;
+codes/3rdparty/gsl/specfunc/chebyshev.h:typedef struct cheb_series_struct cheb_series;
+codes/3rdparty/gsl/multifit_nlinear/svd.c:typedef struct
+codes/3rdparty/gsl/multifit_nlinear/subspace2D.c:typedef struct
+codes/3rdparty/gsl/multifit_nlinear/cholesky.c:typedef struct
+codes/3rdparty/gsl/multifit_nlinear/qr.c:typedef struct
+codes/3rdparty/gsl/multifit_nlinear/test_fdf.c:typedef struct
+codes/3rdparty/gsl/multifit_nlinear/gsl_multifit_nlinear.h:typedef enum
+codes/3rdparty/gsl/multifit_nlinear/gsl_multifit_nlinear.h:typedef struct
+codes/3rdparty/gsl/multifit_nlinear/gsl_multifit_nlinear.h:typedef struct
+codes/3rdparty/gsl/multifit_nlinear/gsl_multifit_nlinear.h:typedef struct
+codes/3rdparty/gsl/multifit_nlinear/gsl_multifit_nlinear.h:typedef struct
+codes/3rdparty/gsl/multifit_nlinear/gsl_multifit_nlinear.h:typedef struct
+codes/3rdparty/gsl/multifit_nlinear/gsl_multifit_nlinear.h:typedef struct
+codes/3rdparty/gsl/multifit_nlinear/gsl_multifit_nlinear.h:typedef struct
+codes/3rdparty/gsl/multifit_nlinear/gsl_multifit_nlinear.h:typedef struct
+codes/3rdparty/gsl/multifit_nlinear/lm.c:typedef struct
+codes/3rdparty/gsl/multifit_nlinear/dogleg.c:typedef struct
+codes/3rdparty/gsl/multifit_nlinear/trust.c:typedef struct
+codes/3rdparty/gsl/bspline/gsl_bspline.h:typedef struct
+codes/3rdparty/gsl/bspline/gsl_bspline.h:typedef struct
+codes/3rdparty/gsl/rstat/gsl_rstat.h:typedef struct
+codes/3rdparty/gsl/rstat/gsl_rstat.h:typedef struct
+codes/3rdparty/gsl/linalg/exponential.c:typedef  struct moler_vanloan_optimal_suggestion  mvl_suggestion_t;
+codes/3rdparty/gsl/linalg/gsl_linalg.h:typedef enum
+codes/3rdparty/gsl/linalg/pcholesky.c:typedef struct
+codes/3rdparty/gsl/vector/gsl_vector_uint.h:typedef struct 
+codes/3rdparty/gsl/vector/gsl_vector_uint.h:typedef struct
+codes/3rdparty/gsl/vector/gsl_vector_uint.h:typedef _gsl_vector_uint_view gsl_vector_uint_view;
+codes/3rdparty/gsl/vector/gsl_vector_uint.h:typedef struct
+codes/3rdparty/gsl/vector/gsl_vector_uint.h:typedef const _gsl_vector_uint_const_view gsl_vector_uint_const_view;
+codes/3rdparty/gsl/vector/gsl_vector_short.h:typedef struct 
+codes/3rdparty/gsl/vector/gsl_vector_short.h:typedef struct
+codes/3rdparty/gsl/vector/gsl_vector_short.h:typedef _gsl_vector_short_view gsl_vector_short_view;
+codes/3rdparty/gsl/vector/gsl_vector_short.h:typedef struct
+codes/3rdparty/gsl/vector/gsl_vector_short.h:typedef const _gsl_vector_short_const_view gsl_vector_short_const_view;
+codes/3rdparty/gsl/vector/gsl_vector_complex_float.h:typedef struct 
+codes/3rdparty/gsl/vector/gsl_vector_complex_float.h:typedef struct
+codes/3rdparty/gsl/vector/gsl_vector_complex_float.h:typedef _gsl_vector_complex_float_view gsl_vector_complex_float_view;
+codes/3rdparty/gsl/vector/gsl_vector_complex_float.h:typedef struct
+codes/3rdparty/gsl/vector/gsl_vector_complex_float.h:typedef const _gsl_vector_complex_float_const_view gsl_vector_complex_float_const_view;
+codes/3rdparty/gsl/vector/gsl_vector_float.h:typedef struct 
+codes/3rdparty/gsl/vector/gsl_vector_float.h:typedef struct
+codes/3rdparty/gsl/vector/gsl_vector_float.h:typedef _gsl_vector_float_view gsl_vector_float_view;
+codes/3rdparty/gsl/vector/gsl_vector_float.h:typedef struct
+codes/3rdparty/gsl/vector/gsl_vector_float.h:typedef const _gsl_vector_float_const_view gsl_vector_float_const_view;
+codes/3rdparty/gsl/vector/gsl_vector_complex_double.h:typedef struct 
+codes/3rdparty/gsl/vector/gsl_vector_complex_double.h:typedef struct
+codes/3rdparty/gsl/vector/gsl_vector_complex_double.h:typedef _gsl_vector_complex_view gsl_vector_complex_view;
+codes/3rdparty/gsl/vector/gsl_vector_complex_double.h:typedef struct
+codes/3rdparty/gsl/vector/gsl_vector_complex_double.h:typedef const _gsl_vector_complex_const_view gsl_vector_complex_const_view;
+codes/3rdparty/gsl/vector/gsl_vector_ulong.h:typedef struct 
+codes/3rdparty/gsl/vector/gsl_vector_ulong.h:typedef struct
+codes/3rdparty/gsl/vector/gsl_vector_ulong.h:typedef _gsl_vector_ulong_view gsl_vector_ulong_view;
+codes/3rdparty/gsl/vector/gsl_vector_ulong.h:typedef struct
+codes/3rdparty/gsl/vector/gsl_vector_ulong.h:typedef const _gsl_vector_ulong_const_view gsl_vector_ulong_const_view;
+codes/3rdparty/gsl/vector/gsl_vector_uchar.h:typedef struct 
+codes/3rdparty/gsl/vector/gsl_vector_uchar.h:typedef struct
+codes/3rdparty/gsl/vector/gsl_vector_uchar.h:typedef _gsl_vector_uchar_view gsl_vector_uchar_view;
+codes/3rdparty/gsl/vector/gsl_vector_uchar.h:typedef struct
+codes/3rdparty/gsl/vector/gsl_vector_uchar.h:typedef const _gsl_vector_uchar_const_view gsl_vector_uchar_const_view;
+codes/3rdparty/gsl/vector/gsl_vector_char.h:typedef struct 
+codes/3rdparty/gsl/vector/gsl_vector_char.h:typedef struct
+codes/3rdparty/gsl/vector/gsl_vector_char.h:typedef _gsl_vector_char_view gsl_vector_char_view;
+codes/3rdparty/gsl/vector/gsl_vector_char.h:typedef struct
+codes/3rdparty/gsl/vector/gsl_vector_char.h:typedef const _gsl_vector_char_const_view gsl_vector_char_const_view;
+codes/3rdparty/gsl/vector/gsl_vector_int.h:typedef struct 
+codes/3rdparty/gsl/vector/gsl_vector_int.h:typedef struct
+codes/3rdparty/gsl/vector/gsl_vector_int.h:typedef _gsl_vector_int_view gsl_vector_int_view;
+codes/3rdparty/gsl/vector/gsl_vector_int.h:typedef struct
+codes/3rdparty/gsl/vector/gsl_vector_int.h:typedef const _gsl_vector_int_const_view gsl_vector_int_const_view;
+codes/3rdparty/gsl/vector/gsl_vector_double.h:typedef struct 
+codes/3rdparty/gsl/vector/gsl_vector_double.h:typedef struct
+codes/3rdparty/gsl/vector/gsl_vector_double.h:typedef _gsl_vector_view gsl_vector_view;
+codes/3rdparty/gsl/vector/gsl_vector_double.h:typedef struct
+codes/3rdparty/gsl/vector/gsl_vector_double.h:typedef const _gsl_vector_const_view gsl_vector_const_view;
+codes/3rdparty/gsl/vector/gsl_vector_ushort.h:typedef struct 
+codes/3rdparty/gsl/vector/gsl_vector_ushort.h:typedef struct
+codes/3rdparty/gsl/vector/gsl_vector_ushort.h:typedef _gsl_vector_ushort_view gsl_vector_ushort_view;
+codes/3rdparty/gsl/vector/gsl_vector_ushort.h:typedef struct
+codes/3rdparty/gsl/vector/gsl_vector_ushort.h:typedef const _gsl_vector_ushort_const_view gsl_vector_ushort_const_view;
+codes/3rdparty/gsl/vector/gsl_vector_long.h:typedef struct 
+codes/3rdparty/gsl/vector/gsl_vector_long.h:typedef struct
+codes/3rdparty/gsl/vector/gsl_vector_long.h:typedef _gsl_vector_long_view gsl_vector_long_view;
+codes/3rdparty/gsl/vector/gsl_vector_long.h:typedef struct
+codes/3rdparty/gsl/vector/gsl_vector_long.h:typedef const _gsl_vector_long_const_view gsl_vector_long_const_view;
+codes/3rdparty/gsl/vector/gsl_vector_complex_long_double.h:typedef struct 
+codes/3rdparty/gsl/vector/gsl_vector_complex_long_double.h:typedef struct
+codes/3rdparty/gsl/vector/gsl_vector_complex_long_double.h:typedef _gsl_vector_complex_long_double_view gsl_vector_complex_long_double_view;
+codes/3rdparty/gsl/vector/gsl_vector_complex_long_double.h:typedef struct
+codes/3rdparty/gsl/vector/gsl_vector_complex_long_double.h:typedef const _gsl_vector_complex_long_double_const_view gsl_vector_complex_long_double_const_view;
+codes/3rdparty/gsl/vector/gsl_vector_long_double.h:typedef struct 
+codes/3rdparty/gsl/vector/gsl_vector_long_double.h:typedef struct
+codes/3rdparty/gsl/vector/gsl_vector_long_double.h:typedef _gsl_vector_long_double_view gsl_vector_long_double_view;
+codes/3rdparty/gsl/vector/gsl_vector_long_double.h:typedef struct
+codes/3rdparty/gsl/vector/gsl_vector_long_double.h:typedef const _gsl_vector_long_double_const_view gsl_vector_long_double_const_view;
+codes/3rdparty/gsl/multimin/simplex.c:typedef struct
+codes/3rdparty/gsl/multimin/gsl_multimin.h:typedef struct gsl_multimin_function_struct gsl_multimin_function;
+codes/3rdparty/gsl/multimin/gsl_multimin.h:typedef struct gsl_multimin_function_fdf_struct gsl_multimin_function_fdf;
+codes/3rdparty/gsl/multimin/gsl_multimin.h:typedef struct 
+codes/3rdparty/gsl/multimin/gsl_multimin.h:typedef struct 
+codes/3rdparty/gsl/multimin/gsl_multimin.h:typedef struct 
+codes/3rdparty/gsl/multimin/gsl_multimin.h:typedef struct 
+codes/3rdparty/gsl/multimin/conjugate_pr.c:typedef struct
+codes/3rdparty/gsl/multimin/linear_wrapper.c:typedef struct
+codes/3rdparty/gsl/multimin/conjugate_fr.c:typedef struct
+codes/3rdparty/gsl/multimin/steepest_descent.c:typedef struct
+codes/3rdparty/gsl/multimin/vector_bfgs.c:typedef struct
+codes/3rdparty/gsl/multimin/vector_bfgs2.c:typedef struct
+codes/3rdparty/gsl/multimin/test_funcs.h:typedef void (*initpt_function) (gsl_vector * x);
+codes/3rdparty/gsl/multimin/simplex2.c:typedef struct
+codes/3rdparty/gsl/libtool:typedef struct {
+codes/3rdparty/gsl/multilarge/normal.c:typedef struct
+codes/3rdparty/gsl/multilarge/gsl_multilarge.h:typedef struct
+codes/3rdparty/gsl/multilarge/gsl_multilarge.h:typedef struct
+codes/3rdparty/gsl/multilarge/tsqr.c:typedef struct
+codes/3rdparty/gsl/siman/siman_tsp.c:typedef struct s_tsp_city Stsp_city;
+codes/3rdparty/gsl/siman/gsl_siman.h:typedef double (*gsl_siman_Efunc_t) (void *xp);
+codes/3rdparty/gsl/siman/gsl_siman.h:typedef void (*gsl_siman_step_t) (const gsl_rng *r, void *xp, double step_size);
+codes/3rdparty/gsl/siman/gsl_siman.h:typedef double (*gsl_siman_metric_t) (void *xp, void *yp);
+codes/3rdparty/gsl/siman/gsl_siman.h:typedef void (*gsl_siman_print_t) (void *xp);
+codes/3rdparty/gsl/siman/gsl_siman.h:typedef void (*gsl_siman_copy_t) (void *source, void *dest);
+codes/3rdparty/gsl/siman/gsl_siman.h:typedef void * (*gsl_siman_copy_construct_t) (void *xp);
+codes/3rdparty/gsl/siman/gsl_siman.h:typedef void (*gsl_siman_destroy_t) (void *xp);
+codes/3rdparty/gsl/siman/gsl_siman.h:typedef struct {
+codes/3rdparty/gsl/randist/test.c:typedef double pdf_func(double);
+codes/3rdparty/gsl/randist/discrete.c:typedef struct {
+codes/3rdparty/gsl/randist/gsl_randist.h:typedef struct {                /* struct for Walker algorithm */
+codes/3rdparty/gsl/gsl_math.h:typedef struct gsl_function_struct gsl_function ;
+codes/3rdparty/gsl/gsl_math.h:typedef struct gsl_function_fdf_struct gsl_function_fdf ;
+codes/3rdparty/gsl/gsl_math.h:typedef struct gsl_function_vec_struct gsl_function_vec ;
+codes/3rdparty/gsl/ltmain.sh:typedef struct {
+codes/3rdparty/libjpeg/wrbmp.c:typedef struct {
+codes/3rdparty/libjpeg/wrbmp.c:typedef bmp_dest_struct * bmp_dest_ptr;
+codes/3rdparty/libjpeg/jinclude.h: * We need the NULL macro and size_t typedef.
+codes/3rdparty/libjpeg/wrppm.c:typedef struct {
+codes/3rdparty/libjpeg/wrppm.c:typedef ppm_dest_struct * ppm_dest_ptr;
+codes/3rdparty/libjpeg/rdppm.c:typedef unsigned char U_CHAR;
+codes/3rdparty/libjpeg/rdppm.c:typedef char U_CHAR;
+codes/3rdparty/libjpeg/rdppm.c:typedef char U_CHAR;
+codes/3rdparty/libjpeg/rdppm.c:typedef struct {
+codes/3rdparty/libjpeg/rdppm.c:typedef ppm_source_struct * ppm_source_ptr;
+codes/3rdparty/libjpeg/config.log:| typedef const char *ccp;
+codes/3rdparty/libjpeg/wrgif.c:typedef struct {
+codes/3rdparty/libjpeg/wrgif.c:typedef gif_dest_struct * gif_dest_ptr;
+codes/3rdparty/libjpeg/jmemsys.h:typedef unsigned short XMSH;	/* type of extended-memory handles */
+codes/3rdparty/libjpeg/jmemsys.h:typedef unsigned short EMSH;	/* type of expanded-memory handles */
+codes/3rdparty/libjpeg/jmemsys.h:typedef union {
+codes/3rdparty/libjpeg/jmemsys.h:typedef struct backing_store_struct * backing_store_ptr;
+codes/3rdparty/libjpeg/jmemsys.h:typedef struct backing_store_struct {
+codes/3rdparty/libjpeg/jchuff.c:typedef struct {
+codes/3rdparty/libjpeg/jchuff.c:typedef struct {
+codes/3rdparty/libjpeg/jchuff.c:typedef struct {
+codes/3rdparty/libjpeg/jchuff.c:typedef huff_entropy_encoder * huff_entropy_ptr;
+codes/3rdparty/libjpeg/jchuff.c:typedef struct {
+codes/3rdparty/libjpeg/jdmaster.c:typedef struct {
+codes/3rdparty/libjpeg/jdmaster.c:typedef my_decomp_master * my_master_ptr;
+codes/3rdparty/libjpeg/jpeglib.h:typedef JSAMPLE FAR *JSAMPROW;	/* ptr to one image row of pixel samples. */
+codes/3rdparty/libjpeg/jpeglib.h:typedef JSAMPROW *JSAMPARRAY;	/* ptr to some rows (a 2-D sample array) */
+codes/3rdparty/libjpeg/jpeglib.h:typedef JSAMPARRAY *JSAMPIMAGE;	/* a 3-D sample array: top index is color */
+codes/3rdparty/libjpeg/jpeglib.h:typedef JCOEF JBLOCK[DCTSIZE2];	/* one block of coefficients */
+codes/3rdparty/libjpeg/jpeglib.h:typedef JBLOCK FAR *JBLOCKROW;	/* pointer to one row of coefficient blocks */
+codes/3rdparty/libjpeg/jpeglib.h:typedef JBLOCKROW *JBLOCKARRAY;		/* a 2-D array of coefficient blocks */
+codes/3rdparty/libjpeg/jpeglib.h:typedef JBLOCKARRAY *JBLOCKIMAGE;	/* a 3-D array of coefficient blocks */
+codes/3rdparty/libjpeg/jpeglib.h:typedef JCOEF FAR *JCOEFPTR;	/* useful in a couple of places */
+codes/3rdparty/libjpeg/jpeglib.h:typedef struct {
+codes/3rdparty/libjpeg/jpeglib.h:typedef struct {
+codes/3rdparty/libjpeg/jpeglib.h:typedef struct {
+codes/3rdparty/libjpeg/jpeglib.h:typedef struct {
+codes/3rdparty/libjpeg/jpeglib.h:typedef struct jpeg_marker_struct FAR * jpeg_saved_marker_ptr;
+codes/3rdparty/libjpeg/jpeglib.h:typedef enum {
+codes/3rdparty/libjpeg/jpeglib.h:typedef enum {
+codes/3rdparty/libjpeg/jpeglib.h:typedef enum {
+codes/3rdparty/libjpeg/jpeglib.h:typedef enum {
+codes/3rdparty/libjpeg/jpeglib.h:typedef struct jpeg_common_struct * j_common_ptr;
+codes/3rdparty/libjpeg/jpeglib.h:typedef struct jpeg_compress_struct * j_compress_ptr;
+codes/3rdparty/libjpeg/jpeglib.h:typedef struct jpeg_decompress_struct * j_decompress_ptr;
+codes/3rdparty/libjpeg/jpeglib.h:typedef struct jvirt_sarray_control * jvirt_sarray_ptr;
+codes/3rdparty/libjpeg/jpeglib.h:typedef struct jvirt_barray_control * jvirt_barray_ptr;
+codes/3rdparty/libjpeg/jpeglib.h:typedef JMETHOD(boolean, jpeg_marker_parser_method, (j_decompress_ptr cinfo));
+codes/3rdparty/libjpeg/jdct.h:typedef int DCTELEM;		/* 16 or 32 bits is fine */
+codes/3rdparty/libjpeg/jdct.h:typedef INT32 DCTELEM;		/* must have 32 bits */
+codes/3rdparty/libjpeg/jdct.h:typedef JMETHOD(void, forward_DCT_method_ptr, (DCTELEM * data,
+codes/3rdparty/libjpeg/jdct.h:typedef JMETHOD(void, float_DCT_method_ptr, (FAST_FLOAT * data,
+codes/3rdparty/libjpeg/jdct.h:/* typedef inverse_DCT_method_ptr is declared in jpegint.h */
+codes/3rdparty/libjpeg/jdct.h:typedef MULTIPLIER ISLOW_MULT_TYPE; /* short or int, whichever is faster */
+codes/3rdparty/libjpeg/jdct.h:typedef MULTIPLIER IFAST_MULT_TYPE; /* 16 bits is OK, use short if faster */
+codes/3rdparty/libjpeg/jdct.h:typedef INT32 IFAST_MULT_TYPE;	/* need 32 bits for scaled quantizers */
+codes/3rdparty/libjpeg/jdct.h:typedef FAST_FLOAT FLOAT_MULT_TYPE; /* preferred floating type */
+codes/3rdparty/libjpeg/configure.ac:typedef size_t my_size_t;
+codes/3rdparty/libjpeg/configure.ac:      Try putting '"typedef unsigned int size_t;"' in jconfig.h.])
+codes/3rdparty/libjpeg/configure.ac:typedef void * void_ptr;	/* check void * */
+codes/3rdparty/libjpeg/configure.ac:typedef void (*void_func) (int a, int b);
+codes/3rdparty/libjpeg/configure.ac:typedef void (*void_func) ();
+codes/3rdparty/libjpeg/configure.ac:AC_TRY_COMPILE([ typedef struct undefined_structure * undef_struct_ptr; ],
+codes/3rdparty/libjpeg/jmemdos.c:typedef void far * XMSDRIVER;	/* actually a pointer to code */
+codes/3rdparty/libjpeg/jmemdos.c:typedef struct {		/* registers for calling XMS driver */
+codes/3rdparty/libjpeg/jmemdos.c:typedef struct {		/* registers for calling EMS driver */
+codes/3rdparty/libjpeg/jmemdos.c:typedef union {			/* either long offset or real-mode pointer */
+codes/3rdparty/libjpeg/jmemdos.c:typedef struct {		/* XMS move specification structure */
+codes/3rdparty/libjpeg/jmemdos.c:typedef void far * EMSPTR;
+codes/3rdparty/libjpeg/jmemdos.c:typedef union {			/* EMS move specification structure */
+codes/3rdparty/libjpeg/jconfig.vc:typedef unsigned char boolean;
+codes/3rdparty/libjpeg/jerror.h:typedef enum {
+codes/3rdparty/libjpeg/cderror.h:typedef enum {
+codes/3rdparty/libjpeg/jcdctmgr.c:typedef struct {
+codes/3rdparty/libjpeg/jcdctmgr.c:typedef my_fdct_controller * my_fdct_ptr;
+codes/3rdparty/libjpeg/jconfig.h:typedef unsigned char boolean;
+codes/3rdparty/libjpeg/jconfig.cfg:typedef unsigned char boolean;
+codes/3rdparty/libjpeg/libjpeg.txt:jpeglib.h, include system headers that define at least the typedefs FILE and
+codes/3rdparty/libjpeg/libjpeg.txt:performance or reduce memory space by tweaking the various typedefs in
+codes/3rdparty/libjpeg/libjpeg.txt:code work by modifying the typedefs in jmorecfg.h.  However, you will probably
+codes/3rdparty/libjpeg/jdpostct.c:typedef struct {
+codes/3rdparty/libjpeg/jdpostct.c:typedef my_post_controller * my_post_ptr;
+codes/3rdparty/libjpeg/configure:typedef const char *ccp;
+codes/3rdparty/libjpeg/configure:typedef size_t my_size_t;
+codes/3rdparty/libjpeg/configure:      Try putting '\"typedef unsigned int size_t;\"' in jconfig.h." >&5
+codes/3rdparty/libjpeg/configure:      Try putting '\"typedef unsigned int size_t;\"' in jconfig.h." >&2;}
+codes/3rdparty/libjpeg/configure:typedef void * void_ptr;	/* check void * */
+codes/3rdparty/libjpeg/configure:typedef void (*void_func) (int a, int b);
+codes/3rdparty/libjpeg/configure:typedef void (*void_func) ();
+codes/3rdparty/libjpeg/configure:  typedef int charset[2];
+codes/3rdparty/libjpeg/configure:    typedef const int *iptr;
+codes/3rdparty/libjpeg/configure: typedef struct undefined_structure * undef_struct_ptr;
+codes/3rdparty/libjpeg/jdatasrc.c:typedef struct {
+codes/3rdparty/libjpeg/jdatasrc.c:typedef my_source_mgr * my_src_ptr;
+codes/3rdparty/libjpeg/jcsample.c:typedef JMETHOD(void, downsample1_ptr,
+codes/3rdparty/libjpeg/jcsample.c:typedef struct {
+codes/3rdparty/libjpeg/jcsample.c:typedef my_downsampler * my_downsample_ptr;
+codes/3rdparty/libjpeg/rdbmp.c:typedef unsigned char U_CHAR;
+codes/3rdparty/libjpeg/rdbmp.c:typedef char U_CHAR;
+codes/3rdparty/libjpeg/rdbmp.c:typedef char U_CHAR;
+codes/3rdparty/libjpeg/rdbmp.c:typedef struct _bmp_source_struct * bmp_source_ptr;
+codes/3rdparty/libjpeg/rdbmp.c:typedef struct _bmp_source_struct {
+codes/3rdparty/libjpeg/jdmainct.c:typedef struct {
+codes/3rdparty/libjpeg/jdmainct.c:typedef my_main_controller * my_main_ptr;
+codes/3rdparty/libjpeg/ckconfig.c: * above.  If not, you'll get an error on the "typedef size_t my_size_t;" line.
+codes/3rdparty/libjpeg/ckconfig.c: * says "typedef something-or-other size_t;".  Then, change the line below
+codes/3rdparty/libjpeg/ckconfig.c: * "typedef unsigned int size_t;".
+codes/3rdparty/libjpeg/ckconfig.c:typedef size_t my_size_t;	/* The payoff: do we have size_t now? */
+codes/3rdparty/libjpeg/ckconfig.c:typedef void * void_ptr;	/* check void * */
+codes/3rdparty/libjpeg/ckconfig.c:typedef void (*void_func) (int a, int b);
+codes/3rdparty/libjpeg/ckconfig.c:typedef void (*void_func) ();
+codes/3rdparty/libjpeg/ckconfig.c:typedef struct undefined_structure * undef_struct_ptr;
+codes/3rdparty/libjpeg/jcprepct.c:typedef struct {
+codes/3rdparty/libjpeg/jcprepct.c:typedef my_prep_controller * my_prep_ptr;
+codes/3rdparty/libjpeg/install.txt:to A.08.07.  If you get complaints about "not a typedef name", you'll have to
+codes/3rdparty/libjpeg/install.txt:Some Windows system include files define typedef boolean as "unsigned char".
+codes/3rdparty/libjpeg/install.txt:The IJG code also defines typedef boolean, but we make it an "enum" by default.
+codes/3rdparty/libjpeg/install.txt:	typedef unsigned char boolean;
+codes/3rdparty/libjpeg/jdcoefct.c:typedef struct {
+codes/3rdparty/libjpeg/jdcoefct.c:typedef my_coef_controller * my_coef_ptr;
+codes/3rdparty/libjpeg/jmorecfg.h:typedef unsigned char JSAMPLE;
+codes/3rdparty/libjpeg/jmorecfg.h:typedef char JSAMPLE;
+codes/3rdparty/libjpeg/jmorecfg.h:typedef short JSAMPLE;
+codes/3rdparty/libjpeg/jmorecfg.h:typedef short JCOEF;
+codes/3rdparty/libjpeg/jmorecfg.h:typedef unsigned char JOCTET;
+codes/3rdparty/libjpeg/jmorecfg.h:typedef char JOCTET;
+codes/3rdparty/libjpeg/jmorecfg.h:/* These typedefs are used for various table entries and so forth.
+codes/3rdparty/libjpeg/jmorecfg.h: * typedefs live at a different point on the speed/space tradeoff curve.)
+codes/3rdparty/libjpeg/jmorecfg.h:typedef unsigned char UINT8;
+codes/3rdparty/libjpeg/jmorecfg.h:typedef char UINT8;
+codes/3rdparty/libjpeg/jmorecfg.h:typedef short UINT8;
+codes/3rdparty/libjpeg/jmorecfg.h:typedef unsigned short UINT16;
+codes/3rdparty/libjpeg/jmorecfg.h:typedef unsigned int UINT16;
+codes/3rdparty/libjpeg/jmorecfg.h:typedef short INT16;
+codes/3rdparty/libjpeg/jmorecfg.h:typedef long INT32;
+codes/3rdparty/libjpeg/jmorecfg.h:typedef unsigned int JDIMENSION;
+codes/3rdparty/libjpeg/jmorecfg.h:typedef void noreturn_t;
+codes/3rdparty/libjpeg/jmorecfg.h:typedef enum { FALSE = 0, TRUE = 1 } boolean;
+codes/3rdparty/libjpeg/djpeg.c:typedef enum {
+codes/3rdparty/libjpeg/example.c: * the typedefs FILE and size_t before you can include jpeglib.h.
+codes/3rdparty/libjpeg/example.c:typedef struct my_error_mgr * my_error_ptr;
+codes/3rdparty/libjpeg/jcmarker.c:typedef enum {			/* JPEG marker codes */
+codes/3rdparty/libjpeg/jcmarker.c:typedef struct {
+codes/3rdparty/libjpeg/jcmarker.c:typedef my_marker_writer * my_marker_ptr;
+codes/3rdparty/libjpeg/jconfig.txt:/* Define this if your system does not provide typedef size_t in any of the
+codes/3rdparty/libjpeg/jconfig.txt:typedef unsigned char boolean;
+codes/3rdparty/libjpeg/wrrle.c:typedef struct {
+codes/3rdparty/libjpeg/wrrle.c:typedef rle_dest_struct * rle_dest_ptr;
+codes/3rdparty/libjpeg/jquant1.c:typedef int ODITHER_MATRIX[ODITHER_SIZE][ODITHER_SIZE];
+codes/3rdparty/libjpeg/jquant1.c:typedef int (*ODITHER_MATRIX_PTR)[ODITHER_SIZE];
+codes/3rdparty/libjpeg/jquant1.c:typedef INT16 FSERROR;		/* 16 bits should be enough */
+codes/3rdparty/libjpeg/jquant1.c:typedef int LOCFSERROR;		/* use 'int' for calculation temps */
+codes/3rdparty/libjpeg/jquant1.c:typedef INT32 FSERROR;		/* may need more than 16 bits */
+codes/3rdparty/libjpeg/jquant1.c:typedef INT32 LOCFSERROR;	/* be sure calculation temps are big enough */
+codes/3rdparty/libjpeg/jquant1.c:typedef FSERROR FAR *FSERRPTR;	/* pointer to error array (in FAR storage!) */
+codes/3rdparty/libjpeg/jquant1.c:typedef struct {
+codes/3rdparty/libjpeg/jquant1.c:typedef my_cquantizer * my_cquantize_ptr;
+codes/3rdparty/libjpeg/jctrans.c:typedef struct {
+codes/3rdparty/libjpeg/jctrans.c:typedef my_coef_controller * my_coef_ptr;
+codes/3rdparty/libjpeg/jdhuff.c:typedef struct {
+codes/3rdparty/libjpeg/jdhuff.c:typedef INT32 bit_buf_type;	/* type of bit-extraction buffer */
+codes/3rdparty/libjpeg/jdhuff.c:typedef struct {		/* Bitreading state saved across MCUs */
+codes/3rdparty/libjpeg/jdhuff.c:typedef struct {		/* Bitreading working state within an MCU */
+codes/3rdparty/libjpeg/jdhuff.c:typedef struct {
+codes/3rdparty/libjpeg/jdhuff.c:typedef struct {
+codes/3rdparty/libjpeg/jdhuff.c:typedef huff_entropy_decoder * huff_entropy_ptr;
+codes/3rdparty/libjpeg/jdmerge.c:typedef struct {
+codes/3rdparty/libjpeg/jdmerge.c:typedef my_upsampler * my_upsample_ptr;
+codes/3rdparty/libjpeg/jdsample.c:typedef JMETHOD(void, upsample1_ptr,
+codes/3rdparty/libjpeg/jdsample.c:typedef struct {
+codes/3rdparty/libjpeg/jdsample.c:typedef my_upsampler * my_upsample_ptr;
+codes/3rdparty/libjpeg/jdatadst.c:typedef struct {
+codes/3rdparty/libjpeg/jdatadst.c:typedef my_destination_mgr * my_dest_ptr;
+codes/3rdparty/libjpeg/jdatadst.c:typedef struct {
+codes/3rdparty/libjpeg/jdatadst.c:typedef my_mem_destination_mgr * my_mem_dest_ptr;
+codes/3rdparty/libjpeg/jquant2.c:typedef UINT16 histcell;	/* histogram cell; prefer an unsigned type */
+codes/3rdparty/libjpeg/jquant2.c:typedef histcell FAR * histptr;	/* for pointers to histogram cells */
+codes/3rdparty/libjpeg/jquant2.c:typedef histcell hist1d[HIST_C2_ELEMS]; /* typedefs for the array */
+codes/3rdparty/libjpeg/jquant2.c:typedef hist1d FAR * hist2d;	/* type for the 2nd-level pointers */
+codes/3rdparty/libjpeg/jquant2.c:typedef hist2d * hist3d;	/* type for top-level pointer */
+codes/3rdparty/libjpeg/jquant2.c:typedef INT16 FSERROR;		/* 16 bits should be enough */
+codes/3rdparty/libjpeg/jquant2.c:typedef int LOCFSERROR;		/* use 'int' for calculation temps */
+codes/3rdparty/libjpeg/jquant2.c:typedef INT32 FSERROR;		/* may need more than 16 bits */
+codes/3rdparty/libjpeg/jquant2.c:typedef INT32 LOCFSERROR;	/* be sure calculation temps are big enough */
+codes/3rdparty/libjpeg/jquant2.c:typedef FSERROR FAR *FSERRPTR;	/* pointer to error array (in FAR storage!) */
+codes/3rdparty/libjpeg/jquant2.c:typedef struct {
+codes/3rdparty/libjpeg/jquant2.c:typedef my_cquantizer * my_cquantize_ptr;
+codes/3rdparty/libjpeg/jquant2.c:typedef struct {
+codes/3rdparty/libjpeg/jquant2.c:typedef box * boxptr;
+codes/3rdparty/libjpeg/jdinput.c:typedef struct {
+codes/3rdparty/libjpeg/jdinput.c:typedef my_input_controller * my_inputctl_ptr;
+codes/3rdparty/libjpeg/transupp.h:typedef enum {
+codes/3rdparty/libjpeg/transupp.h:typedef enum {
+codes/3rdparty/libjpeg/transupp.h:typedef struct {
+codes/3rdparty/libjpeg/transupp.h:typedef enum {
+codes/3rdparty/libjpeg/wrtarga.c:typedef struct {
+codes/3rdparty/libjpeg/wrtarga.c:typedef tga_dest_struct * tga_dest_ptr;
+codes/3rdparty/libjpeg/jmemmgr.c:typedef union small_pool_struct * small_pool_ptr;
+codes/3rdparty/libjpeg/jmemmgr.c:typedef union small_pool_struct {
+codes/3rdparty/libjpeg/jmemmgr.c:typedef union large_pool_struct FAR * large_pool_ptr;
+codes/3rdparty/libjpeg/jmemmgr.c:typedef union large_pool_struct {
+codes/3rdparty/libjpeg/jmemmgr.c:typedef struct {
+codes/3rdparty/libjpeg/jmemmgr.c:typedef my_memory_mgr * my_mem_ptr;
+codes/3rdparty/libjpeg/jcmaster.c:typedef enum {
+codes/3rdparty/libjpeg/jcmaster.c:typedef struct {
+codes/3rdparty/libjpeg/jcmaster.c:typedef my_comp_master * my_master_ptr;
+codes/3rdparty/libjpeg/rdrle.c:typedef enum
+codes/3rdparty/libjpeg/rdrle.c:typedef struct _rle_source_struct * rle_source_ptr;
+codes/3rdparty/libjpeg/rdrle.c:typedef struct _rle_source_struct {
+codes/3rdparty/libjpeg/jdcolor.c:typedef struct {
+codes/3rdparty/libjpeg/jdcolor.c:typedef my_color_deconverter * my_cconvert_ptr;
+codes/3rdparty/libjpeg/jcmainct.c:typedef struct {
+codes/3rdparty/libjpeg/jcmainct.c:typedef my_main_controller * my_main_ptr;
+codes/3rdparty/libjpeg/jpegint.h:typedef enum {			/* Operating modes for buffer controllers */
+codes/3rdparty/libjpeg/jpegint.h:typedef JMETHOD(void, forward_DCT_ptr,
+codes/3rdparty/libjpeg/jpegint.h:typedef JMETHOD(void, inverse_DCT_method_ptr,
+codes/3rdparty/libjpeg/jdarith.c:typedef struct {
+codes/3rdparty/libjpeg/jdarith.c:typedef arith_entropy_decoder * arith_entropy_ptr;
+codes/3rdparty/libjpeg/jddctmgr.c:typedef struct {
+codes/3rdparty/libjpeg/jddctmgr.c:typedef my_idct_controller * my_idct_ptr;
+codes/3rdparty/libjpeg/jddctmgr.c:typedef union {
+codes/3rdparty/libjpeg/jdmarker.c:typedef enum {			/* JPEG marker codes */
+codes/3rdparty/libjpeg/jdmarker.c:typedef struct {
+codes/3rdparty/libjpeg/jdmarker.c:typedef my_marker_reader * my_marker_ptr;
+codes/3rdparty/libjpeg/jccolor.c:typedef struct {
+codes/3rdparty/libjpeg/jccolor.c:typedef my_color_converter * my_cconvert_ptr;
+codes/3rdparty/libjpeg/structure.txt:pointer typedefs.
+codes/3rdparty/libjpeg/structure.txt:compressed data as an array of values of typedef JOCTET.  If no data type
+codes/3rdparty/libjpeg/structure.txt:    typedef something JSAMPLE;		a pixel component value, 0..MAXJSAMPLE
+codes/3rdparty/libjpeg/structure.txt:    typedef JSAMPLE *JSAMPROW;		ptr to a row of samples
+codes/3rdparty/libjpeg/structure.txt:    typedef JSAMPROW *JSAMPARRAY;	ptr to a list of rows
+codes/3rdparty/libjpeg/structure.txt:    typedef JSAMPARRAY *JSAMPIMAGE;	ptr to a list of color-component arrays
+codes/3rdparty/libjpeg/structure.txt:    typedef short JCOEF;		a 16-bit signed integer
+codes/3rdparty/libjpeg/structure.txt:    typedef JCOEF JBLOCK[DCTSIZE2];	an 8x8 block of coefficients
+codes/3rdparty/libjpeg/structure.txt:    typedef JBLOCK *JBLOCKROW;		ptr to one horizontal row of 8x8 blocks
+codes/3rdparty/libjpeg/structure.txt:    typedef JBLOCKROW *JBLOCKARRAY;	ptr to a list of such rows
+codes/3rdparty/libjpeg/structure.txt:    typedef JBLOCKARRAY *JBLOCKIMAGE;	ptr to a list of color component arrays
+codes/3rdparty/libjpeg/rdtarga.c:typedef unsigned char U_CHAR;
+codes/3rdparty/libjpeg/rdtarga.c:typedef char U_CHAR;
+codes/3rdparty/libjpeg/rdtarga.c:typedef char U_CHAR;
+codes/3rdparty/libjpeg/rdtarga.c:typedef struct _tga_source_struct * tga_source_ptr;
+codes/3rdparty/libjpeg/rdtarga.c:typedef struct _tga_source_struct {
+codes/3rdparty/libjpeg/cdjpeg.h:typedef struct cjpeg_source_struct * cjpeg_source_ptr;
+codes/3rdparty/libjpeg/cdjpeg.h:typedef struct djpeg_dest_struct * djpeg_dest_ptr;
+codes/3rdparty/libjpeg/cdjpeg.h:typedef struct cdjpeg_progress_mgr * cd_progress_ptr;
+codes/3rdparty/libjpeg/jcarith.c:typedef struct {
+codes/3rdparty/libjpeg/jcarith.c:typedef arith_entropy_encoder * arith_entropy_ptr;
+codes/3rdparty/libjpeg/jccoefct.c:typedef struct {
+codes/3rdparty/libjpeg/jccoefct.c:typedef my_coef_controller * my_coef_ptr;
+codes/3rdparty/libjpeg/libtool:typedef struct {
+codes/3rdparty/libjpeg/ltmain.sh:typedef struct {
+tests/conv_test/src/conv_test.h~:	typedef char      DATA_CALC;
+tests/conv_test/src/conv_test.h~:	typedef short int DATA_CALC;
+tests/conv_test/src/conv_test.h:	typedef char      DATA_CALC;
+tests/conv_test/src/conv_test.h:	typedef short int DATA_CALC;

@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Full example &mdash; SDK 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="SDK 1.0 documentation" href="index.html" />
+    <link rel="next" title="References" href="references.html" />
+    <link rel="prev" title="Chips" href="pulpChips.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="full-example">
+<h1>Full example<a class="headerlink" href="#full-example" title="Permalink to this headline">¶</a></h1>
+<p>Full examples can be found in the SDK under examples/apps. This section is focusing on the one called adc_spi_threshold.</p>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>The <em>adc_spi_threshold</em> example is reproducing one the most common use-case supported by the Pulp architecture where the application is sampling data from a peripheral (an ADC here), doing some processing on them, and sending the result to another peripheral (the UART here).</p>
+</div>
+<div class="section" id="how-to-compile-and-run">
+<h2>How to compile and run<a class="headerlink" href="#how-to-compile-and-run" title="Permalink to this headline">¶</a></h2>
+<p>This example is based on the SDK makefiles, thus it can be compiled and run with the usual command:</p>
+<div class="highlight-python"><div class="highlight"><pre>make clean all run
+</pre></div>
+</div>
+<p>If you look at the makefile, you will see the following particularities, compared to the basic example showed in previous sections:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">The makefile is including <em>pulp_rtlib.mk</em> instead of <em>pulp_rt.mk</em>. This is because the Pulp kernel library is used to do some processing on the samples. If this is not used, <em>pulp_rt.mk</em> can be included directly.</p>
+</li>
+<li><p class="first">The makefile is specifying several additional options for the platform:</p>
+<p>override PLT_OPT := $(PLT_OPT) --adc=0:$(CURDIR)/stimuli/stimuli_cos_hex.asc --uart-file=uart.trace</p>
+<p>The first one is used to give a stimuli file to the ADC so that the test is receiving data which makes sense. The second one is used to dump the stream sent to the UART into a file, otherwise it is dumped in the console.</p>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="content">
+<h2>Content<a class="headerlink" href="#content" title="Permalink to this headline">¶</a></h2>
+<p>This example is based on an API that takes care of transfering the data between the peripherals and the L2 (using the UDMA) and between the L2 and the L1 (using the DMA). This API allows the application to initialize buffers which will be periodically used to get and send data.</p>
+<p>For that it is first executing a prologue preparing the buffers where the desired characteristics are given. In this example, the buffer for ADC is specified periodic, so that the application is periodically getting a buffer containing the samples, and being in L1, so that the received samples can be used directly from the closest memory. It also specifying a task that will be executed when the transfer is finished and the buffer can be used. This task is specified as a callback (function pointer) that will be called from an interrupt handler. The UART buffer is specified as being one-shot as it must be triggered by the application when a buffer is ready to be sent.</p>
+<p>Then the application is executing a loop where it is first waiting for an input buffer. For that it waits that a global variable is changed by the callback called when a transfer is finished. In order to not execute instructions for nothing, while it is waiting for the variable to change, the application is asking the scheduler to yield execution, i.e. put the core in sleep mode until the transfer is finished. Once the buffer is finished, the application is using a library of kernel to execute some processing on the buffer.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Full example</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#how-to-compile-and-run">How to compile and run</a></li>
+<li><a class="reference internal" href="#content">Content</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="pulpChips.html" title="previous chapter">Chips</a></li>
+      <li>Next: <a href="references.html" title="next chapter">References</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/fullExample.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, ETH - Unibo.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/fullExample.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

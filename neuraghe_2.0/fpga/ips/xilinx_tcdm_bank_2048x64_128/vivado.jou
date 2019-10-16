@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2016.4 (64-bit)
+# SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+# IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+# Start of session at: Wed Mar 27 13:13:06 2019
+# Process ID: 27541
+# Current directory: /home/gderiu/marco/neuraghe_zc706_tcn/fpga/ips/xilinx_tcdm_bank_2048x64_128
+# Command line: vivado -mode batch -source tcl/run.tcl
+# Log file: /home/gderiu/marco/neuraghe_zc706_tcn/fpga/ips/xilinx_tcdm_bank_2048x64_128/vivado.log
+# Journal file: /home/gderiu/marco/neuraghe_zc706_tcn/fpga/ips/xilinx_tcdm_bank_2048x64_128/vivado.jou
+#-----------------------------------------------------------
+source tcl/run.tcl

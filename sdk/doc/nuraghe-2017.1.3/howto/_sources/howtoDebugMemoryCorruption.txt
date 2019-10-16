@@ -1,0 +1,84 @@
+How to debug memory corruptions or invalid accesses
+...................................................
+
+Note that this howto can only be used on the virtual platform and is strongly relying on platform traces described here: :ref:`howtoAssemblyTraces`.
+
+First identify the reason of the memory corruption or the invalid access
+------------------------------------------------------------------------
+
+Such bugs can show-up in different ways.
+
+The first one is that an invalid access is reported by the platform like the following: ::
+
+  58988800000: [/soc/fabric/noc/warning              ] Invalid access (offset: 0x3f14fc00, size: 0x10, isRead: 1)
+  58988800000: [/soc/fabric/cluster0/pe0/warning     ] Invalid access during instruction fetch (offset: 0x3f14fc0c, size: 0x4)
+
+These ones are the easiest to debug as they are explicitly reported by the platform, as some kind of asserts. In this case, there was an invalid access reported by the interconnect (in the architecture at */soc/fabric/noc*) which ends up being reported by the core doing the access as an invalid instruction fetch.
+
+They can also be reported by other warnings reported by the platform like invalid use of peripherals or registers.
+
+Unfortunatly most of the bugs will just lead to invalid results or hanging application. In this case, the application should be debugged using printf of gdb (soon available).
+
+Get more information using platform traces
+------------------------------------------
+
+In case a platform warning is raised, the following method can be applied to get more information.
+
+As the platform is stopped as soon as the invalid access is raised (by default warnings are considered as errors), it is really easy to have more information by dumping the end of the executed instructions using platform traces: ::
+
+  58988690000: [ESC[34m/soc/fabric/cluster0/pe0/iss         ESC[0m] 1c003c5c l.jr                r9                   r9 :3f14fc0d 
+  58988700000: [ESC[34m/soc/fabric/cluster0/pe0/iss         ESC[0m] 1c003c60 l.lwz               r30, -12(r1 )        r30=3eda278d r1 :00003424  PA:00003418 
+  58988800000: [ESC[34m/soc/fabric/cluster0/pe0/iss         ESC[0m] 3f14fc0c l.j                 0                    
+
+We see here that the core is jumping to an invalid address (0x3f14fc0c), which is also more or less the one reported as being the address of the invalid access. This faulting address is a bit different as it is actually a program cache line refill. The jump to this invalid address is done because the return register (r9) is containing this invalid address.
+
+The next step is to find out how we ended-up having this invalid address in r9, which can be done by looking for r9 in the platform traces from the end to the beginning. If for example you open the trace file with the tool *less*, you can look for it by typing /, followed by r9 and enter, and then shift + n to go backward or n to go forward. Doing that we see that r9 is written by the following operation: ::
+
+  58988420000: [ESC[34m/soc/fabric/cluster0/pe0/iss         ESC[0m] 1c003c38 l.lwz               r9 , -4(r1 )         r9 =3f14fc0d r1 :00003424  PA:00003420
+
+This operation is loading the invalid address from memory at address 0x3420 (which is an L1 address through the cluster alias), and storing it to r9. As you can see on the operands part, the address is computed from r1 which is the stack pointer. Probably the address was stored on the stack earlier (e.g. before calling a function) and is now being restored in order to return to the caller (r9 is the return address). In such cases, most of the time, another unrelated code stored something else at the same location illegaly, for example with a buffer overflow.
+
+The next step is to find out which code is storing this invalid address on top of the valid one which was saved. To do that, just continue to search in the platform traces from the end to the start by looking for *PA:00003420*. Each time a core is accessing this address, this pattern will appear on the line containing the instruction doing the access. In this example, the following instruction is doing the access: ::
+
+  58945820000: [ESC[34m/soc/fabric/cluster0/pe0/iss         ESC[0m] 1c0038b0 l.sw                8(r6 !), r7          r6 =00003428 r6 :00003420  PA:00003420 r7 :3f14fc0d
+
+This instruction is very suspicious, first because it stores something in a location used to save registers on the stack, and is not computing the address using the stack pointer (it is using r6), and also because it is storing a value at a location where a pointer is expected. 
+
+To know why is the code doing this, just disassemble the application binary (using or1kle-elf-objdump -d -l or riscv32-elf-objdump -d -l) and look for address 0x1c0038b0 (the address of the instruction), this should give the source code file and the line of the code doing that. In this example, this points out to a code which was writing to this address due to a buffer overflow (an array was too small) and then overwriting something on the stack as the array was on the stack.
+
+Get more information using platform debugger
+--------------------------------------------
+
+If you look at the pulp-run command launched to start the execution, you should see a --pdb-no-break, which tells the platform to not enter the debugger at start-up. If you replace it with --pdb-break, the platform should first enter the debugger before executing the first instruction and you should get the following prompt: ::
+
+  (Cmd)
+
+You can use the bkp command to register a breakpoint on a memory address so that the platform stop in case this address is accessed. For that just enters: ::
+
+  (Cmd) bkp 0x3420
+  (Cmd) run
+
+This will run the platform and you should see something like this when the address is accessed: ::
+
+  403350000: [/soc/fabric/cluster0/pe0/userTrace   ] Reached breakpoint (matchAddr: 0x00003420, matchAccess: w)
+  (Cmd)
+
+In case this is not the access you are looking for, you can retype the run command or execute the following to get the PC of all cores: ::
+
+  (Cmd) state
+  /soc/fabric/cluster0/pe0
+    PC: 0x1c001ed4
+  /soc/fabric/cluster0/pe1
+    PC: 0x1c004b0c
+  /soc/fabric/cluster0/pe2
+    PC: 0x1c004b0c
+  /soc/fabric/cluster0/pe3
+    PC: 0x1c004b0c
+
+You can then use the PC information and objdump to know which source code is doing this access.
+
+Get more information using GDB
+------------------------------
+
+GDB should soon be available for tracking memory accesses using watchpoints.
+

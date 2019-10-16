@@ -1,0 +1,26 @@
+Pulp SDK documentation
+===============================
+
+The SDK contains platforms, runtimes and tools useful for compiling, running and profiling applications on Pulp.
+
+Content:
+
+.. toctree::
+   :maxdepth: 2
+
+   dependencies
+   quickstart
+   hwArch
+   swArch
+   platforms
+   pulpChips
+   fullExample
+   references
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+

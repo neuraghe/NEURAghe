@@ -1,0 +1,195 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/nur/NEURAghe/neuraghe_2.0/fe/sim
+vaxi_slice_dc_master
+Z1 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
+Z2 !s110 1568883255
+!i10b 1
+!s100 @>UC^MGZd[NXQgZS1;gZg2
+I[E9c;[3P3IO>9<l4h[n051
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+!s105 axi_slice_dc_master_sv_unit
+S1
+R0
+Z4 w1566466392
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice_dc/axi_slice_dc_master.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice_dc/axi_slice_dc_master.sv
+Z5 L0 10
+Z6 OL;L;10.4;61
+r1
+!s85 0
+31
+!s108 1568883255.314312
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice_dc/axi_slice_dc_master.sv|
+!s90 -work|axi_slice_dc_lib|-quiet|-sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice_dc/axi_slice_dc_master.sv|
+!i113 0
+Z7 o-quiet -work axi_slice_dc_lib -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vaxi_slice_dc_slave
+R1
+R2
+!i10b 1
+!s100 2iJ>8LmA1khWcOib]N_lz0
+IzgU4nRR2FG49>PPz`C=4H0
+R3
+!s105 axi_slice_dc_slave_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice_dc/axi_slice_dc_slave.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice_dc/axi_slice_dc_slave.sv
+R5
+R6
+r1
+!s85 0
+31
+!s108 1568883255.346436
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice_dc/axi_slice_dc_slave.sv|
+!s90 -work|axi_slice_dc_lib|-quiet|-sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice_dc/axi_slice_dc_slave.sv|
+!i113 0
+R7
+vdc_data_buffer
+R1
+R2
+!i10b 1
+!s100 a8<i;Kfm;JS:c4AP3h2<23
+IPOZ];6nbjCiIoMTUZc>aQ3
+R3
+!s105 dc_data_buffer_v_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice_dc/dc_data_buffer.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice_dc/dc_data_buffer.v
+L0 1
+R6
+r1
+!s85 0
+31
+!s108 1568883255.141074
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice_dc/dc_data_buffer.v|
+!s90 -work|axi_slice_dc_lib|-quiet|+define+|-sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice_dc/dc_data_buffer.v|
+!i113 0
+R7
+!s92 -quiet -work axi_slice_dc_lib +define+ -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vdc_full_detector
+R1
+R2
+!i10b 1
+!s100 1SBBG0M;Ol>[@YLeel6TK2
+I_oc>EAnFHfc0Fc^DAVS_23
+R3
+!s105 dc_full_detector_v_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice_dc/dc_full_detector.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice_dc/dc_full_detector.v
+L0 1
+R6
+r1
+!s85 0
+31
+!s108 1568883255.170688
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice_dc/dc_full_detector.v|
+!s90 -work|axi_slice_dc_lib|-quiet|-sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice_dc/dc_full_detector.v|
+!i113 0
+R7
+vdc_synchronizer
+R1
+R2
+!i10b 1
+!s100 XK>OQIO1KoHbKcX=;2LQ30
+IefTbO5377j[EgkZ40bb1Q0
+R3
+!s105 dc_synchronizer_v_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice_dc/dc_synchronizer.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice_dc/dc_synchronizer.v
+L0 2
+R6
+r1
+!s85 0
+31
+!s108 1568883255.199787
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice_dc/dc_synchronizer.v|
+!s90 -work|axi_slice_dc_lib|-quiet|-sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice_dc/dc_synchronizer.v|
+!i113 0
+R7
+vdc_token_ring
+R1
+R2
+!i10b 1
+!s100 9db3TTGfz<XoZU^dT3d4K0
+IY7lSKiHU]`SQ^^W0G`hJD1
+R3
+!s105 dc_token_ring_v_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice_dc/dc_token_ring.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice_dc/dc_token_ring.v
+L0 1
+R6
+r1
+!s85 0
+31
+!s108 1568883255.285961
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice_dc/dc_token_ring.v|
+!s90 -work|axi_slice_dc_lib|-quiet|-sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice_dc/dc_token_ring.v|
+!i113 0
+R7
+vdc_token_ring_fifo_din
+R1
+R2
+!i10b 1
+!s100 6_`jB[^FOzF20FZgFTGkE3
+IXMm^nKe:P6^KPX^@1R;Bo3
+R3
+!s105 dc_token_ring_fifo_din_v_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice_dc/dc_token_ring_fifo_din.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice_dc/dc_token_ring_fifo_din.v
+L0 1
+R6
+r1
+!s85 0
+31
+!s108 1568883255.228554
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice_dc/dc_token_ring_fifo_din.v|
+!s90 -work|axi_slice_dc_lib|-quiet|-sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice_dc/dc_token_ring_fifo_din.v|
+!i113 0
+R7
+vdc_token_ring_fifo_dout
+R1
+R2
+!i10b 1
+!s100 nl3FoUR5FI:F`AHbIIVbd3
+IWTeB:_j]`gB[fCooF;[Qo1
+R3
+!s105 dc_token_ring_fifo_dout_v_unit
+S1
+R0
+w1566466391
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice_dc/dc_token_ring_fifo_dout.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice_dc/dc_token_ring_fifo_dout.v
+L0 1
+R6
+r1
+!s85 0
+31
+!s108 1568883255.257102
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice_dc/dc_token_ring_fifo_dout.v|
+!s90 -work|axi_slice_dc_lib|-quiet|-sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice_dc/dc_token_ring_fifo_dout.v|
+!i113 0
+R7

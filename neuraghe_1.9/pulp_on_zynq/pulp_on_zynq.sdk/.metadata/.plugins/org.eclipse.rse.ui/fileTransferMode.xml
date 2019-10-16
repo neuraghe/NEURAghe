@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mode>
+<info extension="ecore" mode="xml" name="*" priority="2147483647"/>
+<info extension="hpp" mode="text" name="*" priority="2147483647"/>
+<info extension="java" mode="text" name="*" priority="2147483647"/>
+<info extension="wsdl" mode="xml" name="*" priority="2147483647"/>
+<info extension="dll" mode="binary" name="*" priority="2147483647"/>
+<info extension="ini" mode="text" name="*" priority="2147483647"/>
+<info extension="pdf" mode="binary" name="*" priority="2147483647"/>
+<info extension="jpeg" mode="binary" name="*" priority="2147483647"/>
+<info extension="txt" mode="text" name="*" priority="2147483647"/>
+<info extension="doc" mode="binary" name="*" priority="2147483647"/>
+<info extension="product" mode="xml" name="*" priority="2147483647"/>
+<info extension="project" mode="xml" name="*" priority="2147483647"/>
+<info extension="ppt" mode="binary" name="*" priority="2147483647"/>
+<info extension="hh" mode="text" name="*" priority="2147483647"/>
+<info extension="com" mode="binary" name="*" priority="2147483647"/>
+<info extension="a" mode="binary" name="*" priority="2147483647"/>
+<info extension="xls" mode="binary" name="*" priority="2147483647"/>
+<info extension="class" mode="binary" name="*" priority="2147483647"/>
+<info extension="launch" mode="xml" name="*" priority="2147483647"/>
+<info extension="c" mode="text" name="*" priority="2147483647"/>
+<info extension="xsd" mode="xml" name="*" priority="2147483647"/>
+<info extension="h" mode="text" name="*" priority="2147483647"/>
+<info extension="gif" mode="binary" name="*" priority="2147483647"/>
+<info extension="bmp" mode="binary" name="*" priority="2147483647"/>
+<info extension="exe" mode="binary" name="*" priority="2147483647"/>
+<info extension="jardesc" mode="xml" name="*" priority="2147483647"/>
+<info extension="classpath" mode="xml" name="*" priority="2147483647"/>
+<info extension="exsd" mode="xml" name="*" priority="2147483647"/>
+<info extension="tif" mode="binary" name="*" priority="2147483647"/>
+<info extension="jar" mode="binary" name="*" priority="2147483647"/>
+<info extension="so" mode="binary" name="*" priority="2147483647"/>
+<info extension="xml" mode="xml" name="*" priority="2147483647"/>
+<info extension="xmi" mode="xml" name="*" priority="2147483647"/>
+<info extension="cc" mode="text" name="*" priority="2147483647"/>
+<info extension="ico" mode="binary" name="*" priority="2147483647"/>
+<info extension="cpp" mode="text" name="*" priority="2147483647"/>
+<info extension="cvv" mode="text" name="*" priority="2147483647"/>
+<info extension="jpg" mode="binary" name="*" priority="2147483647"/>
+<info extension="zip" mode="binary" name="*" priority="2147483647"/>
+</mode>

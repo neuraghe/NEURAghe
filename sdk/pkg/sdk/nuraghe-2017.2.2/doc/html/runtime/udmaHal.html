@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>UDMA HAL &mdash; Pulp runtime documentation 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Pulp runtime documentation 1 documentation" href="index.html" />
+    <link rel="next" title="Event unit HAL" href="evtUnit.html" />
+    <link rel="prev" title="DMA HAL" href="dmaHal.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="udma-hal">
+<h1>UDMA HAL<a class="headerlink" href="#udma-hal" title="Permalink to this headline">¶</a></h1>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">UDMA HAL</p>
+<p>The following API can be used to manage the generic part of the UDMA, i.e. for global configuration and channel enqueueing. Other HALs are available for peripheral specific parts. The UDMA is in charge of moving data between peripherals and L2 memory. In order to better pipeline transfers and not loose any data between 2 transfers, 2 transfers at the same time can be enqueued in the UDMA. Once the first one is finished, the UDMA starts the second, while the application should enqueue another one to always have 2 pending. By default, all peripherals are clock-gated and must be explicitly activated before being used. The UDMA can use input events to automatically trigger other actions like enqueuing a new transfer. </p>
+<dl class="function">
+<dt id="_CPPv219plp_udma_canEnqueuej">
+<span id="plp_udma_canEnqueue__unsigned-i"></span><span class="target" id="myprojectudma__v2_8h_1a71347128cd1bbb607af99568fe100b58"></span><em class="property">static</em> int <code class="descname">plp_udma_canEnqueue</code><span class="sig-paren">(</span>unsigned int <em>channelOffset</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv219plp_udma_canEnqueuej" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tell if a new transfer canbe enqueued to a UDMA channel.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>1 if another transfer can be enqueued, 0 otherwise </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">channelOffset</span></code>: Offset of the channel </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv216plp_udma_enqueuejjjj">
+<span id="plp_udma_enqueue__unsigned.unsigned-i.unsigned-i.unsigned-i"></span><span class="target" id="myprojectudma__v2_8h_1aaa38f8425680ee6dcbc6812bb5aa6c6a"></span><em class="property">static</em> void <code class="descname">plp_udma_enqueue</code><span class="sig-paren">(</span>unsigned <em>channelOffset</em>, unsigned int <em>l2Addr</em>, unsigned int <em>size</em>, unsigned int <em>cfg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv216plp_udma_enqueuejjjj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enqueue a new transfer to a UDMA channel.</p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">channelOffset</span></code>: Offset of the channel </li>
+<li><code class="docutils literal"><span class="pre">l2Addr</span></code>: Address in L2 memory where the data must be accessed (either stored or loaded) </li>
+<li><code class="docutils literal"><span class="pre">size</span></code>: Size in bytes of the transfer </li>
+<li><code class="docutils literal"><span class="pre">cfg</span></code>: Configuration of the transfer. Can be UDMA_CHANNEL_CFG_SIZE_8, UDMA_CHANNEL_CFG_SIZE_16 or UDMA_CHANNEL_CFG_SIZE_32 </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv213plp_udma_busyj">
+<span id="plp_udma_busy__unsigned"></span><span class="target" id="myprojectudma__v2_8h_1acabe58f2e333d9475c9c96d24eebd42f"></span><em class="property">static</em> int <code class="descname">plp_udma_busy</code><span class="sig-paren">(</span>unsigned <em>channelOffset</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv213plp_udma_busyj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tell if a channel is busy, i.e. if it already contains at least one on-going transfer</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>1 if the channel is busy, 0 otherwise </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">channelOffset</span></code>: Offset of the channel </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv215plp_udma_cg_setj">
+<span id="plp_udma_cg_set__unsigned-i"></span><span class="target" id="myprojectudma__v2_8h_1ad9b3c790a99ef92fea5fc68c3e4a076b"></span><em class="property">static</em> void <code class="descname">plp_udma_cg_set</code><span class="sig-paren">(</span>unsigned int <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv215plp_udma_cg_setj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configures peripheral clock-gating.</p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">value</span></code>: New configuration. There is 1 bit per peripheral, 0 means the peripheral is clock-gated. The bit number corresponds to the channel ID of the peripheral. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv215plp_udma_cg_getv">
+<span id="plp_udma_cg_get"></span><span class="target" id="myprojectudma__v2_8h_1a735074231cb4a284d238759c6f8b51f2"></span><em class="property">static</em> unsigned int <code class="descname">plp_udma_cg_get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv215plp_udma_cg_getv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns peripheral clock-gating.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The current clock-gating configuration. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv218plp_udma_evtin_setj">
+<span id="plp_udma_evtin_set__unsigned-i"></span><span class="target" id="myprojectudma__v2_8h_1a2d560cfbd6059d16a9fa7da712987504"></span><em class="property">static</em> void <code class="descname">plp_udma_evtin_set</code><span class="sig-paren">(</span>unsigned int <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv218plp_udma_evtin_setj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configures input events 4 input events can be configured. Each input event is made of 8 bits specifying which global event this local event refers to. This can then be used in some UDMA commands to refer to the global event.</p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">value</span></code>: The new configuration. Each event is encoded on 8 bits so that it can contain a global event ID between 0 and 255. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv218plp_udma_evtin_getv">
+<span id="plp_udma_evtin_get"></span><span class="target" id="myprojectudma__v2_8h_1acc03051bdf51595aa84b4399094b2e7c"></span><em class="property">static</em> unsigned int <code class="descname">plp_udma_evtin_get</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv218plp_udma_evtin_getv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns input events configuration.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The current input events configuration. </dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="dmaHal.html" title="previous chapter">DMA HAL</a></li>
+      <li>Next: <a href="evtUnit.html" title="next chapter">Event unit HAL</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/udmaHal.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, ETH / Unibo.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/udmaHal.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

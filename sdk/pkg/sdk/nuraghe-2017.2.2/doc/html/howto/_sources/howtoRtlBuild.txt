@@ -1,0 +1,55 @@
+.. _howtoBuildRtl:
+
+How to build the RTL platform
+-----------------------------
+
+Outside the SDK flow
+....................
+
+Just compile it the way you want and define the environment variable PULP_RTL_INSTALL to the install folder, the one containing modelsim.ini.
+Then you can use it using the SDK flow.
+
+Using the SDK flow
+..................
+
+First configure the SDK with the proper configuration, for example with: ::
+
+	$ plpconf --platform=rtl --pulpChip=pulp4
+	$ source setup.sh
+
+Then you can either execute that from your application: ::
+
+	$ make rtl VERBOSE=1
+
+Or from anywhere: ::
+
+	$ plpbuild --p rtl --stdout checkout build
+
+This command will checkout and compile the RTL platform that corresponds to your configuration, in this case pulp4.
+
+Once the build step has succeeded, you can compile and run an application using the classic command: ::
+
+	$ make clean all run
+
+Tips
+....
+
+Be careful, when you execute "make rtl" this checkout specific sources of the platform. This can mess-up your sources in case you have modified something or manually switched to a specific version.
+
+In case you are modifying the platform and don't want to checkout new sources, you can execute: ::
+
+	$ make rtl.build VERBOSE=1
+
+Or: ::
+
+	$ plpbuild --p rtl --stdout build
+
+In case you want to compile only a few ips: ::
+
+	$ make rtl.build VERBOSE=1 BUILD_OPT="--ip mchan --ip udma --ip udma_subsystem"
+
+Or: ::
+
+	$ plpbuild --p rtl --stdout build --ip mchan --ip udma --ip udma_subsystem
+
+To compile the whole RTL or just an IP, the tool is just relying on the Makefile at the top of the RTL repository, which decides at the end what has to be launched depending on the options. In case there is an issue, the Makefile may not be up-to-date with the way the RTL must be compiled.

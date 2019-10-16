@@ -1,0 +1,33 @@
+How to tag the whole stuff
+--------------------------
+
+Specifications tag
+.................
+
+The first thing to do is to tag the specifications. The name depends on the chip:
+
+  - GAP is currently tagged this way: gap-<day>-<month>-<year>. If several tags must be done the same day, the day is like this <day>_<number>
+
+The specifications must be pushed to the corresponding git repository and tagged in it using the tag name described above.
+
+For GAP the repository is git@iis-git.ee.ethz.ch:pulp-project/GAP-specifications.git
+
+
+
+RTL tag
+.......
+
+Once the specs are tagged, the RTL can be tagged several tags with the same specs to reflect the various implementations of the same specs.
+
+The convention for the tag name is the following <specs tag>-rtl-<build number>.
+
+For example if the specs tag is gap-07-09-2016, the first RTL tag for it will be gap-07-09-2016-rtl-0.
+
+The last number can be incremented everytime there is a new RTL tag of the same specs.
+
+
+
+SDK tag
+.......
+
+The convention is the same as for RTL except that it is sdk instead of rtl. Thus for the example above the first tag name would be gap-07-09-2016-sdk-0.

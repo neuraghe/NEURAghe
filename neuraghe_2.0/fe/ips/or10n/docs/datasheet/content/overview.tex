@@ -1,0 +1,22 @@
+\chapter{Overview}
+
+\orion is a 4-stage in-order OpenRISC CPU. The ISA of \orion was extended to
+also support multiple additional instructions including hardware loops,
+pre-/post-increment load and store instructions, vectorial instructions
+(microSIMD) and bit manipulation instructions that were not part of the original
+OpenRISC ISA.
+\orion supports misaligned data memory accesses which are not mandatory by the
+OR1k specifications.
+
+\orion was designed for the PULP platform which is why it contains registers and
+instructions that are of limited use for a single-core system, e.g. the core ID
+special-purpose register.
+
+Figure~\ref{fig:or10n_overview} shows a block diagram of the core.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{./figures/or10n_overview}
+  \caption{\orion Overview.}
+  \label{fig:or10n_overview}
+\end{figure}

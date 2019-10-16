@@ -1,0 +1,322 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim
+vadbg_axi_biu
+Z1 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
+Z2 !s110 1568386717
+!i10b 1
+!s100 Ej`lg@jIc3OUi454iEZN`2
+IzTW<eP31@hVJ:Q9FT2o5I0
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+!s105 adbg_axi_biu_sv_unit
+S1
+R0
+Z4 w1567774048
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_axi_biu.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_axi_biu.sv
+L0 66
+Z5 OL;L;10.4;61
+r1
+!s85 0
+31
+!s108 1568386717.821489
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_axi_biu.sv|
+!s90 -work|adv_dbg_if_lib|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl|-quiet|-sv|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_axi_biu.sv|
+!i113 0
+Z6 o-quiet -work adv_dbg_if_lib -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z7 !s92 -quiet -work adv_dbg_if_lib +incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vadbg_axi_module
+R1
+R2
+!i10b 1
+!s100 Lk3j?ndc;DQK<>K:m93Q_2
+I`VCHO=Eg_5T1o[=>EgTAX1
+R3
+!s105 adbg_axi_module_sv_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_axi_module.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_axi_module.sv
+Z8 L0 69
+R5
+r1
+!s85 0
+31
+!s108 1568386717.846977
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_axi_defines.v|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_defines.v|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_axi_module.sv|
+!s90 -work|adv_dbg_if_lib|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl|-quiet|-sv|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_axi_module.sv|
+!i113 0
+R6
+R7
+vadbg_axionly_top
+R1
+Z9 !s110 1568386718
+!i10b 1
+!s100 e;6cm>Iz1jXiLPcYziRj@3
+ICgazVcfIO3k`L<PPLfWb?3
+R3
+!s105 adbg_axionly_top_sv_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_axionly_top.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_axionly_top.sv
+Z10 L0 44
+R5
+r1
+!s85 0
+31
+!s108 1568386718.070826
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_defines.v|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_axionly_top.sv|
+!s90 -work|adv_dbg_if_lib|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl|-quiet|-sv|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_axionly_top.sv|
+!i113 0
+R6
+R7
+vadbg_crc32
+R1
+R2
+!i10b 1
+!s100 SgdT=cO:Y:D;lCDd[`h<b3
+IQ_0hX_?4kG7cdTJ1@LS^10
+R3
+!s105 adbg_crc32_v_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_crc32.v
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_crc32.v
+L0 52
+R5
+r1
+!s85 0
+31
+!s108 1568386717.871298
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_crc32.v|
+!s90 -work|adv_dbg_if_lib|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl|-quiet|-sv|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_crc32.v|
+!i113 0
+R6
+R7
+vadbg_or1k_biu
+R1
+R2
+!i10b 1
+!s100 Qh?=EE_zIgUUbj7?PhL_h0
+I;=TH;dXIcYDeX8=meJ_M11
+R3
+!s105 adbg_or1k_biu_sv_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_or1k_biu.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_or1k_biu.sv
+L0 59
+R5
+r1
+!s85 0
+31
+!s108 1568386717.891213
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_or1k_biu.sv|
+!s90 -work|adv_dbg_if_lib|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl|-quiet|-sv|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_or1k_biu.sv|
+!i113 0
+R6
+R7
+vadbg_or1k_module
+R1
+R2
+!i10b 1
+!s100 [M5Qa0=Zc[ddB]BOE[7Pi3
+IO04TYVmi6a>LBVf?_l3e>1
+R3
+!s105 adbg_or1k_module_sv_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_or1k_module.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_or1k_module.sv
+R8
+R5
+r1
+!s85 0
+31
+!s108 1568386717.911332
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_or1k_defines.v|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_defines.v|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_or1k_module.sv|
+!s90 -work|adv_dbg_if_lib|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl|-quiet|-sv|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_or1k_module.sv|
+!i113 0
+R6
+R7
+vadbg_or1k_status_reg
+R1
+R2
+!i10b 1
+!s100 FNX[Z3<DRX?D4=Y6LIX6^3
+I7aN9Iz`An9?INzCOc^ZdO2
+R3
+!s105 adbg_or1k_status_reg_sv_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_or1k_status_reg.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_or1k_status_reg.sv
+Z11 L0 68
+R5
+r1
+!s85 0
+31
+!s108 1568386717.933265
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_or1k_defines.v|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_or1k_status_reg.sv|
+!s90 -work|adv_dbg_if_lib|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl|-quiet|-sv|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_or1k_status_reg.sv|
+!i113 0
+R6
+R7
+vadbg_tap_top
+R1
+R9
+!i10b 1
+!s100 ^KzVheLWoDQSTLW90[DB?2
+IY2ED?a5V@1`:KdP`ZORjI1
+R3
+!s105 adbg_tap_top_v_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_tap_top.v
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_tap_top.v
+Z12 L0 73
+R5
+r1
+!s85 0
+31
+!s108 1568386718.030550
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_tap_defines.v|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_tap_top.v|
+!s90 -work|adv_dbg_if_lib|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl|-quiet|-sv|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_tap_top.v|
+!i113 0
+R6
+R7
+vadbg_top
+R1
+R2
+!i10b 1
+!s100 69oWeIG:<9EVTbADK=?QT2
+IC1CEV8ez7<1f8]Dlk]dfM1
+R3
+!s105 adbg_top_sv_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_top.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_top.sv
+R10
+R5
+r1
+!s85 0
+31
+!s108 1568386717.952641
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_defines.v|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_top.sv|
+!s90 -work|adv_dbg_if_lib|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl|-quiet|-sv|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adbg_top.sv|
+!i113 0
+R6
+R7
+vadv_dbg_if
+R1
+R9
+!i10b 1
+!s100 36_eWZAMcQE]8QQ?W3mDU3
+I3@[hO7Jnmdb73X85S4mWQ0
+R3
+!s105 adv_dbg_if_sv_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adv_dbg_if.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adv_dbg_if.sv
+L0 1
+R5
+r1
+!s85 0
+31
+!s108 1568386718.051245
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adv_dbg_if.sv|
+!s90 -work|adv_dbg_if_lib|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl|-quiet|-sv|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/adv_dbg_if.sv|
+!i113 0
+R6
+R7
+vbytefifo
+R1
+R2
+!i10b 1
+!s100 X2:jikjlojoSY@EbWo3MV2
+ImO10HPPE]o>[a[:L3C^Xe3
+R3
+!s105 bytefifo_v_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/bytefifo.v
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/bytefifo.v
+R12
+R5
+r1
+!s85 0
+31
+!s108 1568386717.972783
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/bytefifo.v|
+!s90 -work|adv_dbg_if_lib|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl|-quiet|-sv|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/bytefifo.v|
+!i113 0
+R6
+R7
+vsyncflop
+R1
+R2
+!i10b 1
+!s100 BH>MBcUf8g[iAdij>=d4T1
+IPm7_68X0gU1gS=<zoNZKi0
+R3
+!s105 syncflop_v_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/syncflop.v
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/syncflop.v
+L0 62
+R5
+r1
+!s85 0
+31
+!s108 1568386717.992082
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/syncflop.v|
+!s90 -work|adv_dbg_if_lib|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl|-quiet|-sv|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/syncflop.v|
+!i113 0
+R6
+R7
+vsyncreg
+R1
+R9
+!i10b 1
+!s100 1D=1gfS]P5VTfCU[CY4<D3
+I?Y<P]aVC`_AgQzcS6CAkl0
+R3
+!s105 syncreg_v_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/syncreg.v
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/syncreg.v
+R11
+R5
+r1
+!s85 0
+31
+!s108 1568386718.011148
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/syncreg.v|
+!s90 -work|adv_dbg_if_lib|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl|-quiet|-sv|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/adv_dbg_if/rtl/syncreg.v|
+!i113 0
+R6
+R7

@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>SDK build system &mdash; SDK 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="SDK 1.0 documentation" href="index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="sdk-build-system">
+<h1>SDK build system<a class="headerlink" href="#sdk-build-system" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="getting-the-top-module-sources">
+<h2>Getting the top-module sources<a class="headerlink" href="#getting-the-top-module-sources" title="Permalink to this headline">¶</a></h2>
+<p>The SDK sources must be retrieved through a top-level module that can then retrieve all the source code.</p>
+<p>The first way to retrieve this top-level module is through the SDK downloader by using the <em>src</em> command, like in this example:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ get-sdk-1.0.py src
+</pre></div>
+</div>
+<p>This will pull the sources from the git repository and put them in the local directory. The <em>--path</em> option can also be used to specify a folder. It is better to use the same path that was used when downloading the SDK, in order to reuse the same packages and not redownload then again. If you do so, you should have the <em>pkg</em> directory containing all the packages inside the top-level module sources.</p>
+<p>The second way to get the top-level sources is to directly get them for the git repository with this command:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ git clone git@kesch.ee.ethz.ch:pulp-sw/pulp_pipeline.git
+</pre></div>
+</div>
+</div>
+<div class="section" id="manage-the-sdk-version">
+<h2>Manage the SDK version<a class="headerlink" href="#manage-the-sdk-version" title="Permalink to this headline">¶</a></h2>
+<p>The top module contains a file describing the exact versions of the dependencies and the module sources that must be used to comile the SDK.</p>
+<p>For example if you downloaded the SDK through the downloader and you also got the sources through it, you will get the sources and dependencies that were used to produce it so that you can reproduce exactly this SDK.</p>
+<p>In this case, if you compile the SDK, you will also overwrite the SDK package, as you are compiling the SDK version you downloaded.</p>
+<p>The first possibility is to download a different verson of the top module, for example in order to get the latest modules. To do so you can just checkout the last commit in the master branch of the top-module, and then you will get the very last valid SDK:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ git checkout master
+$ git pull
+</pre></div>
+</div>
+<p>The second possibility is to modify the version of the SDK package in order to not overwrite it. You can do that by editing the file <em>versions.ini</em>, where you should find something like:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">sdk</span> <span class="o">=</span> <span class="mf">1.0</span>
+</pre></div>
+</div>
+<p>You can modify it and put the version you want like <em>1.0-mine</em>. The name you put there will also be the name of the directory containing this SDK under the <em>pkg</em> directory. If you don't want to recompile the whole SDK, you can also copy the existing SDK to the new name in order to still have a full SDK.</p>
+</div>
+<div class="section" id="getting-the-sdk-sources">
+<h2>Getting the SDK sources<a class="headerlink" href="#getting-the-sdk-sources" title="Permalink to this headline">¶</a></h2>
+<p>Once you got the top module, you have to download the rest of the sources with this command:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ make PACKAGES=sdk checkout
+</pre></div>
+</div>
+<p>Note that this will checkout the sources with the versions specified in the <em>versions.ini</em> file.</p>
+</div>
+<div class="section" id="getting-the-dependencies">
+<h2>Getting the dependencies<a class="headerlink" href="#getting-the-dependencies" title="Permalink to this headline">¶</a></h2>
+<p>All the Pulp dependencies needed to compile the SDK (for example the toolchains) are stored in an artifactory server. You can get them through this command:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ make PACKAGES=sdk deps
+</pre></div>
+</div>
+<p>Note that this will only download the missing dependencies. You can see them in the <em>pkg</em> directory, there is one folder per package and one sub-folder per package version. As for sources this will download the versions specified in the <em>versions.ini</em> file.</p>
+</div>
+<div class="section" id="compile-the-modules">
+<h2>Compile the modules<a class="headerlink" href="#compile-the-modules" title="Permalink to this headline">¶</a></h2>
+<p>You can then compile the whole SDK with the following command:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ make PACKAGES=sdk build
+</pre></div>
+</div>
+<p>This will compile each module one by one and also install them in the SDK package.</p>
+<p>You can also compile a set of modules that are gathered into groups. The only available one gathers everything needed for the OpenMP runtime:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ make GROUPS=runtime build
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">SDK build system</a><ul>
+<li><a class="reference internal" href="#getting-the-top-module-sources">Getting the top-module sources</a></li>
+<li><a class="reference internal" href="#manage-the-sdk-version">Manage the SDK version</a></li>
+<li><a class="reference internal" href="#getting-the-sdk-sources">Getting the SDK sources</a></li>
+<li><a class="reference internal" href="#getting-the-dependencies">Getting the dependencies</a></li>
+<li><a class="reference internal" href="#compile-the-modules">Compile the modules</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/sdkBuild.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, ETH - Unibo.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/sdkBuild.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

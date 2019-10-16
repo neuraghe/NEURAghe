@@ -1,0 +1,70 @@
+SDK build system
+================
+
+
+Getting the top-module sources
+-------------------
+
+The SDK sources must be retrieved through a top-level module that can then retrieve all the source code. 
+
+The first way to retrieve this top-level module is through the SDK downloader by using the *src* command, like in this example: ::
+
+  $ get-sdk-1.0.py src
+
+This will pull the sources from the git repository and put them in the local directory. The *--path* option can also be used to specify a folder. It is better to use the same path that was used when downloading the SDK, in order to reuse the same packages and not redownload then again. If you do so, you should have the *pkg* directory containing all the packages inside the top-level module sources.
+
+The second way to get the top-level sources is to directly get them for the git repository with this command: ::
+
+  $ git clone git@kesch.ee.ethz.ch:pulp-sw/pulp_pipeline.git
+
+
+Manage the SDK version
+----------------------
+
+The top module contains a file describing the exact versions of the dependencies and the module sources that must be used to comile the SDK.
+
+For example if you downloaded the SDK through the downloader and you also got the sources through it, you will get the sources and dependencies that were used to produce it so that you can reproduce exactly this SDK.
+
+In this case, if you compile the SDK, you will also overwrite the SDK package, as you are compiling the SDK version you downloaded.
+
+The first possibility is to download a different verson of the top module, for example in order to get the latest modules. To do so you can just checkout the last commit in the master branch of the top-module, and then you will get the very last valid SDK: ::
+
+  $ git checkout master
+  $ git pull
+
+The second possibility is to modify the version of the SDK package in order to not overwrite it. You can do that by editing the file *versions.ini*, where you should find something like: ::
+
+  sdk = 1.0
+
+You can modify it and put the version you want like *1.0-mine*. The name you put there will also be the name of the directory containing this SDK under the *pkg* directory. If you don't want to recompile the whole SDK, you can also copy the existing SDK to the new name in order to still have a full SDK.
+
+Getting the SDK sources
+-----------------------
+
+Once you got the top module, you have to download the rest of the sources with this command: ::
+
+  $ make PACKAGES=sdk checkout
+
+Note that this will checkout the sources with the versions specified in the *versions.ini* file.
+
+Getting the dependencies
+------------------------
+
+All the Pulp dependencies needed to compile the SDK (for example the toolchains) are stored in an artifactory server. You can get them through this command: ::
+
+  $ make PACKAGES=sdk deps
+
+Note that this will only download the missing dependencies. You can see them in the *pkg* directory, there is one folder per package and one sub-folder per package version. As for sources this will download the versions specified in the *versions.ini* file.
+
+Compile the modules
+-------------------
+
+You can then compile the whole SDK with the following command: ::
+
+  $ make PACKAGES=sdk build
+
+This will compile each module one by one and also install them in the SDK package.
+
+You can also compile a set of modules that are gathered into groups. The only available one gathers everything needed for the OpenMP runtime: ::
+
+  $ make GROUPS=runtime build

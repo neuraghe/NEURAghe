@@ -1,0 +1,41 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%                                                                 %
+%%%%%     <file_name>.tex                                             %
+%%%%%                                                                 %
+%%%%% Author:      <author>                                           %
+%%%%% Created:     <date>                                             %
+%%%%% Description: <description>                                      %
+%%%%%                                                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Conclusion}
+
+\label{chapter:conclusion}
+
+During this thesis the OpenRISC \gls{ISA} was significantly extended to support
+vectorial instructions, a more powerful multiplier and bit counting
+instructions. Similarly misaligned memory access
+and interrupt capabilities were added to the \orion core. For more efficient
+debugging in the future, debug facilities were added to the platform such that
+it is possible to attach gdb to a running \orion core. By adding all those
+features to \orion, we are now on a feature level that allows our core to
+compete with commercial micro-controllers available on the market.
+
+The instruction set extensions allowed us to achieve a performance gain of up to
+5x on vectorial code compared to the base OpenRISC instruction set. When bit
+counting operations can be employed, we were able to achieve a 35x higher
+performance than before.
+Our LLVM compiler is able to automatically generate code for the new vectorial
+and MAC instructions and thus no modifications in the source code of existing
+applications are necessary to take advantage of the extensions.
+
+All our instruction set extensions added only $25\%$ area to \orion while the
+pipeline stage delay was not affected by our modifications. If we look at the
+\gls{PULP} cluster only $2\%$ of area was added due to the additional
+instructions.
+
+In terms of energy efficiency we could achieve an energy efficiency boost of up
+to $67\%$ for specific applications, while on average $45\%$ energy could be
+saved with our extensions.

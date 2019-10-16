@@ -1,0 +1,154 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%                                                                 %
+%%%%%     report.tex                                                  %
+%%%%%                                                                 %
+%%%%% Author:      Renzo Andri/Matthias Baer                          %
+%%%%% Created:     19.11.2013                                         %
+%%%%% Description: Implementation and Optimization of the OpenRISC    %
+%%%%%              core - Main report file                            %
+%%%%%                                                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%                                                                 %
+%%%%%     Document Class                                              %
+%%%%%                                                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[%
+ oneside,      % einseitig => PDF Abgabe. 
+% twoside,     % Zweiseitig => Print (reminder: erste seite separat
+	       	 % im one-side stil drucken!
+ openany,      % Open chapters on odd and even pages.
+ halfparskip,  % Create small spaces for new paragraphs but no indents.
+]{scrbook}
+
+\usepackage{pdfpages}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%                                                                 %
+%%%%%     Preamble                                                    %
+%%%%%                                                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Load the preamble from another file.
+\input{./preamble/preamble}
+
+%%%%%
+%%%%% Load the glossaries.
+%%%%%
+\input{./glossaries/glossaries}
+
+% Define which source files should actually been processed.
+%\includeonly{./content/06-design_implementation}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%                                                                 %
+%%%%%     Document Settings                                           %
+%%%%%                                                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% Mandatory title page settings.
+\title{Implemenation and Optimization of the OpenRISC Processor}
+\author{Renzo Andri\\Matthias Baer}
+\email{andrire@student.ethz.ch\\baermatt@student.ethz.ch}
+\date{December 2013}
+\semester{Autumn Term 2013}
+\reporttype{Semester Project}
+\firstsup{Dr. Frank Kagan G\"urkaynak, kgf@ee.ethz.ch}
+\secondsup{Michael Gautschi, gautschi@iis.ee.ethz.ch}
+\professor{Prof. Dr. Luca Benini, lbenini@iis.ee.ethz.ch}
+
+%%%%% Optional title page settings.
+\titlelogo{./figures/or10n_layout_small}  % Title page logo path.
+\logoheight{7cm}                      % Height of the title page logo.
+\titlepagemargin{3cm}                 % Margin on the title page.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%                                                                 %
+%%%%%     Start of Document                                           %
+%%%%%                                                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+% Prepare document for minitoc insertions.
+\dominitoc
+\dominilof
+
+\frontmatter
+
+% Create title.
+\input{./content/00_0_title}
+%\maketitle
+
+% Include acknowledgements, abstract, etc...
+\include{./content/00_1_acknowledgements}
+\include{./content/00_2_abstract}
+\include{./content/00_3_authorship}
+
+% Insert table of contents, list of figures, and list of tables.
+\tableofcontents
+\mtcaddchapter % minitoc fix
+
+
+\listoffigures
+\listoftables
+\mtcaddchapter % minitoc fix
+
+% Print list of acronyms.
+\setlength{\glslistdottedwidth}{0.2\linewidth}
+\printglossary[type=\acronymtype,style=listdotted,title=List of Acronyms]
+
+\include{./content/00_4_conventions}
+
+%%%%%
+%%%%% Start the actual main content part.
+%%%%%
+\mainmatter
+
+% Include the actual content files.
+\include{./content/01_introduction} \cleardoublepage
+\include{./content/02_preliminaries} \cleardoublepage
+\include{./content/03_related_work} \cleardoublepage
+%\include{./content/04_theory} \cleardoublepage
+\include{./content/05_architecture} \cleardoublepage
+\include{./content/06_implementation} \cleardoublepage
+\include{./content/07_testing} \cleardoublepage
+\include{./content/07_results} \cleardoublepage
+\include{./content/08_svvsvhdl} \cleardoublepage
+\include{./content/08_conclusion} \cleardoublepage
+
+
+%%%%%
+%%%%% Start of additional parts.
+%%%%%
+\appendix
+
+\include{./content/z_01_appendix} \clearpage
+\include{./content/z_02_appendix_instr} \clearpage
+\include{./content/z_02_appendix_software} \clearpage
+\include{./content/z_02_appendix_schemata} \clearpage
+
+\backmatter
+%\includepdf[pages=-, pagecommand={\thispagestyle{headings}}]{doc.pdf}
+
+% Print the main glossary.
+\printglossary[type=main,title=Glossary]
+\addcontentsline{lof}{xchapter}{} % minitoc fix
+\addcontentsline{lot}{xchapter}{} % minitoc fix
+\mtcaddchapter % minitoc fix
+
+% Print the bibliography.
+\nocite*{} % Print non-cited references as well.
+\bibliographystyle{IEEEtran}
+\bibliography{IEEEabrv,./bib/main}
+\adjustmtc % minitoc fix
+
+
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%                                                                 %
+%%%%%     End of Document                                             %
+%%%%%                                                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

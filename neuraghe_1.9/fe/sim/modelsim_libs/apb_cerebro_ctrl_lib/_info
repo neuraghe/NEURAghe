@@ -1,0 +1,172 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim
+vadc_ctrl
+Z1 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
+Z2 !s110 1568386724
+!i10b 1
+!s100 9DF@<mR41I>dWdX[0T1Og2
+IANRoWJ[C9f4QfIlLJI?=21
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+!s105 adc_ctrl_sv_unit
+S1
+R0
+Z4 w1567774063
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_cerebro_ctrl/adc_ctrl.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_cerebro_ctrl/adc_ctrl.sv
+Z5 L0 31
+Z6 OL;L;10.4;61
+r1
+!s85 0
+31
+!s108 1568386724.220019
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_cerebro_ctrl//defines_cerebro_ctrl.sv|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_cerebro_ctrl/adc_ctrl.sv|
+!s90 -work|apb_cerebro_ctrl_lib|-quiet|-sv|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_cerebro_ctrl/|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_cerebro_ctrl/adc_ctrl.sv|
+!i113 0
+Z7 o-quiet -work apb_cerebro_ctrl_lib -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z8 !s92 -quiet -work apb_cerebro_ctrl_lib -sv +incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_cerebro_ctrl/ -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vapb_cerebro_ctrl
+R1
+R2
+!i10b 1
+!s100 cOil<ZMNHXGZ`BlV6_G=?2
+IY>K1;j5[`FWl@84M`:@Bg2
+R3
+!s105 cerebro_ctrl_sv_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_cerebro_ctrl/cerebro_ctrl.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_cerebro_ctrl/cerebro_ctrl.sv
+R5
+R6
+r1
+!s85 0
+31
+!s108 1568386724.169063
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_cerebro_ctrl//defines_cerebro_ctrl.sv|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_cerebro_ctrl/cerebro_ctrl.sv|
+!s90 -work|apb_cerebro_ctrl_lib|-quiet|-sv|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_cerebro_ctrl/|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_cerebro_ctrl/cerebro_ctrl.sv|
+!i113 0
+R7
+R8
+vconfBus_Master
+R1
+R2
+!i10b 1
+!s100 C@?gzjBg5Pk>YDcGjFLo:2
+I[0Hj_1bBk_aDf[^;SC;F60
+R3
+!s105 confBus_Master_sv_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_cerebro_ctrl/confBus_Master.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_cerebro_ctrl/confBus_Master.sv
+L0 32
+R6
+r1
+!s85 0
+31
+!s108 1568386724.195499
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_cerebro_ctrl//defines_cerebro_ctrl.sv|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_cerebro_ctrl/confBus_Master.sv|
+!s90 -work|apb_cerebro_ctrl_lib|-quiet|-sv|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_cerebro_ctrl/|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_cerebro_ctrl/confBus_Master.sv|
+!i113 0
+R7
+R8
+nconf@bus_@master
+Econfigip1
+R4
+Z9 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z10 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z11 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z12 8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_cerebro_ctrl/confBus_IP1.vhd
+Z13 F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_cerebro_ctrl/confBus_IP1.vhd
+l0
+L28
+VgK6VQ:UocH>NZ^F2]l2583
+!s100 FY7acO1PMQn<PXjYGhIKz0
+Z14 OL;C;10.4;61
+32
+R2
+!i10b 1
+Z15 !s108 1568386724.287609
+Z16 !s90 -work|apb_cerebro_ctrl_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_cerebro_ctrl/confBus_IP1.vhd|
+Z17 !s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_cerebro_ctrl/confBus_IP1.vhd|
+!i113 0
+Z18 o-quiet -work apb_cerebro_ctrl_lib
+Z19 tExplicit 1
+Artl
+R9
+R10
+R11
+DEx4 work 9 configip1 0 22 gK6VQ:UocH>NZ^F2]l2583
+l51
+L42
+VR1l?`Z;984zNgG3BM`0Ti2
+!s100 @h]DMfhcfLlSQN]ZVk^>K3
+R14
+32
+R2
+!i10b 1
+R15
+R16
+R17
+!i113 0
+R18
+R19
+vfifo_adc
+R1
+R2
+!i10b 1
+!s100 T8JeCPS?JH]oXDfaIT3IA0
+Im4I2boKo9hQZFGIMX0f0?0
+R3
+!s105 fifo_adc_sv_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_cerebro_ctrl/fifo_adc.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_cerebro_ctrl/fifo_adc.sv
+L0 30
+R6
+r1
+!s85 0
+31
+!s108 1568386724.244312
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_cerebro_ctrl/fifo_adc.sv|
+!s90 -work|apb_cerebro_ctrl_lib|-quiet|-sv|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_cerebro_ctrl/|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_cerebro_ctrl/fifo_adc.sv|
+!i113 0
+R7
+R8
+vsar_dummy
+R1
+R2
+!i10b 1
+!s100 @:KH<]Ek8OldHLC`lNWV50
+I>96Rz?]IjMPHEfb[7Cn_Q3
+R3
+!s105 sar_dummy_sv_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_cerebro_ctrl/sar_dummy.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_cerebro_ctrl/sar_dummy.sv
+R5
+R6
+r1
+!s85 0
+31
+!s108 1568386724.266325
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_cerebro_ctrl//defines_cerebro_ctrl.sv|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_cerebro_ctrl/sar_dummy.sv|
+!s90 -work|apb_cerebro_ctrl_lib|-quiet|-sv|+incdir+/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_cerebro_ctrl/|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_internals/apb_cerebro_ctrl/sar_dummy.sv|
+!i113 0
+R7
+R8

@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>How to release an SDK &mdash; howto 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="howto 1 documentation" href="index.html" />
+    <link rel="next" title="How to customize makefile flags" href="howtoCustomizeFlags.html" />
+    <link rel="prev" title="How to validate an SDK release" href="howtoValidateSdkRelease.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="how-to-release-an-sdk">
+<h1>How to release an SDK<a class="headerlink" href="#how-to-release-an-sdk" title="Permalink to this headline">¶</a></h1>
+<p>There are 3 steps to build, fully validate and deploy an SDK release:</p>
+<ul class="simple">
+<li>Validate a precise version of the SDK</li>
+<li>Tag it, and validate again with the new tag</li>
+<li>Deploy the SDK</li>
+</ul>
+<div class="section" id="validate-a-precise-version-of-the-sdk">
+<h2>Validate a precise version of the SDK<a class="headerlink" href="#validate-a-precise-version-of-the-sdk" title="Permalink to this headline">¶</a></h2>
+<p>To be sure that nothing has been left aside, you must checkout, build and validate a precise SDK version from scratch. Otherwise, it could happen that one package has not been deployed, or one commit has not been pushed. Also if the SDK is not rebuilt from scratch, it could work thanks to an old file which is still there in the SDK and it would make it impossible to rebuild the same SDK later on.</p>
+<p>An SDK tag corresponds to the SDK that you would get by checking out and building the SDK from the top SDK module with the version that you are tagging. The SDK version that you are tagging is the git version of the SDK top module as this version encures you that you can always get exactly the same SDK from this version.</p>
+<p>First checkout the following repository containing all the tools for releasing an SDK:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ git clone git@iis-git.ee.ethz.ch:pulp-sw/pulp_sdk_release.git
+$ cd pulp_sdk_release
+</pre></div>
+</div>
+<p>Then execute the following script:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ ./plpadmin --version=&lt;sdkGitVersion&gt; --tag=&lt;sdkTag&gt; checkout build test --submit
+</pre></div>
+</div>
+<p>sdkGitVersion is the version of the top SDK module that you want to tag. sdkTag is the SDK tag that will be produced.</p>
+<p>This script will first checkout the sources and get the dependencies, will then build the SDK, launch the testsuite and report the results.</p>
+<p>Due to the <em>&#8211;submit</em> option, all these steps will be done on Jenkins, the option can be removed in order to execute them locally. As the SDK is released for several Linux distributions, this may trigger several SDK builds.</p>
+<p>If you are happy with the results you can go on with the process, otherwise the issues has to fixed and the process start over with a new SDK version.</p>
+</div>
+<div class="section" id="tag-the-sdk-and-validate-it-again">
+<h2>Tag the SDK and validate it again<a class="headerlink" href="#tag-the-sdk-and-validate-it-again" title="Permalink to this headline">¶</a></h2>
+<p>Execute this command to tag the SDK:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ ./plpadmin --version=&lt;sdkGitVersion&gt; --tag=&lt;sdkTag&gt; tag
+</pre></div>
+</div>
+<p>This will tag it locally and push the tag to the server. Note that it needs to commit that contains the right tag for the SDK version in versions.ini. This commit is pushed by default to the release branch can be changed with option <em>&#8211;branch</em>.</p>
+<p>In order to be sure the tag has been properly pushed, validate again the SDK, using the tag as the SDK version:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ ./plpadmin --version=&lt;sdkTag&gt; checkout build test --submit
+</pre></div>
+</div>
+<p>If you are happy with the results you can go on and deploy the SDK</p>
+</div>
+<div class="section" id="deploy-the-sdk">
+<h2>Deploy the SDK<a class="headerlink" href="#deploy-the-sdk" title="Permalink to this headline">¶</a></h2>
+<p>In case the SDK was built locallu, first deploy it to the artifactory:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ ./plpadmin --version=&lt;sdkTag&gt; deploy
+</pre></div>
+</div>
+<p>And deploy the documentation:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ ./plpadmin --version=&lt;sdkTag&gt; deploydoc
+</pre></div>
+</div>
+<p>Now you can get the deployed SDK through the downloader and validate it again.</p>
+</div>
+<div class="section" id="simplified-procedure-using-jenkins">
+<h2>Simplified procedure using jenkins<a class="headerlink" href="#simplified-procedure-using-jenkins" title="Permalink to this headline">¶</a></h2>
+<p>All these steps can be can done in a simpler way using the Jenkins server, following these steps:</p>
+<ul class="simple">
+<li>Wait until one SDK version from the integration branch is stable enough</li>
+<li>Merge it to the master branch</li>
+<li>Launch the job sdk_tag (<a class="reference external" href="https://iis-jenkins.ee.ethz.ch:8443/job/sdk_tag">https://iis-jenkins.ee.ethz.ch:8443/job/sdk_tag</a>) and put the tag name</li>
+<li>The documentation is not yet deployed from Jenkins so you have to execute this command: ./plpadmin &#8211;version=&lt;tag name&gt; checkout deploydoc</li>
+</ul>
+</div>
+<div class="section" id="current-sdk-tagging-flow-with-jenkins">
+<h2>Current SDK tagging flow with Jenkins<a class="headerlink" href="#current-sdk-tagging-flow-with-jenkins" title="Permalink to this headline">¶</a></h2>
+<p><strong>Pre-release tags</strong></p>
+<p>Before a final tag is made, intermediate tags are done. They are done from the master branch and have a tag name like 2016.3-b5. The procedure above can be used for these tags. These tags reasonably stable and should only be used by people who wants to closely follow SDK evolutions.</p>
+<p><strong>Final tags</strong></p>
+<p>A final tag is a stable tag meant to be used by everyone for at least a few weeks. It is released the same way than pre-release tags</p>
+<p><strong>Patch tags</strong></p>
+<p>These tags are done on a final tag to bring bug fixes. Contrary to the other tags they are done from the tag branch instead of the master. Bug fixes can indeed be committed and tested on the tag branch, and when it is stable enough a new tag is made from there.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">How to release an SDK</a><ul>
+<li><a class="reference internal" href="#validate-a-precise-version-of-the-sdk">Validate a precise version of the SDK</a></li>
+<li><a class="reference internal" href="#tag-the-sdk-and-validate-it-again">Tag the SDK and validate it again</a></li>
+<li><a class="reference internal" href="#deploy-the-sdk">Deploy the SDK</a></li>
+<li><a class="reference internal" href="#simplified-procedure-using-jenkins">Simplified procedure using jenkins</a></li>
+<li><a class="reference internal" href="#current-sdk-tagging-flow-with-jenkins">Current SDK tagging flow with Jenkins</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="howtoValidateSdkRelease.html" title="previous chapter">How to validate an SDK release</a></li>
+      <li>Next: <a href="howtoCustomizeFlags.html" title="next chapter">How to customize makefile flags</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/howtoReleaseSdk.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Germain Haugou.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/howtoReleaseSdk.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

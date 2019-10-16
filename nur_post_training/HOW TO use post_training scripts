@@ -1,0 +1,37 @@
+How to use post-training scripts.
+
+Post training scripts are 3:
+  post_training.py  -> given a weights set and biases create an array with weights and biases arranged, interlaced and subdivided
+  input_features.py -> this script is optional. with it you can interlace test input features for the simulation of one layer.
+  create_header.py  -> this script groups each array created by previous scripts into one header file.
+
+post_training.py and input_features.py use the same settings file.
+
+Input files for post_training.py are plain text files containing weigths and biases.
+These files can be created by training or can be written by users.
+
+.---------..------------------.------------------------------.--------------------------------.--------------------------------------------------------------------.
+|   step  ||  CNN_DEFINITION  |            TRAINING          |           POST-TRAINING        |                     EXECUTION or SIMULATION                        |    
+|---------::------------------:------------------------------:--------------------------------:--------------------------------------------------------------------|
+|         ||#layers           | plain format weights         | zero-filled,interlaced,        | if simulating, you can include header created by create_header.py  |
+|products || for each layer:  | and biases for each layer.   | subdivided weight+biases array | containing test IF created by post training scripts                |
+| of the  ||#IF, #OF,         |                              | for each layer stored in       | if executing, input features must be                               |
+|  step   ||FS, etc...        | w and b are stored in        | one header file.               | processed first by ARM.                                            |
+|         ||                  | separated files              | optionally: interlaced IF      | In both cases you have to include                                  |                                             
+|         ||                  |                              |                                | (in the ARM code or in the MW code) weight+biases array            |                                             
+'---------''------------------'------------------------------'--------------------------------'--------------------------------------------------------------------'
+
+To start follow this steps:
+
+0. Of course, you need some input file [you may use fake_input.py script]. Put all the files you need in one directory
+1. modify settings.txt for your layer and put it in the same folder of the inputs files
+2. add the makefile to you workdir. If you want, change the settings file name in the makefile 
+3. launch make clean post_training
+4. [optional] if you need to interlace input features launch make input_features
+5. launch make create_header
+   [steps from 3 to 5 can be executed in batch mode with make clean all]
+6. Your header has been created in the workdir. Include it in your code.
+7. run your layer! 
+
+
+You can use the fake_input.py script to generate fake inputs (weights, biases and input pixels) for the layer described in the settings file.

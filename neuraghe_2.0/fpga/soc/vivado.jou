@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2017.1 (64-bit)
+# SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
+# IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
+# Start of session at: Mon Sep 16 18:18:38 2019
+# Process ID: 22637
+# Current directory: /home/nur/neuraghe_2.0/neuraghe_2.0/fpga/soc
+# Command line: vivado -mode batch -source tcl/run.tcl
+# Log file: /home/nur/neuraghe_2.0/neuraghe_2.0/fpga/soc/vivado.log
+# Journal file: /home/nur/neuraghe_2.0/neuraghe_2.0/fpga/soc/vivado.jou
+#-----------------------------------------------------------
+source tcl/run.tcl

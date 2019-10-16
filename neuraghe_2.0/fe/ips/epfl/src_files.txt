@@ -1,0 +1,19 @@
+epfl_rtl:
+  vhdl: true
+  files: [
+    bbgenV1/rtl/bbgen_package.vhd,
+    bbgenV1/rtl/CVP/cvp_package.vhd,
+    bbgenV1/rtl/bbgen_synchronizer.vhd,
+    bbgenV1/rtl/bbgen_clock_box.vhd,
+    bbgenV1/rtl/bbgen_cvp_interface.vhd,
+    bbgenV1/rtl/bbgen_nwell_control.vhd,
+    bbgenV1/rtl/bbgen_pwell_control.vhd,
+    bbgenV1/rtl/bbgen_register_bank.vhd,
+    bbgenV1/rtl/bbgen_control.vhd,
+  ]
+epfl_behavioral:
+  files: [
+    bbgenV1/behavioral/vbbgen_PULPV3_monitor.sv
+    bbgenV1/behavioral/vbbgen_PULPV3_driver.sv
+    bbgenV1/behavioral/vbbgen_PULPV3_weakdriver.sv
+  ]

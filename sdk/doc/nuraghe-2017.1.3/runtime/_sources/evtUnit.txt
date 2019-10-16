@@ -1,0 +1,8 @@
+Event unit HAL
+..............
+
+The event unit HAL is a set of low-level functions to hide register access to the event unit.
+The event unit is the block in the cluster who is in charge of the signalization between cores, DMA, accelerators and so on.
+
+.. autodoxygenfile:: eu_v3.h
+	:project: myproject

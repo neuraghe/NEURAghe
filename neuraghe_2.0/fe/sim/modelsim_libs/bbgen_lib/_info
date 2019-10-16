@@ -1,0 +1,453 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/nur/NEURAghe/neuraghe_2.0/fe/sim
+Ebbgen_clock_box
+Z1 w1566466341
+Z2 DPx9 bbgen_lib 13 bbgen_package 0 22 =<<JFT`LY?6=a^f3VUk;=0
+Z3 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z5 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z6 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/rtl/bbgen_clock_box.vhd
+Z7 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/rtl/bbgen_clock_box.vhd
+l0
+L27
+VJLFb6QQ=RVR31:UEfzi?31
+!s100 QPLD2BCMlm[i8TZbcJ_GI0
+Z8 OL;C;10.4;61
+32
+Z9 !s110 1568883246
+!i10b 1
+Z10 !s108 1568883246.517958
+Z11 !s90 -work|bbgen_lib|-quiet|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/rtl/bbgen_clock_box.vhd|
+Z12 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/rtl/bbgen_clock_box.vhd|
+!i113 0
+Z13 o-quiet -work bbgen_lib
+Z14 tExplicit 1
+Astr
+R2
+R3
+R4
+R5
+DEx4 work 15 bbgen_clock_box 0 22 JLFb6QQ=RVR31:UEfzi?31
+l50
+L42
+VIa<HC``IkMm?=hgMnod[K3
+!s100 ?XbU8:fO]PU95`_okUhT:2
+R8
+32
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 0
+R13
+R14
+Ebbgen_control
+R1
+Z15 DPx9 bbgen_lib 11 cvp_package 0 22 n9;5n]72IchceIFc6gbNG0
+R2
+R3
+R4
+R5
+R0
+Z16 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/rtl/bbgen_control.vhd
+Z17 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/rtl/bbgen_control.vhd
+l0
+L26
+VJadob2Knkb7?zbQeWL=SZ0
+!s100 ^zLUW8MFQJXICGA;?<Ubn3
+R8
+32
+R9
+!i10b 1
+Z18 !s108 1568883246.798432
+Z19 !s90 -work|bbgen_lib|-quiet|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/rtl/bbgen_control.vhd|
+Z20 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/rtl/bbgen_control.vhd|
+!i113 0
+R13
+R14
+Abehavioral
+DEx9 bbgen_lib 19 bbgen_cvp_interface 0 22 5mI5b_mGCllFf?@3C9iKY1
+DEx9 bbgen_lib 19 bbgen_register_bank 0 22 :Z]e4B?lZEc<KF7_`5TW_2
+DEx9 bbgen_lib 15 bbgen_clock_box 0 22 JLFb6QQ=RVR31:UEfzi?31
+DEx9 bbgen_lib 19 bbgen_pwell_control 0 22 <Uz=aB]@Dc6QjeNiFl^R^0
+R15
+R2
+R3
+R4
+R5
+DEx4 work 13 bbgen_control 0 22 Jadob2Knkb7?zbQeWL=SZ0
+l213
+L95
+VNnl>2TP7n<E;:lEG`73Hn2
+!s100 nWYT17cPF74eUKf2oSX?O3
+R8
+32
+R9
+!i10b 1
+R18
+R19
+R20
+!i113 0
+R13
+R14
+Ebbgen_cvp_interface
+R1
+R3
+R15
+R4
+R5
+R0
+Z21 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/rtl/bbgen_cvp_interface.vhd
+Z22 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/rtl/bbgen_cvp_interface.vhd
+l0
+L26
+V5mI5b_mGCllFf?@3C9iKY1
+!s100 L4iN=DkL41m55`[in`eWK0
+R8
+32
+R9
+!i10b 1
+Z23 !s108 1568883246.565717
+Z24 !s90 -work|bbgen_lib|-quiet|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/rtl/bbgen_cvp_interface.vhd|
+Z25 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/rtl/bbgen_cvp_interface.vhd|
+!i113 0
+R13
+R14
+Astr
+R3
+R15
+R4
+R5
+DEx4 work 19 bbgen_cvp_interface 0 22 5mI5b_mGCllFf?@3C9iKY1
+l80
+L58
+VU@C19Gn826??5jP3jMnMn0
+!s100 XM9cRob<:6J9jaY^Qm6g51
+R8
+32
+R9
+!i10b 1
+R23
+R24
+R25
+!i113 0
+R13
+R14
+Ebbgen_nwell_control
+R1
+R2
+R3
+R4
+R5
+R0
+Z26 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/rtl/bbgen_nwell_control.vhd
+Z27 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/rtl/bbgen_nwell_control.vhd
+l0
+L26
+V4cc>8180J;c[z^N04fO5n3
+!s100 :7e_HD2?7AZ[054hE2M4h3
+R8
+32
+R9
+!i10b 1
+Z28 !s108 1568883246.615646
+Z29 !s90 -work|bbgen_lib|-quiet|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/rtl/bbgen_nwell_control.vhd|
+Z30 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/rtl/bbgen_nwell_control.vhd|
+!i113 0
+R13
+R14
+Astr
+R2
+R3
+R4
+R5
+DEx4 work 19 bbgen_nwell_control 0 22 4cc>8180J;c[z^N04fO5n3
+l58
+L47
+V;9a`L]bkN6M>J3<Ha52i50
+!s100 AELE:Ta3n[OcVIN:oGhnH2
+R8
+32
+R9
+!i10b 1
+R28
+R29
+R30
+!i113 0
+R13
+R14
+Pbbgen_package
+R3
+R4
+R5
+R1
+R0
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/rtl/bbgen_package.vhd
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/rtl/bbgen_package.vhd
+l0
+L24
+V=<<JFT`LY?6=a^f3VUk;=0
+!s100 A@b6=g7YnVSXMkhJeUBUS3
+R8
+32
+R9
+!i10b 1
+!s108 1568883246.339639
+!s90 -work|bbgen_lib|-quiet|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/rtl/bbgen_package.vhd|
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/rtl/bbgen_package.vhd|
+!i113 0
+R13
+R14
+Ebbgen_pwell_control
+R1
+R2
+R3
+R4
+R5
+R0
+Z31 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/rtl/bbgen_pwell_control.vhd
+Z32 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/rtl/bbgen_pwell_control.vhd
+l0
+L26
+V<Uz=aB]@Dc6QjeNiFl^R^0
+!s100 hF4`dj<dMdf3zWC]=0GVb3
+R8
+32
+R9
+!i10b 1
+Z33 !s108 1568883246.671701
+Z34 !s90 -work|bbgen_lib|-quiet|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/rtl/bbgen_pwell_control.vhd|
+Z35 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/rtl/bbgen_pwell_control.vhd|
+!i113 0
+R13
+R14
+Astr
+R2
+R3
+R4
+R5
+DEx4 work 19 bbgen_pwell_control 0 22 <Uz=aB]@Dc6QjeNiFl^R^0
+l75
+L58
+V7WeV1AR3d8UUahg55E^a00
+!s100 oPJdl9AZk_2=V:6@B8cMH3
+R8
+32
+R9
+!i10b 1
+R33
+R34
+R35
+!i113 0
+R13
+R14
+Ebbgen_register_bank
+R1
+R15
+R2
+R3
+R4
+R5
+R0
+Z36 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/rtl/bbgen_register_bank.vhd
+Z37 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/rtl/bbgen_register_bank.vhd
+l0
+L28
+V:Z]e4B?lZEc<KF7_`5TW_2
+!s100 2Mm1:g;DTM^DY5?L6FZC^3
+R8
+33
+R9
+!i10b 1
+Z38 !s108 1568883246.733443
+Z39 !s90 -work|bbgen_lib|-2008|-quiet|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/rtl/bbgen_register_bank.vhd|
+Z40 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/rtl/bbgen_register_bank.vhd|
+!i113 0
+Z41 o-quiet -work bbgen_lib -2008
+R14
+Astr
+DEx9 bbgen_lib 18 bbgen_synchronizer 0 22 _]gf0zec=Y9G>@>cl;JO>1
+R15
+R2
+R3
+R4
+R5
+DEx4 work 19 bbgen_register_bank 0 22 :Z]e4B?lZEc<KF7_`5TW_2
+l94
+L71
+Vd[e2lUEQY0M:m98;o:Abh1
+!s100 d=@PdGD;loELXbZ9i<YdE3
+R8
+33
+R9
+!i10b 1
+R38
+R39
+R40
+!i113 0
+R41
+R14
+Ebbgen_synchronizer
+R1
+R4
+R5
+R0
+Z42 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/rtl/bbgen_synchronizer.vhd
+Z43 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/rtl/bbgen_synchronizer.vhd
+l0
+L24
+V_]gf0zec=Y9G>@>cl;JO>1
+!s100 El?^aYW3m^4CkJ1PUimg91
+R8
+32
+R9
+!i10b 1
+Z44 !s108 1568883246.472477
+Z45 !s90 -work|bbgen_lib|-quiet|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/rtl/bbgen_synchronizer.vhd|
+Z46 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/rtl/bbgen_synchronizer.vhd|
+!i113 0
+R13
+R14
+Astr
+R4
+R5
+DEx4 work 18 bbgen_synchronizer 0 22 _]gf0zec=Y9G>@>cl;JO>1
+l44
+L36
+VOUAIYNnTGaC91K0Q8_MLF3
+!s100 SS:LniX92k9Q[@TKaYe0H3
+R8
+32
+R9
+!i10b 1
+R44
+R45
+R46
+!i113 0
+R13
+R14
+Pcvp_package
+R3
+R4
+R5
+R1
+R0
+Z47 8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/rtl/CVP/cvp_package.vhd
+Z48 F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/rtl/CVP/cvp_package.vhd
+l0
+L24
+Vn9;5n]72IchceIFc6gbNG0
+!s100 C<6^@QHbU0@:MQOX6`_8F2
+R8
+32
+b1
+R9
+!i10b 1
+Z49 !s108 1568883246.412943
+Z50 !s90 -work|bbgen_lib|-quiet|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/rtl/CVP/cvp_package.vhd|
+Z51 !s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/rtl/CVP/cvp_package.vhd|
+!i113 0
+R13
+R14
+Bbody
+DPx4 work 11 cvp_package 0 22 n9;5n]72IchceIFc6gbNG0
+R3
+R4
+R5
+l0
+L65
+VOUo:PM3559KPc^BdDMSid1
+!s100 NS@3m8Wb<]7<XV`anhSCA0
+R8
+32
+R9
+!i10b 1
+R49
+R50
+R51
+!i113 0
+R13
+R14
+nbody
+vvbbgen_PULPV3_driver
+Z52 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
+R9
+!i10b 1
+!s100 L^lRQ;3li]KTQm=E>4<Io1
+II@CeI[^bmIH;2J0oL94aZ2
+Z53 VDg1SIo80bB@j0V0VzS_@n1
+!s105 vbbgen_PULPV3_driver_sv_unit
+S1
+R0
+R1
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/behavioral/vbbgen_PULPV3_driver.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/behavioral/vbbgen_PULPV3_driver.sv
+L0 1
+Z54 OL;L;10.4;61
+r1
+!s85 0
+31
+!s108 1568883246.900496
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/behavioral/vbbgen_PULPV3_driver.sv|
+!s90 -sv|-work|bbgen_lib|-quiet|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/behavioral/vbbgen_PULPV3_driver.sv|
+!i113 0
+Z55 o-quiet -sv -work bbgen_lib -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+nvbbgen_@p@u@l@p@v3_driver
+vvbbgen_PULPV3_monitor
+R52
+R9
+!i10b 1
+!s100 4]=jNnM2>aT3e;h3d_C[P2
+Ib6FVeEfdK_3gF;3N0S00<3
+R53
+!s105 vbbgen_PULPV3_monitor_sv_unit
+S1
+R0
+R1
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/behavioral/vbbgen_PULPV3_monitor.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/behavioral/vbbgen_PULPV3_monitor.sv
+L0 1
+R54
+r1
+!s85 0
+31
+!s108 1568883246.861197
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/behavioral/vbbgen_PULPV3_monitor.sv|
+!s90 -sv|-work|bbgen_lib|-quiet|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/behavioral/vbbgen_PULPV3_monitor.sv|
+!i113 0
+R55
+nvbbgen_@p@u@l@p@v3_monitor
+vvbbgen_PULPV3_weakdriver
+R52
+R9
+!i10b 1
+!s100 ;Ge07dAH7g;NeDN<lgIFV2
+IRXQIR9DQBX]d^DkU6[>R70
+R53
+!s105 vbbgen_PULPV3_weakdriver_sv_unit
+S1
+R0
+R1
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/behavioral/vbbgen_PULPV3_weakdriver.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/behavioral/vbbgen_PULPV3_weakdriver.sv
+L0 1
+R54
+r1
+!s85 0
+31
+!s108 1568883246.944008
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/behavioral/vbbgen_PULPV3_weakdriver.sv|
+!s90 -sv|-work|bbgen_lib|-quiet|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/epfl/bbgenV1/behavioral/vbbgen_PULPV3_weakdriver.sv|
+!i113 0
+R55
+nvbbgen_@p@u@l@p@v3_weakdriver

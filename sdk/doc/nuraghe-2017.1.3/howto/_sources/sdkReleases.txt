@@ -1,0 +1,73 @@
+3558605db3fcd50181a6cf82d6e4037ae47922db
+..............................................................
+
+  * `Downloader <https://iis.ee.ethz.ch/~haugoug/pulp/sdk/3558605db3fcd50181a6cf82d6e4037ae47922db/get-sdk-3558605db3fcd50181a6cf82d6e4037ae47922db.py>`_
+
+  * `Howtos <https://iis.ee.ethz.ch/~haugoug/pulp/howto/3558605db3fcd50181a6cf82d6e4037ae47922db/doc/howto>`_
+
+  
+.. * Changelog
+
+.. * `Documentation <https://iis.ee.ethz.ch/~haugoug/pulp/sdk/3558605db3fcd50181a6cf82d6e4037ae47922db/doc/sdk>`_
+
+2c7f2ba00daea17ff3cb8c7f447bd5917184ca32
+..............................................................
+
+  * `Downloader <https://iis.ee.ethz.ch/~haugoug/pulp/sdk/2c7f2ba00daea17ff3cb8c7f447bd5917184ca32/get-sdk-2c7f2ba00daea17ff3cb8c7f447bd5917184ca32.py>`_
+
+  * `Howtos <https://iis.ee.ethz.ch/~haugoug/pulp/howto/2c7f2ba00daea17ff3cb8c7f447bd5917184ca32/doc/howto>`_
+
+  
+.. * Changelog
+
+.. * `Documentation <https://iis.ee.ethz.ch/~haugoug/pulp/sdk/2c7f2ba00daea17ff3cb8c7f447bd5917184ca32/doc/sdk>`_
+
+2016.3-b8
+..............................................................
+
+  * `Downloader <https://iis.ee.ethz.ch/~haugoug/pulp/sdk/2016.3-b8/get-sdk-2016.3-b8.py>`_
+
+  * `Howtos <https://iis.ee.ethz.ch/~haugoug/pulp/howto/2016.3-b8/doc/howto>`_
+
+  
+.. * Changelog
+
+.. * `Documentation <https://iis.ee.ethz.ch/~haugoug/pulp/sdk/2016.3-b8/doc/sdk>`_
+
+2016.2
+..............................................................
+
+  * `Downloader <https://iis.ee.ethz.ch/~haugoug/pulp/sdk/2016.2/get-sdk-2016.2.py>`_
+
+  * `Howtos <https://iis.ee.ethz.ch/~haugoug/pulp/howto/2016.2/doc/howto>`_
+
+  
+.. * Changelog
+
+.. * `Documentation <https://iis.ee.ethz.ch/~haugoug/pulp/sdk/2016.2/doc/sdk>`_
+
+2016.1
+..............................................................
+
+  * `Downloader <https://iis.ee.ethz.ch/~haugoug/pulp/sdk/2016.1/get-sdk-2016.1.py>`_
+
+  * `Howtos <https://iis.ee.ethz.ch/~haugoug/pulp/howto/2016.1/doc/howto>`_
+
+  
+.. * Changelog
+
+.. * `Documentation <https://iis.ee.ethz.ch/~haugoug/pulp/sdk/2016.1/doc/sdk>`_
+
+2016.1-b12
+..............................................................
+
+  * `Downloader <https://iis.ee.ethz.ch/~haugoug/pulp/sdk/2016.1-b12/get-sdk-2016.1-b12.py>`_
+
+  * `Howtos <https://iis.ee.ethz.ch/~haugoug/pulp/howto/2016.1-b12/doc/howto>`_
+
+  
+.. * Changelog
+
+.. * `Documentation <https://iis.ee.ethz.ch/~haugoug/pulp/sdk/2016.1-b12/doc/sdk>`_
+
+

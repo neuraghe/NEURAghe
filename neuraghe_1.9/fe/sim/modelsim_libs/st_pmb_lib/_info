@@ -1,0 +1,1061 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim
+vC28SOI_PM_CONTROL_LR_ASYNC
+Z1 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
+Z2 !s110 1568386715
+!i10b 1
+!s100 @`bA8heIRK5a=4CiYYb6^2
+I@G?RQh;7mLPmHNc;izl6N1
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+!s105 C28SOI_PM_CONTROL_LR_ASYNC_v_unit
+S1
+R0
+Z4 w1567774032
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/C28SOI_PM_CONTROL_LR_ASYNC.v
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/C28SOI_PM_CONTROL_LR_ASYNC.v
+Z5 L0 16
+Z6 OL;L;10.4;61
+r1
+!s85 0
+31
+!s108 1568386715.766500
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/C28SOI_PM_CONTROL_LR_ASYNC.v|
+!s90 -quiet|-sv|-work|st_pmb_lib|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/C28SOI_PM_CONTROL_LR_ASYNC.v|
+!i113 0
+Z7 o-quiet -sv -work st_pmb_lib -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+n@c28@s@o@i_@p@m_@c@o@n@t@r@o@l_@l@r_@a@s@y@n@c
+vC28SOI_PM_CONTROL_LR_ASYNC_bypass_reg
+R1
+R2
+!i10b 1
+!s100 1fCPT0Rb7m^o`S9Jb>kcT3
+IRi2n0Ai34U2VIE6FNSD9n0
+R3
+!s105 C28SOI_PM_CONTROL_LR_ASYNC_bypass_reg_v_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/controllers/promip_jtag_if/C28SOI_PM_CONTROL_LR_ASYNC_bypass_reg.v
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/controllers/promip_jtag_if/C28SOI_PM_CONTROL_LR_ASYNC_bypass_reg.v
+Z8 L0 18
+R6
+r1
+!s85 0
+31
+!s108 1568386715.851537
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/controllers/promip_jtag_if/C28SOI_PM_CONTROL_LR_ASYNC_bypass_reg.v|
+!s90 -quiet|-sv|-work|st_pmb_lib|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/controllers/promip_jtag_if/C28SOI_PM_CONTROL_LR_ASYNC_bypass_reg.v|
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@c@o@n@t@r@o@l_@l@r_@a@s@y@n@c_bypass_reg
+vC28SOI_PM_CONTROL_LR_ASYNC_clock_gating_cell
+R1
+Z9 !s110 1568386716
+!i10b 1
+!s100 VN0zKJ^d`g5^hB8S[zF9K2
+IAnZ:DE@_>zL8PeB2nnk^53
+R3
+!s105 C28SOI_PM_CONTROL_LR_ASYNC_clock_gating_cell_v_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/tech_cells/C28SOI_PM_CONTROL_LR_ASYNC_clock_gating_cell.v
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/tech_cells/C28SOI_PM_CONTROL_LR_ASYNC_clock_gating_cell.v
+L0 1
+R6
+r1
+!s85 0
+31
+!s108 1568386716.105570
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/tech_cells/C28SOI_PM_CONTROL_LR_ASYNC_clock_gating_cell.v|
+!s90 -quiet|-sv|-work|st_pmb_lib|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/tech_cells/C28SOI_PM_CONTROL_LR_ASYNC_clock_gating_cell.v|
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@c@o@n@t@r@o@l_@l@r_@a@s@y@n@c_clock_gating_cell
+vC28SOI_PM_CONTROL_LR_ASYNC_CPR_pmb_wrapper
+R1
+R2
+!i10b 1
+!s100 l:_oIRlZ6LVMol2==VzWH2
+I`]Z<la<8D]gKh9^mNYSYY3
+R3
+!s105 C28SOI_PM_CONTROL_LR_ASYNC_CPR_pmb_wrapper_v_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/C28SOI_PM_CONTROL_LR_ASYNC_CPR_pmb_wrapper.v
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/C28SOI_PM_CONTROL_LR_ASYNC_CPR_pmb_wrapper.v
+L0 7
+R6
+r1
+!s85 0
+31
+!s108 1568386715.692536
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/C28SOI_PM_CONTROL_LR_ASYNC_CPR_pmb_wrapper.v|
+!s90 -quiet|-sv|-work|st_pmb_lib|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/C28SOI_PM_CONTROL_LR_ASYNC_CPR_pmb_wrapper.v|
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@c@o@n@t@r@o@l_@l@r_@a@s@y@n@c_@c@p@r_pmb_wrapper
+vC28SOI_PM_CONTROL_LR_ASYNC_idcode_reg
+R1
+R2
+!i10b 1
+!s100 km<jfSGS^DOd90n=eWOZK3
+IZG6aLH8VB``oX_<<onaJd2
+R3
+!s105 C28SOI_PM_CONTROL_LR_ASYNC_idcode_register_v_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/controllers/promip_jtag_if/C28SOI_PM_CONTROL_LR_ASYNC_idcode_register.v
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/controllers/promip_jtag_if/C28SOI_PM_CONTROL_LR_ASYNC_idcode_register.v
+R8
+R6
+r1
+!s85 0
+31
+!s108 1568386715.870293
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/controllers/promip_jtag_if/C28SOI_PM_CONTROL_LR_ASYNC_idcode_register.v|
+!s90 -quiet|-sv|-work|st_pmb_lib|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/controllers/promip_jtag_if/C28SOI_PM_CONTROL_LR_ASYNC_idcode_register.v|
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@c@o@n@t@r@o@l_@l@r_@a@s@y@n@c_idcode_reg
+vC28SOI_PM_CONTROL_LR_ASYNC_jtag_interface
+R1
+R2
+!i10b 1
+!s100 oOIoCL4KbV1O]Db3L><h?1
+I@@9Yg5o2]n8U[496fEaoX3
+R3
+!s105 C28SOI_PM_CONTROL_LR_ASYNC_jtag_interface_v_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/controllers/promip_jtag_if/C28SOI_PM_CONTROL_LR_ASYNC_jtag_interface.v
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/controllers/promip_jtag_if/C28SOI_PM_CONTROL_LR_ASYNC_jtag_interface.v
+L0 28
+R6
+r1
+!s85 0
+31
+!s108 1568386715.889297
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/controllers/promip_jtag_if/C28SOI_PM_CONTROL_LR_ASYNC_jtag_interface.v|
+!s90 -quiet|-sv|-work|st_pmb_lib|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/controllers/promip_jtag_if/C28SOI_PM_CONTROL_LR_ASYNC_jtag_interface.v|
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@c@o@n@t@r@o@l_@l@r_@a@s@y@n@c_jtag_interface
+vC28SOI_PM_CONTROL_LR_ASYNC_master_controller
+R1
+R2
+!i10b 1
+!s100 6iTB^2UC<>>=28DeE<]Y>1
+IGJW@czPBU22j2gzHI26<93
+R3
+!s105 C28SOI_PM_CONTROL_LR_ASYNC_master_controller_v_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/C28SOI_PM_CONTROL_LR_ASYNC_master_controller.v
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/C28SOI_PM_CONTROL_LR_ASYNC_master_controller.v
+R5
+R6
+r1
+!s85 0
+31
+!s108 1568386715.718903
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/C28SOI_PM_CONTROL_LR_ASYNC_master_controller.v|
+!s90 -quiet|-sv|-work|st_pmb_lib|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/C28SOI_PM_CONTROL_LR_ASYNC_master_controller.v|
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@c@o@n@t@r@o@l_@l@r_@a@s@y@n@c_master_controller
+vC28SOI_PM_CONTROL_LR_ASYNC_mux2v1ninv_clock
+R1
+R9
+!i10b 1
+!s100 `5mRZJZc5nm>>Mk:;2bW[1
+IKU<jRYR>FgCZW2h4^^znA2
+R3
+!s105 C28SOI_PM_CONTROL_LR_ASYNC_mux2v1ninv_clock_v_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/tech_cells/C28SOI_PM_CONTROL_LR_ASYNC_mux2v1ninv_clock.v
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/tech_cells/C28SOI_PM_CONTROL_LR_ASYNC_mux2v1ninv_clock.v
+Z10 L0 17
+R6
+r1
+!s85 0
+31
+!s108 1568386716.124431
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/tech_cells/C28SOI_PM_CONTROL_LR_ASYNC_mux2v1ninv_clock.v|
+!s90 -quiet|-sv|-work|st_pmb_lib|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/tech_cells/C28SOI_PM_CONTROL_LR_ASYNC_mux2v1ninv_clock.v|
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@c@o@n@t@r@o@l_@l@r_@a@s@y@n@c_mux2v1ninv_clock
+vC28SOI_PM_CONTROL_LR_ASYNC_mux2v1ninv_reset
+R1
+R9
+!i10b 1
+!s100 6Ogn]NS4_6@S1k:BZUFm10
+I8<Jogc?R53TiJijX`e63S3
+R3
+!s105 C28SOI_PM_CONTROL_LR_ASYNC_mux2v1ninv_reset_v_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/tech_cells/C28SOI_PM_CONTROL_LR_ASYNC_mux2v1ninv_reset.v
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/tech_cells/C28SOI_PM_CONTROL_LR_ASYNC_mux2v1ninv_reset.v
+R10
+R6
+r1
+!s85 0
+31
+!s108 1568386716.143310
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/tech_cells/C28SOI_PM_CONTROL_LR_ASYNC_mux2v1ninv_reset.v|
+!s90 -quiet|-sv|-work|st_pmb_lib|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/tech_cells/C28SOI_PM_CONTROL_LR_ASYNC_mux2v1ninv_reset.v|
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@c@o@n@t@r@o@l_@l@r_@a@s@y@n@c_mux2v1ninv_reset
+vC28SOI_PM_CONTROL_LR_ASYNC_pmb_wrapper
+R1
+R2
+!i10b 1
+!s100 e1zV_Hn1V`8>OD9UEfH8e1
+IU7_l@GM9QZ2gXd1ZePj@;2
+R3
+!s105 C28SOI_PM_CONTROL_LR_ASYNC_pmb_wrapper_v_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/C28SOI_PM_CONTROL_LR_ASYNC_pmb_wrapper.v
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/C28SOI_PM_CONTROL_LR_ASYNC_pmb_wrapper.v
+L0 7
+R6
+r1
+!s85 0
+31
+!s108 1568386715.741857
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/C28SOI_PM_CONTROL_LR_ASYNC_pmb_wrapper.v|
+!s90 -quiet|-sv|-work|st_pmb_lib|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/C28SOI_PM_CONTROL_LR_ASYNC_pmb_wrapper.v|
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@c@o@n@t@r@o@l_@l@r_@a@s@y@n@c_pmb_wrapper
+vC28SOI_PM_CONTROL_LR_ASYNC_promip_apb_if
+R1
+R2
+!i10b 1
+!s100 YX9aG;^LeZW:5Vh`I=<`<0
+IcPjcKYd@?d0TO`FDd;h9l2
+R3
+!s105 C28SOI_PM_CONTROL_LR_ASYNC_promip_apb_if_v_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/controllers/promip_apb_if/C28SOI_PM_CONTROL_LR_ASYNC_promip_apb_if.v
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/controllers/promip_apb_if/C28SOI_PM_CONTROL_LR_ASYNC_promip_apb_if.v
+R8
+R6
+r1
+!s85 0
+31
+!s108 1568386715.831752
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/controllers/promip_apb_if/C28SOI_PM_CONTROL_LR_ASYNC_promip_apb_if.v|
+!s90 -quiet|-sv|-work|st_pmb_lib|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/controllers/promip_apb_if/C28SOI_PM_CONTROL_LR_ASYNC_promip_apb_if.v|
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@c@o@n@t@r@o@l_@l@r_@a@s@y@n@c_promip_apb_if
+vC28SOI_PM_CONTROL_LR_ASYNC_promip_controller_if
+R1
+R2
+!i10b 1
+!s100 ;[X9dBD``S`VAc@<jJI;J1
+ILQRkFd6LOo1mfHoaVLzz40
+R3
+!s105 C28SOI_PM_CONTROL_LR_ASYNC_promip_controller_if_v_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/controllers/C28SOI_PM_CONTROL_LR_ASYNC_promip_controller_if.v
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/controllers/C28SOI_PM_CONTROL_LR_ASYNC_promip_controller_if.v
+L0 19
+R6
+r1
+!s85 0
+31
+!s108 1568386715.791938
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/controllers/C28SOI_PM_CONTROL_LR_ASYNC_promip_controller_if.v|
+!s90 -quiet|-sv|-work|st_pmb_lib|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/controllers/C28SOI_PM_CONTROL_LR_ASYNC_promip_controller_if.v|
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@c@o@n@t@r@o@l_@l@r_@a@s@y@n@c_promip_controller_if
+vC28SOI_PM_CONTROL_LR_ASYNC_promip_ctrl_gen
+R1
+R2
+!i10b 1
+!s100 [FbdM:iM6QjObBHZgV:HG0
+ID9IDm>h89D]`KaJAk9i791
+R3
+!s105 C28SOI_PM_CONTROL_LR_ASYNC_promip_ctrl_gen_v_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/controllers/C28SOI_PM_CONTROL_LR_ASYNC_promip_ctrl_gen.v
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/controllers/C28SOI_PM_CONTROL_LR_ASYNC_promip_ctrl_gen.v
+R8
+R6
+r1
+!s85 0
+31
+!s108 1568386715.812477
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/controllers/C28SOI_PM_CONTROL_LR_ASYNC_promip_ctrl_gen.v|
+!s90 -quiet|-sv|-work|st_pmb_lib|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/controllers/C28SOI_PM_CONTROL_LR_ASYNC_promip_ctrl_gen.v|
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@c@o@n@t@r@o@l_@l@r_@a@s@y@n@c_promip_ctrl_gen
+vC28SOI_PM_CONTROL_LR_ASYNC_promip_divider2
+R1
+R9
+!i10b 1
+!s100 ]J[ZLHMD2HEAFQzXPg7A;0
+I^4FT116dok90bkJ1MLf?e2
+R3
+!s105 C28SOI_PM_CONTROL_LR_ASYNC_promip_divider2_v_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/tech_cells/C28SOI_PM_CONTROL_LR_ASYNC_promip_divider2.v
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/tech_cells/C28SOI_PM_CONTROL_LR_ASYNC_promip_divider2.v
+R5
+R6
+r1
+!s85 0
+31
+!s108 1568386716.162385
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/tech_cells/C28SOI_PM_CONTROL_LR_ASYNC_promip_divider2.v|
+!s90 -quiet|-sv|-work|st_pmb_lib|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/tech_cells/C28SOI_PM_CONTROL_LR_ASYNC_promip_divider2.v|
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@c@o@n@t@r@o@l_@l@r_@a@s@y@n@c_promip_divider2
+vC28SOI_PM_CONTROL_LR_ASYNC_promip_jtag_if
+R1
+R2
+!i10b 1
+!s100 EUi6_PVT<zQ7fEZRg2Tf:2
+IOGa`3DYCN0lOdLeOn`SOF0
+R3
+!s105 C28SOI_PM_CONTROL_LR_ASYNC_promip_jtag_if_v_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/controllers/promip_jtag_if/C28SOI_PM_CONTROL_LR_ASYNC_promip_jtag_if.v
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/controllers/promip_jtag_if/C28SOI_PM_CONTROL_LR_ASYNC_promip_jtag_if.v
+R8
+R6
+r1
+!s85 0
+31
+!s108 1568386715.909539
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/controllers/promip_jtag_if/C28SOI_PM_CONTROL_LR_ASYNC_promip_jtag_if.v|
+!s90 -quiet|-sv|-work|st_pmb_lib|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/controllers/promip_jtag_if/C28SOI_PM_CONTROL_LR_ASYNC_promip_jtag_if.v|
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@c@o@n@t@r@o@l_@l@r_@a@s@y@n@c_promip_jtag_if
+vC28SOI_PM_CONTROL_LR_ASYNC_promip_register_if
+R1
+R9
+!i10b 1
+!s100 o_2Bb2R;JZnFAOf:KD;I@0
+IH0e6XY_WL62TmP@;SQ>Dn2
+R3
+!s105 C28SOI_PM_CONTROL_LR_ASYNC_promip_register_if_v_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/promip_registers/C28SOI_PM_CONTROL_LR_ASYNC_promip_register_if.v
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/promip_registers/C28SOI_PM_CONTROL_LR_ASYNC_promip_register_if.v
+R8
+R6
+r1
+!s85 0
+31
+!s108 1568386716.006856
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/promip_registers/C28SOI_PM_CONTROL_LR_ASYNC_promip_register_if.v|
+!s90 -quiet|-sv|-work|st_pmb_lib|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/promip_registers/C28SOI_PM_CONTROL_LR_ASYNC_promip_register_if.v|
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@c@o@n@t@r@o@l_@l@r_@a@s@y@n@c_promip_register_if
+vC28SOI_PM_CONTROL_LR_ASYNC_promip_sensor_if
+R1
+R9
+!i10b 1
+!s100 GJ;AQ76;61EEdSPmz_f3X1
+If`Deh6Yi6O0K4ezA0zW_h3
+R3
+!s105 C28SOI_PM_CONTROL_LR_ASYNC_promip_sensor_if_v_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/promip_sensor_if/C28SOI_PM_CONTROL_LR_ASYNC_promip_sensor_if.v
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/promip_sensor_if/C28SOI_PM_CONTROL_LR_ASYNC_promip_sensor_if.v
+L0 25
+R6
+r1
+!s85 0
+31
+!s108 1568386716.083491
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/promip_sensor_if/C28SOI_PM_CONTROL_LR_ASYNC_promip_sensor_if.v|
+!s90 -quiet|-sv|-work|st_pmb_lib|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/promip_sensor_if/C28SOI_PM_CONTROL_LR_ASYNC_promip_sensor_if.v|
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@c@o@n@t@r@o@l_@l@r_@a@s@y@n@c_promip_sensor_if
+vC28SOI_PM_CONTROL_LR_ASYNC_synchroniser
+R1
+R9
+!i10b 1
+!s100 ;<hjiCd4=RT@3ez=S:]S]1
+IEV?83>iX7PMSYcA;mhJkO2
+R3
+!s105 C28SOI_PM_CONTROL_LR_ASYNC_synchroniser_v_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/tech_cells/C28SOI_PM_CONTROL_LR_ASYNC_synchroniser.v
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/tech_cells/C28SOI_PM_CONTROL_LR_ASYNC_synchroniser.v
+L0 2
+R6
+r1
+!s85 0
+31
+!s108 1568386716.181460
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/tech_cells/C28SOI_PM_CONTROL_LR_ASYNC_synchroniser.v|
+!s90 -quiet|-sv|-work|st_pmb_lib|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/tech_cells/C28SOI_PM_CONTROL_LR_ASYNC_synchroniser.v|
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@c@o@n@t@r@o@l_@l@r_@a@s@y@n@c_synchroniser
+vC28SOI_PM_CONTROL_LR_ASYNC_tdc_ctrl_reg
+R1
+R9
+!i10b 1
+!s100 oVI<E=BkVUCAok?iXomcR1
+Io=X]T;18gHNgRd0Ve^0zn0
+R3
+!s105 C28SOI_PM_CONTROL_LR_ASYNC_tdc_ctrl_reg_v_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/promip_registers/C28SOI_PM_CONTROL_LR_ASYNC_tdc_ctrl_reg.v
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/promip_registers/C28SOI_PM_CONTROL_LR_ASYNC_tdc_ctrl_reg.v
+Z11 L0 21
+R6
+r1
+!s85 0
+31
+!s108 1568386716.026197
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/promip_registers/C28SOI_PM_CONTROL_LR_ASYNC_tdc_ctrl_reg.v|
+!s90 -quiet|-sv|-work|st_pmb_lib|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/promip_registers/C28SOI_PM_CONTROL_LR_ASYNC_tdc_ctrl_reg.v|
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@c@o@n@t@r@o@l_@l@r_@a@s@y@n@c_tdc_ctrl_reg
+vC28SOI_PM_CONTROL_LR_ASYNC_tdc_ctrl_sens_reg
+R1
+R9
+!i10b 1
+!s100 A86<m1M@9eKd?D2Im9W?Z3
+IJb`RHkFQFViH1CTz5>BET0
+R3
+!s105 C28SOI_PM_CONTROL_LR_ASYNC_tdc_ctrl_sens_reg_v_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/promip_registers/C28SOI_PM_CONTROL_LR_ASYNC_tdc_ctrl_sens_reg.v
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/promip_registers/C28SOI_PM_CONTROL_LR_ASYNC_tdc_ctrl_sens_reg.v
+R11
+R6
+r1
+!s85 0
+31
+!s108 1568386716.045258
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/promip_registers/C28SOI_PM_CONTROL_LR_ASYNC_tdc_ctrl_sens_reg.v|
+!s90 -quiet|-sv|-work|st_pmb_lib|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/promip_registers/C28SOI_PM_CONTROL_LR_ASYNC_tdc_ctrl_sens_reg.v|
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@c@o@n@t@r@o@l_@l@r_@a@s@y@n@c_tdc_ctrl_sens_reg
+vC28SOI_PM_CONTROL_LR_ASYNC_tdc_stat_reg
+R1
+R9
+!i10b 1
+!s100 UES]nSZa5;__TJ5eGP3372
+IgWXhh_;MTg?dAE6Ug`Igm1
+R3
+!s105 C28SOI_PM_CONTROL_LR_ASYNC_tdc_stat_reg_v_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/promip_registers/C28SOI_PM_CONTROL_LR_ASYNC_tdc_stat_reg.v
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/promip_registers/C28SOI_PM_CONTROL_LR_ASYNC_tdc_stat_reg.v
+R11
+R6
+r1
+!s85 0
+31
+!s108 1568386716.064361
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/promip_registers/C28SOI_PM_CONTROL_LR_ASYNC_tdc_stat_reg.v|
+!s90 -quiet|-sv|-work|st_pmb_lib|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/promip_registers/C28SOI_PM_CONTROL_LR_ASYNC_tdc_stat_reg.v|
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@c@o@n@t@r@o@l_@l@r_@a@s@y@n@c_tdc_stat_reg
+vC28SOI_PM_CONTROL_LR_ASYNC_xor
+R1
+R9
+!i10b 1
+!s100 ]3SGMdd_1OZa7_W8]T[n11
+I[GG0?I]MnhW9c5PF4SIe91
+R3
+!s105 C28SOI_PM_CONTROL_LR_ASYNC_xor_v_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/tech_cells/C28SOI_PM_CONTROL_LR_ASYNC_xor.v
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/tech_cells/C28SOI_PM_CONTROL_LR_ASYNC_xor.v
+R10
+R6
+r1
+!s85 0
+31
+!s108 1568386716.200964
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/tech_cells/C28SOI_PM_CONTROL_LR_ASYNC_xor.v|
+!s90 -quiet|-sv|-work|st_pmb_lib|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/tech_cells/C28SOI_PM_CONTROL_LR_ASYNC_xor.v|
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@c@o@n@t@r@o@l_@l@r_@a@s@y@n@c_xor
+vC28SOI_PM_LOGIC_CPR_LR_GATE_TOP
+R1
+R2
+!i10b 1
+!s100 gGMMGmHmCmD][oWZ>VJGH2
+Ic^E_AigXKQPchA237SIHn2
+R3
+!s105 C28SOI_PM_LOGIC_CPR_LR_GATE_TOP_v_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/CPR/C28SOI_PM_LOGIC_CPR_LR_GATE_TOP.v
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/CPR/C28SOI_PM_LOGIC_CPR_LR_GATE_TOP.v
+L0 1
+R6
+r1
+!s85 0
+31
+!s108 1568386715.928853
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/CPR/C28SOI_PM_LOGIC_CPR_LR_GATE_TOP.v|
+!s90 -quiet|-sv|-work|st_pmb_lib|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/CPR/C28SOI_PM_LOGIC_CPR_LR_GATE_TOP.v|
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@l@o@g@i@c_@c@p@r_@l@r_@g@a@t@e_@t@o@p
+vC28SOI_PM_LOGIC_CPR_LR_P16_TOP
+R1
+R2
+!i10b 1
+!s100 FcMWPeX8HlMA631XVXK]R3
+IZ<X6f>2e3TMJbGz06a0MM1
+R3
+!s105 C28SOI_PM_LOGIC_CPR_LR_P16_TOP_v_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/CPR/C28SOI_PM_LOGIC_CPR_LR_P16_TOP.v
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/CPR/C28SOI_PM_LOGIC_CPR_LR_P16_TOP.v
+L0 1
+R6
+r1
+!s85 0
+31
+!s108 1568386715.948385
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/CPR/C28SOI_PM_LOGIC_CPR_LR_P16_TOP.v|
+!s90 -quiet|-sv|-work|st_pmb_lib|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/CPR/C28SOI_PM_LOGIC_CPR_LR_P16_TOP.v|
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@l@o@g@i@c_@c@p@r_@l@r_@p16_@t@o@p
+vC28SOI_PM_LOGIC_CPR_LR_RCM5_GATE_TOP
+R1
+R2
+!i10b 1
+!s100 mHcJFHG:DFBKAzlXHcgX]1
+I:191c9z;Yg:gY9:KL7Klz0
+R3
+!s105 C28SOI_PM_LOGIC_CPR_LR_RCM5_GATE_TOP_v_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/CPR/C28SOI_PM_LOGIC_CPR_LR_RCM5_GATE_TOP.v
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/CPR/C28SOI_PM_LOGIC_CPR_LR_RCM5_GATE_TOP.v
+L0 1
+R6
+r1
+!s85 0
+31
+!s108 1568386715.967800
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/CPR/C28SOI_PM_LOGIC_CPR_LR_RCM5_GATE_TOP.v|
+!s90 -quiet|-sv|-work|st_pmb_lib|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/CPR/C28SOI_PM_LOGIC_CPR_LR_RCM5_GATE_TOP.v|
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@l@o@g@i@c_@c@p@r_@l@r_@r@c@m5_@g@a@t@e_@t@o@p
+vC28SOI_PM_LOGIC_LR_P0
+R1
+R9
+!i10b 1
+!s100 ]EcTL2[cG8jL;7INVo3fJ1
+IAU4:`I7n0`3mQGUIQhd]W2
+R3
+Z12 !s105 C28SOI_PM_SENSOR_GO1_LR_v_unit
+S1
+R0
+R4
+Z13 8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_SENSOR_GO1_LR.v
+Z14 F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_SENSOR_GO1_LR.v
+R11
+R6
+r1
+!s85 0
+31
+Z15 !s108 1568386716.220331
+Z16 !s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_SENSOR_GO1_LR.v|
+Z17 !s90 -quiet|-sv|-work|st_pmb_lib|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_SENSOR_GO1_LR.v|
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@l@o@g@i@c_@l@r_@p0
+vC28SOI_PM_LOGIC_LR_P10
+R1
+R9
+!i10b 1
+!s100 7V;n^B0TXf]=8J64d_TiW3
+IbR6;eJzU=GS``P[LTE3mN2
+R3
+R12
+S1
+R0
+R4
+R13
+R14
+L0 275
+R6
+r1
+!s85 0
+31
+R15
+R16
+R17
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@l@o@g@i@c_@l@r_@p10
+vC28SOI_PM_LOGIC_LR_P16
+R1
+R9
+!i10b 1
+!s100 7NK]h02ziT492Q]2Wa^[O0
+I@ajC_m1;0H@]RCed]VAXQ0
+R3
+R12
+S1
+R0
+R4
+R13
+R14
+L0 401
+R6
+r1
+!s85 0
+31
+R15
+R16
+R17
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@l@o@g@i@c_@l@r_@p16
+vC28SOI_PM_LOGIC_LR_P4
+R1
+R9
+!i10b 1
+!s100 ?iogC[CL7YDfN5QD9=:m82
+IlLGi:i`3_0IILE:]H2@QT2
+R3
+R12
+S1
+R0
+R4
+R13
+R14
+L0 147
+R6
+r1
+!s85 0
+31
+R15
+R16
+R17
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@l@o@g@i@c_@l@r_@p4
+vC28SOI_PM_LOGICCPR_SOFTRC_LR_P0
+R1
+R2
+!i10b 1
+!s100 ZW;H?7fQed7]2XD;8i6m^0
+IUQOX6fCRX3gB^[dLZBgX`3
+R3
+Z18 !s105 C28SOI_PM_LOGICCPR_SOFTRC_LR_P0_v_unit
+S1
+R0
+R4
+Z19 8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/CPR/rc_ring_netlist/C28SOI_PM_LOGICCPR_SOFTRC_LR_P0.v
+Z20 F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/CPR/rc_ring_netlist/C28SOI_PM_LOGICCPR_SOFTRC_LR_P0.v
+L0 9
+R6
+r1
+!s85 0
+31
+Z21 !s108 1568386715.987373
+Z22 !s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/CPR/rc_ring_netlist/C28SOI_PM_LOGICCPR_SOFTRC_LR_P0.v|
+Z23 !s90 -quiet|-sv|-work|st_pmb_lib|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/tech/ST_28_FDSOI/C28SOI_PM_CONTROL_LR_ASYNC/CPR/rc_ring_netlist/C28SOI_PM_LOGICCPR_SOFTRC_LR_P0.v|
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@l@o@g@i@c@c@p@r_@s@o@f@t@r@c_@l@r_@p0
+vC28SOI_PM_LOGICCPR_SOFTRC_LR_P0_chain
+R1
+R2
+!i10b 1
+!s100 GbK_kAn0a?G0:C>X6W_HZ3
+I:5VO]G2^l;C@1koj6ci@81
+R3
+R18
+S1
+R0
+R4
+R19
+R20
+L0 44
+R6
+r1
+!s85 0
+31
+R21
+R22
+R23
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@l@o@g@i@c@c@p@r_@s@o@f@t@r@c_@l@r_@p0_chain
+vC28SOI_PM_SENSOR_GO1_LR_flipflopchain
+R1
+R9
+!i10b 1
+!s100 SDO>^RR8bWb8efTdn`=AW3
+I75gGfo6No0WcE3nTI7`V30
+R3
+R12
+S1
+R0
+R4
+R13
+R14
+L0 573
+R6
+r1
+!s85 0
+31
+R15
+R16
+R17
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@s@e@n@s@o@r_@g@o1_@l@r_flipflopchain
+vC28SOI_PM_SENSOR_GO1_LR_LEAKOMETER_CTRL
+R1
+R9
+!i10b 1
+!s100 ;kM[bP5i`0CjFW1XEn>n>0
+IV_=M2^Tbio6ZGB92S[4iB1
+R3
+R12
+S1
+R0
+R4
+R13
+R14
+L0 508
+R6
+r1
+!s85 0
+31
+R15
+R16
+R17
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@s@e@n@s@o@r_@g@o1_@l@r_@l@e@a@k@o@m@e@t@e@r_@c@t@r@l
+vC28SOI_PM_SENSOR_GO1_LR_LEAKOMETER_MATRIX
+R1
+R9
+!i10b 1
+!s100 h60Yj>f7UfUT0KWER;c>52
+I_<A6]dGZ4l:OZ1IlKSQmg1
+R3
+R12
+S1
+R0
+R4
+R13
+R14
+L0 626
+R6
+r1
+!s85 0
+31
+R15
+R16
+R17
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@s@e@n@s@o@r_@g@o1_@l@r_@l@e@a@k@o@m@e@t@e@r_@m@a@t@r@i@x
+vC28SOI_PM_SENSOR_GO1_LR_MUX21
+R1
+R9
+!i10b 1
+!s100 AMD=WYiOXjAnd9cO;6g@A2
+INl<RQAdHU[>jbCZ;PiC<X0
+R3
+R12
+S1
+R0
+R4
+R13
+R14
+L0 540
+R6
+r1
+!s85 0
+31
+R15
+R16
+R17
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@s@e@n@s@o@r_@g@o1_@l@r_@m@u@x21
+vC28SOI_PM_SENSOR_GO1_LR_MUX41
+R1
+R9
+!i10b 1
+!s100 C@7EdkVjmkm>DGCXc;4kQ2
+I7gea<nUhY2i0m5Mkib6jD2
+R3
+R12
+S1
+R0
+R4
+R13
+R14
+L0 699
+R6
+r1
+!s85 0
+31
+R15
+R16
+R17
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@s@e@n@s@o@r_@g@o1_@l@r_@m@u@x41
+vC28SOI_PM_SENSOR_GO1_LR_SDFPRQNT
+R1
+R9
+!i10b 1
+!s100 Ien7iDS4n4S6_Q3602WiK2
+IO]Z2DNS7fPh[6i:ATQ<AH1
+R3
+R12
+S1
+R0
+R4
+R13
+R14
+L0 521
+R6
+r1
+!s85 0
+31
+R15
+R16
+R17
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@s@e@n@s@o@r_@g@o1_@l@r_@s@d@f@p@r@q@n@t
+vC28SOI_PM_SENSOR_GO1_LR_SPEEDOMETER_CTRL
+R1
+R9
+!i10b 1
+!s100 J_AlhFZPJ]bBNIPRQ8M]f3
+IRL`^00Geg0>S=f4i3g]hk1
+R3
+R12
+S1
+R0
+R4
+R13
+R14
+L0 554
+R6
+r1
+!s85 0
+31
+R15
+R16
+R17
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@s@e@n@s@o@r_@g@o1_@l@r_@s@p@e@e@d@o@m@e@t@e@r_@c@t@r@l
+vC28SOI_PM_SENSOR_GO1_LR_SPEEDOMETER_MATRIX
+R1
+R9
+!i10b 1
+!s100 KLBP08Wo2zBfl1M512i?e3
+IJ85_Hm37UYo=kMCfFYzAO1
+R3
+R12
+S1
+R0
+R4
+R13
+R14
+L0 613
+R6
+r1
+!s85 0
+31
+R15
+R16
+R17
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@s@e@n@s@o@r_@g@o1_@l@r_@s@p@e@e@d@o@m@e@t@e@r_@m@a@t@r@i@x
+UC28SOI_PM_SENSOR_GO1_LR_U_FD_P_RN_POWER
+R9
+!i10b 1
+!s100 eDdaSholWGj>[BPW^QEOR2
+Ie2cB^V^@OgFdNad>aeKKo1
+R3
+R12
+S1
+R0
+R4
+R13
+R14
+L0 662
+R6
+r1
+!s85 0
+31
+R15
+R16
+R17
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@s@e@n@s@o@r_@g@o1_@l@r_@u_@f@d_@p_@r@n_@p@o@w@e@r
+UC28SOI_PM_SENSOR_GO1_LR_U_MUX2
+R9
+!i10b 1
+!s100 <=CO<gNgA8COf0HUFIXHm2
+IXSC7XZjeUd8JF?6iFkC:`1
+R3
+R12
+S1
+R0
+R4
+R13
+R14
+L0 638
+R6
+r1
+!s85 0
+31
+R15
+R16
+R17
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@s@e@n@s@o@r_@g@o1_@l@r_@u_@m@u@x2
+UC28SOI_PM_SENSOR_GO1_LR_u_nor
+R9
+!i10b 1
+!s100 _I6M:1PQ[G64`B7;Gej>P1
+I^mG[H:bVA=<c<1<1^b7M;2
+R3
+R12
+S1
+R0
+R4
+R13
+R14
+L0 597
+R6
+r1
+!s85 0
+31
+R15
+R16
+R17
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@s@e@n@s@o@r_@g@o1_@l@r_u_nor
+UC28SOI_PM_SENSOR_GO1_LR_U_NOTI
+R9
+!i10b 1
+!s100 iI[QZUQ^LT?Ei2zFMPRk53
+IBQz2f8]ZgeYd6Ro[YWfEf1
+R3
+R12
+S1
+R0
+R4
+R13
+R14
+L0 732
+R6
+r1
+!s85 0
+31
+R15
+R16
+R17
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@s@e@n@s@o@r_@g@o1_@l@r_@u_@n@o@t@i
+UC28SOI_PM_SENSOR_GO1_LR_U_POWER
+R9
+!i10b 1
+!s100 b=CPaJZU06hgLofUUl2ok2
+I9lzPeD634UoHJ>X`<d27j2
+R3
+R12
+S1
+R0
+R4
+R13
+R14
+L0 718
+R6
+r1
+!s85 0
+31
+R15
+R16
+R17
+!i113 0
+R7
+n@c28@s@o@i_@p@m_@s@e@n@s@o@r_@g@o1_@l@r_@u_@p@o@w@e@r

@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>How to build the RTL platform &mdash; howto 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="howto 1 documentation" href="index.html" />
+    <link rel="next" title="How to setup SDK environment for RTL development" href="howtoSetupRtlEnv.html" />
+    <link rel="prev" title="How to use the RTL platform" href="howtoRtlUse.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="how-to-build-the-rtl-platform">
+<span id="howtobuildrtl"></span><h1>How to build the RTL platform<a class="headerlink" href="#how-to-build-the-rtl-platform" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="outside-the-sdk-flow">
+<h2>Outside the SDK flow<a class="headerlink" href="#outside-the-sdk-flow" title="Permalink to this headline">¶</a></h2>
+<p>Just compile it the way you want and define the environment variable PULP_RTL_INSTALL to the install folder, the one containing modelsim.ini.
+Then you can use it using the SDK flow.</p>
+</div>
+<div class="section" id="using-the-sdk-flow">
+<h2>Using the SDK flow<a class="headerlink" href="#using-the-sdk-flow" title="Permalink to this headline">¶</a></h2>
+<p>First configure the SDK with the proper configuration, for example with:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ plpconf --platform=rtl --pulpChip=pulp4
+$ source setup.sh
+</pre></div>
+</div>
+<p>Then you can either execute that from your application:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ make rtl VERBOSE=1
+</pre></div>
+</div>
+<p>Or from anywhere:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ plpbuild --p rtl --stdout checkout build
+</pre></div>
+</div>
+<p>This command will checkout and compile the RTL platform that corresponds to your configuration, in this case pulp4.</p>
+<p>Once the build step has succeeded, you can compile and run an application using the classic command:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ make clean all run
+</pre></div>
+</div>
+</div>
+<div class="section" id="tips">
+<h2>Tips<a class="headerlink" href="#tips" title="Permalink to this headline">¶</a></h2>
+<p>Be careful, when you execute &#8220;make rtl&#8221; this checkout specific sources of the platform. This can mess-up your sources in case you have modified something or manually switched to a specific version.</p>
+<p>In case you are modifying the platform and don&#8217;t want to checkout new sources, you can execute:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ make rtl.build VERBOSE=1
+</pre></div>
+</div>
+<p>Or:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ plpbuild --p rtl --stdout build
+</pre></div>
+</div>
+<p>In case you want to compile only a few ips:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ make rtl.build VERBOSE=1 BUILD_OPT=&quot;--ip mchan --ip udma --ip udma_subsystem&quot;
+</pre></div>
+</div>
+<p>Or:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ plpbuild --p rtl --stdout build --ip mchan --ip udma --ip udma_subsystem
+</pre></div>
+</div>
+<p>To compile the whole RTL or just an IP, the tool is just relying on the Makefile at the top of the RTL repository, which decides at the end what has to be launched depending on the options. In case there is an issue, the Makefile may not be up-to-date with the way the RTL must be compiled.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">How to build the RTL platform</a><ul>
+<li><a class="reference internal" href="#outside-the-sdk-flow">Outside the SDK flow</a></li>
+<li><a class="reference internal" href="#using-the-sdk-flow">Using the SDK flow</a></li>
+<li><a class="reference internal" href="#tips">Tips</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="howtoRtlUse.html" title="previous chapter">How to use the RTL platform</a></li>
+      <li>Next: <a href="howtoSetupRtlEnv.html" title="next chapter">How to setup SDK environment for RTL development</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/howtoRtlBuild.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Germain Haugou.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/howtoRtlBuild.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

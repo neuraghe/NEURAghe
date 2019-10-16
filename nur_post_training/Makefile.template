@@ -1,0 +1,14 @@
+all: clean post_training input_features concat_headers
+
+post_training:
+	post_training.py settings.txt
+	
+input_features:
+	input_features.py settings.txt
+
+concat_headers:
+	concat_headers.py ./ header.h
+
+clean:
+	rm -rf *.pthex
+	rm -rf *.h

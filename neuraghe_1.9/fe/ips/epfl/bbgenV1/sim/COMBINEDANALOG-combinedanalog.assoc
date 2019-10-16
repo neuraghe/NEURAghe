@@ -1,0 +1,29 @@
+[Header]
+Unit 1: VHDL WORK:combinedanalog
+Unit 2: SPICE COMBINEDANALOG@tb/vbbgen_analog.ckt
+
+[Port association]
+driver_charge_clk => DRIVER_CHARGE_CLK
+m_neg_pwell_clk => M_NEG_PWELL_CLK
+m_nwell_clk => M_NWELL_CLK
+m_pos_pwell_clk => M_POS_PWELL_CLK
+monitor_comp_neg_pwell_LB => MONITOR_COMP_NEG_PWELL_LB
+monitor_comp_neg_pwell_UB => MONITOR_COMP_NEG_PWELL_UB
+monitor_comp_nwell_LB => MONITOR_COMP_NWELL_LB
+monitor_comp_nwell_UB => MONITOR_COMP_NWELL_UB
+monitor_comp_pos_pwell_LB => MONITOR_COMP_POS_PWELL_LB
+monitor_comp_pos_pwell_UB => MONITOR_COMP_POS_PWELL_UB
+monitor_pwell_LB => ( MONITOR_PWELL_LB<4> , MONITOR_PWELL_LB<3> , MONITOR_PWELL_LB<2> , MONITOR_PWELL_LB<1> , MONITOR_PWELL_LB<0> )
+sel_nwell => ( SEL_NWELL<1> , SEL_NWELL<0> )
+monitor_pwell_UB => ( MONITOR_PWELL_UB<4> , MONITOR_PWELL_UB<3> , MONITOR_PWELL_UB<2> , MONITOR_PWELL_UB<1> , MONITOR_PWELL_UB<0> )
+monitor_nwell_LB => ( MONITOR_NWELL_LB<4> , MONITOR_NWELL_LB<3> , MONITOR_NWELL_LB<2> , MONITOR_NWELL_LB<1> , MONITOR_NWELL_LB<0> )
+sel_pwell => ( SEL_PWELL<1> , SEL_PWELL<0> )
+monitor_nwell_UB => ( MONITOR_NWELL_UB<4> , MONITOR_NWELL_UB<3> , MONITOR_NWELL_UB<2> , MONITOR_NWELL_UB<1> , MONITOR_NWELL_UB<0> )
+
+[Unit 1 special]
+
+[Unit 2 special]
+
+[Unit 1 disciplines]
+
+[Unit 2 disciplines]

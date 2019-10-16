@@ -1,0 +1,3 @@
+vhdl xil_defaultlib "../../../bd/base_zynq_design/ip/base_zynq_design_rst_processing_system7_0_50M_0/sim/base_zynq_design_rst_processing_system7_0_50M_0.vhd" 
+vhdl xil_defaultlib "../../../bd/base_zynq_design/hdl/base_zynq_design.vhd" 
+nosort

@@ -1,0 +1,83 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/nur/NEURAghe/neuraghe_2.0/fe/sim
+vaxi_mem_if_DP
+Z1 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
+Z2 !s110 1568883254
+!i10b 1
+!s100 zOEnQ=OB:^_O@L83H^D002
+I6iWbe?LCYQF5f4:BcnjAU1
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+!s105 axi_mem_if_DP_sv_unit
+S1
+R0
+w1566466387
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_mem_if_DP/axi_mem_if_DP.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_mem_if_DP/axi_mem_if_DP.sv
+L0 7
+Z4 OL;L;10.4;61
+r1
+!s85 0
+31
+!s108 1568883254.715232
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_mem_if_DP/axi_mem_if_DP.sv|
+!s90 -work|axi_mem_if_DP_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_node|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_mem_if_DP/axi_mem_if_DP.sv|
+!i113 0
+Z5 o-quiet -work axi_mem_if_DP_lib -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z6 !s92 -quiet -work axi_mem_if_DP_lib -sv +incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_node -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+naxi_mem_if_@d@p
+vaxi_read_only_ctrl
+R1
+R2
+!i10b 1
+!s100 8IZm`9;l56;97]fL:Cdcg2
+IEl]P32=<HW:FlHm8gggH`0
+R3
+!s105 axi_read_only_ctrl_sv_unit
+S1
+R0
+Z7 w1566466388
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_mem_if_DP/axi_read_only_ctrl.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_mem_if_DP/axi_read_only_ctrl.sv
+L0 8
+R4
+r1
+!s85 0
+31
+!s108 1568883254.753717
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_mem_if_DP/axi_read_only_ctrl.sv|
+!s90 -work|axi_mem_if_DP_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_node|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_mem_if_DP/axi_read_only_ctrl.sv|
+!i113 0
+R5
+R6
+vaxi_write_only_ctrl
+R1
+R2
+!i10b 1
+!s100 HH0@5_<4k?[:^9LO_;JcV3
+IjDlWSYjkoLZ`oMHLWFbFY1
+R3
+!s105 axi_write_only_ctrl_sv_unit
+S1
+R0
+R7
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_mem_if_DP/axi_write_only_ctrl.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_mem_if_DP/axi_write_only_ctrl.sv
+L0 8
+R4
+r1
+!s85 0
+31
+!s108 1568883254.787506
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_mem_if_DP/axi_write_only_ctrl.sv|
+!s90 -work|axi_mem_if_DP_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_node|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_mem_if_DP/axi_write_only_ctrl.sv|
+!i113 0
+R5
+R6

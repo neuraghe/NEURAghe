@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="xilinx_tcdm_bank_1024x64_synth_1" LaunchDir="/home/gderiu/gianfranco/neuraghe_wei2ddr_fast_nolic/fpga/ips/xilinx_tcdm_bank_1024x64/xilinx_tcdm_bank_1024x64.runs/xilinx_tcdm_bank_1024x64_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+</Runs>
+

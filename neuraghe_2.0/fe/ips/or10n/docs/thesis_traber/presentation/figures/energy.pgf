@@ -1,0 +1,41 @@
+\ref{energylegend}
+
+\begin{tikzpicture}[font=\scriptsize, tight background]
+\begin{axis}[
+  ylabel={Normalized Energy},
+  width=\linewidth,
+  height=.5\linewidth,
+  ybar=0pt,
+	xtick=data,
+  bar width=7,
+  grid,
+  ymin=0.2,
+  ymax=1.3,
+  ytick={0.2,0.4,0.6,0.8,1,1.2},
+  yticklabel style={font=\tiny,/pgf/number format/.cd,fixed,precision=1},
+  every axis y label/.style={at={(ticklabel cs:.5,5)},rotate=90},
+	xticklabels={mm8, mm16, mm32, fir, fft},
+	cycle list name=mylist,
+  enlarge x limits=0.3,
+	legend to name=energylegend,
+	legend style={
+    draw=none,
+    legend columns=-1,
+    column sep=0,
+    font=\scriptsize,
+  },
+  ]
+
+	\coordinate (A) at (axis cs:0,1);
+	\coordinate (O1) at (rel axis cs:0,0);
+	\coordinate (O2) at (rel axis cs:1,0);
+	\draw [black,sharp plot,line width=1pt] (A -| O1) -- (A -| O2);
+	%\addplot table [x expr=\coordindex, y=base,col sep=comma] {data/energy.csv};
+	\pgfplotsset{cycle list shift=3};
+	\addplot table [x expr=\coordindex, y=cfgIHM,col sep=comma] {data/energy.csv};
+	\addplot table [x expr=\coordindex, y=cfgIHVM,col sep=comma] {data/energy.csv};
+	%\addplot table [x expr=\coordindex, y=cortexM4,col sep=comma] {data/energy.csv};
+	\legend{+IHM,+IHVM,Cortex-M4};
+
+\end{axis}
+\end{tikzpicture}

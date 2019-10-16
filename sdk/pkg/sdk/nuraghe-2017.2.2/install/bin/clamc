@@ -1,0 +1,230 @@
+#!/bin/sh
+
+#  This file is part of AstC2C.
+#
+#  Copyright (c) STMicroelectronics, 2013.
+#  All rights reserved.
+#
+#  Redistribution and use in source and binary forms, with or without modification,
+#  are permitted provided that the following conditions are met:
+#
+#    * Redistributions of source code must retain the above copyright notice, 
+#      this list of conditions and the following disclaimer.
+#    * Redistributions in binary form must reproduce the above copyright notice,
+#      this list of conditions and the following disclaimer in the documentation
+#      and/or other materials provided with the distribution.
+#    * Neither the name of STMicroelectronics nor the names of its contributors
+#      may be used to endorse or promote products derived from this software
+#      without specific prior written permission.
+#
+#  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
+#  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, 
+#  THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE 
+#  ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE 
+#  LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+#  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
+#  GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+#  HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+#  LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+#  OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+#
+#  Authors: Matthieu Leclercq, Thierry Lepley
+
+# OS specific support.  $var _must_ be set to either true or false.
+cygwin=false;
+darwin=false;
+mingw=false
+case "`uname`" in
+  CYGWIN*) cygwin=true ;;
+  MINGW*) mingw=true;;
+  Darwin*) darwin=true 
+           if [ -z "$JAVA_VERSION" ] ; then
+             JAVA_VERSION="CurrentJDK"
+           else
+             echo "Using Java version: $JAVA_VERSION"
+           fi
+           if [ -z "$JAVA_HOME" ] ; then
+             JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/${JAVA_VERSION}/Home
+           fi
+           ;;
+esac
+if [ -z "$JAVA_HOME" ] ; then
+  if [ -r /etc/gentoo-release ] ; then
+    JAVA_HOME=`java-config --jre-home`
+  fi
+fi
+if [ -z "$CLAM_PKG" ] ; then
+  ## resolve links - $0 may be a link to oclc's home
+  PRG="$0"
+
+  # need this for relative symlinks
+  while [ -h "$PRG" ] ; do
+    ls=`ls -ld "$PRG"`
+    link=`expr "$ls" : '.*-> \(.*\)$'`
+    if expr "$link" : '/.*' > /dev/null; then
+      PRG="$link"
+    else
+      PRG="`dirname "$PRG"`/$link"
+    fi
+  done
+
+  saveddir=`pwd`
+
+  CLAM_PKG=`dirname "$PRG"`/..
+
+  # make it fully qualified
+  CLAM_PKG=`cd "$CLAM_PKG" && pwd`
+
+  cd "$saveddir"
+  # echo Using clamc at $CLAM_PKG
+fi
+
+# For Cygwin, ensure paths are in UNIX format before anything is touched
+if $cygwin ; then
+  [ -n "$CLAM_PKG" ] &&
+    CLAM_PKG=`cygpath --unix "$CLAM_PKG"`
+  [ -n "$JAVA_HOME" ] &&
+    JAVA_HOME=`cygpath --unix "$JAVA_HOME"`
+fi
+
+# For Migwn, ensure paths are in UNIX format before anything is touched
+if $mingw ; then
+  [ -n "$CLAM_PKG" ] &&
+    CLAM_PKG="`(cd "$CLAM_PKG"; pwd)`"
+  [ -n "$JAVA_HOME" ] &&
+    JAVA_HOME="`(cd "$JAVA_HOME"; pwd)`"
+  # TODO classpath?
+fi
+
+## Preparation of the java command to be executed
+if [ -z "$JAVACMD" ] ; then
+  if [ -n "$JAVA_HOME"  ] ; then
+    if [ -x "$JAVA_HOME/jre/sh/java" ] ; then
+      # IBM's JDK on AIX uses strange locations for the executables
+      JAVACMD="$JAVA_HOME/jre/sh/java"
+    else
+      JAVACMD="$JAVA_HOME/bin/java"
+    fi
+  else
+    JAVACMD=`which java`
+  fi
+fi
+
+## Print error if the java command is not ready
+if [ ! -x "$JAVACMD" ] ; then
+  echo "Error: JAVA_HOME is not defined correctly."
+  echo "  We cannot execute $JAVACMD"
+  exit 1
+fi
+
+# For Cygwin, switch paths to Windows format before running java
+if $cygwin; then
+  [ -n "$CLAM_PKG" ] &&
+    CLAM_PKG=`cygpath --path --windows "$CLAM_PKG"`
+  [ -n "$JAVA_HOME" ] &&
+    JAVA_HOME=`cygpath --path --windows "$JAVA_HOME"`
+  [ -n "$HOME" ] &&
+    HOME=`cygpath --path --windows "$HOME"`
+fi
+
+
+# Set the CLASSPATH
+
+# -> Project root in the classpath
+if [ -z "$OCLC_CLASSPATH" ] ; then
+  OCLC_CLASSPATH="${CLAM_PKG}"
+else
+  if $cygwin; then
+    OCLC_CLASSPATH="${OCLC_CLASSPATH};${CLAM_PKG}"
+  else
+    OCLC_CLASSPATH="${OCLC_CLASSPATH}:${CLAM_PKG}"
+  fi
+fi
+
+# -> Project generated JAR
+if $cygwin; then
+  JAR_DIRECTORY="$CLAM_PKG"\\jar
+else
+  JAR_DIRECTORY="$CLAM_PKG"/jar
+fi
+JAR_SET=`ls "$JAR_DIRECTORY"`
+for i in $JAR_SET; do
+  if [ -z "$OCLC_CLASSPATH" ] ; then
+    if $cygwin; then
+      OCLC_CLASSPATH="${JAR_DIRECTORY}\\${i}"
+    else
+      OCLC_CLASSPATH="${JAR_DIRECTORY}/${i}"
+    fi
+  else
+    if $cygwin; then
+      OCLC_CLASSPATH="${OCLC_CLASSPATH};${JAR_DIRECTORY}\\${i}"
+    else
+      OCLC_CLASSPATH="${OCLC_CLASSPATH}:${JAR_DIRECTORY}/${i}"
+    fi
+  fi
+done
+
+# -> AstC2C builtin include files
+if $cygwin; then
+  BUILTIN_PATH="$CLAM_PKG"\\builtins
+else
+  BUILTIN_PATH="$CLAM_PKG"/builtins
+fi
+if [ -z "$OCLC_CLASSPATH" ] ; then
+  OCLC_CLASSPATH="${BUILTIN_PATH}"
+else
+  if $cygwin; then
+    OCLC_CLASSPATH="${OCLC_CLASSPATH};${BUILTIN_PATH}"
+  else
+    OCLC_CLASSPATH="${OCLC_CLASSPATH}:${BUILTIN_PATH}"
+  fi
+fi
+
+# -> External JAR
+if $cygwin; then
+  JAR_DIRECTORY="$CLAM_PKG"\\lib\\jar
+else
+  JAR_DIRECTORY="$CLAM_PKG"/lib/jar
+fi
+JAR_SET=`ls "$JAR_DIRECTORY"`
+for i in $JAR_SET; do
+  if [ -z "$OCLC_CLASSPATH" ] ; then
+    if $cygwin; then
+      OCLC_CLASSPATH="${JAR_DIRECTORY}\\${i}"
+    else
+      OCLC_CLASSPATH="${JAR_DIRECTORY}/${i}"
+    fi
+  else
+    if $cygwin; then
+      OCLC_CLASSPATH="${OCLC_CLASSPATH};${JAR_DIRECTORY}\\${i}"
+    else
+      OCLC_CLASSPATH="${OCLC_CLASSPATH}:${JAR_DIRECTORY}/${i}"
+    fi
+  fi
+done
+
+# -> Target directory
+if [ -n "$CLAM_TARGETS" ]; then
+  if $cygwin; then
+      OCLC_CLASSPATH="${CLAM_TARGETS};${OCLC_CLASSPATH}"
+  else
+      OCLC_CLASSPATH="${CLAM_TARGETS}:${OCLC_CLASSPATH}"
+  fi
+fi
+
+
+## Launcher class name
+LAUNCHER=driver.ClamC
+
+# Build the command
+OCLC_COMMAND="$JAVACMD -classpath ${OCLC_CLASSPATH} ${LAUNCHER} --install_dir ${CLAM_PKG} $@"
+
+# Some verbosing
+#echo $OCLC_CLASSPATH
+#echo $OCLC_COMMAND
+
+# Command execution
+exec $OCLC_COMMAND
+ret_code=$?
+exit $ret_code
+

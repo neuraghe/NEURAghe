@@ -1,0 +1,749 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/nur/NEURAghe/neuraghe_2.0/fe/sim
+vAddressDecoder_Req_IC
+Z1 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
+Z2 !s110 1568883262
+!i10b 1
+!s100 aBJQW0C_7>98;?Rm1Qg:g0
+ILzEZ[jolhncPaVPdXoOD82
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+!s105 AddressDecoder_Req_IC_sv_unit
+S1
+R0
+Z4 w1566466414
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/AddressDecoder_Req_IC.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/AddressDecoder_Req_IC.sv
+L0 37
+Z5 OL;L;10.4;61
+r1
+!s85 0
+31
+!s108 1568883262.154375
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals/macro.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/AddressDecoder_Req_IC.sv|
+!s90 -sv|-quiet|-work|icache_lib|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/AddressDecoder_Req_IC.sv|
+!i113 0
+Z6 o-quiet -sv -work icache_lib -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z7 !s92 -quiet -sv -work icache_lib +incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+n@address@decoder_@req_@i@c
+vAddressDecoder_Resp_IC
+R1
+R2
+!i10b 1
+!s100 kE7k@AaGmhLRmXFVaMI6b3
+I;NO0U>nZ;S2Y7EHSTTco@1
+R3
+!s105 AddressDecoder_Resp_IC_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/AddressDecoder_Resp_IC.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/AddressDecoder_Resp_IC.sv
+Z8 L0 36
+R5
+r1
+!s85 0
+31
+!s108 1568883262.276008
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals/macro.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/AddressDecoder_Resp_IC.sv|
+!s90 -sv|-quiet|-work|icache_lib|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/AddressDecoder_Resp_IC.sv|
+!i113 0
+R6
+R7
+n@address@decoder_@resp_@i@c
+vArbitrationTree_IC
+R1
+R2
+!i10b 1
+!s100 ?F<S317T_^DGe3:TG3WJS1
+IJo@`dGa@mFf9LCCJ_>_512
+R3
+!s105 ArbitrationTree_IC_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/ArbitrationTree_IC.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/ArbitrationTree_IC.sv
+L0 43
+R5
+r1
+!s85 0
+31
+!s108 1568883262.407679
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals/macro.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/ArbitrationTree_IC.sv|
+!s90 -sv|-quiet|-work|icache_lib|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/ArbitrationTree_IC.sv|
+!i113 0
+R6
+R7
+n@arbitration@tree_@i@c
+vAXI4_REFILL_Resp_Deserializer
+R1
+R2
+!i10b 1
+!s100 boN72KEMJXegMDf^:<RzZ3
+Io?=neT0[7VT[2:c4924K^2
+R3
+!s105 AXI4_REFILL_Resp_Deserializer_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_BANK/AXI4_REFILL_Resp_Deserializer.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_BANK/AXI4_REFILL_Resp_Deserializer.sv
+L0 8
+R5
+r1
+!s85 0
+31
+!s108 1568883262.000421
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals/macro.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_BANK/AXI4_REFILL_Resp_Deserializer.sv|
+!s90 -sv|-quiet|-work|icache_lib|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_BANK/AXI4_REFILL_Resp_Deserializer.sv|
+!i113 0
+R6
+R7
+n@a@x@i4_@r@e@f@i@l@l_@resp_@deserializer
+vbin_to_onehot
+R1
+R2
+!i10b 1
+!s100 4<<XfDI`<4^b3;o]g>bPQ3
+II5fz3@U=nKbMPamT:I24_1
+R3
+!s105 bin_to_onehot_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/bin_to_onehot.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/bin_to_onehot.sv
+L0 32
+R5
+r1
+!s85 0
+31
+!s108 1568883262.179139
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/bin_to_onehot.sv|
+!s90 -sv|-quiet|-work|icache_lib|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/bin_to_onehot.sv|
+!i113 0
+R6
+R7
+vBroadcast_Check_IC
+R1
+R2
+!i10b 1
+!s100 =XoBbj?RBNYVTGH3;l9Im1
+IheRHo?cDkYeM5jQ`9;gKO0
+R3
+!s105 Broadcast_Check_IC_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/Broadcast_Check_IC.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/Broadcast_Check_IC.sv
+L0 40
+R5
+r1
+!s85 0
+31
+!s108 1568883262.300090
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals/icache_config.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals/macro.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/Broadcast_Check_IC.sv|
+!s90 -sv|-quiet|-work|icache_lib|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/Broadcast_Check_IC.sv|
+!i113 0
+R6
+R7
+n@broadcast_@check_@i@c
+vFanInPrimitive_Req_IC
+R1
+R2
+!i10b 1
+!s100 =i;6IYXZ`IR;`[]5IamKF3
+IdGRmdfjgHT_BLo2?z9nX63
+R3
+!s105 FanInPrimitive_Req_IC_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/FanInPrimitive_Req_IC.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/FanInPrimitive_Req_IC.sv
+Z9 L0 38
+R5
+r1
+!s85 0
+31
+!s108 1568883262.434750
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/FanInPrimitive_Req_IC.sv|
+!s90 -sv|-quiet|-work|icache_lib|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/FanInPrimitive_Req_IC.sv|
+!i113 0
+R6
+R7
+n@fan@in@primitive_@req_@i@c
+vFanInPrimitive_Resp_IC
+R1
+R2
+!i10b 1
+!s100 dcz[3@?cE?Wchj;Qh]lfY1
+IFiM2O2UaimUDIged[WQUm3
+R3
+!s105 FanInPrimitive_Resp_IC_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/FanInPrimitive_Resp_IC.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/FanInPrimitive_Resp_IC.sv
+L0 33
+R5
+r1
+!s85 0
+31
+!s108 1568883262.203130
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/FanInPrimitive_Resp_IC.sv|
+!s90 -sv|-quiet|-work|icache_lib|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/FanInPrimitive_Resp_IC.sv|
+!i113 0
+R6
+R7
+n@fan@in@primitive_@resp_@i@c
+vfetch_buffer_128
+R1
+Z10 !s110 1568883261
+!i10b 1
+!s100 2cVWTBliaSanOF[mSP=a[2
+IK1B]@=4zn]Xf=Ozj^D1=n3
+R3
+!s105 fetch_buffer_128_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/fetch_buffer/fetch_buffer_128.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/fetch_buffer/fetch_buffer_128.sv
+L0 3
+R5
+r1
+!s85 0
+31
+!s108 1568883261.921880
+!s107 ../rtl/includes/hwce_defines.sv|../rtl/includes/ulpsoc_defines.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/fetch_buffer/fetch_buffer_128.sv|
+!s90 -sv|-quiet|-work|icache_lib|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals|+incdir+../rtl/includes|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/fetch_buffer/fetch_buffer_128.sv|
+!i113 0
+R6
+Z11 !s92 -quiet -sv -work icache_lib +incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals +incdir+../rtl/includes -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vfetch_buffer_256
+R1
+R10
+!i10b 1
+!s100 [D7UFEVf1NcJ3N2EhCC`i1
+I05Hd7fOh90:1:hl>Mn:9^0
+R3
+!s105 fetch_buffer_512_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/fetch_buffer/fetch_buffer_512.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/fetch_buffer/fetch_buffer_512.sv
+L0 3
+R5
+r1
+!s85 0
+31
+!s108 1568883261.973969
+!s107 ../rtl/includes/hwce_defines.sv|../rtl/includes/ulpsoc_defines.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/fetch_buffer/fetch_buffer_512.sv|
+!s90 -sv|-quiet|-work|icache_lib|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals|+incdir+../rtl/includes|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/fetch_buffer/fetch_buffer_512.sv|
+!i113 0
+R6
+R11
+vfetch_buffer_32
+R1
+R10
+!i10b 1
+!s100 _iJK_U@;[Q3004<jG8`li3
+IGiRfDjGc0c`O7h47T?NRh0
+R3
+!s105 fetch_buffer_32_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/fetch_buffer/fetch_buffer_32.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/fetch_buffer/fetch_buffer_32.sv
+L0 3
+R5
+r1
+!s85 0
+31
+!s108 1568883261.867518
+!s107 ../rtl/includes/hwce_defines.sv|../rtl/includes/ulpsoc_defines.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/fetch_buffer/fetch_buffer_32.sv|
+!s90 -sv|-quiet|-work|icache_lib|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals|+incdir+../rtl/includes|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/fetch_buffer/fetch_buffer_32.sv|
+!i113 0
+R6
+R11
+vfetch_buffer_64
+R1
+R10
+!i10b 1
+!s100 7@98g<oalcI0_[I<8VP2T2
+I>Ym5@I:8UVRQU<CB@aNMf0
+R3
+!s105 fetch_buffer_64_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/fetch_buffer/fetch_buffer_64.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/fetch_buffer/fetch_buffer_64.sv
+L0 3
+R5
+r1
+!s85 0
+31
+!s108 1568883261.894859
+!s107 ../rtl/includes/hwce_defines.sv|../rtl/includes/ulpsoc_defines.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/fetch_buffer/fetch_buffer_64.sv|
+!s90 -sv|-quiet|-work|icache_lib|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals|+incdir+../rtl/includes|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/fetch_buffer/fetch_buffer_64.sv|
+!i113 0
+R6
+R11
+vFlowCtrl_Handling_IC
+R1
+R2
+!i10b 1
+!s100 ge^Dm_dS8665;]<@nP;XT1
+ISh9ODFG=`ZCg]2J>LF8zP2
+R3
+!s105 FlowCtrl_Handling_IC_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/FlowCtrl_Handling_IC.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/FlowCtrl_Handling_IC.sv
+R8
+R5
+r1
+!s85 0
+31
+!s108 1568883262.325783
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals/macro.v|../rtl/includes/hwce_defines.sv|../rtl/includes/ulpsoc_defines.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/FlowCtrl_Handling_IC.sv|
+!s90 -sv|-quiet|-work|icache_lib|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/FlowCtrl_Handling_IC.sv|+incdir+../rtl/includes|
+!i113 0
+R6
+R11
+n@flow@ctrl_@handling_@i@c
+vicache
+R1
+R10
+!i10b 1
+!s100 kB[^<Xd7SVBi;^DC3iA<E0
+I>=R=n733>Yi>^G]K>8GZX1
+R3
+!s105 icache_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_BANK/icache.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_BANK/icache.sv
+L0 8
+R5
+r1
+!s85 0
+31
+!s108 1568883261.758223
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals/macro.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals/icache_config.v|../rtl/includes/hwce_defines.sv|../rtl/includes/ulpsoc_defines.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_BANK/icache.sv|
+!s90 -sv|-quiet|-work|icache_lib|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO|+incdir+../rtl/includes|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_BANK/icache.sv|
+!i113 0
+R6
+Z12 !s92 -quiet -sv -work icache_lib +incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals +incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO +incdir+../rtl/includes -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vicache_controller
+R1
+R2
+!i10b 1
+!s100 fBIDD;O42h?hc67?YAi5N1
+IG2oPAEhTlM;l<e5[XaR=J3
+R3
+!s105 icache_controller_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_BANK/icache_controller.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_BANK/icache_controller.sv
+L0 8
+R5
+r1
+!s85 0
+31
+!s108 1568883262.026635
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals/macro.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals/icache_config.v|../rtl/includes/hwce_defines.sv|../rtl/includes/ulpsoc_defines.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_BANK/icache_controller.sv|
+!s90 -sv|-quiet|-work|icache_lib|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO|+incdir+../rtl/includes|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_BANK/icache_controller.sv|
+!i113 0
+R6
+R12
+vicache_top
+R1
+R2
+!i10b 1
+!s100 AmE4`g]B4V6lkTGz?a[El2
+IC46_7L>Lh:?nTA]7PQHXl1
+R3
+!s105 icache_top_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_TOP/icache_top.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_TOP/icache_top.sv
+L0 83
+R5
+r1
+!s85 0
+31
+!s108 1568883262.539444
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals/macro.v|../rtl/includes/hwce_defines.sv|../rtl/includes/ulpsoc_defines.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_TOP/icache_top.sv|
+!s90 -sv|-quiet|+define+|-work|icache_lib|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_TOP/icache_top.sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals|+incdir+../rtl/includes|
+!i113 0
+R6
+!s92 -quiet -sv +define+ -work icache_lib +incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals +incdir+../rtl/includes -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vLFSR_L2_Way_Repl
+R1
+R10
+!i10b 1
+!s100 TN8Yj8^nFDJcA=NF=CDjD2
+IG_NIJE:O_z11AE0<6Rc`]1
+R3
+!s105 LFSR_L2_Way_Repl_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_BANK/LFSR_L2_Way_Repl.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_BANK/LFSR_L2_Way_Repl.sv
+L0 3
+R5
+r1
+!s85 0
+31
+!s108 1568883261.788440
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals/macro.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_BANK/LFSR_L2_Way_Repl.sv|
+!s90 -sv|-quiet|-work|icache_lib|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_BANK/LFSR_L2_Way_Repl.sv|
+!i113 0
+R6
+R7
+n@l@f@s@r_@l2_@way_@repl
+vMUX2_REQ_IC
+R1
+R2
+!i10b 1
+!s100 Jkd8o<<7NJ=FA_acX3I]<3
+IbO6Nkg5I]^`IHJ<EBM@X43
+R3
+!s105 MUX2_REQ_IC_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/MUX2_REQ_IC.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/MUX2_REQ_IC.sv
+R8
+R5
+r1
+!s85 0
+31
+!s108 1568883262.460577
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/MUX2_REQ_IC.sv|
+!s90 -sv|-quiet|-work|icache_lib|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/MUX2_REQ_IC.sv|
+!i113 0
+R6
+R7
+n@m@u@x2_@r@e@q_@i@c
+vonehot_to_bin
+R1
+R2
+!i10b 1
+!s100 ^gA^Wg1?_Qmcj@FUDgHcW0
+IVInm@5aNe[HjA_m;;DYii2
+R3
+!s105 onehot_to_bin_v_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_BANK/onehot_to_bin.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_BANK/onehot_to_bin.v
+L0 3
+R5
+r1
+!s85 0
+31
+!s108 1568883262.057468
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals/macro.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_BANK/onehot_to_bin.v|
+!s90 -sv|-quiet|-work|icache_lib|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_BANK/onehot_to_bin.v|
+!i113 0
+R6
+R7
+vram_ws_rs_data
+R1
+R2
+!i10b 1
+!s100 O<2R`ODSoK;Nc5Y@mo3KS1
+IZ[Eea8Y[[RQ;S@n]HO6g<0
+R3
+!s105 ram_ws_rs_data_scm_v_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/MEMORY_MODELS/ram_ws_rs_data_scm.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/MEMORY_MODELS/ram_ws_rs_data_scm.v
+L0 4
+R5
+r1
+!s85 0
+31
+!s108 1568883262.106202
+!s107 ../rtl/includes/hwce_defines.sv|../rtl/includes/ulpsoc_defines.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/MEMORY_MODELS/ram_ws_rs_data_scm.v|
+!s90 -sv|-quiet|-work|icache_lib|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals|+incdir+../rtl/includes|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/MEMORY_MODELS/ram_ws_rs_data_scm.v|
+!i113 0
+R6
+R11
+vram_ws_rs_tag
+R1
+R2
+!i10b 1
+!s100 9XgP_?]?Y7G_?_zn6=U@`0
+I1L]LRCg0Zi<i`[9d::l0S3
+R3
+!s105 ram_ws_rs_tag_scm_v_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/MEMORY_MODELS/ram_ws_rs_tag_scm.v
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/MEMORY_MODELS/ram_ws_rs_tag_scm.v
+L0 4
+R5
+r1
+!s85 0
+31
+!s108 1568883262.130271
+!s107 ../rtl/includes/hwce_defines.sv|../rtl/includes/ulpsoc_defines.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/MEMORY_MODELS/ram_ws_rs_tag_scm.v|
+!s90 -sv|-quiet|-work|icache_lib|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals|+incdir+../rtl/includes|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/MEMORY_MODELS/ram_ws_rs_tag_scm.v|
+!i113 0
+R6
+R11
+vRefillTracker
+R1
+R10
+!i10b 1
+!s100 Ej=fYAhCUB9gHT]5M^6Z53
+IEE>0D7kPWR<6Oik;19TJm3
+R3
+!s105 RefillTracker_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_BANK/RefillTracker.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_BANK/RefillTracker.sv
+L0 4
+R5
+r1
+!s85 0
+31
+!s108 1568883261.815705
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals/macro.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_BANK/RefillTracker.sv|
+!s90 -sv|-quiet|-work|icache_lib|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_BANK/RefillTracker.sv|
+!i113 0
+R6
+R7
+n@refill@tracker
+vRefillTracker_4
+R1
+R10
+!i10b 1
+!s100 E^MhJ2jT[7MW@L5>Ok0bW2
+IK1K`S5f6nd8XFIAK[TUPl1
+R3
+!s105 RefillTracker_4_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_BANK/RefillTracker_4.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_BANK/RefillTracker_4.sv
+L0 4
+R5
+r1
+!s85 0
+31
+!s108 1568883261.841677
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals/macro.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_BANK/RefillTracker_4.sv|
+!s90 -sv|-quiet|-work|icache_lib|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_BANK/RefillTracker_4.sv|
+!i113 0
+R6
+R7
+n@refill@tracker_4
+vREP_buffer_4
+R1
+R2
+!i10b 1
+!s100 1I4;MhC7S5=E0=XCaajL]0
+IP]<TnjZmAJhla0VgeJ^9d0
+R3
+!s105 REP_buffer_4_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_BANK/REP_buffer_4.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_BANK/REP_buffer_4.sv
+L0 1
+R5
+r1
+!s85 0
+31
+!s108 1568883262.081614
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_BANK/REP_buffer_4.sv|
+!s90 -sv|-quiet|-work|icache_lib|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_BANK/REP_buffer_4.sv|
+!i113 0
+R6
+R7
+n@r@e@p_buffer_4
+vRequestBlock1CH_IC
+R1
+R2
+!i10b 1
+!s100 eTd:1ENfjISdDTnBa;Z`l1
+IIVPjMF4m<3m78VI[N4fPa1
+R3
+!s105 RequestBlock1CH_IC_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/RequestBlock1CH_IC.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/RequestBlock1CH_IC.sv
+R9
+R5
+r1
+!s85 0
+31
+!s108 1568883262.353106
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals/macro.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/RequestBlock1CH_IC.sv|
+!s90 -sv|-quiet|-work|icache_lib|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/RequestBlock1CH_IC.sv|
+!i113 0
+R6
+R7
+n@request@block1@c@h_@i@c
+vRequestBlock2CH_IC
+R1
+R2
+!i10b 1
+!s100 EEizWS87P4jAO:W`7><CR3
+IkVG;6UGLL[naKK^Q0PcK?0
+R3
+!s105 RequestBlock2CH_IC_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/RequestBlock2CH_IC.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/RequestBlock2CH_IC.sv
+L0 46
+R5
+r1
+!s85 0
+31
+!s108 1568883262.486288
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals/macro.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/RequestBlock2CH_IC.sv|
+!s90 -sv|-quiet|-work|icache_lib|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/RequestBlock2CH_IC.sv|
+!i113 0
+R6
+R7
+n@request@block2@c@h_@i@c
+vResponseBlock_IC
+R1
+R2
+!i10b 1
+!s100 8^B[RGhXLFDLCWlCYULYU1
+IVgM_<iG7IoG3?ECN;RZEW0
+R3
+!s105 ResponseBlock_IC_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/ResponseBlock_IC.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/ResponseBlock_IC.sv
+R8
+R5
+r1
+!s85 0
+31
+!s108 1568883262.227271
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals/macro.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/ResponseBlock_IC.sv|
+!s90 -sv|-quiet|-work|icache_lib|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/ResponseBlock_IC.sv|
+!i113 0
+R6
+R7
+n@response@block_@i@c
+vResponseTree_IC
+R1
+R2
+!i10b 1
+!s100 a>ZU`2m]Yij=N0aJLHkFm1
+IiW:UGGAHF`DQ9Jj0Z=eY32
+R3
+!s105 ResponseTree_IC_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/ResponseTree_IC.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/ResponseTree_IC.sv
+L0 39
+R5
+r1
+!s85 0
+31
+!s108 1568883262.512747
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals/macro.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/ResponseTree_IC.sv|
+!s90 -sv|-quiet|-work|icache_lib|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/ResponseTree_IC.sv|
+!i113 0
+R6
+R7
+n@response@tree_@i@c
+vRR_Flag_Req_IC
+R1
+R2
+!i10b 1
+!s100 1k2L8MSJdM@M3ohR06^;;1
+I3bml_]YECE6lU7S<i0T2F0
+R3
+!s105 RR_Flag_Req_IC_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/RR_Flag_Req_IC.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/RR_Flag_Req_IC.sv
+R8
+R5
+r1
+!s85 0
+31
+!s108 1568883262.252048
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/RR_Flag_Req_IC.sv|
+!s90 -sv|-quiet|-work|icache_lib|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/RR_Flag_Req_IC.sv|
+!i113 0
+R6
+R7
+n@r@r_@flag_@req_@i@c
+vXBAR_ICACHE
+R1
+R2
+!i10b 1
+!s100 NS^7ojBRQh6;SD[RlZzVE3
+IEEMfMUbIT3EbOJSI1GLXo0
+R3
+!s105 XBAR_ICACHE_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/XBAR_ICACHE.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/XBAR_ICACHE.sv
+L0 41
+R5
+r1
+!s85 0
+31
+!s108 1568883262.378552
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals/icache_config.v|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals/macro.v|../rtl/includes/hwce_defines.sv|../rtl/includes/ulpsoc_defines.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/XBAR_ICACHE.sv|
+!s90 -sv|-quiet|-work|icache_lib|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/globals|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/icache/icache_scm_sp/ICACHE_INTERCO/XBAR_ICACHE.sv|+incdir+../rtl/includes|
+!i113 0
+R6
+R11
+n@x@b@a@r_@i@c@a@c@h@e

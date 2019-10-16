@@ -1,0 +1,9 @@
+
+To load a bitstream into the programmable logic launch 
+    load_bitstream name_of_bitstream.bin
+    
+Be sure that the bitstream is the no-header .bin file.
+  This file is created by vivado setting appropriate flag in bitstreat settings window.
+  
+To check if a bitstream is correctly loaded into programmable logic launch:
+    check_bitstream

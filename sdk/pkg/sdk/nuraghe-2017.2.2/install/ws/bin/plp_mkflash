@@ -1,0 +1,171 @@
+#!/usr/bin/env python3
+
+import argparse
+import plp_submodules
+import os
+from os import listdir
+from os.path import isfile, join, isdir
+import struct
+
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+
+parser = argparse.ArgumentParser(description='Build flash image for Pulp')
+
+parser.add_argument("--rom-boot", dest="romBoot", action="store_true", default=False, help="Boot from ROM")
+parser.add_argument("--elf-loader", dest="elfLoader", default=None, help="Boot using the specified ELF loader")
+parser.add_argument("--binary", dest="binary", default=None, help="Resident binary")
+parser.add_argument("--comp-dir", dest="compDir", default=[], action="append", help="Component directory")
+parser.add_argument("--comp-dir-rec", dest="compDirRec", default=[], action="append", help="Recursive component directory")
+parser.add_argument("--comp", dest="comp", default=[], action="append", help="Component")
+parser.add_argument("--stimuli", dest="stimuli", default=None, help="Generate stimuli")
+parser.add_argument("--raw", dest="raw", default=None, help="Generate raw image")
+
+args = parser.parse_args()
+
+
+class Comp(object):
+
+	def __init__(self, dirpath, name):
+		self.path = os.path.join(dirpath, name)
+		self.name = name
+		self.size = os.path.getsize(self.path)
+
+	def dump(self):
+		print (self.name)
+		print ('Path: ' + self.path)
+		print ('Flash addr: ' + str(self.flashAddr))
+		print ('Size: ' + str(self.size))
+		print ('')
+
+
+def getFilesFromDir(path, rec=False, incDirInName=True):
+	files = []
+	for file in listdir(path):
+		fullPath = os.path.join(path, file)
+		if isfile(fullPath): files.append(Comp(path, file))
+		elif rec and isdir(fullPath): files += getFilesFromDir(fullPath, True)
+	return files
+
+
+
+
+#
+#  Collect files from options
+#
+
+compList = []
+
+for comp in args.comp:
+	compList += [Comp(os.path.dirname(comp), os.path.basename(comp))]
+
+for compDir in args.compDir:
+	compList += getFilesFromDir(compDir, incDirInName=False)
+
+for compDir in args.compDirRec:
+	compList += getFilesFromDir(compDir, True, incDirInName=False)
+
+
+
+#
+#  Flash address computation
+#
+
+flashAddr = 0
+headerSize = 0
+
+# Compute the header size
+headerSize += 8    # Header size and number of components
+
+for comp in compList:
+	headerSize += 12                # Flash address, size and path length
+	headerSize += len(comp.name)+1  # Path
+
+flashAddr += headerSize
+
+# Now set the flash address for each component
+for comp in compList:
+	comp.flashAddr = flashAddr
+	flashAddr += comp.size
+
+
+
+
+
+
+#
+#  Raw flash image generation
+#
+
+# Now create the raw image as a byte array
+
+# First header size
+buff = struct.pack("I", headerSize)
+
+# Number of components
+buff += struct.pack("I", len(compList))
+
+# Then for each component
+for comp in compList:
+	# The flash address
+	buff += struct.pack("I", comp.flashAddr)
+
+	# Binary size
+	buff += struct.pack("I", comp.size)
+
+	# The path length
+	buff += struct.pack("I", len(comp.name)+1)
+
+	# And the path
+	buff += bytearray(comp.name.encode('utf-8'))
+	buff += struct.pack("B", 0)
+
+# Then dump all components
+for comp in compList:
+	with open(comp.path, 'rb') as file:
+		buff += file.read()
+
+
+
+
+
+#
+#  Raw flash file generation
+#
+
+if args.raw != None:
+	with open(args.raw, 'wb') as file:
+		file.write(buff)
+
+
+
+#
+#  Fash stimuli generation
+#
+
+def dumpByteToSlm(file, addr, value):
+	file.write("@%08X %02X\n" % (addr, value))
+
+def dump_word( filetoprint, addr, data_s):
+    for i in xrange(0,4,1):
+        filetoprint.write("@%08X %s\n" % ( addr+i,  data_s[i*2:(i+1)*2] ))
+    return 4
+
+if args.stimuli != None:
+	with open(args.stimuli, 'w') as file:
+		for i in range(0, len(buff)):
+			dumpByteToSlm(file, i, buff[i])
+
+
+#for comp in compList:
+#	comp.dump()
+
+
+

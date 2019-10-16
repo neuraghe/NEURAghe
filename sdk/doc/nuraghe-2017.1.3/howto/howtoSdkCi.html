@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>How is working the SDK continuous integration &mdash; howto 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="howto 1 documentation" href="index.html" />
+    <link rel="next" title="How to build SDK components" href="howtoBuildSdkPieces.html" />
+    <link rel="prev" title="How to delegate jobs to Jenkins" href="howtoSubmitToJenkins.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="how-is-working-the-sdk-continuous-integration">
+<h1>How is working the SDK continuous integration<a class="headerlink" href="#how-is-working-the-sdk-continuous-integration" title="Permalink to this headline">¶</a></h1>
+<p>Although the SDK is regularly released, there is a continous integration flow set-up in order to identify as soon as possible the possible reasons of broken features.</p>
+<p>The entry point for seeing the results of this flow is here: <a class="reference external" href="https://iis-jenkins.ee.ethz.ch:8443/view/sdk">https://iis-jenkins.ee.ethz.ch:8443/view/sdk</a></p>
+<div class="section" id="sdk-versionning">
+<h2>SDK versionning<a class="headerlink" href="#sdk-versionning" title="Permalink to this headline">¶</a></h2>
+<p>The SDK is a set of modules with specific versions. The versions are specified in the top SDK module called pulp_pipeline. In order for an SDK to use more recent modules versions, this top-level module must be modified, which allows controlling what is exactly used by a specific SDK.</p>
+<p>There are 2 important branches for this top-level module:</p>
+<ul class="simple">
+<li><strong>master</strong>: this contains only stable versions of this SDK and no development should be committed directly to this branch.</li>
+<li><strong>integration</strong>: this contains SDK versions which are good candidates for being integrated in the master branch. They are committed there in order to first validate them before merge to the master.</li>
+</ul>
+</div>
+<div class="section" id="per-commit-builds">
+<h2>Per-commit builds<a class="headerlink" href="#per-commit-builds" title="Permalink to this headline">¶</a></h2>
+<p>Every commit to the integration branch will trigger an SDK build and a deployment of the package to the artifactory server.</p>
+<p>It will also trigger a quick non-regression testsuite (mainly on virtual platform, and a few quick tests on other platforms) so that a feedback is quickly available (after less than 1 hour).</p>
+<p>These per-commit builds are not enough to say that the version can be integrated into the master branch, they should not be used to go-on with the developments.</p>
+<p>These builds are using the gitlab CI feature to trigger builds on Jenkins. A file called .gitlab-ci.yml stored in pulp_pipeline root folder describes what must be launched and is interpreted by gitlab each time there is a commit.</p>
+<p>Due to gitlab limitations, any commit in any branch of pulp-pipeline will actually trigger a build.</p>
+</div>
+<div class="section" id="nightly-builds">
+<h2>Nightly builds<a class="headerlink" href="#nightly-builds" title="Permalink to this headline">¶</a></h2>
+<p>In order to also check the impact of modifications in any of the SDK modules as soon as it is committed, there is also one build per night which is done of the latest modules versions.</p>
+<p>For that a new version of pulp_pipeline is committed once per night in the integration branch, pointing to the latest modules versions.</p>
+<p>This is done with a periodic Jenkins job that is using the plpadmin tool to checkout the latest modules and commit a new pulp_pipeline version. The Jenkins job can be accessed here: <a class="reference external" href="https://iis-jenkins.ee.ethz.ch:8443/view/sdk/job/sdk_nightly_build">https://iis-jenkins.ee.ethz.ch:8443/view/sdk/job/sdk_nightly_build</a></p>
+<p>Then the flow described above (per-commit build) is used with the difference that a full non-regression test suite is run, so that this version is ready to be merged in the master branch if it is stable enough.</p>
+</div>
+<div class="section" id="specific-builds">
+<h2>Specific builds<a class="headerlink" href="#specific-builds" title="Permalink to this headline">¶</a></h2>
+<p>When a specific version needs to be built and validated, the plpadmin tool can be used by hands to push a new pulp_pipeline version and trigger the automatic build.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">How is working the SDK continuous integration</a><ul>
+<li><a class="reference internal" href="#sdk-versionning">SDK versionning</a></li>
+<li><a class="reference internal" href="#per-commit-builds">Per-commit builds</a></li>
+<li><a class="reference internal" href="#nightly-builds">Nightly builds</a></li>
+<li><a class="reference internal" href="#specific-builds">Specific builds</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="howtoSubmitToJenkins.html" title="previous chapter">How to delegate jobs to Jenkins</a></li>
+      <li>Next: <a href="howtoBuildSdkPieces.html" title="next chapter">How to build SDK components</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/howtoSdkCi.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Germain Haugou.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/howtoSdkCi.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,67 @@
+/*
+  This file is part of AstC2C.
+
+  Copyright (c) STMicroelectronics, 2013.
+  All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without modification,
+  are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright notice, 
+      this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright notice,
+      this list of conditions and the following disclaimer in the documentation
+      and/or other materials provided with the distribution.
+    * Neither the name of STMicroelectronics nor the names of its contributors
+      may be used to endorse or promote products derived from this software
+      without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
+  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, 
+  THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE 
+  ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE 
+  LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
+  GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+  HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+  LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+  OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+  Authors: Thierry Lepley
+*/
+
+
+/* Float related macros as defined by OpenCL
+   Note: This file is automatically included by the preprocessor of CL
+         files
+*/
+
+#define MAXFLOAT  __MAXFLOAT()
+#define NAN       __NAN()
+#define HUGE_VALF __HUGE_VALF()
+#define INFINITY  __INFINITY()
+
+#define FLT_DIG 6
+#define FLT_MANT_DIG 24
+#define FLT_MAX_10_EXP +38
+#define FLT_MAX_EXP +128
+#define FLT_MIN_10_EXP -37
+#define FLT_MIN_EXP -125
+#define FLT_RADIX 2
+#define FLT_MAX 0x1.fffffep127f
+#define FLT_MIN 0x1.0p-126f
+#define FLT_EPSILON 0x1.0p-23f
+
+#define M_E_F		0x1.5bf0a8p+1   
+#define M_LOG2E_F	0x1.715476p+0
+#define M_LOG10E_F	0x1.bcb7b2p-2
+#define M_LN2_F		0x1.62e43p-1
+#define M_LN10_F	0x1.26bb1cp+1
+#define M_PI_F		0x1.921fb6p+1
+#define M_PI_2_F 	0x1.921fb6p+0
+#define M_PI_4_F 	0x1.921fb6p-1
+#define M_1_PI_F	0x1.45f306p-2
+#define M_2_PI_F	0x1.45f306p-1
+#define M_2_SQRTPI_F	0x1.20dd76p+0
+#define M_SQRT2_F	0x1.6a09e6p+0
+#define M_SQRT1_2_F	0x1.6a09e6p-1

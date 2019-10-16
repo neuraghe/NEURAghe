@@ -1,0 +1,29 @@
+
+# ██████╗  ██████╗ ███████╗████████╗      ████████╗██████╗  █████╗ ██╗███╗   ██╗██╗███╗   ██╗ ██████╗     ███████╗███████╗████████╗████████╗██╗███╗   ██╗ ██████╗ ███████╗
+# ██╔══██╗██╔═══██╗██╔════╝╚══██╔══╝      ╚══██╔══╝██╔══██╗██╔══██╗██║████╗  ██║██║████╗  ██║██╔════╝     ██╔════╝██╔════╝╚══██╔══╝╚══██╔══╝██║████╗  ██║██╔════╝ ██╔════╝
+# ██████╔╝██║   ██║███████╗   ██║   █████╗   ██║   ██████╔╝███████║██║██╔██╗ ██║██║██╔██╗ ██║██║  ███╗    ███████╗█████╗     ██║      ██║   ██║██╔██╗ ██║██║  ███╗███████╗
+# ██╔═══╝ ██║   ██║╚════██║   ██║   ╚════╝   ██║   ██╔══██╗██╔══██║██║██║╚██╗██║██║██║╚██╗██║██║   ██║    ╚════██║██╔══╝     ██║      ██║   ██║██║╚██╗██║██║   ██║╚════██║
+# ██║     ╚██████╔╝███████║   ██║            ██║   ██║  ██║██║  ██║██║██║ ╚████║██║██║ ╚████║╚██████╔╝    ███████║███████╗   ██║      ██║   ██║██║ ╚████║╚██████╔╝███████║
+# ╚═╝      ╚═════╝ ╚══════╝   ╚═╝            ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝╚═╝╚═╝  ╚═══╝ ╚═════╝     ╚══════╝╚══════╝   ╚═╝      ╚═╝   ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚══════╝
+
+# This file contains the settings for the post-training phase. It is intended to work with the json file that lists the convolutional layers and their sizes
+
+# Text after # is ignored
+
+
+layers_params = ./conv.json 
+
+
+# mandatory parameters are:
+QF_i         = 9 # if the input has fixed point representation this value defines the numeber of bit assigned to the decimal part
+QF_o         = 9 # if the output has fixed point representation this value defines the numeber of bit assigned to the decimal part
+in_binfile   = 1 # input files are binary files (1) or txt files(0)?
+data_type_i  = f # f, d, i, h or b. double, float, integer, short int, char
+data_type_o  = h # f, d, i, h or b. double, float, integer, short int, char
+
+# optional parameters
+NROW        = 4 # size of the SoP matrix of the accelerator. Please, refer to the hadware documentation. Es: LOSA -> 4, ARRUBIU -> 4, SABINA -> 2 
+NCOL        = 12 # size of the SoP matrix of the accelerator. Please, refer to the hadware documentation. Es: LOSA -> 4, ARRUBIU -> 2, SABINA -> 2 
+rotate      = 0 # NEURAGHE uses weights stored in plain format. Set this parameter to 1 to rotate the kernels
+out_binfile = 1 # are output files binary files (1) or txt files(0)? if not defined they will be txt files
+convert_1x1 = 0 # if 1 the script will convert the 1x1 kernels in 3x3 kernels

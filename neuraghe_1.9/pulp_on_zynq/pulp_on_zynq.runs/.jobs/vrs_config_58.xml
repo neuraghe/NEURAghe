@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="synth_5" LaunchDir="/home/gderiu/pulp/nuraghe/pulp_on_zynq/pulp_on_zynq.runs/synth_5" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="impl_7" LaunchDir="/home/gderiu/pulp/nuraghe/pulp_on_zynq/pulp_on_zynq.runs/impl_7" FlowId="Vivado_Implementation" FromStepId="init_design" ToStepId="post_route_phys_opt_design">
+		<Parent Id="synth_5"/>
+	</Run>
+</Runs>
+

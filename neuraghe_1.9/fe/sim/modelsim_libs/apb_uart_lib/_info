@@ -1,0 +1,502 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim
+Eapb_uart
+Z1 w1567774073
+Z2 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+R0
+Z5 8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/apb_uart.vhd
+Z6 F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/apb_uart.vhd
+l0
+L37
+Vn=JfaWG1gFjUeNZ4cmEn`1
+!s100 [2<fo8f[TDYRZQm55o0N93
+Z7 OL;C;10.4;61
+32
+Z8 !s110 1568386722
+!i10b 1
+Z9 !s108 1568386722.449415
+Z10 !s90 -work|apb_uart_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/apb_uart.vhd|
+Z11 !s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/apb_uart.vhd|
+!i113 0
+Z12 o-quiet -work apb_uart_lib
+Z13 tExplicit 1
+Artl
+R2
+R3
+R4
+DEx4 work 8 apb_uart 0 22 n=JfaWG1gFjUeNZ4cmEn`1
+l374
+L66
+Vk1DOcIXm@oX=nQJWi4dg80
+!s100 `=W:P[hagAF33`Q33f^FW3
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 0
+R12
+R13
+Eslib_clock_div
+R1
+R2
+R3
+R4
+R0
+Z14 8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/slib_clock_div.vhd
+Z15 F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/slib_clock_div.vhd
+l0
+L29
+VnE9i_GdcZQMJH2ol4lP@I3
+!s100 MMkNn?B9nbLjZnd>l93X82
+R7
+32
+R8
+!i10b 1
+Z16 !s108 1568386722.486774
+Z17 !s90 -work|apb_uart_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/slib_clock_div.vhd|
+Z18 !s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/slib_clock_div.vhd|
+!i113 0
+R12
+R13
+Artl
+R2
+R3
+R4
+DEx4 work 14 slib_clock_div 0 22 nE9i_GdcZQMJH2ol4lP@I3
+l46
+L41
+VQB`ijhLNzScM`VdXoDNL03
+!s100 YF:Dc4oj6j=J>bc7NA0SA3
+R7
+32
+R8
+!i10b 1
+R16
+R17
+R18
+!i113 0
+R12
+R13
+Eslib_counter
+R1
+R2
+R3
+R4
+R0
+Z19 8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/slib_counter.vhd
+Z20 F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/slib_counter.vhd
+l0
+L29
+Vn8nK3CUPk3lbkjC]lEg751
+!s100 ZaUbW]WbFM?Yo1InA2Q_M1
+R7
+32
+R8
+!i10b 1
+Z21 !s108 1568386722.513655
+Z22 !s90 -work|apb_uart_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/slib_counter.vhd|
+Z23 !s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/slib_counter.vhd|
+!i113 0
+R12
+R13
+Artl
+R2
+R3
+R4
+DEx4 work 12 slib_counter 0 22 n8nK3CUPk3lbkjC]lEg751
+l48
+L46
+V=5KWPGNSF5[518a6Hf2SA0
+!s100 Dli>`VD:Bf]Jlh@Z9J[zj3
+R7
+32
+R8
+!i10b 1
+R21
+R22
+R23
+!i113 0
+R12
+R13
+Eslib_edge_detect
+R1
+R2
+R3
+R4
+R0
+Z24 8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/slib_edge_detect.vhd
+Z25 F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/slib_edge_detect.vhd
+l0
+L28
+VzI7^Z7;3VDTZ6h18@m8VV3
+!s100 R95d@G3W<A8B69ZP?bA@o0
+R7
+32
+R8
+!i10b 1
+Z26 !s108 1568386722.538808
+Z27 !s90 -work|apb_uart_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/slib_edge_detect.vhd|
+Z28 !s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/slib_edge_detect.vhd|
+!i113 0
+R12
+R13
+Artl
+R2
+R3
+R4
+DEx4 work 16 slib_edge_detect 0 22 zI7^Z7;3VDTZ6h18@m8VV3
+l40
+L38
+VBoTIB34L79=3<TULHnC@z0
+!s100 zca8=CdW7ELi2YILHW3zg3
+R7
+32
+R8
+!i10b 1
+R26
+R27
+R28
+!i113 0
+R12
+R13
+Eslib_fifo
+R1
+R2
+R3
+R4
+R0
+Z29 8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/slib_fifo.vhd
+Z30 F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/slib_fifo.vhd
+l0
+L29
+VK_e`3Ol;26>gF=AGUaM6f1
+!s100 VM:U`coZh[>kYdWJz<F`@1
+R7
+32
+R8
+!i10b 1
+Z31 !s108 1568386722.564279
+Z32 !s90 -work|apb_uart_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/slib_fifo.vhd|
+Z33 !s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/slib_fifo.vhd|
+!i113 0
+R12
+R13
+Artl
+R2
+R3
+R4
+DEx4 work 9 slib_fifo 0 22 K_e`3Ol;26>gF=AGUaM6f1
+l59
+L48
+Vml@bbn_DR9H4o4Nk>7DOF0
+!s100 UFJ@J<aa_NCz`e:0ACB4M2
+R7
+32
+R8
+!i10b 1
+R31
+R32
+R33
+!i113 0
+R12
+R13
+Eslib_input_filter
+R1
+R2
+R3
+R4
+R0
+Z34 8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/slib_input_filter.vhd
+Z35 F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/slib_input_filter.vhd
+l0
+L28
+V0dP0C:bGjVeOdE7RAB`EE2
+!s100 >oNX^fWhdS@iN^<F0e_fi3
+R7
+32
+R8
+!i10b 1
+Z36 !s108 1568386722.590243
+Z37 !s90 -work|apb_uart_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/slib_input_filter.vhd|
+Z38 !s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/slib_input_filter.vhd|
+!i113 0
+R12
+R13
+Artl
+R2
+R3
+R4
+DEx4 work 17 slib_input_filter 0 22 0dP0C:bGjVeOdE7RAB`EE2
+l43
+L41
+VOAW>RW0kH>U:D`deS1W@d0
+!s100 Y;lMD:fXnoRA]^V5X8Ohf3
+R7
+32
+R8
+!i10b 1
+R36
+R37
+R38
+!i113 0
+R12
+R13
+Eslib_input_sync
+R1
+R2
+R3
+R4
+R0
+Z39 8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/slib_input_sync.vhd
+Z40 F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/slib_input_sync.vhd
+l0
+L28
+VI3:fZ;Ga^^K=CdABbL^]63
+!s100 D3`NbI_2J0?NN6WcaYI2n0
+R7
+32
+R8
+!i10b 1
+Z41 !s108 1568386722.615555
+Z42 !s90 -work|apb_uart_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/slib_input_sync.vhd|
+Z43 !s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/slib_input_sync.vhd|
+!i113 0
+R12
+R13
+Artl
+R2
+R3
+R4
+DEx4 work 15 slib_input_sync 0 22 I3:fZ;Ga^^K=CdABbL^]63
+l39
+L37
+V39Cz=;VZSkci1oY>XkNce3
+!s100 5Mn]]?nUOQZHMNG2zizGa3
+R7
+32
+R8
+!i10b 1
+R41
+R42
+R43
+!i113 0
+R12
+R13
+Eslib_mv_filter
+R1
+R2
+R3
+R4
+R0
+Z44 8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/slib_mv_filter.vhd
+Z45 F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/slib_mv_filter.vhd
+l0
+L29
+Vb[1fJ78jLPY;NHXQBSS@a3
+!s100 Y68Tlh21jam^^_XODK@540
+R7
+32
+R8
+!i10b 1
+Z46 !s108 1568386722.640957
+Z47 !s90 -work|apb_uart_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/slib_mv_filter.vhd|
+Z48 !s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/slib_mv_filter.vhd|
+!i113 0
+R12
+R13
+Artl
+R2
+R3
+R4
+DEx4 work 14 slib_mv_filter 0 22 b[1fJ78jLPY;NHXQBSS@a3
+l50
+L44
+V0WD@Q8iLK>Sl;X1VH1OiY3
+!s100 0CZRK`7GXHlk==]S3inY?0
+R7
+32
+R8
+!i10b 1
+R46
+R47
+R48
+!i113 0
+R12
+R13
+Euart_baudgen
+R1
+R2
+R3
+R4
+R0
+Z49 8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/uart_baudgen.vhd
+Z50 F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/uart_baudgen.vhd
+l0
+L29
+VZdh`n28d[YVLCW5Kk@X]d3
+!s100 nMkhmIiXVBbOz3OzGgdVm0
+R7
+32
+R8
+!i10b 1
+Z51 !s108 1568386722.667014
+Z52 !s90 -work|apb_uart_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/uart_baudgen.vhd|
+Z53 !s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/uart_baudgen.vhd|
+!i113 0
+R12
+R13
+Artl
+R2
+R3
+R4
+DEx4 work 12 uart_baudgen 0 22 Zdh`n28d[YVLCW5Kk@X]d3
+l43
+L40
+V9c[><Y?=k=n960gFgC6b_1
+!s100 CNKlD>d;?_?0HJL@`ozP63
+R7
+32
+R8
+!i10b 1
+R51
+R52
+R53
+!i113 0
+R12
+R13
+Euart_interrupt
+R1
+R2
+R3
+R4
+R0
+Z54 8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/uart_interrupt.vhd
+Z55 F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/uart_interrupt.vhd
+l0
+L33
+V[[g5^A6T>Ro_eOhmO@9g@0
+!s100 P4V24=T6mZkdM4zzS<Rl40
+R7
+32
+R8
+!i10b 1
+Z56 !s108 1568386722.692633
+Z57 !s90 -work|apb_uart_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/uart_interrupt.vhd|
+Z58 !s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/uart_interrupt.vhd|
+!i113 0
+R12
+R13
+Artl
+R2
+R3
+R4
+DEx4 work 14 uart_interrupt 0 22 [[g5^A6T>Ro_eOhmO@9g@0
+l57
+L49
+VB`51Q;SN`zUV^=4zD8o_J0
+!s100 1=VgQ=fn>Yf1QWSVHDb3@1
+R7
+32
+R8
+!i10b 1
+R56
+R57
+R58
+!i113 0
+R12
+R13
+Euart_receiver
+R1
+R2
+R3
+R4
+R0
+Z59 8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/uart_receiver.vhd
+Z60 F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/uart_receiver.vhd
+l0
+L29
+VUDi@LSVDZZ_0^AcAnX@An2
+!s100 WfDS6;?IjEa1K>Se7AT4E1
+R7
+32
+R8
+!i10b 1
+Z61 !s108 1568386722.718063
+Z62 !s90 -work|apb_uart_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/uart_receiver.vhd|
+Z63 !s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/uart_receiver.vhd|
+!i113 0
+R12
+R13
+Artl
+R2
+R3
+R4
+DEx4 work 13 uart_receiver 0 22 UDi@LSVDZZ_0^AcAnX@An2
+l119
+L49
+VI;Qj;`@;gcH?_7LS8e:_02
+!s100 l3kozC8]YB9Ym]b]55N5=3
+R7
+32
+R8
+!i10b 1
+R61
+R62
+R63
+!i113 0
+R12
+R13
+Euart_transmitter
+R1
+R2
+R3
+R4
+R0
+Z64 8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/uart_transmitter.vhd
+Z65 F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/uart_transmitter.vhd
+l0
+L29
+VOUW[STGNglE^]VK;Ag`5h0
+!s100 [bY7QcS9BaHbk36dfUIl11
+R7
+32
+R8
+!i10b 1
+Z66 !s108 1568386722.744270
+Z67 !s90 -work|apb_uart_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/uart_transmitter.vhd|
+Z68 !s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/apb_peripherals/apb_uart/uart_transmitter.vhd|
+!i113 0
+R12
+R13
+Artl
+R2
+R3
+R4
+DEx4 work 16 uart_transmitter 0 22 OUW[STGNglE^]VK;Ag`5h0
+l59
+L48
+VN3alVWGY3MCl_VL?A6>Po0
+!s100 iDLOH401Gh`Z93=AHle:`2
+R7
+32
+R8
+!i10b 1
+R66
+R67
+R68
+!i113 0
+R12
+R13

@@ -1,0 +1,5 @@
+red; Instruction Memory
+green; Data Memory
+yellow; Multiplier
+white; ALU (top), Controller (bottom)
+light-blue; registers (bottom), spr (top)

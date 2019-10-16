@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Where to put a new test or application &mdash; howto 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="howto 1 documentation" href="index.html" />
+    <link rel="next" title="How to write a test" href="howtoWriteTest.html" />
+    <link rel="prev" title="How to setup SDK environment for RTL development" href="howtoSetupRtlEnv.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="where-to-put-a-new-test-or-application">
+<span id="wheretoputtest"></span><h1>Where to put a new test or application<a class="headerlink" href="#where-to-put-a-new-test-or-application" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="organization">
+<h2>Organization<a class="headerlink" href="#organization" title="Permalink to this headline">¶</a></h2>
+<p>The Pulp tests and applications are currently spread in the following git repositories:</p>
+<ul>
+<li><p class="first"><strong>OR10N tests</strong>: <a class="reference external" href="mailto:git&#37;&#52;&#48;iis-git&#46;ee&#46;ethz&#46;ch">git<span>&#64;</span>iis-git<span>&#46;</span>ee<span>&#46;</span>ethz<span>&#46;</span>ch</a>:pulp-sw/or10n_tests.git</p>
+<p>These tests can only be used with the old OR10N core and should not be modified anymore. They are kept in order to still be able to launch tests on old chips like Mia Wallace, for example to validate the virtual platform.</p>
+</li>
+<li><p class="first"><strong>RISCV tests</strong>: <a class="reference external" href="mailto:git&#37;&#52;&#48;iis-git&#46;ee&#46;ethz&#46;ch">git<span>&#64;</span>iis-git<span>&#46;</span>ee<span>&#46;</span>ethz<span>&#46;</span>ch</a>:pulp-sw/riscv_tests.git</p>
+<p>These tests can only be used with the first RI5CY version (named ri5cyv1 in the SDK) and should not be modified anymore. They are kept in order to still be able to launch tests on old chips, for example to validate the virtual platform.</p>
+</li>
+<li><p class="first"><strong>Core tests</strong>: <a class="reference external" href="mailto:git&#37;&#52;&#48;iis-git&#46;ee&#46;ethz&#46;ch">git<span>&#64;</span>iis-git<span>&#46;</span>ee<span>&#46;</span>ethz<span>&#46;</span>ch</a>:pulp-sw/core_tests</p>
+<p>These tests are the current ones used for validating the latest OR10N (or10nv2) and RISCV (ri5cyv2) cores. Any test focusing on core validation should be there. The whole testsuite is supposed to support both cores, although some tests are specified to run only on one core. A test that runs on both cores is using macros to be compilable for both cores.</p>
+</li>
+<li><p class="first"><strong>Pulp RTL tests</strong>: <a class="reference external" href="mailto:git&#37;&#52;&#48;iis-git&#46;ee&#46;ethz&#46;ch">git<span>&#64;</span>iis-git<span>&#46;</span>ee<span>&#46;</span>ethz<span>&#46;</span>ch</a>:pulp-sw/pulp_tests.git</p>
+<p>The tests are used to validate specific features of the RTL, except for the core which has its own testsuite. There are for examples tests for the DMA, the UDMA, etc. The tests are supposed to work on all chips, except if the compatibility is broken. In this case, the old tests should be kept so that the testsuite can still be run on older chips. For example the mchan tests are duplicated in a v4 and v5 subdirectories in order to work on latest chips.</p>
+</li>
+<li><p class="first"><strong>Sequential bare-metal tests</strong>: <a class="reference external" href="mailto:git&#37;&#52;&#48;iis-git&#46;ee&#46;ethz&#46;ch">git<span>&#64;</span>iis-git<span>&#46;</span>ee<span>&#46;</span>ethz<span>&#46;</span>ch</a>:pulp-sw/sequential_bare_tests.git</p>
+<p>These are single-core tests mainly useful for benchmarking the core or the instruction cache. They were initially used to benchmark the ISA extensions. They are also supposed to work on any chip and should not be duplicated as they are quite generic.</p>
+</li>
+<li><p class="first"><strong>Parallel bare-metal tests</strong>: <a class="reference external" href="mailto:git&#37;&#52;&#48;iis-git&#46;ee&#46;ethz&#46;ch">git<span>&#64;</span>iis-git<span>&#46;</span>ee<span>&#46;</span>ethz<span>&#46;</span>ch</a>:pulp-sw/parallel_bare_tests.git</p>
+<p>These are multi-core tests useful for benchmarking parallel aspects of the architecture. They use very basic synchronization (just a barrier) so they should run on any chip without any problem.</p>
+</li>
+<li><p class="first"><strong>OpenMP tests and basic applications</strong>: <a class="reference external" href="mailto:git&#37;&#52;&#48;iis-git&#46;ee&#46;ethz&#46;ch">git<span>&#64;</span>iis-git<span>&#46;</span>ee<span>&#46;</span>ethz<span>&#46;</span>ch</a>:pulp-apps/gomp_tests.git</p>
+<p>Tests or applications that should remain small to use them as basic non-regression testsuite for OpenMP</p>
+</li>
+<li><p class="first"><strong>GCC OpenMP testsuite</strong>: <a class="reference external" href="mailto:git&#37;&#52;&#48;iis-git&#46;ee&#46;ethz&#46;ch">git<span>&#64;</span>iis-git<span>&#46;</span>ee<span>&#46;</span>ethz<span>&#46;</span>ch</a>:pulp-apps/libgomp_testsuite.git</p>
+<p>Should not be modified, it is the testsuite used to validate GCC OpenMP frontend. Just modified the minimal to run it on Pulp</p>
+</li>
+<li><p class="first"><strong>LLVM OpenMP testsuite</strong>: <a class="reference external" href="mailto:git&#37;&#52;&#48;iis-git&#46;ee&#46;ethz&#46;ch">git<span>&#64;</span>iis-git<span>&#46;</span>ee<span>&#46;</span>ethz<span>&#46;</span>ch</a>:pulp-apps/openuh.git</p>
+<p>Should not be modified, it is the testsuite used to validate LLVM OpenMP frontend. Just modified the minimal to run it on Pulp</p>
+</li>
+<li><p class="first"><strong>OpenMP EPCC benchmark</strong>: <a class="reference external" href="mailto:git&#37;&#52;&#48;iis-git&#46;ee&#46;ethz&#46;ch">git<span>&#64;</span>iis-git<span>&#46;</span>ee<span>&#46;</span>ethz<span>&#46;</span>ch</a>:pulp-apps/epccbench.git</p>
+<p>Should not be modified, it is a well-known benchmark for OpenMP ported on Pulp.</p>
+</li>
+<li><p class="first"><strong>OpenVX applications</strong>: <a class="reference external" href="mailto:git&#37;&#52;&#48;iis-git&#46;ee&#46;ethz&#46;ch">git<span>&#64;</span>iis-git<span>&#46;</span>ee<span>&#46;</span>ethz<span>&#46;</span>ch</a>:pulp-ovx-rt/samples.git</p>
+<p>OpenVX applications used for benchmarking OpenVX dynamic graph execution.</p>
+</li>
+<li><p class="first"><strong>OpenVX kernels tests</strong>: <a class="reference external" href="mailto:git&#37;&#52;&#48;iis-git&#46;ee&#46;ethz&#46;ch">git<span>&#64;</span>iis-git<span>&#46;</span>ee<span>&#46;</span>ethz<span>&#46;</span>ch</a>:pulp-ovx-rt/ovx-kernels.git</p>
+<p>Tests for validing OpenVX kernels separatly. The repository also contains the kernels, the tests are under the tests directory. The tests are also good for basic OpenMP validation as they all using OMP parallel pragma to parallelize the work.</p>
+</li>
+<li><p class="first"><strong>Coremark</strong>: <a class="reference external" href="mailto:git&#37;&#52;&#48;iis-git&#46;ee&#46;ethz&#46;ch">git<span>&#64;</span>iis-git<span>&#46;</span>ee<span>&#46;</span>ethz<span>&#46;</span>ch</a>:pulp-apps/coremark.git</p>
+<p>The Coremark benchmark ported on Pulp. Usefull for quick validation of the core, as it executes various processing and control code, and also useful for giving a quick idea of the core performance, through a score.</p>
+</li>
+<li><p class="first"><strong>Cconvnet tests</strong>: <a class="reference external" href="mailto:git&#37;&#52;&#48;iis-git&#46;ee&#46;ethz&#46;ch">git<span>&#64;</span>iis-git<span>&#46;</span>ee<span>&#46;</span>ethz<span>&#46;</span>ch</a>:fconti/cconvnet.git</p>
+<p>Tests for the cconvnet library. The repository also contains the cconvnet library, the tests can be found under example.</p>
+</li>
+<li><p class="first"><strong>Vlfeat tests</strong>: <a class="reference external" href="mailto:git&#37;&#52;&#48;iis-git&#46;ee&#46;ethz&#46;ch">git<span>&#64;</span>iis-git<span>&#46;</span>ee<span>&#46;</span>ethz<span>&#46;</span>ch</a>:pulp-project/vlfeat.git</p>
+<p>Tests for the vlfeat porting on Pulp. The repository also contains the vlfeat library, the tests can be found under tests.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="how-to-add-a-test">
+<h2>How to add a test<a class="headerlink" href="#how-to-add-a-test" title="Permalink to this headline">¶</a></h2>
+<p>To add a test or an application, the appropriate repository can be cloned and the test added with the usual commands.</p>
+<p>The whole tests and applications can also be retrieved using the SDK flow with this command:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ plpbuild --p tests --p apps --p ovx_tests --p omp_tests checkout
+</pre></div>
+</div>
+<p>Only a subset of the packages can be specified to not get everything. The <em>apps</em> package contains cconvnet and vlfeat, <em>ovx_tests</em> contains ovx_kernels and ovx_apps, <em>omp_tests</em> contains libgomp_testsuite, openuh and epccbench and <em>tests</em> contains the rest.</p>
+<p>Currently all the tests are always pushed on the master branch as they are supposed to always work on all the chips.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Where to put a new test or application</a><ul>
+<li><a class="reference internal" href="#organization">Organization</a></li>
+<li><a class="reference internal" href="#how-to-add-a-test">How to add a test</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="howtoSetupRtlEnv.html" title="previous chapter">How to setup SDK environment for RTL development</a></li>
+      <li>Next: <a href="howtoWriteTest.html" title="next chapter">How to write a test</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/wheretoPutTest.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Germain Haugou.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/wheretoPutTest.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

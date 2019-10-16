@@ -1,0 +1,80 @@
+Quickstart
+==========
+
+
+Common makefiles
+----------------
+
+In order to ease compiling and running applications, as well as hiding future modifications in the build process, some makefiles are provided
+in the SDK and can be included from an application makefile, like in the following example: ::
+
+  PULP_APP = test
+  PULP_APP_SRCS = test.c
+
+  include $(PULP_SDK_HOME)/install/rules/pulp.mk
+
+This gives access to several make targets which are documented below.
+
+Creating a simple example
+------------------------
+
+A simple example can be obtained with this command: ::
+
+  $ pulp-quickstart --path=<path where to create the example>
+
+This will basically copy an example from the SDK.
+
+You can also add the option *--omp* to obtain an OpenMP example.
+
+Compiling and running
+---------------------
+
+An application including the provided makefiles can be built and run with: ::
+
+  make clean all run
+
+This will compile and run for the default platform which is the virtual platform and the default compiler which is gcc.
+To run on a different platform and compiler, the following command can be used: ::
+
+  make clean all run platform=rtl pulpCompiler=llvm
+
+Callgraph profiling
+-------------------
+
+On RTL simulator and virtual platform, a PC-based callgraph can be generated with the following command: ::
+
+  make clean all run KCG=0
+
+This will generate the callgraph for the specified core number, 0 in this case.
+
+The callgraph can be seen with KCachegrind tool with (the actual path to the kcg file is displayed at the end of the simulation and may be different): ::
+
+  kcachegrind build/kcg.txt
+
+VCD traces
+-------------------
+
+On the virtual platform, detailed VCD traces of the execution can be obtained with: ::
+
+  make clean all run PLT_OPT="--vcd --gtkw"
+
+The option --gtkw is optional and is generating a script for gtkwave. A message is dumped giving the command to execute to open the VCD traces.
+
+Execution traces profiling
+--------------------------
+
+With OMP on the virtual platform, more information about the execution context can be obtained with: ::
+
+  make clean all run pulpRtVersion=profile0
+
+This activates a version of the runtime instrumented for generating context information through HW traces.
+
+They can be visualized either with Android traceview tool (only on Ubuntu) with this command: ::
+
+  traceview build/tvDump
+
+Or as a textual callgraph: ::
+
+  cat build/cg_cluster0_core0.txt
+
+The actual paths to the files might also be different and are displayed at the end of the simulation.

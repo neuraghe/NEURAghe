@@ -1,0 +1,729 @@
+\newgeometry{left=30mm,right=10mm, top=2cm, bottom=2cm}
+\begin{landscape}
+\chapter{Instruction Set Extensions - Encoding}
+\label{chap:instr_encoding}
+
+\section{Post-Increment Instructions}
+
+\textbf{Load: l.l\{TT\}\{E\}\{P\} rD, (I)(rA!) TT:\{b,h,w\} E:\{s,z\} P:\{,h\}}
+
+\begin{verbatim}
+010110 DDDDD AAAAA IIIII III II I0 TTEP -> Signed Immediate offset (11 bits)
+
+010110 DDDDD AAAAA IIIII III II I0 1110 -> l.lbs rD, I(rA!) // rD[31:0]  = Sext(Mem8 [rA]);   rA += Sext(I)
+010110 DDDDD AAAAA IIIII III II I0 1100 -> l.lbz rD, I(rA!) // rD[31:0]  = Zext(Mem8 [rA]);   rA += Sext(I)
+
+010110 DDDDD AAAAA IIIII III II I0 1010 -> l.lhs rD, I(rA!) // rD[31:0]  = Sext(Mem16[rA]);   rA += Sext(I)
+010110 DDDDD AAAAA IIIII III II I0 1000 -> l.lhz rD, I(rA!) // rD[31:0]  = Zext(Mem16[rA]);   rA += Sext(I)
+
+010110 DDDDD AAAAA IIIII III II I0 0010 -> l.lws rD, I(rA!) // rD[31:0]  = Mem32[rA];         rA += Sext(I)
+010110 DDDDD AAAAA IIIII III II I0 0000 -> l.lwz rD, I(rA!) // rD[31:0]  = Mem32[rA];         rA += Sext(I)
+\end{verbatim}
+
+\clearpage
+
+
+\textbf{Load: l.l\{TT\}\{E\}\{P\} rD, (rB)(rA!)  TT:\{b,h,w\} E:\{s,z\} P:\{,h\}}
+
+\begin{verbatim}
+010110 DDDDD AAAAA BBBBB --- -- 11 TTEP -> Register offset
+
+010110 DDDDD AAAAA BBBBB --- -- 11 1110 -> l.lbs rD, rB(rA!) // rD[31:0] = Sext(Mem8 [rA]);   rA += rB
+010110 DDDDD AAAAA BBBBB --- -- 11 1100 -> l.lbz rD, rB(rA!) // rD[31:0] = Zext(Mem8 [rA]);   rA += rB
+
+010110 DDDDD AAAAA BBBBB --- -- 11 1010 -> l.lhs rD, rB(rA!) // rD[31:0] = Sext(Mem16[rA]);   rA += rB
+010110 DDDDD AAAAA BBBBB --- -- 11 1000 -> l.lhz rD, rB(rA!) // rD[31:0] = Zext(Mem16[rA]);   rA += rB
+
+010110 DDDDD AAAAA BBBBB --- -- 11 0010 -> l.lws rD, rB(rA!) // rD[31:0] = Mem32[rA];         rA += rB
+010110 DDDDD AAAAA BBBBB --- -- 11 0000 -> l.lwz rD, rB(rA!) // rD[31:0] = Mem32[rA];         rA += rB
+\end{verbatim}
+
+\clearpage
+
+\textbf{Store: l.s\{TT\}\{PP\} (I)(rA!), rB TT:\{b,h,w\} PP:\{,1,2,3\}}
+
+\begin{verbatim}
+010100 IIIII AAAAA BBBBB III II I0 TTPP -> Signed Immediate Offset (11 bits)
+
+010100 IIIII AAAAA BBBBB III II I0 1100 -> l.sb  I(rA!), rB  // Mem8 [rA] = rB[ 7: 0];        rA += Sext(I)
+010100 IIIII AAAAA BBBBB III II I0 1101 -> l.sb1 I(rA!), rB  // Mem8 [rA] = rB[15: 8];        rA += Sext(I)
+010100 IIIII AAAAA BBBBB III II I0 1110 -> l.sb2 I(rA!), rB  // Mem8 [rA] = rB[23:16];        rA += Sext(I)
+010100 IIIII AAAAA BBBBB III II I0 1111 -> l.sb3 I(rA!), rB  // Mem8 [rA] = rB[31:24];        rA += Sext(I)
+
+010100 IIIII AAAAA BBBBB III II I0 1000 -> l.sh  I(rA!), rB  // Mem16 [rA] = rB[15:0];        rA += Sext(I)
+010100 IIIII AAAAA BBBBB III II I0 1010 -> l.sh1 I(rA!), rB  // Mem16 [rA] = rB[31:16];       rA += Sext(I)
+
+010100 IIIII AAAAA BBBBB III II I0 0000 -> l.sw  I(rA!), rB  // Mem32 [rA] = rB[31:0];        rA += Sext(I)
+\end{verbatim}
+
+
+\textbf{Store: l.s\{TT\}\{PP\} (rD)(rA!), rB TT:\{b,h,w\} PP:\{,1,2,3\}}
+
+\begin{verbatim}
+010100 DDDDD AAAAA BBBBB --- -- 11 TTPP -> Register Offset
+
+010100 DDDDD AAAAA BBBBB --- -- 11 1100 -> l.sb  rD(rA!), rB // Mem8 [rA] = rB[ 7: 0];        rA += rD
+010100 DDDDD AAAAA BBBBB --- -- 11 1101 -> l.sb1 rD(rA!), rB // Mem8 [rA] = rB[15: 8];        rA += rD
+010100 DDDDD AAAAA BBBBB --- -- 11 1110 -> l.sb2 rD(rA!), rB // Mem8 [rA] = rB[23:16];        rA += rD
+010100 DDDDD AAAAA BBBBB --- -- 11 1111 -> l.sb3 rD(rA!), rB // Mem8 [rA] = rB[31:24];        rA += rD
+
+010100 DDDDD AAAAA BBBBB --- -- 11 1000 -> l.sh  rD(rA!), rB // Mem16 [rA] = rB[15: 0];       rA += rD
+010100 DDDDD AAAAA BBBBB --- -- 11 1010 -> l.sh1 rD(rA!), rB // Mem16 [rA] = rB[31:16];       rA += rD
+
+010100 DDDDD AAAAA BBBBB --- -- 11 0000 -> l.sw  rD(rA!), rB // Mem32 [rA] = rB[31: 0];       rA += rD
+\end{verbatim}
+
+
+\newpage
+\section{Pre-Increment Instructions}
+
+\textbf{Load: l.l\{TT\}\{E\}\{P\} rD, (I)(!rA) TT:\{b,h,w\} E:\{s,z\} P:\{,h\}}
+
+\begin{verbatim}
+010111 DDDDD AAAAA IIIII III II I0 TTEP -> Signed Immediate offset (11 bits)
+
+010111 DDDDD AAAAA IIIII III II I0 1110 -> l.lbs rD, I(!rA) // rD[31:0]  = Sext(Mem8 [rA + Sext(I)]);   rA += Sext(I)
+010111 DDDDD AAAAA IIIII III II I0 1100 -> l.lbz rD, I(!rA) // rD[31:0]  = Zext(Mem8 [rA + Sext(I)]);   rA += Sext(I)
+
+010111 DDDDD AAAAA IIIII III II I0 1010 -> l.lhs rD, I(!rA) // rD[31:0]  = Sext(Mem16[rA + Sext(I)]);   rA += Sext(I)
+010111 DDDDD AAAAA IIIII III II I0 1000 -> l.lhz rD, I(!rA) // rD[31:0]  = Zext(Mem16[rA + Sext(I)]);   rA += Sext(I)
+
+010111 DDDDD AAAAA IIIII III II I0 0010 -> l.lws rD, I(!rA) // rD[31:0]  = Mem32[rA + Sext(I)];         rA += Sext(I)
+010111 DDDDD AAAAA IIIII III II I0 0000 -> l.lwz rD, I(!rA) // rD[31:0]  = Mem32[rA + Sext(I)];         rA += Sext(I)
+\end{verbatim}
+
+
+\textbf{Load: l.l\{TT\}\{E\}\{P\} rD, (rB)(!rA)  TT:\{b,h,w\} E:\{s,z\} P:\{,h\}}
+
+\begin{verbatim}
+010111 DDDDD AAAAA BBBBB --- -- 11 TTEP -> Register offset
+
+010111 DDDDD AAAAA BBBBB --- -- 11 1110 -> l.lbs rD, rB(!rA) // rD[31:0] = Sext(Mem8 [rA + rB]);   rA += rB
+010111 DDDDD AAAAA BBBBB --- -- 11 1100 -> l.lbz rD, rB(!rA) // rD[31:0] = Zext(Mem8 [rA + rB]);   rA += rB
+
+010111 DDDDD AAAAA BBBBB --- -- 11 1010 -> l.lhs rD, rB(!rA) // rD[31:0] = Sext(Mem16[rA + rB]);   rA += rB
+010111 DDDDD AAAAA BBBBB --- -- 11 1000 -> l.lhz rD, rB(!rA) // rD[31:0] = Zext(Mem16[rA + rB]);   rA += rB
+
+010111 DDDDD AAAAA BBBBB --- -- 11 0010 -> l.lws rD, rB(!rA) // rD[31:0] = Mem32[rA + rB];         rA += rB
+010111 DDDDD AAAAA BBBBB --- -- 11 0000 -> l.lwz rD, rB(!rA) // rD[31:0] = Mem32[rA + rB];         rA += rB
+\end{verbatim}
+
+
+\clearpage
+\textbf{Store: l.s\{TT\}\{PP\} (I)(!rA), rB TT:\{b,h,w\} PP:\{,1,2,3\}}
+
+\begin{verbatim}
+010101 IIIII AAAAA BBBBB III II I0 TTPP -> Signed Immediate Offset (11 bits)
+
+010101 IIIII AAAAA BBBBB III II I0 1100 -> l.sb  I(!rA), rB  // Mem8 [rA + Sext(I)] = rB[ 7: 0];        rA += Sext(I)
+010101 IIIII AAAAA BBBBB III II I0 1101 -> l.sb1 I(!rA), rB  // Mem8 [rA + Sext(I)] = rB[15: 8];        rA += Sext(I)
+010101 IIIII AAAAA BBBBB III II I0 1110 -> l.sb2 I(!rA), rB  // Mem8 [rA + Sext(I)] = rB[23:16];        rA += Sext(I)
+010101 IIIII AAAAA BBBBB III II I0 1111 -> l.sb3 I(!rA), rB  // Mem8 [rA + Sext(I)] = rB[31:24];        rA += Sext(I)
+
+010101 IIIII AAAAA BBBBB III II I0 1000 -> l.sh  I(!rA), rB  // Mem16 [rA + Sext(I)] = rB[15:0];        rA += Sext(I)
+010101 IIIII AAAAA BBBBB III II I0 1010 -> l.sh1 I(!rA), rB  // Mem16 [rA + Sext(I)] = rB[31:16];       rA += Sext(I)
+
+010101 IIIII AAAAA BBBBB III II I0 0000 -> l.sw  I(!rA), rB  // Mem32 [rA + Sext(I)] = rB[31:0];        rA += Sext(I)
+\end{verbatim}
+
+
+\textbf{Store: l.s\{TT\}\{PP\} (rD)(!rA), rB TT:\{b,h,w\} PP:\{,1,2,3\}}
+
+\begin{verbatim}
+010101 DDDDD AAAAA BBBBB --- -- 11 TTPP -> Register Offset
+
+010101 DDDDD AAAAA BBBBB --- -- 11 1100 -> l.sb  rD(!rA), rB // Mem8 [rA + rD] = rB[ 7: 0];        rA += rD
+010101 DDDDD AAAAA BBBBB --- -- 11 1101 -> l.sb1 rD(!rA), rB // Mem8 [rA + rD] = rB[15: 8];        rA += rD
+010101 DDDDD AAAAA BBBBB --- -- 11 1110 -> l.sb2 rD(!rA), rB // Mem8 [rA + rD] = rB[23:16];        rA += rD
+010101 DDDDD AAAAA BBBBB --- -- 11 1111 -> l.sb3 rD(!rA), rB // Mem8 [rA + rD] = rB[31:24];        rA += rD
+
+010101 DDDDD AAAAA BBBBB --- -- 11 1000 -> l.sh  rD(!rA), rB // Mem16 [rA + rD] = rB[15: 0];       rA += rD
+010101 DDDDD AAAAA BBBBB --- -- 11 1010 -> l.sh1 rD(!rA), rB // Mem16 [rA + rD] = rB[31:16];       rA += rD
+
+010101 DDDDD AAAAA BBBBB --- -- 11 0000 -> l.sw  rD(!rA), rB // Mem32 [rA + rD] = rB[31: 0];       rA += rD
+\end{verbatim}
+
+
+\newpage
+\section{Register-Register Loads/Stores}
+\textbf{Load: l.l\{TT\}\{E\} rD, (rB)(rA)  TT:\{b,h,w\} E:\{s,z\}}
+
+\begin{verbatim}
+010111 DDDDD AAAAA BBBBB --- -- 01 TTEP -> Register offset
+
+010111 DDDDD AAAAA BBBBB --- -- 01 1110 -> l.lbs rD, rB(rA) // rD[31:0] = Sext(Mem8 [rA + rB]);
+010111 DDDDD AAAAA BBBBB --- -- 01 1100 -> l.lbz rD, rB(rA) // rD[31:0] = Zext(Mem8 [rA + rB]);
+
+010111 DDDDD AAAAA BBBBB --- -- 01 1010 -> l.lhs rD, rB(rA) // rD[31:0] = Sext(Mem16[rA + rB]);
+010111 DDDDD AAAAA BBBBB --- -- 01 1000 -> l.lhz rD, rB(rA) // rD[31:0] = Zext(Mem16[rA + rB]);
+
+010111 DDDDD AAAAA BBBBB --- -- 01 0010 -> l.lws rD, rB(rA) // rD[31:0] = Mem32[rA + rB];
+010111 DDDDD AAAAA BBBBB --- -- 01 0000 -> l.lwz rD, rB(rA) // rD[31:0] = Mem32[rA + rB];
+\end{verbatim}
+
+
+\textbf{Store: l.s\{TT\}\{PP\} (rD)(rA!), rB TT:\{b,h,w\} PP:\{,1,2,3\}}
+
+\begin{verbatim}
+010100 DDDDD AAAAA BBBBB --- -- 01 TTPP -> Register Offset
+
+010101 DDDDD AAAAA BBBBB --- -- 01 1100 -> l.sb  rD(rA), rB // Mem8 [rA + rD] = rB[ 7: 0];
+010101 DDDDD AAAAA BBBBB --- -- 01 1101 -> l.sb1 rD(rA), rB // Mem8 [rA + rD] = rB[15: 8];
+010101 DDDDD AAAAA BBBBB --- -- 01 1110 -> l.sb2 rD(rA), rB // Mem8 [rA + rD] = rB[23:16];
+010101 DDDDD AAAAA BBBBB --- -- 01 1111 -> l.sb3 rD(rA), rB // Mem8 [rA + rD] = rB[31:24];
+
+010101 DDDDD AAAAA BBBBB --- -- 01 1000 -> l.sh  rD(rA), rB // Mem16 [rA + rD] = rB[15: 0];
+010101 DDDDD AAAAA BBBBB --- -- 01 1010 -> l.sh1 rD(rA), rB // Mem16 [rA + rD] = rB[31:16];
+
+010101 DDDDD AAAAA BBBBB --- -- 01 0000 -> l.sw  rD(rA), rB // Mem32 [rA + rD] = rB[31: 0];
+\end{verbatim}
+
+
+
+
+
+
+
+\newpage
+\section{Min, Max, Abs, Avg}
+Enable in llvm with: -mcrtl
+
+\begin{verbatim}
+Min:
+  111000 DDDDD AAAAA BBBBB -10 -- -- 0000 -> l.min  rD, rA, rB    // rD = min(rA, rB)
+Minu:
+  111000 DDDDD AAAAA BBBBB -10 -- -- 0001 -> l.minu rD, rA, rB    // rD = min(rA, rB)
+
+Max:
+  111000 DDDDD AAAAA BBBBB -10 -- -- 0010 -> l.max  rD, rA, rB    // rD = max(rA, rB)
+Maxu:
+  111000 DDDDD AAAAA BBBBB -10 -- -- 0011 -> l.maxu rD, rA, rB    // rD = max(rA, rB)
+
+Abs:
+  111000 DDDDD AAAAA 00000 -10 -- -- 1000 -> l.abs  rD, rA        // rD = abs(rA)
+\end{verbatim}
+
+Comment: min, minu, max, maxu, abs: All those instructions come for free as the vectorial instructions from VII already provide the data path changes
+
+\begin{verbatim}
+Avg:
+  111000 DDDDD AAAAA BBBBB -10 -- -- 0100 -> l.avg  rD, rA, rB    // rD = (rA + rB) >> 1 (arithmetic shift right)
+Avgu:
+  111000 DDDDD AAAAA BBBBB -10 -- -- 0101 -> l.avgu rD, rA, rB    // rD = (rA + rB) >> 1
+\end{verbatim}
+
+Comment: avg, avgu come for free because of vectorial instructions
+
+
+\newpage
+\section{Vectorial Instructions}
+\subsection{Vectorial ALU Instructions}
+Enable in llvm with: -mlv32
+
+\begin{verbatim}
+Prefix Bit 31..26 -> 00 1010
+
+Bit 0             -> Vector size,
+           0: 2 16 bits elements
+           1: 4  8 bits elements
+Bit 1..5          -> Vector op code
+Bit 6..7          -> Right operand type:
+          00: Vector of same size than left operand
+          01: Scalar in register used as a vector (scalar replication)
+          10: Immediate scalar used as a vector (scalar replication), KKK: 9 signed bits Bit 7..15
+
+  00 1010 DDDDD AAAAA BBBBB --- 00 00000 0 -> lv.add.h         // [i=1..0] rD_hi = rA_hi + rB_hi
+  00 1010 DDDDD AAAAA BBBBB --- 01 00000 0 -> lv.add.h.sc      // [i=1..0] rD_hi = rA_hi + rB_h0
+  00 1010 DDDDD AAAAA KKKKK KKK 10 00000 0 -> lv.add.h.sci     // [i=1..0] rD_hi = rA_hi + extS(K)
+
+  00 1010 DDDDD AAAAA BBBBB --- 00 00000 1 -> lv.add.b         // [i=3..0] rD_bi = rA_bi + rB_bi
+  00 1010 DDDDD AAAAA BBBBB --- 01 00000 1 -> lv.add.b.sc      // [i=3..0] rD_bi = rA_bi + rB_b0
+  00 1010 DDDDD AAAAA KKKKK KKK 10 00000 1 -> lv.add.b.sci     // [i=3..0] rD_bi = rA_bi + extS(K)
+
+
+  00 1010 DDDDD AAAAA BBBBB --- 00 00001 0 -> lv.sub.h         // [i=1..0] rD_hi = rA_hi - rB_hi
+  00 1010 DDDDD AAAAA BBBBB --- 01 00001 0 -> lv.sub.h.sc      // [i=1..0] rD_hi = rA_hi - rB_h0
+  00 1010 DDDDD AAAAA KKKKK KKK 10 00001 0 -> lv.sub.h.sci     // [i=1..0] rD_hi = rA_hi - extS(K)
+
+  00 1010 DDDDD AAAAA BBBBB --- 00 00001 1 -> lv.sub.b         // [i=3..0] rD_bi = rA_bi - rB_bi
+  00 1010 DDDDD AAAAA BBBBB --- 01 00001 1 -> lv.sub.b.sc      // [i=3..0] rD_bi = rA_bi - rB_b0
+  00 1010 DDDDD AAAAA KKKKK KKK 10 00001 1 -> lv.sub.b.sci     // [i=3..0] rD_bi = rA_bi - extS(K)
+
+
+  00 1010 DDDDD AAAAA BBBBB --- 00 00010 0 -> lv.avg.h         // [i=1..0] rD_hi = (rA_hi + rB_hi) >> 1
+  00 1010 DDDDD AAAAA BBBBB --- 01 00010 0 -> lv.avg.h.sc      // [i=1..0] rD_hi = (rA_hi + rB_h0) >> 1
+  00 1010 DDDDD AAAAA KKKKK KKK 10 00010 0 -> lv.avg.h.sci     // [i=1..0] rD_hi = (rA_hi + extS(K)) >> 1
+
+  00 1010 DDDDD AAAAA BBBBB --- 00 00010 1 -> lv.avg.b         // [i=3..0] rD_bi = (rA_bi + rB_bi) >> 1
+  00 1010 DDDDD AAAAA BBBBB --- 01 00010 1 -> lv.avg.b.sc      // [i=3..0] rD_bi = (rA_bi + rB_b0) >> 1
+  00 1010 DDDDD AAAAA KKKKK KKK 10 00010 1 -> lv.avg.b.sci     // [i=3..0] rD_bi = (rA_bi + extS(K)) >> 1
+
+
+  00 1010 DDDDD AAAAA BBBBB --- 00 00011 0 -> lv.min.h         // [i=1..0] rD_hi = min(rA_hi, rB_hi)
+  00 1010 DDDDD AAAAA BBBBB --- 01 00011 0 -> lv.min.h.sc      // [i=1..0] rD_hi = min(rA_hi, rB_h0)
+  00 1010 DDDDD AAAAA KKKKK KKK 10 00011 0 -> lv.min.h.sci     // [i=1..0] rD_hi = min(rA_hi, extS(K))
+
+  00 1010 DDDDD AAAAA BBBBB --- 00 00011 1 -> lv.min.b         // [i=3..0] rD_bi = min(rA_bi, rB_bi)
+  00 1010 DDDDD AAAAA BBBBB --- 01 00011 1 -> lv.min.b.sc      // [i=3..0] rD_bi = min(rA_bi, rB_b0)
+  00 1010 DDDDD AAAAA KKKKK KKK 10 00011 1 -> lv.min.b.sci     // [i=3..0] rD_bi = min(rA_bi, extS(K))
+
+
+  00 1010 DDDDD AAAAA BBBBB --- 00 00100 0 -> lv.max.h         // [i=1..0] rD_hi = max(rA_hi, rB_hi)
+  00 1010 DDDDD AAAAA BBBBB --- 01 00100 0 -> lv.max.h.sc      // [i=1..0] rD_hi = max(rA_hi, rB_h0)
+  00 1010 DDDDD AAAAA KKKKK KKK 10 00100 0 -> lv.max.h.sci     // [i=1..0] rD_hi = max(rA_hi, extS(K))
+
+  00 1010 DDDDD AAAAA BBBBB --- 00 00100 1 -> lv.max.b         // [i=3..0] rD_bi = max(rA_bi, rB_bi)
+  00 1010 DDDDD AAAAA BBBBB --- 01 00100 1 -> lv.max.b.sc      // [i=3..0] rD_bi = max(rA_bi, rB_b0)
+  00 1010 DDDDD AAAAA KKKKK KKK 10 00100 1 -> lv.max.b.sci     // [i=3..0] rD_bi = max(rA_bi, extS(K))
+
+
+  00 1010 DDDDD AAAAA BBBBB --- 00 00101 0 -> lv.srl.h         // [i=1..0] rD_hi = rA_hi >> rB_hi
+  00 1010 DDDDD AAAAA BBBBB --- 01 00101 0 -> lv.srl.h.sc      // [i=1..0] rD_hi = rA_hi >> rB_h0
+  00 1010 DDDDD AAAAA ----K KKK 10 00101 0 -> lv.srl.h.sci     // [i=1..0] rD_hi = rA_hi >> K
+
+  00 1010 DDDDD AAAAA BBBBB --- 00 00101 1 -> lv.srl.b         // [i=3..0] rD_bi = rA_bi >> rB_bi
+  00 1010 DDDDD AAAAA BBBBB --- 01 00101 1 -> lv.srl.b.sc      // [i=3..0] rD_bi = rA_bi >> rB_b0
+  00 1010 DDDDD AAAAA ----- KKK 10 00101 1 -> lv.srl.b.sci     // [i=3..0] rD_bi = rA_bi >> K
+
+
+  00 1010 DDDDD AAAAA BBBBB --- 00 00110 0 -> lv.sra.h         // [i=1..0] rD_hi = rA_hi >>> rB_hi
+  00 1010 DDDDD AAAAA BBBBB --- 01 00110 0 -> lv.sra.h.sc      // [i=1..0] rD_hi = rA_hi >>> rB_h0
+  00 1010 DDDDD AAAAA ----K KKK 10 00110 0 -> lv.sra.h.sci     // [i=1..0] rD_hi = rA_hi >>> K
+
+  00 1010 DDDDD AAAAA BBBBB --- 00 00110 1 -> lv.sra.b         // [i=3..0] rD_bi = rA_bi >>> rB_bi
+  00 1010 DDDDD AAAAA BBBBB --- 01 00110 1 -> lv.sra.b.sc      // [i=3..0] rD_bi = rA_bi >>> rB_b0
+  00 1010 DDDDD AAAAA ----- KKK 10 00110 1 -> lv.sra.b.sci     // [i=3..0] rD_bi = rA_bi >>> K
+
+
+  00 1010 DDDDD AAAAA BBBBB --- 00 00111 0 -> lv.sll.h         // [i=1..0] rD_hi = rA_hi << rB_hi
+  00 1010 DDDDD AAAAA BBBBB --- 01 00111 0 -> lv.sll.h.sc      // [i=1..0] rD_hi = rA_hi << rB_h0
+  00 1010 DDDDD AAAAA ----K KKK 10 00111 0 -> lv.sll.h.sci     // [i=1..0] rD_hi = rA_hi << K
+
+  00 1010 DDDDD AAAAA BBBBB --- 00 00111 1 -> lv.sll.b         // [i=3..0] rD_bi = rA_bi << rB_bi
+  00 1010 DDDDD AAAAA BBBBB --- 01 00111 1 -> lv.sll.b.sc      // [i=3..0] rD_bi = rA_bi << rB_b0
+  00 1010 DDDDD AAAAA ----- KKK 10 00111 1 -> lv.sll.b.sci     // [i=3..0] rD_bi = rA_bi << K
+
+
+  00 1010 DDDDD AAAAA BBBBB --- 00 01000 0 -> lv.mul.h        // [i=1..0] rD_hi = rA_hi * rB_hi
+  00 1010 DDDDD AAAAA BBBBB --- 01 01000 0 -> lv.mul.h.sc     // [i=1..0] rD_hi = rA_hi * rB_h0
+  00 1010 DDDDD AAAAA KKKKK KKK 10 01000 0 -> lv.mul.h.sci    // [i=1..0] rD_hi = rA_hi * extS(K)
+
+  00 1010 DDDDD AAAAA BBBBB --- 00 01000 1 -> lv.mul.b        // [i=3..0] rD_bi = rA_bi * rB_bi
+  00 1010 DDDDD AAAAA BBBBB --- 01 01000 1 -> lv.mul.b.sc     // [i=3..0] rD_bi = rA_bi * rB_b0
+  00 1010 DDDDD AAAAA KKKKK KKK 10 01000 1 -> lv.mul.b.sci    // [i=3..0] rD_bi = rA_bi * extS(K)
+
+
+  00 1010 DDDDD AAAAA BBBBB --- 00 01001 0 -> lv.or.h          // [i=1..0] rD_hi = rA_hi OR rB_hi
+  00 1010 DDDDD AAAAA BBBBB --- 01 01001 0 -> lv.or.h.sc       // [i=1..0] rD_hi = rA_hi OR rB_h0
+  00 1010 DDDDD AAAAA KKKKK KKK 10 01001 0 -> lv.or.h.sci      // [i=1..0] rD_hi = rA_hi OR extS(K)
+
+  00 1010 DDDDD AAAAA BBBBB --- 00 01001 1 -> lv.or.b          // [i=3..0] rD_bi = rA_bi OR rB_bi
+  00 1010 DDDDD AAAAA BBBBB --- 01 01001 1 -> lv.or.b.sc       // [i=3..0] rD_bi = rA_bi OR rB_b0
+  00 1010 DDDDD AAAAA KKKKK KKK 10 01001 1 -> lv.or.b.sci      // [i=3..0] rD_bi = rA_bi OR extS(K)
+
+
+  00 1010 DDDDD AAAAA BBBBB --- 00 01010 0 -> lv.xor.h         // [i=1..0] rD_hi = rA_hi XOR rB_hi
+  00 1010 DDDDD AAAAA BBBBB --- 01 01010 0 -> lv.xor.h.sc      // [i=1..0] rD_hi = rA_hi XOR rB_h0
+  00 1010 DDDDD AAAAA KKKKK KKK 10 01010 0 -> lv.xor.h.sci     // [i=1..0] rD_hi = rA_hi XOR extS(K)
+
+  00 1010 DDDDD AAAAA BBBBB --- 00 01010 1 -> lv.xor.b         // [i=3..0] rD_bi = rA_bi XOR rB_bi
+  00 1010 DDDDD AAAAA BBBBB --- 01 01010 1 -> lv.xor.b.sc      // [i=3..0] rD_bi = rA_bi XOR rB_b0
+  00 1010 DDDDD AAAAA KKKKK KKK 10 01010 1 -> lv.xor.b.sci     // [i=3..0] rD_bi = rA_bi XOR extS(K)
+\end{verbatim}
+
+\clearpage
+\begin{verbatim}
+  00 1010 DDDDD AAAAA BBBBB --- 00 01011 0 -> lv.and.h         // [i=1..0] rD_hi = rA_hi AND rB_hi
+  00 1010 DDDDD AAAAA BBBBB --- 01 01011 0 -> lv.and.h.sc      // [i=1..0] rD_hi = rA_hi AND rB_h0
+  00 1010 DDDDD AAAAA KKKKK KKK 10 01011 0 -> lv.and.h.sci     // [i=1..0] rD_hi = rA_hi AND extS(K)
+
+  00 1010 DDDDD AAAAA BBBBB --- 00 01011 1 -> lv.and.b         // [i=3..0] rD_bi = rA_bi AND rB_bi
+  00 1010 DDDDD AAAAA BBBBB --- 01 01011 1 -> lv.and.b.sc      // [i=3..0] rD_bi = rA_bi AND rB_b0
+  00 1010 DDDDD AAAAA KKKKK KKK 10 01011 1 -> lv.and.b.sci     // [i=3..0] rD_bi = rA_bi AND extS(K)
+
+
+  00 1010 DDDDD AAAAA BBBBB --L 01 01100 0 -> lv.ins.h rD, rA, rB, L   // rD[other] = rA;  rD[((L+1) * 16)-1 : L * 16)] = rB[15:0]
+  00 1010 DDDDD AAAAA BBBBB -LL 01 01100 1 -> lv.ins.b rD, rA, rB, L   // rD[other] = rA;  rD[((L+1) *  8)-1 : L *  8)] = rB[ 7:0]
+
+
+  00 1010 DDDDD AAAAA BBBBB --- 00 01101 0 -> lv.mac.h        // [i=1..0] rD_hi = rD_hi + rA_hi * rB_hi
+  00 1010 DDDDD AAAAA BBBBB --- 01 01101 0 -> lv.mac.h.sc     // [i=1..0] rD_hi = rD_hi + rA_hi * rB_h0
+  00 1010 DDDDD AAAAA KKKKK KKK 10 01101 0 -> lv.mac.h.sci    // [i=1..0] rD_hi = rD_hi + rA_hi * extS(K)
+
+  00 1010 DDDDD AAAAA BBBBB --- 00 01101 1 -> lv.mac.b        // [i=3..0] rD_bi = rD_bi + rA_bi * rB_bi
+  00 1010 DDDDD AAAAA BBBBB --- 01 01101 1 -> lv.mac.b.sc     // [i=3..0] rD_bi = rD_bi + rA_bi * rB_b0
+  00 1010 DDDDD AAAAA KKKKK KKK 10 01101 1 -> lv.mac.b.sci    // [i=3..0] rD_bi = rD_bi + rA_bi * extS(K)
+
+
+  00 1010 DDDDD AAAAA 00000 --- 00 10000 0 -> lv.abs.h             // [i=1..0] rD_hi = abs(rA_hi)
+  00 1010 DDDDD AAAAA 00000 --- 00 10000 1 -> lv.abs.b             // [i=3..0] rD_bi = abs(rA_bi)
+
+
+  00 1100 DDDDD AAAAA ----- --L 00 10001 0 -> lv.ext.h rD, rA, L   // rD[31:0] = extS(rA[((L+1) * 16)-1 : L * 16)])
+  00 1100 DDDDD AAAAA ----- -LL 00 10001 1 -> lv.ext.b rD, rA, L   // rD[31:0] = extS(rA[((L+1) * 8)-1  : L *  8)])
+\end{verbatim}
+
+
+
+Comment:
+    - min, max, avg are currently only planned with signed numbers [unsigned versions could be added]
+
+
+\newpage
+\subsection{Vectorial Comparison Instructions}
+Enable in llvm with: -mlv32
+
+\begin{verbatim}
+  00 1011 DDDDD AAAAA BBBBB --- 00 00000 0 -> lv.cmp_eq.h        // [i=1..0] rD_hi = repl(rA_hi == rB_hi)
+  00 1011 DDDDD AAAAA BBBBB --- 01 00000 0 -> lv.cmp_eq.h.sc     // [i=1..0] rD_hi = repl(rA_hi == rB_h0)
+  00 1011 DDDDD AAAAA KKKKK KKK 10 00000 0 -> lv.cmp_eq.h.sci    // [i=1..0] rD_hi = repl(rA_hi == extS(K))
+
+  00 1011 DDDDD AAAAA BBBBB --- 00 00000 1 -> lv.cmp_eq.b        // [i=3..0] rD_bi = repl(rA_bi == rB_bi)
+  00 1011 DDDDD AAAAA BBBBB --- 01 00000 1 -> lv.cmp_eq.b.sc     // [i=3..0] rD_bi = repl(rA_bi == rB_b0)
+  00 1011 DDDDD AAAAA KKKKK KKK 10 00000 1 -> lv.cmp_eq.b.sci    // [i=3..0] rD_bi = repl(rA_bi == extS(K))
+
+
+  00 1011 DDDDD AAAAA BBBBB --- 00 00001 0 -> lv.cmp_ne.h        // [i=1..0] rD_hi = repl(rA_hi != rB_hi)
+  00 1011 DDDDD AAAAA BBBBB --- 01 00001 0 -> lv.cmp_ne.h.sc     // [i=1..0] rD_hi = repl(rA_hi != rB_h0)
+  00 1011 DDDDD AAAAA KKKKK KKK 10 00001 0 -> lv.cmp_ne.h.sci    // [i=1..0] rD_hi = repl(rA_hi != extS(K))
+
+  00 1011 DDDDD AAAAA BBBBB --- 00 00001 1 -> lv.cmp_ne.b        // [i=3..0] rD_bi = repl(rA_bi != rB_bi)
+  00 1011 DDDDD AAAAA BBBBB --- 01 00001 1 -> lv.cmp_ne.b.sc     // [i=3..0] rD_bi = repl(rA_bi != rB_b0)
+  00 1011 DDDDD AAAAA KKKKK KKK 10 00001 1 -> lv.cmp_ne.b.sci    // [i=3..0] rD_bi = repl(rA_bi != extS(K))
+
+
+  00 1011 DDDDD AAAAA BBBBB --- 00 00010 0 -> lv.cmp_gt.h        // [i=1..0] rD_hi = repl(rA_hi > rB_hi)
+  00 1011 DDDDD AAAAA BBBBB --- 01 00010 0 -> lv.cmp_gt.h.sc     // [i=1..0] rD_hi = repl(rA_hi > rB_h0)
+  00 1011 DDDDD AAAAA KKKKK KKK 10 00010 0 -> lv.cmp_gt.h.sci    // [i=1..0] rD_hi = repl(rA_hi > extS(K))
+
+  00 1011 DDDDD AAAAA BBBBB --- 00 00010 1 -> lv.cmp_gt.b        // [i=3..0] rD_bi = repl(rA_bi > rB_bi)
+  00 1011 DDDDD AAAAA BBBBB --- 01 00010 1 -> lv.cmp_gt.b.sc     // [i=3..0] rD_bi = repl(rA_bi > rB_b0)
+  00 1011 DDDDD AAAAA KKKKK KKK 10 00010 1 -> lv.cmp_gt.b.sci    // [i=3..0] rD_bi = repl(rA_bi > extS(K))
+
+
+  00 1011 DDDDD AAAAA BBBBB --- 00 00011 0 -> lv.cmp_ge.h        // [i=1..0] rD_hi = repl(rA_hi >= rB_hi)
+  00 1011 DDDDD AAAAA BBBBB --- 01 00011 0 -> lv.cmp_ge.h.sc     // [i=1..0] rD_hi = repl(rA_hi >= rB_h0)
+  00 1011 DDDDD AAAAA KKKKK KKK 10 00011 0 -> lv.cmp_ge.h.sci    // [i=1..0] rD_hi = repl(rA_hi >= extS(K))
+
+  00 1011 DDDDD AAAAA BBBBB --- 00 00011 1 -> lv.cmp_ge.b        // [i=3..0] rD_bi = repl(rA_bi >= rB_bi)
+  00 1011 DDDDD AAAAA BBBBB --- 01 00011 1 -> lv.cmp_ge.b.sc     // [i=3..0] rD_bi = repl(rA_bi >= rB_b0)
+  00 1011 DDDDD AAAAA KKKKK KKK 10 00011 1 -> lv.cmp_ge.b.sci    // [i=3..0] rD_bi = repl(rA_bi >= extS(K))
+
+
+  00 1011 DDDDD AAAAA BBBBB --- 00 00100 0 -> lv.cmp_lt.h        // [i=1..0] rD_hi = repl(rA_hi < rB_hi)
+  00 1011 DDDDD AAAAA BBBBB --- 01 00100 0 -> lv.cmp_lt.h.sc     // [i=1..0] rD_hi = repl(rA_hi < rB_h0)
+  00 1011 DDDDD AAAAA KKKKK KKK 10 00100 0 -> lv.cmp_lt.h.sci    // [i=1..0] rD_hi = repl(rA_hi < extS(K))
+
+  00 1011 DDDDD AAAAA BBBBB --- 00 00100 1 -> lv.cmp_lt.b        // [i=3..0] rD_bi = repl(rA_bi < rB_bi)
+  00 1011 DDDDD AAAAA BBBBB --- 01 00100 1 -> lv.cmp_lt.b.sc     // [i=3..0] rD_bi = repl(rA_bi < rB_b0)
+  00 1011 DDDDD AAAAA KKKKK KKK 10 00100 1 -> lv.cmp_lt.b.sci    // [i=3..0] rD_bi = repl(rA_bi < extS(K))
+
+
+  00 1011 DDDDD AAAAA BBBBB --- 00 00101 0 -> lv.cmp_le.h        // [i=1..0] rD_hi = repl(rA_hi <= rB_hi)
+  00 1011 DDDDD AAAAA BBBBB --- 01 00101 0 -> lv.cmp_le.h.sc     // [i=1..0] rD_hi = repl(rA_hi <= rB_h0)
+  00 1011 DDDDD AAAAA KKKKK KKK 10 00101 0 -> lv.cmp_le.h.sci    // [i=1..0] rD_hi = repl(rA_hi <= extS(K))
+
+  00 1011 DDDDD AAAAA BBBBB --- 00 00101 1 -> lv.cmp_le.b        // [i=3..0] rD_bi = repl(rA_bi <= rB_bi)
+  00 1011 DDDDD AAAAA BBBBB --- 01 00101 1 -> lv.cmp_le.b.sc     // [i=3..0] rD_bi = repl(rA_bi <= rB_b0)
+  00 1011 DDDDD AAAAA KKKKK KKK 10 00101 1 -> lv.cmp_le.b.sci    // [i=3..0] rD_bi = repl(rA_bi <= extS(K))
+\end{verbatim}
+
+
+{\footnotesize
+\begin{verbatim}
+  00 1011 DDDDD AAAAA BBBBB --- 00 01000 0 -> lv.any_eq.h        // [i=1..0] rD_hi = repl(rA_hi == rB_hi);   
+                                                                 // flag = rA_h1 == rB_h1   || rA_h0 == rB_h0;
+  00 1011 DDDDD AAAAA BBBBB --- 01 01000 0 -> lv.any_eq.h.sc     // [i=1..0] rD_hi = repl(rA_hi == rB_h0);   
+                                                                 // flag = rA_h1 == rB_h0   || rA_h0 == rB_h0;
+  00 1011 DDDDD AAAAA KKKKK KKK 10 01000 0 -> lv.any_eq.h.sci    // [i=1..0] rD_hi = repl(rA_hi == extS(K)); 
+                                                                 // flag = rA_h1 == extS(K) || rA_h0 == extS(K);
+
+  00 1011 DDDDD AAAAA BBBBB --- 00 01000 1 -> lv.any_eq.b        // [i=3..0] rD_bi = repl(rA_bi == rB_bi);   
+                                                                 // flag = rA_b3 == rB_b3   || rA_b2 == rB_b2   || rA_b1 == rB_b1   || rA_b0 == rB_b0;
+  00 1011 DDDDD AAAAA BBBBB --- 01 01000 1 -> lv.any_eq.b.sc     // [i=3..0] rD_bi = repl(rA_bi == rB_b0);   
+                                                                 // flag = rA_b3 == rB_b0   || rA_b2 == rB_b0   || rA_b1 == rB_b0   || rA_b0 == rB_b0;
+  00 1011 DDDDD AAAAA KKKKK KKK 10 01000 1 -> lv.any_eq.b.sci    // [i=3..0] rD_bi = repl(rA_bi == extS(K)); 
+                                                                 // flag = rA_b3 == extS(K) || rA_b2 == extS(K) || rA_b1 == extS(K) || rA_b0 == extS(K);
+\end{verbatim}
+
+\clearpage
+\begin{verbatim}
+  00 1011 DDDDD AAAAA BBBBB --- 00 01001 0 -> lv.any_ne.h        // [i=1..0] rD_hi = repl(rA_hi != rB_hi);   
+                                                                 // flag = rA_h1 != rB_h1   || rA_h0 != rB_h0;
+  00 1011 DDDDD AAAAA BBBBB --- 01 01001 0 -> lv.any_ne.h.sc     // [i=1..0] rD_hi = repl(rA_hi != rB_h0);   
+                                                                 // flag = rA_h1 != rB_h0   || rA_h0 != rB_h0;
+  00 1011 DDDDD AAAAA KKKKK KKK 10 01001 0 -> lv.any_ne.h.sci    // [i=1..0] rD_hi = repl(rA_hi != extS(K)); 
+                                                                 // flag = rA_h1 != extS(K) || rA_h0 != extS(K);
+
+  00 1011 DDDDD AAAAA BBBBB --- 00 01001 1 -> lv.any_ne.b        // [i=3..0] rD_bi = repl(rA_bi != rB_bi);   
+                                                                 // flag = rA_b3 != rB_b3   || rA_b2 != rB_b2   || rA_b1 != rB_b1   || rA_b0 != rB_b0;
+  00 1011 DDDDD AAAAA BBBBB --- 01 01001 1 -> lv.any_ne.b.sc     // [i=3..0] rD_bi = repl(rA_bi != rB_b0);   
+                                                                 // flag = rA_b3 != rB_b0   || rA_b2 != rB_b0   || rA_b1 != rB_b0   || rA_b0 != rB_b0;
+  00 1011 DDDDD AAAAA KKKKK KKK 10 01001 1 -> lv.any_ne.b.sci    // [i=3..0] rD_bi = repl(rA_bi != extS(K)); 
+                                                                 // flag = rA_b3 != extS(K) || rA_b2 != extS(K) || rA_b1 != extS(K) || rA_b0 != extS(K);
+
+
+  00 1011 DDDDD AAAAA BBBBB --- 00 01010 0 -> lv.any_gt.h        // [i=1..0] rD_hi = repl(rA_hi > rB_hi);    
+                                                                 // flag = rA_h1 > rB_h1   || rA_h0 > rB_h0;
+  00 1011 DDDDD AAAAA BBBBB --- 01 01010 0 -> lv.any_gt.h.sc     // [i=1..0] rD_hi = repl(rA_hi > rB_h0);    
+                                                                 // flag = rA_h1 > rB_h0   || rA_h0 > rB_h0;
+  00 1011 DDDDD AAAAA KKKKK KKK 10 01010 0 -> lv.any_gt.h.sci    // [i=1..0] rD_hi = repl(rA_hi > extS(K));  
+                                                                 // flag = rA_h1 > extS(K) || rA_h0 > extS(K);
+
+  00 1011 DDDDD AAAAA BBBBB --- 00 01010 1 -> lv.any_gt.b        // [i=3..0] rD_bi = repl(rA_bi > rB_bi);    
+                                                                 // flag = rA_b3 > rB_b3   || rA_b2 > rB_b2   || rA_b1 > rB_b1   || rA_b0 > rB_b0;
+  00 1011 DDDDD AAAAA BBBBB --- 01 01010 1 -> lv.any_gt.b.sc     // [i=3..0] rD_bi = repl(rA_bi > rB_b0);    
+                                                                 // flag = rA_b3 > rB_b0   || rA_b2 > rB_b0   || rA_b1 > rB_b0   || rA_b0 > rB_b0;
+  00 1011 DDDDD AAAAA KKKKK KKK 10 01010 1 -> lv.any_gt.b.sci    // [i=3..0] rD_bi = repl(rA_bi > extS(K));  
+                                                                 // flag = rA_b3 > extS(K) || rA_b2 > extS(K) || rA_b1 > extS(K) || rA_b0 > extS(K);
+
+
+  00 1011 DDDDD AAAAA BBBBB --- 00 01011 0 -> lv.any_ge.h        // [i=1..0] rD_hi = repl(rA_hi >= rB_hi);   
+                                                                 // flag = rA_h1 >= rB_h1   || rA_h0 >= rB_h0;   rD = repl(flag)
+  00 1011 DDDDD AAAAA BBBBB --- 01 01011 0 -> lv.any_ge.h.sc     // [i=1..0] rD_hi = repl(rA_hi >= rB_h0);   
+                                                                 // flag = rA_h1 >= rB_h0   || rA_h0 >= rB_h0;   rD = repl(flag)
+  00 1011 DDDDD AAAAA KKKKK KKK 10 01011 0 -> lv.any_ge.h.sci    // [i=1..0] rD_hi = repl(rA_hi >= extS(K)); 
+                                                                 // flag = rA_h1 >= extS(K) || rA_h0 >= extS(K); rD = repl(flag)
+
+  00 1011 DDDDD AAAAA BBBBB --- 00 01011 1 -> lv.any_ge.b        // [i=3..0] rD_bi = repl(rA_bi >= rB_bi);   
+                                                                 // flag = rA_b3 >= rB_b3   || rA_b2 >= rB_b2   || rA_b1 >= rB_b1   || rA_b0 >= rB_b0;
+  00 1011 DDDDD AAAAA BBBBB --- 01 01011 1 -> lv.any_ge.b.sc     // [i=3..0] rD_bi = repl(rA_bi >= rB_b0);   
+                                                                 // flag = rA_b3 >= rB_b0   || rA_b2 >= rB_b0   || rA_b1 >= rB_b0   || rA_b0 >= rB_b0;
+  00 1011 DDDDD AAAAA KKKKK KKK 10 01011 1 -> lv.any_ge.b.sci    // [i=3..0] rD_bi = repl(rA_bi >= extS(K)); 
+                                                                 // flag = rA_b3 >= extS(K) || rA_b2 >= extS(K) || rA_b1 >= extS(K) || rA_b0 >= extS(K);
+
+
+  00 1011 DDDDD AAAAA BBBBB --- 00 01100 0 -> lv.any_lt.h        // [i=1..0] rD_hi = repl(rA_hi < rB_hi);    
+                                                                 // flag = rA_h1 < rB_h1   || rA_h0 < rB_h0;
+  00 1011 DDDDD AAAAA BBBBB --- 01 01100 0 -> lv.any_lt.h.sc     // [i=1..0] rD_hi = repl(rA_hi < rB_h0);    
+                                                                 // flag = rA_h1 < rB_h0   || rA_h0 < rB_h0;
+  00 1011 DDDDD AAAAA KKKKK KKK 10 01100 0 -> lv.any_lt.h.sci    // [i=1..0] rD_hi = repl(rA_hi < extS(K));  
+                                                                 // flag = rA_h1 < extS(K) || rA_h0 < extS(K);
+
+  00 1011 DDDDD AAAAA BBBBB --- 00 01100 1 -> lv.any_lt.b        // [i=3..0] rD_bi = repl(rA_bi < rB_bi);    
+                                                                 // flag = rA_b3 < rB_b3   || rA_b2 < rB_b2   || rA_b1 < rB_b1   || rA_b0 < rB_b0;
+  00 1011 DDDDD AAAAA BBBBB --- 01 01100 1 -> lv.any_lt.b.sc     // [i=3..0] rD_bi = repl(rA_bi < rB_b0);    
+                                                                 // flag = rA_b3 < rB_b0   || rA_b2 < rB_b0   || rA_b1 < rB_b0   || rA_b0 < rB_b0;
+  00 1011 DDDDD AAAAA KKKKK KKK 10 01100 1 -> lv.any_lt.b.sci    // [i=3..0] rD_bi = repl(rA_bi < extS(K));  
+                                                                 // flag = rA_b3 < extS(K) || rA_b2 < extS(K) || rA_b1 < extS(K) || rA_b0 < extS(K);
+\end{verbatim}
+
+\clearpage
+\begin{verbatim}
+  00 1011 DDDDD AAAAA BBBBB --- 00 01101 0 -> lv.any_le.h        // [i=1..0] rD_hi = repl(rA_hi <= rB_hi);   
+                                                                 // flag = rA_h1 <= rB_h1   || rA_h0 <= rB_h0;
+  00 1011 DDDDD AAAAA BBBBB --- 01 01101 0 -> lv.any_le.h.sc     // [i=1..0] rD_hi = repl(rA_hi <= rB_h0);   
+                                                                 // flag = rA_h1 <= rB_h0   || rA_h0 <= rB_h0;
+  00 1011 DDDDD AAAAA KKKKK KKK 10 01101 0 -> lv.any_le.h.sci    // [i=1..0] rD_hi = repl(rA_hi <= extS(K)); 
+                                                                 // flag = rA_h1 <= extS(K) || rA_h0 <= extS(K);
+
+  00 1011 DDDDD AAAAA BBBBB --- 00 01101 1 -> lv.any_le.b        // [i=3..0] rD_bi = repl(rA_bi <= rB_bi);   
+                                                                 // flag = rA_b3 <= rB_b3   || rA_b2 <= rB_b2   || rA_b1 <= rB_b1   || rA_b0 <= rB_b0;
+  00 1011 DDDDD AAAAA BBBBB --- 01 01101 1 -> lv.any_le.b.sc     // [i=3..0] rD_bi = repl(rA_bi <= rB_b0);   
+                                                                 // flag = rA_b3 <= rB_b0   || rA_b2 <= rB_b0   || rA_b1 <= rB_b0   || rA_b0 <= rB_b0;
+  00 1011 DDDDD AAAAA KKKKK KKK 10 01101 1 -> lv.any_le.b.sci    // [i=3..0] rD_bi = repl(rA_bi <= extS(K)); 
+                                                                 // flag = rA_b3 <= extS(K) || rA_b2 <= extS(K) || rA_b1 <= extS(K) || rA_b0 <= extS(K);
+
+
+  00 1011 DDDDD AAAAA BBBBB --- 00 10000 0 -> lv.all_eq.h        // [i=1..0] rD_hi = repl(rA_hi == rB_hi);   
+                                                                 // flag = rA_h1 == rB_h1   && rA_h0 == rB_h0;
+  00 1011 DDDDD AAAAA BBBBB --- 01 10000 0 -> lv.all_eq.h.sc     // [i=1..0] rD_hi = repl(rA_hi == rB_h0);   
+                                                                 // flag = rA_h1 == rB_h0   && rA_h0 == rB_h0;
+  00 1011 DDDDD AAAAA KKKKK KKK 10 10000 0 -> lv.all_eq.h.sci    // [i=1..0] rD_hi = repl(rA_hi == extS(K)); 
+                                                                 // flag = rA_h1 == extS(K) && rA_h0 == extS(K);
+
+  00 1011 DDDDD AAAAA BBBBB --- 00 10000 1 -> lv.all_eq.b        // [i=3..0] rD_bi = repl(rA_bi == rB_bi);   
+                                                                 // flag = rA_b3 == rB_b3   && rA_b2 == rB_b2   && rA_b1 == rB_b1   && rA_b0 == rB_b0;
+  00 1011 DDDDD AAAAA BBBBB --- 01 10000 1 -> lv.all_eq.b.sc     // [i=3..0] rD_bi = repl(rA_bi == rB_b0);   
+                                                                 // flag = rA_b3 == rB_b0   && rA_b2 == rB_b0   && rA_b1 == rB_b0   && rA_b0 == rB_b0;
+  00 1011 DDDDD AAAAA KKKKK KKK 10 10000 1 -> lv.all_eq.b.sci    // [i=3..0] rD_bi = repl(rA_bi == extS(K)); 
+                                                                 // flag = rA_b3 == extS(K) && rA_b2 == extS(K) && rA_b1 == extS(K) && rA_b0 == extS(K);
+
+
+  00 1011 DDDDD AAAAA BBBBB --- 00 10001 0 -> lv.all_ne.h        // [i=1..0] rD_hi = repl(rA_hi != rB_hi);   
+                                                                 // flag = rA_h1 != rB_h1   && rA_h0 != rB_h0;
+  00 1011 DDDDD AAAAA BBBBB --- 01 10001 0 -> lv.all_ne.h.sc     // [i=1..0] rD_hi = repl(rA_hi != rB_h0);   
+                                                                 // flag = rA_h1 != rB_h0   && rA_h0 != rB_h0;
+  00 1011 DDDDD AAAAA KKKKK KKK 10 10001 0 -> lv.all_ne.h.sci    // [i=1..0] rD_hi = repl(rA_hi != extS(K)); 
+                                                                 // flag = rA_h1 != extS(K) && rA_h0 != extS(K);
+
+  00 1011 DDDDD AAAAA BBBBB --- 00 10001 1 -> lv.all_ne.b        // [i=3..0] rD_bi = repl(rA_bi != rB_bi);   
+                                                                 // flag = rA_b3 != rB_b3   && rA_b2 != rB_b2   && rA_b1 != rB_b1   && rA_b0 != rB_b0;
+  00 1011 DDDDD AAAAA BBBBB --- 01 10001 1 -> lv.all_ne.b.sc     // [i=3..0] rD_bi = repl(rA_bi != rB_b0);   
+                                                                 // flag = rA_b3 != rB_b0   && rA_b2 != rB_b0   && rA_b1 != rB_b0   && rA_b0 != rB_b0;
+  00 1011 DDDDD AAAAA KKKKK KKK 10 10001 1 -> lv.all_ne.b.sci    // [i=3..0] rD_bi = repl(rA_bi != extS(K)); 
+                                                                 // flag = rA_b3 != extS(K) && rA_b2 != extS(K) && rA_b1 != extS(K) && rA_b0 != extS(K);
+\end{verbatim}
+
+\clearpage
+\begin{verbatim}
+  00 1011 DDDDD AAAAA BBBBB --- 00 10010 0 -> lv.all_gt.h        // [i=1..0] rD_hi = repl(rA_hi > rB_hi);    
+                                                                 // flag = rA_h1 > rB_h1   && rA_h0 > rB_h0;
+  00 1011 DDDDD AAAAA BBBBB --- 01 10010 0 -> lv.all_gt.h.sc     // [i=1..0] rD_hi = repl(rA_hi > rB_h0);    
+                                                                 // flag = rA_h1 > rB_h0   && rA_h0 > rB_h0;
+  00 1011 DDDDD AAAAA KKKKK KKK 10 10010 0 -> lv.all_gt.h.sci    // [i=1..0] rD_hi = repl(rA_hi > extS(K));  
+                                                                 // flag = rA_h1 > extS(K) && rA_h0 > extS(K);
+
+  00 1011 DDDDD AAAAA BBBBB --- 00 10010 1 -> lv.all_gt.b        // [i=3..0] rD_bi = repl(rA_bi > rB_bi);    
+                                                                 // flag = rA_b3 > rB_b3   && rA_b2 > rB_b2   && rA_b1 > rB_b1   && rA_b0 > rB_b0;
+  00 1011 DDDDD AAAAA BBBBB --- 01 10010 1 -> lv.all_gt.b.sc     // [i=3..0] rD_bi = repl(rA_bi > rB_b0);    
+                                                                 // flag = rA_b3 > rB_b0   && rA_b2 > rB_b0   && rA_b1 > rB_b0   && rA_b0 > rB_b0;
+  00 1011 DDDDD AAAAA KKKKK KKK 10 10010 1 -> lv.all_gt.b.sci    // [i=3..0] rD_bi = repl(rA_bi > extS(K));  
+                                                                 // flag = rA_b3 > extS(K) && rA_b2 > extS(K) && rA_b1 > extS(K) && rA_b0 > extS(K);
+
+
+  00 1011 DDDDD AAAAA BBBBB --- 00 10011 0 -> lv.all_ge.h        // [i=1..0] rD_hi = repl(rA_hi >= rB_hi);   
+                                                                 // flag = rA_h1 >= rB_h1   && rA_h0 >= rB_h0;
+  00 1011 DDDDD AAAAA BBBBB --- 01 10011 0 -> lv.all_ge.h.sc     // [i=1..0] rD_hi = repl(rA_hi >= rB_h0);   
+                                                                 // flag = rA_h1 >= rB_h0   && rA_h0 >= rB_h0;
+  00 1011 DDDDD AAAAA KKKKK KKK 10 10011 0 -> lv.all_ge.h.sci    // [i=1..0] rD_hi = repl(rA_hi >= extS(K)); 
+                                                                 // flag = rA_h1 >= extS(K) && rA_h0 >= extS(K);
+
+  00 1011 DDDDD AAAAA BBBBB --- 00 10011 1 -> lv.all_ge.b        // [i=3..0] rD_bi = repl(rA_bi >= rB_bi);   
+                                                                 // flag = rA_b3 >= rB_b3   && rA_b2 >= rB_b2   && rA_b1 >= rB_b1   && rA_b0 >= rB_b0;
+  00 1011 DDDDD AAAAA BBBBB --- 01 10011 1 -> lv.all_ge.b.sc     // [i=3..0] rD_bi = repl(rA_bi >= rB_b0);   
+                                                                 // flag = rA_b3 >= rB_b0   && rA_b2 >= rB_b0   && rA_b1 >= rB_b0   && rA_b0 >= rB_b0;
+  00 1011 DDDDD AAAAA KKKKK KKK 10 10011 1 -> lv.all_ge.b.sci    // [i=3..0] rD_bi = repl(rA_bi >= extS(K)); 
+                                                                 // flag = rA_b3 >= extS(K) && rA_b2 >= extS(K) && rA_b1 >= extS(K) && rA_b0 >= extS(K);
+\end{verbatim}
+
+\clearpage
+\begin{verbatim}
+  00 1011 DDDDD AAAAA BBBBB --- 00 10100 0 -> lv.all_lt.h        // [i=1..0] rD_hi = repl(rA_hi < rB_hi);    
+                                                                 // flag = rA_h1 < rB_h1   && rA_h0 < rB_h0;
+  00 1011 DDDDD AAAAA BBBBB --- 01 10100 0 -> lv.all_lt.h.sc     // [i=1..0] rD_hi = repl(rA_hi < rB_h0);    
+                                                                 // flag = rA_h1 < rB_h0   && rA_h0 < rB_h0;
+  00 1011 DDDDD AAAAA KKKKK KKK 10 10100 0 -> lv.all_lt.h.sci    // [i=1..0] rD_hi = repl(rA_hi < extS(K));  
+                                                                 // flag = rA_h1 < extS(K) && rA_h0 < extS(K);
+
+  00 1011 DDDDD AAAAA BBBBB --- 00 10100 1 -> lv.all_lt.b        // [i=3..0] rD_bi = repl(rA_bi < rB_bi);    
+                                                                 // flag = rA_b3 < rB_b3   && rA_b2 < rB_b2   && rA_b1 < rB_b1   && rA_b0 < rB_b0;
+  00 1011 DDDDD AAAAA BBBBB --- 01 10100 1 -> lv.all_lt.b.sc     // [i=3..0] rD_bi = repl(rA_bi < rB_b0);    
+                                                                 // flag = rA_b3 < rB_b0   && rA_b2 < rB_b0   && rA_b1 < rB_b0   && rA_b0 < rB_b0;
+  00 1011 DDDDD AAAAA KKKKK KKK 10 10100 1 -> lv.all_lt.b.sci    // [i=3..0] rD_bi = repl(rA_bi < extS(K));  
+                                                                 // flag = rA_b3 < extS(K) && rA_b2 < extS(K) && rA_b1 < extS(K) && rA_b0 < extS(K);
+
+
+  00 1011 DDDDD AAAAA BBBBB --- 00 10101 0 -> lv.all_le.h        // [i=1..0] rD_hi = repl(rA_hi <= rB_hi);   
+                                                                 // flag = rA_h1 <= rB_h1   && rA_h0 <= rB_h0;
+  00 1011 DDDDD AAAAA BBBBB --- 01 10101 0 -> lv.all_le.h.sc     // [i=1..0] rD_hi = repl(rA_hi <= rB_h0);   
+                                                                 // flag = rA_h1 <= rB_h0   && rA_h0 <= rB_h0;
+  00 1011 DDDDD AAAAA KKKKK KKK 10 10101 0 -> lv.all_le.h.sci    // [i=1..0] rD_hi = repl(rA_hi <= extS(K)); 
+                                                                 // flag = rA_h1 <= extS(K) && rA_h0 <= extS(K);
+
+  00 1011 DDDDD AAAAA BBBBB --- 00 10101 1 -> lv.all_le.b        // [i=3..0] rD_bi = repl(rA_bi <= rB_bi);   
+                                                                 // flag = rA_b3 <= rB_b3   && rA_b2 <= rB_b2   && rA_b1 <= rB_b1   && rA_b0 <= rB_b0;
+  00 1011 DDDDD AAAAA BBBBB --- 01 10101 1 -> lv.all_le.b.sc     // [i=3..0] rD_bi = repl(rA_bi <= rB_b0);   
+                                                                 // flag = rA_b3 <= rB_b0   && rA_b2 <= rB_b0   && rA_b1 <= rB_b0   && rA_b0 <= rB_b0;
+  00 1011 DDDDD AAAAA KKKKK KKK 10 10101 1 -> lv.all_le.b.sci    // [i=3..0] rD_bi = repl(rA_bi <= extS(K)); 
+                                                                 // flag = rA_b3 <= extS(K) && rA_b2 <= extS(K) && rA_b1 <= extS(K) && rA_b0 <= extS(K);
+\end{verbatim}}
+
+
+\newpage
+\section{Hardware Loops}
+2 hardware loop levels are supported
+
+\begin{verbatim}
+000010 000 JJ IIIIIIIIIIIIIIIIIIIII  lp.start J, I    // HWLP_START[J] = signext(I << 2)+ PC
+
+000010 001 JJ IIIIIIIIIIIIIIIIIIIII  lp.end   J, I    // HWLP_END[J] = signext(I << 2)+ PC
+
+
+000010 010 JJ IIIIIIIIIIIIIIIIIIIII  lp.counti J, I   // HWLP_COUNT[J] = zeroext(I)
+
+000010 011 JJ AAAAA ---------------- lp.count  J, rA  // HWLP_COUNT[J] = [rA]
+
+000010 100 JJ CCCCCCCCCCCCC EEEEEEEE lp.setupi J, I, C   // HWLP_START[J] = PC + 4
+                                                         // HWLP_END[J] = zeroext(I << 2)+ PC
+                                                         // HWLP_COUNT[J] = zeroext(C)
+
+
+000010 101 JJ AAAAA EEEEEEEEEEEEEEEE lp.setup  J, I, rA  // HWLP_START[J] = PC + 4
+                                                         // HWLP_END[J] = zero(I << 2)+ PC
+                                                         // HWLP_COUNT[J] = [rA]
+\end{verbatim}
+
+
+
+\newpage
+\section{New MAC}
+
+Reuse the OR1k MAC opcode
+\begin{verbatim}
+11 0001 DDDDD AAAAA BBBBB --- - 000 1000 -> l.mac  rD, rA, rB    // rD[31:0] = rD[31:0] + (rA[31:0] * rB[31:0])
+11 0001 DDDDD AAAAA BBBBB --- - 000 1001 -> l.macc rD, rA, rB    // rD[31:0] = rD[31:0] + (rA[31:0] * rB[31:0]) + carry
+\end{verbatim}
+
+Comment: l.mac, l.macc and also set the carry and overflow flags when a carry or overflow occurs in the addition stage \\
+
+Comment: The original instructions l.mac, l.macu, l.maci, l.macrc will no longer be supported.
+         The MACLO and MACHI special purpose registers are removed. \\ \\
+
+
+Additional instructions: 16x16 bit multiplications/mac with 32 bit result
+
+\begin{verbatim}
+Bit 0          Use Carry
+Bit 1..2       Subword Selection
+Bit 3..4       Signed/Unsigned for both subwords
+Bit 5..6       Subopcode
+
+11 0001 DDDDD AAAAA BBBBB --- - 01 11 00 0 -> l.mac.sl.sl  rD, rA, rB   // rD[31:0] = rD[31:0] + (Sext(rA[15:0])  * Sext(rB[15:0]))
+11 0001 DDDDD AAAAA BBBBB --- - 01 11 10 0 -> l.mac.sh.sl  rD, rA, rB   // rD[31:0] = rD[31:0] + (Sext(rA[31:16]) * Sext(rB[15:0]))
+11 0001 DDDDD AAAAA BBBBB --- - 01 11 11 0 -> l.mac.sh.sh  rD, rA, rB   // rD[31:0] = rD[31:0] + (Sext(rA[31:16]) * Sext(rB[31:16]))
+
+11 0001 DDDDD AAAAA BBBBB --- - 01 00 00 0 -> l.mac.zl.zl  rD, rA, rB   // rD[31:0] = rD[31:0] + (Zext(rA[15:0])  * Zext(rB[15:0]))
+11 0001 DDDDD AAAAA BBBBB --- - 01 00 10 0 -> l.mac.zh.zl  rD, rA, rB   // rD[31:0] = rD[31:0] + (Zext(rA[31:16]) * Zext(rB[15:0]))
+11 0001 DDDDD AAAAA BBBBB --- - 01 00 11 0 -> l.mac.zh.zh  rD, rA, rB   // rD[31:0] = rD[31:0] + (Zext(rA[31:16]) * Zext(rB[31:16]))
+
+11 0001 DDDDD AAAAA BBBBB --- - 01 10 10 0 -> l.mac.sh.zl  rD, rA, rB   // rD[31:0] = rD[31:0] + (Sext(rA[31:16]) * Zext(rB[15:0]))
+\end{verbatim}
+
+\clearpage
+The same but with carry in
+{\small
+\begin{verbatim}
+11 0001 DDDDD AAAAA BBBBB --- - 01 11 00 1 -> l.macc.sl.sl rD, rA, rB   // rD[31:0] = rD[31:0] + (Sext(rA[15:0])  * Sext(rB[15:0]))  + carry
+11 0001 DDDDD AAAAA BBBBB --- - 01 11 10 1 -> l.macc.sh.sl rD, rA, rB   // rD[31:0] = rD[31:0] + (Sext(rA[31:16]) * Sext(rB[15:0]))  + carry
+11 0001 DDDDD AAAAA BBBBB --- - 01 11 11 1 -> l.macc.sh.sh rD, rA, rB   // rD[31:0] = rD[31:0] + (Sext(rA[31:16]) * Sext(rB[31:16])) + carry
+
+11 0001 DDDDD AAAAA BBBBB --- - 01 00 00 1 -> l.macc.zl.zl rD, rA, rB   // rD[31:0] = rD[31:0] + (Zext(rA[15:0])  * Zext(rB[15:0]))  + carry
+11 0001 DDDDD AAAAA BBBBB --- - 01 00 10 1 -> l.macc.zh.zl rD, rA, rB   // rD[31:0] = rD[31:0] + (Zext(rA[31:16]) * Zext(rB[15:0]))  + carry
+11 0001 DDDDD AAAAA BBBBB --- - 01 00 11 1 -> l.macc.zh.zh rD, rA, rB   // rD[31:0] = rD[31:0] + (Zext(rA[31:16]) * Zext(rB[31:16])) + carry
+
+11 0001 DDDDD AAAAA BBBBB --- - 01 10 10 1 -> l.macc.sh.zl rD, rA, rB   // rD[31:0] = rD[31:0] + (Sext(rA[31:16]) * Zext(rB[15:0]))  + carry
+\end{verbatim}}
+
+Comment: l.mac.* instructions all set the carry and overflow flags when a carry or overflow occurs in the addition stage
+
+
+\paragraph{Non MAC variants}
+\begin{verbatim}
+  11 0001 DDDDD AAAAA BBBBB --- - 11 11 00 0 -> l.mul.sl.sl  rD, rA, rB   // rD[31:0] = (Sext(rA[15:0])  * Sext(rB[15:0]))
+  11 0001 DDDDD AAAAA BBBBB --- - 11 11 10 0 -> l.mul.sh.sl  rD, rA, rB   // rD[31:0] = (Sext(rA[31:16]) * Sext(rB[15:0]))
+  11 0001 DDDDD AAAAA BBBBB --- - 11 11 11 0 -> l.mul.sh.sh  rD, rA, rB   // rD[31:0] = (Sext(rA[31:16]) * Sext(rB[31:16]))
+
+  11 0001 DDDDD AAAAA BBBBB --- - 11 00 00 0 -> l.mul.zl.zl  rD, rA, rB   // rD[31:0] = (Zext(rA[15:0])  * Zext(rB[15:0]))
+  11 0001 DDDDD AAAAA BBBBB --- - 11 00 10 0 -> l.mul.zh.zl  rD, rA, rB   // rD[31:0] = (Zext(rA[31:16]) * Zext(rB[15:0]))
+  11 0001 DDDDD AAAAA BBBBB --- - 11 00 11 0 -> l.mul.zh.zh  rD, rA, rB   // rD[31:0] = (Zext(rA[31:16]) * Zext(rB[31:16]))
+
+  11 0001 DDDDD AAAAA BBBBB --- - 11 10 10 0 -> l.mul.sh.zl  rD, rA, rB   // rD[31:0] = (Sext(rA[31:16]) * Zext(rB[15:0]))
+\end{verbatim}
+
+
+\newpage
+\section{Bit Counting Operations}
+
+\begin{verbatim}
+Cnt:
+  11 1000 DDDDD AAAAA ----- -01 -- -- 1101 -> l.cnt rD, rA      // rD = cnt(rA), number of bits set to 1 in rA
+Clb:
+  11 1000 DDDDD AAAAA ----- -01 -- -- 1110 -> l.clb rD, rA      // rD = count leading bits (number of consecutive 1 or 0 from msb,
+                                                                // used for normalization)
+\end{verbatim}
+
+Comment: l.ff1 and l.fl1 from the OpenRISC specifications are also supported
+
+\end{landscape}
+\restoregeometry

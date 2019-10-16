@@ -1,0 +1,6 @@
+1. put in this folder the w.txt and x.txt file, one for inpute features and one for weights.
+2. before compiling the test run 
+               make ddr
+   this command will create .s19 and .slm files that will be loaded by the tb in the BRAM for ddr simulation
+3. run the test
+4. you will found the outputs in y_hw.txt 

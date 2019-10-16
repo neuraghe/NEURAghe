@@ -1,0 +1,148 @@
+/*
+
+Vivado v2017.1 (64-bit)
+SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
+IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
+
+Process ID: 11864
+License: Customer
+
+Current time: 	6/27/18 5:31:51 PM CEST
+Time zone: 	Central European Time (Europe/Rome)
+
+OS: SUSE Linux Enterprise Server 12 (x86_64)
+OS Version: 3.12.36-38-default
+OS Architecture: amd64
+Available processors (cores): 24
+
+Display: localhost:16.0
+Screen size: 1360x715
+Screen resolution (DPI): 95
+Available screens: 1
+Available disk space: 17 GB
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+
+Java version: 	1.8.0_112 64-bit
+Java home: 	/eda/Xilinx/Vivado/2017.1/tps/lnx64/jre
+JVM executable location: 	/eda/Xilinx/Vivado/2017.1/tps/lnx64/jre/bin/java
+Java library paths: /eda/Xilinx/Vivado/2017.1/lib/lnx64.o:/eda/Xilinx/Vivado/2017.1/tps/lnx64/jre/lib/amd64:/eda/Xilinx/Vivado/2017.1/tps/lnx64/jre/lib/amd64/server:/eda/Xilinx/Vivado/2017.1/lnx64/tools/dot/lib:/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+
+User name: 	gderiu
+User home directory: /home/gderiu
+User working directory: /home/gderiu/marco/neuraghe_zc706_8bit_70140_transfmods/fpga
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: /eda/Xilinx/Vivado
+HDI_APPROOT: /eda/Xilinx/Vivado/2017.1
+RDI_DATADIR: /eda/Xilinx/Vivado/2017.1/data
+RDI_BINDIR: /eda/Xilinx/Vivado/2017.1/bin
+
+User preferences location: /home/gderiu/.Xilinx/Vivado
+Vivado preferences directory: /home/gderiu/.Xilinx/Vivado/2017.1/vivado.xml
+Vivado layouts directory: /home/gderiu/.Xilinx/Vivado/2017.1/layouts
+PlanAhead jar location: 	/eda/Xilinx/Vivado/2017.1/lib/classes/planAhead.jar
+Vivado Look & Feel: 	[Synthetica - the extended Synth Look and Feel. - ui.g.i.H]
+Engine tmp dir: 	./.Xil/Vivado-11864-eolab
+
+GUI allocated memory:	193 MB
+GUI max memory:		3,052 MB
+Engine allocated memory: 5,014 MB
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// [GUI Memory]: 53 MB (+53585kb) [00:00:09]
+// [Engine Memory]: 5,014 MB (+5105617kb) [00:00:09]
+// HMemoryUtils.trashcanNow. Engine heap size: 5,024 MB. GUI used memory: 27 MB. Current time: 6/27/18 5:31:53 PM CEST
+selectButton(PAResourceEtoH.GettingStartedView_OPEN_PROJECT, "Open Project"); // x:h (JPanel:JComponent, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_OPEN_PROJECT
+setFileChooser("/home/gderiu/marco/neuraghe_zc706_8bit_70140_transfmods/pulp_on_zynq/pulp_on_zynq.xpr");
+// [GUI Memory]: 57 MB (+756kb) [00:00:35]
+// Opening Vivado Project: /home/gderiu/marco/neuraghe_zc706_8bit_70140_transfmods/pulp_on_zynq/pulp_on_zynq.xpr. Version: Vivado v2017.1 
+// bs:g (cg:JFrame):  Open Project : addNotify
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// Tcl Message: open_project /home/gderiu/marco/neuraghe_zc706_8bit_70140_transfmods/pulp_on_zynq/pulp_on_zynq.xpr 
+// HMemoryUtils.trashcanNow. Engine heap size: 5,047 MB. GUI used memory: 28 MB. Current time: 6/27/18 5:32:18 PM CEST
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_COMPLETED
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_CURRENT
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: IP_LOCK_CHANGE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 62 MB (+2158kb) [00:00:46]
+// Tcl Message: open_project /home/gderiu/marco/neuraghe_zc706_8bit_70140_transfmods/pulp_on_zynq/pulp_on_zynq.xpr 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/gderiu/pulp/ip_repo/ulp_soc_controller'. INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/gderiu/pulp/ip_repo/ulpsoc_wrap_3'. INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/gderiu/pulp/ip_repo/ulpsoc_wrap_2'. INFO: [IP_Flow 19-1700] Loaded user IP repository '/home/gderiu/pulp/ip_repo/ulpsoc_wrap_1'. INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/eda/Xilinx/Vivado/2017.1/data/ip'. 
+// [GUI Memory]: 69 MB (+4364kb) [00:00:50]
+// Tcl Message: open_project: Time (s): cpu = 00:00:32 ; elapsed = 00:00:14 . Memory (MB): peak = 6175.105 ; gain = 164.414 ; free physical = 17008 ; free virtual = 178088 
+// Project name: pulp_on_zynq; location: /home/gderiu/marco/neuraghe_zc706_8bit_70140_transfmods/pulp_on_zynq; part: xc7z045ffg900-2
+// 'i' command handler elapsed time: 24 seconds
+// [GUI Memory]: 74 MB (+1610kb) [00:00:51]
+// Elapsed time: 16 seconds
+dismissDialog("Open Project"); // bs:g (cg:JFrame)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+// [GUI Memory]: 79 MB (+1143kb) [00:00:59]
+// Elapsed time: 28 seconds
+selectButton(PAResourceCommand.PACommandNames_DESIGN_AHEAD, "Design Runs_design_ahead"); // B:JideButton (f:CommandBar, cg:JFrame)
+// Run Command: PAResourceCommand.PACommandNames_DESIGN_AHEAD
+// D:g (cg:JFrame): Create New Runs: addNotify
+selectRadioButton(PAResourceAtoD.DesignAheadWizard_BOTH, "Both"); // a:JRadioButton (JPanel:JComponent, D:g)
+selectButton("NEXT", "Next >"); // JButton:AbstractButton (ButtonPanel:JPanel, D:g)
+// HMemoryUtils.trashcanNow. Engine heap size: 5,232 MB. GUI used memory: 53 MB. Current time: 6/27/18 5:33:08 PM CEST
+selectTable(PAResourceAtoD.ConfigRunTablePanel_CONFIG_RUN_TABLE, "synth_7 ; constrs_1 ; xc7z045ffg900-2 ; Vivado Synthesis Defaults ; false", 0, "Vivado Synthesis Defaults", 3); // c:r (JViewport:JComponent, D:g)
+selectTree("PAResourceOtoP.ProgramOptionsPanelImpl_STRATEGY", "[Strategies, Vivado Strategies, Flow_AreaOptimized_high]", 3, false); // TreeChooserPanel:JTree (JViewport:JComponent, ResizableWindow:JWindow)
+selectButton("NEXT", "Next >"); // JButton:AbstractButton (ButtonPanel:JPanel, D:g)
+selectTable(PAResourceAtoD.ConfigRunTablePanel_CONFIG_RUN_TABLE, "impl_10 ; synth_7 (new) ; constrs_1 ; xc7z045ffg900-2 ; gianfranco ; false", 0, "impl_10", 0); // c:r (JViewport:JComponent, D:g)
+selectTable(PAResourceAtoD.ConfigRunTablePanel_CONFIG_RUN_TABLE, "impl_10 ; synth_7 (new) ; constrs_1 ; xc7z045ffg900-2 ; gianfranco ; false", 0, "impl_10", 0); // c:r (JViewport:JComponent, D:g)
+selectTable(PAResourceAtoD.ConfigRunTablePanel_CONFIG_RUN_TABLE, "impl_10 ; synth_7 (new) ; constrs_1 ; xc7z045ffg900-2 ; gianfranco ; false", 0, "impl_10", 0); // c:r (JViewport:JComponent, D:g)
+selectTable(PAResourceAtoD.ConfigRunTablePanel_CONFIG_RUN_TABLE, "impl_10 ; synth_7 (new) ; constrs_1 ; xc7z045ffg900-2 ; gianfranco ; false", 0, "gianfranco", 4); // c:r (JViewport:JComponent, D:g)
+selectTree("PAResourceOtoP.ProgramOptionsPanelImpl_STRATEGY", "[Strategies, Vivado Strategies, Congestion_SpreadLogic_low]", 21, false); // TreeChooserPanel:JTree (JViewport:JComponent, ResizableWindow:JWindow)
+selectTable(PAResourceAtoD.ConfigRunTablePanel_CONFIG_RUN_TABLE, "impl_10 ; synth_7 (new) ; constrs_1 ; xc7z045ffg900-2 ; Congestion_SpreadLogic_low ; false", 0, "false", 5); // c:r (JViewport:JComponent, D:g)
+selectTable(PAResourceAtoD.ConfigRunTablePanel_CONFIG_RUN_TABLE, "impl_10 ; synth_7 (new) ; constrs_1 ; xc7z045ffg900-2 ; Congestion_SpreadLogic_low ; false", 0, "false", 5); // c:r (JViewport:JComponent, D:g)
+selectButton("NEXT", "Next >"); // JButton:AbstractButton (ButtonPanel:JPanel, D:g)
+selectButton("NEXT", "Next >"); // JButton:AbstractButton (ButtonPanel:JPanel, D:g)
+// TclEventType: RUN_ADD
+// TclEventType: RUN_CURRENT
+// D:g (cg:JFrame): Create New Runs: addNotify
+// bs:g (D:g):  Starting Design Runs : addNotify
+// Tcl Message: create_run synth_7 -flow {Vivado Synthesis 2017} -strategy Flow_AreaOptimized_high 
+// Tcl Message: Run is defaulting to srcset: sources_1 Run is defaulting to constrset: constrs_1 Run is defaulting to part: xc7z045ffg900-2 
+// Tcl Message: create_run impl_10 -parent_run synth_7 -flow {Vivado Implementation 2017} -strategy Congestion_SpreadLogic_low 
+// Tcl Message: Run is defaulting to parent run srcset: sources_1 Run is defaulting to parent run constrset: constrs_1 Run is defaulting to parent run part: xc7z045ffg900-2 
+// Tcl Message: current_run [get_runs impl_10] 
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+dismissDialog("Create New Runs"); // D:g (cg:JFrame)
+// TclEventType: RUN_LAUNCH
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_LAUNCH
+// Tcl Message: launch_runs impl_10 -jobs 12 
+// TclEventType: RUN_MODIFY
+// Tcl Message: [Wed Jun 27 17:33:35 2018] Launched synth_7... Run output will be captured here: /home/gderiu/marco/neuraghe_zc706_8bit_70140_transfmods/pulp_on_zynq/pulp_on_zynq.runs/synth_7/runme.log [Wed Jun 27 17:33:35 2018] Launched impl_10... Run output will be captured here: /home/gderiu/marco/neuraghe_zc706_8bit_70140_transfmods/pulp_on_zynq/pulp_on_zynq.runs/impl_10/runme.log 
+selectButton("FINISH", "Finish"); // JButton:AbstractButton (ButtonPanel:JPanel, D:g)
+// 'f' command handler elapsed time: 34 seconds
+dismissDialog("Starting Design Runs"); // bs:g (D:g)
+// [GUI Memory]: 86 MB (+3221kb) [00:02:03]
+// PAPropertyPanels.initPanels (ulpsoc.edf) elapsed time: 0.2s
+// Elapsed time: 10 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, ulpsoc (ulpsoc.edf)]", 4, false); // B:i (D:JPanel, cg:JFrame)
+// [GUI Memory]: 93 MB (+3339kb) [00:03:55]

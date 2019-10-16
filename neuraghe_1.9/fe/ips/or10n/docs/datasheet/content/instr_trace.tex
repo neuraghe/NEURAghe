@@ -1,0 +1,84 @@
+\chapter{Instruction Traces}
+In the RTL simulation \orion is able to report traces of the instruction it has
+been executing.
+
+There are two flavors of those traces, a human readable version including
+timestamps, cycle counter, program counter and the executed instruction in
+hex-format, and a binary format that includes the current values of the
+performance counters as well.
+
+The binary format is intended for later post-processing by an external, for
+example the pulp-pc-analyzer which can then be fed to KCacheGrind.
+A description of the binary format is available below.
+
+
+\section{Binary Format}
+
+A binary instruction trace always starts with a header given in
+Figure~\ref{fig:instr_trace_bin_header}. After the header multiple body elements
+according to Figure~\ref{fig:instr_trace_el} follow.
+
+\begin{figure}[H]
+  \centering
+  \begin{bytefield}[endianness=big]{32}
+    \bitheader{31,0} \\
+    \bitbox{32}{ Version                            } \\
+    \bitbox{32}{ \#Metrics                          } \\
+    \begin{rightwordgroup}{Metric 1}
+      \bitbox{32}{ Absolute Number                    } \\
+      \bitbox{32}{ Size                               } \\
+      \bitbox{32}{ Delay                              } \\
+      \wordbox{3}{ Description as string\\
+                   Has an arbitrary byte size\\
+                   Must terminate with a '\textbackslash0'}
+    \end{rightwordgroup}\\
+    \wordbox{2}{\vdots} \\
+    \begin{rightwordgroup}{Metric N}
+      \bitbox{32}{ Absolute Number                    } \\
+      \bitbox{32}{ Size                               } \\
+      \bitbox{32}{ Delay                              } \\
+      \wordbox{3}{ Description as string\\
+                   Has an arbitrary byte size\\
+                   Must terminate with a '\textbackslash0'}
+    \end{rightwordgroup}
+  \end{bytefield}
+  \caption{Instruction Trace: Binary Format Header.}
+  \label{fig:instr_trace_bin_header}
+\end{figure}
+
+\begin{itemize}[leftmargin=2cm]
+  \item[\textbf{Version}] Version number to be able to maintain backward compatibility.
+    Current version is \texttt{0x00000001}
+
+  \item[\textbf{\#Metrics}] Number of metrics
+
+  \item[\textbf{Absolute Number}] Report difference to last number seen or absolute
+    number to tool. A value of \texttt{1} means report absolute number directly.
+
+  \item[\textbf{Size}] Size of metric in bytes. Currently only 4 is supported.
+
+  \item[\textbf{Delay}] Report the number given in this metric for the current PC (0),
+    the previous (-1) or the next (+1). This field is meant to offset reported
+    metrics to the instruction that caused it. Since the pipeline of the CPU has
+    a huge influence, it may happen that values reported in the binary trace are
+    offset by a couple of cycles. \\
+    E.g. an L2 access happens very late in the pipeline, but we report the
+    instruction currently in the ID stage in the trace.
+\end{itemize}
+
+\begin{figure}[H]
+  \centering
+  \begin{bytefield}[endianness=big]{32}
+    \bitheader{31,0} \\
+    \wordbox{1}{ Program Counter } \\
+    \begin{rightwordgroup}{Metric 1}
+      \wordbox{1}{ Number of events, \#bytesaccording to size given in header }
+    \end{rightwordgroup} \\
+    \wordbox{2}{\vdots} \\
+    \begin{rightwordgroup}{Metric N}
+      \wordbox{1}{ Number of events, \#bytes according to size given in header }
+    \end{rightwordgroup}
+  \end{bytefield}
+  \caption{Instruction Trace: Binary Format Body Element.}
+  \label{fig:instr_trace_el}
+\end{figure}

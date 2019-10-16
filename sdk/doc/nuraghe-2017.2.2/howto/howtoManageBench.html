@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>How to build SDK components &mdash; howto 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="howto 1 documentation" href="index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="how-to-build-sdk-components">
+<h1>How to build SDK components<a class="headerlink" href="#how-to-build-sdk-components" title="Permalink to this headline">¶</a></h1>
+<p>The SDK contains several components (virtual platform, OMP runtime, OVX runtime) that can be compiled separatly insted of compiling the whole SDK.</p>
+<div class="section" id="openvx-runtime-and-libs">
+<h2>OpenVX runtime and libs<a class="headerlink" href="#openvx-runtime-and-libs" title="Permalink to this headline">¶</a></h2>
+<p>The OpenVX Pulp implementation is currently available only on a prototyping architecture derived from pulp-dev and called pulpevo. Thus to have OpenVX support in the SDK, it must be compiled with the following commands:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ git clone git@iis-git.ee.ethz.ch:pulp-sw/pulp_pipeline.git
+$ cd pulp_pipeline
+$ source init.sh
+$ plpconf --pulpChip=&quot;pulpevo&quot; --pulpRtVersion=bench --pulpOmpVersion=ovx
+$ source setup.sh
+$ plpbuild --p sdk deps checkout build
+</pre></div>
+</div>
+<p>Note that when compiling the whole SDK with the default command, the OpenVX support is also added.</p>
+<p>In order to not build everything but just the OpenVX part (once the SDK has been compiled once to get all the tools), you can replace the plpbuild command by this one:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ plpbuild --g runtime_ovx --g ovx checkout build
+</pre></div>
+</div>
+<p>The group <em>runtime_ovx</em> will compile all the low-layer runtime while the group <em>ovx</em> will compile the OpenVX library and the kernels.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">How to build SDK components</a><ul>
+<li><a class="reference internal" href="#openvx-runtime-and-libs">OpenVX runtime and libs</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/howtoManageBench.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Germain Haugou.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/howtoManageBench.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,5 @@
+UDMA HAL
+..............
+
+.. autodoxygenfile:: udma_v2.h
+	:project: myproject

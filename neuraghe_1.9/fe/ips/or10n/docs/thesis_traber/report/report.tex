@@ -1,0 +1,140 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%                                                                 %
+%%%%%     <file_name>.tex                                             %
+%%%%%                                                                 %
+%%%%% Author:      <author>                                           %
+%%%%% Created:     <date>                                             %
+%%%%% Description: <description>                                      %
+%%%%%                                                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%                                                                 %
+%%%%%     Document Class                                              %
+%%%%%                                                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[%
+ oneside,      % Use the same margins for odd and even pages (cannot
+               % be used with the 'twoside' option). 
+% twoside,      % Use different margins for odd and even pages (cannot
+               % be used with the 'oneside' option).
+ openany,      % Open chapters on odd and even pages.
+ halfparskip,  % Create small spaces for new paragraphs but no indents.
+]{scrbook}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%                                                                 %
+%%%%%     Preamble                                                    %
+%%%%%                                                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Load the preamble from another file.
+\input{./preamble/preamble}
+
+%%%%%
+%%%%% Load the glossaries.
+%%%%%
+\input{./glossaries/glossaries}
+
+% Define which source files should actually been processed.
+%\includeonly{./content/06-design_implementation}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%                                                                 %
+%%%%%     Document Settings                                           %
+%%%%%                                                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% Mandatory title page settings.
+\title{OpenRISC Instruction Set Architecture Extensions}
+\author{Andreas Traber}
+\email{atraber@student.ethz.ch}
+\date{May 2015}
+\semester{Autumn Semester 2014}
+\reporttype{Master Project}
+\firstsup{Michael Gautschi, gautschi@iis.ee.ethz.ch}
+\secondsup{Antonio Pullini, pullinia@iis.ee.ethz.ch}
+\professor{Prof. Dr. Luca Benini, lbenini@iis.ee.ethz.ch}
+
+%%%%% Optional title page settings.
+\titlelogo{./figures/mia_wallace_layout_rev_sml}  % Title page logo path.
+\logoheight{7cm}                      % Height of the title page logo.
+\titlepagemargin{3cm}                 % Margin on the title page.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%                                                                 %
+%%%%%     Start of Document                                           %
+%%%%%                                                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+% Prepare document for minitoc insertions.
+\dominitoc
+
+\frontmatter
+
+% Create title.
+\input{./content/00_0_title}
+%\maketitle
+
+% Include acknowledgements, abstract, etc...
+\include{./content/00_1_acknowledgements}
+\include{./content/00_2_abstract}
+\include{./content/00_3_authorship}
+
+% Insert table of contents, list of figures, and list of tables.
+\tableofcontents
+\listoffigures
+\listoftables
+
+% Print list of acronyms.
+\setlength{\glslistdottedwidth}{0.2\linewidth}
+\printglossary[type=\acronymtype,style=listdotted,title=List of Acronyms]
+
+
+%%%%%
+%%%%% Start the actual main content part.
+%%%%%
+\mainmatter
+
+% Include the actual content files.
+\include{./content/01_introduction}
+\include{./content/02_background}
+\include{./content/03_related_work}
+\include{./content/04_vectorial}
+\include{./content/06_debug}
+\include{./content/07_changes}
+\include{./content/08_results}
+\include{./content/09_conclusion}
+\include{./content/10_outlook}
+
+
+%%%%%
+%%%%% Start of additional parts.
+%%%%%
+\appendix
+
+\include{./content/z_01_appendix}
+\include{./content/z_02_encoding}
+
+\backmatter
+
+% Print the main glossary.
+\printglossary[type=main,title=Glossary]
+
+
+% Print the bibliography.
+%\nocite*{} % Print non-cited references as well.
+\bibliographystyle{IEEEtran}
+\bibliography{IEEEabrv,./bib/main}
+
+
+\end{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%                                                                 %
+%%%%%     End of Document                                             %
+%%%%%                                                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

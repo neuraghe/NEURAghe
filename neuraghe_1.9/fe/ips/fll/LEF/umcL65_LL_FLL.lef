@@ -1,0 +1,1006 @@
+VERSION 5.7 ;
+BUSBITCHARS "[]" ;
+DIVIDERCHAR "/" ;
+
+MACRO umcL65_LL_FLL
+  CLASS BLOCK ;
+  ORIGIN 0 0 ;
+  FOREIGN umcL65_LL_FLL 0 0 ;
+  SIZE 122.8 BY 131 ;
+  PIN VDDA
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER ME6 ;
+        POLYGON 6 90.51 6 130 116.8 130 116.8 90.51 112.8 90.51 112.8 126 10 126 10 90.51 ;
+    END
+  END VDDA
+  PIN VSSA
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER ME5 ;
+        POLYGON 1 90.51 1 130 121.8 130 121.8 90.51 117.8 90.51 117.8 126 5 126 5 90.51 ;
+    END
+  END VSSA
+  PIN VSS
+    DIRECTION INOUT ;
+    USE GROUND ;
+    PORT
+      LAYER ME6 ;
+        POLYGON 6 89.16 6 1 116.8 1 116.8 89.16 112.8 89.16 112.8 5 10 5 10 89.16 ;
+    END
+  END VSS
+  PIN VDD
+    DIRECTION INOUT ;
+    USE POWER ;
+    PORT
+      LAYER ME5 ;
+        POLYGON 1 89.16 5 89.16 5 5 117.8 5 117.8 89.16 121.8 89.16 121.8 1 1 1 ;
+    END
+  END VDD
+  PIN FLLCLK
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 14.3 0.4 14.7 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 14.3 0.4 14.7 0.8 ;
+    END
+  END FLLCLK
+  PIN FLLOE
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 15.5 0.4 15.9 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 15.5 0.4 15.9 0.8 ;
+    END
+  END FLLOE
+  PIN LOCK
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 16.7 0.4 17.1 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 16.7 0.4 17.1 0.8 ;
+    END
+  END LOCK
+  PIN CFGREQ
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 17.9 0.4 18.3 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 17.9 0.4 18.3 0.8 ;
+    END
+  END CFGREQ
+  PIN CFGACK
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 19.1 0.4 19.5 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 19.1 0.4 19.5 0.8 ;
+    END
+  END CFGACK
+  PIN CFGWEB
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 20.3 0.4 20.7 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 20.3 0.4 20.7 0.8 ;
+    END
+  END CFGWEB
+  PIN CFGAD[1]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 21.5 0.4 21.9 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 21.5 0.4 21.9 0.8 ;
+    END
+  END CFGAD[1]
+  PIN CFGAD[0]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 22.7 0.4 23.1 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 22.7 0.4 23.1 0.8 ;
+    END
+  END CFGAD[0]
+  PIN CFGD[31]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 23.9 0.4 24.3 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 23.9 0.4 24.3 0.8 ;
+    END
+  END CFGD[31]
+  PIN CFGD[30]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 25.1 0.4 25.5 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 25.1 0.4 25.5 0.8 ;
+    END
+  END CFGD[30]
+  PIN CFGD[29]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 26.3 0.4 26.7 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 26.3 0.4 26.7 0.8 ;
+    END
+  END CFGD[29]
+  PIN CFGD[28]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 27.5 0.4 27.9 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 27.5 0.4 27.9 0.8 ;
+    END
+  END CFGD[28]
+  PIN CFGD[27]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 28.7 0.4 29.1 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 28.7 0.4 29.1 0.8 ;
+    END
+  END CFGD[27]
+  PIN CFGD[26]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 29.9 0.4 30.3 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 29.9 0.4 30.3 0.8 ;
+    END
+  END CFGD[26]
+  PIN CFGD[25]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 31.1 0.4 31.5 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 31.1 0.4 31.5 0.8 ;
+    END
+  END CFGD[25]
+  PIN CFGD[24]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 32.3 0.4 32.7 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 32.3 0.4 32.7 0.8 ;
+    END
+  END CFGD[24]
+  PIN CFGD[23]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 33.5 0.4 33.9 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 33.5 0.4 33.9 0.8 ;
+    END
+  END CFGD[23]
+  PIN CFGD[22]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 34.7 0.4 35.1 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 34.7 0.4 35.1 0.8 ;
+    END
+  END CFGD[22]
+  PIN CFGD[21]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 35.9 0.4 36.3 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 35.9 0.4 36.3 0.8 ;
+    END
+  END CFGD[21]
+  PIN CFGD[20]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 37.1 0.4 37.5 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 37.1 0.4 37.5 0.8 ;
+    END
+  END CFGD[20]
+  PIN CFGD[19]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 38.3 0.4 38.7 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 38.3 0.4 38.7 0.8 ;
+    END
+  END CFGD[19]
+  PIN CFGD[18]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 39.5 0.4 39.9 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 39.5 0.4 39.9 0.8 ;
+    END
+  END CFGD[18]
+  PIN CFGD[17]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 40.7 0.4 41.1 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 40.7 0.4 41.1 0.8 ;
+    END
+  END CFGD[17]
+  PIN CFGD[16]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 41.9 0.4 42.3 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 41.9 0.4 42.3 0.8 ;
+    END
+  END CFGD[16]
+  PIN CFGD[15]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 43.1 0.4 43.5 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 43.1 0.4 43.5 0.8 ;
+    END
+  END CFGD[15]
+  PIN CFGD[14]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 44.3 0.4 44.7 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 44.3 0.4 44.7 0.8 ;
+    END
+  END CFGD[14]
+  PIN CFGD[13]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 45.5 0.4 45.9 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 45.5 0.4 45.9 0.8 ;
+    END
+  END CFGD[13]
+  PIN CFGD[12]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 46.7 0.4 47.1 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 46.7 0.4 47.1 0.8 ;
+    END
+  END CFGD[12]
+  PIN CFGD[11]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 47.9 0.4 48.3 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 47.9 0.4 48.3 0.8 ;
+    END
+  END CFGD[11]
+  PIN CFGD[10]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 49.1 0.4 49.5 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 49.1 0.4 49.5 0.8 ;
+    END
+  END CFGD[10]
+  PIN CFGD[9]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 50.3 0.4 50.7 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 50.3 0.4 50.7 0.8 ;
+    END
+  END CFGD[9]
+  PIN CFGD[8]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 51.5 0.4 51.9 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 51.5 0.4 51.9 0.8 ;
+    END
+  END CFGD[8]
+  PIN CFGD[7]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 52.7 0.4 53.1 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 52.7 0.4 53.1 0.8 ;
+    END
+  END CFGD[7]
+  PIN CFGD[6]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 53.9 0.4 54.3 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 53.9 0.4 54.3 0.8 ;
+    END
+  END CFGD[6]
+  PIN CFGD[5]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 55.1 0.4 55.5 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 55.1 0.4 55.5 0.8 ;
+    END
+  END CFGD[5]
+  PIN CFGD[4]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 56.3 0.4 56.7 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 56.3 0.4 56.7 0.8 ;
+    END
+  END CFGD[4]
+  PIN CFGD[3]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 57.5 0.4 57.9 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 57.5 0.4 57.9 0.8 ;
+    END
+  END CFGD[3]
+  PIN CFGD[2]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 58.7 0.4 59.1 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 58.7 0.4 59.1 0.8 ;
+    END
+  END CFGD[2]
+  PIN CFGD[1]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 59.9 0.4 60.3 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 59.9 0.4 60.3 0.8 ;
+    END
+  END CFGD[1]
+  PIN CFGD[0]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 61.1 0.4 61.5 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 61.1 0.4 61.5 0.8 ;
+    END
+  END CFGD[0]
+  PIN CFGQ[31]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 62.3 0.4 62.7 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 62.3 0.4 62.7 0.8 ;
+    END
+  END CFGQ[31]
+  PIN CFGQ[30]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 63.5 0.4 63.9 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 63.5 0.4 63.9 0.8 ;
+    END
+  END CFGQ[30]
+  PIN CFGQ[29]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 64.7 0.4 65.1 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 64.7 0.4 65.1 0.8 ;
+    END
+  END CFGQ[29]
+  PIN CFGQ[28]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 65.9 0.4 66.3 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 65.9 0.4 66.3 0.8 ;
+    END
+  END CFGQ[28]
+  PIN CFGQ[27]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 67.1 0.4 67.5 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 67.1 0.4 67.5 0.8 ;
+    END
+  END CFGQ[27]
+  PIN CFGQ[26]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 68.3 0.4 68.7 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 68.3 0.4 68.7 0.8 ;
+    END
+  END CFGQ[26]
+  PIN CFGQ[25]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 69.5 0.4 69.9 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 69.5 0.4 69.9 0.8 ;
+    END
+  END CFGQ[25]
+  PIN CFGQ[24]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 70.7 0.4 71.1 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 70.7 0.4 71.1 0.8 ;
+    END
+  END CFGQ[24]
+  PIN CFGQ[23]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 71.9 0.4 72.3 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 71.9 0.4 72.3 0.8 ;
+    END
+  END CFGQ[23]
+  PIN CFGQ[22]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 73.1 0.4 73.5 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 73.1 0.4 73.5 0.8 ;
+    END
+  END CFGQ[22]
+  PIN CFGQ[21]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 74.3 0.4 74.7 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 74.3 0.4 74.7 0.8 ;
+    END
+  END CFGQ[21]
+  PIN CFGQ[20]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 75.5 0.4 75.9 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 75.5 0.4 75.9 0.8 ;
+    END
+  END CFGQ[20]
+  PIN CFGQ[19]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 76.7 0.4 77.1 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 76.7 0.4 77.1 0.8 ;
+    END
+  END CFGQ[19]
+  PIN CFGQ[18]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 77.9 0.4 78.3 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 77.9 0.4 78.3 0.8 ;
+    END
+  END CFGQ[18]
+  PIN CFGQ[17]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 79.1 0.4 79.5 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 79.1 0.4 79.5 0.8 ;
+    END
+  END CFGQ[17]
+  PIN CFGQ[16]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 80.3 0.4 80.7 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 80.3 0.4 80.7 0.8 ;
+    END
+  END CFGQ[16]
+  PIN CFGQ[15]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 81.5 0.4 81.9 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 81.5 0.4 81.9 0.8 ;
+    END
+  END CFGQ[15]
+  PIN CFGQ[14]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 82.7 0.4 83.1 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 82.7 0.4 83.1 0.8 ;
+    END
+  END CFGQ[14]
+  PIN CFGQ[13]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 83.9 0.4 84.3 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 83.9 0.4 84.3 0.8 ;
+    END
+  END CFGQ[13]
+  PIN CFGQ[12]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 85.1 0.4 85.5 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 85.1 0.4 85.5 0.8 ;
+    END
+  END CFGQ[12]
+  PIN CFGQ[11]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 86.3 0.4 86.7 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 86.3 0.4 86.7 0.8 ;
+    END
+  END CFGQ[11]
+  PIN CFGQ[10]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 87.5 0.4 87.9 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 87.5 0.4 87.9 0.8 ;
+    END
+  END CFGQ[10]
+  PIN CFGQ[9]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 88.7 0.4 89.1 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 88.7 0.4 89.1 0.8 ;
+    END
+  END CFGQ[9]
+  PIN CFGQ[8]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 89.9 0.4 90.3 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 89.9 0.4 90.3 0.8 ;
+    END
+  END CFGQ[8]
+  PIN CFGQ[7]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 91.1 0.4 91.5 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 91.1 0.4 91.5 0.8 ;
+    END
+  END CFGQ[7]
+  PIN CFGQ[6]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 92.3 0.4 92.7 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 92.3 0.4 92.7 0.8 ;
+    END
+  END CFGQ[6]
+  PIN CFGQ[5]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 93.5 0.4 93.9 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 93.5 0.4 93.9 0.8 ;
+    END
+  END CFGQ[5]
+  PIN CFGQ[4]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 94.7 0.4 95.1 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 94.7 0.4 95.1 0.8 ;
+    END
+  END CFGQ[4]
+  PIN CFGQ[3]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 95.9 0.4 96.3 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 95.9 0.4 96.3 0.8 ;
+    END
+  END CFGQ[3]
+  PIN CFGQ[2]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 97.1 0.4 97.5 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 97.1 0.4 97.5 0.8 ;
+    END
+  END CFGQ[2]
+  PIN CFGQ[1]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 98.3 0.4 98.7 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 98.3 0.4 98.7 0.8 ;
+    END
+  END CFGQ[1]
+  PIN CFGQ[0]
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 99.5 0.4 99.9 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 99.5 0.4 99.9 0.8 ;
+    END
+  END CFGQ[0]
+  PIN REFCLK
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 100.7 0.4 101.1 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 100.7 0.4 101.1 0.8 ;
+    END
+  END REFCLK
+  PIN RSTB
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 101.9 0.4 102.3 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 101.9 0.4 102.3 0.8 ;
+    END
+  END RSTB
+  PIN PWDB
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 103.1 0.4 103.5 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 103.1 0.4 103.5 0.8 ;
+    END
+  END PWDB
+  PIN TM
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 104.3 0.4 104.7 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 104.3 0.4 104.7 0.8 ;
+    END
+  END TM
+  PIN TE
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 105.5 0.4 105.9 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 105.5 0.4 105.9 0.8 ;
+    END
+  END TE
+  PIN TD
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 106.7 0.4 107.1 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 106.7 0.4 107.1 0.8 ;
+    END
+  END TD
+  PIN TQ
+    DIRECTION INOUT ;
+    USE SIGNAL ;
+    PORT
+      LAYER ME3 ;
+        RECT 107.9 0.4 108.3 0.8 ;
+    END
+    PORT
+      LAYER ME2 ;
+        RECT 107.9 0.4 108.3 0.8 ;
+    END
+  END TQ
+  OBS
+    LAYER ME1 ;
+      RECT 0.4 0.8 122.4 130.6 ;
+    LAYER ME2 ;
+      RECT 0.4 0.8 122.4 130.6 ;
+    LAYER ME3 ;
+      RECT 0.4 0.8 122.4 130.6 ;
+    LAYER ME5 ;
+      RECT 5 5 117.8 126 ;
+    LAYER ME4 ;
+      RECT 0.4 0.8 122.4 130.6 ;
+    LAYER ME6 ;
+      RECT 10 5 112.8 126 ;
+  END
+END umcL65_LL_FLL
+
+END LIBRARY

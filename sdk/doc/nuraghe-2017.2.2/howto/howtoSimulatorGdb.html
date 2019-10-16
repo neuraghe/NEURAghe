@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>How to use GDB with virtual platform &mdash; howto 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="howto 1 documentation" href="index.html" />
+    <link rel="next" title="How to use runtime traces" href="howtoRuntimeTrace.html" />
+    <link rel="prev" title="How to debug memory corruptions or invalid accesses" href="howtoDebugMemoryCorruption.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="how-to-use-gdb-with-virtual-platform">
+<h1>How to use GDB with virtual platform<a class="headerlink" href="#how-to-use-gdb-with-virtual-platform" title="Permalink to this headline">¶</a></h1>
+<p>The virtual platform can open a debug bridge so that GDB can connect on it.</p>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>The virtual platform must be launched with the following option:</p>
+<div class="highlight-python"><div class="highlight"><pre>make run PLT_OPT=--debug
+</pre></div>
+</div>
+<p>This should dump something like this:</p>
+<div class="highlight-python"><div class="highlight"><pre>Debug bridge listening on port 1234
+</pre></div>
+</div>
+<p>Then the platform is stopped (all core are in debug mode), waiting for gdb to connect.</p>
+<p>In another terminal, gdb must be launched with:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">riscv32</span><span class="o">-</span><span class="n">unknown</span><span class="o">-</span><span class="n">elf</span><span class="o">-</span><span class="n">gdb</span>
+</pre></div>
+</div>
+<p>Then the following command must be executed from gdb shell:</p>
+<div class="highlight-python"><div class="highlight"><pre>target remote :1234
+</pre></div>
+</div>
+<p>If everything runs fine, this should display:</p>
+<div class="highlight-python"><div class="highlight"><pre>0x1c000080 in ?? ()
+</pre></div>
+</div>
+<p>This means gdb sees that the current selected core is stopped at the entry point (this is the address of the reset exception handler).</p>
+<p>To see which cores are connected:</p>
+<div class="highlight-python"><div class="highlight"><pre>info threads
+</pre></div>
+</div>
+<p>This should display:</p>
+<div class="highlight-python"><div class="highlight"><pre>  Id   Target Id         Frame
+* 1    Remote target     0x1c000094 in ?? ()
+  2    Thread 1 (Core 00000001) 0x1c000094 in ?? ()
+  3    Thread 2 (Core 00000002) 0x1c000094 in ?? ()
+  4    Thread 3 (Core 00000003) 0x1c000094 in ?? ()
+</pre></div>
+</div>
+</div>
+<div class="section" id="what-is-supported">
+<h2>What is supported<a class="headerlink" href="#what-is-supported" title="Permalink to this headline">¶</a></h2>
+<p>Everything should be supported, including instruction-stepping, breakpoints, watchpoints, etc. The cores are configured in a symetric mode where all cores stop as soon as at least one stops. This means, if one core reaches a breakpoint, all cores will be stopped as if they have also reached a breakpoint.</p>
+<p>However the gdb porting to riscv is not fully stable and is thus generating lots of invalid accesses, especially when unwinding the stack.</p>
+</div>
+<div class="section" id="tips">
+<h2>Tips<a class="headerlink" href="#tips" title="Permalink to this headline">¶</a></h2>
+<p>The socket port where gdb must connect is by default 1234 but can be specified with the following option if for example it is in conflict with another application:</p>
+<div class="highlight-python"><div class="highlight"><pre>make run PLT_OPT=&quot;--debug --gdb-port=12345&quot;
+</pre></div>
+</div>
+<p>The gdb target command execute to connect to the platform must give the same port.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">How to use GDB with virtual platform</a><ul>
+<li><a class="reference internal" href="#usage">Usage</a></li>
+<li><a class="reference internal" href="#what-is-supported">What is supported</a></li>
+<li><a class="reference internal" href="#tips">Tips</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="howtoDebugMemoryCorruption.html" title="previous chapter">How to debug memory corruptions or invalid accesses</a></li>
+      <li>Next: <a href="howtoRuntimeTrace.html" title="next chapter">How to use runtime traces</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/howtoSimulatorGdb.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Germain Haugou.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/howtoSimulatorGdb.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

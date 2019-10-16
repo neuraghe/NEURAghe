@@ -1,0 +1,138 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%                                                                 %
+%%%%%     <file_name>.tex                                             %
+%%%%%                                                                 %
+%%%%% Author:      <author>                                           %
+%%%%% Created:     <date>                                             %
+%%%%% Description: <description>                                      %
+%%%%%                                                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Related Work}
+
+\label{chapter:related_work}
+
+
+\section{Hardware Loops \& Auto-Incrementing Load/Stores}
+\label{sec:or10n_hwlp_prepost}
+
+The \gls{PULP} team has already extended the OpenRISC \gls{ISA} prior to this
+thesis, i.e. zero-overhead hardware loops and extended addressing modes for load
+and store operations were added.
+
+Hardware loops eliminate the need of explicitly stating branch instructions
+and decreasing the loop counter, instead this is done automatically by the
+hardware when encountering the end of a given loop.
+Hardware loops need to be set up beforehand with dedicated instructions. Those
+instructions specify the begin and end of the loop and how many times it shall
+be executed. During loop execution the core then takes care of jumping to the
+beginning of the loop when the end is encountered and the loop counter has not
+yet reached zero, while at the same time the loop counter is decremented.
+When no hardware loops are used for a loop, an overhead of at least three
+instructions is introduced, one instruction for decrementing the loop counter,
+one for a set flag operations to check for the exit condition, one for
+the branch instruction and maybe one instruction in the delay slot of the
+branch. All those instructions are eliminated with hardware loops and thus we
+gain on code size and execution speed.
+
+As expected, this helps a lot when used on small loops, but less on
+bigger ones. The cost and benefits of multiple hardware loop levels was
+evaluated and it was decided that two levels of hardware loops are enough for
+almost all applications. For some few applications an additional speedup can be
+achieved by using even more levels, but this comes at a hardware cost which does
+not justify the benefits.
+
+Extended memory addressing modes were added to the core by implementing
+auto-incrementing load and store operations and register-register addressing.
+Auto-incrementing load and store instruction do not only perform a memory
+access, but also take care of increasing the address by the amount specified as
+offset and save it back to the register file. Two different modes of operations
+are supported, pre-increments and post-increments. Pre-increments first
+increase the address by the value specified in a register or immediate and use
+the incremented address to access the memory, while post-increment instructions
+address the memory directly with the base address and store the incremented
+value in the register file.
+Register-register addressing adds the possibility to specify a memory address as
+an addition of register operand $A$ plus operand $B$ and allows much more
+general memory access patterns than just register operand $A$ plus an immediate.
+The operand $A$ plus immediate addressing mode was the only addressing mode
+available in the OpenRISC base \gls{ISA}.
+
+Since for auto-incrementing load operations two register values need to be
+written at the same time, i.e. one for the modified address and one for the
+value from memory, two write ports on the register file are required.
+The typical register file of a \gls{RISC} CPU includes two read ports and one
+write port which is not enough to perform two writes simultaneously. To solve
+this problem, an additional write port was added to the register file. Since a
+second port was already added when this thesis was started, we started using it
+more aggressively during this thesis, i.e. all \gls{ALU} operations now use the
+second write port of the register file per default while the first one is only
+used for memory access and \gls{SPR} accesses, i.e. operations that are not
+ready in the \gls{EX} stage of the core.
+
+To implement register-register store instructions, three register values need
+to be read at the same time, i.e. two for the address calculation and one to be
+stored in memory. To accomplish this a third read port was added to the RF
+which we then used during this thesis for new \gls{MAC} instructions as well.
+
+
+\section{Vectorial Instructions}
+
+Vectorial instructions aim to use the full potential of the 32 bit data path
+when we are computing on data that is only 8 or 16 bit wide. We can segment the
+data path into two or four parts and perform calculations on 2x 16 bits or 4x 8
+bits in parallel. Those kind of operations are also known as sub-word parallelism
+\cite{MAX2, PLX}, packed-SIMD \cite{RISCV} or micro-SIMD \cite{MCOMP} instructions.
+
+It has been shown in \cite{PLX} that vectorial instructions can cut down the number
+of cycles by a factor of four when operating on data that has 1/4th of
+the width of the data path. 
+
+Also \cite{MAX2} has implemented a set of vectorial instructions and show that
+the overhead of partitioning the data path does not have a significant impact
+on the area, timing or design time of a \gls{CPU}.
+%They did not add support for vectorial multiplications since in their opinion
+%having a multiplication with the same output width as they width of its input
+%is not sufficient.
+
+
+Most of the parallelism is available in addition, subtraction, averaging,
+shifting, maximum, minimum, absolute number calculation and comparisons. Those
+operations are frequent on 8 and 16 bit data types in multimedia applications
+\cite{MCOMP} and thus one can expect a large speedup for this kind of
+applications.
+
+The OpenRISC specifications \cite{OR1KSPEC} already contain a proposal for
+vectorial instructions for their 64 bit \gls{ISA}, but they were never
+implemented. Since our core is based on 32 bits, it was not possible to directly
+build on those specifications. Similarly we wanted to add additional features
+that were not present in the original specifications done by the OpenRISC
+community.
+
+As a reference to our own vectorial instruction set, we checked what ARM offers
+on their Cortex M4 \glspl{CPU} \cite{CM4UG}. For example they implement
+vectorial addition, subtraction and averaging.
+ARM also added extensions to the multiplier, e.g. they support sub-word
+selection.
+Sub-word selection multiplication instructions take two 32 bit operands A and
+B.  For each of those 32 bit input operands the upper or lower 16 bits are
+selected as input to the multiplier and thus a 16 bit times 16 bit
+multiplication with a 32 bit result is performed.
+
+
+RISC-V \cite{RISCV}, another open source instruction set similar to OpenRISC,
+also aims to provide vectorial instructions. To this date no definite set of
+instructions has been proposed, but they will add support for this kind of
+instructions eventually. They also highlight one important point, when sub-word
+parallel computation should be performed, it is desirable to have load and
+store memory operations that support non-word aligned access.
+The reason why it is desirable to support non-word aligned accesses is that if
+vectorial operations are performed on data that is not aligned, the data
+re-aligning for the vectorial instructions might eliminate the speedup. Also it
+makes life much easier for a compiler since no special cases for non-aligned
+memory accesses are necessary.
+That misaligned memory access have a high performance impact was also shown by
+\cite{UNALIGN} for the Altivec vector extensions.
+

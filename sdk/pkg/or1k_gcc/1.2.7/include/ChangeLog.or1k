@@ -1,0 +1,31 @@
+2013-02-12  Christian Svensson  <blue@cmd.nu>
+
+	* elf/or1k.h (START_RELOC_NUMBERS): Add R_OR1K_TLS_GD_HI16,
+	R_OR1K_TLS_GD_LO16, R_OR1K_TLS_LDM_HI16, R_OR1K_TLS_LDM_HI16,
+	R_OR1K_TLS_LDM_LO16, R_OR1K_TLS_LDO_HI16, R_OR1K_TLS_LDO_LO16,
+	R_OR1K_TLS_IE_HI16, R_OR1K_TLS_IE_LO16, R_OR1K_TLS_LE_HI16,
+	R_OR1K_TLS_LE_LO16, R_OR1K_TLS_TPOFF, R_OR1K_TLS_DTPOFF,
+	R_OR1K_TLS_DTPMOD.
+
+2012-10-24  Stefan Kristiansson  <stefan.kristiansson@saunalahti.fi>
+
+	* elf/or1k.h (START_RELOC_NUMBERS): Add R_OR1K_GOTPC_HI16,
+	R_OR1K_GOTPC_LO16, R_OR1K_GOT16, R_OR1K_PLT26, R_OR1K_GOTOFF_HI16,
+	R_OR1K_GOTOFF_LO16, R_OR1K_COPY, R_OR1K_GLOB_DAT, R_OR1K_JMP_SLOT and
+	R_OR1K_RELATIVE.
+
+2012-05-13  Peter Gavin  <pgavin@gmail.com>
+
+	* elf/or1k.h: add EF_OR1K_NODELAY flag
+
+2012-02-18  Peter Gavin  <pgavin@gmail.com>
+
+	* elf/or1k.h: reorder relocs to maintain binary compatibility; add
+	32/16/8-bit pc-relative relocs
+
+2012-02-13  Peter Gavin  <pgavin@gmail.com>
+
+
+	* dis-asm.h: s/openrisc/or1k/ s/or32/or1k/
+        * elf/common.h: ditto
+        * elf/or1k.h: new file

@@ -1,0 +1,67 @@
+\ref{areapowerlegend}
+
+\hspace*{-1em}
+\begin{tikzpicture}[font=\scriptsize, tight background]
+\begin{axis}[
+  ylabel={Area [$kGE$]},
+  width=0.4\linewidth,
+  height=0.5\linewidth,
+  ybar=0pt,
+	xtick=data,
+  bar width=5,
+  ymin=0,
+  grid,
+  yticklabel style={font=\tiny,/pgf/number format/.cd,fixed,precision=1},
+  every axis y label/.style={at={(ticklabel cs:.5,5)},rotate=90},
+	xticklabels={Core},
+	cycle list name=mylist,
+  enlarge x limits=0.3,
+	legend to name=areapowerlegend,
+	legend style={
+		draw=none,
+		legend columns=1,
+		/tikz/every even column/.append style={column sep=.5cm},
+    transpose legend,
+    legend cell align=left
+  },
+  ]
+
+\addplot table [x expr=\coordindex, y=base,col sep=comma] {data/area.csv};
+\addplot table [x expr=\coordindex, y=cfgIH,col sep=comma] {data/area.csv};
+\addplot table [x expr=\coordindex, y=cfgIHM,col sep=comma] {data/area.csv};
+\addplot table [x expr=\coordindex, y=cfgIHVM,col sep=comma] {data/area.csv};
+\pgfplotsset{cycle list shift=1};
+\addplot table [x expr=\coordindex, y=cfgIHVMC,col sep=comma] {data/area.csv};
+\addplot table [x expr=\coordindex, y=cfgOR1200,col sep=comma] {data/area.csv};
+\legend{Base,{+HWLP,LD/ST},{+HWLP,LD/ST,MAC},{+HWLP,LD/ST,MAC,VEC},{+HWLP,LD/ST,MAC,VEC,BIT},OR1200};
+\end{axis}
+\end{tikzpicture}
+\hspace*{1cm}
+\begin{tikzpicture}[font=\scriptsize, tight background]
+\begin{axis}[
+	ylabel near ticks,
+	yticklabel pos=right,
+  width=0.4\linewidth,
+  height=0.5\linewidth,
+  ybar=0pt,
+  ymin=1400,
+	xtick=data,
+  bar width=5,
+  ymin=0,
+  grid,
+  yticklabel style={font=\tiny,/pgf/number format/.cd,fixed,precision=1},
+  every axis y label/.style={at={(ticklabel cs:.5,5)},rotate=90},
+	xticklabels={Cluster},
+	cycle list name=mylist,
+  enlarge x limits=0.3,
+  ]
+
+\addplot table [x expr=\coordindex, y=base,col sep=comma] {data/area-cluster.csv};
+\addplot table [x expr=\coordindex, y=cfgIH,col sep=comma] {data/area-cluster.csv};
+\addplot table [x expr=\coordindex, y=cfgIHM,col sep=comma] {data/area-cluster.csv};
+\addplot table [x expr=\coordindex, y=cfgIHVM,col sep=comma] {data/area-cluster.csv};
+\pgfplotsset{cycle list shift=1};
+\addplot table [x expr=\coordindex, y=cfgIHVMC,col sep=comma] {data/area-cluster.csv};
+
+\end{axis}
+\end{tikzpicture}

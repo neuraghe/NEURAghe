@@ -1,0 +1,10 @@
+#-----------------------------------------------------------
+# Vivado v2014.4 (64-bit)
+# SW Build 1071353 on Tue Nov 18 16:47:07 MST 2014
+# IP Build 1070531 on Tue Nov 18 01:10:18 MST 2014
+# Start of session at: Fri Jan 15 08:54:52 2016
+# Process ID: 3166
+# Log file: /home/gianfranco/pulp/pulp4/fpga/ips/xilinx_tcdm_bank_256x32/xilinx_tcdm_bank_256x32.runs/xilinx_tcdm_bank_256x32_synth_1/xilinx_tcdm_bank_256x32.vds
+# Journal file: /home/gianfranco/pulp/pulp4/fpga/ips/xilinx_tcdm_bank_256x32/xilinx_tcdm_bank_256x32.runs/xilinx_tcdm_bank_256x32_synth_1/vivado.jou
+#-----------------------------------------------------------
+source xilinx_tcdm_bank_256x32.tcl

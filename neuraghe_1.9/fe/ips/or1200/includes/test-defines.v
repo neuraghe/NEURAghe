@@ -1,0 +1,1 @@
+`define TEST_NAME_STRING "or1200-PULP"

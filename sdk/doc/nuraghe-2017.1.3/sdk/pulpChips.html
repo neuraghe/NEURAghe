@@ -1,0 +1,432 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Chips &mdash; SDK 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="SDK 1.0 documentation" href="index.html" />
+    <link rel="next" title="Full example" href="fullExample.html" />
+    <link rel="prev" title="Platforms" href="platforms.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="chips">
+<h1>Chips<a class="headerlink" href="#chips" title="Permalink to this headline">¶</a></h1>
+<p>This page lists all the Pulp chips supported by the SDK and some details about the various IP versions.</p>
+<div class="section" id="pulp2">
+<h2>Pulp2<a class="headerlink" href="#pulp2" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="36%" />
+<col width="64%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Characteristic</th>
+<th class="head">Value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Architecture</td>
+<td>pulp2</td>
+</tr>
+<tr class="row-odd"><td>Cores</td>
+<td>4</td>
+</tr>
+<tr class="row-even"><td>Core</td>
+<td>or1k</td>
+</tr>
+<tr class="row-odd"><td>L2</td>
+<td>64K</td>
+</tr>
+<tr class="row-even"><td>SRAM</td>
+<td>32K</td>
+</tr>
+<tr class="row-odd"><td>SCM</td>
+<td>8K</td>
+</tr>
+<tr class="row-even"><td>DMA</td>
+<td>mchan_v1</td>
+</tr>
+<tr class="row-odd"><td>event unit</td>
+<td>nothing</td>
+</tr>
+<tr class="row-even"><td>pcache</td>
+<td>Private, 1K per core, direct map</td>
+</tr>
+<tr class="row-odd"><td>L1 interco</td>
+<td>banking factor of 2</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="pulp3">
+<h2>Pulp3<a class="headerlink" href="#pulp3" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="81%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Characteristic</th>
+<th class="head">Value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Architecture</td>
+<td>pulp3</td>
+</tr>
+<tr class="row-odd"><td>Cores</td>
+<td>4</td>
+</tr>
+<tr class="row-even"><td>Core</td>
+<td>or10n</td>
+</tr>
+<tr class="row-odd"><td>L2</td>
+<td>128K</td>
+</tr>
+<tr class="row-even"><td>SRAM</td>
+<td>64K</td>
+</tr>
+<tr class="row-odd"><td>SCM</td>
+<td>8K</td>
+</tr>
+<tr class="row-even"><td>DMA</td>
+<td>mchan_v3</td>
+</tr>
+<tr class="row-odd"><td>event unit</td>
+<td>evt_v1</td>
+</tr>
+<tr class="row-even"><td>pcache</td>
+<td>Shared, 4K, 4 way associative, banking factor of 1, 128bits interco, 128bits L0</td>
+</tr>
+<tr class="row-odd"><td>L1 interco</td>
+<td>banking factor of 2</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="mia-wallace">
+<h2>Mia Wallace<a class="headerlink" href="#mia-wallace" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="81%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Characteristic</th>
+<th class="head">Value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Architecture</td>
+<td>pulp3</td>
+</tr>
+<tr class="row-odd"><td>Cores</td>
+<td>4</td>
+</tr>
+<tr class="row-even"><td>Core</td>
+<td>or10n</td>
+</tr>
+<tr class="row-odd"><td>L2</td>
+<td>256K</td>
+</tr>
+<tr class="row-even"><td>SRAM</td>
+<td>64K</td>
+</tr>
+<tr class="row-odd"><td>SCM</td>
+<td>8K</td>
+</tr>
+<tr class="row-even"><td>DMA</td>
+<td>mchan_v2</td>
+</tr>
+<tr class="row-odd"><td>Event unit</td>
+<td>evt_v1</td>
+</tr>
+<tr class="row-even"><td>pcache</td>
+<td>Shared, 4K, 4 way associative, banking factor of 1, 128bits interco, 128bits L0</td>
+</tr>
+<tr class="row-odd"><td>L1 interco</td>
+<td>banking factor of 2</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="honey-bunny">
+<h2>Honey bunny<a class="headerlink" href="#honey-bunny" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="81%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Characteristics</th>
+<th class="head">&nbsp;</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Architecture</td>
+<td>pulp4</td>
+</tr>
+<tr class="row-odd"><td>Cores</td>
+<td>4</td>
+</tr>
+<tr class="row-even"><td>Core</td>
+<td>riscv</td>
+</tr>
+<tr class="row-odd"><td>L2</td>
+<td>256K</td>
+</tr>
+<tr class="row-even"><td>SRAM</td>
+<td>64K</td>
+</tr>
+<tr class="row-odd"><td>SCM</td>
+<td>16K</td>
+</tr>
+<tr class="row-even"><td>DMA</td>
+<td>mchan_v4</td>
+</tr>
+<tr class="row-odd"><td>Event unit</td>
+<td>evt_v1</td>
+</tr>
+<tr class="row-even"><td>pcache</td>
+<td>Shared, 4K, 4 way associative, banking factor of 1, 128bits interco, 128bits L0</td>
+</tr>
+<tr class="row-odd"><td>L1 interco</td>
+<td>banking factor of 2</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="fulmine">
+<h2>Fulmine<a class="headerlink" href="#fulmine" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="81%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Characteristics</th>
+<th class="head">&nbsp;</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Architecture</td>
+<td>pulp4</td>
+</tr>
+<tr class="row-odd"><td>Cores</td>
+<td>4</td>
+</tr>
+<tr class="row-even"><td>Core</td>
+<td>or10nv2</td>
+</tr>
+<tr class="row-odd"><td>L2</td>
+<td>192K</td>
+</tr>
+<tr class="row-even"><td>SRAM</td>
+<td>64K</td>
+</tr>
+<tr class="row-odd"><td>SCM</td>
+<td>8K</td>
+</tr>
+<tr class="row-even"><td>DMA</td>
+<td>mchan_v5</td>
+</tr>
+<tr class="row-odd"><td>Event unit</td>
+<td>evt_v1</td>
+</tr>
+<tr class="row-even"><td>pcache</td>
+<td>Shared, 4K, 4 way associative, banking factor of 1, 128bits interco, 128bits L0</td>
+</tr>
+<tr class="row-odd"><td>L1 interco</td>
+<td>banking factor of 2</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="components">
+<h1>Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="core">
+<h2>Core<a class="headerlink" href="#core" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="9%" />
+<col width="91%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">&nbsp;</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>or1k</td>
+<td>Implements original open-risc ISA</td>
+</tr>
+<tr class="row-odd"><td>or10n</td>
+<td>Implements original open-risc ISA + a first set of extensions (HW loops, 8bits and 16bits vectors, post-modification and register-register offset addressing modes, mac, abs, minmax, cmov, cnt, clb)</td>
+</tr>
+<tr class="row-even"><td>or10nv2</td>
+<td>Implements original open-risc ISA + or10n improved extensions + a second set of extensions (dot product, fixed-point support, clamping)</td>
+</tr>
+<tr class="row-odd"><td>riscv</td>
+<td>Implements RISCV ISA + the or10n extensions except vectorial support</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="dma">
+<h2>DMA<a class="headerlink" href="#dma" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="8%" />
+<col width="92%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">&nbsp;</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>mchan_v0</td>
+<td>Initial DMA aligned with computing frontiers 2014 paper</td>
+</tr>
+<tr class="row-odd"><td>mchan_v1</td>
+<td>Same as mchan_v0 with AXI interfaces</td>
+</tr>
+<tr class="row-even"><td>mchan_v2</td>
+<td>Same as mchan_v1 with transfer splitting when crossing a 4k boundary (to be AXI compliant)</td>
+</tr>
+<tr class="row-odd"><td>mchan_v3</td>
+<td>Same as mchan_v2 with support for misaligned accesses on both TCDM and L2 and support for non power of 2 transfers</td>
+</tr>
+<tr class="row-even"><td>mchan_v4</td>
+<td>Same as mchan_v3 with parametric burst size to avoid long stalls on I$ refll</td>
+</tr>
+<tr class="row-odd"><td>mchan_v5</td>
+<td>Same as mchan_v4 with support for non-incrementing bursts (to interact with FIFOs), 2D transfers, multiple transfers IDs and additional command queue mapped on peripheral interconnect accessible from outside the cluster.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="event-unit">
+<h2>Event unit<a class="headerlink" href="#event-unit" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="32%" />
+<col width="68%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Name</th>
+<th class="head">&nbsp;</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>evt_v1</td>
+<td>6 HW barriers, 3 GP events</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Chips</a><ul>
+<li><a class="reference internal" href="#pulp2">Pulp2</a></li>
+<li><a class="reference internal" href="#pulp3">Pulp3</a></li>
+<li><a class="reference internal" href="#mia-wallace">Mia Wallace</a></li>
+<li><a class="reference internal" href="#honey-bunny">Honey bunny</a></li>
+<li><a class="reference internal" href="#fulmine">Fulmine</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#components">Components</a><ul>
+<li><a class="reference internal" href="#core">Core</a></li>
+<li><a class="reference internal" href="#dma">DMA</a></li>
+<li><a class="reference internal" href="#event-unit">Event unit</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="platforms.html" title="previous chapter">Platforms</a></li>
+      <li>Next: <a href="fullExample.html" title="next chapter">Full example</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pulpChips.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, ETH - Unibo.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/pulpChips.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

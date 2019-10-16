@@ -1,0 +1,2506 @@
+***
+*** Generated for: eldoD
+*** Generated on: May 28 17:49:32 2015
+*** Design library name: vbbgen_PULPV3_tb
+*** Design cell name: tb
+*** Design view name: schematic
+.GLOBAL
+.LIB /home/tcmuelle/projects/st28_ams/corners.eldo 
+
+*** Library name: C28SOI_SC_12_COREPBP16_LL
+*** Cell name: C12T28SOI_LL_IVX8_P16
+*** View name: cmos_sch
+.SUBCKT C12T28SOI_LL_IVX8_P16 A Z INH_GND INH_GNDS INH_VDD INH_VDDS
+    XMP1 Z A INH_VDD INH_VDDS lvtpfet w=538.0n l=30.0n as={(76n)*(538.0n)
++} ad={(76n)*(538.0n)} nf={(1)*(1)} sa=(76n) sb=(76n) sd=96n ptwell=0
++p_la=16n ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0
++swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+    XMN1 Z A INH_GND INH_GNDS lvtnfet w=378.0n l=30.0n as={(76n)*(378.0n)
++} ad={(76n)*(378.0n)} nf={(1)*(1)} sa=(76n) sb=(76n) sd=96n ptwell=0
++p_la=16n ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0
++swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: C28SOI_SC_12_COREPBP16_LL
+*** Cell name: C12T28SOI_LL_IVX4_P16
+*** View name: cmos_sch
+.SUBCKT C12T28SOI_LL_IVX4_P16 A Z INH_GND INH_GNDS INH_VDD INH_VDDS
+    XMN1 Z A INH_GND INH_GNDS lvtnfet w=196.0n l=30.0n as={(76n)*(196.0n)
++} ad={(76n)*(196.0n)} nf={(1)*(1)} sb={(76n)+(0)} sd=96n ptwell=0 par=1
++p_la=16n ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0
++swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+    XMP1 Z A INH_VDD INH_VDDS lvtpfet w=286.0n l=30.0n as={(76n)*(286.0n)
++} ad={(76n)*(286.0n)} nf={(1)*(1)} sa=(76n) sb=(76n) sd=96n ptwell=0
++p_la=16n ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0
++swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_driver
+*** Cell name: levelShifter_wBuffers
+*** View name: schematic
+.SUBCKT LEVELSHIFTER_WBUFFERS GND VDD VDD1V8 IN IN1V8
+    XN42 IN1V8 NET037 GND GND eglvtnfet w=3.5u l=150n as=343.00f
++ad=343.00f nf={(1)*(1)} sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0
++ngcon=2 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1
++swrsub=1 mismatch=1 m=1
+    XN44 NET035 NET033 GND GND eglvtnfet w=700n l=150n as=68.6f ad=68.6f
++nf={(1)*(1)} sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0 ngcon=2
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XN45 NET033 LS_OUT GND GND eglvtnfet w=350n l=150n as=34.3f ad=34.3f
++nf={(1)*(1)} sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0 ngcon=2
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XN43 NET037 NET035 GND GND eglvtnfet w=1.4u l=150n as=137.2f ad=137.2f
++nf={(1)*(1)} sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0 ngcon=2
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XNMOS_SELB LS_OUT INB_D2 GND GND eglvtnfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XNMOS_SEL INB1V8 IN_D2 GND GND eglvtnfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XP39 NET033 LS_OUT VDD1V8 GND eglvtpfet w=500n l=150n as=49.0f
++ad=49.0f nf=4 sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XP37 NET037 NET035 VDD1V8 GND eglvtpfet w=2u l=150n as=196.00f
++ad=196.00f nf=4 sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XP36 IN1V8 NET037 VDD1V8 GND eglvtpfet w=5u l=150n as=490.0f ad=490.0f
++nf=4 sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XP38 NET035 NET033 VDD1V8 GND eglvtpfet w=1u l=150n as=98.0f ad=98.0f
++nf=4 sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XPMOS_SELB_UP SELBMID INB1V8 VDD1V8 GND eglvtpfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XPMOS_SELB_MID LS_OUT INB_D2 SELBMID GND eglvtpfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XPMOS_SEL_UP SELMID LS_OUT VDD1V8 GND eglvtpfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XPMOS_SEL_MID INB1V8 IN_D2 SELMID GND eglvtpfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XI0 NET21 IN_D2 GND GND VDD GND C12T28SOI_LL_IVX8_P16
+    XI173 IN_D2 INB_D2 GND GND VDD GND C12T28SOI_LL_IVX8_P16
+    XI1 IN NET21 GND GND VDD GND C12T28SOI_LL_IVX4_P16
+    XANTDIODE GND VDD tdndsx area=50f perim=1.2u soa=1
+    XD0 GND VDD1V8 egtdndsx area=50f perim=1.2u soa=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_driver
+*** Cell name: pwellCharger
+*** View name: schematic
+.SUBCKT PWELLCHARGER GND VDD VDD1V8 PULLLEFT PULLRIGHT PWELL
+    XANTDBOT_B CFLY_BOT_2 VDD1V8 egtdpdnw area=100f perim=2.2u soa=1
+    XANTDBOT_A CFLY_BOT VDD1V8 egtdpdnw area=100f perim=2.2u soa=1
+XBCFLY CFLY_BOT_2 CFLY_TOP_2 cmom_6U1x_2U2x_2T8x_LB_2p nf_dirx=160
++nf_diry=250 mtlfrbot=1 mtlfrtop=5 mtlconbot=2 mtlcontop=2
++spacefinger_mx=8e-08 wfinger_mx=8e-08 mismatch=1 mult=1
++pre_layout_local=-1 dc_mdev=0 fr_big_finger=0 soa=1
+XACS GBOT GTOP cmom_6U1x_2U2x_2T8x_LB_2p nf_dirx=80 nf_diry=125 mtlfrbot=1
++mtlfrtop=5 mtlconbot=2 mtlcontop=2 spacefinger_mx=8e-08 wfinger_mx=8e-08
++mismatch=1 mult=1 pre_layout_local=-1 dc_mdev=0 fr_big_finger=0 soa=1
+XBCS GBOT_2 GTOP_2 cmom_6U1x_2U2x_2T8x_LB_2p nf_dirx=80 nf_diry=125
++mtlfrbot=1 mtlfrtop=5 mtlconbot=2 mtlcontop=2 spacefinger_mx=8e-08
++wfinger_mx=8e-08 mismatch=1 mult=1 pre_layout_local=-1 dc_mdev=0
++fr_big_finger=0 soa=1
+XACFLY CFLY_BOT CFLY_TOP cmom_6U1x_2U2x_2T8x_LB_2p nf_dirx=160 nf_diry=250
++mtlfrbot=1 mtlfrtop=5 mtlconbot=2 mtlcontop=2 spacefinger_mx=8e-08
++wfinger_mx=8e-08 mismatch=1 mult=1 pre_layout_local=-1 dc_mdev=0
++fr_big_finger=0 soa=1
+    XLSB GND VDD VDD1V8 PULLRIGHT NET026 LEVELSHIFTER_WBUFFERS
+    XLSA GND VDD VDD1V8 PULLLEFT NET025 LEVELSHIFTER_WBUFFERS
+    XBP1 GND GBOT_2 CFLY_BOT_2 GND eglvtpfet w=20u l=150.00n as=1.96p
++ad=1.96p nf={(1)*(1)} sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1
++swrsub=1 mismatch=1 m=1
+    XAP4 GBOT GBOT_2 GND GND eglvtpfet w=1u l=150.00n as=98.0f ad=98.0f
++nf={(1)*(1)} sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XBP3 GTOP_2 NET026 VDD1V8 GND eglvtpfet w=20u l=150n as=1.96p ad=1.96p
++nf=4 sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XBP2 VDD1V8 GTOP_2 CFLY_TOP_2 GND eglvtpfet w=20u l=150.00n as=1.96p
++ad=1.96p nf={(1)*(1)} sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1
++swrsub=1 mismatch=1 m=1
+    XAP3 GTOP NET025 VDD1V8 GND eglvtpfet w=19.998u l=150n as=1.9598p
++ad=1.9598p nf=4 sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XAD GBOT GND GND GND eglvtpfet w=1u l=150.00n as=98.0f ad=98.0f
++nf={(1)*(1)} sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XBD GBOT_2 GND GND GND eglvtpfet w=1u l=150.00n as=98.0f ad=98.0f
++nf={(1)*(1)} sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XBP4 GBOT_2 GBOT GND GND eglvtpfet w=1u l=150.00n as=98.0f ad=98.0f
++nf={(1)*(1)} sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XAP1 GND GBOT CFLY_BOT GND eglvtpfet w=20u l=150.00n as=1.96p ad=1.96p
++nf={(1)*(1)} sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XAP2 VDD1V8 GTOP CFLY_TOP GND eglvtpfet w=20u l=150.00n as=1.96p
++ad=1.96p nf={(1)*(1)} sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1
++swrsub=1 mismatch=1 m=1
+    XANTDTOP_A GND CFLY_TOP egtdndsx area=100f perim=2.2u soa=1
+    XANTDTOP_B GND CFLY_TOP_2 egtdndsx area=100f perim=2.2u soa=1
+    XBN1 PWELL GBOT_2 CFLY_BOT_2 GTOP_2 eglvtnfet w=10u l=150.00n
++as=980.0f ad=980.0f nf={(1)*(1)} sa=1.8u sb=1.8u sd=140n ptwell=0 par=1
++p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1
++swrg=1 swrsub=1 mismatch=1 m=1
+    XBN3 GTOP_2 NET026 GND GND eglvtnfet w=14u l=150n as=1.372p ad=1.372p
++nf={(1)*(1)} sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0 ngcon=2
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XAN2 GND GTOP CFLY_TOP GTOP eglvtnfet w=10u l=150.00n as=980.0f
++ad=980.0f nf={(1)*(1)} sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1
++swrsub=1 mismatch=1 m=1
+    XAN1 PWELL GBOT CFLY_BOT GTOP eglvtnfet w=10u l=150.00n as=980.0f
++ad=980.0f nf={(1)*(1)} sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1
++swrsub=1 mismatch=1 m=1
+    XAN3 GTOP NET025 GND GND eglvtnfet w=14.004u l=150n as=1.04563p
++ad=980.28f nf=1 sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XBN2 GND GTOP_2 CFLY_TOP_2 GTOP_2 eglvtnfet w=10u l=150.00n as=980.0f
++ad=980.0f nf={(1)*(1)} sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1
++swrsub=1 mismatch=1 m=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_driver
+*** Cell name: pwellDischargeChargePositive
+*** View name: schematic
+.SUBCKT PWELLDISCHARGECHARGEPOSITIVE GND VDD VDD1V8 NENABLE PULLGND
++PULLVDD PWELL
+XC1 GBOT NENABLE cmom_6U1x_2U2x_2T8x_LB_2p nf_dirx=150 nf_diry=68
++mtlfrbot=1 mtlfrtop=5 mtlconbot=2 mtlcontop=2 spacefinger_mx=8e-08
++wfinger_mx=8e-08 mismatch=1 mult=1 pre_layout_local=-1 dc_mdev=0
++fr_big_finger=0 soa=1
+XC0 GBOT_2 GTOP_2 cmom_6U1x_2U2x_2T8x_LB_2p nf_dirx=20 nf_diry=16
++mtlfrbot=1 mtlfrtop=5 mtlconbot=2 mtlcontop=2 spacefinger_mx=8e-08
++wfinger_mx=8e-08 mismatch=1 mult=1 pre_layout_local=-1 dc_mdev=0
++fr_big_finger=0 soa=1
+    XP36 PWELL GBOT PW_CH_DCH GND eglvtpfet w=7.5u l=150n as=735.00f
++ad=735.00f nf=1 sa=1.8u sb=1.8u sd=140n ptwell=0 par=4 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=4
+    XP37 PW_CH_DCH PULLVDD VDD GND eglvtpfet w=7.5u l=150n as=735.00f
++ad=735.00f nf=4 sa=1.8u sb=1.8u sd=140n ptwell=0 par=2 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=2
+    XANTDIODE GND NENABLE tdndsx area=50f perim=1.2u soa=1
+    XN43 PW_CH_DCH PULLGND GND GND eglvtnfet w=7u l=150n as=686.00f
++ad=686.00f nf={(1)*(1)} sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1
++swrsub=1 mismatch=1 m=1
+    XN48 GTOP_2 NENABLE GND GND nfet w=700n l=30n as=58.8f ad=49.0f nf=1
++sa=1.8u sb=1.8u sd=96n ptwell=0 par=1 p_la=0 ngcon=1 nsig_delvto_uo1=0
++nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1 mismatch=1 m=1
+    XP45 GTOP_2 NENABLE VDD VDD1V8 pfet w=1.002u l=30n as=79.492f
++ad=70.14f nf={(6)*(1)} sa=1.8u sb=1.8u sd=96n ptwell=0 par=1 p_la=0
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1
++swrsub=1 mismatch=1 m=1
+    XP46 GBOT GBOT_2 GND VDD1V8 pfet w=100n l=150n as=9.8f ad=9.8f
++nf={(1)*(1)} sa=1.8u sb=1.8u sd=96n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XP47 GBOT GND GND VDD1V8 pfet w=100n l=150n as=9.8f ad=9.8f
++nf={(1)*(1)} sa=1.8u sb=1.8u sd=96n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XP44 GBOT_2 GND GND VDD1V8 pfet w=100n l=150n as=9.8f ad=9.8f
++nf={(1)*(1)} sa=1.8u sb=1.8u sd=96n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XP43 GBOT_2 GBOT GND VDD1V8 pfet w=100n l=150n as=9.8f ad=9.8f
++nf={(1)*(1)} sa=1.8u sb=1.8u sd=96n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: C28SOI_SC_12_COREPBP10_LR
+*** Cell name: C12T28SOI_LR_NAND2AX3_P10
+*** View name: cmos_sch
+.SUBCKT C12T28SOI_LR_NAND2AX3_P10 A B Z INH_GND INH_GNDS INH_VDD INH_VDDS
+    XM3 Z SN1 INH_VDD INH_VDDS pfet w=286.0n l=30.0n as={(76n)*(286.0n) }
++ad={(76n)*(286.0n)} nf={(1)*(1)} sa=(76n) sb=(76n) sd=96n ptwell=0
++p_la=10n ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0
++swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM4 Z B INH_VDD INH_VDDS pfet w=286.0n l=30.0n as={(76n)*(286.0n) }
++ad={(76n)*(286.0n)} nf={(1)*(1)} sa=(76n) sb=(76n) sd=96n ptwell=0
++p_la=10n ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0
++swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM0 SN1 A INH_VDD INH_VDDS pfet w=286.0n l=30.0n as={(76n)*(286.0n) }
++ad={(76n)*(286.0n)} nf={(1)*(1)} sa=(76n) sb=(76n) sd=96n ptwell=0
++p_la=10n ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0
++swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM5 Z B PN2 INH_GNDS nfet w=196.0n l=30.0n as={(76n)*(196.0n) }
++ad={(76n)*(196.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM6 PN2 SN1 INH_GND INH_GNDS nfet w=196.0n l=30.0n as={(76n)*(196.0n)
++} ad={(76n)*(196.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM1 SN1 A INH_GND INH_GNDS nfet w=196.0n l=30.0n as={(76n)*(196.0n) }
++ad={(76n)*(196.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: C28SOI_SC_12_COREPBP10_LR
+*** Cell name: C12T28SOI_LR_BFX4_P10
+*** View name: cmos_sch
+.SUBCKT C12T28SOI_LR_BFX4_P10 A Z INH_GND INH_GNDS INH_VDD INH_VDDS
+    XM4 NET023 A INH_VDD INH_VDDS pfet w=286.0n l=30.0n as={(76n)*(286.0n)
++} ad={(76n)*(286.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM20 Z NET023 INH_VDD INH_VDDS pfet w=286.0n l=30.0n
++as={(76n)*(286.0n) } ad={(76n)*(286.0n)} nf={(1)*(1)} sb=(76n) sd=96n
++ptwell=0 p_la=10n ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1
++swshe=0 swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM1 NET023 A INH_GND INH_GNDS nfet w=196.0n l=30.0n as={(76n)*(196.0n)
++} ad={(76n)*(196.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM19 Z NET023 INH_GND INH_GNDS nfet w=196.0n l=30.0n
++as={(76n)*(196.0n) } ad={(76n)*(196.0n)} nf={(1)*(1)} sb=(76n) sd=96n
++ptwell=0 p_la=10n ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1
++swshe=0 swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: C28SOI_SC_12_COREPBP10_LR
+*** Cell name: C12T28SOI_LR_BFX33_P10
+*** View name: cmos_sch
+.SUBCKT C12T28SOI_LR_BFX33_P10 A Z INH_GND INH_GNDS INH_VDD INH_VDDS
+    XM4 NET65 A INH_VDD INH_VDDS pfet w=349.0n l=30.0n as={(76n)*(349.0n)
++} ad={(76n)*(349.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM32 NET65 A INH_VDD INH_VDDS pfet w=349.0n l=30.0n as={(76n)*(349.0n)
++} ad={(76n)*(349.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM20 Z NET65 INH_VDD INH_VDDS pfet w=552.0n l=30.0n as={(76n)*(552.0n)
++} ad={(76n)*(552.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM30 Z NET65 INH_VDD INH_VDDS pfet w=552.0n l=30.0n as={(76n)*(552.0n)
++} ad={(76n)*(552.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM28 Z NET65 INH_VDD INH_VDDS pfet w=552.0n l=30.0n as={(76n)*(552.0n)
++} ad={(76n)*(552.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM26 Z NET65 INH_VDD INH_VDDS pfet w=552.0n l=30.0n as={(76n)*(552.0n)
++} ad={(76n)*(552.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM1 NET65 A INH_GND INH_GNDS nfet w=254.0n l=30.0n as={(76n)*(254.0n)
++} ad={(76n)*(254.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM31 NET65 A INH_GND INH_GNDS nfet w=254.0n l=30.0n as={(76n)*(254.0n)
++} ad={(76n)*(254.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM29 Z NET65 INH_GND INH_GNDS nfet w=392.0n l=30.0n as={(76n)*(392.0n)
++} ad={(76n)*(392.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM19 Z NET65 INH_GND INH_GNDS nfet w=392.0n l=30.0n as={(76n)*(392.0n)
++} ad={(76n)*(392.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM27 Z NET65 INH_GND INH_GNDS nfet w=392.0n l=30.0n as={(76n)*(392.0n)
++} ad={(76n)*(392.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM25 Z NET65 INH_GND INH_GNDS nfet w=392.0n l=30.0n as={(76n)*(392.0n)
++} ad={(76n)*(392.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: C28SOI_SC_12_COREPBP10_LR
+*** Cell name: C12T28SOI_LR_BFX50_P10
+*** View name: cmos_sch
+.SUBCKT C12T28SOI_LR_BFX50_P10 A Z INH_GND INH_GNDS INH_VDD INH_VDDS
+    XMP0 Z NET75 INH_VDD INH_VDDS pfet w=552.0n l=30.0n as={(76n)*(552.0n)
++} ad={(76n)*(552.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM4 NET75 A INH_VDD INH_VDDS pfet w=552.0n l=30.0n as={(76n)*(552.0n)
++} ad={(76n)*(552.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM32 NET75 A INH_VDD INH_VDDS pfet w=552.0n l=30.0n as={(76n)*(552.0n)
++} ad={(76n)*(552.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM20 Z NET75 INH_VDD INH_VDDS pfet w=552.0n l=30.0n as={(76n)*(552.0n)
++} ad={(76n)*(552.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM30 Z NET75 INH_VDD INH_VDDS pfet w=552.0n l=30.0n as={(76n)*(552.0n)
++} ad={(76n)*(552.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM28 Z NET75 INH_VDD INH_VDDS pfet w=552.0n l=30.0n as={(76n)*(552.0n)
++} ad={(76n)*(552.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM26 Z NET75 INH_VDD INH_VDDS pfet w=552.0n l=30.0n as={(76n)*(552.0n)
++} ad={(76n)*(552.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM24 Z NET75 INH_VDD INH_VDDS pfet w=552.0n l=30.0n as={(76n)*(552.0n)
++} ad={(76n)*(552.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XMN0 Z NET75 INH_GND INH_GNDS nfet w=392.0n l=30.0n as={(76n)*(392.0n)
++} ad={(76n)*(392.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM1 NET75 A INH_GND INH_GNDS nfet w=392.0n l=30.0n as={(76n)*(392.0n)
++} ad={(76n)*(392.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM31 NET75 A INH_GND INH_GNDS nfet w=392.0n l=30.0n as={(76n)*(392.0n)
++} ad={(76n)*(392.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM29 Z NET75 INH_GND INH_GNDS nfet w=392.0n l=30.0n as={(76n)*(392.0n)
++} ad={(76n)*(392.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM19 Z NET75 INH_GND INH_GNDS nfet w=392.0n l=30.0n as={(76n)*(392.0n)
++} ad={(76n)*(392.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM27 Z NET75 INH_GND INH_GNDS nfet w=392.0n l=30.0n as={(76n)*(392.0n)
++} ad={(76n)*(392.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM23 Z NET75 INH_GND INH_GNDS nfet w=392.0n l=30.0n as={(76n)*(392.0n)
++} ad={(76n)*(392.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM25 Z NET75 INH_GND INH_GNDS nfet w=392.0n l=30.0n as={(76n)*(392.0n)
++} ad={(76n)*(392.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: C28SOI_SC_12_COREPBP10_LR
+*** Cell name: C12T28SOI_LR_IVX4_P10
+*** View name: cmos_sch
+.SUBCKT C12T28SOI_LR_IVX4_P10 A Z INH_GND INH_GNDS INH_VDD INH_VDDS
+    XMP1 Z A INH_VDD INH_VDDS pfet w=286.0n l=30.0n as={(76n)*(286.0n) }
++ad={(76n)*(286.0n)} nf={(1)*(1)} sa=(76n) sb=(76n) sd=96n ptwell=0
++p_la=10n ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0
++swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+    XMN1 Z A INH_GND INH_GNDS nfet w=196.0n l=30.0n as={(76n)*(196.0n) }
++ad={(76n)*(196.0n)} nf={(1)*(1)} sb={(76n)+(0)} sd=96n ptwell=0 par=1
++p_la=10n ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0
++swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: C28SOI_SC_12_COREPBP10_LR
+*** Cell name: C12T28SOI_LR_NAND2X3_P10
+*** View name: cmos_sch
+.SUBCKT C12T28SOI_LR_NAND2X3_P10 A B Z INH_GND INH_GNDS INH_VDD INH_VDDS
+    XM66 Z B INH_VDD INH_VDDS pfet w=286.0n l=30.0n as={(76n)*(286.0n) }
++ad={(76n)*(286.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM65 Z A INH_VDD INH_VDDS pfet w=286.0n l=30.0n as={(76n)*(286.0n) }
++ad={(76n)*(286.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM67 Z B NET247 INH_GNDS nfet w=196.0n l=30.0n as={(76n)*(196.0n) }
++ad={(76n)*(196.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM64 NET247 A INH_GND INH_GNDS nfet w=196.0n l=30.0n
++as={(76n)*(196.0n) } ad={(76n)*(196.0n)} nf={(1)*(1)} sb=(76n) sd=96n
++ptwell=0 p_la=10n ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1
++swshe=0 swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_driver
+*** Cell name: pwellControl
+*** View name: schematic
+.SUBCKT PWELLCONTROL GND VDD CLK NENABLE PULLGND PULLLEFT PULLRIGHT
++PULLVDD SELECT0 SELECT1
+    XI2 SELECT1 SELECT0 INT_GND GND GND VDD VDD C12T28SOI_LR_NAND2AX3_P10
+    XI1 CLK CHPUMP_ENABLE NRIGHT GND GND VDD VDD C12T28SOI_LR_NAND2AX3_P10
+    XI11 SELECT0 SELECT1 CHPUMP_NENABLE GND GND VDD VDD
++C12T28SOI_LR_NAND2AX3_P10
+    XI0 INT_VDD PULLVDD_INT GND GND VDD VDD C12T28SOI_LR_BFX4_P10
+    XI7 NENABLE_INT NENABLE GND GND VDD VDD C12T28SOI_LR_BFX33_P10
+    XI5 PULLVDD_INT PULLVDD GND GND VDD VDD C12T28SOI_LR_BFX50_P10
+    XI6 PULLGND_INT PULLGND GND GND VDD VDD C12T28SOI_LR_BFX50_P10
+    XI9 NRIGHT PULLRIGHT GND GND VDD VDD C12T28SOI_LR_IVX4_P10
+    XI8 NLEFT PULLLEFT GND GND VDD VDD C12T28SOI_LR_IVX4_P10
+    XI4 SELECT0 NENABLE_INT GND GND VDD VDD C12T28SOI_LR_IVX4_P10
+    XI15 INT_GND PULLGND_INT GND GND VDD VDD C12T28SOI_LR_IVX4_P10
+    XI13 CHPUMP_NENABLE CHPUMP_ENABLE GND GND VDD VDD
++C12T28SOI_LR_IVX4_P10
+    XI3 SELECT1 SELECT0 INT_VDD GND GND VDD VDD C12T28SOI_LR_NAND2X3_P10
+    XI12 CLK CHPUMP_ENABLE NLEFT GND GND VDD VDD C12T28SOI_LR_NAND2X3_P10
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_driver
+*** Cell name: levelShifter_wBuffers1u
+*** View name: schematic
+.SUBCKT LEVELSHIFTER_WBUFFERS1U GND VDD VDD1V8 IN IN1V8
+    XN44 IN1V8 NET033 GND GND eglvtnfet w=700n l=150n as=68.6f ad=68.6f
++nf={(1)*(1)} sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0 ngcon=2
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XN45 NET033 LS_OUT GND GND eglvtnfet w=350n l=150n as=34.3f ad=34.3f
++nf={(1)*(1)} sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0 ngcon=2
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XNMOS_SELB LS_OUT INB_D2 GND GND eglvtnfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XNMOS_SEL INB1V8 IN_D2 GND GND eglvtnfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XP39 NET033 LS_OUT VDD1V8 GND eglvtpfet w=500n l=150n as=49.0f
++ad=49.0f nf=4 sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XP38 IN1V8 NET033 VDD1V8 GND eglvtpfet w=1u l=150n as=98.0f ad=98.0f
++nf=4 sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XPMOS_SELB_UP SELBMID INB1V8 VDD1V8 GND eglvtpfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XPMOS_SELB_MID LS_OUT INB_D2 SELBMID GND eglvtpfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XPMOS_SEL_UP SELMID LS_OUT VDD1V8 GND eglvtpfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XPMOS_SEL_MID INB1V8 IN_D2 SELMID GND eglvtpfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XI0 NET21 IN_D2 GND GND VDD GND C12T28SOI_LL_IVX8_P16
+    XI173 IN_D2 INB_D2 GND GND VDD GND C12T28SOI_LL_IVX8_P16
+    XI1 IN NET21 GND GND VDD GND C12T28SOI_LL_IVX4_P16
+    XANTDIODE GND VDD tdndsx area=50f perim=1.2u soa=1
+    XD0 GND VDD1V8 egtdndsx area=50f perim=1.2u soa=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_driver
+*** Cell name: nwellDischarger
+*** View name: schematic
+.SUBCKT NWELLDISCHARGER GND VDD VDD1V8 DISCHARGEN NWELL
+    XN42 NWELL DRIVER5U_OUT GND GND eglvtnfet w=2.5u l=150n as=245.00f
++ad=245.00f nf={(1)*(1)} sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0
++ngcon=2 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1
++swrsub=1 mismatch=1 m=1
+    XLS GND VDD VDD1V8 DISCHARGEN DRIVER5U_OUT LEVELSHIFTER_WBUFFERS1U
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_driver
+*** Cell name: nwellCharger
+*** View name: schematic
+.SUBCKT NWELLCHARGER GND VDD VDD1V8 CHARGEN NWELL
+    XP35<0> NWELL DRIVER_OUT VDD1V8 GND eglvtpfet w=2u l=150.00n
++as=196.00f ad=196.00f nf={(1)*(1)} sa=1.8u sb=1.8u sd=140n ptwell=0 par=1
++p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=0
++swrg=0 swrsub=0 mismatch=1 m=1
+    XP35<1> NWELL DRIVER_OUT VDD1V8 GND eglvtpfet w=2u l=150.00n
++as=196.00f ad=196.00f nf={(1)*(1)} sa=1.8u sb=1.8u sd=140n ptwell=0 par=1
++p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=0
++swrg=0 swrsub=0 mismatch=1 m=1
+    XP29 DRIVER_OUT NET09 VDD1V8 GND eglvtpfet w=2.001u l=150n as=158.746f
++ad=158.746f nf=4 sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XLS GND VDD VDD1V8 CHARGEN NET09 LEVELSHIFTER_WBUFFERS1U
+    XN36 DRIVER_OUT NET09 GND GND eglvtnfet w=1.4u l=150n as=137.2f ad=98f
++nf={(2)*(1)} sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_driver
+*** Cell name: nwellCombined
+*** View name: schematic
+.SUBCKT NWELLCOMBINED GND VDD VDD1V8 CHARGEN DISCHARGEN NWELL
+    XI1 GND VDD VDD1V8 DISCHARGEN NWELL NWELLDISCHARGER
+    XI0 GND VDD VDD1V8 CHARGEN NWELL NWELLCHARGER
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_driver
+*** Cell name: driverCombined
+*** View name: schematic
+.SUBCKT DRIVERCOMBINED GND VDD VDD1V8 CLK NWELL PWELL SELN0 SELN1 SELP0
++SELP1
+    XI3 GND VDD VDD1V8 PULLLEFT PULLRIGHT PWELL PWELLCHARGER
+    XI2 GND VDD VDD1V8 NENABLE PULLGND PULLVDD PWELL
++PWELLDISCHARGECHARGEPOSITIVE
+    XI4 GND VDD CLK NENABLE PULLGND PULLLEFT PULLRIGHT PULLVDD SELP0 SELP1
++PWELLCONTROL
+    XI0 GND VDD VDD1V8 SELN1 SELN0 NWELL NWELLCOMBINED
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: C28SOI_SC_12_CORE_LL
+*** Cell name: C12T28SOI_LL_MUX21X8_P0
+*** View name: cmos_sch
+.SUBCKT C12T28SOI_LL_MUX21X8_P0 D0 D1 S0 Z INH_GND INH_GNDS INH_VDD
++INH_VDDS
+    XM11 Z SN3 INH_GND INH_GNDS lvtnfet w=378.0n l=30.0n
++as={(76n)*(378.0n) } ad={(76n)*(378.0n)} nf={(1)*(1)} sb={(76n)+(0)}
++sd=96n ptwell=0 par=1 p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0
++soa=1 swshe=0 swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM5 SN2 D1 INH_GND INH_GNDS lvtnfet w=196.0n l=30.0n
++as={(76n)*(196.0n) } ad={(76n)*(196.0n)} nf={(1)*(1)} sb={(76n)+(0)}
++sd=96n ptwell=0 par=1 p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0
++soa=1 swshe=0 swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM3 SN1 D0 INH_GND INH_GNDS lvtnfet w=196.0n l=30.0n
++as={(76n)*(196.0n) } ad={(76n)*(196.0n)} nf={(1)*(1)} sb=(76n) sd=96n
++ptwell=0 p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0
++swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM9 SN3 S0 SN2 INH_GNDS lvtnfet w=196.0n l=30.0n as={(76n)*(196.0n) }
++ad={(76n)*(196.0n)} nf={(1)*(1)} sb={(76n)+(0)} sd=96n ptwell=0 par=1
++p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM1 SN0 S0 INH_GND INH_GNDS lvtnfet w=196.0n l=30.0n
++as={(76n)*(196.0n) } ad={(76n)*(196.0n)} nf={(1)*(1)} sb={(76n)+(0)}
++sd=96n ptwell=0 par=1 p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0
++soa=1 swshe=0 swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM7 SN3 SN0 SN1 INH_GNDS lvtnfet w=196.0n l=30.0n as={(76n)*(196.0n) }
++ad={(76n)*(196.0n)} nf={(1)*(1)} sb={(76n)+(0)} sd=96n ptwell=0 par=1
++p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM10 Z SN3 INH_VDD INH_VDDS lvtpfet w=538.0n l=30.0n
++as={(76n)*(538.0n) } ad={(76n)*(538.0n)} nf={(1)*(1)} sb={(76n)+(0)}
++sd=96n ptwell=0 par=1 p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0
++soa=1 swshe=0 swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM6 SN3 S0 SN1 INH_VDDS lvtpfet w=286.0n l=30.0n as={(76n)*(286.0n) }
++ad={(76n)*(286.0n)} nf={(1)*(1)} sb={(76n)+(0)} sd=96n ptwell=0 par=1
++p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM4 SN2 D1 INH_VDD INH_VDDS lvtpfet w=286.0n l=30.0n
++as={(76n)*(286.0n) } ad={(76n)*(286.0n)} nf={(1)*(1)} sb={(76n)+(0)}
++sd=96n ptwell=0 par=1 p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0
++soa=1 swshe=0 swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM2 SN1 D0 INH_VDD INH_VDDS lvtpfet w=286.0n l=30.0n
++as={(76n)*(286.0n) } ad={(76n)*(286.0n)} nf={(1)*(1)} sb=(76n) sd=96n
++ptwell=0 p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0
++swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM8 SN3 SN0 SN2 INH_VDDS lvtpfet w=286.0n l=30.0n as={(76n)*(286.0n) }
++ad={(76n)*(286.0n)} nf={(1)*(1)} sb={(76n)+(0)} sd=96n ptwell=0 par=1
++p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM0 SN0 S0 INH_VDD INH_VDDS lvtpfet w=286.0n l=30.0n
++as={(76n)*(286.0n) } ad={(76n)*(286.0n)} nf={(1)*(1)} sb={(76n)+(0)}
++sd=96n ptwell=0 par=1 p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0
++soa=1 swshe=0 swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: C28SOI_SC_12_CORE_LL
+*** Cell name: C12T28SOI_LL_NAND2X3_P0
+*** View name: cmos_sch
+.SUBCKT C12T28SOI_LL_NAND2X3_P0 A B Z INH_GND INH_GNDS INH_VDD INH_VDDS
+    XM67 Z B NET247 INH_GNDS lvtnfet w=196.0n l=30.0n as={(76n)*(196.0n) }
++ad={(76n)*(196.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XM64 NET247 A INH_GND INH_GNDS lvtnfet w=196.0n l=30.0n
++as={(76n)*(196.0n) } ad={(76n)*(196.0n)} nf={(1)*(1)} sb=(76n) sd=96n
++ptwell=0 p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0
++swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM66 Z B INH_VDD INH_VDDS lvtpfet w=286.0n l=30.0n as={(76n)*(286.0n)
++} ad={(76n)*(286.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=0
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM65 Z A INH_VDD INH_VDDS lvtpfet w=286.0n l=30.0n as={(76n)*(286.0n)
++} ad={(76n)*(286.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=0
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: SR_latch
+*** View name: schematic
+.SUBCKT SR_LATCH GND Q QB RB SB VDD
+    XI0 Q RB QB GND GND VDD GND C12T28SOI_LL_NAND2X3_P0
+    XI30 QB SB Q GND GND VDD GND C12T28SOI_LL_NAND2X3_P0
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: comparator_preamp_sync_1v8_ntype
+*** View name: schematic
+.SUBCKT COMPARATOR_PREAMP_SYNC_1V8_NTYPE GND GNDS VDD VDDS CLKCMPUP
++CLKRESETUP INM INP OUTM OUTP
+    XPINPUP OUTP_PRE CLKCMPUP VDD GND lvtpfet w=500n l=30.00n
++as={((76n)+(0))*(500n) } ad={((76n)+(0))*(500n)} nf={(1)*(1)}
++sa={(76n)+(0)} sb={(76n)+(0)} sd=96n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+    XPINPUM OUTM_PRE CLKCMPUP VDD GND lvtpfet w=500n l=30.00n
++as={((76n)+(0))*(500n) } ad={((76n)+(0))*(500n)} nf={(1)*(1)}
++sa={(76n)+(0)} sb={(76n)+(0)} sd=96n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+    XPINVP SB LATCHOUTP VDD GND lvtpfet w=120n l=30.00n
++as={((76n)+(0))*(120n) } ad={((76n)+(0))*(120n)} nf={(1)*(1)}
++sa={(76n)+(0)} sb={(76n)+(0)} sd=96n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XPTAILVDD VIRTUAL_GND CLKCMPUP VDD GND lvtpfet w=1u l=30n
++as={(2*(76n)+(0)+(0))*((1u)/2) } ad={1*((96n)*((1u)/2))} nf={(2)*(1)}
++sa={(76n)+(0)} sb={(76n)+(0)} sd=96n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=0 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+    XPINVM RB LATCHOUTN VDD GND lvtpfet w=120n l=30.00n
++as={((76n)+(0))*(120n) } ad={((76n)+(0))*(120n)} nf={(1)*(1)}
++sa={(76n)+(0)} sb={(76n)+(0)} sd=96n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XPLATCHM TAILN LATCHOUTP LATCHOUTN GND lvtpfet w=500n l=30n
++as={((76n)+(0))*(500n) } ad={((76n)+(0))*(500n)} nf={(1)*(1)}
++sa={(76n)+(0)} sb={(76n)+(0)} sd=96n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=0 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+    XPLATCHP TAILP LATCHOUTN LATCHOUTP GND lvtpfet w=500n l=30n
++as={((76n)+(0))*(500n) } ad={((76n)+(0))*(500n)} nf={(1)*(1)}
++sa={(76n)+(0)} sb={(76n)+(0)} sd=96n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=0 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+    XPTAILP TAILP OUTP_PRE VDD GND lvtpfet w=1u l=30n
++as={(2*(76n)+(0)+(0))*((1u)/2) } ad={1*((96n)*((1u)/2))} nf={(2)*(1)}
++sa={(76n)+(0)} sb={(76n)+(0)} sd=96n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=0 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+    XPTAILM TAILN OUTM_PRE VDD GND lvtpfet w=1u l=30n
++as={(2*(76n)+(0)+(0))*((1u)/2) } ad={1*((96n)*((1u)/2))} nf={(2)*(1)}
++sa={(76n)+(0)} sb={(76n)+(0)} sd=96n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=0 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+    XI70 GND OUTP OUTM RB SB VDD SR_LATCH
+    XNINP_EG OUTP_PRE INP VIRTUAL_GND GND eglvtnfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+    XNINM_EG OUTM_PRE INM VIRTUAL_GND GND eglvtnfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+    XNLATCHP LATCHOUTP LATCHOUTN GND GND lvtnfet w=300n l=30n
++as={((76n)+(0))*(300n) } ad={1*((96n)*((300n)/2))} nf={(1)*(1)}
++sa={(76n)+(0)} sb={(76n)+(0)} sd=96n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=0 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+    XNTAILGND VIRTUAL_GND CLKCMPUP GND GND lvtnfet w=600n l=30n
++as={(2*(76n)+(0)+(0))*((600n)/2) } ad={1*((96n)*((600n)/2))} nf={(2)*(1)}
++sa={(76n)+(0)} sb={(76n)+(0)} sd=96n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=0 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+    XNINVM RB LATCHOUTN GND GND lvtnfet w=80n l=30.00n
++as={((76n)+(0))*(80n) } ad={((76n)+(0))*(80n)} nf={(1)*(1)}
++sa={(76n)+(0)} sb={(76n)+(0)} sd=96n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XNTIEGNDTAILP TAILP CLKRESETUP GND GND lvtnfet w=300n l=30n
++as={((76n)+(0))*(300n) } ad={1*((96n)*((300n)/2))} nf={(1)*(1)}
++sa={(76n)+(0)} sb={(76n)+(0)} sd=96n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=0 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+    XNTIEGNDOUTM LATCHOUTN CLKRESETUP GND GND lvtnfet w=300n l=30n
++as={((76n)+(0))*(300n) } ad={1*((96n)*((300n)/2))} nf={(1)*(1)}
++sa={(76n)+(0)} sb={(76n)+(0)} sd=96n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=0 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+    XNTIEGNDTAILM TAILN CLKRESETUP GND GND lvtnfet w=300n l=30n
++as={((76n)+(0))*(300n) } ad={1*((96n)*((300n)/2))} nf={(1)*(1)}
++sa={(76n)+(0)} sb={(76n)+(0)} sd=96n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=0 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+    XNLATCHM LATCHOUTN LATCHOUTP GND GND lvtnfet w=300n l=30n
++as={((76n)+(0))*(300n) } ad={1*((96n)*((300n)/2))} nf={(1)*(1)}
++sa={(76n)+(0)} sb={(76n)+(0)} sd=96n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=0 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+    XNINVP SB LATCHOUTP GND GND lvtnfet w=80n l=30.00n
++as={((76n)+(0))*(80n) } ad={((76n)+(0))*(80n)} nf={(1)*(1)}
++sa={(76n)+(0)} sb={(76n)+(0)} sd=96n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XNTIEGNDOUTP LATCHOUTP CLKRESETUP GND GND lvtnfet w=300n l=30n
++as={((76n)+(0))*(300n) } ad={1*((96n)*((300n)/2))} nf={(1)*(1)}
++sa={(76n)+(0)} sb={(76n)+(0)} sd=96n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=0 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: C28SOI_SC_12_CORE_LL
+*** Cell name: C12T28SOI_LL_BFX4_P0
+*** View name: cmos_sch
+.SUBCKT C12T28SOI_LL_BFX4_P0 A Z INH_GND INH_GNDS INH_VDD INH_VDDS
+    XM1 NET023 A INH_GND INH_GNDS lvtnfet w=196.0n l=30.0n
++as={(76n)*(196.0n) } ad={(76n)*(196.0n)} nf={(1)*(1)} sb=(76n) sd=96n
++ptwell=0 p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0
++swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM19 Z NET023 INH_GND INH_GNDS lvtnfet w=196.0n l=30.0n
++as={(76n)*(196.0n) } ad={(76n)*(196.0n)} nf={(1)*(1)} sb=(76n) sd=96n
++ptwell=0 p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0
++swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM4 NET023 A INH_VDD INH_VDDS lvtpfet w=286.0n l=30.0n
++as={(76n)*(286.0n) } ad={(76n)*(286.0n)} nf={(1)*(1)} sb=(76n) sd=96n
++ptwell=0 p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0
++swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM20 Z NET023 INH_VDD INH_VDDS lvtpfet w=286.0n l=30.0n
++as={(76n)*(286.0n) } ad={(76n)*(286.0n)} nf={(1)*(1)} sb=(76n) sd=96n
++ptwell=0 p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0
++swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: comparator_preamp_sync_1v8_ptype
+*** View name: schematic
+.SUBCKT COMPARATOR_PREAMP_SYNC_1V8_PTYPE GND GNDS VDD VDD1V8 VDDS
++CLKCMPDOWN_1V8 CLKRESETDOWN INM INP OUTM OUTP
+    XPTIEVDDTAILM TAILM CLKRESETDOWN VDD GND lvtpfet w=160n l=30.00n
++as={((76n)+(0))*(160n) } ad={((76n)+(0))*(160n)} nf={(1)*(1)}
++sa={(76n)+(0)} sb={(76n)+(0)} sd=96n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XPTIEVDDTAILP TAILP CLKRESETDOWN VDD GND lvtpfet w=160n l=30.00n
++as={((76n)+(0))*(160n) } ad={((76n)+(0))*(160n)} nf={(1)*(1)}
++sa={(76n)+(0)} sb={(76n)+(0)} sd=96n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XPTIEVDDOUTP LATCHOUTP CLKRESETDOWN VDD GND lvtpfet w=160n l=30.00n
++as={((76n)+(0))*(160n) } ad={((76n)+(0))*(160n)} nf={(1)*(1)}
++sa={(76n)+(0)} sb={(76n)+(0)} sd=96n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XPLATCHP LATCHOUTP LATCHOUTN VDD GND lvtpfet w=500n l=30.00n
++as={((76n)+(0))*(500n) } ad={((76n)+(0))*(500n)} nf={(1)*(1)}
++sa={(76n)+(0)} sb={(76n)+(0)} sd=96n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XPLATCHM LATCHOUTN LATCHOUTP VDD GND lvtpfet w=500n l=30.00n
++as={((76n)+(0))*(500n) } ad={((76n)+(0))*(500n)} nf={(1)*(1)}
++sa={(76n)+(0)} sb={(76n)+(0)} sd=96n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XPTIEVDDOUTM LATCHOUTN CLKRESETDOWN VDD GND lvtpfet w=160n l=30.00n
++as={((76n)+(0))*(160n) } ad={((76n)+(0))*(160n)} nf={(1)*(1)}
++sa={(76n)+(0)} sb={(76n)+(0)} sd=96n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XNTAILM_EG TAILM OUTM_PRE GND GND eglvtnfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XNTAILP_EG TAILP OUTP_PRE GND GND eglvtnfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XNTAILGND_EG VIRTUAL_VDD CLKCMPDOWN_1V8 GND GND eglvtnfet w=400n
++l=150.00n as={(2*(120n)+(0)+(0))*((400n)/2) } ad={1*((140n)*((400n)/2))}
++nf={(2)*(1)} sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1
++p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XNINPDM_EG OUTM_PRE CLKCMPDOWN_1V8 GND GND eglvtnfet w=200n l=150.00n
++as={((120n)+(0))*(200n) } ad={((120n)+(0))*(200n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XNINPDP_EG OUTP_PRE CLKCMPDOWN_1V8 GND GND eglvtnfet w=200n l=150.00n
++as={((120n)+(0))*(200n) } ad={((120n)+(0))*(200n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XPINP_EG OUTP_PRE INP VIRTUAL_VDD GND eglvtpfet w=700n l=150.00n
++as={((120n)+(0))*(700n) } ad={((120n)+(0))*(700n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XPTAILVDD1V8_EG VIRTUAL_VDD CLKCMPDOWN_1V8 VDD1V8 GND eglvtpfet w=1.4u
++l=150.00n as={(2*(120n)+(0)+(0))*((1.4u)/2) } ad={1*((140n)*((1.4u)/2))}
++nf={(2)*(1)} sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1
++p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XPINM_EG OUTM_PRE INM VIRTUAL_VDD GND eglvtpfet w=700n l=150.00n
++as={((120n)+(0))*(700n) } ad={((120n)+(0))*(700n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XNLATCHP LATCHOUTP LATCHOUTN TAILP GND lvtnfet w=300n l=30.00n
++as={((76n)+(0))*(300n) } ad={((76n)+(0))*(300n)} nf={(1)*(1)}
++sa={(76n)+(0)} sb={(76n)+(0)} sd=96n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XNLATCHM LATCHOUTN LATCHOUTP TAILM GND lvtnfet w=300n l=30.00n
++as={((76n)+(0))*(300n) } ad={((76n)+(0))*(300n)} nf={(1)*(1)}
++sa={(76n)+(0)} sb={(76n)+(0)} sd=96n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XBUFFERP LATCHOUTP RB GND GND VDD GND C12T28SOI_LL_BFX4_P0
+    XBUFFERN LATCHOUTN SB GND GND VDD GND C12T28SOI_LL_BFX4_P0
+    XSRLATCH GND OUTP OUTM RB SB VDD SR_LATCH
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: comparator_1v8_PN_wMUX
+*** View name: schematic
+.SUBCKT COMPARATOR_1V8_PN_WMUX GND GNDS VDD VDD1V8 VDDS INM INP N_CLKCMPUP
++N_CLKRESETUP OUTP P_CLKCMPDOWN_1V8 P_CLKRESETDOWN SELPB_SELN
+    XNPOUTP_MUX P_OUTP N_OUTP SELPB_SELN OUTP GND GND VDD GND
++C12T28SOI_LL_MUX21X8_P0
+    XNTYPECMP GND GND VDD GND N_CLKCMPUP N_CLKRESETUP INM INP NET18 N_OUTP
++COMPARATOR_PREAMP_SYNC_1V8_NTYPE
+    XPTYPECMP GND GND VDD VDD1V8 GND P_CLKCMPDOWN_1V8 P_CLKRESETDOWN INM
++INP NET20 P_OUTP COMPARATOR_PREAMP_SYNC_1V8_PTYPE
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: cmpWellBundle
+*** View name: schematic
+.SUBCKT CMPWELLBUNDLE GND VDD VDD1V8 LOWERBOUND LOWERRESULT NCLKCMP
++NCLKRST PCLKCMPB_1V8 PCLKRSTB SELPB_SELN UPPERBOUND UPPERRESULT
++WELLSAMPLE
+    XLOWERBOUND_CMPNP GND GND VDD VDD1V8 GND LOWERBOUND WELLSAMPLE NCLKCMP
++NCLKRST LOWERRESULT PCLKCMPB_1V8 PCLKRSTB SELPB_SELN
++COMPARATOR_1V8_PN_WMUX
+    XUPPERBOUND_CMPNP GND GND VDD VDD1V8 GND UPPERBOUND WELLSAMPLE NCLKCMP
++NCLKRST UPPERRESULT PCLKCMPB_1V8 PCLKRSTB SELPB_SELN
++COMPARATOR_1V8_PN_WMUX
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: tesla
+*** Cell name: SR_latch
+*** View name: schematic
+.SUBCKT SR_LATCH_SCHEMATIC GND Q QB RB SB VDD
+    XI0 Q RB QB GND GND VDD GND C12T28SOI_LL_NAND2X3_P0
+    XI30 QB SB Q GND GND VDD GND C12T28SOI_LL_NAND2X3_P0
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: tesla
+*** Cell name: comparator_preamp_sync_1v8_ptype
+*** View name: schematic
+.SUBCKT COMPARATOR_PREAMP_SYNC_1V8_PTYPE_SCHEMATIC GND GNDS VDD VDD1V8
++VDDS CLKCMPDOWN_1V8 CLKRESETDOWN INM INP OUTM OUTP
+    XPTIEVDDTAILM TAILM CLKRESETDOWN VDD GND lvtpfet w=160n l=30.00n
++as={((76n)+(0))*(160n) } ad={((76n)+(0))*(160n)} nf={(1)*(1)}
++sa={(76n)+(0)} sb={(76n)+(0)} sd=96n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XPTIEVDDTAILP TAILP CLKRESETDOWN VDD GND lvtpfet w=160n l=30.00n
++as={((76n)+(0))*(160n) } ad={((76n)+(0))*(160n)} nf={(1)*(1)}
++sa={(76n)+(0)} sb={(76n)+(0)} sd=96n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XPTIEVDDOUTP LATCHOUTP CLKRESETDOWN VDD GND lvtpfet w=160n l=30.00n
++as={((76n)+(0))*(160n) } ad={((76n)+(0))*(160n)} nf={(1)*(1)}
++sa={(76n)+(0)} sb={(76n)+(0)} sd=96n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XPLATCHP LATCHOUTP LATCHOUTN VDD GND lvtpfet w=500n l=30.00n
++as={((76n)+(0))*(500n) } ad={((76n)+(0))*(500n)} nf={(1)*(1)}
++sa={(76n)+(0)} sb={(76n)+(0)} sd=96n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XPLATCHM LATCHOUTN LATCHOUTP VDD GND lvtpfet w=500n l=30.00n
++as={((76n)+(0))*(500n) } ad={((76n)+(0))*(500n)} nf={(1)*(1)}
++sa={(76n)+(0)} sb={(76n)+(0)} sd=96n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XPTIEVDDOUTM LATCHOUTN CLKRESETDOWN VDD GND lvtpfet w=160n l=30.00n
++as={((76n)+(0))*(160n) } ad={((76n)+(0))*(160n)} nf={(1)*(1)}
++sa={(76n)+(0)} sb={(76n)+(0)} sd=96n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XNTAILM_EG TAILM OUTM_PRE GND GND eglvtnfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XNTAILP_EG TAILP OUTP_PRE GND GND eglvtnfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XNTAILGND_EG VIRTUAL_VDD CLKCMPDOWN_1V8 GND GND eglvtnfet w=400n
++l=150.00n as={(2*(120n)+(0)+(0))*((400n)/2) } ad={1*((140n)*((400n)/2))}
++nf={(2)*(1)} sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1
++p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XNINPDM_EG OUTM_PRE CLKCMPDOWN_1V8 GND GND eglvtnfet w=200n l=150.00n
++as={((120n)+(0))*(200n) } ad={((120n)+(0))*(200n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XNINPDP_EG OUTP_PRE CLKCMPDOWN_1V8 GND GND eglvtnfet w=200n l=150.00n
++as={((120n)+(0))*(200n) } ad={((120n)+(0))*(200n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XPINP_EG OUTP_PRE INP VIRTUAL_VDD GND eglvtpfet w=700n l=150.00n
++as={((120n)+(0))*(700n) } ad={((120n)+(0))*(700n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XPTAILVDD1V8_EG VIRTUAL_VDD CLKCMPDOWN_1V8 VDD1V8 GND eglvtpfet w=1.4u
++l=150.00n as={(2*(120n)+(0)+(0))*((1.4u)/2) } ad={1*((140n)*((1.4u)/2))}
++nf={(2)*(1)} sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1
++p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XPINM_EG OUTM_PRE INM VIRTUAL_VDD GND eglvtpfet w=700n l=150.00n
++as={((120n)+(0))*(700n) } ad={((120n)+(0))*(700n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XNLATCHP LATCHOUTP LATCHOUTN TAILP GND lvtnfet w=300n l=30.00n
++as={((76n)+(0))*(300n) } ad={((76n)+(0))*(300n)} nf={(1)*(1)}
++sa={(76n)+(0)} sb={(76n)+(0)} sd=96n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XNLATCHM LATCHOUTN LATCHOUTP TAILM GND lvtnfet w=300n l=30.00n
++as={((76n)+(0))*(300n) } ad={((76n)+(0))*(300n)} nf={(1)*(1)}
++sa={(76n)+(0)} sb={(76n)+(0)} sd=96n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XBUFFERP LATCHOUTP RB GND GND VDD GND C12T28SOI_LL_BFX4_P0
+    XBUFFERN LATCHOUTN SB GND GND VDD GND C12T28SOI_LL_BFX4_P0
+    XSRLATCH GND OUTP OUTM RB SB VDD SR_LATCH_SCHEMATIC
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3
+*** Cell name: levelShifter_wBuffers1u
+*** View name: schematic
+.SUBCKT LEVELSHIFTER_WBUFFERS1U_SCHEMATIC GND VDD VDD1V8 IN IN1V8
+    XN44 IN1V8 NET033 GND GND eglvtnfet w=700n l=150n as=68.6f ad=68.6f
++nf={(1)*(1)} sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0 ngcon=2
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XN45 NET033 LS_OUT GND GND eglvtnfet w=350n l=150n as=34.3f ad=34.3f
++nf={(1)*(1)} sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0 ngcon=2
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XNMOS_SELB LS_OUT INB_D2 GND GND eglvtnfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XNMOS_SEL INB1V8 IN_D2 GND GND eglvtnfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XP39 NET033 LS_OUT VDD1V8 GND eglvtpfet w=500n l=150n as=49.0f
++ad=49.0f nf=4 sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XP38 IN1V8 NET033 VDD1V8 GND eglvtpfet w=1u l=150n as=98.0f ad=98.0f
++nf=4 sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XPMOS_SELB_UP SELBMID INB1V8 VDD1V8 GND eglvtpfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XPMOS_SELB_MID LS_OUT INB_D2 SELBMID GND eglvtpfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XPMOS_SEL_UP SELMID LS_OUT VDD1V8 GND eglvtpfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XPMOS_SEL_MID INB1V8 IN_D2 SELMID GND eglvtpfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XI0 NET21 IN_D2 GND GND VDD GND C12T28SOI_LL_IVX8_P16
+    XI173 IN_D2 INB_D2 GND GND VDD GND C12T28SOI_LL_IVX8_P16
+    XI1 IN NET21 GND GND VDD GND C12T28SOI_LL_IVX4_P16
+    XANTDIODE GND VDD tdndsx area=50f perim=1.2u soa=1
+    XD0 GND VDD1V8 egtdndsx area=50f perim=1.2u soa=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: C28SOI_SC_12_CLK_LR
+*** Cell name: C12T28SOI_LR_CNIVX5_P10
+*** View name: cmos_sch
+.SUBCKT C12T28SOI_LR_CNIVX5_P10 A Z INH_GND INH_GNDS INH_VDD INH_VDDS
+    XMM2 Z A INH_VDD INH_VDDS pfet w=300n l=30.0n as={(76n)*(300n) }
++ad={(76n)*(300n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XMM3 Z A INH_GND INH_GNDS nfet w=210n l=30.0n as={(76n)*(210n) }
++ad={(76n)*(210n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: C28SOI_SC_12_CLK_LR
+*** Cell name: C12T28SOI_LR_CNIVX16_P10
+*** View name: cmos_sch
+.SUBCKT C12T28SOI_LR_CNIVX16_P10 A Z INH_GND INH_GNDS INH_VDD INH_VDDS
+    XMM2 Z A INH_VDD INH_VDDS pfet w=552n l=30.0n as={(76n)*(552n) }
++ad={(76n)*(552n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XMM4 Z A INH_VDD INH_VDDS pfet w=552n l=30.0n as={(76n)*(552n) }
++ad={(76n)*(552n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XMN0 Z A INH_GND INH_GNDS nfet w=350n l=30.0n as={(76n)*(350n) }
++ad={(76n)*(350n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XMM3 Z A INH_GND INH_GNDS nfet w=350n l=30.0n as={(76n)*(350n) }
++ad={(76n)*(350n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: C28SOI_SC_12_CLK_LL
+*** Cell name: C12T28SOI_LL_CNIVX5_P10
+*** View name: cmos_sch
+.SUBCKT C12T28SOI_LL_CNIVX5_P10 A Z INH_GND INH_GNDS INH_VDD INH_VDDS
+    XMM3 Z A INH_GND INH_GNDS lvtnfet w=210n l=30.0n as={(76n)*(210n) }
++ad={(76n)*(210n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XMM2 Z A INH_VDD INH_VDDS lvtpfet w=300n l=30.0n as={(76n)*(300n) }
++ad={(76n)*(300n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=10n ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: pwell_positive_sampling
+*** View name: schematic
+.SUBCKT PWELL_POSITIVE_SAMPLING GND VDD VDD1V8 CLK DACREF<0> DACREF<1>
++OUTM<0> OUTM<1> OUTP<0> OUTP<1> PWELL
+    XPTYPECMP<0> GND NET017 VDD VDD1V8 NET023 CLK_CMPDOWN CLK_RESET
++SAMPLE_NET DACREF<0> OUTM<0> OUTP<0>
++COMPARATOR_PREAMP_SYNC_1V8_PTYPE_SCHEMATIC
+    XPTYPECMP<1> GND NET017 VDD VDD1V8 NET023 CLK_CMPDOWN CLK_RESET
++SAMPLE_NET DACREF<1> OUTM<1> OUTP<1>
++COMPARATOR_PREAMP_SYNC_1V8_PTYPE_SCHEMATIC
+    XP4 CLK_CMPDOWN CLK_CMPDOWN_INV VDD1V8 GND eglvtpfet w=2u l=150n
++as=168f ad=140f nf=4 sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1
++swrsub=1 mismatch=1 m=1
+    XP3 CLK_CMPDOWN_INV CLK_BUF VDD1V8 GND eglvtpfet w=500n l=150n
++as=49.0f ad=49.0f nf=4 sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1
++swrsub=1 mismatch=1 m=1
+    XP39 CLK_RESET CLK_BUF VDD GND eglvtpfet w=1u l=150n as=98.0f ad=70f
++nf=4 sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XP2 GND SAMPLE_NET SAMPLE_NET GND eglvtpfet w=1u l=150.00n as=98.0f
++ad=98.0f nf={(1)*(1)} sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XP0 SAMPLE_NET SAMPLE PWELL GND eglvtpfet w=3u l=150.00n as=294.00f
++ad=294.00f nf={(1)*(1)} sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+XC0 SAMPLE CLK_DELAYED cmom_6U1x_2U2x_2T8x_LB_2p nf_dirx=10 nf_diry=80
++mtlfrbot=1 mtlfrtop=5 mtlconbot=1 mtlcontop=5 spacefinger_mx=8e-08
++wfinger_mx=8e-08 mismatch=1 mult=1 pre_layout_local=-1 dc_mdev=0
++fr_big_finger=0 soa=1
+XCMOM_NWELL GND SAMPLE_NET cmom_6U1x_2U2x_2T8x_LB_2p nf_dirx=90
++nf_diry=110 mtlfrbot=1 mtlfrtop=5 mtlconbot=1 mtlcontop=4
++spacefinger_mx=8e-08 wfinger_mx=8e-08 mismatch=1 mult=1
++pre_layout_local=-1 dc_mdev=0 fr_big_finger=0 soa=1
+    XN1 CLK_CMPDOWN CLK_CMPDOWN_INV GND GND eglvtnfet w=1.4u l=150n
++as=117.6f ad=98f nf={(4)*(1)} sa=1.8u sb=1.8u sd=140n ptwell=0 par=1
++p_la=0 ngcon=2 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1
++swrg=1 swrsub=1 mismatch=1 m=1
+    XN0 CLK_CMPDOWN_INV CLK_BUF GND GND eglvtnfet w=350n l=150n as=34.3f
++ad=34.3f nf={(1)*(1)} sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0
++ngcon=2 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1
++swrsub=1 mismatch=1 m=1
+    XN45 CLK_RESET CLK_BUF GND GND eglvtnfet w=320n l=150n as=31.36f
++ad=31.36f nf={(1)*(1)} sa=1.8u sb=1.8u sd=140n ptwell=0 par=1 p_la=0
++ngcon=2 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1
++swrsub=1 mismatch=1 m=1
+    XI25 GND VDD VDD1V8 CLK_I CLK_BUF LEVELSHIFTER_WBUFFERS1U_SCHEMATIC
+    XP1 SAMPLE GND GND GND lvtpfet w=500n l=30.00n as=49.0f ad=49.0f
++nf={(1)*(1)} sa=1.8u sb=1.8u sd=96n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XI46 D8 D9 GND GND VDD VDD C12T28SOI_LR_CNIVX5_P10
+    XI44 D10 D11 GND GND VDD VDD C12T28SOI_LR_CNIVX5_P10
+    XI43 D9 D10 GND GND VDD VDD C12T28SOI_LR_CNIVX5_P10
+    XI42 D4 D5 GND GND VDD VDD C12T28SOI_LR_CNIVX5_P10
+    XI41 D7 D8 GND GND VDD VDD C12T28SOI_LR_CNIVX5_P10
+    XI40 D6 D7 GND GND VDD VDD C12T28SOI_LR_CNIVX5_P10
+    XI39 D5 D6 GND GND VDD VDD C12T28SOI_LR_CNIVX5_P10
+    XI34 CLK_RESET D1 GND GND VDD VDD C12T28SOI_LR_CNIVX5_P10
+    XI36 D2 D3 GND GND VDD VDD C12T28SOI_LR_CNIVX5_P10
+    XI37 D3 D4 GND GND VDD VDD C12T28SOI_LR_CNIVX5_P10
+    XI35 D1 D2 GND GND VDD VDD C12T28SOI_LR_CNIVX5_P10
+    XI45 D11 CLK_DELAYED GND GND VDD VDD C12T28SOI_LR_CNIVX16_P10
+    XANTDIODE GND SAMPLE_NET tdndsx area=50f perim=1.2u soa=1
+    XI48 CLK CLK_I GND GND VDD GND C12T28SOI_LL_CNIVX5_P10
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: inv1v8_x1
+*** View name: schematic
+.SUBCKT INV1V8_X1 A GND VDD1V8 Z
+    XNMOS Z A GND GND eglvtnfet w=640n l=150.00n as={((120n)+(0))*(640n) }
++ad={((120n)+(0))*(640n)} nf={(1)*(1)} sa={(120n)+(0)} sb={(120n)+(0)}
++sd=140n ptwell=0 par=1 p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0
++soa=1 swshe=0 swacc=1 swrg=1 swrsub=1 mismatch=1 m=1
+    XPMOS Z A VDD1V8 GND eglvtpfet w=1u l=150.00n as={((120n)+(0))*(1u) }
++ad={((120n)+(0))*(1u)} nf={(1)*(1)} sa={(120n)+(0)} sb={(120n)+(0)}
++sd=140n ptwell=0 par=1 p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0
++soa=1 swshe=0 swacc=1 swrg=1 swrsub=1 mismatch=1 m=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: inv1v8_x2
+*** View name: schematic
+.SUBCKT INV1V8_X2 A GND VDD1V8 Z
+    XI1 A GND VDD1V8 Z INV1V8_X1
+    XI0 A GND VDD1V8 Z INV1V8_X1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: inv1v8_x4
+*** View name: schematic
+.SUBCKT INV1V8_X4 A GND VDD1V8 Z
+    XI3 A GND VDD1V8 Z INV1V8_X1
+    XI2 A GND VDD1V8 Z INV1V8_X1
+    XI1 A GND VDD1V8 Z INV1V8_X1
+    XI0 A GND VDD1V8 Z INV1V8_X1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: pwellSampler_switch11_only_nmos
+*** View name: schematic
+.SUBCKT PWELLSAMPLER_SWITCH11_ONLY_NMOS GND CAPIN FI11_N FI11_P FI12_N
++PWELLIN
+    XNSW11 PWELLIN FI11_N CAPIN FI12_N eglvtnfet w=10u l=150.00n
++as=756.00f ad=756.00f nf={(5)*(1)} sa=1.8u sb=1.8u sd=140n ptwell=0 par=1
++p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: pwellSampler_switch12
+*** View name: schematic
+.SUBCKT PWELLSAMPLER_SWITCH12 GND CAP FI12_N FI12_N_BB
+    XNSW12 GND FI12_N CAP FI12_N_BB eglvtnfet w=6u l=150.00n
++as={(2*(120n)+(0)+(0))*((6u)/6) + 2*((140n)*((6u)/6))}
++ad={3*((140n)*((6u)/6))} nf={(6)*(1)} sa={(120n)+(0)} sb={(120n)+(0)}
++sd=140n ptwell=0 par=1 p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0
++soa=1 swshe=0 swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: pwellSampler_switch21
+*** View name: schematic
+.SUBCKT PWELLSAMPLER_SWITCH21 GND CAP FI21_P
+    XPSW21 GND FI21_P CAP GND eglvtpfet w=8u l=150.00n
++as={(2*(120n)+(0)+(0))*((8u)/4) + 1*((140n)*((8u)/4))}
++ad={2*((140n)*((8u)/4))} nf={(4)*(1)} sa={(120n)+(0)} sb={(120n)+(0)}
++sd=140n ptwell=0 par=1 p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0
++soa=1 swshe=0 swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: pwellSampler_MoMcap
+*** View name: schematic
+.SUBCKT PWELLSAMPLER_MOMCAP GND MINUS PLUS
+    XD0 MINUS GND tdpdnw area=50f perim=1.2u soa=1
+    XD1 GND PLUS tdndsx area=50f perim=1.2u soa=1
+XC0 MINUS PLUS cmom_6U1x_2U2x_2T8x_LB_2p nf_dirx=80 nf_diry=80 mtlfrbot=3
++mtlfrtop=5 mtlconbot=3 mtlcontop=5 spacefinger_mx=8e-08 wfinger_mx=8e-08
++mismatch=1 mult=1 pre_layout_local=-1 dc_mdev=0 fr_big_finger=0 soa=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: pwellSampler_wo22
+*** View name: schematic
+.SUBCKT PWELLSAMPLER_WO22 CFLYTOP GND FI11_N FI11_P FI12_N FI12_N_BB
++FI21_P PWELL PWELL_INV_SAMPLE
+    C0 GND CFLYTOP CCPL_TOPGND IC=0
+    C2 PWELL_INV_SAMPLE GND CCPL_BOTGND IC=0
+    C4 PWELL_INV_SAMPLE CFLYTOP CIDEAL IC=0
+    XI6 GND CFLYTOP FI11_N FI11_P FI12_N PWELL
++PWELLSAMPLER_SWITCH11_ONLY_NMOS
+    XI8 GND PWELL_INV_SAMPLE FI12_N FI12_N_BB PWELLSAMPLER_SWITCH12
+    XI9 GND CFLYTOP FI21_P PWELLSAMPLER_SWITCH21
+    XI22 GND CFLYTOP PWELL_INV_SAMPLE PWELLSAMPLER_MOMCAP
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: cap_MoMonly1o5_60x60
+*** View name: schematic
+.SUBCKT CAP_MOMONLY1O5_60X60 GND MINUS PLUS
+    XD1 GND GND tdndsx area=50f perim=1.2u soa=1
+XCMOM PLUS MINUS cmom_6U1x_2U2x_2T8x_LB_2p nf_dirx=60 nf_diry=60
++mtlfrbot=1 mtlfrtop=5 mtlconbot=1 mtlcontop=5 spacefinger_mx=8e-08
++wfinger_mx=8e-08 mismatch=1 mult=1 pre_layout_local=-1 dc_mdev=0
++fr_big_finger=0 soa=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: inv1v8_x3
+*** View name: schematic
+.SUBCKT INV1V8_X3 A GND VDD1V8 Z
+    XI2 A GND VDD1V8 Z INV1V8_X1
+    XI1 A GND VDD1V8 Z INV1V8_X1
+    XI0 A GND VDD1V8 Z INV1V8_X1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: nand1v8_320n
+*** View name: schematic
+.SUBCKT NAND1V8_320N A B GND VDD1V8 Z
+    XPMOS_A Z A VDD1V8 GND eglvtpfet w=320n l=150.00n
++as={((120n)+(0))*(320n) } ad={((120n)+(0))*(320n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XPMOS_B Z B VDD1V8 GND eglvtpfet w=320n l=150.00n
++as={((120n)+(0))*(320n) } ad={((120n)+(0))*(320n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XNMOS_B Z B NET10 GND eglvtnfet w=320n l=150.00n
++as={((120n)+(0))*(320n) } ad={((120n)+(0))*(320n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XNMOS_A NET10 A GND GND eglvtnfet w=320n l=150.00n
++as={((120n)+(0))*(320n) } ad={((120n)+(0))*(320n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: inv1v8_x0p5
+*** View name: schematic
+.SUBCKT INV1V8_X0P5 A GND VDD1V8 Z
+    XNMOS Z A GND GND eglvtnfet w=320n l=150.00n as={((120n)+(0))*(320n) }
++ad={((120n)+(0))*(320n)} nf={(1)*(1)} sa={(120n)+(0)} sb={(120n)+(0)}
++sd=140n ptwell=0 par=1 p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0
++soa=1 swshe=0 swacc=1 swrg=1 swrsub=1 mismatch=1 m=1
+    XPMOS Z A VDD1V8 GND eglvtpfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: level_shifter_500n
+*** View name: schematic
+.SUBCKT LEVEL_SHIFTER_500N GND VDD VDD1V8 IN IN1V8
+    XNMOS_SELB IN1V8 INB_D2 GND GND eglvtnfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XNMOS_SEL INB1V8 IN_D2 GND GND eglvtnfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XPMOS_SELB_UP SELBMID INB1V8 VDD1V8 GND eglvtpfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XPMOS_SELB_MID IN1V8 INB_D2 SELBMID GND eglvtpfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XPMOS_SEL_UP SELMID IN1V8 VDD1V8 GND eglvtpfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XPMOS_SEL_MID INB1V8 IN_D2 SELMID GND eglvtpfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XI0 NET21 IN_D2 GND GND VDD GND C12T28SOI_LL_IVX8_P16
+    XI173 IN_D2 INB_D2 GND GND VDD GND C12T28SOI_LL_IVX8_P16
+    XI1 IN NET21 GND GND VDD GND C12T28SOI_LL_IVX4_P16
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: clkSampling_NOC_1v8
+*** View name: schematic
+.SUBCKT CLKSAMPLING_NOC_1V8 GND VDD VDD1V8 CLKIN FI12_N_BB FI12_TEST
++FI21_TEST SEL
+    XNAND_B CLK_D2 A1V8 GND VDD1V8 B1 NAND1V8_320N
+    XNAND_A CLK_I1 B1V8 GND VDD1V8 A1 NAND1V8_320N
+    XINV_B5 NET85 GND VDD1V8 FI21_TEST INV1V8_X4
+    XINV_A5 NET87 GND VDD1V8 FI12_TEST INV1V8_X4
+    XINV_B4 NET86 GND VDD1V8 NET85 INV1V8_X2
+    XINV_A4 NET83 GND VDD1V8 NET87 INV1V8_X2
+    XINV_B2 NET84 GND VDD1V8 B1V8 INV1V8_X1
+    XINV_B3 B1V8 GND VDD1V8 NET86 INV1V8_X1
+    XINV_A2 NET82 GND VDD1V8 A1V8 INV1V8_X1
+    XINV_A3 A1V8 GND VDD1V8 NET83 INV1V8_X1
+    XCLKD2 CLK_I1 GND VDD1V8 CLK_D2 INV1V8_X0P5
+    XINV_B1 B1 GND VDD1V8 NET84 INV1V8_X0P5
+    XINV_A1 A1 GND VDD1V8 NET82 INV1V8_X0P5
+    XCLKI1 CLKIN1V8 GND VDD1V8 CLK_I1 INV1V8_X0P5
+    XI236 GND VDD VDD1V8 SEL FI12_N_BB LEVEL_SHIFTER_500N
+    XLEVELSHIFTER GND VDD VDD1V8 CLKIN CLKIN1V8 LEVEL_SHIFTER_500N
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: pwellClocking_MoM_80x80
+*** View name: schematic
+.SUBCKT PWELLCLOCKING_MOM_80X80 GND MINUS PLUS
+    XD0 PLUS GND tdpdnw area=50f perim=1.2u soa=1
+    XD1 GND MINUS tdndsx area=50f perim=1.2u soa=1
+XC0 MINUS PLUS cmom_6U1x_2U2x_2T8x_LB_2p nf_dirx=80 nf_diry=80 mtlfrbot=3
++mtlfrtop=5 mtlconbot=3 mtlcontop=4 spacefinger_mx=8e-08 wfinger_mx=8e-08
++mismatch=1 mult=1 pre_layout_local=-1 dc_mdev=0 fr_big_finger=0 soa=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: pwellSamplingComplete_wo22
+*** View name: schematic
+.SUBCKT PWELLSAMPLINGCOMPLETE_WO22 GND VDD VDD1V8 CLKIN FI22_N FI22_P
++PWELL PWELLSAMPLE SEL
+    XFI12_INV1 FI12_TEST GND VDD1V8 FI12_I1 INV1V8_X2
+    XFI21_INV1B FI21_TEST GND VDD1V8 FI21P_POS INV1V8_X2
+    XFI12_INV2 FI12_I1 GND VDD1V8 FI12_N INV1V8_X4
+    XFI21_INV1 FI21_TEST GND VDD1V8 FI21P_POS INV1V8_X4
+    XFI11_INV1 FI12_TEST GND VDD1V8 FI11P_POS INV1V8_X4
+    XD1 GND FI21N_POS egtdndsx area=50f perim=1.2u soa=1
+    XFI21_INV2 FI21P_POS GND VDD1V8 FI21N_POS INV1V8_X1
+    XPWELLSAMPLEUNIT_1 CFLYTOP GND FI11_N FI11_P FI12_N FI12_N_BB FI21_P
++PWELL PWELLSAMPLE PWELLSAMPLER_WO22
+    XC_FI21 GND FI21_P FI21P_POS CAP_MOMONLY1O5_60X60
+    XFI11_INV2 FI11P_POS GND VDD1V8 FI11N_POS INV1V8_X3
+    XSAMPLINGCLOCKS GND VDD VDD1V8 CLKIN FI12_N_BB FI12_TEST FI21_TEST SEL
++CLKSAMPLING_NOC_1V8
+    XPMOS_FI22_COUPLED GND FI21_P FI21N_NEG GND eglvtpfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XPMOS_FI22_DIODE GND GND FI21N_NEG GND eglvtpfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XPMOS_FI21_DIODE GND GND FI21_P GND eglvtpfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XPMOS_FI21_COUPLED GND FI21N_NEG FI21_P GND eglvtpfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XP0 GND FI11_P FI11_N GND eglvtpfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XPMOS_FI11N_DIODE GND GND FI11_N GND eglvtpfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XPMOS_FI11P_COUPLED GND FI11_N FI11_P GND eglvtpfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XPMOS_FI11P_DIODE GND GND FI11_P GND eglvtpfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XD2 FI21N_NEG GND egtdpdnw area=50f perim=1.2u soa=1
+    C8 FI21P_POS FI21_P 1f IC=1.75
+    C9 FI21N_POS FI21N_NEG 1f IC=1.75
+    C3 FI11P_POS FI11_P 1f IC=1.75
+    C5 FI11N_POS FI11_N 1f IC=1.5
+    XC_FI11N GND FI11N_POS FI11_N PWELLCLOCKING_MOM_80X80
+    XC_FI11P GND FI11P_POS FI11_P PWELLCLOCKING_MOM_80X80
+    XFI22_INV3 FI22_N GND VDD1V8 FI22_P INV1V8_X0P5
+    XFI22_INV2 FI21P_POS GND VDD1V8 FI22_N INV1V8_X0P5
+XC_FI22 FI21N_NEG FI21N_POS cmom_6U1x_2U2x_2T8x_LB_2p nf_dirx=50
++nf_diry=40 mtlfrbot=1 mtlfrtop=5 mtlconbot=1 mtlcontop=5
++spacefinger_mx=8e-08 wfinger_mx=8e-08 mismatch=1 mult=1
++pre_layout_local=-1 dc_mdev=0 fr_big_finger=0 soa=1
+XC0 GND PWELLSAMPLE cmom_6U1x_2U2x_2T8x_LB_2p nf_dirx=60 nf_diry=15
++mtlfrbot=1 mtlfrtop=5 mtlconbot=3 mtlcontop=5 spacefinger_mx=8e-08
++wfinger_mx=8e-08 mismatch=1 mult=1 pre_layout_local=-1 dc_mdev=0
++fr_big_finger=0 soa=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: C28SOI_SC_12_CLK_LL
+*** Cell name: C12T28SOI_LL_CNIVX5_P0
+*** View name: cmos_sch
+.SUBCKT C12T28SOI_LL_CNIVX5_P0 A Z INH_GND INH_GNDS INH_VDD INH_VDDS
+    XMM3 Z A INH_GND INH_GNDS lvtnfet w=210n l=30.0n as={(76n)*(210n) }
++ad={(76n)*(210n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XMM2 Z A INH_VDD INH_VDDS lvtpfet w=300n l=30.0n as={(76n)*(300n) }
++ad={(76n)*(300n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: C28SOI_SC_12_CLK_LL
+*** Cell name: C12T28SOI_LL_CNIVX23_P0
+*** View name: cmos_sch
+.SUBCKT C12T28SOI_LL_CNIVX23_P0 A Z INH_GND INH_GNDS INH_VDD INH_VDDS
+    XMN0 Z A INH_GND INH_GNDS lvtnfet w=335n l=30.0n as={(76n)*(335n) }
++ad={(76n)*(335n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XMM3 Z A INH_GND INH_GNDS lvtnfet w=335n l=30.0n as={(76n)*(335n) }
++ad={(76n)*(335n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XMM4 Z A INH_GND INH_GNDS lvtnfet w=335n l=30.0n as={(76n)*(335n) }
++ad={(76n)*(335n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XMM0 Z A INH_VDD INH_VDDS lvtpfet w=547.0n l=30.0n as={(76n)*(547.0n)
++} ad={(76n)*(547.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=0
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XMM1 Z A INH_VDD INH_VDDS lvtpfet w=547.0n l=30.0n as={(76n)*(547.0n)
++} ad={(76n)*(547.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=0
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XMM2 Z A INH_VDD INH_VDDS lvtpfet w=547.0n l=30.0n as={(76n)*(547.0n)
++} ad={(76n)*(547.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=0
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: inv1v8_x1unbalanced
+*** View name: schematic
+.SUBCKT INV1V8_X1UNBALANCED A GND VDD1V8 Z
+    XNMOS Z A GND GND eglvtnfet w=320n l=150.00n as={((120n)+(0))*(320n) }
++ad={((120n)+(0))*(320n)} nf={(1)*(1)} sa={(120n)+(0)} sb={(120n)+(0)}
++sd=140n ptwell=0 par=1 p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0
++soa=1 swshe=0 swacc=1 swrg=1 swrsub=1 mismatch=1 m=1
+    XPMOS Z A VDD1V8 GND eglvtpfet w=1u l=150.00n as={((120n)+(0))*(1u) }
++ad={((120n)+(0))*(1u)} nf={(1)*(1)} sa={(120n)+(0)} sb={(120n)+(0)}
++sd=140n ptwell=0 par=1 p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0
++soa=1 swshe=0 swacc=1 swrg=1 swrsub=1 mismatch=1 m=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: C28SOI_SC_12_CLK_LL
+*** Cell name: C12T28SOI_LL_CNIVX8_P0
+*** View name: cmos_sch
+.SUBCKT C12T28SOI_LL_CNIVX8_P0 A Z INH_GND INH_GNDS INH_VDD INH_VDDS
+    XMM1 Z A INH_GND INH_GNDS lvtnfet w=335n l=30.0n as={(76n)*(335n) }
++ad={(76n)*(335n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XMM0 Z A INH_VDD INH_VDDS lvtpfet w=547.0n l=30.0n as={(76n)*(547.0n)
++} ad={(76n)*(547.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=0
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: nor1v8_320n
+*** View name: schematic
+.SUBCKT NOR1V8_320N A GND VDD1V8 Z B
+    XPMOS_A PMOSCONN A VDD1V8 GND eglvtpfet w=1u l=150.00n
++as={((120n)+(0))*(1u) } ad={((120n)+(0))*(1u)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XPMOS_B Z B PMOSCONN GND eglvtpfet w=1u l=150.00n
++as={((120n)+(0))*(1u) } ad={((120n)+(0))*(1u)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=1 swrg=1 swrsub=1
++mismatch=1 m=1
+    XNMOS_B Z B GND GND eglvtnfet w=320n l=150.00n as={((120n)+(0))*(320n)
++} ad={((120n)+(0))*(320n)} nf={(1)*(1)} sa={(120n)+(0)} sb={(120n)+(0)}
++sd=140n ptwell=0 par=1 p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0
++soa=1 swshe=0 swacc=1 swrg=1 swrsub=1 mismatch=1 m=1
+    XNMOS_A Z A GND GND eglvtnfet w=320n l=150.00n as={((120n)+(0))*(320n)
++} ad={((120n)+(0))*(320n)} nf={(1)*(1)} sa={(120n)+(0)} sb={(120n)+(0)}
++sd=140n ptwell=0 par=1 p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0
++soa=1 swshe=0 swacc=1 swrg=1 swrsub=1 mismatch=1 m=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: C28SOI_SC_12_CLK_LL
+*** Cell name: C12T28SOI_LL_CNIVX31_P0
+*** View name: cmos_sch
+.SUBCKT C12T28SOI_LL_CNIVX31_P0 A Z INH_GND INH_GNDS INH_VDD INH_VDDS
+    XMN3 Z A INH_GND INH_GNDS lvtnfet w=350n l=30.0n as={(76n)*(350n) }
++ad={(76n)*(350n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XMN2 Z A INH_GND INH_GNDS lvtnfet w=350n l=30.0n as={(76n)*(350n) }
++ad={(76n)*(350n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XMM3 Z A INH_GND INH_GNDS lvtnfet w=350n l=30.0n as={(76n)*(350n) }
++ad={(76n)*(350n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XMN1 Z A INH_GND INH_GNDS lvtnfet w=350n l=30.0n as={(76n)*(350n) }
++ad={(76n)*(350n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XMP2 Z A INH_VDD INH_VDDS lvtpfet w=550n l=30.0n as={(76n)*(550n) }
++ad={(76n)*(550n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XMP1 Z A INH_VDD INH_VDDS lvtpfet w=550n l=30.0n as={(76n)*(550n) }
++ad={(76n)*(550n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XMM2 Z A INH_VDD INH_VDDS lvtpfet w=550n l=30.0n as={(76n)*(550n) }
++ad={(76n)*(550n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+    XMP0 Z A INH_VDD INH_VDDS lvtpfet w=550n l=30.0n as={(76n)*(550n) }
++ad={(76n)*(550n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1 swrg=-1
++swrsub=-1 mismatch=1 m=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: cmpClkGenerator
+*** View name: schematic
+.SUBCKT CMPCLKGENERATOR GND VDD VDD1V8 CLKP1V8 NCLKCMP NCLKRST PCLKCMPB
++PCLKRSTB SELN_SELPB
+    XPCMP_3 NET030 GND VDD1V8 PCLKCMPB INV1V8_X2
+    XSEL_LS GND VDD VDD1V8 SELN_SELPB SELN_SELPB_1V8 LEVEL_SHIFTER_500N
+    XI67 NET034 NET038 GND GND VDD GND C12T28SOI_LL_CNIVX5_P0
+    XI68 NET038 NET035 GND GND VDD GND C12T28SOI_LL_CNIVX5_P0
+    XI66 NET039 NET034 GND GND VDD GND C12T28SOI_LL_CNIVX5_P0
+    XI55 CLKP1V0 CLKN1V0 GND GND VDD GND C12T28SOI_LL_CNIVX5_P0
+    XI69 NET035 NET036 GND GND VDD GND C12T28SOI_LL_CNIVX5_P0
+    XPCMP_2 NET031 GND VDD1V8 NET030 INV1V8_X1
+    XNINV_RST NCLK_M1 NCLKRST GND GND VDD GND C12T28SOI_LL_CNIVX23_P0
+    XININV_1 CLKP1V8 GND VDD1V8 NET037 INV1V8_X0P5
+    XPCMP_1 NET025 GND VDD1V8 NET031 INV1V8_X0P5
+    XPRST_1V8TO1V0 NET025 GND VDD NET039 INV1V8_X1UNBALANCED
+    XINV_1V8_TO_1V0 NET037 GND VDD CLKP1V0 INV1V8_X1UNBALANCED
+    XNINV_1 NCLK_M4 NCLK_M1 GND GND VDD GND C12T28SOI_LL_CNIVX8_P0
+    XI70 NET036 PCLKRSTB GND GND VDD GND C12T28SOI_LL_CNIVX8_P0
+    XNNAND SELN_SELPB CLKN1V0 NCLK_M4 GND GND VDD GND
++C12T28SOI_LL_NAND2X3_P0
+    XNOR1V8 SELN_SELPB_1V8 GND VDD1V8 NET025 CLKP1V8 NOR1V8_320N
+    XNINV_CMP NCLKRST NCLKCMP GND GND VDD GND C12T28SOI_LL_CNIVX31_P0
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: C28SOI_SC_12_PR_LL
+*** Cell name: C12T28SOI_LLF_DECAPXT4
+*** View name: cmos_sch
+.SUBCKT C12T28SOI_LLF_DECAPXT4 INH_GND INH_GNDS INH_VDD INH_VDDS
+    XMN3 INH_GND INH_VDD INH_GND INH_GNDS lvtnfet w=282n l=30n
++as={(76n)*(282n) } ad={(76n)*(282n)} nf={(1)*(1)} sb=(76n) sd=96n
++ptwell=0 p_la=10n ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1
++swshe=0 swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+    XMN5 INH_GND INH_VDD INH_GND INH_GNDS lvtnfet w=282n l=30n
++as={(76n)*(282n) } ad={(76n)*(282n)} nf={(1)*(1)} sb=(76n) sd=96n
++ptwell=0 p_la=10n ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1
++swshe=0 swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+    XMN4 INH_GND INH_VDD INH_GND INH_GNDS lvtnfet w=282n l=30n
++as={(76n)*(282n) } ad={(76n)*(282n)} nf={(1)*(1)} sb=(76n) sd=96n
++ptwell=0 p_la=10n ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1
++swshe=0 swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+    XMP5 INH_VDD INH_GND INH_VDD INH_VDDS lvtpfet w=442n l=30n
++as={(76n)*(442n) } ad={(76n)*(442n)} nf={(1)*(1)} sb=(76n) sd=96n
++ptwell=0 p_la=10n ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1
++swshe=0 swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+    XMP4 INH_VDD INH_GND INH_VDD INH_VDDS lvtpfet w=442n l=30n
++as={(76n)*(442n) } ad={(76n)*(442n)} nf={(1)*(1)} sb=(76n) sd=96n
++ptwell=0 p_la=10n ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1
++swshe=0 swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+    XMP3 INH_VDD INH_GND INH_VDD INH_VDDS lvtpfet w=442n l=30n
++as={(76n)*(442n) } ad={(76n)*(442n)} nf={(1)*(1)} sb=(76n) sd=96n
++ptwell=0 p_la=10n ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1
++swshe=0 swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: nwellCmpClkGenerator
+*** View name: schematic
+.SUBCKT NWELLCMPCLKGENERATOR GND VDD VDD1V8 CLKN1V0 NCLKCMP NCLKRST
++PCLKCMPB PCLKRSTB SELN_SELPB
+    XCLKPLS GND VDD VDD1V8 CLKP1V0 CLKP1V8 LEVEL_SHIFTER_500N
+    XSELLS GND VDD VDD1V8 SELN_SELPB SELN_SELPB_1V8 LEVEL_SHIFTER_500N
+    XPCMP_3 NET013 GND VDD1V8 PCLKCMPB INV1V8_X2
+    XI67 NET039 NET038 GND GND VDD GND C12T28SOI_LL_CNIVX5_P0
+    XI61 CLKP1V0 CLKN1V0_D2 GND GND VDD GND C12T28SOI_LL_CNIVX5_P0
+    XI66 NET012 NET039 GND GND VDD GND C12T28SOI_LL_CNIVX5_P0
+    XI68 NET038 NET035 GND GND VDD GND C12T28SOI_LL_CNIVX5_P0
+    XI60 CLKN1V0 CLKP1V0 GND GND VDD GND C12T28SOI_LL_CNIVX5_P0
+    XI69 NET035 NET036 GND GND VDD GND C12T28SOI_LL_CNIVX5_P0
+    XI64 GND GND VDD GND C12T28SOI_LLF_DECAPXT4
+    XNINV_RST NCLK_M1 NCLKRST GND GND VDD GND C12T28SOI_LL_CNIVX23_P0
+    XPCMP_2 NET030 GND VDD1V8 NET013 INV1V8_X1
+    XPCMP_1 NET025 GND VDD1V8 NET030 INV1V8_X0P5
+    XNINV_1 NCLK_M4 NCLK_M1 GND GND VDD GND C12T28SOI_LL_CNIVX8_P0
+    XI70 NET036 PCLKRSTB GND GND VDD GND C12T28SOI_LL_CNIVX8_P0
+    XNNAND SELN_SELPB CLKN1V0_D2 NCLK_M4 GND GND VDD GND
++C12T28SOI_LL_NAND2X3_P0
+    XPRST_1V8TO1V0 NET025 GND VDD NET012 INV1V8_X1UNBALANCED
+    XNOR1V8 CLKP1V8 GND VDD1V8 NET025 SELN_SELPB_1V8 NOR1V8_320N
+    XNINV_CMP NCLKRST NCLKCMP GND GND VDD GND C12T28SOI_LL_CNIVX31_P0
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: dac_Rstring_simple
+*** View name: schematic
+.SUBCKT DAC_RSTRING_SIMPLE GND VDD1V8 V00 V01 V02 V03 V04 V05 V06 V07 V08
++V09 V10 V11 V12 V13 V14 V15 V16 V17 V18 V19 V20 V21 V22 V23 V24 V25 V26
++V27 V28 V29 V30 V31 V32
+XR158 NET0188 NET0189 GND opreres w=300n l=7u r=24.8699K s=1 pbar=1 rsx=50
++sh=1 bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR157 NET0190 NET0191 GND opreres w=300n l=7u r=24.8699K s=1 pbar=1 rsx=50
++sh=1 bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR153 DUMMYML_RLTOP DUMMYML_RLBOT GND opreres w=300n l=7u r=124.349K s=5
++pbar=8 rsx=50 sh=1 bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR155 DUMMYBL_RLTOP DUMMYBL_RLBOT GND opreres w=300n l=7u r=124.349K s=5
++pbar=8 rsx=50 sh=1 bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR151 DUMMYMR_RLTOP DUMMYMR_RLBOT GND opreres w=300n l=7u r=99.4795K s=4
++pbar=8 rsx=50 sh=1 bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR140 NET0187 NET0182 GND opreres w=300n l=7u r=24.8699K s=1 pbar=1 rsx=50
++sh=1 bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR141 NET0185 NET0186 GND opreres w=300n l=7u r=24.8699K s=1 pbar=1 rsx=50
++sh=1 bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR142 NET0180 NET0181 GND opreres w=300n l=7u r=24.8699K s=1 pbar=1 rsx=50
++sh=1 bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR136 NET0183 NET0184 GND opreres w=300n l=7u r=24.8699K s=1 pbar=1 rsx=50
++sh=1 bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR134 GND GND GND opreres w=300n l=7u r=3.10874K s=1 pbar=8 rsx=50 sh=1
++bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XRLDUMMY VDD1V8 VDD1V8 GND opreres w=300n l=7u r=3.10874K s=1 pbar=8
++rsx=50 sh=1 bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR110 V21 V22 GND opreres w=300n l=7u r=149.219K s=6 pbar=2 rsx=50 sh=1
++bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR108 V23 V24 GND opreres w=300n l=7u r=149.219K s=6 pbar=2 rsx=50 sh=1
++bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR107 V24 V25 GND opreres w=300n l=7u r=149.219K s=6 pbar=2 rsx=50 sh=1
++bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR106 V25 V26 GND opreres w=300n l=7u r=149.219K s=6 pbar=2 rsx=50 sh=1
++bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR105 V26 V27 GND opreres w=300n l=7u r=149.219K s=6 pbar=2 rsx=50 sh=1
++bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR103 V28 V29 GND opreres w=300n l=7u r=149.219K s=6 pbar=2 rsx=50 sh=1
++bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR102 V29 V30 GND opreres w=300n l=7u r=149.219K s=6 pbar=2 rsx=50 sh=1
++bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR111 V12 V11 GND opreres w=300n l=7u r=149.219K s=6 pbar=2 rsx=50 sh=1
++bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR112 V13 V12 GND opreres w=300n l=7u r=149.219K s=6 pbar=2 rsx=50 sh=1
++bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR113 V14 V13 GND opreres w=300n l=7u r=149.219K s=6 pbar=2 rsx=50 sh=1
++bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR114 V15 V14 GND opreres w=300n l=7u r=149.219K s=6 pbar=2 rsx=50 sh=1
++bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR116 V17 V16 GND opreres w=300n l=7u r=149.219K s=6 pbar=2 rsx=50 sh=1
++bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR117 V18 V17 GND opreres w=300n l=7u r=149.219K s=6 pbar=2 rsx=50 sh=1
++bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR118 V19 V18 GND opreres w=300n l=7u r=149.219K s=6 pbar=2 rsx=50 sh=1
++bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR119 V20 V19 GND opreres w=300n l=7u r=149.219K s=6 pbar=2 rsx=50 sh=1
++bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR121 V10 V11 GND opreres w=300n l=7u r=149.219K s=6 pbar=2 rsx=50 sh=1
++bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR122 V09 V10 GND opreres w=300n l=7u r=149.219K s=6 pbar=2 rsx=50 sh=1
++bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR123 V08 V09 GND opreres w=300n l=7u r=149.219K s=6 pbar=2 rsx=50 sh=1
++bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR124 V07 V08 GND opreres w=300n l=7u r=149.219K s=6 pbar=2 rsx=50 sh=1
++bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR125 V06 V07 GND opreres w=300n l=7u r=149.219K s=6 pbar=2 rsx=50 sh=1
++bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR143 DUMMYTR_RLTOP DUMMYTR_RLBOT GND opreres w=300n l=7u r=99.4795K s=4
++pbar=8 rsx=50 sh=1 bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR126 V05 V06 GND opreres w=300n l=7u r=149.219K s=6 pbar=2 rsx=50 sh=1
++bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR127 V04 V05 GND opreres w=300n l=7u r=149.219K s=6 pbar=2 rsx=50 sh=1
++bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR104 V27 V28 GND opreres w=300n l=7u r=149.219K s=6 pbar=2 rsx=50 sh=1
++bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR109 V22 V23 GND opreres w=300n l=7u r=149.219K s=6 pbar=2 rsx=50 sh=1
++bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR128 V03 V04 GND opreres w=300n l=7u r=149.219K s=6 pbar=2 rsx=50 sh=1
++bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR129 V02 V03 GND opreres w=300n l=7u r=149.219K s=6 pbar=2 rsx=50 sh=1
++bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR130 V01 V02 GND opreres w=300n l=7u r=149.219K s=6 pbar=2 rsx=50 sh=1
++bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR131 GND V01 GND opreres w=300n l=7u r=74.6097K s=3 pbar=2 rsx=50 sh=1
++bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR115 V16 V15 GND opreres w=300n l=7u r=149.219K s=6 pbar=2 rsx=50 sh=1
++bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR101 V30 V31 GND opreres w=300n l=7u r=149.219K s=6 pbar=2 rsx=50 sh=1
++bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR120 V21 V20 GND opreres w=300n l=7u r=149.219K s=6 pbar=2 rsx=50 sh=1
++bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+XR88 V31 VDD1V8 GND opreres w=300n l=7u r=74.6097K s=3 pbar=2 rsx=50 sh=1
++bp=3 ncr=6 soa=1 m=1 acc=1 dr_mdev=0
+    R3 VDD1V8 V32 1m
+    R0 GND V00 1m
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: C28SOI_SC_12_COREPBP16_LL
+*** Cell name: C12T28SOI_LL_IVX17_P16
+*** View name: cmos_sch
+.SUBCKT C12T28SOI_LL_IVX17_P16 A Z INH_GND INH_GNDS INH_VDD INH_VDDS
+    XM21 Z A INH_GND INH_GNDS lvtnfet w=392.0n l=30.0n as={(76n)*(392.0n)
++} ad={(76n)*(392.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=16n
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM19 Z A INH_GND INH_GNDS lvtnfet w=392.0n l=30.0n as={(76n)*(392.0n)
++} ad={(76n)*(392.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=16n
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM20 Z A INH_VDD INH_VDDS lvtpfet w=552.0n l=30.0n as={(76n)*(552.0n)
++} ad={(76n)*(552.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=16n
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+    XM22 Z A INH_VDD INH_VDDS lvtpfet w=552.0n l=30.0n as={(76n)*(552.0n)
++} ad={(76n)*(552.0n)} nf={(1)*(1)} sb=(76n) sd=96n ptwell=0 p_la=16n
++ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=-1
++swrg=-1 swrsub=-1 mismatch=1 m=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: well_dig_value_conv
+*** View name: schematic
+.SUBCKT WELL_DIG_VALUE_CONV GND VDD VDD1V8 SEL SEL1V8 SEL1V8B
+    XNSELIV3 SEL1V8 SELIV2OUT GND GND eglvtnfet w=4u l=150.00n
++as={(2*(120n)+(0)+(0))*((4u)/4) + 1*((140n)*((4u)/4))}
++ad={2*((140n)*((4u)/4))} nf={(4)*(1)} sa={(120n)+(0)} sb={(120n)+(0)}
++sd=140n ptwell=0 par=1 p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0
++soa=1 swshe=0 swacc=0 swrg=0 swrsub=0 mismatch=1 m=1
+    XNSELBIV3 SEL1V8B SELBIV2OUT GND GND eglvtnfet w=4u l=150.00n
++as={(2*(120n)+(0)+(0))*((4u)/4) + 1*((140n)*((4u)/4))}
++ad={2*((140n)*((4u)/4))} nf={(4)*(1)} sa={(120n)+(0)} sb={(120n)+(0)}
++sd=140n ptwell=0 par=1 p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0
++soa=1 swshe=0 swacc=0 swrg=0 swrsub=0 mismatch=1 m=1
+    XNSELIV2 SELIV2OUT SELIV1OUT GND GND eglvtnfet w=1u l=150.00n
++as={(2*(120n)+(0)+(0))*((1u)/2) } ad={1*((140n)*((1u)/2))} nf={(2)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+    XNSELIV1 SELIV1OUT LS_OUTB GND GND eglvtnfet w=500n l=150.00n
++as={(2*(120n)+(0)+(0))*((500n)/2) } ad={1*((140n)*((500n)/2))}
++nf={(2)*(1)} sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1
++p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=0
++swrg=0 swrsub=0 mismatch=1 m=1
+    XNINL LS_OUTB INL GND GND eglvtnfet w=250n l=150.00n
++as={((120n)+(0))*(250n) } ad={((120n)+(0))*(250n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+    XNINR LS_OUT INR GND GND eglvtnfet w=250n l=150.00n
++as={((120n)+(0))*(250n) } ad={((120n)+(0))*(250n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+    XNSELBIV2 SELBIV2OUT SELBIV1OUT GND GND eglvtnfet w=1u l=150.00n
++as={(2*(120n)+(0)+(0))*((1u)/2) } ad={1*((140n)*((1u)/2))} nf={(2)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+    XNSELBIV1 SELBIV1OUT LS_OUT GND GND eglvtnfet w=500n l=150.00n
++as={(2*(120n)+(0)+(0))*((500n)/2) } ad={1*((140n)*((500n)/2))}
++nf={(2)*(1)} sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1
++p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=0
++swrg=0 swrsub=0 mismatch=1 m=1
+    XPSELIV3 SEL1V8 SELIV2OUT VDD1V8 GND eglvtpfet w=4u l=150.00n
++as={(2*(120n)+(0)+(0))*((4u)/4) + 1*((140n)*((4u)/4))}
++ad={2*((140n)*((4u)/4))} nf={(4)*(1)} sa={(120n)+(0)} sb={(120n)+(0)}
++sd=140n ptwell=0 par=1 p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0
++soa=1 swshe=0 swacc=0 swrg=0 swrsub=0 mismatch=1 m=1
+    XPSELBIV3 SEL1V8B SELBIV2OUT VDD1V8 GND eglvtpfet w=4u l=150.00n
++as={(2*(120n)+(0)+(0))*((4u)/4) + 1*((140n)*((4u)/4))}
++ad={2*((140n)*((4u)/4))} nf={(4)*(1)} sa={(120n)+(0)} sb={(120n)+(0)}
++sd=140n ptwell=0 par=1 p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0
++soa=1 swshe=0 swacc=0 swrg=0 swrsub=0 mismatch=1 m=1
+    XPSELIV1 SELIV1OUT LS_OUTB VDD1V8 GND eglvtpfet w=750n l=150.00n
++as={((120n)+(0))*((750n)/3) + 1*((140n)*((750n)/3))}
++ad={((120n)+(0))*((750n)/3) + 1*((140n)*((750n)/3))} nf={(3)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+    XPSELIV2 SELIV2OUT SELIV1OUT VDD1V8 GND eglvtpfet w=2u l=150.00n
++as={(2*(120n)+(0)+(0))*((2u)/4) + 1*((140n)*((2u)/4))}
++ad={2*((140n)*((2u)/4))} nf={(4)*(1)} sa={(120n)+(0)} sb={(120n)+(0)}
++sd=140n ptwell=0 par=1 p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0
++soa=1 swshe=0 swacc=0 swrg=0 swrsub=0 mismatch=1 m=1
+    XPLSUPRIGHT NET23 LS_OUTB VDD1V8 GND eglvtpfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+    XPLSUPLEFT NET24 LS_OUT VDD1V8 GND eglvtpfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+    XPMIDL LS_OUTB INL NET24 GND eglvtpfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+    XPMIDR LS_OUT INR NET23 GND eglvtpfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+    XPSELBIV1 SELBIV1OUT LS_OUT VDD1V8 GND eglvtpfet w=750n l=150.00n
++as={((120n)+(0))*((750n)/3) + 1*((140n)*((750n)/3))}
++ad={((120n)+(0))*((750n)/3) + 1*((140n)*((750n)/3))} nf={(3)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+    XPSELBIV2 SELBIV2OUT SELBIV1OUT VDD1V8 GND eglvtpfet w=2u l=150.00n
++as={(2*(120n)+(0)+(0))*((2u)/4) + 1*((140n)*((2u)/4))}
++ad={2*((140n)*((2u)/4))} nf={(4)*(1)} sa={(120n)+(0)} sb={(120n)+(0)}
++sd=140n ptwell=0 par=1 p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0
++soa=1 swshe=0 swacc=0 swrg=0 swrsub=0 mismatch=1 m=1
+    XIVIN2 INR INL GND GND VDD GND C12T28SOI_LL_IVX17_P16
+    XIVIN1 SEL INR GND GND VDD GND C12T28SOI_LL_IVX17_P16
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: well_dig_value_conv_5pack
+*** View name: schematic
+.SUBCKT WELL_DIG_VALUE_CONV_5PACK GND VDD VDD1V8 REF_VALUE<4> REF_VALUE<3>
++REF_VALUE<2> REF_VALUE<1> REF_VALUE<0> SEL0 SEL0B SEL1 SEL1B SEL2 SEL2B
++SEL3 SEL3B SEL4 SEL4B
+    XI4 GND VDD VDD1V8 REF_VALUE<4> SEL4 SEL4B WELL_DIG_VALUE_CONV
+    XI3 GND VDD VDD1V8 REF_VALUE<3> SEL3 SEL3B WELL_DIG_VALUE_CONV
+    XI2 GND VDD VDD1V8 REF_VALUE<2> SEL2 SEL2B WELL_DIG_VALUE_CONV
+    XI1 GND VDD VDD1V8 REF_VALUE<1> SEL1 SEL1B WELL_DIG_VALUE_CONV
+    XI0 GND VDD VDD1V8 REF_VALUE<0> SEL0 SEL0B WELL_DIG_VALUE_CONV
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: dac_passTmux2to1_p2n1
+*** View name: schematic
+.SUBCKT DAC_PASSTMUX2TO1_P2N1 GND VIN0 VIN1 VOUT SEL SELB
+    XP0 VOUT SEL VIN0 GND eglvtpfet w=2u l=150.00n
++as={(2*(120n)+(0)+(0))*((2u)/2) } ad={1*((140n)*((2u)/2))} nf={(2)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+    XP1 VOUT SELB VIN1 GND eglvtpfet w=2u l=150.00n
++as={(2*(120n)+(0)+(0))*((2u)/2) } ad={1*((140n)*((2u)/2))} nf={(2)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+    XN0 VOUT SELB VIN0 GND eglvtnfet w=1u l=150.00n
++as={(2*(120n)+(0)+(0))*((1u)/2) } ad={1*((140n)*((1u)/2))} nf={(2)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+    XN1 VOUT SEL VIN1 GND eglvtnfet w=1u l=150.00n
++as={(2*(120n)+(0)+(0))*((1u)/2) } ad={1*((140n)*((1u)/2))} nf={(2)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: dac_mux8to1_p2n1
+*** View name: schematic
+.SUBCKT DAC_MUX8TO1_P2N1 GND VIN000 VIN001 VIN010 VIN011 VIN100 VIN101
++VIN110 VIN111 VOUT SEL0 SEL0B SEL1 SEL1B SEL2 SEL2B
+    XI6 GND V0 V1 VOUT SEL2 SEL2B DAC_PASSTMUX2TO1_P2N1
+    XI5 GND V10 V11 V1 SEL1 SEL1B DAC_PASSTMUX2TO1_P2N1
+    XI4 GND V00 V01 V0 SEL1 SEL1B DAC_PASSTMUX2TO1_P2N1
+    XI3 GND VIN100 VIN101 V10 SEL0 SEL0B DAC_PASSTMUX2TO1_P2N1
+    XI2 GND VIN010 VIN011 V01 SEL0 SEL0B DAC_PASSTMUX2TO1_P2N1
+    XI1 GND VIN000 VIN001 V00 SEL0 SEL0B DAC_PASSTMUX2TO1_P2N1
+    XI0 GND VIN110 VIN111 V11 SEL0 SEL0B DAC_PASSTMUX2TO1_P2N1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: dac_passTmux2to1_p2n05
+*** View name: schematic
+.SUBCKT DAC_PASSTMUX2TO1_P2N05 GND VIN0 VIN1 VOUT SEL SELB
+    XP0 VOUT SEL VIN0 GND eglvtpfet w=2u l=150.00n
++as={(2*(120n)+(0)+(0))*((2u)/2) } ad={1*((140n)*((2u)/2))} nf={(2)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+    XP1 VOUT SELB VIN1 GND eglvtpfet w=2u l=150.00n
++as={(2*(120n)+(0)+(0))*((2u)/2) } ad={1*((140n)*((2u)/2))} nf={(2)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+    XN0 VOUT SELB VIN0 GND eglvtnfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+    XN1 VOUT SEL VIN1 GND eglvtnfet w=500n l=150.00n
++as={((120n)+(0))*(500n) } ad={((120n)+(0))*(500n)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: dac_mux8to1_p2n05
+*** View name: schematic
+.SUBCKT DAC_MUX8TO1_P2N05 GND VIN000 VIN001 VIN010 VIN011 VIN100 VIN101
++VIN110 VIN111 VOUT SEL0 SEL0B SEL1 SEL1B SEL2 SEL2B
+    XI6 GND V0 V1 VOUT SEL2 SEL2B DAC_PASSTMUX2TO1_P2N05
+    XI5 GND V10 V11 V1 SEL1 SEL1B DAC_PASSTMUX2TO1_P2N05
+    XI4 GND V00 V01 V0 SEL1 SEL1B DAC_PASSTMUX2TO1_P2N05
+    XI3 GND VIN100 VIN101 V10 SEL0 SEL0B DAC_PASSTMUX2TO1_P2N05
+    XI2 GND VIN010 VIN011 V01 SEL0 SEL0B DAC_PASSTMUX2TO1_P2N05
+    XI1 GND VIN000 VIN001 V00 SEL0 SEL0B DAC_PASSTMUX2TO1_P2N05
+    XI0 GND VIN110 VIN111 V11 SEL0 SEL0B DAC_PASSTMUX2TO1_P2N05
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: dac_passTmux2to1_p15n2_f1
+*** View name: schematic
+.SUBCKT DAC_PASSTMUX2TO1_P15N2_F1 GND VIN0 VIN1 VOUT SEL SELB
+    XP0 VOUT SEL VIN0 GND eglvtpfet w=1.5u l=150.00n
++as={((120n)+(0))*(1.5u) } ad={((120n)+(0))*(1.5u)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+    XP1 VOUT SELB VIN1 GND eglvtpfet w=1.5u l=150.00n
++as={((120n)+(0))*(1.5u) } ad={((120n)+(0))*(1.5u)} nf={(1)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+    XN0 VOUT SELB VIN0 GND eglvtnfet w=2u l=150.00n as={((120n)+(0))*(2u)
++} ad={((120n)+(0))*(2u)} nf={(1)*(1)} sa={(120n)+(0)} sb={(120n)+(0)}
++sd=140n ptwell=0 par=1 p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0
++soa=1 swshe=0 swacc=0 swrg=0 swrsub=0 mismatch=1 m=1
+    XN1 VOUT SEL VIN1 GND eglvtnfet w=2u l=150.00n as={((120n)+(0))*(2u) }
++ad={((120n)+(0))*(2u)} nf={(1)*(1)} sa={(120n)+(0)} sb={(120n)+(0)}
++sd=140n ptwell=0 par=1 p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0
++soa=1 swshe=0 swacc=0 swrg=0 swrsub=0 mismatch=1 m=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: dac_passTmux2to1_p2n1_f1
+*** View name: schematic
+.SUBCKT DAC_PASSTMUX2TO1_P2N1_F1 GND VIN0 VIN1 VOUT SEL SELB
+    XP0 VOUT SEL VIN0 GND eglvtpfet w=2u l=150.00n as={((120n)+(0))*(2u) }
++ad={((120n)+(0))*(2u)} nf={(1)*(1)} sa={(120n)+(0)} sb={(120n)+(0)}
++sd=140n ptwell=0 par=1 p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0
++soa=1 swshe=0 swacc=0 swrg=0 swrsub=0 mismatch=1 m=1
+    XP1 VOUT SELB VIN1 GND eglvtpfet w=2u l=150.00n as={((120n)+(0))*(2u)
++} ad={((120n)+(0))*(2u)} nf={(1)*(1)} sa={(120n)+(0)} sb={(120n)+(0)}
++sd=140n ptwell=0 par=1 p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0
++soa=1 swshe=0 swacc=0 swrg=0 swrsub=0 mismatch=1 m=1
+    XN0 VOUT SELB VIN0 GND eglvtnfet w=1u l=150.00n as={((120n)+(0))*(1u)
++} ad={((120n)+(0))*(1u)} nf={(1)*(1)} sa={(120n)+(0)} sb={(120n)+(0)}
++sd=140n ptwell=0 par=1 p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0
++soa=1 swshe=0 swacc=0 swrg=0 swrsub=0 mismatch=1 m=1
+    XN1 VOUT SEL VIN1 GND eglvtnfet w=1u l=150.00n as={((120n)+(0))*(1u) }
++ad={((120n)+(0))*(1u)} nf={(1)*(1)} sa={(120n)+(0)} sb={(120n)+(0)}
++sd=140n ptwell=0 par=1 p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0
++soa=1 swshe=0 swacc=0 swrg=0 swrsub=0 mismatch=1 m=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: dac_passTmux2to1_p4n3_f1
+*** View name: schematic
+.SUBCKT DAC_PASSTMUX2TO1_P4N3_F1 GND VIN0 VIN1 VOUT SEL SELB
+    XP0 VOUT SEL VIN0 GND eglvtpfet w=4u l=150.00n as={((120n)+(0))*(4u) }
++ad={((120n)+(0))*(4u)} nf={(1)*(1)} sa={(120n)+(0)} sb={(120n)+(0)}
++sd=140n ptwell=0 par=1 p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0
++soa=1 swshe=0 swacc=0 swrg=0 swrsub=0 mismatch=1 m=1
+    XP1 VOUT SELB VIN1 GND eglvtpfet w=4u l=150.00n as={((120n)+(0))*(4u)
++} ad={((120n)+(0))*(4u)} nf={(1)*(1)} sa={(120n)+(0)} sb={(120n)+(0)}
++sd=140n ptwell=0 par=1 p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0
++soa=1 swshe=0 swacc=0 swrg=0 swrsub=0 mismatch=1 m=1
+    XN0 VOUT SELB VIN0 GND eglvtnfet w=3u l=150.00n as={((120n)+(0))*(3u)
++} ad={((120n)+(0))*(3u)} nf={(1)*(1)} sa={(120n)+(0)} sb={(120n)+(0)}
++sd=140n ptwell=0 par=1 p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0
++soa=1 swshe=0 swacc=0 swrg=0 swrsub=0 mismatch=1 m=1
+    XN1 VOUT SEL VIN1 GND eglvtnfet w=3u l=150.00n as={((120n)+(0))*(3u) }
++ad={((120n)+(0))*(3u)} nf={(1)*(1)} sa={(120n)+(0)} sb={(120n)+(0)}
++sd=140n ptwell=0 par=1 p_la=0 ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0
++soa=1 swshe=0 swacc=0 swrg=0 swrsub=0 mismatch=1 m=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: dac_passTmux2to1_p1n2
+*** View name: schematic
+.SUBCKT DAC_PASSTMUX2TO1_P1N2 GND VIN0 VIN1 VOUT SEL SELB
+    XP0 VOUT SEL VIN0 GND eglvtpfet w=1u l=150.00n
++as={(2*(120n)+(0)+(0))*((1u)/2) } ad={1*((140n)*((1u)/2))} nf={(2)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+    XP1 VOUT SELB VIN1 GND eglvtpfet w=1u l=150.00n
++as={(2*(120n)+(0)+(0))*((1u)/2) } ad={1*((140n)*((1u)/2))} nf={(2)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+    XN0 VOUT SELB VIN0 GND eglvtnfet w=2u l=150.00n
++as={(2*(120n)+(0)+(0))*((2u)/2) } ad={1*((140n)*((2u)/2))} nf={(2)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+    XN1 VOUT SEL VIN1 GND eglvtnfet w=2u l=150.00n
++as={(2*(120n)+(0)+(0))*((2u)/2) } ad={1*((140n)*((2u)/2))} nf={(2)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: dac_mux8to1_p1n2
+*** View name: schematic
+.SUBCKT DAC_MUX8TO1_P1N2 GND VIN000 VIN001 VIN010 VIN011 VIN100 VIN101
++VIN110 VIN111 VOUT SEL0 SEL0B SEL1 SEL1B SEL2 SEL2B
+    XI6 GND V0 V1 VOUT SEL2 SEL2B DAC_PASSTMUX2TO1_P1N2
+    XI5 GND V10 V11 V1 SEL1 SEL1B DAC_PASSTMUX2TO1_P1N2
+    XI4 GND V00 V01 V0 SEL1 SEL1B DAC_PASSTMUX2TO1_P1N2
+    XI3 GND VIN100 VIN101 V10 SEL0 SEL0B DAC_PASSTMUX2TO1_P1N2
+    XI2 GND VIN010 VIN011 V01 SEL0 SEL0B DAC_PASSTMUX2TO1_P1N2
+    XI1 GND VIN000 VIN001 V00 SEL0 SEL0B DAC_PASSTMUX2TO1_P1N2
+    XI0 GND VIN110 VIN111 V11 SEL0 SEL0B DAC_PASSTMUX2TO1_P1N2
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: dac_passTmux2to1_p2n2
+*** View name: schematic
+.SUBCKT DAC_PASSTMUX2TO1_P2N2 GND VIN0 VIN1 VOUT SEL SELB
+    XP0 VOUT SEL VIN0 GND eglvtpfet w=2u l=150.00n
++as={(2*(120n)+(0)+(0))*((2u)/2) } ad={1*((140n)*((2u)/2))} nf={(2)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+    XP1 VOUT SELB VIN1 GND eglvtpfet w=2u l=150.00n
++as={(2*(120n)+(0)+(0))*((2u)/2) } ad={1*((140n)*((2u)/2))} nf={(2)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+    XN0 VOUT SELB VIN0 GND eglvtnfet w=2u l=150.00n
++as={(2*(120n)+(0)+(0))*((2u)/2) } ad={1*((140n)*((2u)/2))} nf={(2)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+    XN1 VOUT SEL VIN1 GND eglvtnfet w=2u l=150.00n
++as={(2*(120n)+(0)+(0))*((2u)/2) } ad={1*((140n)*((2u)/2))} nf={(2)*(1)}
++sa={(120n)+(0)} sb={(120n)+(0)} sd=140n ptwell=0 par=1 p_la=0 ngcon=1
++nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1 swshe=0 swacc=0 swrg=0 swrsub=0
++mismatch=1 m=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: dac_mux8to1_p2n2
+*** View name: schematic
+.SUBCKT DAC_MUX8TO1_P2N2 GND VIN000 VIN001 VIN010 VIN011 VIN100 VIN101
++VIN110 VIN111 VOUT SEL0 SEL0B SEL1 SEL1B SEL2 SEL2B
+    XI6 GND V0 V1 VOUT SEL2 SEL2B DAC_PASSTMUX2TO1_P2N2
+    XI5 GND V10 V11 V1 SEL1 SEL1B DAC_PASSTMUX2TO1_P2N2
+    XI4 GND V00 V01 V0 SEL1 SEL1B DAC_PASSTMUX2TO1_P2N2
+    XI3 GND VIN100 VIN101 V10 SEL0 SEL0B DAC_PASSTMUX2TO1_P2N2
+    XI2 GND VIN010 VIN011 V01 SEL0 SEL0B DAC_PASSTMUX2TO1_P2N2
+    XI1 GND VIN000 VIN001 V00 SEL0 SEL0B DAC_PASSTMUX2TO1_P2N2
+    XI0 GND VIN110 VIN111 V11 SEL0 SEL0B DAC_PASSTMUX2TO1_P2N2
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: dac_mux32to1
+*** View name: schematic
+.SUBCKT DAC_MUX32TO1 GND VOUT SEL0 SEL0B SEL1 SEL1B SEL2 SEL2B SEL3 SEL3B
++SEL4 SEL4B V00 V01 V02 V03 V04 V05 V06 V07 V08 V09 V10 V11 V12 V13 V14
++V15 V16 V17 V18 V19 V20 V21 V22 V23 V24 V25 V26 V27 V28 V29 V30 V31
+    XI2 GND V08 V09 V10 V11 V12 V13 V14 V15 VI01 SEL0 SEL0B SEL1 SEL1B
++SEL2 SEL2B DAC_MUX8TO1_P2N1
+    XI3 GND V00 V01 V02 V03 V04 V05 V06 V07 VI00 SEL0 SEL0B SEL1 SEL1B
++SEL2 SEL2B DAC_MUX8TO1_P2N05
+    XI4 GND VI10 VI11 VI1 SEL3 SEL3B DAC_PASSTMUX2TO1_P15N2_F1
+    XI5 GND VI00 VI01 VI0 SEL3 SEL3B DAC_PASSTMUX2TO1_P2N1_F1
+    XI6 GND VI0 VI1 VOUT SEL4 SEL4B DAC_PASSTMUX2TO1_P4N3_F1
+    XI0 GND V24 V25 V26 V27 V28 V29 V30 V31 VI11 SEL0 SEL0B SEL1 SEL1B
++SEL2 SEL2B DAC_MUX8TO1_P1N2
+    XI1 GND V16 V17 V18 V19 V20 V21 V22 V23 VI10 SEL0 SEL0B SEL1 SEL1B
++SEL2 SEL2B DAC_MUX8TO1_P2N2
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: C28SOI_SC_12_PR_LL
+*** Cell name: C12T28SOI_LLF_DECAPXT8
+*** View name: cmos_sch
+.SUBCKT C12T28SOI_LLF_DECAPXT8 INH_GND INH_GNDS INH_VDD INH_VDDS
+    XMN3 INH_GND INH_VDD INH_GND INH_GNDS lvtnfet w=282.0n l=30n
++as={(76n)*(282.0n) } ad={(76n)*(282.0n)} nf={(1)*(1)} sb=(76n) sd=96n
++ptwell=0 p_la=10n ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1
++swshe=0 swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+    XMN5 INH_GND INH_VDD INH_GND INH_GNDS lvtnfet w=282.0n l=30n
++as={(76n)*(282.0n) } ad={(76n)*(282.0n)} nf={(1)*(1)} sb=(76n) sd=96n
++ptwell=0 p_la=10n ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1
++swshe=0 swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+    XMN4 INH_GND INH_VDD INH_GND INH_GNDS lvtnfet w=282.0n l=30n
++as={(76n)*(282.0n) } ad={(76n)*(282.0n)} nf={(1)*(1)} sb=(76n) sd=96n
++ptwell=0 p_la=10n ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1
++swshe=0 swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+    XMN8 INH_GND INH_VDD INH_GND INH_GNDS lvtnfet w=282.0n l=30n
++as={(76n)*(282.0n) } ad={(76n)*(282.0n)} nf={(1)*(1)} sb=(76n) sd=96n
++ptwell=0 p_la=10n ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1
++swshe=0 swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+    XMN7 INH_GND INH_VDD INH_GND INH_GNDS lvtnfet w=282.0n l=30n
++as={(76n)*(282.0n) } ad={(76n)*(282.0n)} nf={(1)*(1)} sb=(76n) sd=96n
++ptwell=0 p_la=10n ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1
++swshe=0 swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+    XMN9 INH_GND INH_VDD INH_GND INH_GNDS lvtnfet w=282.0n l=30n
++as={(76n)*(282.0n) } ad={(76n)*(282.0n)} nf={(1)*(1)} sb=(76n) sd=96n
++ptwell=0 p_la=10n ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1
++swshe=0 swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+    XMN6 INH_GND INH_VDD INH_GND INH_GNDS lvtnfet w=282.0n l=30n
++as={(76n)*(282.0n) } ad={(76n)*(282.0n)} nf={(1)*(1)} sb=(76n) sd=96n
++ptwell=0 p_la=10n ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1
++swshe=0 swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+    XMP7 INH_VDD INH_GND INH_VDD INH_VDDS lvtpfet w=442.0n l=30n
++as={(76n)*(442.0n) } ad={(76n)*(442.0n)} nf={(1)*(1)} sb=(76n) sd=96n
++ptwell=0 p_la=10n ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1
++swshe=0 swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+    XMP9 INH_VDD INH_GND INH_VDD INH_VDDS lvtpfet w=442.0n l=30n
++as={(76n)*(442.0n) } ad={(76n)*(442.0n)} nf={(1)*(1)} sb=(76n) sd=96n
++ptwell=0 p_la=10n ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1
++swshe=0 swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+    XMP5 INH_VDD INH_GND INH_VDD INH_VDDS lvtpfet w=442.0n l=30n
++as={(76n)*(442.0n) } ad={(76n)*(442.0n)} nf={(1)*(1)} sb=(76n) sd=96n
++ptwell=0 p_la=10n ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1
++swshe=0 swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+    XMP8 INH_VDD INH_GND INH_VDD INH_VDDS lvtpfet w=442.0n l=30n
++as={(76n)*(442.0n) } ad={(76n)*(442.0n)} nf={(1)*(1)} sb=(76n) sd=96n
++ptwell=0 p_la=10n ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1
++swshe=0 swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+    XMP4 INH_VDD INH_GND INH_VDD INH_VDDS lvtpfet w=442.0n l=30n
++as={(76n)*(442.0n) } ad={(76n)*(442.0n)} nf={(1)*(1)} sb=(76n) sd=96n
++ptwell=0 p_la=10n ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1
++swshe=0 swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+    XMP3 INH_VDD INH_GND INH_VDD INH_VDDS lvtpfet w=442.0n l=30n
++as={(76n)*(442.0n) } ad={(76n)*(442.0n)} nf={(1)*(1)} sb=(76n) sd=96n
++ptwell=0 p_la=10n ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1
++swshe=0 swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+    XMP6 INH_VDD INH_GND INH_VDD INH_VDDS lvtpfet w=442.0n l=30n
++as={(76n)*(442.0n) } ad={(76n)*(442.0n)} nf={(1)*(1)} sb=(76n) sd=96n
++ptwell=0 p_la=10n ngcon=1 nsig_delvto_uo1=0 nsig_delvto_uo2=0 soa=1
++swshe=0 swacc=-1 swrg=-1 swrsub=-1 mismatch=1 m=1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: dac_with_4x_mux32to1
+*** View name: schematic
+.SUBCKT DAC_WITH_4X_MUX32TO1 GND VDD VDD1V8 NWELL_LB_REF NWELL_UB_REF
++NWELL_VALUE_LB<4> NWELL_VALUE_LB<3> NWELL_VALUE_LB<2> NWELL_VALUE_LB<1>
++NWELL_VALUE_LB<0> NWELL_VALUE_UB<4> NWELL_VALUE_UB<3> NWELL_VALUE_UB<2>
++NWELL_VALUE_UB<1> NWELL_VALUE_UB<0> PWELL_LB_REF PWELL_UB_REF
++PWELL_VALUE_LB<4> PWELL_VALUE_LB<3> PWELL_VALUE_LB<2> PWELL_VALUE_LB<1>
++PWELL_VALUE_LB<0> PWELL_VALUE_UB<4> PWELL_VALUE_UB<3> PWELL_VALUE_UB<2>
++PWELL_VALUE_UB<1> PWELL_VALUE_UB<0>
+    XDAC GND VDD1V8 V00 V01 V02 V03 V04 V05 V06 V07 V08 V09 V10 V11 V12
++V13 V14 V15 V16 V17 V18 V19 V20 V21 V22 V23 V24 V25 V26 V27 V28 V29 V30
++V31 V32 DAC_RSTRING_SIMPLE
+    XDIG_CONV_NLB GND VDD VDD1V8 NWELL_VALUE_LB<4> NWELL_VALUE_LB<3>
++NWELL_VALUE_LB<2> NWELL_VALUE_LB<1> NWELL_VALUE_LB<0> NET89 NET88 NET87
++NET86 NET85 NET84 NET83 NET82 NET81 NET80 WELL_DIG_VALUE_CONV_5PACK
+    XDIG_CONV_PLB GND VDD VDD1V8 PWELL_VALUE_LB<4> PWELL_VALUE_LB<3>
++PWELL_VALUE_LB<2> PWELL_VALUE_LB<1> PWELL_VALUE_LB<0> NET131 NET130
++NET129 NET128 NET127 NET126 NET125 NET124 NET123 NET122
++WELL_DIG_VALUE_CONV_5PACK
+    XDIG_CONV_PUB GND VDD VDD1V8 PWELL_VALUE_UB<4> PWELL_VALUE_UB<3>
++PWELL_VALUE_UB<2> PWELL_VALUE_UB<1> PWELL_VALUE_UB<0> NET173 NET172
++NET171 NET170 NET169 NET168 NET167 NET166 NET165 NET164
++WELL_DIG_VALUE_CONV_5PACK
+    XDIG_CONV_NUB GND VDD VDD1V8 NWELL_VALUE_UB<4> NWELL_VALUE_UB<3>
++NWELL_VALUE_UB<2> NWELL_VALUE_UB<1> NWELL_VALUE_UB<0> NET47 NET46 NET45
++NET44 NET43 NET42 NET41 NET40 NET39 NET38 WELL_DIG_VALUE_CONV_5PACK
+    XMUXTL GND NWELL_UB_REF NET47 NET46 NET45 NET44 NET43 NET42 NET41
++NET40 NET39 NET38 V01 V02 V03 V04 V05 V06 V07 V08 V09 V10 V11 V12 V13 V14
++V15 V16 V17 V18 V19 V20 V21 V22 V23 V24 V25 V26 V27 V28 V29 V30 V31 V32
++DAC_MUX32TO1
+    XMUXBL GND NWELL_LB_REF NET89 NET88 NET87 NET86 NET85 NET84 NET83
++NET82 NET81 NET80 V00 V01 V02 V03 V04 V05 V06 V07 V08 V09 V10 V11 V12 V13
++V14 V15 V16 V17 V18 V19 V20 V21 V22 V23 V24 V25 V26 V27 V28 V29 V30 V31
++DAC_MUX32TO1
+    XMUXBR GND PWELL_LB_REF NET131 NET130 NET129 NET128 NET127 NET126
++NET125 NET124 NET123 NET122 V00 V01 V02 V03 V04 V05 V06 V07 V08 V09 V10
++V11 V12 V13 V14 V15 V16 V17 V18 V19 V20 V21 V22 V23 V24 V25 V26 V27 V28
++V29 V30 V31 DAC_MUX32TO1
+    XMUXTR GND PWELL_UB_REF NET173 NET172 NET171 NET170 NET169 NET168
++NET167 NET166 NET165 NET164 V01 V02 V03 V04 V05 V06 V07 V08 V09 V10 V11
++V12 V13 V14 V15 V16 V17 V18 V19 V20 V21 V22 V23 V24 V25 V26 V27 V28 V29
++V30 V31 V32 DAC_MUX32TO1
+    XI10 GND GND VDD GND C12T28SOI_LLF_DECAPXT8
+    XI112 GND GND VDD GND C12T28SOI_LLF_DECAPXT8
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_monitor
+*** Cell name: vbbgen_monitor_PULPV3
+*** View name: schematic
+.SUBCKT VBBGEN_MONITOR_PULPV3 GND VDD VDD1V8 COMPARE_NWELL_LB
++COMPARE_NWELL_UB COMPARE_PWELL_NEG_LB COMPARE_PWELL_NEG_UB
++COMPARE_PWELL_POS_LB COMPARE_PWELL_POS_UB NWELL NWELL_CLK
++NWELL_VALUE_LB<4> NWELL_VALUE_LB<3> NWELL_VALUE_LB<2> NWELL_VALUE_LB<1>
++NWELL_VALUE_LB<0> NWELL_VALUE_UB<4> NWELL_VALUE_UB<3> NWELL_VALUE_UB<2>
++NWELL_VALUE_UB<1> NWELL_VALUE_UB<0> PWELL PWELL_NEG_CLK PWELL_POS_CLK
++PWELL_VALUE_LB<4> PWELL_VALUE_LB<3> PWELL_VALUE_LB<2> PWELL_VALUE_LB<1>
++PWELL_VALUE_LB<0> PWELL_VALUE_UB<4> PWELL_VALUE_UB<3> PWELL_VALUE_UB<2>
++PWELL_VALUE_UB<1> PWELL_VALUE_UB<0>
+    R0 PWELL_LB_REF PWELL_REF_VECTOR<0> 1m
+    R1 PWELL_UB_REF PWELL_REF_VECTOR<1> 1m
+    R2 COMPARE_PWELL_POS_LB PWELL_POS_COMP<0> 1m
+    R3 COMPARE_PWELL_POS_UB PWELL_POS_COMP<1> 1m
+    XNWELLCOMPARATORS GND VDD VDD1V8 NWELL_LB_REF COMPARE_NWELL_LB
++NWELL_NCMP NWELL_NRST NWELL_PCMPB_1V8 NWELL_PRSTB NWELL_VALUE_LB<4>
++NWELL_UB_REF COMPARE_NWELL_UB NWELL CMPWELLBUNDLE
+    XPWELLCOMPARATORS GND VDD VDD1V8 PWELL_LB_REF COMPARE_PWELL_NEG_LB
++PWELL_NCMP PWELL_NRST PWELL_PCMPB_1V8 PWELL_PRSTB PWELL_VALUE_LB<4>
++PWELL_UB_REF COMPARE_PWELL_NEG_UB PWELLSAMPLE CMPWELLBUNDLE
+XC0 GND NWELL cmom_6U1x_2U2x_2T8x_LB_2p nf_dirx=40 nf_diry=100 mtlfrbot=1
++mtlfrtop=5 mtlconbot=1 mtlcontop=5 spacefinger_mx=8e-08 wfinger_mx=8e-08
++mismatch=1 mult=1 pre_layout_local=-1 dc_mdev=0 fr_big_finger=0 soa=1
+XCMOM_PWELLUB GND PWELL_UB_REF cmom_6U1x_2U2x_2T8x_LB_2p nf_dirx=10
++nf_diry=260 mtlfrbot=1 mtlfrtop=4 mtlconbot=1 mtlcontop=4
++spacefinger_mx=8e-08 wfinger_mx=8e-08 mismatch=1 mult=1
++pre_layout_local=-1 dc_mdev=0 fr_big_finger=0 soa=1
+XCMOM_NWELLUB GND NWELL_UB_REF cmom_6U1x_2U2x_2T8x_LB_2p nf_dirx=16
++nf_diry=163 mtlfrbot=1 mtlfrtop=4 mtlconbot=1 mtlcontop=4
++spacefinger_mx=8e-08 wfinger_mx=8e-08 mismatch=1 mult=1
++pre_layout_local=-1 dc_mdev=0 fr_big_finger=0 soa=1
+XCMOM_NWELLLB GND NWELL_LB_REF cmom_6U1x_2U2x_2T8x_LB_2p nf_dirx=16
++nf_diry=163 mtlfrbot=1 mtlfrtop=4 mtlconbot=1 mtlcontop=4
++spacefinger_mx=8e-08 wfinger_mx=8e-08 mismatch=1 mult=1
++pre_layout_local=-1 dc_mdev=0 fr_big_finger=0 soa=1
+XCMOM_PWELLLB GND PWELL_LB_REF cmom_6U1x_2U2x_2T8x_LB_2p nf_dirx=10
++nf_diry=260 mtlfrbot=1 mtlfrtop=4 mtlconbot=1 mtlcontop=4
++spacefinger_mx=8e-08 wfinger_mx=8e-08 mismatch=1 mult=1
++pre_layout_local=-1 dc_mdev=0 fr_big_finger=0 soa=1
+    XANTDIODE GND NWELL tdndsx area=50f perim=1.2u soa=1
+    XI184 GND VDD VDD1V8 PWELL_POS_CLK PWELL_REF_VECTOR<0>
++PWELL_REF_VECTOR<1> PWELL_POS_COMP<0> PWELL_POS_COMP<1>
++N_PWELL_POS_COMP<0> N_PWELL_POS_COMP<1> PWELL PWELL_POSITIVE_SAMPLING
+    XPWELLSAMPLER GND VDD VDD1V8 PWELL_NEG_CLK PCLKN1V8 PCLKP1V8 PWELL
++PWELLSAMPLE GND PWELLSAMPLINGCOMPLETE_WO22
+    XPWELLCMPCLKGEN GND VDD VDD1V8 PCLKP1V8 PWELL_NCMP PWELL_NRST
++PWELL_PCMPB_1V8 PWELL_PRSTB PWELL_VALUE_LB<4> CMPCLKGENERATOR
+    XNWELLCMPCLKGENERATOR GND VDD VDD1V8 NWELL_CLK NWELL_NCMP NWELL_NRST
++NWELL_PCMPB_1V8 NWELL_PRSTB NWELL_VALUE_LB<4> NWELLCMPCLKGENERATOR
+    XDAC_AND_REF_MUXES GND VDD VDD1V8 NWELL_LB_REF NWELL_UB_REF
++NWELL_VALUE_LB<4> NWELL_VALUE_LB<3> NWELL_VALUE_LB<2> NWELL_VALUE_LB<1>
++NWELL_VALUE_LB<0> NWELL_VALUE_UB<4> NWELL_VALUE_UB<3> NWELL_VALUE_UB<2>
++NWELL_VALUE_UB<1> NWELL_VALUE_UB<0> PWELL_LB_REF PWELL_UB_REF
++PWELL_VALUE_LB<4> PWELL_VALUE_LB<3> PWELL_VALUE_LB<2> PWELL_VALUE_LB<1>
++PWELL_VALUE_LB<0> PWELL_VALUE_UB<4> PWELL_VALUE_UB<3> PWELL_VALUE_UB<2>
++PWELL_VALUE_UB<1> PWELL_VALUE_UB<0> DAC_WITH_4X_MUX32TO1
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3
+*** Cell name: load
+*** View name: schematic
+.SUBCKT LOAD GND NWELL PWELL
+    C0 PWELL NWELL {FACTOR*1n}
+    C2 NWELL GND {FACTOR*1.5n} IC=NW_IC
+    C1 PWELL GND {FACTOR*500.0p} IC=PW_IC
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_tb
+*** Cell name: combinedAnalog
+*** View name: schematic
+.SUBCKT COMBINEDANALOG DRIVER_CHARGE_CLK MONITOR_COMP_NEG_PWELL_LB
++MONITOR_COMP_NEG_PWELL_UB MONITOR_COMP_NWELL_LB MONITOR_COMP_NWELL_UB
++MONITOR_COMP_POS_PWELL_LB MONITOR_COMP_POS_PWELL_UB MONITOR_NWELL_LB<4>
++MONITOR_NWELL_LB<3> MONITOR_NWELL_LB<2> MONITOR_NWELL_LB<1>
++MONITOR_NWELL_LB<0> MONITOR_NWELL_UB<4> MONITOR_NWELL_UB<3>
++MONITOR_NWELL_UB<2> MONITOR_NWELL_UB<1> MONITOR_NWELL_UB<0>
++MONITOR_PWELL_LB<4> MONITOR_PWELL_LB<3> MONITOR_PWELL_LB<2>
++MONITOR_PWELL_LB<1> MONITOR_PWELL_LB<0> MONITOR_PWELL_UB<4>
++MONITOR_PWELL_UB<3> MONITOR_PWELL_UB<2> MONITOR_PWELL_UB<1>
++MONITOR_PWELL_UB<0> M_NWELL_CLK M_NEG_PWELL_CLK M_POS_PWELL_CLK
++SEL_NWELL<1> SEL_NWELL<0> SEL_PWELL<1> SEL_PWELL<0>
+    XI11 GND VDD VDD1V8 DRIVER_CHARGE_CLK NWELL PWELL SEL_NWELL<0>
++SEL_NWELL<1> SEL_PWELL<0> SEL_PWELL<1> DRIVERCOMBINED
+    XI12 GND VDD VDD1V8 MONITOR_COMP_NWELL_LB MONITOR_COMP_NWELL_UB
++MONITOR_COMP_NEG_PWELL_LB MONITOR_COMP_NEG_PWELL_UB
++MONITOR_COMP_POS_PWELL_LB MONITOR_COMP_POS_PWELL_UB NWELL M_NWELL_CLK
++MONITOR_NWELL_LB<4> MONITOR_NWELL_LB<3> MONITOR_NWELL_LB<2>
++MONITOR_NWELL_LB<1> MONITOR_NWELL_LB<0> MONITOR_NWELL_UB<4>
++MONITOR_NWELL_UB<3> MONITOR_NWELL_UB<2> MONITOR_NWELL_UB<1>
++MONITOR_NWELL_UB<0> PWELL M_NEG_PWELL_CLK M_POS_PWELL_CLK
++MONITOR_PWELL_LB<4> MONITOR_PWELL_LB<3> MONITOR_PWELL_LB<2>
++MONITOR_PWELL_LB<1> MONITOR_PWELL_LB<0> MONITOR_PWELL_UB<4>
++MONITOR_PWELL_UB<3> MONITOR_PWELL_UB<2> MONITOR_PWELL_UB<1>
++MONITOR_PWELL_UB<0> VBBGEN_MONITOR_PULPV3
+    XI14 GND NWELL PWELL LOAD
+    V0 VDD 0 DC VDD
+    V2 GND 0 DC 0
+    V1 VDD1V8 0 DC VDD1V8
+.ENDS
+*** End of subcircuit definition.
+
+*** Library name: vbbgen_PULPV3_tb
+*** Cell name: tb
+*** View name: schematic
+XI0 NET7 NET1 NET2 NET3 NET4 NET5 NET6 NET8<0> NET8<1> NET8<2> NET8<3>
++NET8<4> NET9<0> NET9<1> NET9<2> NET9<3> NET9<4> NET10<0> NET10<1>
++NET10<2> NET10<3> NET10<4> NET11<0> NET11<1> NET11<2> NET11<3> NET11<4>
++NET12 NET13 NET14 NET15<0> NET15<1> NET16<0> NET16<1> COMBINEDANALOG
+.OPTION DUMP_EXTRACT=1 WRITE_ALTER_NETLIST AEX PSF_WRITE_ALL
+.PROBE V
+.END

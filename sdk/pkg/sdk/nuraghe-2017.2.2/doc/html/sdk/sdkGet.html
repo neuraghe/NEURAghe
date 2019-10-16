@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Getting the SDK &mdash; SDK 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="SDK 1.0 documentation" href="index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="getting-the-sdk">
+<h1>Getting the SDK<a class="headerlink" href="#getting-the-sdk" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="from-binaries">
+<h2>From binaries<a class="headerlink" href="#from-binaries" title="Permalink to this headline">¶</a></h2>
+<p>TODO. This is using artifactory.</p>
+</div>
+<div class="section" id="from-sources">
+<h2>From sources<a class="headerlink" href="#from-sources" title="Permalink to this headline">¶</a></h2>
+<p>This section explains how to build the SDK from scratch and use the build for compiling and launching tests or applications</p>
+<div class="section" id="getting-the-sources">
+<h3>Getting the sources<a class="headerlink" href="#getting-the-sources" title="Permalink to this headline">¶</a></h3>
+<p>The whole build process is driven by a top module which must first be retrieved with:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ git clone git@kesch.ee.ethz.ch:pulp-sw/pulp_pipeline.git
+</pre></div>
+</div>
+<p>The following steps assume the downloaded directory is the current one.</p>
+</div>
+<div class="section" id="specifying-active-configurations">
+<h3>Specifying active configurations<a class="headerlink" href="#specifying-active-configurations" title="Permalink to this headline">¶</a></h3>
+<p>The build process can compile any Pulp configuration, and thus must be told which one must be built.</p>
+<p>For that the tool called plpconf is provided to help generating the right configuration.</p>
+<p>At first, it can be called with no argument to get the default configuration:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ ./plpconf
+
+No configuration specified, chosing default configuration
+
+Selected configurations:
+  platform=gvsoc:pulpChip=pulp4:pulpChipVersion=0:pulpCoreArchi=or10nv2:pulpCompiler=gcc:pulpRtVersion=debug:pulpRt=omp:pulpOmpVersion=libgomp
+
+Generating configuration script: setup.sh
+</pre></div>
+</div>
+<p>A configuration is just a set of key and value pairs specifying several aspects of the desired system, such as the chip.</p>
+<p>This steps dumps the selected configuration and also generates a script used in the following section to initialize the SDK.</p>
+<p>This script can also be generated for csh-like shells by adding the option <em>--csh</em> to <em>plpconf</em> script. The path of this file can also be specified with <em>--setup=&lt;file path&gt;</em> in order to keep several several configurations files in case we want to work on several configurations at the same time.</p>
+<p>Then there is also a set of options in order to change the configuration. Each configuration item can be specified, like in the following:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ ./plpconf --pulpChip=fulmine
+</pre></div>
+</div>
+<p>There is also <em>--config</em> to specify a full configuration.</p>
+</div>
+<div class="section" id="initializing-the-sdk">
+<h3>Initializing the SDK<a class="headerlink" href="#initializing-the-sdk" title="Permalink to this headline">¶</a></h3>
+<p>Once the configuration has been selected, the environment can be confiured by sourcing the generated script (by default <em>setup.sh</em>):</p>
+<div class="highlight-python"><div class="highlight"><pre>$ source setup.sh
+</pre></div>
+</div>
+<p>Each the configuration is changed or a new terminal is opened, this script has to be sourced to properly configure the environment.</p>
+</div>
+<div class="section" id="getting-tests">
+<h3>Getting tests<a class="headerlink" href="#getting-tests" title="Permalink to this headline">¶</a></h3>
+<p>You can the tests associated to the SDK by executing the following command:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ plpbuild --p tests checkout
+</pre></div>
+</div>
+<p>This script is used for checking-out sources and building them, it will be better explained in following sections. This specify command will checkout all sources associated with the <em>tests</em> package.</p>
+<p>You can then go to apps/gomp_tests/quick to try the following sections.</p>
+</div>
+<div class="section" id="getting-sdk-sources-and-compiling-sdk">
+<h3>Getting SDK sources and compiling SDK<a class="headerlink" href="#getting-sdk-sources-and-compiling-sdk" title="Permalink to this headline">¶</a></h3>
+<p>Once you are inside one test directory you can get the SDK with this command:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ make sdk.deps sdk.checkout
+</pre></div>
+</div>
+<p>As this also donwloads some dependencies like the toolchains, you may need to reconfigure the environment by sourcing the <em>setup.sh</em>.</p>
+<p>You can now compile it with:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ make sdk.build
+</pre></div>
+</div>
+<p>Note that the SDK is built only for the selected configuration and you will need to recompile it again if you change it.</p>
+</div>
+<div class="section" id="compiling-and-runnning-the-test">
+<h3>Compiling and runnning the test<a class="headerlink" href="#compiling-and-runnning-the-test" title="Permalink to this headline">¶</a></h3>
+<p>Once the SDK is ready, you can compile and run the test with:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ make clean all run
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Getting the SDK</a><ul>
+<li><a class="reference internal" href="#from-binaries">From binaries</a></li>
+<li><a class="reference internal" href="#from-sources">From sources</a><ul>
+<li><a class="reference internal" href="#getting-the-sources">Getting the sources</a></li>
+<li><a class="reference internal" href="#specifying-active-configurations">Specifying active configurations</a></li>
+<li><a class="reference internal" href="#initializing-the-sdk">Initializing the SDK</a></li>
+<li><a class="reference internal" href="#getting-tests">Getting tests</a></li>
+<li><a class="reference internal" href="#getting-sdk-sources-and-compiling-sdk">Getting SDK sources and compiling SDK</a></li>
+<li><a class="reference internal" href="#compiling-and-runnning-the-test">Compiling and runnning the test</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/sdkGet.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, ETH - Unibo.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/sdkGet.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

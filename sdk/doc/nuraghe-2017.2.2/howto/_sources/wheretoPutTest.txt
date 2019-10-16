@@ -1,0 +1,82 @@
+.. _wheretoPutTest:
+
+Where to put a new test or application
+--------------------------------------
+
+Organization
+............
+
+The Pulp tests and applications are currently spread in the following git repositories:
+
+- **OR10N tests**: git@iis-git.ee.ethz.ch:pulp-sw/or10n_tests.git
+
+  These tests can only be used with the old OR10N core and should not be modified anymore. They are kept in order to still be able to launch tests on old chips like Mia Wallace, for example to validate the virtual platform.
+
+- **RISCV tests**: git@iis-git.ee.ethz.ch:pulp-sw/riscv_tests.git
+
+  These tests can only be used with the first RI5CY version (named ri5cyv1 in the SDK) and should not be modified anymore. They are kept in order to still be able to launch tests on old chips, for example to validate the virtual platform.
+
+- **Core tests**: git@iis-git.ee.ethz.ch:pulp-sw/core_tests
+
+  These tests are the current ones used for validating the latest OR10N (or10nv2) and RISCV (ri5cyv2) cores. Any test focusing on core validation should be there. The whole testsuite is supposed to support both cores, although some tests are specified to run only on one core. A test that runs on both cores is using macros to be compilable for both cores.
+
+- **Pulp RTL tests**: git@iis-git.ee.ethz.ch:pulp-sw/pulp_tests.git
+
+  The tests are used to validate specific features of the RTL, except for the core which has its own testsuite. There are for examples tests for the DMA, the UDMA, etc. The tests are supposed to work on all chips, except if the compatibility is broken. In this case, the old tests should be kept so that the testsuite can still be run on older chips. For example the mchan tests are duplicated in a v4 and v5 subdirectories in order to work on latest chips.
+
+- **Sequential bare-metal tests**: git@iis-git.ee.ethz.ch:pulp-sw/sequential_bare_tests.git
+
+  These are single-core tests mainly useful for benchmarking the core or the instruction cache. They were initially used to benchmark the ISA extensions. They are also supposed to work on any chip and should not be duplicated as they are quite generic.
+
+- **Parallel bare-metal tests**: git@iis-git.ee.ethz.ch:pulp-sw/parallel_bare_tests.git
+
+  These are multi-core tests useful for benchmarking parallel aspects of the architecture. They use very basic synchronization (just a barrier) so they should run on any chip without any problem.
+
+- **OpenMP tests and basic applications**: git@iis-git.ee.ethz.ch:pulp-apps/gomp_tests.git
+
+  Tests or applications that should remain small to use them as basic non-regression testsuite for OpenMP
+
+- **GCC OpenMP testsuite**: git@iis-git.ee.ethz.ch:pulp-apps/libgomp_testsuite.git
+
+  Should not be modified, it is the testsuite used to validate GCC OpenMP frontend. Just modified the minimal to run it on Pulp
+
+- **LLVM OpenMP testsuite**: git@iis-git.ee.ethz.ch:pulp-apps/openuh.git
+
+  Should not be modified, it is the testsuite used to validate LLVM OpenMP frontend. Just modified the minimal to run it on Pulp
+
+- **OpenMP EPCC benchmark**: git@iis-git.ee.ethz.ch:pulp-apps/epccbench.git
+
+  Should not be modified, it is a well-known benchmark for OpenMP ported on Pulp.
+
+- **OpenVX applications**: git@iis-git.ee.ethz.ch:pulp-ovx-rt/samples.git
+
+  OpenVX applications used for benchmarking OpenVX dynamic graph execution.
+
+- **OpenVX kernels tests**: git@iis-git.ee.ethz.ch:pulp-ovx-rt/ovx-kernels.git
+
+  Tests for validing OpenVX kernels separatly. The repository also contains the kernels, the tests are under the tests directory. The tests are also good for basic OpenMP validation as they all using OMP parallel pragma to parallelize the work.
+
+- **Coremark**: git@iis-git.ee.ethz.ch:pulp-apps/coremark.git
+
+  The Coremark benchmark ported on Pulp. Usefull for quick validation of the core, as it executes various processing and control code, and also useful for giving a quick idea of the core performance, through a score.
+
+- **Cconvnet tests**: git@iis-git.ee.ethz.ch:fconti/cconvnet.git
+
+  Tests for the cconvnet library. The repository also contains the cconvnet library, the tests can be found under example.
+
+- **Vlfeat tests**: git@iis-git.ee.ethz.ch:pulp-project/vlfeat.git
+ 
+  Tests for the vlfeat porting on Pulp. The repository also contains the vlfeat library, the tests can be found under tests.
+
+How to add a test
+.................
+
+To add a test or an application, the appropriate repository can be cloned and the test added with the usual commands.
+
+The whole tests and applications can also be retrieved using the SDK flow with this command: ::
+
+  $ plpbuild --p tests --p apps --p ovx_tests --p omp_tests checkout
+
+Only a subset of the packages can be specified to not get everything. The *apps* package contains cconvnet and vlfeat, *ovx_tests* contains ovx_kernels and ovx_apps, *omp_tests* contains libgomp_testsuite, openuh and epccbench and *tests* contains the rest.
+
+Currently all the tests are always pushed on the master branch as they are supposed to always work on all the chips.

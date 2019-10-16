@@ -1,0 +1,17 @@
+files of interest:
+vcompile_all_fpga.do : is the main script file for verilog compiling before a modelsim simulation. It is used by CMAKE to create the building tree. The CMAKE rule is set in sw/CMakeLists.txt
+                       this script calls all the scripts needed to compile PULP ips and the top modules (cluster and soc)
+                       
+some files are not used.
+
+to simulate the FPGA design this libraries are needed (see fe/sim/scripts/vcompile_all_fpga.do):
+ secureip
+ simprims_ver
+ unifast
+ unifast_ver
+ unimacro 
+ unimacro_ver 
+ vmp unisim 
+ unisims_ver
+ 
+the script in fpga/xilinx_lib_compiling compiles them.

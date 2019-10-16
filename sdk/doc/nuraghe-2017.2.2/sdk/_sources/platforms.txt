@@ -1,0 +1,12 @@
+Platforms
+=========
+
+The Pulp SDK supports the following platforms which can be specified when an application is compiled and run:
+
+  * **Virtual platform**. This is a functional simulator that can emulate the full Pulp chip connected to the peripherals, so that a full application can be run on this platform without any modification. The models also contain timing models so that the applications can also be benchmarked.
+
+  * **RTL platform**. Applications can be run on RTL simulations of Pulp architectures.
+
+  * **FPGA**. 
+
+  * **Boards**. The SDK contains the scripts needed to run applications on the boards containing a Pulp chip.

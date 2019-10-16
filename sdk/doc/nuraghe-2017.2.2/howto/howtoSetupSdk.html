@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>How to setup the SDK &mdash; howto 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="howto 1 documentation" href="index.html" />
+    <link rel="next" title="How to delegate jobs to Jenkins" href="howtoSubmitToJenkins.html" />
+    <link rel="prev" title="How to get the SDK" href="howtoGetSdk.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="how-to-setup-the-sdk">
+<span id="howtosetupsdk"></span><h1>How to setup the SDK<a class="headerlink" href="#how-to-setup-the-sdk" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="environment-setup">
+<h2>Environment setup<a class="headerlink" href="#environment-setup" title="Permalink to this headline">¶</a></h2>
+<p>Whatever the way the SDK was retrieved (through downloader or from top module) or produced (from source), a setup file has been generated in the env folder that can be sourced to setup the terminal to be used with the SDK.</p>
+<p>The file to source should look like <em>env/env-sdk-&lt;version&gt;.sh</em>. Just source it and you can then compile and run an application</p>
+</div>
+<div class="section" id="configuration-setup">
+<h2>Configuration setup<a class="headerlink" href="#configuration-setup" title="Permalink to this headline">¶</a></h2>
+<p>If you don&#8217;t configure anything else, the applications will be compiled and launched for the default configuration. In case you want to specify a different configuration, you can define the following environment variable with the desired configuration:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ export PULP_CONFIGS=pulpChip=mia:platform=rtl
+</pre></div>
+</div>
+<p>The next time you launch an application, it will be compiled for Mia Wallace and run on the RTL platform.</p>
+</div>
+<div class="section" id="tips">
+<h2>Tips<a class="headerlink" href="#tips" title="Permalink to this headline">¶</a></h2>
+<p>A tool will soon be provided in order to know what are the possible configurations. Here are a few interesting ones:</p>
+<ul class="simple">
+<li>pulpChip:      mia, pulp4, GAP, fulmine, pulp3 ...</li>
+<li>pulpCoreArchi: or1k, or10n, or10nv2, riscv, ri5cyv1, ri5cyv2, ri5cyv2-rvc ...</li>
+<li>pulpCompiler:  gcc, llvm</li>
+<li>platform:      gvsoc, fpga, rtl</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">How to setup the SDK</a><ul>
+<li><a class="reference internal" href="#environment-setup">Environment setup</a></li>
+<li><a class="reference internal" href="#configuration-setup">Configuration setup</a></li>
+<li><a class="reference internal" href="#tips">Tips</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="howtoGetSdk.html" title="previous chapter">How to get the SDK</a></li>
+      <li>Next: <a href="howtoSubmitToJenkins.html" title="next chapter">How to delegate jobs to Jenkins</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/howtoSetupSdk.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Germain Haugou.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/howtoSetupSdk.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

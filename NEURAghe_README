@@ -1,0 +1,57 @@
+NEURAghe 2.0:
+
+  TILING: 
+    - not yet supported for 1D version;
+    - some problems occurs with 2D version when the architecture must use an high tile number; es. ker=7x7, maxOG=4, IHxIW=230x230 -> 56 tiles.
+    
+  STRIDE:
+    - not yet supported;
+    
+  DILATION:
+    - 1D functionality extensively tested, work limits are due to memory limits further increased by maxOG;
+    - 2D functionality not extensively tested, anyway it works for the tested cases; 
+    
+  ZERO PADDING:
+    - not yet supported, must be set to 0;
+    
+  CONFIGURATION:
+    - IW = (FS_w - 1)*dil_w + 4 + N , with N%4 = 0;
+    - IH = 1 -> 1D input; IH = N -> 2D input, N > (FS_h - 1)*dil_h + 1;
+    - IF = N, with N%12 = 0;
+    - OF = N, with N%4  = 0;
+    - (FS_h , FS_w) -> (1 , N) for 1D, (N , N) for 2D;
+    - precision8 = 0 -> only 16 bit precision supported;
+    
+  WEIGHTs:
+    - post_training_tcn.py settings_tcn.txt -> weights rearrangment with interleaving disposition;
+    
+  MW parameters:
+    - #define NEU_TCN;
+    - #define boards;
+    - // #define debug -> uncomment for debugging purpouses
+    
+  CONV_TEST:
+    - #define NEU_TCN in conv_test.h & soc_drivers.h;
+    - #define BOARD   in soc_drivers.h;
+    
+    
+    
+NEURAghe 1.9:
+
+  CONFIGURATION:
+     - IF = N, if(KS=3) N%12 = 0 else N%4 = 0;
+     - OF = N, with N%4 = 0;
+     - FS can be 5 or 3;
+     
+  WEIGHTs:
+    - post_training.py settings.txt -> weights rearrangment without interleaving disposition;
+
+  MW parameters:
+    - // #define NEU_TCN;     
+    - #define boards;
+    - // #define debug -> uncomment for debugging purpouses;
+    
+  CONV_TEST:
+    - // #define NEU_TCN in conv_test.h & soc_drivers.h;
+    - #define BOARD   in soc_drivers.h;
+    

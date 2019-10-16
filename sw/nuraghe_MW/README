@@ -1,0 +1,2 @@
+This is the application that implements the middleware between ARM and NURAGHE for the acceleration of CNN.
+The middleware runs on PULP cores

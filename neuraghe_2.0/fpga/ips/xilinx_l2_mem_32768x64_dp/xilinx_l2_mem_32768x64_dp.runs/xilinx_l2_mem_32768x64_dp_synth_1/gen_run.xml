@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="xilinx_l2_mem_32768x64_dp_synth_1" LaunchPart="xc7z045ffg900-2" LaunchTime="1483527769">
+  <File Type="VDS-TIMING-PB" Name="xilinx_l2_mem_32768x64_dp_timing_summary_synth.pb"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="xilinx_l2_mem_32768x64_dp_timing_summary_synth.rpt"/>
+  <File Type="RDS-DCP" Name="xilinx_l2_mem_32768x64_dp.dcp"/>
+  <File Type="RDS-UTIL-PB" Name="xilinx_l2_mem_32768x64_dp_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="xilinx_l2_mem_32768x64_dp_utilization_synth.rpt"/>
+  <File Type="RUN-CONSTRS" Name="$PDATADIR/runs/xilinx_l2_mem_32768x64_dp_synth_1/constrs_in.xml"/>
+  <File Type="VDS-HWDEF" Name="xilinx_l2_mem_32768x64_dp.hwdef"/>
+  <File Type="RUN-SRCS" Name="$PDATADIR/runs/xilinx_l2_mem_32768x64_dp_synth_1/sources.xml"/>
+  <File Type="RDS-RDS" Name="xilinx_l2_mem_32768x64_dp.vds"/>
+  <File Type="RUN-STRAT" Name="$PDATADIR/runs/xilinx_l2_mem_32768x64_dp_synth_1/xilinx_l2_mem_32768x64_dp_synth_1.psg"/>
+  <File Type="PA-TCL" Name="xilinx_l2_mem_32768x64_dp.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="xilinx_l2_mem_32768x64_dp_drc_synth.rpt"/>
+  <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/xilinx_l2_mem_32768x64_dp">
+    <File Path="$PSRCDIR/sources_1/ip/xilinx_l2_mem_32768x64_dp/xilinx_l2_mem_32768x64_dp.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopModule" Val="xilinx_l2_mem_32768x64_dp"/>
+      <Option Name="UseBlackboxStub" Val="1"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="BlockSrcs" RelSrcDir="$PSRCDIR/xilinx_l2_mem_32768x64_dp">
+    <File Path="$PSRCDIR/sources_1/ip/xilinx_l2_mem_32768x64_dp/xilinx_l2_mem_32768x64_dp.xci">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="TopModule" Val="xilinx_l2_mem_32768x64_dp"/>
+      <Option Name="UseBlackboxStub" Val="1"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2014">
+      <Desc>Vivado Synthesis Defaults</Desc>
+    </StratHandle>
+    <Step Id="synth_design"/>
+  </Strategy>
+</GenRun>

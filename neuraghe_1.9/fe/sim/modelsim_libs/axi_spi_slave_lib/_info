@@ -1,0 +1,217 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim
+vaxi_spi_slave
+Z1 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
+Z2 !s110 1568386721
+!i10b 1
+!s100 ;`3cGlaWCn;kE=z]EXnK02
+IQZ>oeo<LHTDFk7@e?;TMR1
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+!s105 axi_spi_slave_sv_unit
+S1
+R0
+Z4 w1567774037
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_spi_slave/axi_spi_slave.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_spi_slave/axi_spi_slave.sv
+L0 1
+Z5 OL;L;10.4;61
+r1
+!s85 0
+31
+!s108 1568386721.592516
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_spi_slave/axi_spi_slave.sv|
+!s90 -work|axi_spi_slave_lib|-quiet|-sv|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_spi_slave/axi_spi_slave.sv|
+!i113 0
+Z6 o-quiet -work axi_spi_slave_lib -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vspi_slave_axi_plug
+R1
+R2
+!i10b 1
+!s100 EQ?RAId<ck`6V=LRdLY;z1
+IzD_4?1lA@J?jVh905_YTg0
+R3
+!s105 spi_slave_axi_plug_sv_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_spi_slave/spi_slave_axi_plug.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_spi_slave/spi_slave_axi_plug.sv
+L0 1
+R5
+r1
+!s85 0
+31
+!s108 1568386721.414171
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_spi_slave/spi_slave_axi_plug.sv|
+!s90 -work|axi_spi_slave_lib|-quiet|-sv|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_spi_slave/spi_slave_axi_plug.sv|
+!i113 0
+R6
+vspi_slave_cmd_parser
+R1
+R2
+!i10b 1
+!s100 QX=85Q24_l]mj33]:JFM<0
+I3nMJZiS6lRSLghN9fI?;K2
+R3
+!s105 spi_slave_cmd_parser_sv_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_spi_slave/spi_slave_cmd_parser.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_spi_slave/spi_slave_cmd_parser.sv
+L0 1
+R5
+r1
+!s85 0
+31
+!s108 1568386721.440645
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_spi_slave/spi_slave_cmd_parser.sv|
+!s90 -work|axi_spi_slave_lib|-quiet|-sv|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_spi_slave/spi_slave_cmd_parser.sv|
+!i113 0
+R6
+vspi_slave_controller
+R1
+R2
+!i10b 1
+!s100 [Hg_h18XJJCazdTiORLn70
+IbWZlZ@7=bUL995:j<IjfP3
+R3
+!s105 spi_slave_controller_sv_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_spi_slave/spi_slave_controller.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_spi_slave/spi_slave_controller.sv
+L0 5
+R5
+r1
+!s85 0
+31
+!s108 1568386721.505623
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_spi_slave/spi_slave_controller.sv|
+!s90 -work|axi_spi_slave_lib|-quiet|-sv|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_spi_slave/spi_slave_controller.sv|
+!i113 0
+R6
+vspi_slave_dc_fifo
+R1
+R2
+!i10b 1
+!s100 7IM8El6TfdPYzRecS3U^Y3
+Ii>oS39Rf5ZIoOhPKPMje@1
+R3
+!s105 spi_slave_dc_fifo_sv_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_spi_slave/spi_slave_dc_fifo.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_spi_slave/spi_slave_dc_fifo.sv
+L0 1
+R5
+r1
+!s85 0
+31
+!s108 1568386721.463550
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_spi_slave/spi_slave_dc_fifo.sv|
+!s90 -work|axi_spi_slave_lib|-quiet|-sv|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_spi_slave/spi_slave_dc_fifo.sv|
+!i113 0
+R6
+vspi_slave_regs
+R1
+R2
+!i10b 1
+!s100 3d@`7WfjZiOLIjFQE92_O0
+IaADoz5E<WgT_N0JeJ??;z3
+R3
+!s105 spi_slave_regs_sv_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_spi_slave/spi_slave_regs.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_spi_slave/spi_slave_regs.sv
+L0 1
+R5
+r1
+!s85 0
+31
+!s108 1568386721.485094
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_spi_slave/spi_slave_regs.sv|
+!s90 -work|axi_spi_slave_lib|-quiet|-sv|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_spi_slave/spi_slave_regs.sv|
+!i113 0
+R6
+vspi_slave_rx
+R1
+R2
+!i10b 1
+!s100 >9O5>Kk][8Mm7abY2VWEa3
+I`D75?:bagdP^8VY6OnVh43
+R3
+!s105 spi_slave_rx_sv_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_spi_slave/spi_slave_rx.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_spi_slave/spi_slave_rx.sv
+L0 1
+R5
+r1
+!s85 0
+31
+!s108 1568386721.527388
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_spi_slave/spi_slave_rx.sv|
+!s90 -work|axi_spi_slave_lib|-quiet|-sv|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_spi_slave/spi_slave_rx.sv|
+!i113 0
+R6
+vspi_slave_syncro
+R1
+R2
+!i10b 1
+!s100 5FEMn`hC6afPHHzVZd0SW3
+ICfJj@oPd6NkGzM4i62im80
+R3
+!s105 spi_slave_syncro_sv_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_spi_slave/spi_slave_syncro.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_spi_slave/spi_slave_syncro.sv
+L0 1
+R5
+r1
+!s85 0
+31
+!s108 1568386721.570563
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_spi_slave/spi_slave_syncro.sv|
+!s90 -work|axi_spi_slave_lib|-quiet|-sv|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_spi_slave/spi_slave_syncro.sv|
+!i113 0
+R6
+vspi_slave_tx
+R1
+R2
+!i10b 1
+!s100 gMJMXCb0zWk_BTeW]B9i02
+IN2;`1VGlY^6ROSjS_8X?M2
+R3
+!s105 spi_slave_tx_sv_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_spi_slave/spi_slave_tx.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_spi_slave/spi_slave_tx.sv
+L0 1
+R5
+r1
+!s85 0
+31
+!s108 1568386721.549217
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_spi_slave/spi_slave_tx.sv|
+!s90 -work|axi_spi_slave_lib|-quiet|-sv|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/axi/axi_spi_slave/spi_slave_tx.sv|
+!i113 0
+R6

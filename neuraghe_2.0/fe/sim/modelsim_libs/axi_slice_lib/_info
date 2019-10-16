@@ -1,0 +1,171 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/nur/NEURAghe/neuraghe_2.0/fe/sim
+vaxi_ar_buffer
+Z1 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
+Z2 !s110 1568883254
+!i10b 1
+!s100 l=A`[m^6[?P`hl6UZFOF72
+I0@B4PXeAYk1fnXmBL4=n[0
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+!s105 axi_ar_buffer_sv_unit
+S1
+R0
+Z4 w1566466385
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice/axi_ar_buffer.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice/axi_ar_buffer.sv
+L0 44
+Z5 OL;L;10.4;61
+r1
+!s85 0
+31
+!s108 1568883254.906324
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice/axi_ar_buffer.sv|
+!s90 -work|axi_slice_lib|-quiet|-sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice/axi_ar_buffer.sv|
+!i113 0
+Z6 o-quiet -work axi_slice_lib -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vaxi_aw_buffer
+R1
+R2
+!i10b 1
+!s100 589i`kNdfzQzh_QY;GaIf0
+IT5H_Hl[g=ECcfTo8jcWj`3
+R3
+!s105 axi_aw_buffer_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice/axi_aw_buffer.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice/axi_aw_buffer.sv
+Z7 L0 42
+R5
+r1
+!s85 0
+31
+!s108 1568883254.936259
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice/axi_aw_buffer.sv|
+!s90 -work|axi_slice_lib|-quiet|-sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice/axi_aw_buffer.sv|
+!i113 0
+R6
+vaxi_b_buffer
+R1
+R2
+!i10b 1
+!s100 KEE:l=lbSGPoQ]66dhz]@2
+I^B_>VHDbl@cPF9f52NX0Z3
+R3
+!s105 axi_b_buffer_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice/axi_b_buffer.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice/axi_b_buffer.sv
+R7
+R5
+r1
+!s85 0
+31
+!s108 1568883254.966076
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice/axi_b_buffer.sv|
+!s90 -work|axi_slice_lib|-quiet|-sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice/axi_b_buffer.sv|
+!i113 0
+R6
+vaxi_buffer
+R1
+R2
+!i10b 1
+!s100 AeiWjh=LgSiY?;RFLbXIU2
+I<7d4T>PAom>i@9Gh<9a=I2
+R3
+!s105 axi_buffer_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice/axi_buffer.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice/axi_buffer.sv
+R7
+R5
+r1
+!s85 0
+31
+!s108 1568883254.875678
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice/axi_buffer.sv|
+!s90 -work|axi_slice_lib|-quiet|-sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice/axi_buffer.sv|
+!i113 0
+R6
+vaxi_r_buffer
+R1
+Z8 !s110 1568883255
+!i10b 1
+!s100 Yah<6FXWfgFMRA6]J2fOL2
+ImzbgU:M`j`oK;Y<z35f8T0
+R3
+!s105 axi_r_buffer_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice/axi_r_buffer.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice/axi_r_buffer.sv
+R7
+R5
+r1
+!s85 0
+31
+!s108 1568883254.995810
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice/axi_r_buffer.sv|
+!s90 -work|axi_slice_lib|-quiet|-sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice/axi_r_buffer.sv|
+!i113 0
+R6
+vaxi_slice
+R1
+R8
+!i10b 1
+!s100 >REh:`[5cDW>ceDh4D[zA0
+I@TfFa5CniU1fQNVJCFhX[2
+R3
+!s105 axi_slice_sv_unit
+S1
+R0
+w1566466384
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice/axi_slice.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice/axi_slice.sv
+Z9 L0 43
+R5
+r1
+!s85 0
+31
+!s108 1568883255.055377
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice/axi_slice.sv|
+!s90 -work|axi_slice_lib|-quiet|-sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice/axi_slice.sv|
+!i113 0
+R6
+vaxi_w_buffer
+R1
+R8
+!i10b 1
+!s100 ]6[z4fQdEdi@`eaZQNhBo2
+IoeKdJziDJ;63S=C_SCYlz0
+R3
+!s105 axi_w_buffer_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice/axi_w_buffer.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice/axi_w_buffer.sv
+R9
+R5
+r1
+!s85 0
+31
+!s108 1568883255.025533
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice/axi_w_buffer.sv|
+!s90 -work|axi_slice_lib|-quiet|-sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/axi/axi_slice/axi_w_buffer.sv|
+!i113 0
+R6

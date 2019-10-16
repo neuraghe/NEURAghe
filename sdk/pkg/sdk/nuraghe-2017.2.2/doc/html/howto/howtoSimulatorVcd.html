@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>How to use virtual platform VCD traces &mdash; howto 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="howto 1 documentation" href="index.html" />
+    <link rel="next" title="How to debug memory corruptions or invalid accesses" href="howtoDebugMemoryCorruption.html" />
+    <link rel="prev" title="How to use platform traces" href="howtoUseAssemblyTraces.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="how-to-use-virtual-platform-vcd-traces">
+<h1>How to use virtual platform VCD traces<a class="headerlink" href="#how-to-use-virtual-platform-vcd-traces" title="Permalink to this headline">¶</a></h1>
+<p>The virtual platform can dump VCD traces which show the state of several components over the time, like the cores PC, the DMA transfers, etc.</p>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>Everything can be activated with this single option:</p>
+<div class="highlight-python"><div class="highlight"><pre>make run PLT_OPT=--vcd
+</pre></div>
+</div>
+<p>This will activate VCD traces and also all possible traces and will dump them in the platform working directory in the file called <em>all.vcd</em>.</p>
+<p>It is also possible to select exactly which traces must be activated with this option:</p>
+<div class="highlight-python"><div class="highlight"><pre>make run PLT_OPT=&quot;--vcd --vcd-file=pc.vcd:.*/pc&quot;
+</pre></div>
+</div>
+<p>The <em>&#8211;vcd</em> option is still required to activate VCD traces. However as there is the <em>&#8211;vcd-trace</em> option, only the specified traces are activated.</p>
+<p>The option must follow the format &#8211;vcd-file=&lt;traceFile&gt;:&lt;tracePattern&gt;. &lt;traceFile&gt; is the path of the file where the specified traces will be dumped. &lt;tracePattern&gt; is a Posix regular expression which specifies the traces that must be dumped to this file. Each VCD trace has a path made of the concatenation of the path of the component it belongs to and the trace name. Any trace whose path matches the regular expression will be dumped to the specified file.</p>
+<p>It is also possible to specify several files in case one wants to separate VCD traces:</p>
+<div class="highlight-python"><div class="highlight"><pre>make run PLT_OPT=&quot;--vcd --vcd-file=pe0.vcd:.*/pe0/iss --vcd-file=pe1.vcd:.*/pe1/iss&quot;
+</pre></div>
+</div>
+<p>This will in this case dump PE0 and PE1 PC traces to 2 different files.</p>
+</div>
+<div class="section" id="display">
+<h2>Display<a class="headerlink" href="#display" title="Permalink to this headline">¶</a></h2>
+<p>Any VCD viewer can be used to display the traces. On Linux the free gtkwave viewer can be used. For example to display the PC traces, you can launch it with:</p>
+<div class="highlight-python"><div class="highlight"><pre>gtkwave &lt;vcdFilePath&gt;
+</pre></div>
+</div>
+<p>Then click on Search-&gt;Search Signal Regexp, enter &#8220;pc&#8221;, click on Select All and Insert, and close the box. You should now see the PC traces in the view, you can zoom out to see the full window.</p>
+</div>
+<div class="section" id="gtkwave-script-generation">
+<h2>Gtkwave script generation<a class="headerlink" href="#gtkwave-script-generation" title="Permalink to this headline">¶</a></h2>
+<p>In case gtkwave is used, a script can be automatically generated that will preconfigure all interesting signals. For that the following option must be used:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ make run PLT_OPT=&quot;--vcd --gtkw&quot;
+</pre></div>
+</div>
+<p>You should se at the beginning of the simulation that says that a script has been generated. Just open it with gtkwave and you should see all signals already configured in the view.</p>
+<p>This view contains some pre-defined groups that are very useful for quickly opening and closing architectures parts. It also contains a group called debug, that contains more high-level debug information like function name, disasembled instructions and so on.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">How to use virtual platform VCD traces</a><ul>
+<li><a class="reference internal" href="#configuration">Configuration</a></li>
+<li><a class="reference internal" href="#display">Display</a></li>
+<li><a class="reference internal" href="#gtkwave-script-generation">Gtkwave script generation</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="howtoUseAssemblyTraces.html" title="previous chapter">How to use platform traces</a></li>
+      <li>Next: <a href="howtoDebugMemoryCorruption.html" title="next chapter">How to debug memory corruptions or invalid accesses</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/howtoSimulatorVcd.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Germain Haugou.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/howtoSimulatorVcd.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

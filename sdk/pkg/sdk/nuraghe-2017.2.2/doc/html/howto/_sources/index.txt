@@ -1,0 +1,39 @@
+.. howto documentation master file, created by
+   sphinx-quickstart on Wed Apr  6 09:37:54 2016.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+SDK howto
+=========
+
+.. toctree::
+   :maxdepth: 1
+
+   whichSystemDeps
+   howtoUseAssemblyTraces
+   howtoSimulatorVcd
+   howtoDebugMemoryCorruption
+   howtoSimulatorGdb
+   howtoRuntimeTrace
+   howtoRtlUse
+   howtoRtlBuild
+   howtoSetupRtlEnv
+   wheretoPutTest
+   howtoWriteTest
+   howtoUseFpga
+   howtoGetSdk
+   howtoSetupSdk
+   howtoSubmitToJenkins
+   howtoSdkCi
+   howtoBuildSdkPieces
+   howtoProfileOmpApp
+   howtoValidateSdkRelease
+   howtoReleaseSdk
+   howtoCustomizeFlags
+   howToManageGitlab
+   howtoTag
+   howtoDumpUdmaChannels
+..   howtoCustomizeRuntimeAndPlatform
+..   howtoCheckConfigurations
+..   howtoModifyRuntime
+.. howtoCompileToolchain

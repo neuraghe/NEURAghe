@@ -1,0 +1,478 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>DMA HAL &mdash; Pulp runtime documentation 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Pulp runtime documentation 1 documentation" href="index.html" />
+    <link rel="next" title="UDMA HAL" href="udmaHal.html" />
+    <link rel="prev" title="Welcome to Pulp runtime documentation’s documentation!" href="index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="dma-hal">
+<h1>DMA HAL<a class="headerlink" href="#dma-hal" title="Permalink to this headline">¶</a></h1>
+<p>The DMA HAL is a set of functions to hide register access to the cluster DMA (MCHAN).
+The DMA is the block in the cluster who is in charge of memory transfers between L2 (fabric memory) and L1 (cluster memory) or between several L1.</p>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">High-level DMA memory copy functions</p>
+<p>The following functions can be used to trigger DMA transfers to copy data between the cluster memory (L1) and another memory outside the cluster (another cluster L1 or L2). Note that they cannot be used from L2 to L2 or from a cluster memory to the same cluster memory. The DMA supports the following features:<ul class="simple">
+<li>Transfers can be either event-based or irq-based. With event-based transfers the core can call a wait function to block execution until the transfer is done. With irq-based transfers, the completion of the transfer will trigger the DMA interrupt. This interrupt cannot be managed with this HAL, but must be managed as any other IRQ.</li>
+<li>The DMA supports 2D transfers which allows transfering a 2D tile in one command. Additional information must then be given to specify the width of the tile and the number of bytes between 2 lines of the tile.</li>
+<li>The event or irq sent at the end of the transfer can be either sent to the core which enqueued the transfer or broadcasted to all cluster cores.</li>
+<li>To identify specific transfers, the DMA provides a counter allocator. All transfers enqueued with the same counter are gathered into a group, on which the core can be stalled until the whole group of transfers is finished.</li>
+<li>All transfers are enqueued into a global FIFO which can stall the core enqueueing the transfer in case it is full. The size of the FIFO depends on the chip but is typically 16 commands. </li>
+</ul>
+</p>
+<dl class="function">
+<dt id="_CPPv214plp_dma_memcpyjjti">
+<span id="plp_dma_memcpy__unsigned-i.unsigned-i.unsigned-short.i"></span><span class="target" id="myprojectmchan__v6_8h_1a45e5e40bffb28a792ca647ac3da45525"></span><em class="property">static</em> int <code class="descname">plp_dma_memcpy</code><span class="sig-paren">(</span>unsigned int <em>ext</em>, unsigned int <em>loc</em>, unsigned short <em>size</em>, int <em>ext2loc</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv214plp_dma_memcpyjjti" title="Permalink to this definition">¶</a></dt>
+<dd><p>Memory transfer with event-based completion.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The identifier of the transfer. This can be used with plp_dma_wait to wait for the completion of this transfer. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">ext</span></code>: Address in the external memory where to access the data. There is no restriction on memory alignment. </li>
+<li><code class="docutils literal"><span class="pre">loc</span></code>: Address in the cluster memory where to access the data. There is no restriction on memory alignment. </li>
+<li><code class="docutils literal"><span class="pre">size</span></code>: Number of bytes to be transfered. The only restriction is that this size must fit 16 bits, i.e. must be inferior to 65536. </li>
+<li><code class="docutils literal"><span class="pre">ext2loc</span></code>: If 1, the transfer is loading data from external memory and storing to cluster memory. If 0, it is the contrary </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv215plp_dma_l1ToExtjjt">
+<span id="plp_dma_l1ToExt__unsigned-i.unsigned-i.unsigned-short"></span><span class="target" id="myprojectmchan__v6_8h_1a61a6078701f2a37bedf79256ee29831e"></span><em class="property">static</em> int <code class="descname">plp_dma_l1ToExt</code><span class="sig-paren">(</span>unsigned int <em>ext</em>, unsigned int <em>loc</em>, unsigned short <em>size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv215plp_dma_l1ToExtjjt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cluster memory to external memory transfer with event-based completion.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The identifier of the transfer. This can be used with plp_dma_wait to wait for the completion of this transfer. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">ext</span></code>: Address in the external memory where to store the data. There is no restriction on memory alignment. </li>
+<li><code class="docutils literal"><span class="pre">loc</span></code>: Address in the cluster memory where to load the data. There is no restriction on memory alignment. </li>
+<li><code class="docutils literal"><span class="pre">size</span></code>: Number of bytes to be transfered. The only restriction is that this size must fit 16 bits, i.e. must be inferior to 65536. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv215plp_dma_extToL1jjt">
+<span id="plp_dma_extToL1__unsigned-i.unsigned-i.unsigned-short"></span><span class="target" id="myprojectmchan__v6_8h_1a8e5ef04d056d0801b5b0f65b78cb4e16"></span><em class="property">static</em> int <code class="descname">plp_dma_extToL1</code><span class="sig-paren">(</span>unsigned int <em>loc</em>, unsigned int <em>ext</em>, unsigned short <em>size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv215plp_dma_extToL1jjt" title="Permalink to this definition">¶</a></dt>
+<dd><p>External memory to cluster memory transfer with event-based completion.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The identifier of the transfer. This can be used with plp_dma_wait to wait for the completion of this transfer. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">loc</span></code>: Address in the cluster memory where to store the data. There is no restriction on memory alignment. </li>
+<li><code class="docutils literal"><span class="pre">ext</span></code>: Address in the external memory where to load the data. There is no restriction on memory alignment. </li>
+<li><code class="docutils literal"><span class="pre">size</span></code>: Number of bytes to be transfered. The only restriction is that this size must fit 16 bits, i.e. must be inferior to 65536. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv218plp_dma_memcpy_irqjjti">
+<span id="plp_dma_memcpy_irq__unsigned-i.unsigned-i.unsigned-short.i"></span><span class="target" id="myprojectmchan__v6_8h_1af5998c1794d6172b051705bba2684da2"></span><em class="property">static</em> int <code class="descname">plp_dma_memcpy_irq</code><span class="sig-paren">(</span>unsigned int <em>ext</em>, unsigned int <em>loc</em>, unsigned short <em>size</em>, int <em>ext2loc</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv218plp_dma_memcpy_irqjjti" title="Permalink to this definition">¶</a></dt>
+<dd><p>Memory transfer with irq-based completion.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The identifier of the transfer. This can be used with plp_dma_wait to wait for the completion of this transfer. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">ext</span></code>: Address in the external memory where to access the data. There is no restriction on memory alignment. </li>
+<li><code class="docutils literal"><span class="pre">loc</span></code>: Address in the cluster memory where to access the data. There is no restriction on memory alignment. </li>
+<li><code class="docutils literal"><span class="pre">size</span></code>: Number of bytes to be transfered. The only restriction is that this size must fit 16 bits, i.e. must be inferior to 65536. </li>
+<li><code class="docutils literal"><span class="pre">ext2loc</span></code>: If 1, the transfer is loading data from external memory and storing to cluster memory. If 0, it is the contrary </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv219plp_dma_l1ToExt_irqjjt">
+<span id="plp_dma_l1ToExt_irq__unsigned-i.unsigned-i.unsigned-short"></span><span class="target" id="myprojectmchan__v6_8h_1a8caf195a1c54e1436c62e1a39eb54d47"></span><em class="property">static</em> int <code class="descname">plp_dma_l1ToExt_irq</code><span class="sig-paren">(</span>unsigned int <em>ext</em>, unsigned int <em>loc</em>, unsigned short <em>size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv219plp_dma_l1ToExt_irqjjt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cluster memory to external memory transfer with irq-based completion.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The identifier of the transfer. This can be used with plp_dma_wait to wait for the completion of this transfer. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">ext</span></code>: Address in the external memory where to store the data. There is no restriction on memory alignment. </li>
+<li><code class="docutils literal"><span class="pre">loc</span></code>: Address in the cluster memory where to load the data. There is no restriction on memory alignment. </li>
+<li><code class="docutils literal"><span class="pre">size</span></code>: Number of bytes to be transfered. The only restriction is that this size must fit 16 bits, i.e. must be inferior to 65536. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv219plp_dma_extToL1_irqjjt">
+<span id="plp_dma_extToL1_irq__unsigned-i.unsigned-i.unsigned-short"></span><span class="target" id="myprojectmchan__v6_8h_1a5bb4476004c8951f7990ce4ed32fafed"></span><em class="property">static</em> int <code class="descname">plp_dma_extToL1_irq</code><span class="sig-paren">(</span>unsigned int <em>loc</em>, unsigned int <em>ext</em>, unsigned short <em>size</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv219plp_dma_extToL1_irqjjt" title="Permalink to this definition">¶</a></dt>
+<dd><p>External memory to cluster memory transfer with irq-based completion.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The identifier of the transfer. This can be used with plp_dma_wait to wait for the completion of this transfer. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">loc</span></code>: Address in the cluster memory where to store the data. There is no restriction on memory alignment. </li>
+<li><code class="docutils literal"><span class="pre">ext</span></code>: Address in the external memory where to load the data. There is no restriction on memory alignment. </li>
+<li><code class="docutils literal"><span class="pre">size</span></code>: Number of bytes to be transfered. The only restriction is that this size must fit 16 bits, i.e. must be inferior to 65536. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv217plp_dma_memcpy_2djjttti">
+<span id="plp_dma_memcpy_2d__unsigned-i.unsigned-i.unsigned-short.unsigned-short.unsigned-short.i"></span><span class="target" id="myprojectmchan__v6_8h_1a5384e75092a3e5d8f3d75f9ab844f893"></span><em class="property">static</em> int <code class="descname">plp_dma_memcpy_2d</code><span class="sig-paren">(</span>unsigned int <em>ext</em>, unsigned int <em>loc</em>, unsigned short <em>size</em>, unsigned short <em>stride</em>, unsigned short <em>length</em>, int <em>ext2loc</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv217plp_dma_memcpy_2djjttti" title="Permalink to this definition">¶</a></dt>
+<dd><p>2-dimensional memory transfer with event-based completion.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The identifier of the transfer. This can be used with plp_dma_wait to wait for the completion of this transfer. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">ext</span></code>: Address in the external memory where to access the data. There is no restriction on memory alignment. </li>
+<li><code class="docutils literal"><span class="pre">loc</span></code>: Address in the cluster memory where to access the data. There is no restriction on memory alignment. </li>
+<li><code class="docutils literal"><span class="pre">size</span></code>: Number of bytes to be transfered. The only restriction is that this size must fit 16 bits, i.e. must be inferior to 65536. </li>
+<li><code class="docutils literal"><span class="pre">stride</span></code>: 2D stride, which is the number of bytes which are added to the beginning of the current line to switch to the next one. Must fit 16 bits, i.e. must be inferior to 65536. </li>
+<li><code class="docutils literal"><span class="pre">length</span></code>: 2D length, which is the number of transfered bytes after which the DMA will switch to the next line. Must fit 16 bits, i.e. must be inferior to 65536. </li>
+<li><code class="docutils literal"><span class="pre">ext2loc</span></code>: If 1, the transfer is loading data from external memory and storing to cluster memory. If 0, it is the contrary </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv218plp_dma_l1ToExt_2djjttt">
+<span id="plp_dma_l1ToExt_2d__unsigned-i.unsigned-i.unsigned-short.unsigned-short.unsigned-short"></span><span class="target" id="myprojectmchan__v6_8h_1aeefa8327a50be1bc93d96aad59a6900e"></span><em class="property">static</em> int <code class="descname">plp_dma_l1ToExt_2d</code><span class="sig-paren">(</span>unsigned int <em>ext</em>, unsigned int <em>loc</em>, unsigned short <em>size</em>, unsigned short <em>stride</em>, unsigned short <em>length</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv218plp_dma_l1ToExt_2djjttt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cluster memory to external memory 2-dimensional transfer with event-based completion.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The identifier of the transfer. This can be used with plp_dma_wait to wait for the completion of this transfer. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">ext</span></code>: Address in the external memory where to store the data. There is no restriction on memory alignment. </li>
+<li><code class="docutils literal"><span class="pre">loc</span></code>: Address in the cluster memory where to load the data. There is no restriction on memory alignment. </li>
+<li><code class="docutils literal"><span class="pre">size</span></code>: Number of bytes to be transfered. The only restriction is that this size must fit 16 bits, i.e. must be inferior to 65536. </li>
+<li><code class="docutils literal"><span class="pre">stride</span></code>: 2D stride, which is the number of bytes which are added to the beginning of the current line to switch to the next one. Must fit 16 bits, i.e. must be inferior to 65536. This applies only to the external memory. </li>
+<li><code class="docutils literal"><span class="pre">length</span></code>: 2D length, which is the number of transfered bytes after which the DMA will switch to the next line. Must fit 16 bits, i.e. must be inferior to 65536. This applies only to the external memory. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv218plp_dma_extToL1_2djjttt">
+<span id="plp_dma_extToL1_2d__unsigned-i.unsigned-i.unsigned-short.unsigned-short.unsigned-short"></span><span class="target" id="myprojectmchan__v6_8h_1a62b06d977d3b4a6c7def3d0087c6aa61"></span><em class="property">static</em> int <code class="descname">plp_dma_extToL1_2d</code><span class="sig-paren">(</span>unsigned int <em>loc</em>, unsigned int <em>ext</em>, unsigned short <em>size</em>, unsigned short <em>stride</em>, unsigned short <em>length</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv218plp_dma_extToL1_2djjttt" title="Permalink to this definition">¶</a></dt>
+<dd><p>External memory to cluster memory 2-dimensional transfer with event-based completion.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The identifier of the transfer. This can be used with plp_dma_wait to wait for the completion of this transfer </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">loc</span></code>: Address in the cluster memory where to store the data. There is no restriction on memory alignment. </li>
+<li><code class="docutils literal"><span class="pre">ext</span></code>: Address in the external memory where to load the data. There is no restriction on memory alignment. </li>
+<li><code class="docutils literal"><span class="pre">size</span></code>: Number of bytes to be transfered. The only restriction is that this size must fit 16 bits, i.e. must be inferior to 65536. </li>
+<li><code class="docutils literal"><span class="pre">stride</span></code>: 2D stride, which is the number of bytes which are added to the beginning of the current line to switch to the next one. Must fit 16 bits, i.e. must be inferior to 65536. This applies only to the external memory. </li>
+<li><code class="docutils literal"><span class="pre">length</span></code>: 2D length, which is the number of transfered bytes after which the DMA will switch to the next line. Must fit 16 bits, i.e. must be inferior to 65536. This applies only to the external memory. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv221plp_dma_memcpy_2d_irqjjttti">
+<span id="plp_dma_memcpy_2d_irq__unsigned-i.unsigned-i.unsigned-short.unsigned-short.unsigned-short.i"></span><span class="target" id="myprojectmchan__v6_8h_1a541ce5ce0c58b86cea710759a892f068"></span><em class="property">static</em> int <code class="descname">plp_dma_memcpy_2d_irq</code><span class="sig-paren">(</span>unsigned int <em>ext</em>, unsigned int <em>loc</em>, unsigned short <em>size</em>, unsigned short <em>stride</em>, unsigned short <em>length</em>, int <em>ext2loc</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv221plp_dma_memcpy_2d_irqjjttti" title="Permalink to this definition">¶</a></dt>
+<dd><p>2-dimensional memory transfer with irq-based completion.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The identifier of the transfer. This can be used with plp_dma_wait to wait for the completion of this transfer. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">ext</span></code>: Address in the external memory where to access the data. There is no restriction on memory alignment. </li>
+<li><code class="docutils literal"><span class="pre">loc</span></code>: Address in the cluster memory where to access the data. There is no restriction on memory alignment. </li>
+<li><code class="docutils literal"><span class="pre">size</span></code>: Number of bytes to be transfered. The only restriction is that this size must fit 16 bits, i.e. must be inferior to 65536. </li>
+<li><code class="docutils literal"><span class="pre">stride</span></code>: 2D stride, which is the number of bytes which are added to the beginning of the current line to switch to the next one. Must fit 16 bits, i.e. must be inferior to 65536. This applies only to the external memory. </li>
+<li><code class="docutils literal"><span class="pre">length</span></code>: 2D length, which is the number of transfered bytes after which the DMA will switch to the next line. Must fit 16 bits, i.e. must be inferior to 65536. This applies only to the external memory. </li>
+<li><code class="docutils literal"><span class="pre">ext2loc</span></code>: If 1, the transfer is loading data from external memory and storing to cluster memory. If 0, it is the contrary </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv222plp_dma_l1ToExt_2d_irqjjttt">
+<span id="plp_dma_l1ToExt_2d_irq__unsigned-i.unsigned-i.unsigned-short.unsigned-short.unsigned-short"></span><span class="target" id="myprojectmchan__v6_8h_1a33f7530566df377fc7e7c0a618456322"></span><em class="property">static</em> int <code class="descname">plp_dma_l1ToExt_2d_irq</code><span class="sig-paren">(</span>unsigned int <em>ext</em>, unsigned int <em>loc</em>, unsigned short <em>size</em>, unsigned short <em>stride</em>, unsigned short <em>length</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv222plp_dma_l1ToExt_2d_irqjjttt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cluster memory to external memory 2-dimensional transfer with irq-based completion.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The identifier of the transfer. This can be used with plp_dma_wait to wait for the completion of this transfer. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">ext</span></code>: Address in the external memory where to store the data. There is no restriction on memory alignment. </li>
+<li><code class="docutils literal"><span class="pre">loc</span></code>: Address in the cluster memory where to load the data. There is no restriction on memory alignment. </li>
+<li><code class="docutils literal"><span class="pre">size</span></code>: Number of bytes to be transfered. The only restriction is that this size must fit 16 bits, i.e. must be inferior to 65536. </li>
+<li><code class="docutils literal"><span class="pre">stride</span></code>: 2D stride, which is the number of bytes which are added to the beginning of the current line to switch to the next one. Must fit 16 bits, i.e. must be inferior to 65536. This applies only to the external memory. </li>
+<li><code class="docutils literal"><span class="pre">length</span></code>: 2D length, which is the number of transfered bytes after which the DMA will switch to the next line. Must fit 16 bits, i.e. must be inferior to 65536. This applies only to the external memory. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv222plp_dma_extToL1_2d_irqjjttt">
+<span id="plp_dma_extToL1_2d_irq__unsigned-i.unsigned-i.unsigned-short.unsigned-short.unsigned-short"></span><span class="target" id="myprojectmchan__v6_8h_1a8d7a3e75de8ca365d74286c0b1c1b63d"></span><em class="property">static</em> int <code class="descname">plp_dma_extToL1_2d_irq</code><span class="sig-paren">(</span>unsigned int <em>loc</em>, unsigned int <em>ext</em>, unsigned short <em>size</em>, unsigned short <em>stride</em>, unsigned short <em>length</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv222plp_dma_extToL1_2d_irqjjttt" title="Permalink to this definition">¶</a></dt>
+<dd><p>External memory to cluster memory 2-dimensional transfer with irq-based completion.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The identifier of the transfer. This can be used with plp_dma_wait to wait for the completion of this transfer </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">loc</span></code>: Address in the cluster memory where to store the data. There is no restriction on memory alignment. </li>
+<li><code class="docutils literal"><span class="pre">ext</span></code>: Address in the external memory where to load the data. There is no restriction on memory alignment. </li>
+<li><code class="docutils literal"><span class="pre">size</span></code>: Number of bytes to be transfered. The only restriction is that this size must fit 16 bits, i.e. must be inferior to 65536. </li>
+<li><code class="docutils literal"><span class="pre">stride</span></code>: 2D stride, which is the number of bytes which are added to the beginning of the current line to switch to the next one. Must fit 16 bits, i.e. must be inferior to 65536. This applies only to the external memory. </li>
+<li><code class="docutils literal"><span class="pre">length</span></code>: 2D length, which is the number of transfered bytes after which the DMA will switch to the next line. Must fit 16 bits, i.e. must be inferior to 65536. This applies only to the external memory. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">DMA wait functions</p>
+<dl class="function">
+<dt id="_CPPv215plp_dma_barrierv">
+<span id="plp_dma_barrier"></span><span class="target" id="myprojectmchan__v6_8h_1a7d78c9678030aece11db64105f638c31"></span><em class="property">static</em> void <code class="descname">plp_dma_barrier</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv215plp_dma_barrierv" title="Permalink to this definition">¶</a></dt>
+<dd><p>DMA barrier. This blocks the core until no transfer is on-going in the DMA. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv212plp_dma_waitj">
+<span id="plp_dma_wait__unsigned-i"></span><span class="target" id="myprojectmchan__v6_8h_1aedd4a2e7b7ce8dd3db423dee90c96aa0"></span><em class="property">static</em> void <code class="descname">plp_dma_wait</code><span class="sig-paren">(</span>unsigned int <em>counter</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv212plp_dma_waitj" title="Permalink to this definition">¶</a></dt>
+<dd><p>DMA wait. This blocks the core until the specified transfer is finished.</p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">counter</span></code>: The counter ID identifying the transfer. This has either been allocated explicitly or returned from an enqueued transfer (e.g. plp_dma_extToL1_2d_irq) </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">DMA low-level functions.</p>
+<p>This can be used instead of the high-level ones in order to have more control over the DMA features. </p>
+<dl class="function">
+<dt id="_CPPv221plp_dma_counter_allocv">
+<span id="plp_dma_counter_alloc"></span><span class="target" id="myprojectmchan__v6_8h_1a92c6aa8fd960832afc6be31ad5f69f6e"></span><em class="property">static</em> int <code class="descname">plp_dma_counter_alloc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv221plp_dma_counter_allocv" title="Permalink to this definition">¶</a></dt>
+<dd><p>DMA counter allocation. This allocates a counter and activate it for all the next transfers until another one is allocated. This means during this period, all transfers will be accounted on this counter and thus waiting on this counter will wait for all these transfers.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The identifier of the transfer. This can be used with plp_dma_wait to wait for the completion of this transfer. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv220plp_dma_counter_freei">
+<span id="plp_dma_counter_free__i"></span><span class="target" id="myprojectmchan__v6_8h_1a9dceb20b39b0c16e0a55f93b79902e31"></span><em class="property">static</em> void <code class="descname">plp_dma_counter_free</code><span class="sig-paren">(</span>int <em>counter</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv220plp_dma_counter_freei" title="Permalink to this definition">¶</a></dt>
+<dd><p>DMA counter release. This makes the counter available for another transfer through the DMA counter allocator</p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">counter</span></code>: The counter number to be released </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv214plp_dma_getCmdijiiii">
+<span id="plp_dma_getCmd__i.unsigned-i.i.i.i.i"></span><span class="target" id="myprojectmchan__v6_8h_1acec791c33ac688322a3d11efde7b5853"></span><em class="property">static</em> unsigned int <code class="descname">plp_dma_getCmd</code><span class="sig-paren">(</span>int <em>ext2loc</em>, unsigned int <em>size</em>, int <em>is2D</em>, int <em>trigEvt</em>, int <em>trigIrq</em>, int <em>broadcast</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv214plp_dma_getCmdijiiii" title="Permalink to this definition">¶</a></dt>
+<dd><p>DMA command generation. Can be used to generate the 32 bits command to be pushed to the DMA, depending on the required mode.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The generated command. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">ext2loc</span></code>: If 1, the data is loaded from external memory, and stored to the cluster memory, otherwise it is the contrary </li>
+<li><code class="docutils literal"><span class="pre">size</span></code>: Size in bytes of the transfer. In case it is a 2D transfer, this is the total number of bytes to be transfered, whatever the stride. Must fit 16 bits, i.e. must be inferior to 65536. </li>
+<li><code class="docutils literal"><span class="pre">is2D</span></code>: If 1, the transfer is a 2-dimensional transfer (tile) otherwise it is a classic one. </li>
+<li><code class="docutils literal"><span class="pre">trigEvt</span></code>: If 1, an event is sent to 1 or all cores at the end of the transfer. </li>
+<li><code class="docutils literal"><span class="pre">trigIrq</span></code>: If 1, an interrupt is sent to 1 or all cores at the end of the transfer. </li>
+<li><code class="docutils literal"><span class="pre">broadcast</span></code>: If 1 the event or irq generated when the transfer is finished is sent to all cores, otherwise it is only sent to the core enqueueing the transfer. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv218plp_dma_getStridestt">
+<span id="plp_dma_getStrides__unsigned-short.unsigned-short"></span><span class="target" id="myprojectmchan__v6_8h_1a6eee963cca3d38150c7bf11f3833b5ff"></span><em class="property">static</em> unsigned int <code class="descname">plp_dma_getStrides</code><span class="sig-paren">(</span>unsigned short <em>stride</em>, unsigned short <em>len</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv218plp_dma_getStridestt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate the stride command for 2D transfers.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The generated command. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">stride</span></code>: The stride of the 2D transfer, i.e. the number of bytes between the beginning of 2 lines of the tile. Must fit 16 bits, i.e. must be inferior to 65536. </li>
+<li><code class="docutils literal"><span class="pre">len</span></code>: The length of the 2D transfer, i.e. the number of bytes transfered after which the DMA should switch to the new line. Must fit 16 bits, i.e. must be inferior to 65536. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv216plp_dma_cmd_pushjjj">
+<span id="plp_dma_cmd_push__unsigned-i.unsigned-i.unsigned-i"></span><span class="target" id="myprojectmchan__v6_8h_1a0a94d25a3bc330ab496d1b51a96c44aa"></span><em class="property">static</em> void <code class="descname">plp_dma_cmd_push</code><span class="sig-paren">(</span>unsigned int <em>cmd</em>, unsigned int <em>locAddr</em>, unsigned int <em>extAddr</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv216plp_dma_cmd_pushjjj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Push a 2D transfer to the DMA</p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">locAddr</span></code>: The address of the transfer for the cluster memory </li>
+<li><code class="docutils literal"><span class="pre">extAddr</span></code>: The address of the transfer for the external memory </li>
+<li><code class="docutils literal"><span class="pre">cmd</span></code>: The command that specifies the type of the transfer. This can be generated using plp_dma_getStrides. </li>
+<li><code class="docutils literal"><span class="pre">strides</span></code>: The command that specifies the 2D transfer (stride and len). This can be generated using plp_dma_getStrides. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv219plp_dma_cmd_push_2djjjj">
+<span id="plp_dma_cmd_push_2d__unsigned-i.unsigned-i.unsigned-i.unsigned"></span><span class="target" id="myprojectmchan__v6_8h_1a65d09fa377e7b5fad31cb84f5ba2afa4"></span><em class="property">static</em> void <code class="descname">plp_dma_cmd_push_2d</code><span class="sig-paren">(</span>unsigned int <em>cmd</em>, unsigned int <em>locAddr</em>, unsigned int <em>extAddr</em>, unsigned <em>strides</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv219plp_dma_cmd_push_2djjjj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Push a transfer to the DMA</p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">locAddr</span></code>: The address of the transfer for the cluster memory </li>
+<li><code class="docutils literal"><span class="pre">extAddr</span></code>: The address of the transfer for the external memory </li>
+<li><code class="docutils literal"><span class="pre">cmd</span></code>: The command that specifies the type of the transfer. This can be generated using plp_dma_getCmd. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv214plp_dma_statusv">
+<span id="plp_dma_status"></span><span class="target" id="myprojectmchan__v6_8h_1a3d73865e1f614b7a2e3ae0680c282484"></span><em class="property">static</em> unsigned int <code class="descname">plp_dma_status</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv214plp_dma_statusv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the counter status.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>Counter status. There is one bit per counter. 1 means there are still on-going transfers for this counter, 0 means nothing is on-going. </dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to Pulp runtime documentation&#8217;s documentation!</a></li>
+      <li>Next: <a href="udmaHal.html" title="next chapter">UDMA HAL</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/dmaHal.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, ETH / Unibo.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/dmaHal.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

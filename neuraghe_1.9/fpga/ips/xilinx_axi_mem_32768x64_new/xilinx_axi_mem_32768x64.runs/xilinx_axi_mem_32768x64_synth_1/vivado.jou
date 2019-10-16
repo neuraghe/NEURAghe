@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2017.1 (64-bit)
+# SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
+# IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
+# Start of session at: Thu Sep 12 17:40:49 2019
+# Process ID: 12776
+# Current directory: /home/gderiu/marco/neuraghe_zc706_8_16_runtime_dma2d_lenhack/fpga/ips/xilinx_axi_mem_32768x64/xilinx_axi_mem_32768x64.runs/xilinx_axi_mem_32768x64_synth_1
+# Command line: vivado -log xilinx_axi_mem_32768x64.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source xilinx_axi_mem_32768x64.tcl
+# Log file: /home/gderiu/marco/neuraghe_zc706_8_16_runtime_dma2d_lenhack/fpga/ips/xilinx_axi_mem_32768x64/xilinx_axi_mem_32768x64.runs/xilinx_axi_mem_32768x64_synth_1/xilinx_axi_mem_32768x64.vds
+# Journal file: /home/gderiu/marco/neuraghe_zc706_8_16_runtime_dma2d_lenhack/fpga/ips/xilinx_axi_mem_32768x64/xilinx_axi_mem_32768x64.runs/xilinx_axi_mem_32768x64_synth_1/vivado.jou
+#-----------------------------------------------------------
+source xilinx_axi_mem_32768x64.tcl -notrace

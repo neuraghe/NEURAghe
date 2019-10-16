@@ -1,0 +1,356 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Pulp runtime &mdash; Pulp runtime documentation 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Pulp runtime documentation 1 documentation" href="index.html" />
+    <link rel="prev" title="Event unit HAL" href="evtUnit.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="pulp-runtime">
+<h1>Pulp runtime<a class="headerlink" href="#pulp-runtime" title="Permalink to this headline">¶</a></h1>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Scheduler API</p>
+<p>The following API gives access to the scheduler, which has the following properties:<ul class="simple">
+<li>One instance of the scheduler is running on each cluster, and also on the fabric controller, if it is present.</li>
+<li>Each scheduler instance is used by only one core at the same time, so there is no race condition from within a scheduler task.</li>
+<li>It is a run-to-completion scheduler. It takes tasks from a FIFO, and executes each one until it returns.</li>
+<li>It has 2 priority queues. The scheduler always takes tasks from the high priority queue unless it is empty and then takes them from the low priority queue.</li>
+<li>Tasks can be enqueued locally or remotly.</li>
+<li>A task is a function pointer and an argument. Both information are compacted inside a 32-bit word and thus the argument is not a full 32-bit word. When the task is executed, the scheduler calls the task entry with the task argument as first argument.</li>
+<li>Each scheduler instance has its own stack, on which all tasks are executed.</li>
+<li>It is not guaranteed that the scheduler will always run on the same core. On a cluster, tasks can be executed on a different core to improve cluster utilization.</li>
+<li>A task should be short in order to ensure the system is reactive as tasks are never preempted. In case a task must run for a long time, it can yield the scheduler to let him execute tasks in the middle. However, be careful with the task usage, as the executed tasks will grow the stack from the synchronization point.</li>
+<li>Tasks can also be enqueued by the runtime after specific events like a DMA transfer completion.</li>
+<li>The scheduler is not automatically started, it must be started explicitly by the user.</li>
+<li>A task handler must be of type plp_task_handler_t, i.e. void (*)(unsigned int). </li>
+</ul>
+</p>
+<dl class="function">
+<dt id="_CPPv211plp_handler18plp_task_handler_tj">
+<span id="plp_handler__plp_task_handler_t.unsigned-i"></span><span class="target" id="myprojectrt__api__sched_8h_1a029f0227bc4bd9b2078405aadbebf72d"></span><em class="property">static</em> plp_task_t <code class="descname">plp_handler</code><span class="sig-paren">(</span>plp_task_handler_t <em>handler</em>, unsigned int <em>arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv211plp_handler18plp_task_handler_tj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handler creation. This produces a 32 bits word containing both the handler entry and the handler argument. Once enqueued, this handler is executed immediatly, thus most of the time from an inteerupt handler.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The handler descriptor. As it is a 32-bits word, the handler can be passed as it is to other runtime calls, like DMA transfers </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">handler</span></code>: The handler entry which is a function pointer of type plp_task_handler_t, i.e. void (*)(unsigned int). </li>
+<li><code class="docutils literal"><span class="pre">arg</span></code>: The handler argument. This argument has a reduced number of bits given by PLP_TASK_ARG_BITS. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv217plp_handler_noarg18plp_task_handler_t">
+<span id="plp_handler_noarg__plp_task_handler_t"></span><span class="target" id="myprojectrt__api__sched_8h_1afb7190a87d49722663ddd082bb28f223"></span><em class="property">static</em> plp_task_t <code class="descname">plp_handler_noarg</code><span class="sig-paren">(</span>plp_task_handler_t <em>handler</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv217plp_handler_noarg18plp_task_handler_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handler creation with no argument. This produces a 32 bits word containing both the handler entry and the handler argument. Once enqueued, this handler is executed immediatly, thus most of the time from an inteerupt handler.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The handler descriptor. As it is a 32-bits word, the handler can be passed as it is to other runtime calls, like DMA transfers </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">handler</span></code>: The handler entry which is a function pointer of type plp_task_handler_t, i.e. void (*)(unsigned int). </li>
+<li><code class="docutils literal"><span class="pre">arg</span></code>: The handler argument. This argument has a reduced number of bits given by PLP_TASK_ARG_BITS. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv28plp_task18plp_task_handler_tj">
+<span id="plp_task__plp_task_handler_t.unsigned-i"></span><span class="target" id="myprojectrt__api__sched_8h_1a3242f0960c1552098d4654df410de936"></span><em class="property">static</em> plp_task_t <code class="descname">plp_task</code><span class="sig-paren">(</span>plp_task_handler_t <em>handler</em>, unsigned int <em>arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv28plp_task18plp_task_handler_tj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normal task creation. This produces a 32 bits word containing both the task entry and the task argument. Once enqueued, this task will go to the low-priority queue.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The task descriptor. As it is a 32-bits word, the task can be passed as it is to other runtime calls, like DMA transfers </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">handler</span></code>: The task entry which is a function pointer of type plp_task_handler_t, i.e. void (*)(unsigned int). </li>
+<li><code class="docutils literal"><span class="pre">arg</span></code>: The task argument. This argument has a reduced number of bits given by PLP_TASK_ARG_BITS. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv214plp_task_noarg18plp_task_handler_t">
+<span id="plp_task_noarg__plp_task_handler_t"></span><span class="target" id="myprojectrt__api__sched_8h_1adb42c19fca8c5dec021656f8d1573c38"></span><em class="property">static</em> plp_task_t <code class="descname">plp_task_noarg</code><span class="sig-paren">(</span>plp_task_handler_t <em>handler</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv214plp_task_noarg18plp_task_handler_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normal task creation with no argument This produces a 32 bits word containing both the task entry and the task argument. Once enqueued, this task will go to the low-priority queue. This task descriptor is required by a few API functions where the argument cannot be specified, most of the time because the argument is generated by the runtime.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The task descriptor. As it is a 32-bits word, the task can be passed as it is to other runtime calls, like DMA transfers </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">handler</span></code>: The task entry which is a function pointer of type plp_task_handler_t, i.e. void (*)(unsigned int). </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv212plp_prioTask18plp_task_handler_tj">
+<span id="plp_prioTask__plp_task_handler_t.unsigned-i"></span><span class="target" id="myprojectrt__api__sched_8h_1ab37429ca2205390aa8c4db0c4de26f11"></span><em class="property">static</em> plp_task_t <code class="descname">plp_prioTask</code><span class="sig-paren">(</span>plp_task_handler_t <em>handler</em>, unsigned int <em>arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv212plp_prioTask18plp_task_handler_tj" title="Permalink to this definition">¶</a></dt>
+<dd><p>High-priority task creation. This produces a 32 bits word containing both the task entry and the task argument. Once enqueued, this task will go to the high-priority queue.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The task descriptor. As it is a 32-bits word, the task can be passed as it is to other runtime calls, like DMA transfers </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">handler</span></code>: The task entry which is a function pointer of type plp_task_handler_t, i.e. void (*)(unsigned int). </li>
+<li><code class="docutils literal"><span class="pre">arg</span></code>: The task argument. This argument has a reduced number of bits given by PLP_TASK_ARG_BITS. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv218plp_prioTask_noarg18plp_task_handler_t">
+<span id="plp_prioTask_noarg__plp_task_handler_t"></span><span class="target" id="myprojectrt__api__sched_8h_1a427ebe637ffd194fd7f878235a0f2fca"></span><em class="property">static</em> plp_task_t <code class="descname">plp_prioTask_noarg</code><span class="sig-paren">(</span>plp_task_handler_t <em>handler</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv218plp_prioTask_noarg18plp_task_handler_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>High-priority task creation. This produces a 32 bits word containing both the task entry and the task argument. Once enqueued, this task will go to the high-priority queue. This task descriptor is required by a few API functions where the argument cannot be specified, most of the time because the argument is generated by the runtime.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The task descriptor. As it is a 32-bits word, the task can be passed as it is to other runtime calls, like DMA transfers </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">handler</span></code>: The task entry which is a function pointer of type plp_task_handler_t, i.e. void (*)(unsigned int). </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv220plp_task_localOffsetj">
+<span id="plp_task_localOffset__unsigned-i"></span><span class="target" id="myprojectrt__api__sched_8h_1a703abc455af6e89020cdb69a95886d27"></span><em class="property">static</em> unsigned int <code class="descname">plp_task_localOffset</code><span class="sig-paren">(</span>unsigned int <em>arg</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv220plp_task_localOffsetj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Utility function to produce a compact argument from a local memory pointer. This will return the pointer if it is an aliased pointer or the same pointer minus the local memory base if it is a global pointer. This is useful for giving a local variable pointer as a task argument.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The compacted pointer. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">arg</span></code>: The local pointer to be compacted. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv217plp_sched_enqueue10plp_task_t">
+<span id="plp_sched_enqueue__plp_task_t"></span><span class="target" id="myprojectrt__api__sched_8h_1ab4fe6d898aa40b11ede16cbe4ac26169"></span>int <code class="descname">plp_sched_enqueue</code><span class="sig-paren">(</span>plp_task_t <em>task</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv217plp_sched_enqueue10plp_task_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enqueue a task into the local scheduler.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>0 if it was successfully enqueued or 1 if the scheduler queue was full. </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">task</span></code>: The task to be enqueued </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv224plp_sched_remote_enqueuei10plp_task_t">
+<span id="plp_sched_remote_enqueue__i.plp_task_t"></span><span class="target" id="myprojectrt__api__sched_8h_1a931273f902c5341958052819ec6d59ed"></span>void <code class="descname">plp_sched_remote_enqueue</code><span class="sig-paren">(</span>int <em>cluster</em>, plp_task_t <em>task</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv224plp_sched_remote_enqueuei10plp_task_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>NOT YET IMPLEMENTED. Enqueue a task into a remote scheduler. In case the remote scheduler queue is full, the task is dropped, so the SW must make sure the queue is not full</p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">cluster</span></code>: The cluster of the remote scheduler. Can also be the FC cluster number. </li>
+<li><code class="docutils literal"><span class="pre">task</span></code>: The task to be enqueued </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv215plp_sched_startv">
+<span id="plp_sched_start"></span><span class="target" id="myprojectrt__api__sched_8h_1af2f91ecd5546184e509896afb5c2c3de"></span>int <code class="descname">plp_sched_start</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv215plp_sched_startv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start the local scheduler. The caller is blocked until the scheduler is stopped and tasks are executed using the caller context.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>The exit status that was given to the call to plp_sched_stop that stopped the scheduler. </dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv215plp_sched_yieldiPj">
+<span id="plp_sched_yield__i.unsigned-iP"></span><span class="target" id="myprojectrt__api__sched_8h_1a94ed19527eb2a688fb39d3c46bf29a10"></span>int <code class="descname">plp_sched_yield</code><span class="sig-paren">(</span>int <em>evtMask</em>, unsigned int *<em>status</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv215plp_sched_yieldiPj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Yield the local scheduler. This is a synchronization point to let the scheduler execute other tasks in the middle of a long task.</p>
+<p><dl class="docutils">
+<dt><strong>Return</strong></dt>
+<dd>1 if the scheduler has been stopped and has no more tasks to execute, 0 otherwise </dd>
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">evtMask</span></code>: A mask of events that should wake-up the scheduler. If -1, the scheduler won&#8217;t go to sleep and will give back control to the caller in case there is no more task to execute. This option is useful in case the caller is waiting for an event and want to let the scheduler execute until the event is received. </li>
+<li><code class="docutils literal"><span class="pre">status</span></code>: In case the scheduler is stopped, this returns the exit status. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv214plp_sched_stopi">
+<span id="plp_sched_stop__i"></span><span class="target" id="myprojectrt__api__sched_8h_1a76cc1960493af8ec0e5462258aa54444"></span>void <code class="descname">plp_sched_stop</code><span class="sig-paren">(</span>int <em>status</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv214plp_sched_stopi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stop the local scheduler. This will force the scheduler to stop after all tasks have been executed and to give back execution to the one which called plp_sched_start.</p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">status</span></code>: The exit status that will be returned to the caller of plp_sched_start </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv214plp_sched_waitv">
+<span id="plp_sched_wait"></span><span class="target" id="myprojectrt__api__sched_8h_1ae207e468d12d5b9177ea26eb4f717ab2"></span><em class="property">static</em> void <code class="descname">plp_sched_wait</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv214plp_sched_waitv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Put core to sleep until something can be executed. This can be called when the core has nothing to do and wants to wait until something happens like and end of transfer. </p>
+</dd></dl>
+
+<dl class="function">
+<dt id="_CPPv225plp_sched_enqueue_delayedP18plp_task_delayed_t">
+<span id="plp_sched_enqueue_delayed__plp_task_delayed_tP"></span><span class="target" id="myprojectrt__api__sched_8h_1aa65fce64c2380e28b7ca9cdbf503ead3"></span>void <code class="descname">plp_sched_enqueue_delayed</code><span class="sig-paren">(</span>plp_task_delayed_t *<em>task</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv225plp_sched_enqueue_delayedP18plp_task_delayed_t" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="_CPPv219plp_task_delayed_msP18plp_task_delayed_t10plp_task_tjj">
+<span id="plp_task_delayed_ms__plp_task_delayed_tP.plp_task_t.unsigned-i.unsigned-i"></span><span class="target" id="myprojectrt__api__sched_8h_1a034c0c9de44420264654497ec75c4aef"></span><em class="property">static</em> void <code class="descname">plp_task_delayed_ms</code><span class="sig-paren">(</span>plp_task_delayed_t *<em>taskDesc</em>, plp_task_t <em>task</em>, unsigned int <em>conf</em>, unsigned int <em>time</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv219plp_task_delayed_msP18plp_task_delayed_t10plp_task_tjj" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">Defines</p>
+<dl class="macro">
+<dt id="c.PLP_TASK_PERIODIC">
+<span class="target" id="myprojectrt__api__sched_8h_1a0774381c8f4b84fc65f5a4fd0a3709f2"></span><code class="descname">PLP_TASK_PERIODIC</code><a class="headerlink" href="#c.PLP_TASK_PERIODIC" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="macro">
+<dt id="c.PLP_TASK_ONESHOT">
+<span class="target" id="myprojectrt__api__sched_8h_1ace03667dc59871db0cfaf3684a4700d9"></span><code class="descname">PLP_TASK_ONESHOT</code><a class="headerlink" href="#c.PLP_TASK_ONESHOT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef container">
+<p class="breathe-sectiondef-title rubric">DMA API</p>
+<p>The following API can be used together with the DMA HAL functions in order to get more advanced features like task-based DMA transfer completion. </p>
+<dl class="function">
+<dt id="_CPPv219plp_dma_memcpy_taskjjtiP14plp_dma_copy_t10plp_task_t">
+<span id="plp_dma_memcpy_task__unsigned-i.unsigned-i.unsigned-short.i.plp_dma_copy_tP.plp_task_t"></span><span class="target" id="myprojectrt__api__dma_8h_1ad38223463da2c88d37af227cf81d66c0"></span>void <code class="descname">plp_dma_memcpy_task</code><span class="sig-paren">(</span>unsigned int <em>ext</em>, unsigned int <em>loc</em>, unsigned short <em>size</em>, int <em>ext2loc</em>, plp_dma_copy_t *<em>copy</em>, plp_task_t <em>task</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv219plp_dma_memcpy_taskjjtiP14plp_dma_copy_t10plp_task_t" title="Permalink to this definition">¶</a></dt>
+<dd><p>DMA 1D memory transfer with task-based completion. This function is very similar to the plp_dma_memcpy one from the HAL, except that once the transfer is finished, the runtime will enqueue a task in the scheduler, which allows the application to use the DMA in a task-based manner. An example using this feature can be found in the dma/task runtime example.</p>
+<p><dl class="docutils">
+<dt><strong>Parameters</strong></dt>
+<dd><ul class="breatheparameterlist first last simple">
+<li><code class="docutils literal"><span class="pre">ext</span></code>: Address in the external memory where to access the data. There is no restriction on memory alignment. </li>
+<li><code class="docutils literal"><span class="pre">loc</span></code>: Address in the cluster memory where to access the data. There is no restriction on memory alignment. </li>
+<li><code class="docutils literal"><span class="pre">size</span></code>: Number of bytes to be transfered. The only restriction is that this size must fit 16 bits, i.e. must be inferior to 65536. </li>
+<li><code class="docutils literal"><span class="pre">ext2loc</span></code>: If 1, the transfer is loading data from external memory and storing to cluster memory. If 0, it is the contrary </li>
+<li><code class="docutils literal"><span class="pre">copy</span></code>: A pointer to the copy node. This structure is used by the runtime to maintain the state of the transfer and must be allocated by the caller. It can be reused a soon as the task is executed. </li>
+<li><code class="docutils literal"><span class="pre">task</span></code>: The task to be enqueued when the transfer is finished. See the scheduler documentation for more information. </li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="evtUnit.html" title="previous chapter">Event unit HAL</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/pulpRt.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, ETH / Unibo.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/pulpRt.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,27 @@
+#!/usr/bin/env python3
+
+import argparse
+
+parser = argparse.ArgumentParser(description='Parse a configuration string')
+
+parser.add_argument("--config", dest="config", default=None, metavar="CONFIG", help="PULP config string")
+parser.add_argument("--name", dest="name", default=None, metavar="NAME", help="Config key to be displayed")
+parser.add_argument("--default", dest="default", default=None, metavar="NAME", help="Default value")
+
+args = parser.parse_args()
+
+configs = {}
+if args.config != None:
+    for configItem2 in args.config.split(':'):
+      for configItem in configItem2.split('_'):
+        if len(configItem.split('=', 1)) == 2:
+            [name, value] = configItem.split('=', 1)
+            configs[name] = value
+
+if args.name != None:
+
+    if configs.get(args.name) == None:
+        if args.default != None:
+            print (args.default)
+    else:
+        print (configs.get(args.name))

@@ -1,0 +1,702 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim
+vcluster_clock_and2
+Z1 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
+Z2 !s110 1568386725
+!i10b 1
+!s100 Cnm2U[XDK2HcEj]T=I8U_3
+I?4O70LoRgQMnHcNWVh:Hb1
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+!s105 cluster_clock_and2_sv_unit
+S1
+R0
+Z4 w1567774040
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/cluster_clock_and2.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/cluster_clock_and2.sv
+L0 2
+Z5 OL;L;10.4;61
+r1
+!s85 0
+31
+!s108 1568386725.745129
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/cluster_clock_and2.sv|
+!s90 -sv|-work|pulp_common_cells_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/cluster_clock_and2.sv|
+!i113 0
+Z6 o-quiet -sv -work pulp_common_cells_lib -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vcluster_clock_buffer
+R1
+R2
+!i10b 1
+!s100 A=jzTM25_^Fm4ZT0TVWb`2
+IzMl5HZ^UEIYH50jiH06;>1
+R3
+!s105 cluster_clock_buffer_sv_unit
+S1
+R0
+Z7 w1567774041
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/cluster_clock_buffer.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/cluster_clock_buffer.sv
+L0 2
+R5
+r1
+!s85 0
+31
+!s108 1568386725.567556
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/cluster_clock_buffer.sv|
+!s90 -sv|-work|pulp_common_cells_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/cluster_clock_buffer.sv|
+!i113 0
+R6
+vcluster_clock_gating
+R1
+R2
+!i10b 1
+!s100 J;zMf0WQFQL7>obIm<=dE1
+IDC0NTd8V5B:GodYCzz@100
+R3
+!s105 cluster_clock_gating_sv_unit
+S1
+R0
+R7
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/cluster_clock_gating.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/cluster_clock_gating.sv
+L0 1
+R5
+r1
+!s85 0
+31
+!s108 1568386725.606992
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/cluster_clock_gating.sv|
+!s90 -sv|-work|pulp_common_cells_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/cluster_clock_gating.sv|
+!i113 0
+R6
+vcluster_clock_inverter
+R1
+R2
+!i10b 1
+!s100 C]20;Az@k3=TAS`Xm7Gbz1
+I^3oFQTR71_cb>Y1>?2D<h3
+R3
+!s105 cluster_clock_inverter_sv_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/cluster_clock_inverter.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/cluster_clock_inverter.sv
+L0 2
+R5
+r1
+!s85 0
+31
+!s108 1568386725.587248
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/cluster_clock_inverter.sv|
+!s90 -sv|-work|pulp_common_cells_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/cluster_clock_inverter.sv|
+!i113 0
+R6
+vcluster_clock_mux2
+R1
+R2
+!i10b 1
+!s100 [MIJ6@j8CG[RQ>Nc@edFj1
+I@;YCR:a9eS7Kcn4FMA8Xa1
+R3
+!s105 cluster_clock_mux2_sv_unit
+S1
+R0
+R4
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/cluster_clock_mux2.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/cluster_clock_mux2.sv
+L0 2
+R5
+r1
+!s85 0
+31
+!s108 1568386725.626699
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/cluster_clock_mux2.sv|
+!s90 -sv|-work|pulp_common_cells_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/cluster_clock_mux2.sv|
+!i113 0
+R6
+vcluster_clock_xor2
+R1
+R2
+!i10b 1
+!s100 ]4E=<_gb>[=CQzifM]9Ad0
+IU:?S`^_d50iOD]:XY07;<2
+R3
+!s105 cluster_clock_xor2_sv_unit
+S1
+R0
+R7
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/cluster_clock_xor2.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/cluster_clock_xor2.sv
+L0 2
+R5
+r1
+!s85 0
+31
+!s108 1568386725.646419
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/cluster_clock_xor2.sv|
+!s90 -sv|-work|pulp_common_cells_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/cluster_clock_xor2.sv|
+!i113 0
+R6
+vcluster_level_shifter_in
+R1
+R2
+!i10b 1
+!s100 [19I8NWkK69DTgGLQ5;aX2
+If_Pef^5hjjG]kJlzz8=em3
+R3
+!s105 cluster_level_shifter_in_sv_unit
+S1
+R0
+R7
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/cluster_level_shifter_in.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/cluster_level_shifter_in.sv
+L0 2
+R5
+r1
+!s85 0
+31
+!s108 1568386725.666283
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/cluster_level_shifter_in.sv|
+!s90 -sv|-work|pulp_common_cells_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/cluster_level_shifter_in.sv|
+!i113 0
+R6
+vcluster_level_shifter_in_clamp
+R1
+R2
+!i10b 1
+!s100 bR3<fG8XS=BRhL5>?zWol0
+IDT8[3F1[NJm>dUJE>hLGZ1
+R3
+!s105 cluster_level_shifter_in_clamp_sv_unit
+S1
+R0
+R7
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/cluster_level_shifter_in_clamp.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/cluster_level_shifter_in_clamp.sv
+L0 2
+R5
+r1
+!s85 0
+31
+!s108 1568386725.686162
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/cluster_level_shifter_in_clamp.sv|
+!s90 -sv|-work|pulp_common_cells_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/cluster_level_shifter_in_clamp.sv|
+!i113 0
+R6
+vcluster_level_shifter_out
+R1
+R2
+!i10b 1
+!s100 3YPlf`>=bBbEHh]RVVU<g1
+Ilfn5QfFSOZ<0UO5T>M3a`2
+R3
+!s105 cluster_level_shifter_out_sv_unit
+S1
+R0
+R7
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/cluster_level_shifter_out.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/cluster_level_shifter_out.sv
+L0 2
+R5
+r1
+!s85 0
+31
+!s108 1568386725.706130
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/cluster_level_shifter_out.sv|
+!s90 -sv|-work|pulp_common_cells_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/cluster_level_shifter_out.sv|
+!i113 0
+R6
+vcluster_level_shifter_out_clamp
+R1
+R2
+!i10b 1
+!s100 [OG==:flQS8S;AfDR9S@X3
+I34Qn[_2Y1RhH>HT0:YPS82
+R3
+!s105 cluster_level_shifter_out_clamp_sv_unit
+S1
+R0
+R7
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/cluster_level_shifter_out_clamp.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/cluster_level_shifter_out_clamp.sv
+L0 2
+R5
+r1
+!s85 0
+31
+!s108 1568386725.725686
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/cluster_level_shifter_out_clamp.sv|
+!s90 -sv|-work|pulp_common_cells_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/cluster_level_shifter_out_clamp.sv|
+!i113 0
+R6
+vedge_propagator
+R1
+R2
+!i10b 1
+!s100 KjHSVU[BVaLWTfJUI_=Eh1
+I45WT[2DM^]=6EE2d`mZz71
+R3
+!s105 edge_propagator_sv_unit
+S1
+R0
+R7
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/edge_propagator.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/edge_propagator.sv
+Z8 L0 33
+R5
+r1
+!s85 0
+31
+!s108 1568386725.804304
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/edge_propagator.sv|
+!s90 -sv|-work|pulp_common_cells_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/edge_propagator.sv|
+!i113 0
+R6
+vedge_propagator_rx
+R1
+R2
+!i10b 1
+!s100 >khQ7^F@l^MeTPP2[ZGQi3
+I;e47Zml^BjY_PFjRf9JMa2
+R3
+!s105 edge_propagator_rx_sv_unit
+S1
+R0
+R7
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/edge_propagator_rx.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/edge_propagator_rx.sv
+R8
+R5
+r1
+!s85 0
+31
+!s108 1568386725.784417
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/edge_propagator_rx.sv|
+!s90 -sv|-work|pulp_common_cells_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/edge_propagator_rx.sv|
+!i113 0
+R6
+vedge_propagator_tx
+R1
+R2
+!i10b 1
+!s100 Obh[7bV[<S91zEFCAleUH1
+IgMLhbUh]ofN0:NMDjMcRQ1
+R3
+!s105 edge_propagator_tx_sv_unit
+S1
+R0
+R7
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/edge_propagator_tx.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/edge_propagator_tx.sv
+R8
+R5
+r1
+!s85 0
+31
+!s108 1568386725.764658
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/edge_propagator_tx.sv|
+!s90 -sv|-work|pulp_common_cells_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/edge_propagator_tx.sv|
+!i113 0
+R6
+vgeneric_fifo
+R1
+R2
+!i10b 1
+!s100 ]ndAIokmE_?@WZ@eEneT]3
+Ifk2dN9hgk1;Mkj3H@<jlT1
+R3
+!s105 generic_fifo_sv_unit
+S1
+R0
+R7
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/generic_fifo.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/generic_fifo.sv
+L0 44
+R5
+r1
+!s85 0
+31
+!s108 1568386725.905066
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/generic_fifo.sv|
+!s90 -sv|-work|pulp_common_cells_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/generic_fifo.sv|
+!i113 0
+R6
+vgeneric_LFSR_8bit
+R1
+R2
+!i10b 1
+!s100 K0Sm0f2VHTbA_XNz_n=]]1
+IUlhoa:_6H?=eGOJI_87QV2
+R3
+!s105 generic_LFSR_8bit_sv_unit
+S1
+R0
+R7
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/generic_LFSR_8bit.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/generic_LFSR_8bit.sv
+L0 1
+R5
+r1
+!s85 0
+31
+!s108 1568386725.926004
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/generic_LFSR_8bit.sv|
+!s90 -sv|-work|pulp_common_cells_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/generic_LFSR_8bit.sv|
+!i113 0
+R6
+ngeneric_@l@f@s@r_8bit
+vonehot_to_bin
+R1
+R2
+!i10b 1
+!s100 e3UXbe;eBH<<DKiI:2m`61
+IzEHgidaCPL1B:9[cC;Gi;3
+R3
+!s105 onehot_to_bin_v_unit
+S1
+R0
+R7
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/onehot_to_bin.v
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/onehot_to_bin.v
+L0 1
+R5
+r1
+!s85 0
+31
+!s108 1568386725.946215
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/onehot_to_bin.v|
+!s90 -sv|-work|pulp_common_cells_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/onehot_to_bin.v|
+!i113 0
+R6
+vpulp_buffer
+R1
+R2
+!i10b 1
+!s100 8^UhQ8g]N:V3C93oh1EHW1
+IBj7elaNZCPj0b@b1:DUha1
+R3
+!s105 pulp_buffer_sv_unit
+S1
+R0
+R7
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_buffer.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_buffer.sv
+L0 2
+R5
+r1
+!s85 0
+31
+!s108 1568386725.449294
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_buffer.sv|
+!s90 -sv|-work|pulp_common_cells_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_buffer.sv|
+!i113 0
+R6
+vpulp_clock_and2
+R1
+R2
+!i10b 1
+!s100 SKS7ceGVeFd]PW=2<6`e83
+I3zNRk41ddYjSL^CEj];[h2
+R3
+!s105 pulp_clock_and2_sv_unit
+S1
+R0
+R7
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_clock_and2.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_clock_and2.sv
+L0 2
+R5
+r1
+!s85 0
+31
+!s108 1568386725.547824
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_clock_and2.sv|
+!s90 -sv|-work|pulp_common_cells_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_clock_and2.sv|
+!i113 0
+R6
+vpulp_clock_buffer
+R1
+R2
+!i10b 1
+!s100 :Pm4RJ:]^CeGgKL?RS[I31
+I?f@_n3nJISD;^SB4Pm_713
+R3
+!s105 pulp_clock_buffer_sv_unit
+S1
+R0
+R7
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_clock_buffer.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_clock_buffer.sv
+L0 2
+R5
+r1
+!s85 0
+31
+!s108 1568386725.338305
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_clock_buffer.sv|
+!s90 -sv|-work|pulp_common_cells_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_clock_buffer.sv|
+!i113 0
+R6
+vpulp_clock_gating
+R1
+R2
+!i10b 1
+!s100 B]gkd703[S2jgX@5Vfb581
+I`KkcD9U]keY=d=lR0Ee[Z3
+R3
+!s105 pulp_clock_gating_sv_unit
+S1
+R0
+R7
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_clock_gating.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_clock_gating.sv
+L0 1
+R5
+r1
+!s85 0
+31
+!s108 1568386725.384493
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_clock_gating.sv|
+!s90 -sv|-work|pulp_common_cells_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_clock_gating.sv|
+!i113 0
+R6
+vpulp_clock_gating_async
+R1
+R2
+!i10b 1
+!s100 VJ>WO3K74CF<T9fEJo=840
+IJfk6X5b?aC>9OY:cE<lb<2
+R3
+!s105 pulp_clock_gating_async_sv_unit
+S1
+R0
+R7
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_clock_gating_async.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_clock_gating_async.sv
+L0 1
+R5
+r1
+!s85 0
+31
+!s108 1568386725.844336
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_clock_gating_async.sv|
+!s90 -sv|-work|pulp_common_cells_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_clock_gating_async.sv|
+!i113 0
+R6
+vpulp_clock_inverter
+R1
+R2
+!i10b 1
+!s100 =;z9[LzVL84Z7K=S:>7Sk2
+IaS^NfmT^MSO8Yo2oYfXR`3
+R3
+!s105 pulp_clock_inverter_sv_unit
+S1
+R0
+R7
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_clock_inverter.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_clock_inverter.sv
+L0 2
+R5
+r1
+!s85 0
+31
+!s108 1568386725.361901
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_clock_inverter.sv|
+!s90 -sv|-work|pulp_common_cells_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_clock_inverter.sv|
+!i113 0
+R6
+vpulp_clock_mux2
+R1
+R2
+!i10b 1
+!s100 4YKKOZhia5AA@[c=;2bkM3
+IQ`O7c6Rg5Qb1jhJdKZ7Uf1
+R3
+!s105 pulp_clock_mux2_sv_unit
+S1
+R0
+R7
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_clock_mux2.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_clock_mux2.sv
+L0 2
+R5
+r1
+!s85 0
+31
+!s108 1568386725.406916
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_clock_mux2.sv|
+!s90 -sv|-work|pulp_common_cells_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_clock_mux2.sv|
+!i113 0
+R6
+vpulp_clock_xor2
+R1
+R2
+!i10b 1
+!s100 zXD2``UORI2:iBD0MYdh<2
+I[PI5K1fJG22<ihIf[Q3F50
+R3
+!s105 pulp_clock_xor2_sv_unit
+S1
+R0
+R7
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_clock_xor2.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_clock_xor2.sv
+L0 2
+R5
+r1
+!s85 0
+31
+!s108 1568386725.428707
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_clock_xor2.sv|
+!s90 -sv|-work|pulp_common_cells_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_clock_xor2.sv|
+!i113 0
+R6
+vpulp_level_shifter_clamp_out
+R1
+R2
+!i10b 1
+!s100 >OhWbonDXNcNmB11ZZYiJ2
+IScZf7IOW5@9Yk=0dDSFRl3
+R3
+!s105 pulp_level_shifter_out_clamp_sv_unit
+S1
+R0
+R7
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_level_shifter_out_clamp.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_level_shifter_out_clamp.sv
+L0 2
+R5
+r1
+!s85 0
+31
+!s108 1568386725.528600
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_level_shifter_out_clamp.sv|
+!s90 -sv|-work|pulp_common_cells_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_level_shifter_out_clamp.sv|
+!i113 0
+R6
+vpulp_level_shifter_in
+R1
+R2
+!i10b 1
+!s100 BGN>DP:_o1M^E>0kmEZAj0
+IC]Qbk1zB23F<<UM5PTbfK3
+R3
+!s105 pulp_level_shifter_in_sv_unit
+S1
+R0
+R7
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_level_shifter_in.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_level_shifter_in.sv
+L0 2
+R5
+r1
+!s85 0
+31
+!s108 1568386725.469530
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_level_shifter_in.sv|
+!s90 -sv|-work|pulp_common_cells_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_level_shifter_in.sv|
+!i113 0
+R6
+vpulp_level_shifter_in_clamp
+R1
+R2
+!i10b 1
+!s100 ZU;6O:eiJ4CI8J3Lh_fJc2
+IhWmV`=CAQ0BnNh2M`C_Cg1
+R3
+!s105 pulp_level_shifter_in_clamp_sv_unit
+S1
+R0
+R7
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_level_shifter_in_clamp.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_level_shifter_in_clamp.sv
+L0 2
+R5
+r1
+!s85 0
+31
+!s108 1568386725.489336
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_level_shifter_in_clamp.sv|
+!s90 -sv|-work|pulp_common_cells_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_level_shifter_in_clamp.sv|
+!i113 0
+R6
+vpulp_level_shifter_out
+R1
+R2
+!i10b 1
+!s100 :>a8cNKV80EE5Vhj[;MX<0
+IP@KOWH8j^>0VoRTB9zacT0
+R3
+!s105 pulp_level_shifter_out_sv_unit
+S1
+R0
+R7
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_level_shifter_out.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_level_shifter_out.sv
+L0 2
+R5
+r1
+!s85 0
+31
+!s108 1568386725.509104
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_level_shifter_out.sv|
+!s90 -sv|-work|pulp_common_cells_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_level_shifter_out.sv|
+!i113 0
+R6
+vpulp_sync_wedge
+R1
+R2
+!i10b 1
+!s100 nIb>Y8SzICTIfm_8eKaB63
+IDjb=PAZ6FP6]I>L?ZF]<U1
+R3
+!s105 pulp_sync_wedge_sv_unit
+S1
+R0
+R7
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_sync_wedge.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_sync_wedge.sv
+Z9 L0 32
+R5
+r1
+!s85 0
+31
+!s108 1568386725.864208
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_sync_wedge.sv|
+!s90 -sv|-work|pulp_common_cells_lib|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/pulp_sync_wedge.sv|
+!i113 0
+R6
+vrstgen
+R1
+R2
+!i10b 1
+!s100 ]SYd@eX<:TY2N2I;?Tg?H3
+IN75zRQGNmX@I1lNfa=bXD1
+R3
+!s105 rstgen_sv_unit
+S1
+R0
+R7
+8/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/rstgen.sv
+F/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/rstgen.sv
+R9
+R5
+r1
+!s85 0
+31
+!s108 1568386725.884754
+!s107 /home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/rstgen.sv|
+!s90 -sv|-work|pulp_common_cells_lib|+define+|-quiet|/home/nur/neuraghe_2.0/neuraghe_1.9/fe/sim/../ips/common_cells/rstgen.sv|
+!i113 0
+R6
+!s92 -quiet -sv -work pulp_common_cells_lib +define+ -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact

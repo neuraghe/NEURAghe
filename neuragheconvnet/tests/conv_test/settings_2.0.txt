@@ -1,0 +1,73 @@
+# ██████╗  ██████╗ ███████╗████████╗      ████████╗██████╗  █████╗ ██╗███╗   ██╗██╗███╗   ██╗ ██████╗     ███████╗███████╗████████╗████████╗██╗███╗   ██╗ ██████╗ ███████╗
+# ██╔══██╗██╔═══██╗██╔════╝╚══██╔══╝      ╚══██╔══╝██╔══██╗██╔══██╗██║████╗  ██║██║████╗  ██║██╔════╝     ██╔════╝██╔════╝╚══██╔══╝╚══██╔══╝██║████╗  ██║██╔════╝ ██╔════╝
+# ██████╔╝██║   ██║███████╗   ██║   █████╗   ██║   ██████╔╝███████║██║██╔██╗ ██║██║██╔██╗ ██║██║  ███╗    ███████╗█████╗     ██║      ██║   ██║██╔██╗ ██║██║  ███╗███████╗
+# ██╔═══╝ ██║   ██║╚════██║   ██║   ╚════╝   ██║   ██╔══██╗██╔══██║██║██║╚██╗██║██║██║╚██╗██║██║   ██║    ╚════██║██╔══╝     ██║      ██║   ██║██║╚██╗██║██║   ██║╚════██║
+# ██║     ╚██████╔╝███████║   ██║            ██║   ██║  ██║██║  ██║██║██║ ╚████║██║██║ ╚████║╚██████╔╝    ███████║███████╗   ██║      ██║   ██║██║ ╚████║╚██████╔╝███████║
+# ╚═╝      ╚═════╝ ╚══════╝   ╚═╝            ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝╚═╝╚═╝  ╚═══╝ ╚═════╝     ╚══════╝╚══════╝   ╚═╝      ╚═╝   ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚══════╝
+
+# This file contains the settings for the post-training phase.
+# At the moment each conv layer needs its own post-training phase and then a specific settings file.
+# Text after # is ignored
+
+
+
+
+# mandatory parameters are:
+QF_i         = 8
+QF_o         = 10
+in_binfile   = 1 # are input files binary files (1) or txt files(0)?
+data_type_i  = h # f, d, i, h or b. double, float, integer, short int, char
+data_type_o  = h # f, d, i, h or b. double, float, integer, short int, char
+
+# optional parameters
+NROW        = 4 # number of output features produced in one run
+NCOL        = 12 # number of input features consumed in one run
+rotate      = 0 # NEURAGHE uses weights stored in plain format. Set this parameter to 1 to rotate the kernels   
+out_binfile = 1 # are output files binary files (1) or txt files(0)? if not defined they will be txt files
+convert_1x1 = 0 # if 1 the script will convert the 1x1 kernels in 3x3 kernels
+
+# the following parameters are used only if layers_params is not defined
+
+FS   = 7
+FS_h = 7      # Filter size
+FS_w = 7
+IF = 36        # number of input features
+OF = 40       # number of output features
+
+maxOG = 2
+
+
+
+
+
+
+
+
+
+
+# Source files. Paths and strings don't need ""
+w_file      = ./weights/weights_array_file  #Source file containing plain weights
+b_file      = ./weights/bias_array_file  #Source file containing plain biases
+
+# Dest files.
+dest_file   = ./weights/weights_array_file_hw #Destination text file for weights and biases
+dest_file_h = ./weights/wb.h   #Destination heades file for weights and biases stored in an array
+
+array_name  = weights_biases        #Name of the array in the header file
+
+
+
+
+
+#other parameters. The following parameters are used by other scripts.
+IH = 28
+IW = 28
+
+float_inf = 0
+in_feat_file    = ./first_conv_in.txt
+
+inf_dest_file   = ./inf_interlaced.txt #Destination text file for weights and biases
+inf_dest_file_h = ./inf_interlaced.h   #Destination heades file for weights and biases stored in an array
+
+inf_array_name  = input_features        #Name of the array in the header file
+

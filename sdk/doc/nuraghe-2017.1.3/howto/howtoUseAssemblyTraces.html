@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>How to use platform traces &mdash; howto 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="howto 1 documentation" href="index.html" />
+    <link rel="next" title="How to use virtual platform VCD traces" href="howtoSimulatorVcd.html" />
+    <link rel="prev" title="What must be configured before using or compiling the SDK" href="whichSystemDeps.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="how-to-use-platform-traces">
+<span id="howtoassemblytraces"></span><h1>How to use platform traces<a class="headerlink" href="#how-to-use-platform-traces" title="Permalink to this headline">¶</a></h1>
+<p>Platform traces are information dumped by the platform in order to help the developper debugging his application.
+These traces correspond to HW events like an executed instruction and thus give details about what is happenning in the system.
+Although these traces are available on several platforms (currently virtual platform and RTL platform), the supported events can differ.</p>
+<div class="section" id="how-to-activate-them">
+<h2>How to activate them<a class="headerlink" href="#how-to-activate-them" title="Permalink to this headline">¶</a></h2>
+<p>On the RTL platform, the traces are always active and can be found in the test build folder (the one given to pulp-run through option <em>&#8211;dir</em>). As it only supports core instruction traces, there is one file per core with the name trace_core_&lt;clusterId&gt;_&lt;coreId&gt;.log.</p>
+<p>On the virtual platform, they are by default not active and can be activated and configured through the runner option <em>&#8211;gv-trace</em>. This option can be either passed directly to the <em>pulp-run</em> command or through the makefile using:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ make run PLT_OPT=--gv-trace=.*
+</pre></div>
+</div>
+<p>The traces are also generated in the test build folder. As it is dumping not only core instruction traces but also system-wide traces, there is a single file called <em>trace.txt</em>, which is generated and contains everything.</p>
+</div>
+<div class="section" id="how-to-configure-them">
+<h2>How to configure them<a class="headerlink" href="#how-to-configure-them" title="Permalink to this headline">¶</a></h2>
+<p>On RTL platform, the traces cannot be configured as only core instruction traces are always generated. See below for more information about these traces.</p>
+<p>The virtual platform allows dumping all kind of architecture events to help the developper debugging his application by better showing what is happening in the system.</p>
+<p>For example, it can show instructions being executed, DMA transfers, events generated, memory accesses and so on.</p>
+<p>This feature can be configured through the <em>&#8211;gv-trace</em> option. This option takes an argument which specifies the path in the architecture where the traces must be enabled. All components included in this path will dump traces. Each path is a regular expression, so it can be partial paths, use wildcards and so on. Several paths can be specified by using several times the option. Here is an example that activates instruction traces for core 0 and core 1:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ make run PLT_OPT=&quot;--gv-trace=pe0/iss --gv-trace=pe1/iss&quot;
+</pre></div>
+</div>
+<p>One difficulty is usually to find out which paths should be activated to get the needed information. One method is to dump all the events with <em>&#8211;gv-trace=.*</em>, then find out which one are insteresting and then put them on the command line. Here are the paths for the main components:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="81%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Path</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>/soc/fabric/cluster0/pe0</td>
+<td>Processing element, useful to see the IOs made by the core, and the instruction it executes. You can add <em>/iss</em> to just get instruction events</td>
+</tr>
+<tr class="row-odd"><td>/soc/fabric/cluster0/ckg</td>
+<td>Hardware synchronizer events, useful for debugging inter-core synchronization mechanisms</td>
+</tr>
+<tr class="row-even"><td>/soc/fabric/cluster0/pcache</td>
+<td>Shared program cache accesses</td>
+</tr>
+<tr class="row-odd"><td>/soc/fabric/cluster0/l1ico</td>
+<td>Shared L1 interconnect</td>
+</tr>
+<tr class="row-even"><td>/soc/fabric/cluster0/l1_X</td>
+<td>L1 memory banks (the X should be replaced by the bank number)</td>
+</tr>
+<tr class="row-odd"><td>/soc/fabric/l2</td>
+<td>L2 memory accesses</td>
+</tr>
+<tr class="row-even"><td>/soc/fabric/cluster0/dma</td>
+<td>DMA events</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="traces-content">
+<h2>Traces content<a class="headerlink" href="#traces-content" title="Permalink to this headline">¶</a></h2>
+<p>The trace file should look like the following:</p>
+<div class="highlight-python"><div class="highlight"><pre>20830000: [/soc/fabric/cluster0/pe1/iss    ]      1c0001f0 l.lwz               r6 , 540(r6 )    r6 =00000000 r6 :00204000  PA:0020421c
+</pre></div>
+</div>
+<p>There is usually one line per event, although an event can sometimes takes several lines to display more information.</p>
+<p>The number on the left gives the timestamp of the event, in picoseconds. This is not using cycles because different blocks like clusters can have different frequencies.</p>
+<p>The second part, which is a string, gives the path in the architecture where the event occured. This is useful to differentiate blocks of the same kind that generate the same event. This path can also be used with the <em>&#8211;gv-trace</em> option to reduce the number of events.</p>
+<p>The third part, which is also a string, is the information dumped by the event, and is totally specific to this event. In our example, the core simulator is just printing information about the instruction that has been executed.</p>
+</div>
+<div class="section" id="core-instruction-traces">
+<h2>Core instruction traces<a class="headerlink" href="#core-instruction-traces" title="Permalink to this headline">¶</a></h2>
+<p>Core instruction traces are available on both the RTL platform and the virtual platform. As they are showing not only the instructions executed but also the registers accessed, their content and the memory accesses, they are very useful for debugging bugs like memory corruptions.</p>
+<p>If we take back the previous example:</p>
+<div class="highlight-python"><div class="highlight"><pre>20830000: [/soc/fabric/cluster0/pe1/iss    ]      1c0001f0 l.lwz               r6 , 540(r6 )    r6 =00000000 r6 :00204000  PA:0020421c
+</pre></div>
+</div>
+<p>The event information dumped for executed instructions is using the following format:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;address&gt; &lt;instruction&gt; &lt;operands&gt; &lt;operands info&gt;
+</pre></div>
+</div>
+<p>&lt;address&gt; is the address of the instruction.</p>
+<p>&lt;instruction&gt; is the instruction label.</p>
+<p>&lt;operands&gt; is the part of the decoded operands.</p>
+<p>&lt;operands info&gt; is giving details about the operands values and how they are used.</p>
+<p>The latter information is using the following convention:</p>
+<blockquote>
+<div><ul class="simple">
+<li>When a register is accessed, its name is displayed followed by <em>=</em> if it is written or <em>:</em> if it is read. In case it is read and written, the register appears twice. It is then following by its value, which is the new one in case it is written.</li>
+<li>When a memory access is done, <em>PA:</em> is displayed, followed by the address of the access.</li>
+<li>The order of the statements is following the order on the decoded instruction</li>
+</ul>
+</div></blockquote>
+<p>The memory accesses which are displayed are particularly interesting for tracking memory corruptions as they can be used to look for accesses to specific locations.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">How to use platform traces</a><ul>
+<li><a class="reference internal" href="#how-to-activate-them">How to activate them</a></li>
+<li><a class="reference internal" href="#how-to-configure-them">How to configure them</a></li>
+<li><a class="reference internal" href="#traces-content">Traces content</a></li>
+<li><a class="reference internal" href="#core-instruction-traces">Core instruction traces</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="whichSystemDeps.html" title="previous chapter">What must be configured before using or compiling the SDK</a></li>
+      <li>Next: <a href="howtoSimulatorVcd.html" title="next chapter">How to use virtual platform VCD traces</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/howtoUseAssemblyTraces.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Germain Haugou.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/howtoUseAssemblyTraces.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2017.1 (64-bit)
+# SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
+# IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
+# Start of session at: Mon Jul  8 16:09:00 2019
+# Process ID: 3527
+# Current directory: /home2/gderiu/neuraghe_ARRUBIU/pulp_on_zynq/pulp_on_zynq.runs/synth_9
+# Command line: vivado -log base_zynq_design_wrapper.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source base_zynq_design_wrapper.tcl
+# Log file: /home2/gderiu/neuraghe_ARRUBIU/pulp_on_zynq/pulp_on_zynq.runs/synth_9/base_zynq_design_wrapper.vds
+# Journal file: /home2/gderiu/neuraghe_ARRUBIU/pulp_on_zynq/pulp_on_zynq.runs/synth_9/vivado.jou
+#-----------------------------------------------------------
+source base_zynq_design_wrapper.tcl -notrace

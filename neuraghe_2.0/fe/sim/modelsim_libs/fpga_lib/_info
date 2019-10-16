@@ -1,0 +1,82 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/nur/NEURAghe/neuraghe_2.0/fe/sim
+vregister_file_1r_1w
+Z1 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
+Z2 !s110 1568883271
+!i10b 1
+!s100 Kh_2SAkJ9bWUK^J9X?PQg0
+I@UB?jj[PPjOQOV3aUQV801
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+!s105 register_file_1r_1w_sv_unit
+S1
+R0
+Z4 w1566466038
+8../../fpga/rtl/register_file_1r_1w.sv
+F../../fpga/rtl/register_file_1r_1w.sv
+Z5 L0 15
+Z6 OL;L;10.4;61
+r1
+!s85 0
+31
+!s108 1568883271.436079
+!s107 ../../fpga/rtl/register_file_1r_1w.sv|
+!s90 -quiet|-sv|-work|fpga_lib|+incdir+./../rtl/includes|../../fpga/rtl/register_file_1r_1w.sv|
+!i113 0
+Z7 o-quiet -sv -work fpga_lib -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z8 !s92 -quiet -sv -work fpga_lib +incdir+./../rtl/includes -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vregister_file_1r_1w_all
+R1
+R2
+!i10b 1
+!s100 MHTgGEEfFPk`627of1KHZ2
+I8z=QGR@Xg8B]NUZ^^Uz^E2
+R3
+!s105 register_file_1r_1w_all_sv_unit
+S1
+R0
+R4
+8../../fpga/rtl/register_file_1r_1w_all.sv
+F../../fpga/rtl/register_file_1r_1w_all.sv
+L0 16
+R6
+r1
+!s85 0
+31
+!s108 1568883271.411298
+!s107 ../../fpga/rtl/register_file_1r_1w_all.sv|
+!s90 -quiet|-sv|-work|fpga_lib|+incdir+./../rtl/includes|../../fpga/rtl/register_file_1r_1w_all.sv|
+!i113 0
+R7
+R8
+vregister_file_2r_1w_asymm
+R1
+R2
+!i10b 1
+!s100 P[VhX;FY9==4n333clNbi3
+IfQJ6;h>;VH^oKBb?Q:NDf1
+R3
+!s105 register_file_2r_1w_asymm_sv_unit
+S1
+R0
+R4
+8../../fpga/rtl/register_file_2r_1w_asymm.sv
+F../../fpga/rtl/register_file_2r_1w_asymm.sv
+R5
+R6
+r1
+!s85 0
+31
+!s108 1568883271.386360
+!s107 ../../fpga/rtl/register_file_2r_1w_asymm.sv|
+!s90 -quiet|-sv|-work|fpga_lib|+incdir+./../rtl/includes|../../fpga/rtl/register_file_2r_1w_asymm.sv|
+!i113 0
+R7
+R8

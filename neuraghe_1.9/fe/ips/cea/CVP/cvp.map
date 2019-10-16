@@ -1,0 +1,35 @@
+--!----------------------------------------------------------------
+--! CAUTION : this file was generated automatically
+--! Generator : /home/projets/P2012/MAG3D/users/vivet/magali3d/generators/hdlbuilder/bin/codegen
+--! Generator revision : 9740
+--! Template : /home/projets/IRT3D/users/im219746/lisan_svn/IPs/CVP/trunk/templates/cvp.map.template
+--! Template revision  : 1
+--! Generation parameters :
+--!     $entity_name="cvp"; $number_clk_gen=1;  $number_MPROB=0; $number_TMFLT=0; $number_TMFLT_ring=0; $number_IT_ctrl=0; $number_thermal_sens=0; $input_resync=1; $reset_resync=1
+--!
+--! If you need to modify this file for a specific need :
+--!     ===> remove this banner
+--! If you found a generic bug in the file :
+--!     ===> see template author for modification of the template
+--!----------------------------------------------------------------
+
+#################################
+## Memory map of module: cvp
+#################################
+
+
+Clock Generator  0
+===================
+0x000    Freq_mode_0
+0x004    Freq_mode_1
+0x008    Freq_mode_2
+0x00C    Freq_mode_3
+0x010    Freq_mode_4
+0x014    Freq_mode_5
+0x018    Freq_mode_6
+0x01C    Freq_mode_7
+0x020    Config_FLL
+0x024    Config_clk_gen
+0x028    Status
+0x02C    Reserved
+

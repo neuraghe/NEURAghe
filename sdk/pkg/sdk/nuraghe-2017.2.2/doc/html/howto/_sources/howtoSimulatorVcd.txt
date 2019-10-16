@@ -1,0 +1,47 @@
+How to use virtual platform VCD traces
+--------------------------------------
+
+The virtual platform can dump VCD traces which show the state of several components over the time, like the cores PC, the DMA transfers, etc.
+
+Configuration
+.............
+
+Everything can be activated with this single option: ::
+
+  make run PLT_OPT=--vcd
+
+This will activate VCD traces and also all possible traces and will dump them in the platform working directory in the file called *all.vcd*.
+
+It is also possible to select exactly which traces must be activated with this option: ::
+
+  make run PLT_OPT="--vcd --vcd-file=pc.vcd:.*/pc"
+
+The *--vcd* option is still required to activate VCD traces. However as there is the *--vcd-trace* option, only the specified traces are activated.
+
+The option must follow the format --vcd-file=<traceFile>:<tracePattern>. <traceFile> is the path of the file where the specified traces will be dumped. <tracePattern> is a Posix regular expression which specifies the traces that must be dumped to this file. Each VCD trace has a path made of the concatenation of the path of the component it belongs to and the trace name. Any trace whose path matches the regular expression will be dumped to the specified file.
+
+It is also possible to specify several files in case one wants to separate VCD traces: ::
+
+  make run PLT_OPT="--vcd --vcd-file=pe0.vcd:.*/pe0/iss --vcd-file=pe1.vcd:.*/pe1/iss"
+
+This will in this case dump PE0 and PE1 PC traces to 2 different files.
+
+Display
+.......
+
+Any VCD viewer can be used to display the traces. On Linux the free gtkwave viewer can be used. For example to display the PC traces, you can launch it with: ::
+
+  gtkwave <vcdFilePath>
+
+Then click on Search->Search Signal Regexp, enter "pc", click on Select All and Insert, and close the box. You should now see the PC traces in the view, you can zoom out to see the full window.
+
+Gtkwave script generation
+.........................
+
+In case gtkwave is used, a script can be automatically generated that will preconfigure all interesting signals. For that the following option must be used: ::
+
+  $ make run PLT_OPT="--vcd --gtkw"
+
+You should se at the beginning of the simulation that says that a script has been generated. Just open it with gtkwave and you should see all signals already configured in the view.
+
+This view contains some pre-defined groups that are very useful for quickly opening and closing architectures parts. It also contains a group called debug, that contains more high-level debug information like function name, disasembled instructions and so on.

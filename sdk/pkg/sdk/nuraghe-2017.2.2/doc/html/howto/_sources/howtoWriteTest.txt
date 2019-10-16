@@ -1,0 +1,104 @@
+.. _howtoWriteTest:
+
+How to write a test
+-------------------
+
+Get a working empty test
+............................
+
+Once the SDK has been propertly configured, you can create an empty simple test by executing: ::
+
+	$ pulp-quickstart --path=test
+
+This will create a helloworld in the test directory. This basically copy the example which is inside the SDK under examples/bare/hello.
+
+Compile and run the test
+..............................
+
+You can go to the generated test folder and execute: ::
+
+	$ make clean all run
+
+Configure the test properties for testsuite integration
+.......................................................
+
+The generated test contains a testset.ini file that allows launching this test using the plptest script that you can launch from the test folder: ::
+
+	$ plptest
+
+This will execute the test as a non-regression testsuite which allows you checking if everything is fine for testsuite integration.
+
+The test status is considered as passed if the test exits with an exit value of 0, otherwise it is considered as failed. This allows the test simply returning the C main entry point return value as the test status or using a script that can post-process the test output to determine if the test has passed or failed.
+
+If you look at the testset.ini file, you will see the following: ::
+
+	[test:hello]
+	command.all=make clean all run systemConfig=%(config)s
+	timeout=1000000
+
+The first line must just contain *test:* to indicate it is a single test followed by the test name that will appear in the report.
+
+The second line is the command that is launch to compile and run the test. The command is here our classic *make clean all run* command followed by a property which is used by the test framework to propagate the SDK configuration for which the test must be validated. This for example allows launching the same test for several configurations, each configuration being caught by this property. This property should be kept in order to execute the test for the right configuration.
+
+The third line is the timeout of the test, expressed in number of expected cycles. This timeout is used by a formula depending on the platform to compute the actual timeout in seconds, which allows expressing the same timeout for all platforms. The formula usually takes into account this number, the platform speed and the number of simulated core to estimate the timeout in seconds.
+
+All these properties can most of the time be kept like that.
+
+Integrate the test into a testsuite
+...................................
+
+A full non-regression testsuite is a hierarchy of testset.ini files putting all tests together. In order for the test to be launched in such a testsuite, it must be referred by one of the higher testset.init.
+
+For example if you want to integrate your test inside the pulp_tests testsuite, you can open the testset.ini file in the pulp_tests folder. This file should look like: ::
+
+	[testset:pulp_tests]
+	files=  bench_tiny/testset.ini
+			helloworld/testset.ini
+
+You can just add the following line to this file to integrate your test: ::
+
+	hello/testset.ini
+
+The line should give the relative path of your test testset.ini file, related to the testsuite testset.ini file.
+
+To check that it is correctly integrate, you can dump the list of available tests by executing this command from the pulp_tests directory: ::
+
+	$ plptest tests
+
+Your test will also be seen from higher testsuite, as for example from the SDK top testsuite.
+
+Use the bench library
+.....................
+
+The bench library can be used to ease error and benchmark reporting. The idea is to declare a set of kernels which will be all called by the library one by one and a final report will be printed with the number of errors and cycles for each kernel, which is quite convenient when doing unit testing.
+
+To get a test ready for this lib, add the following option to the previous command: ::
+
+	$ pulp-quickstart --path=test --test
+
+*run_testsuite* must be called from the main entry point in order to start running the kernels. The kernels must be declared in the following structure which must be pass as an argument when calling *run_testsuite*: ::
+
+  static testcase_t testcases[] = {
+    { .name = "test0",          .test = test0          },
+    { .name = "test1",          .test = test1          },
+    {0, 0}
+  };
+
+Each kernel must have a precise prototype and are supposed to report the number of errors in the structure they receive as an argument and also to call the start and stop functions passed as arguments in order to specify the exact portion of code that must be benchmarked: ::
+
+  static void test0(testresult_t *result, void (*start)(), void (*stop)()) {
+    volatile int i;
+    start();
+    for (i=0; i<1000; i++);
+    stop();
+    result->errors++;
+  }
+
+Once run, it should print this kind of report at the end of the execution: ::
+
+	== test: test0 -> fail, nr. of errors: 1, execution time: 9079
+	== test: test1 -> fail, nr. of errors: 10, execution time: 938
+	==== SUMMARY: FAIL
+	NOT OK!!!!!
+
+

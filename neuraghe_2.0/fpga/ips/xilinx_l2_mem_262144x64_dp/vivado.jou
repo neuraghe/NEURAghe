@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2016.4 (64-bit)
+# SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+# IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+# Start of session at: Wed May 17 11:36:41 2017
+# Process ID: 21193
+# Current directory: /home/gderiu/xilinx_l2_mem_262144x64_dp
+# Command line: vivado -mode batch -source tcl/run.tcl
+# Log file: /home/gderiu/xilinx_l2_mem_262144x64_dp/vivado.log
+# Journal file: /home/gderiu/xilinx_l2_mem_262144x64_dp/vivado.jou
+#-----------------------------------------------------------
+source tcl/run.tcl

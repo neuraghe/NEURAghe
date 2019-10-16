@@ -1,0 +1,154 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/nur/NEURAghe/neuraghe_2.0/fe/sim
+vapb_audio
+Z1 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
+Z2 !s110 1568883258
+!i10b 1
+!s100 =_D1]dgzZR9Jk:`eL8oQD2
+IcC4GYoJ;oUJ@<Sja@@F3o2
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+!s105 apb_audio_sv_unit
+S1
+R0
+Z4 w1566466384
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/apb_peripherals/apb_audio/apb_audio.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/apb_peripherals/apb_audio/apb_audio.sv
+L0 11
+Z5 OL;L;10.4;61
+r1
+!s85 0
+31
+!s108 1568883258.879974
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/apb_peripherals/apb_audio/apb_audio.sv|
+!s90 -work|apb_audio_lib|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/apb/apb_audio|-quiet|-sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/apb_peripherals/apb_audio/apb_audio.sv|
+!i113 0
+Z6 o-quiet -work apb_audio_lib -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z7 !s92 -quiet -work apb_audio_lib +incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/apb/apb_audio -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vi2s_rx
+R1
+R2
+!i10b 1
+!s100 aob6=CWkDc1a@QO1e<=NL2
+I[OI6o9m]Wmc>Wb843AjX>1
+R3
+!s105 i2s_rx_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/apb_peripherals/apb_audio/i2s_rx.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/apb_peripherals/apb_audio/i2s_rx.sv
+L0 12
+R5
+r1
+!s85 0
+31
+!s108 1568883258.909877
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/apb_peripherals/apb_audio/i2s_rx.sv|
+!s90 -work|apb_audio_lib|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/apb/apb_audio|-quiet|-sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/apb_peripherals/apb_audio/i2s_rx.sv|
+!i113 0
+R6
+R7
+vio_clk_gen
+R1
+R2
+!i10b 1
+!s100 lPnY3>7m6mAEhJzHB@KKG0
+IZ65`DWaWDn1EIl:nc1^3M0
+R3
+!s105 io_clk_gen_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/apb_peripherals/apb_audio/io_clk_gen.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/apb_peripherals/apb_audio/io_clk_gen.sv
+Z8 L0 10
+R5
+r1
+!s85 0
+31
+!s108 1568883258.935746
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/apb_peripherals/apb_audio/io_clk_gen.sv|
+!s90 -work|apb_audio_lib|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/apb/apb_audio|-quiet|-sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/apb_peripherals/apb_audio/io_clk_gen.sv|
+!i113 0
+R6
+R7
+vio_event_counter
+R1
+R2
+!i10b 1
+!s100 RAH`MFa0jP]kEVR:NgG^P0
+IbfWzad2F4hT=mj;YPZSfi1
+R3
+!s105 io_event_counter_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/apb_peripherals/apb_audio/io_event_counter.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/apb_peripherals/apb_audio/io_event_counter.sv
+R8
+R5
+r1
+!s85 0
+31
+!s108 1568883258.986554
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/apb_peripherals/apb_audio/io_event_counter.sv|
+!s90 -work|apb_audio_lib|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/apb/apb_audio|-quiet|-sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/apb_peripherals/apb_audio/io_event_counter.sv|
+!i113 0
+R6
+R7
+vio_generic_fifo
+R1
+R2
+!i10b 1
+!s100 Y^5komO0e:lffmD_92SR43
+IChfkB3dI=HbA;hRV>obL60
+R3
+!s105 io_generic_fifo_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/apb_peripherals/apb_audio/io_generic_fifo.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/apb_peripherals/apb_audio/io_generic_fifo.sv
+L0 3
+R5
+r1
+!s85 0
+31
+!s108 1568883258.960879
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/apb_peripherals/apb_audio/io_generic_fifo.sv|
+!s90 -work|apb_audio_lib|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/apb/apb_audio|-quiet|-sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/apb_peripherals/apb_audio/io_generic_fifo.sv|
+!i113 0
+R6
+R7
+vio_shiftreg
+R1
+!s110 1568883259
+!i10b 1
+!s100 m3K6noJck<1]ID@SiHd[S2
+I8L5BV139aBJQS[c8VzOOB0
+R3
+!s105 io_shiftreg_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/apb_peripherals/apb_audio/io_shiftreg.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/apb_peripherals/apb_audio/io_shiftreg.sv
+R8
+R5
+r1
+!s85 0
+31
+!s108 1568883259.012597
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/apb_peripherals/apb_audio/io_shiftreg.sv|
+!s90 -work|apb_audio_lib|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/apb/apb_audio|-quiet|-sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/apb_peripherals/apb_audio/io_shiftreg.sv|
+!i113 0
+R6
+R7

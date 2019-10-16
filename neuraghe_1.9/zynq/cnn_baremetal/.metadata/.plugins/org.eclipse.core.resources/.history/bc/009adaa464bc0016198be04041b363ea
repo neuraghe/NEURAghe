@@ -1,0 +1,174 @@
+/*
+ * types.cc
+ *
+ *  Created on: May 30, 2016
+ *      Author: alessandro
+ */
+/******************************************************************************
+ *                                                                            *
+ *                   EOLAB @ DIEE - University of Cagliari                    *
+ *                          Via Marengo, 2, 09123                             *
+ *                       Cagliari - phone 070 675 5009                        *
+ *                                                                            *
+ * Author:       Alessandro Varsi - alessandro.varsi@diee.unica.it            *
+ *                                                                            *
+ * Project:     Convolutional neural network                                  *
+ * File:        types.c                                                       *
+ * Description: Source codes of all procedures declared in types.h            *
+ *                                                                            *
+ ******************************************************************************/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+#include "types.h"
+
+///If FIXED_CONVNET is defined then the Convolutional neural network will work on fixed-point type. Otherwise it will work on floating-point type.
+#define FIXED_CONVNET
+
+void read_file(data_t *vett,char *file){
+    /**
+    This function reads data (such as weights and biases) from file. Then it calls a conversion function if the CNN is working of fixed-point datatype.
+    **/
+    FILE *f;
+    char temp[20];
+    float val;
+    int i=0;
+    data_t integ, decim;
+    f=fopen(file,"r");
+    //printf("%d\n",feof(f));
+    while(!feof(f)){
+        fscanf(f,"%s",temp);
+        val=atof(temp);
+        #ifdef FIXED_CONVNET
+            *(vett+i)=conversion_float_to_data_t(val);
+        #else
+            *(vett+i)=val;
+        #endif // FIXED_CONVNET
+        i++;
+    }
+    fclose(f);
+    return;
+}
+data_t pow2 (int e){
+	int i;
+	data_t p=1;
+	for (i=0;i<e;i++)
+		p=p*2;
+	return p;
+}
+
+data_t dec_to_data_t(float in){
+    data_t out=0;
+    #ifdef FIXED_CONVNET
+        float temp1=in;
+        int i, temp2;
+        for(i=1;i<=QF;i++){
+            temp1*=2;
+            //printf("temp1: %f\n",temp1);
+            if(temp1>=1){
+                out+=(data_t)pow2(QF-i);
+              //  printf("pow: %x out: %x\n",(data_t)pow2(8-i), out);
+                temp2=(int)temp1;
+               // printf("temp2: %d\n",temp2);
+                temp1-=(float)temp2;
+               // printf("temp1qq: %f\n",temp1);
+               // printf("out: %x\n",out);
+            }
+        }
+    #endif // FIXED_CONVNET
+    return out;
+}
+float ceil_new(float val){
+
+	float val_i = (float)(int)val;
+	val = val- val_i;
+
+	if (val >0)
+		val =1;
+	else
+		val =0;
+	return val+val_i;
+
+}
+
+data_t conversion_float_to_data_t(float val){
+    /**
+    This function converts a floating-point variable into a data_t one.
+    **/
+    data_t integ, decim;
+    #ifdef FIXED_CONVNET
+        int n=QF;
+        if(val>=0){
+            integ=(data_t)(val);
+            decim=dec_to_data_t(fabs(val-integ));
+          //  printf("%f %f %x %x\n",val, fabs(val-integ), integ, decim);
+        }
+        else{
+            integ=(data_t)(-ceil_new(fabs(val)));
+            if((fabs(val)-(int)(fabs(val)))==0)
+            	decim=dec_to_data_t((fabs(val)-(int)(fabs(val))));
+            else
+            	decim=dec_to_data_t(1-(fabs(val)-(int)(fabs(val))));
+
+             // printf("%f %f %f %x %x\n",val, fabs(val),-ceil_new(fabs(val)), integ, decim);
+        }
+        return (integ<<n)+decim;
+    #else
+        return integ+decim;
+    #endif // FIXED_CONVNET
+}
+
+float conversion_data_t_to_float(data_t val, int n){
+    /**
+    This function converts a data_t variable into a floating point one.
+    If you want the k-th bit of n, then do
+    (n & ( 1 << k )) >> k
+    remember: the sign bit (the MSB in two's complement) is shifted in on the left/right
+    **/
+    #ifdef FIXED_CONVNET
+        float dec=0, integ=0;
+        int i, bit, neg=0;
+        if(val<0) neg=1;
+        for(i=0;i<QF;i++){
+            bit=(val&(1<<0))>>0;
+            dec+=(float)bit*(float)pow2(i-QF);
+            val=val>>1;
+        }
+        if(neg){
+            val=val-1;
+            val=~val;
+        }
+        for(i=0;i<n-QF;i++){
+            bit=(val&(1<<0))>>0;
+            integ+=(float)bit*(float)pow2(i);
+            val=val>>1;
+        }
+        if(neg) return -integ+dec;
+        else return integ+dec;
+    #else
+        return val;
+    #endif // FIXED_CONVNET
+}
+
+int out_feat_size(int feat_side, int window_side, int stride){
+    /**
+    This function calculates the size of one side of the output feature after the execution of either convolutional or pooling layers.
+    So, it's true for both layers and this is due to the fact we don't use the zero-padding technique.
+    feat_side is the height or width of the input feature.
+    window_side is the height or width of the filter or of the pooling window.
+    **/
+    if(window_side>feat_side || ((feat_side-window_side)%stride)!=0) return -1;
+    return (int)((feat_side-window_side)/stride+1);
+}
+
+// CConvNet max
+data_t cnn_max(data_t x){
+    /**
+    This function executes the ReLU activation function.
+    It basically returns the maximum value between the input one and 0.
+    **/
+    if(x<0) return 0;
+    else return x;
+}

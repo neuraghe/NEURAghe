@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2016.4 (64-bit)
+# SW Build 1756540 on Mon Jan 23 19:11:19 MST 2017
+# IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+# Start of session at: Thu Sep 14 12:40:06 2017
+# Process ID: 13902
+# Current directory: /home/gderiu/neuraghe_wei2ddr_fast/fpga/ips/xilinx_l2_mem_8192x64_dp2/xilinx_l2_mem_8192x64_dp2.runs/xilinx_l2_mem_8192x64_dp2_synth_1
+# Command line: vivado -log xilinx_l2_mem_8192x64_dp2.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source xilinx_l2_mem_8192x64_dp2.tcl
+# Log file: /home/gderiu/neuraghe_wei2ddr_fast/fpga/ips/xilinx_l2_mem_8192x64_dp2/xilinx_l2_mem_8192x64_dp2.runs/xilinx_l2_mem_8192x64_dp2_synth_1/xilinx_l2_mem_8192x64_dp2.vds
+# Journal file: /home/gderiu/neuraghe_wei2ddr_fast/fpga/ips/xilinx_l2_mem_8192x64_dp2/xilinx_l2_mem_8192x64_dp2.runs/xilinx_l2_mem_8192x64_dp2_synth_1/vivado.jou
+#-----------------------------------------------------------
+source xilinx_l2_mem_8192x64_dp2.tcl -notrace

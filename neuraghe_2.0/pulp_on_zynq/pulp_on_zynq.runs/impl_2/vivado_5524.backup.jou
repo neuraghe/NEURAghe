@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2017.1 (64-bit)
+# SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
+# IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
+# Start of session at: Fri Sep 13 16:23:44 2019
+# Process ID: 5524
+# Current directory: /home/nur/neuraghe_2.0/neuraghe_2.0/pulp_on_zynq/pulp_on_zynq.runs/impl_2
+# Command line: vivado -log base_zynq_design_wrapper.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source base_zynq_design_wrapper.tcl -notrace
+# Log file: /home/nur/neuraghe_2.0/neuraghe_2.0/pulp_on_zynq/pulp_on_zynq.runs/impl_2/base_zynq_design_wrapper.vdi
+# Journal file: /home/nur/neuraghe_2.0/neuraghe_2.0/pulp_on_zynq/pulp_on_zynq.runs/impl_2/vivado.jou
+#-----------------------------------------------------------
+source base_zynq_design_wrapper.tcl -notrace

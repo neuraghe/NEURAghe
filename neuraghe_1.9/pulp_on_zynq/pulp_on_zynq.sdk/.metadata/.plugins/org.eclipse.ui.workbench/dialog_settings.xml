@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.internal.QuickAccess">
+		<item value="609" key="dialogHeight"/>
+		<item value="1200" key="dialogWidth"/>
+		<list key="textEntries">
+		</list>
+		<list key="orderedElements">
+		</list>
+		<list key="orderedProviders">
+		</list>
+		<list key="textArray">
+		</list>
+	</section>
+	<section name="ShowViewDialog">
+		<item value="345" key="DIALOG_WIDTH"/>
+		<item value="1|Noto Sans|9.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+		<item value="424" key="DIALOG_HEIGHT"/>
+		<item value="788" key="DIALOG_X_ORIGIN"/>
+		<item value="261" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

@@ -1,0 +1,324 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/nur/NEURAghe/neuraghe_2.0/fe/sim
+vcluster_control_unit
+Z1 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
+Z2 !s110 1568883262
+!i10b 1
+!s100 `cITDmJh@kjU^DK=O]M[b0
+Ih8ioC;hoIS?bn6l68nJiZ3
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+!s105 cluster_control_unit_sv_unit
+S1
+R0
+Z4 w1566466326
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/cluster_control_unit/cluster_control_unit.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/cluster_control_unit/cluster_control_unit.sv
+L0 35
+Z5 OL;L;10.4;61
+r1
+!s85 0
+31
+!s108 1568883262.886726
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/cluster_control_unit/cluster_control_unit.sv|
+!s90 -work|cluster_peripherals_lib|-quiet|+define+|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/include|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/cluster_control_unit/cluster_control_unit.sv|
+!i113 0
+Z6 o-quiet -work cluster_peripherals_lib -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+!s92 -quiet -work cluster_peripherals_lib +define+ -sv +incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/include -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vevent_unit
+R1
+R2
+!i10b 1
+!s100 CDV<zDI`BMkGAFfNOY^[g1
+I`[VK_f4kCh?1zGN[XbJIU3
+R3
+!s105 event_unit_sv_unit
+S1
+R0
+Z7 w1566466325
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/event_unit.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/event_unit.sv
+Z8 L0 30
+R5
+r1
+!s85 0
+31
+!s108 1568883262.804270
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/include/event_unit_defines.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/event_unit.sv|
+!s90 -work|cluster_peripherals_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/include|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/include|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/event_unit.sv|
+!i113 0
+R6
+Z9 !s92 -quiet -work cluster_peripherals_lib -sv +incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/include +incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/include -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vevent_unit_input
+R1
+R2
+!i10b 1
+!s100 b@6QkZZN<UQf=ozQ?ij>G2
+IOSgA:E5fd2UFU@>WWZHJi0
+R3
+!s105 event_unit_input_sv_unit
+S1
+R0
+R7
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/event_unit_input.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/event_unit_input.sv
+L0 32
+R5
+r1
+!s85 0
+31
+!s108 1568883262.692314
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/include/event_unit_defines.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/event_unit_input.sv|
+!s90 -work|cluster_peripherals_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/include|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/include|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/event_unit_input.sv|
+!i113 0
+R6
+R9
+vevent_unit_mux
+R1
+R2
+!i10b 1
+!s100 NU=:a^N;>_k`N8QTf9ARm1
+I@z^:4Tm^cH6jN?b2Y2ET[0
+R3
+!s105 event_unit_mux_sv_unit
+S1
+R0
+R7
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/event_unit_mux.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/event_unit_mux.sv
+R8
+R5
+r1
+!s85 0
+31
+!s108 1568883262.752035
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/include/event_unit_defines.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/event_unit_mux.sv|
+!s90 -work|cluster_peripherals_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/include|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/include|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/event_unit_mux.sv|
+!i113 0
+R6
+R9
+vevent_unit_sm
+R1
+R2
+!i10b 1
+!s100 XH;;Ak9T:LVF2enA7zQBa3
+If?PHzKTgFQZlZKhQH5DPC0
+R3
+!s105 event_unit_sm_sv_unit
+S1
+R0
+R7
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/event_unit_sm.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/event_unit_sm.sv
+R8
+R5
+r1
+!s85 0
+31
+!s108 1568883262.778578
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/include/event_unit_defines.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/event_unit_sm.sv|
+!s90 -work|cluster_peripherals_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/include|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/include|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/event_unit_sm.sv|
+!i113 0
+R6
+R9
+vHW_barrier
+R1
+R2
+!i10b 1
+!s100 U6U^iDJ4JCnND]=HZHkDa1
+Iz;bKk8GWBzSNZGF:;M[do2
+R3
+!s105 HW_barrier_sv_unit
+S1
+R0
+R7
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/HW_barrier.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/HW_barrier.sv
+Z10 L0 31
+R5
+r1
+!s85 0
+31
+!s108 1568883262.641540
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/include/event_unit_defines.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/HW_barrier.sv|
+!s90 -work|cluster_peripherals_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/include|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/include|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/HW_barrier.sv|
+!i113 0
+R6
+R9
+n@h@w_barrier
+vHW_barrier_logic
+R1
+R2
+!i10b 1
+!s100 jEjDCJZP@?<2dZkeN_E5U1
+I`<0A9a86XDzTEKPDbMGIK1
+R3
+!s105 HW_barrier_logic_sv_unit
+S1
+R0
+R7
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/HW_barrier_logic.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/HW_barrier_logic.sv
+R8
+R5
+r1
+!s85 0
+31
+!s108 1568883262.666480
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/include/event_unit_defines.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/HW_barrier_logic.sv|
+!s90 -work|cluster_peripherals_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/include|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/include|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/HW_barrier_logic.sv|
+!i113 0
+R6
+R9
+n@h@w_barrier_logic
+vicache_ctrl_unit
+R1
+R2
+!i10b 1
+!s100 1M_PZ55Ni6MXdHB4Uk94@1
+IozDoh8MKUji`ER[>CzBgM3
+R3
+!s105 icache_ctrl_unit_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/icache_ctrl_unit/icache_ctrl_unit.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/icache_ctrl_unit/icache_ctrl_unit.sv
+L0 83
+R5
+r1
+!s85 0
+31
+!s108 1568883262.939591
+!s107 ../rtl/includes/hwce_defines.sv|../rtl/includes/ulpsoc_defines.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/icache_ctrl_unit/icache_ctrl_unit.sv|
+!s90 -work|cluster_peripherals_lib|-quiet|-sv|+incdir+../rtl/includes|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/icache_ctrl_unit/icache_ctrl_unit.sv|
+!i113 0
+R6
+!s92 -quiet -work cluster_peripherals_lib -sv +incdir+../rtl/includes -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vinterrupt_id_arbiter
+R1
+R2
+!i10b 1
+!s100 B03hl?0f7[O;WE=;eIOTC0
+I1WR;^=m;RHXZZgZ5eH]Fb0
+R3
+!s105 event_unit_arbiter_sv_unit
+S1
+R0
+R7
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/event_unit_arbiter.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/event_unit_arbiter.sv
+R10
+R5
+r1
+!s85 0
+31
+!s108 1568883262.616352
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/include/event_unit_defines.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/event_unit_arbiter.sv|
+!s90 -work|cluster_peripherals_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/include|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/include|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/event_unit_arbiter.sv|
+!i113 0
+R6
+R9
+vinterrupt_mask
+R1
+R2
+!i10b 1
+!s100 l2nJD5I]U@Eo>_d@CU6^K0
+IaXVaJBoa7l;BNkF0gSAdB3
+R3
+!s105 interrupt_mask_sv_unit
+S1
+R0
+R7
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/interrupt_mask.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/interrupt_mask.sv
+R8
+R5
+r1
+!s85 0
+31
+!s108 1568883262.725997
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/include/event_unit_defines.sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/interrupt_mask.sv|
+!s90 -work|cluster_peripherals_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/include|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/include|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/event_unit/interrupt_mask.sv|
+!i113 0
+R6
+R9
+vmmu_config_unit
+R1
+R2
+!i10b 1
+!s100 ][<mjTz<N[GLH7^D@^@Mn0
+I<8A_P>c_=BU9SBWE=ol7N1
+R3
+!s105 mmu_config_unit_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/mmu_config_unit/mmu_config_unit.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/mmu_config_unit/mmu_config_unit.sv
+L0 10
+R5
+r1
+!s85 0
+31
+!s108 1568883262.861037
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/mmu_config_unit/mmu_config_unit.sv|
+!s90 -work|cluster_peripherals_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/include|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/mmu_config_unit/mmu_config_unit.sv|
+!i113 0
+R6
+Z11 !s92 -quiet -work cluster_peripherals_lib -sv +incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/include -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vtcdm_pipe_unit
+R1
+R2
+!i10b 1
+!s100 O[_eLaH7@cY`X0:IQ9bma3
+IeiMP[eZ1i`n=69o@FaNLG1
+R3
+!s105 tcdm_pipe_unit_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/tcdm_pipe_unit/tcdm_pipe_unit.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/tcdm_pipe_unit/tcdm_pipe_unit.sv
+L0 39
+R5
+r1
+!s85 0
+31
+!s108 1568883262.913441
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/tcdm_pipe_unit/tcdm_pipe_unit.sv|
+!s90 -work|cluster_peripherals_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/include|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/tcdm_pipe_unit/tcdm_pipe_unit.sv|
+!i113 0
+R6
+R11
+vtimer_unit
+R1
+R2
+!i10b 1
+!s100 ^CX^ED52NDJ03EL8CCSjA2
+IFAF]1`lz2i<n8niJ8b15b0
+R3
+!s105 timer_unit_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/timer_unit/timer_unit.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/timer_unit/timer_unit.sv
+L0 33
+R5
+r1
+!s85 0
+31
+!s108 1568883262.832051
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/timer_unit/timer_unit.sv|
+!s90 -work|cluster_peripherals_lib|-quiet|-sv|+incdir+/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/include|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/cluster_peripherals/timer_unit/timer_unit.sv|
+!i113 0
+R6
+R11

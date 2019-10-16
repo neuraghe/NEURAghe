@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>How to profile an OpenMP application &mdash; howto 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="howto 1 documentation" href="index.html" />
+    <link rel="next" title="How to validate an SDK release" href="howtoValidateSdkRelease.html" />
+    <link rel="prev" title="How to build SDK components" href="howtoBuildSdkPieces.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="how-to-profile-an-openmp-application">
+<h1>How to profile an OpenMP application<a class="headerlink" href="#how-to-profile-an-openmp-application" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="callgraph-profiling">
+<h2>Callgraph profiling<a class="headerlink" href="#callgraph-profiling" title="Permalink to this headline">¶</a></h2>
+<p>On RTL simulator and virtual platform, a PC-based callgraph for a single core can be generated with the following command:</p>
+<div class="highlight-python"><div class="highlight"><pre>make clean all run KCG=0
+</pre></div>
+</div>
+<p>This will generate the callgraph for the specified core number, 0 in this case.</p>
+<p>The callgraph can be seen with KCachegrind tool with (the actual path to the kcg file is displayed at the end of the simulation and may be different):</p>
+<div class="highlight-python"><div class="highlight"><pre>kcachegrind build/kcg.txt
+</pre></div>
+</div>
+<p>Kcachegrind is an open-source tool whose documentation can be found here: <a class="reference external" href="http://kcachegrind.sourceforge.net/html/Home.html">http://kcachegrind.sourceforge.net/html/Home.html</a></p>
+<p>Here are a few hints:</p>
+<ul class="simple">
+<li>On the top-right corner, you&#8217;ll find the event currently being watched. The platform is registering the events from the core HW counters and thus any HW event can be viewed. The first one (<em>PC</em>) is just based on the PC information and is equivalent to <em>Instructions</em>. All the others are HW events, you can refer to the core datasheet for more information. The most common event is <em>Cycles</em> as it will show the cycles spent.</li>
+</ul>
+<p>And the most interesting panels:</p>
+<ul class="simple">
+<li><strong>Flat Profile</strong>. It is by default the left panel. This view will show the time spent in each function, both including everything or just including the time really spent in the function not the one spent in the called functions</li>
+<li><strong>Source Code</strong>. This shows the time spent on each source code line, which is nice for identifying the hot spots. This will also show the functions called, and how many time.</li>
+<li><strong>Call graph</strong>. This shows how the time spent in a function is spent between the functions called by this one.</li>
+</ul>
+</div>
+<div class="section" id="execution-traces-profiling">
+<h2>Execution traces profiling<a class="headerlink" href="#execution-traces-profiling" title="Permalink to this headline">¶</a></h2>
+<p>With OMP on the virtual platform, more information about the execution context can be obtained with:</p>
+<div class="highlight-python"><div class="highlight"><pre>make clean all run pulpRtVersion=profile0
+</pre></div>
+</div>
+<p>This activates a version of the runtime instrumented for generating context information through HW traces.</p>
+<p>They can be visualized either with Android traceview tool (only on Ubuntu) with this command:</p>
+<div class="highlight-python"><div class="highlight"><pre>traceview build/tvDump
+</pre></div>
+</div>
+<p>Or as a textual callgraph:</p>
+<div class="highlight-python"><div class="highlight"><pre>cat build/cg_cluster0_core0.txt
+</pre></div>
+</div>
+<p>The actual paths to the files might also be different and are displayed at the end of the simulation.</p>
+</div>
+<div class="section" id="kernel-statistics">
+<h2>Kernel statistics<a class="headerlink" href="#kernel-statistics" title="Permalink to this headline">¶</a></h2>
+<p>The main issue of the execution traces is that it does not give any application context, and thus it is hard to link the results with the application code.</p>
+<p>To overcome this, it is possible to instrumentate the application to give the missing context, by classifying the source into kernels.</p>
+<p>To use this support, the following file must be included:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c1">#include &quot;hwTrace.h&quot;</span>
+</pre></div>
+</div>
+<p>The file is located here in the SDK: <em>install/include/hwTrace.h</em>. More information about this support can be found in this file.</p>
+<p>An example can be found in apps/gomp_tests/kernelTrace.</p>
+<p>Here are the main things to know:</p>
+<ul>
+<li><p class="first">In order to better identify the performances of an application, this support allows breaking the whole code into kernels and sees the performances of each kernel.</p>
+</li>
+<li><p class="first">Kernels must first be declared with the following call:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">pulp_trace_kernel_declare</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;kernel 0&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The first argument is the kernel identifier which must be unique and which will be used later on to associate traces to this kernel. The second argument is a string that will be used by the profiling tools to report results for this kernel.</p>
+</li>
+<li><p class="first">The execution of a kernel can then be caught with the following sequence:</p>
+<div class="highlight-python"><div class="highlight"><pre>pulp_trace_kernel_start(0, 1);
+// Put the kernel code here
+pulp_trace_kernel_stop(0, 1);
+</pre></div>
+</div>
+<p>All instructions executed between these 2 calls will be accounted on this kernel. The first argument to both calls is the kernel identifier specified when declaring the kernel. The second argument should be 0 if we just want the report about the instructions or 1 if we also want the report for all core HW counters (which is more intrusive). If everything goes well, you should see something like this at the end of the simulation:</p>
+<div class="highlight-python"><div class="highlight"><pre>+----+----------+----+------------+------------+------------+--------------+--------------+----------+-----------+-------+---------+-------------+------+------+------+--------+-----------+--------+--------+------------+------------+-----------+
+| ID |     name | nb | avg cycles | min cycles | max cycles | total cycles | Cycles | Instructions | LD_Stall | Jmp_Stall | IMISS | WBRANCH | WBRANCH_CYC |   LD |   ST | JUMP | BRANCH | DELAY_NOP | LD_EXT | ST_EXT | LD_EXT_CYC | ST_EXT_CYC | TCDM_CONT |
++----+----------+----+------------+------------+------------+--------------+--------------+----------+-----------+-------+---------+-------------+------+------+------+--------+-----------+--------+--------+------------+------------+-----------+
+|  0 | kernel 0 | 10 |       1532 |       1365 |       2680 |        15329 |        13233 |      179 |         0 |  1666 |       0 |           0 | 1896 | 3310 |    0 |      0 |         0 |     30 |   1240 |          0 |          0 |        27 |
++----+----------+----+------------+------------+------------+--------------+--------------+----------+-----------+-------+---------+-------------+------+------+------+--------+-----------+--------+--------+------------+------------+-----------+
+</pre></div>
+</div>
+</li>
+<li><p class="first">The kernel instructions can also be seen using traceview by opening the traceview report (see above). The kernel execution will now be displayed as a specific event which allows better understanding the global execution.</p>
+</li>
+<li><p class="first">If the kernel is executed several times, and thus the execution goes several times through the sequence start -&gt; stop, each execution will be registered and the number of executions will be reported (column <em>nb</em>). In this case, the column <em>avg cycles</em> is an average over all these executions, <em>min cycles</em> and <em>max cycles</em> are the mininal and maximal cycles count seen over the executions. All the other statistics are cumulated over the executions.</p>
+</li>
+<li><p class="first">In case some instructions executed inside a start -&gt; stop sequence should not be accounted on the kernel (for example to not include some debug code), it is possible to pause and resume the profiling with these calls:</p>
+<div class="highlight-python"><div class="highlight"><pre>// Kernel code
+pulp_trace_kernel_pause(0, 1);
+// This code here won&#39;t be accounted on the kernel
+pulp_trace_kernel_resume(0, 1);
+// Kernel code
+</pre></div>
+</div>
+</li>
+</ul>
+<p>The arguments are the same as for start and stop</p>
+<ul class="simple">
+<li>The number under <em>Cycles</em> is the number of cycles where the core is active, while <em>total cycles</em> is also including the number of cycles where the core is sleeping.</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">How to profile an OpenMP application</a><ul>
+<li><a class="reference internal" href="#callgraph-profiling">Callgraph profiling</a></li>
+<li><a class="reference internal" href="#execution-traces-profiling">Execution traces profiling</a></li>
+<li><a class="reference internal" href="#kernel-statistics">Kernel statistics</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="howtoBuildSdkPieces.html" title="previous chapter">How to build SDK components</a></li>
+      <li>Next: <a href="howtoValidateSdkRelease.html" title="next chapter">How to validate an SDK release</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/howtoProfileOmpApp.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Germain Haugou.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/howtoProfileOmpApp.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2017.1 (64-bit)
+# SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
+# IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
+# Start of session at: Wed Sep  4 18:07:01 2019
+# Process ID: 27298
+# Current directory: /home2/gderiu/neuragheconvnet_unify
+# Command line: vivado
+# Log file: /home2/gderiu/neuragheconvnet_unify/vivado.log
+# Journal file: /home2/gderiu/neuragheconvnet_unify/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home2/gderiu/neuraghe_ARRUBIU/pulp_on_zynq/pulp_on_zynq.xpr
+update_compile_order -fileset sources_1

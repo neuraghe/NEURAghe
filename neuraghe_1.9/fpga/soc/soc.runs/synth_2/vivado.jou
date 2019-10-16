@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2017.1 (64-bit)
+# SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
+# IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
+# Start of session at: Tue Sep 24 16:22:17 2019
+# Process ID: 12550
+# Current directory: /home/nur/NEURAghe/neuraghe_1.9/fpga/soc/soc.runs/synth_2
+# Command line: vivado -log ulpsoc.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source ulpsoc.tcl
+# Log file: /home/nur/NEURAghe/neuraghe_1.9/fpga/soc/soc.runs/synth_2/ulpsoc.vds
+# Journal file: /home/nur/NEURAghe/neuraghe_1.9/fpga/soc/soc.runs/synth_2/vivado.jou
+#-----------------------------------------------------------
+source ulpsoc.tcl -notrace

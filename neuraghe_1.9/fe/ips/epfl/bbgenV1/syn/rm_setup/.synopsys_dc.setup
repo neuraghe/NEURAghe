@@ -1,0 +1,142 @@
+#LOAD MAIN SETUP SCRIPTS / name rules
+source -echo -verbose  ./rm_setup/suppress_messages.tcl
+source -echo -verbose  ./rm_setup/techno_setup.tcl
+source -echo -verbose  ./rm_setup/design_setup.tcl
+source -echo -verbose  ./rm_setup/dc_setup_filenames.tcl
+
+
+#set upf_create_implicit_supply_sets false
+set_app_var timing_use_enhanced_capacitance_modeling true
+
+
+# Change alib_library_analysis_path to point to a central cache of analyzed libraries
+# to save some runtime and disk space.  The following setting only reflects the
+# the default value and should be changed to a central location for best results.
+
+set_app_var alib_library_analysis_path [getenv HOME]/ST_CMOS028_alib/alib
+
+# Add any additional DC variables needed here
+define_design_lib WORK -path ./work;
+set default_schematic_options "-size infinite"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Milkyway variable settings
+#       Make sure to define the following Milkyway library variables
+#       mw_logic1_net, mw_logic0_net and mw_design_library are needed by write_milkyway
+
+set mv_power_net   ${MW_POWER_NET}
+set mw_ground_net  ${MW_GROUND_NET}
+set mw_logic1_net  ${MW_POWER_NET}
+set mw_logic0_net  ${MW_GROUND_NET}
+set mw_power_port  ${MW_POWER_NET}
+set mw_ground_port ${MW_GROUND_NET}
+
+set mw_reference_library ${MW_REFERENCE_LIB_DIRS}
+set mw_design_library    ${DCRM_MW_LIBRARY_NAME}
+
+set mw_site_name_mapping [list CORE unit Core unit core unit]
+
+# The remainder of the setup below should only be performed in Design Compiler
+if {$synopsys_program_name == "dc_shell"} {
+
+  # Use the set_host_options command to enable multicore optimization to improve runtime.
+  # Note that this feature has special usage and license requirements.  Please refer
+  # to the "Support for Multicore Technology" section in the Design Compiler User Guide
+  # for multicore usage guidelines.
+  # Note: This is a DC Ultra feature and is not supported in DC Expert.
+
+  set_host_options -max_cores $NUM_CORES
+
+  # Include all libraries for multi-Vth leakage power optimization
+  set_app_var target_library            ${TARGET_LIBRARY_FILES}
+  set_app_var synthetic_library 	"$SYNTH_LIB"
+  set_app_var link_library 		"* $target_library $ADDITIONAL_LINK_LIB_FILES $SYNTH_LIB"
+  set_app_var symbol_library 		"$SYMB_LIB" 
+  
+  # Set min libraries if they exist
+  #foreach {max_library min_library} $MIN_LIBRARY_FILES {
+  #    set_min_library $max_library -min_version $min_library
+  #}
+  
+  if {[shell_is_in_topographical_mode]} {
+    # Only create new Milkyway design library if it doesn't already exist
+    if {![file isdirectory $mw_design_library ]} {
+      create_mw_lib   -technology $TECH_FILE -mw_reference_library $mw_reference_library $mw_design_library
+    } else {
+      # If Milkyway design library already exists, ensure that it is consistent with specified Milkyway reference libraries
+      echo "Opening existing MW design library"
+      set_mw_lib_reference $mw_design_library -mw_reference_library $mw_reference_library
+    }
+
+    open_mw_lib     $mw_design_library
+
+    #check_library
+
+    set_tlu_plus_files -max_tluplus $TLUPLUS_MAX_FILE \
+                       -min_tluplus $TLUPLUS_MIN_FILE \
+                       -tech2itf_map $MAP_FILE
+
+     check_tlu_plus_files
+    }
+
+
+  #################################################################################
+  # Library Modifications
+  #
+  # Apply library modifications here after the libraries are loaded.
+  #################################################################################
+  if {[file exists [which ${LIBRARY_DONT_USE_FILE}]]} {
+    source -echo -verbose ${LIBRARY_DONT_USE_FILE}
+  }
+
+  # Read CMOS28_FDSOI technology specific setup
+  source ./rm_setup/dc_tech-st28nm_fdsoi.tcl
+
+  set_message_info -limit 5 -id DCT-042
+  set_message_info -limit 5 -id DCT-043
+  set_message_info -limit 5 -id OPT-1206
+  set_message_info -limit 5 -id OPT-1207
+  set_message_info -limit 5 -id OPT-1433
+  set_message_info -limit 5 -id PWR-806
+  set_message_info -limit 5 -id MV-180
+  set_message_info -limit 5 -id PSYN-096
+  set_message_info -limit 5 -id TIM-141
+  set_message_info -limit 5 -id PSYN-059
+  set_message_info -limit 5 -id PSYN-1002  
+
+  # Allow DC to insert level shifters on clocks
+  set auto_insert_level_shifters_on_clocks all
+  
+  #remove the attribute dont_use and dont_touch from clock gating cells
+  remove_attribute  [get_lib_cells */*CNHLS*] dont_use
+  remove_attribute  [get_lib_cells */*CNHLS*] dont_touch
+}
+
+
+
+
+
+#############################################################################
+# Variables in order to align SYNTHESIS and ICC environments                #
+#############################################################################
+set derive_default_routing_layer_direction true
+set case_analysis_with_logic_constants true
+
+set timing_enable_multiple_clocks_per_reg true
+set enable_recovery_removal_arcs true
+set power_keep_tns true
+

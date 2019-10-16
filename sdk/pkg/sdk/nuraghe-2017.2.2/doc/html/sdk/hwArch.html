@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Hardware architecture &mdash; SDK 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="SDK 1.0 documentation" href="index.html" />
+    <link rel="next" title="Software architecture" href="swArch.html" />
+    <link rel="prev" title="Quickstart" href="quickstart.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="hardware-architecture">
+<h1>Hardware architecture<a class="headerlink" href="#hardware-architecture" title="Permalink to this headline">¶</a></h1>
+<p>The following diagram shows a simplified view of the hardware architecture targeted by the Pulp SDK.</p>
+<div class="figure">
+<img alt="_images/hwArch.jpg" src="_images/hwArch.jpg" />
+</div>
+<p>The common use case is to connect a Pulp chip to a set of peripherals through serial interfaces such as SPI, UART, I2C and so on.
+The peripherals are used to sample all kind of data and transmit them through the serial links to the chip, so that this one can process the data.</p>
+<div class="section" id="pulp-chip">
+<h2>Pulp chip<a class="headerlink" href="#pulp-chip" title="Permalink to this headline">¶</a></h2>
+<p>There are several variants of Pulp chips which more or less follow the same architecture:</p>
+<blockquote>
+<div><ul>
+<li><p class="first"><strong>Cores</strong>. A set of identical cores used for heavy computation.</p>
+</li>
+<li><p class="first"><strong>Memory hierarchy</strong>. It is organized in 2 levels:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>L1</strong>. This is the first level, which is close to the cores and accessible in 2 cycles with a 1-cycle throughput. It can be used to stored the most frequently used data. It is a shared memory so that any data stored in it can be accessed by anycore with the same latency.</li>
+<li><strong>L2</strong>. This is the second level, which is more distant but also bigger than the L1. It can usually be accessed in 5-10 cycles, and thus is not intended to be accessed directly by the cores.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>UDMA</strong>. This is a kind of DMA specialized for doing data transfer between the peripherals and the L2. It provides one channel per physical link and can thus handle several transfers in parallel.</p>
+</li>
+<li><p class="first"><strong>DMA</strong>. The DMA can be used to transfer data between the L2 and L1. It supports classic transfers as well as 2-dimentional transfers for handling tiles.</p>
+</li>
+<li><p class="first"><strong>Shared instruction cache</strong>. The code is stored is L2 and is accessed through this shared instruction cache.</p>
+</li>
+<li><p class="first"><strong>Event unit</strong>. The event unit is in charge of the whole cluster synchronization. It is mainly managing events which are exchanged by the various blocks to send notifications and to allow the cores to be clock-gated until an expected event is received. It can for example be used to clock-gate a core until a specific DMA transfer is finished. It is also used for inter-core synchronization like hardware barriers or remote wake-up.</p>
+</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Hardware architecture</a><ul>
+<li><a class="reference internal" href="#pulp-chip">Pulp chip</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="quickstart.html" title="previous chapter">Quickstart</a></li>
+      <li>Next: <a href="swArch.html" title="next chapter">Software architecture</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/hwArch.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, ETH - Unibo.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/hwArch.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

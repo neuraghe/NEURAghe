@@ -1,0 +1,87 @@
+{\scriptsize
+\ref{perflegend}
+}
+
+\begin{tikzpicture}[font=\scriptsize, tight background]
+\begin{axis}[
+  ylabel={Speedup},
+  width=.56\linewidth,
+  height=.50\linewidth,
+  xtick=data,
+  ybar=0,
+  bar width=4,
+  grid,
+  ymin=0.4,
+  ymax=1.43,
+	ytick={0.4,0.5,0.6,0.7,0.8,0.9,1,1.1,1.2,1.3,1.4},
+  yticklabel style={/pgf/number format/.cd,fixed,precision=2},
+  every axis y label/.style={at={(ticklabel cs:.5,5)},rotate=90},
+	xticklabels={aes-cbc,sha,conv2d,fft,ipm},
+	cycle list name=mylist,
+  enlarge x limits=0.2,
+  legend to name=perflegend,
+	legend style={
+		draw=none,
+		legend columns=2,
+		/tikz/every even column/.append style={column sep=.5cm},
+    transpose legend,
+    legend cell align=left
+	}
+  ]
+
+	\coordinate (A) at (axis cs:0,1);
+	\coordinate (O1) at (rel axis cs:0,0);
+	\coordinate (O2) at (rel axis cs:1,0);
+	\draw [black,sharp plot,line width=1pt] (A -| O1) -- (A -| O2);
+	\pgfplotsset{cycle list shift=6};
+	\addplot table [x expr=\coordindex, y expr={\thisrow{cfg}/\thisrow{cfgor1200}},col sep=comma] {data/perf-lo.csv};
+	\addplot table [x expr=\coordindex, y expr={\thisrow{cfg}/\thisrow{cfgGCC}},col sep=comma] {data/perf-lo.csv};
+	\pgfplotsset{cycle list shift=-2};
+	\addplot table [x expr=\coordindex, y expr={\thisrow{cfg}/\thisrow{cfg}},col sep=comma] {data/perf-lo.csv};
+	\addplot table [x expr=\coordindex, y expr={\thisrow{cfg}/\thisrow{cfgIH}},col sep=comma] {data/perf-lo.csv};
+	\addplot table [x expr=\coordindex, y expr={\thisrow{cfg}/\thisrow{cfgIHM}},col sep=comma] {data/perf-lo.csv};
+	\addplot table [x expr=\coordindex, y expr={\thisrow{cfg}/\thisrow{cfgIHVM}},col sep=comma] {data/perf-lo.csv};
+	\addplot table [x expr=\coordindex, y expr={\thisrow{cfg}/\thisrow{cortexM4}},col sep=comma] {data/perf-lo.csv};
+	\legend{{GCC: OR1200},{GCC: OR10N},{LLVM: OR10N},{+HWLP,LD/ST},{+HWLP,LD/ST,MAC},{+HWLP,LD/ST,MAC,VEC}, {Cortex M4}};
+
+\end{axis}
+\end{tikzpicture}
+%
+\begin{tikzpicture}[font=\scriptsize, tight background]
+\begin{axis}[
+  ylabel={Speedup},
+  width=.47\linewidth,
+  height=.50\linewidth,
+  xtick=data,
+  ybar=0,
+  bar width=4,
+  grid,
+  ymin=0.5,
+  ymax=5.2,
+	ytick={0,0.5,1,1.5,2,2.5,3,3.5,4,4.5,5},
+  yticklabel style={/pgf/number format/.cd,fixed,precision=2},
+  every axis y label/.style={at={(ticklabel cs:.5,5)},rotate=90},
+	xticklabels={fir,mm8,mm16,mm32},
+  %x tick label style={rotate=0,anchor=east},
+	cycle list name=mylist,
+  enlarge x limits=0.2,
+  ]
+
+	\coordinate (A) at (axis cs:0,1);
+	\coordinate (O1) at (rel axis cs:0,0);
+	\coordinate (O2) at (rel axis cs:1,0);
+	\draw [black,sharp plot,line width=1pt] (A -| O1) -- (A -| O2);
+	\pgfplotsset{cycle list shift=6};
+	\addplot table [x expr=\coordindex, y expr={\thisrow{cfg}/\thisrow{cfgor1200}},col sep=comma] {data/perf-hi.csv};
+	\addplot table [x expr=\coordindex, y expr={\thisrow{cfg}/\thisrow{cfgGCC}},col sep=comma] {data/perf-hi.csv};
+	\pgfplotsset{cycle list shift=-2};
+	\addplot table [x expr=\coordindex, y expr={\thisrow{cfg}/\thisrow{cfg}},col sep=comma] {data/perf-hi.csv};
+	\addplot table [x expr=\coordindex, y expr={\thisrow{cfg}/\thisrow{cfgIH}},col sep=comma] {data/perf-hi.csv};
+	\addplot table [x expr=\coordindex, y expr={\thisrow{cfg}/\thisrow{cfgIHM}},col sep=comma] {data/perf-hi.csv};
+	\addplot table [x expr=\coordindex, y expr={\thisrow{cfg}/\thisrow{cfgIHVM}},col sep=comma] {data/perf-hi.csv};
+	\addplot table [x expr=\coordindex, y expr={\thisrow{cfg}/\thisrow{cortexM4}},col sep=comma] {data/perf-hi.csv};
+
+
+\end{axis}
+\end{tikzpicture}
+\vspace*{-1.2em}

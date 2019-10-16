@@ -1,0 +1,84 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%                                                                 %
+%%%%%     <file_name>.tex                                             %
+%%%%%                                                                 %
+%%%%% Author:      <author>                                           %
+%%%%% Created:     <date>                                             %
+%%%%% Description: <description>                                      %
+%%%%%                                                                 %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Future Work}
+
+\label{chapter:outlook}
+
+
+\section{Further ISA Improvements}
+
+We already improved the original OpenRISC \gls{ISA} a lot in terms of
+performance, but we think we can add some more instructions to accelerate a few
+additional cases.  For example what we want to investigate is fractional
+support. To do this we need to add more functionality to the multiplier which
+already lies on the critical path in the current implementation. Since we don't
+want to loose the one cycle execution time of the standard and vectorial
+multiplication instructions, we have to find a way to keep it and still be able
+to add more features. One idea to solve this problem is depicted in
+Figure~\ref{fig:outlook_mul}.
+
+\begin{figure}[htbp]
+  \centering\includegraphics[width=0.77\textwidth]{./figures/outlook_mul}
+  \caption{New multiplier architecture.}
+  \label{fig:outlook_mul}
+\end{figure}
+
+By putting a part of the computation into the \gls{WB} stage of the pipeline, we
+should be able to keep the one cycle execution for our current features and
+still be able to add some additional instructions that extend the functionality
+of the multiplier.
+
+
+\section{Extend Debug Support / Exception Handling}
+
+In our current implementation of \orion there is no mechanism that catches
+invalid memory accesses, i.e. requests to memory ranges that are not mapped.
+Usually those kind of requests would generate an exception in the core
+which allows the application to take care of it.
+
+In the current system such accesses either return invalid data and execution
+goes on with the invalid data, or the core starts to hang since there is no
+answer to the request.
+This is clearly not ideal and support for invalid memory access exceptions will
+be added to \orion in the future.
+
+Sadly adding this feature is not so simple due to the pipeline. Memory
+access is done during the EX/WB stages and is only discovered that the memory
+access goes to an invalid memory range, when it is already started. Thus due to
+the pipeline other instructions already entered the previous stages and started
+to execute. All those instructions need to be flushed and not executed when the
+invalid access is discovered. There is currently no mechanism in \orion to flush
+instructions when they already entered the ID and EX pipeline stages.
+
+So this means that there are two possibilities to solve this
+\begin{enumerate}
+  \item Resort to imprecise exceptions, i.e. accept that instructions after the
+  memory access instruction that caused the exception are already partly
+  executed before we jump to the exception handler.
+  \item Implement a mechanism in \orion that allows the flushing of instructions
+  that already entered the ID and Ex stages.
+\end{enumerate}
+
+
+That there are no invalid memory access exceptions right now also has an impact
+on the possibilities for an attached debugger. It is not possible for this
+debugger to see those accesses and if the core starts to hang, the debugger has
+no means of understanding what is going on.
+
+
+Another big drawback in our current debug implementation is that we are not able
+to debug a core if it is currently sleeping because it is waiting for an event.
+If a core is sleeping its clock is turned off and thus it is not possible to
+access any registers inside it.
+In future work we will implement a mechanism to check for this case
+automatically and if needed, start the clock again to be able to debug it.

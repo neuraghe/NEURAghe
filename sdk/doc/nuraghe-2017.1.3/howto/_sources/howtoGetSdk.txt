@@ -1,0 +1,94 @@
+.. _howtoGetSdk:
+
+How to get the SDK
+--------------------
+
+There are 2 ways of getting the SDK, either from sources or as a prebuilt binary package.
+
+Getting a prebuilt binary package
+.................................
+
+Major SDK releases are deployed on the artifactory server in order to quickly get a ready version of the SDK. These versions are deployed at least every 4 weeks, but also for specific milestones.
+
+Before accessing the server, make sure artifactory access is setup using this doc: :ref:`beforeUsingSdk`
+
+Then the binary package can be retrieved by 2 different ways.
+
+Using the downloader
+********************
+
+Each deployed release has also an associated downloader which can be downloaded on the release section of the website here: https://iis.ee.ethz.ch/~haugoug/pulp/#releases
+
+This way of getting the SDK is convenient for quickly getting a specific SDK.
+
+This downloader is able to get the SDK as well as its dependencies, like the toolchains.
+
+To download the SDK, once you got the downloader, execute the following command:
+
+$ ./get-sdk-<sdk version> --path=<SDK root path>
+
+The SDK root path should be the directory that will contain the SDKs and their dependencies. You can reuse the same directory for several SDKs in order to share the same dependencies for several SDKs.
+
+Once everything has been downloaded you can see all the packages under the pkg folder. There is one directory per package and also one sub-directory per package version so that you can download and keep working on several versions without any conflict.
+
+
+Using the top module
+********************
+
+This way is more convenient when you plan to work on several SDKs at the same time or when you know you will partially rebuilt it as it makes it easy to start from a binary package, download the corresponding sources and rebuild it.
+
+You must first checked-out the top module source code with this command and initialize the environment: ::
+
+  $ git clone git@iis-git.ee.ethz.ch:pulp-sw/pulp_pipeline.git
+  $ cd pulp_pipeline
+  $ git checkout <SDK tag>
+  $ source init.sh
+
+Note that to make sure you get exactly the top module version that was used to produce an SDK, you must execute the appropriate 'git checkout' command. The given tag is the one of the SDK which can be either a git tag or a git commit hashtag.
+
+Then you can use the plpbuild script to get the SDK and its dependencies: ::
+
+  $ plpbuild --p sdk get
+
+
+Building from sources
+.....................
+
+You must first check out the top module source code with this command and initialize the environment: ::
+
+  $ git clone git@iis-git.ee.ethz.ch:pulp-sw/pulp_pipeline.git
+  $ cd pulp_pipeline
+  $ git checkout <SDK tag>
+  $ source init.sh
+
+You have to configure it for the target you want to support: ::
+
+  $ plpconf --pulpChip=pulp4
+  $ source setup.sh
+
+Then you have to execute this script to get SDK dependencies: ::
+
+  $ plpbuild --p sdk deps
+
+Then in case you want to build the minimal part of the SDK needed to build and compile applications on all platforms, you have to execute: ::
+
+  $ plpbuild --g runtime --g platform checkout build
+
+Tips
+....
+
+When building the SDK, it is by default build for all configurations specified in the top modules.ini file. In order to build it for a specific configuration, you can first generate a configuration file with the following script: ::
+
+  $ plpconf --pulpChip=pulp4
+
+And then source the generated file: ::
+
+   $ source setup.sh
+
+Then the SDK will be built only for this configuration.
+
+In case you want to build the full SDK, you can execute: ::
+
+  $ plpbuld --p sdk checkout build
+
+You can also skip the target configuration through plpconf in order to compile the SDK for all possible targets.

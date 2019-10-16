@@ -1,0 +1,19 @@
+Software architecture
+=====================
+
+The following diagram shows the software stack.
+
+.. figure:: images/swArch.jpg
+   :scale: 50 %
+
+It is organized with the following layers, from the bottom to the top:
+
+  * **HAL**. This is the lowest layer that gives access directly to the hardware. It mainly provides a set of functions that abstract the access to the registers.
+
+  * **Runtime**. This layer provides a set of common services such as memory allocation, scheduling, etc. 
+
+  * **Drivers**. This contains a set of drivers to ease the access to the peripherals.
+
+  * **OpenMP**. This provides an implementation of the OpenMP standard to help parallelizing code on the cluster.
+
+  * **Libraries**. This contains high-levels libraries such as kernels.

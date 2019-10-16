@@ -1,0 +1,5 @@
+ips_scripts: contains the scripts used to compile the IPs verilog before a simulation. This folder is linked by a symbolic link in the fe/ips directory.
+              Be careful when copying all the folders hierachy, the symbolic link in IPs will continues to link to the original path.
+scripts: contains the main scripts to compile the top levels of the system
+tcl_files: contains the TCL scripts used in modelsim to setup the simulation
+

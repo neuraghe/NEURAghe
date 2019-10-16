@@ -1,0 +1,60 @@
+# //  ModelSim SE 10.1a Feb 21 2012 Linux 2.6.18-308.4.1.el5
+# //
+# //  Copyright 1991-2012 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //
+# vsim -voptargs=+acc work.top_tb_jtag 
+# ** Note: (vsim-3812) Design is being optimized...
+# Loading work.top_tb_jtag(fast)
+# Loading work.tap_top(fast)
+# Loading work.std_reg(fast)
+# Loading work.bscell(fast)
+add wave -position end  sim:/top_tb_jtag/clk
+add wave -position end  sim:/top_tb_jtag/rst_n
+add wave -position end  sim:/top_tb_jtag/jtag_trst
+add wave -position end  sim:/top_tb_jtag/jtag_tck
+add wave -position end  sim:/top_tb_jtag/jtag_tms
+add wave -position end  sim:/top_tb_jtag/jtag_tdi
+add wave -position end  sim:/top_tb_jtag/jtag_tdo
+add wave -position end  sim:/top_tb_jtag/jtag_tdo_oe
+add wave -position end  sim:/top_tb_jtag/s_tap_shiftdr
+add wave -position end  sim:/top_tb_jtag/s_tap_pausedr
+add wave -position end  sim:/top_tb_jtag/s_tap_updatedr
+add wave -position end  sim:/top_tb_jtag/s_tap_capturedr
+add wave -position end  sim:/top_tb_jtag/s_tap_extest_sel
+add wave -position end  sim:/top_tb_jtag/s_tap_preload_sel
+add wave -position end  sim:/top_tb_jtag/s_tap_intest_sel
+add wave -position end  sim:/top_tb_jtag/s_tap_reg1_sel
+add wave -position end  sim:/top_tb_jtag/s_tap_reg2_sel
+add wave -position end  sim:/top_tb_jtag/s_tap_reg3_sel
+add wave -position end  sim:/top_tb_jtag/s_tap_tdo
+add wave -position end  sim:/top_tb_jtag/s_tap_reg1_tdi
+add wave -position end  sim:/top_tb_jtag/s_tap_reg2_tdi
+add wave -position end  sim:/top_tb_jtag/s_tap_reg3_tdi
+add wave -position end  sim:/top_tb_jtag/s_tap_bschain_tdi
+add wave -position end  sim:/top_tb_jtag/s_mode
+add wave -position end  sim:/top_tb_jtag/s_reg1_in
+add wave -position end  sim:/top_tb_jtag/s_reg2_in
+add wave -position end  sim:/top_tb_jtag/s_reg3_in
+add wave -position end  sim:/top_tb_jtag/s_reg1_rst_in
+add wave -position end  sim:/top_tb_jtag/s_reg2_rst_in
+add wave -position end  sim:/top_tb_jtag/s_reg3_rst_in
+add wave -position end  sim:/top_tb_jtag/s_reg1_out
+add wave -position end  sim:/top_tb_jtag/s_reg2_out
+add wave -position end  sim:/top_tb_jtag/s_reg3_out
+restart -f; run -al
+# Loading work.top_tb_jtag(fast)
+# Loading work.tap_top(fast)
+# Loading work.std_reg(fast)
+# Loading work.bscell(fast)
+# Data Captured from register: ab
+# Data Captured from register: cd
+# Data Captured from register: ef
+# ** Note: $finish    : ../testbench/top_tb_jtag.v(146)
+#    Time: 15110100 ns  Iteration: 0  Instance: /top_tb_jtag
+# 1
+# Break in Module top_tb_jtag at ../testbench/top_tb_jtag.v line 146

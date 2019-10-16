@@ -1,0 +1,56 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/nur/NEURAghe/neuraghe_2.0/fe/sim
+vclock_divider
+Z1 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
+Z2 !s110 1568883260
+!i10b 1
+!s100 FH>d]JA]G>Bf5z^H9PT;d2
+INWikD>Y@RilieomNeGkl13
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+!s105 clock_divider_sv_unit
+S1
+R0
+Z4 w1566466327
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/clock_divider/clock_divider.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/clock_divider/clock_divider.sv
+L0 32
+Z5 OL;L;10.4;61
+r1
+!s85 0
+31
+!s108 1568883260.394962
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/clock_divider/clock_divider.sv|
+!s90 -quiet|-work|clock_divider_lib|-sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/clock_divider/clock_divider.sv|
+!i113 0
+Z6 o-quiet -work clock_divider_lib -sv -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vclock_divider_counter
+R1
+R2
+!i10b 1
+!s100 l24;fYH;Cnl3^7>EBBBXj0
+I=iVXPo`2bd@THhID`VUFR1
+R3
+!s105 clock_divider_counter_sv_unit
+S1
+R0
+R4
+8/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/clock_divider/clock_divider_counter.sv
+F/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/clock_divider/clock_divider_counter.sv
+L0 33
+R5
+r1
+!s85 0
+31
+!s108 1568883260.365983
+!s107 /home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/clock_divider/clock_divider_counter.sv|
+!s90 -quiet|-work|clock_divider_lib|-sv|/home/nur/NEURAghe/neuraghe_2.0/fe/sim/../ips/clock_divider/clock_divider_counter.sv|
+!i113 0
+R6

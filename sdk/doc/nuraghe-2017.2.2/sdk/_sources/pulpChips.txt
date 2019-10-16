@@ -1,0 +1,132 @@
+Chips
+=====
+
+This page lists all the Pulp chips supported by the SDK and some details about the various IP versions.
+
+Pulp2
+-----
+
+================== ======================
+Characteristic     Value
+================== ======================
+Architecture       pulp2
+Cores              4
+Core               or1k
+L2                 64K
+SRAM               32K
+SCM                8K
+DMA                mchan_v1
+event unit         nothing
+pcache             Private, 1K per core, direct map
+L1 interco         banking factor of 2
+================== ======================
+
+Pulp3
+-----
+
+================== ======================
+Characteristic     Value
+================== ======================
+Architecture       pulp3
+Cores              4
+Core               or10n
+L2                 128K
+SRAM               64K
+SCM                8K
+DMA                mchan_v3
+event unit         evt_v1
+pcache             Shared, 4K, 4 way associative, banking factor of 1, 128bits interco, 128bits L0
+L1 interco         banking factor of 2
+================== ======================
+
+Mia Wallace
+-----------
+
+================== ======================
+Characteristic     Value
+================== ======================
+Architecture       pulp3
+Cores              4
+Core               or10n
+L2                 256K
+SRAM               64K
+SCM                8K
+DMA                mchan_v2
+Event unit         evt_v1
+pcache             Shared, 4K, 4 way associative, banking factor of 1, 128bits interco, 128bits L0
+L1 interco         banking factor of 2
+================== ======================
+
+Honey bunny
+-----------
+
+================== ======================
+Characteristics
+================== ======================
+Architecture       pulp4
+Cores              4
+Core               riscv
+L2                 256K
+SRAM               64K
+SCM                16K
+DMA                mchan_v4
+Event unit         evt_v1
+pcache             Shared, 4K, 4 way associative, banking factor of 1, 128bits interco, 128bits L0
+L1 interco         banking factor of 2
+================== ======================
+
+Fulmine
+-----
+
+================== ======================
+Characteristics
+================== ======================
+Architecture       pulp4
+Cores              4
+Core               or10nv2
+L2                 192K
+SRAM               64K
+SCM                8K
+DMA                mchan_v5
+Event unit         evt_v1
+pcache             Shared, 4K, 4 way associative, banking factor of 1, 128bits interco, 128bits L0
+L1 interco         banking factor of 2
+================== ======================
+
+Components
+===========
+
+Core
+----------
+
+=================== =========================================
+Name
+=================== =========================================
+or1k                Implements original open-risc ISA
+or10n               Implements original open-risc ISA + a first set of extensions (HW loops, 8bits and 16bits vectors, post-modification and register-register offset addressing modes, mac, abs, minmax, cmov, cnt, clb)
+or10nv2             Implements original open-risc ISA + or10n improved extensions + a second set of extensions (dot product, fixed-point support, clamping)
+riscv               Implements RISCV ISA + the or10n extensions except vectorial support
+=================== =========================================         
+
+DMA
+---
+
+=================== =========================================
+Name
+=================== =========================================
+mchan_v0            Initial DMA aligned with computing frontiers 2014 paper
+mchan_v1            Same as mchan_v0 with AXI interfaces 
+mchan_v2            Same as mchan_v1 with transfer splitting when crossing a 4k boundary (to be AXI compliant)
+mchan_v3            Same as mchan_v2 with support for misaligned accesses on both TCDM and L2 and support for non power of 2 transfers
+mchan_v4            Same as mchan_v3 with parametric burst size to avoid long stalls on I$ refll
+mchan_v5            Same as mchan_v4 with support for non-incrementing bursts (to interact with FIFOs), 2D transfers, multiple transfers IDs and additional command queue mapped on peripheral interconnect accessible from outside the cluster.
+=================== =========================================
+
+Event unit
+----------
+
+=================== =========================================
+Name
+=================== =========================================
+evt_v1              6 HW barriers, 3 GP events
+=================== =========================================         
